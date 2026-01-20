@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>임종권 이력서</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+        
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f0f2f5;
+            color: #333;
+            -webkit-print-color-adjust: exact;
+        }
+        
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            margin: 20px auto;
+            background: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            display: flex;
+        }
+
+        /* Left Sidebar */
+        .sidebar {
+            width: 32%;
+            background: #2c3e50;
+            color: white;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .profile-img {
+            width: 120px;
+            height: 150px;
+            background: #bdc3c7;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            color: #555;
+            border-radius: 4px;
+        }
+
+        .contact-info {
+            font-size: 13px;
+            margin-bottom: 30px;
+        }
+        .contact-item {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        .contact-icon { margin-right: 10px; opacity: 0.7; }
+
+        .section-title-side {
+            font-size: 16px;
+            font-weight: 700;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+            margin-top: 20px;
+            letter-spacing: 1px;
+        }
+
+        .skill-tag {
+            display: inline-block;
+            background: rgba(255,255,255,0.1);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+
+        .edu-item { margin-bottom: 15px; font-size: 13px; }
+        .edu-school { font-weight: 700; display: block; margin-bottom: 2px; }
+        .edu-degree { opacity: 0.8; font-size: 12px; }
+
+        /* Right Content */
+        .main-content {
+            flex: 1;
+            padding: 40px;
+        }
+
+        .header-name {
+            font-size: 32px;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        .header-title {
+            font-size: 16px;
+            color: #3498db;
+            font-weight: 500;
+            margin-bottom: 30px;
+        }
+
+        .summary-box {
+            background: #f8f9fa;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            color: #555;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #2c3e50;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            margin-top: 10px;
+        }
+
+        .exp-item { margin-bottom: 25px; }
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 8px;
+        }
+        .exp-company { font-size: 16px; font-weight: 700; color: #333; }
+        .exp-role { font-size: 14px; color: #555; font-weight: 500; }
+        .exp-date { font-size: 12px; color: #888; }
+        
+        .exp-desc {
+            font-size: 13px;
+            line-height: 1.6;
+            color: #444;
+        }
+        .exp-desc ul { margin: 5px 0; padding-left: 20px; }
+        .exp-desc li { margin-bottom: 4px; }
+
+        .badge {
+            background: #e1f0fa;
+            color: #2980b9;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 11px;
+            font-weight: 600;
+            margin-left: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="profile-img">
+                (사진 영역)
+            </div>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span class="contact-icon">📞</span> 010-4052-0834
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">📧</span> ssujklim@gmail.com
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">🏠</span> 경기도 광명시
+                </div>
+            </div>
+
+            <div class="section-title-side">EDUCATION</div>
+            <div class="edu-item">
+                <span class="edu-school">숭실대학교 사회복지대학원</span>
+                <span class="edu-degree">사회적기업/갈등해결 석사 (2020.02)</span>
+            </div>
+            <div class="edu-item">
+                <span class="edu-school">숭실대학교 공과대학</span>
+                <span class="edu-degree">전기공학부 학사 (2017.02)</span>
+            </div>
+
+            <div class="section-title-side">SKILLS</div>
+            <div style="margin-bottom: 15px;">
+                <span class="skill-tag">Unity / C#</span>
+                <span class="skill-tag">MS Office</span>
+                <span class="skill-tag">ERP (더존/이카운트)</span>
+                <span class="skill-tag">Notion</span>
+                <span class="skill-tag">Slack</span>
+            </div>
+
+            <div class="section-title-side">CERTIFICATIONS</div>
+            <div class="edu-item">
+                <span class="edu-school">사회복지사 1급</span>
+                <span class="edu-degree">보건복지부</span>
+            </div>
+            <div class="edu-item">
+                <span class="edu-school">1종 대형 운전면허</span>
+                <span class="edu-degree">경찰청 (12년 무사고)</span>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="header-name">임 종 권</div>
+            <div class="header-title">기술 기반 총무 · 자산관리 전문가 (Tech-Savvy Operations Specialist)</div>
+
+            <div class="summary-box">
+                <strong>"기술(Tech)과 사람(Human)을 잇는 하이브리드 전문가"</strong><br>
+                전기공학 전공의 하드웨어 이해도와 사회복지사 1급의 소통 역량을 겸비한 6년 차 운영 전문가입니다.
+                단순 관리를 넘어 IT 자산의 기술적 트러블슈팅을 직접 수행하고, ERP 및 AI 도구를 활용해 업무 프로세스를 자동화합니다.
+                시프트업의 안정적인 개발 환경 조성을 위한 최적의 파트너가 되겠습니다.
+            </div>
+
+            <div class="section-title">WORK EXPERIENCE</div>
+
+            <div class="exp-item">
+                <div class="exp-header">
+                    <div>
+                        <span class="exp-company">(사)함께만드는세상</span>
+                        <span class="badge">IT인프라</span> <span class="badge">비용절감</span>
+                    </div>
+                    <span class="exp-date">2023.01 – 현재 (재직중)</span>
+                </div>
+                <div class="exp-role">전산총무 및 IT 지원 (대리)</div>
+                <div class="exp-desc">
+                    <ul>
+                        <li><strong>IT 인프라 내재화:</strong> 네트워크/PC 장애 발생 시 L1/L2 수준 직접 해결로 유지보수 외주 비용 <strong>30% 절감</strong></li>
+                        <li><strong>자산 생애주기 관리:</strong> 입/퇴사자 장비 지급 프로세스 표준화 및 유휴 장비 재배치 (중복 구매 0건)</li>
+                        <li><strong>ERP 고도화:</strong> 커스텀 ERP(Nexacro/Tibero) 구축 PM 수행 및 데이터 마이그레이션 주도</li>
+                        <li><strong>AI 업무 혁신:</strong> ChatGPT 활용 사내 표준 문서 자동화 도입으로 행정 리소스 단축</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="exp-item">
+                <div class="exp-header">
+                    <div>
+                        <span class="exp-company">(주)맨지온</span>
+                        <span class="badge">IoT</span> <span class="badge">QA</span>
+                    </div>
+                    <span class="exp-date">2020.03 – 2021.11</span>
+                </div>
+                <div class="exp-role">IoT 시스템 운영 및 QA</div>
+                <div class="exp-desc">
+                    <ul>
+                        <li><strong>트러블슈팅:</strong> 시설 관제 시스템 통신 로그 분석을 통해 하드웨어/SW 귀책 사유 명확히 규명</li>
+                        <li><strong>QA 품질 관리:</strong> 운영자(User) 관점의 대시보드 UI/UX 테스트 시나리오 설계 및 수행</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="exp-item">
+                <div class="exp-header">
+                    <div>
+                        <span class="exp-company">(주)엣지크로스</span>
+                        <span class="badge">HW설계</span> <span class="badge">자재관리</span>
+                    </div>
+                    <span class="exp-date">2016.05 – 2018.02</span>
+                </div>
+                <div class="exp-role">자재 관리 및 구매</div>
+                <div class="exp-desc">
+                    <ul>
+                        <li><strong>Engineering Base:</strong> PCB 회로 설계 및 납땜 경험을 통해 전자기기 작동 원리 완벽 이해</li>
+                        <li><strong>자산(BOM) 관리:</strong> 제조 원가 절감을 위한 자재 소싱 다변화 및 재고 오차율 0% 달성</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section-title">LINKS</div>
+            <div class="exp-desc">
+                <ul>
+                    <li><strong>Portfolio:</strong> https://sites.google.com/view/jongkwon/</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

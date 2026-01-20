@@ -1,0 +1,19 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# Environment variables
+.env
+
+# System Files
+.DS_Store
+Thumbs.db
+
+# Output Files (PDFs are generated artifacts, usually ignored, but if you want to archive the result, keep them)
+# For now, let's keep the final results but ignore temp files
+src/*_temp.html
+output/vision_logs/
+
+# User Data (Sensitive!)
+# If you plan to make this Public, uncomment the line below:
+# config/profile.json

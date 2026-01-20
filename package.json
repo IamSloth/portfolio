@@ -1,0 +1,26 @@
+{
+  "name": "apply_trae",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.25.2",
+    "@modelcontextprotocol/server-filesystem": "^2026.1.14",
+    "@modelcontextprotocol/server-memory": "^2025.11.25",
+    "axios": "^1.13.2",
+    "openai": "^6.16.0",
+    "pdf-lib": "^1.17.1",
+    "pdf-parse": "^1.1.4",
+    "pdfkit": "^0.17.2",
+    "playwright": "^1.57.0",
+    "puppeteer": "^24.35.0",
+    "puppeteer-core": "^24.35.0"
+  }
+}

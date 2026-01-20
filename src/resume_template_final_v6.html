@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>임종권 이력서</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+        
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #fff;
+            color: #222; /* 더 진한 검정 */
+            -webkit-print-color-adjust: exact;
+            word-break: keep-all; /* 단어 단위 줄바꿈 */
+        }
+        
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            margin: 0 auto;
+            display: flex;
+            border-top: 5px solid #2c3e50; /* 상단 무게감 */
+        }
+
+        /* Left Sidebar: Classic & Formal */
+        .sidebar {
+            width: 32%;
+            background: #f4f6f8; /* 아주 연한 회색 (공문서 느낌) */
+            border-right: 1px solid #ddd;
+            padding: 40px 25px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .profile-img {
+            width: 140px;
+            height: 180px;
+            margin: 0 auto 30px;
+            border: 1px solid #ccc; /* 얇은 테두리 */
+            background: #fff;
+            padding: 5px; /* 액자 느낌 */
+        }
+        .profile-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .contact-info { font-size: 13px; margin-bottom: 40px; line-height: 1.8; }
+        .contact-item { display: flex; align-items: flex-start; margin-bottom: 8px; color: #444; }
+        .contact-label { font-weight: 700; width: 50px; color: #2c3e50; }
+
+        .portfolio-btn {
+            display: block;
+            margin-top: 10px;
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 8px 0;
+            font-size: 12px;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .side-section { margin-bottom: 40px; }
+        .side-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #000;
+            border-bottom: 2px solid #2c3e50;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+            letter-spacing: -0.5px;
+        }
+
+        /* 말머리 기호 스타일 */
+        .side-list-item { 
+            font-size: 13px; 
+            margin-bottom: 12px; 
+            padding-left: 12px;
+            position: relative;
+            line-height: 1.5;
+        }
+        .side-list-item::before {
+            content: '■';
+            position: absolute;
+            left: 0;
+            top: 2px;
+            font-size: 8px;
+            color: #2c3e50;
+        }
+
+        .school-name { font-weight: 700; display: block; color: #333; margin-bottom: 3px; }
+        .school-major { color: #555; font-size: 12px; }
+
+        .skill-box {
+            border: 1px solid #ccc;
+            background: #fff;
+            padding: 10px;
+            font-size: 12px;
+            line-height: 1.8;
+        }
+
+        /* Right Content: Clean & Structured */
+        .main-content {
+            flex: 1;
+            padding: 40px;
+        }
+
+        .header-name {
+            font-size: 32px;
+            font-weight: 800;
+            color: #000;
+            margin-bottom: 10px;
+            letter-spacing: -1px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+        .header-role {
+            font-size: 16px;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 30px;
+        }
+
+        /* 요약 박스: 공문서 '개요' 스타일 */
+        .summary-box {
+            border: 1px solid #ccc;
+            background: #fdfdfd;
+            padding: 20px;
+            font-size: 13px;
+            line-height: 1.7;
+            text-align: justify; /* 양쪽 정렬 (칼각) */
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .main-section-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #000;
+            border-bottom: 2px solid #000; /* 진한 밑줄 */
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        /* 테이블 형태의 경력 기술 (공문서 스타일) */
+        .exp-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 25px;
+        }
+        .exp-row { border-bottom: 1px solid #eee; }
+        .exp-date-col {
+            width: 110px;
+            font-size: 12px;
+            color: #666;
+            vertical-align: top;
+            padding: 10px 0;
+            font-weight: 500;
+        }
+        .exp-content-col {
+            padding: 10px 0 10px 15px;
+            vertical-align: top;
+        }
+        .company-name { font-size: 15px; font-weight: 700; color: #000; margin-bottom: 4px; display: inline-block;}
+        .role-name { font-size: 13px; color: #555; font-weight: 600; margin-left: 5px; }
+        
+        .exp-desc-list {
+            margin: 8px 0 0 0;
+            padding-left: 0;
+            list-style: none;
+        }
+        .exp-desc-item {
+            font-size: 13px;
+            margin-bottom: 6px;
+            padding-left: 10px;
+            position: relative;
+            line-height: 1.6;
+            color: #444;
+            text-align: justify;
+        }
+        .exp-desc-item::before {
+            content: '-';
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        .highlight { font-weight: 600; color: #000; }
+
+        /* Special Box for Unity */
+        .unity-section {
+            border: 1px solid #2c3e50;
+            padding: 15px;
+            margin-bottom: 30px;
+        }
+        .unity-header {
+            font-size: 14px;
+            font-weight: 700;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 8px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="page">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="profile-img">
+                <img src="../assets/profile_photo.jpg" alt="임종권">
+            </div>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span class="contact-label">주 소</span>
+                    <span>경기도 광명시<br>도덕로 79, 1405호</span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-label">연락처</span>
+                    <span>010-4052-0834</span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-label">이메일</span>
+                    <span>ssujklim@gmail.com</span>
+                </div>
+                <a href="https://sites.google.com/view/jongkwon/" class="portfolio-btn">포트폴리오 바로가기</a>
+            </div>
+
+            <div class="side-section">
+                <div class="side-title">학 력</div>
+                <div class="side-list-item">
+                    <span class="school-name">숭실대학교 사회복지대학원</span>
+                    <span class="school-major">사회적기업전공 석사 (2020.02)</span>
+                </div>
+                <div class="side-list-item">
+                    <span class="school-name">숭실대학교 공과대학</span>
+                    <span class="school-major">전기공학부 학사 (2017.02)</span>
+                </div>
+                <div class="side-list-item">
+                    <span class="school-name">한국폴리텍 광명융합기술교육원</span>
+                    <span class="school-major">증강현실(AR) 시스템제어 수료<br>(2022.03 ~ 2022.12)</span>
+                </div>
+            </div>
+
+            <div class="side-section">
+                <div class="side-title">자격 및 면허</div>
+                <div class="side-list-item">
+                    <span class="school-name">사회복지사 1급</span>
+                    <span class="school-major">보건복지부</span>
+                </div>
+                <div class="side-list-item">
+                    <span class="school-name">1종 대형 운전면허</span>
+                    <span class="school-major">경찰청 (12년 무사고)</span>
+                </div>
+            </div>
+
+            <div class="side-section">
+                <div class="side-title">보유 기술 (Skills)</div>
+                <div class="skill-box">
+                    • <strong>Game Engine:</strong> Unity 3D, C#<br>
+                    • <strong>HW/Network:</strong> Troubleshooting<br>
+                    • <strong>ERP Tool:</strong> Nexacro, Tibero<br>
+                    • <strong>Collaboration:</strong> Notion, Slack
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="header-name">임 종 권</div>
+            <div class="header-role">게임 개발 프로세스를 이해하는 기술 기반 운영 전문가</div>
+
+            <div class="summary-box">
+                <strong>□ 자기소개 요약</strong><br>
+                전기공학 학사와 사회복지학 석사를 거쳐, 6년간 총무 및 자산관리 전문가로 성장했습니다.
+                특히 한국폴리텍에서 Unity 기반의 게임 개발 과정을 수료하고 다수의 프로젝트를 완수한 경험이 있어, 
+                개발자들의 기술적 요구사항(고사양 PC 세팅, SW 라이선스, 네트워크 이슈)을 통역 없이 즉각 이해하고 해결할 수 있습니다. 
+                기술적 역량과 소통 능력을 결합하여 시프트업의 쾌적한 개발 환경을 책임지겠습니다.
+            </div>
+
+            <div class="main-section-title">1. 개발 이해도 (Game Dev Literacy)</div>
+            <div class="unity-section">
+                <div class="unity-header">
+                    <span>□ Unity/Metaverse 개발 교육 및 프로젝트 수행</span>
+                    <span>[2022.03 ~ 2022.12]</span>
+                </div>
+                <ul class="exp-desc-list">
+                    <li class="exp-desc-item"><span class="highlight">교육 과정:</span> 증강현실(AR) 및 Unity 게임 개발 과정 1,200시간 수료 (한국폴리텍)</li>
+                    <li class="exp-desc-item"><span class="highlight">주요 프로젝트:</span> '종권의 숲'(3D Action), '나의 작은 유니티양'(AR) 등 7건 수행</li>
+                    <li class="exp-desc-item"><span class="highlight">수상 실적:</span> 2022 메타버스 콘텐츠 리크루팅 캠프 대상 (주관: 과학기술정보통신부 & 정보통신산업진흥원)</li>
+                    <li class="exp-desc-item"><span class="highlight">의의:</span> 클라이언트 개발 파이프라인(기획-에셋-빌드-QA)을 직접 경험함으로써, 개발팀 지원 시 기술적 병목을 사전에 제거하는 선제적 총무 수행 가능.</li>
+                </ul>
+            </div>
+
+            <div class="main-section-title">2. 경력 사항 (Work Experience)</div>
+            
+            <table class="exp-table">
+                <tr class="exp-row">
+                    <td class="exp-date-col">
+                        2023.01 ~ <br>2026.02.01<br>(퇴사 예정)
+                    </td>
+                    <td class="exp-content-col">
+                        <div class="company-name">(사)함께만드는세상</div> <span class="role-name">전산총무 및 IT 지원 (대리)</span>
+                        <ul class="exp-desc-list">
+                            <li class="exp-desc-item"><span class="highlight">비용 절감:</span> 사내 네트워크/PC 장애 발생 시 1차 트러블슈팅 직접 수행 (유지보수비 30% 절감)</li>
+                            <li class="exp-desc-item"><span class="highlight">ERP 고도화:</span> 커스텀 ERP 구축 PM으로서 개발사와 직접 소통하며 데이터 마이그레이션 완수</li>
+                            <li class="exp-desc-item"><span class="highlight">자산 관리:</span> IT 자산(HW/SW) 수명 주기 관리 및 유휴 장비 재배치로 중복 투자 방지</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr class="exp-row">
+                    <td class="exp-date-col">
+                        2020.03 ~ <br>2021.11
+                    </td>
+                    <td class="exp-content-col">
+                        <div class="company-name">(주)맨지온</div> <span class="role-name">IoT 시스템 운영 및 QA</span>
+                        <ul class="exp-desc-list">
+                            <li class="exp-desc-item"><span class="highlight">시스템 안정화:</span> 시설 관제 데이터 로그 분석을 통해 통신 장애 원인 규명 및 해결</li>
+                            <li class="exp-desc-item"><span class="highlight">품질 보증:</span> 사용자 관점의 UI/UX 테스트를 주도하여 시스템 사용성 개선</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr class="exp-row">
+                    <td class="exp-date-col">
+                        2016.05 ~ <br>2018.02
+                    </td>
+                    <td class="exp-content-col">
+                        <div class="company-name">(주)엣지크로스</div> <span class="role-name">자재 관리 및 구매</span>
+                        <ul class="exp-desc-list">
+                            <li class="exp-desc-item"><span class="highlight">H/W 역량:</span> PCB 회로 설계 및 납땜 실무 경험 (전자기기 작동 원리 완벽 이해)</li>
+                            <li class="exp-desc-item"><span class="highlight">SCM 관리:</span> 자재 명세서(BOM) 관리 및 생산 일정 조율로 납기 준수율 100% 달성</li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+    </div>
+</body>
+</html>
