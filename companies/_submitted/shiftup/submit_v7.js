@@ -28,7 +28,7 @@ async function finalSubmissionV7() {
             "https://sites.google.com/view/jongkwon/"
         ];
         const info = { name: "임종권", email: "ssujklim@gmail.com", phone: "01040520834" };
-        const resumePath = path.resolve(__dirname, '../output/Lim_JongKwon_ShiftUp_Resume_Final_V7.pdf');
+        const resumePath = path.resolve(__dirname, '../../output/Lim_JongKwon_ShiftUp_Resume_Final_V7.pdf');
 
         // --- EXECUTION ---
         console.log("Filling Form...");

@@ -10,7 +10,7 @@ async function generateFinalResumeV7() {
     console.log("Generating FINAL Resume V7 (A4 Optimized)...");
     
     // 1. Find Photo
-    const assetsDir = path.resolve(__dirname, '../assets');
+    const assetsDir = path.resolve(__dirname, '../../assets');
     const files = fs.readdirSync(assetsDir);
     const imageFiles = files.filter(f => ['.jpg', '.jpeg', '.png'].includes(path.extname(f).toLowerCase()));
     
@@ -24,8 +24,8 @@ async function generateFinalResumeV7() {
     console.log(`📸 Using Photo: ${bestImage}`);
 
     // 2. Load V7 Template & Inject Photo
-    let htmlContent = fs.readFileSync(path.resolve(__dirname, 'resume_template_final_v7.html'), 'utf-8');
-    const newSrc = `../assets/${bestImage}`;
+    let htmlContent = fs.readFileSync(path.resolve(__dirname, '../../assets/templates/standard_v1.html'), 'utf-8');
+    const newSrc = `../../assets/${bestImage}`;
     htmlContent = htmlContent.replace(/<img src="[^"]+" alt="임종권">/, `<img src="${newSrc}" alt="임종권">`);
     
     const tempHtmlPath = path.resolve(__dirname, 'resume_v7_temp.html');
@@ -37,7 +37,7 @@ async function generateFinalResumeV7() {
     
     await page.goto(`file://${tempHtmlPath}`, { waitUntil: 'networkidle' });
     
-    const pdfPath = path.resolve(__dirname, '../output/Lim_JongKwon_ShiftUp_Resume_Final_V7.pdf');
+    const pdfPath = path.resolve(__dirname, '../../output/Lim_JongKwon_ShiftUp_Resume_Final_V7.pdf');
     
     await page.pdf({
         path: pdfPath,

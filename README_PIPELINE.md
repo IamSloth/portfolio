@@ -8,32 +8,36 @@
 ```
 apply_trae/
 ├── config/
-│   └── profile.json       # [핵심] 모든 개인정보와 경력 데이터는 여기에만 있습니다.
-├── assets/
-│   ├── templates/         # 이력서 HTML 템플릿 모음
-│   │   ├── formal_a4.html      # 공문서 스타일 (Shift Up 제출본)
-│   │   └── design_modern.html  # 디자인 강조 스타일
-│   └── profile_photo.jpg  # 증명사진 (자동 감지)
+│   └── profile.json       # [핵심] 모든 개인정보와 경력 데이터 (Source of Truth)
+├── companies/             # [NEW] 기업별 지원 스크립트 관리
+│   └── _submitted/        # [ARCHIVE] 지원 완료된 기업
+│       └── shiftup/
 ├── src/
-│   ├── core/              # 핵심 로직 (Generator, Submitter)
-│   └── ...                # (Legacy scripts)
+│   ├── core/
+│   │   └── resume_generator.js # [표준] V7 기반 이력서 생성기
+│   └── legacy/            # 구버전 스크립트 보관소
+├── assets/
+│   └── templates/
+│       └── standard_v1.html    # 표준 이력서 HTML (구 V7)
 └── output/                # 생성된 PDF 결과물
 ```
 
 ## 🚀 How to Use (3 Steps)
 
 ### 1. 데이터 업데이트
-`config/profile.json` 파일을 열어 경력이나 자격증을 수정하세요.
-(이 파일 하나만 고치면 모든 스타일의 이력서에 자동 반영됩니다.)
+`config/profile.json` 수정.
 
 ### 2. 이력서 생성 (Generator)
-원하는 스타일의 이력서를 PDF로 생성합니다.
-*(현재는 `src/generate_resume_v7.js`가 V7 버전을 생성합니다. 추후 `src/core/resume_generator.js`로 통합 예정)*
+```bash
+# 표준 이력서 (PDF) 생성
+node src/core/resume_generator.js
+```
 
 ### 3. 자동 지원 (Submitter)
-Playwright를 통해 채용 사이트에 자동 접속하여 폼을 채우고 파일을 업로드합니다.
-* **시프트업 전용**: `node src/final_submission_v7.js`
-* **범용 (Vision AI)**: `src/tools/vision_capture.js`를 활용하여 폼 구조를 파악한 뒤 스크립트 작성.
+```bash
+# 새로운 기업 폴더 생성 후 스크립트 작성 권장
+# 예: companies/nexon/submit.js
+```
 
 ## 💡 History (Shift Up Case Study)
 * **2026-01-20**: 시프트업 총무 직군 지원

@@ -9,8 +9,8 @@ const __dirname = path.dirname(__filename);
 async function mergeResumes() {
     console.log("🧬 Initiating FUSION Protocol (Sensitivity + Rationality)...");
 
-    const outputDir = path.resolve(__dirname, '../output');
-    const assetsDir = path.resolve(__dirname, '../assets/resumes');
+    const outputDir = path.resolve(__dirname, '../../output');
+    const assetsDir = path.resolve(__dirname, '../../assets/resumes');
 
     // 1. Load Source Files
     // The "Competitor's Emotional Cover Letter" (Assuming it's ShiftUp_Submission.pdf)
