@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이력서 - 임종권</title>
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <style>
+        @page {
+            size: A4;
+            margin: 0;
+        }
+        /* Editable highlight */
+        [contenteditable="true"] {
+            transition: all 0.2s;
+            border-radius: 3px;
+            padding: 2px;
+        }
+        [contenteditable="true"]:hover {
+            background-color: rgba(130, 0, 36, 0.05);
+            outline: 1px dashed #820024;
+            cursor: text;
+        }
+        [contenteditable="true"]:focus {
+            background-color: white;
+            outline: 2px solid #820024;
+            box-shadow: 0 0 5px rgba(130, 0, 36, 0.2);
+            z-index: 10;
+            position: relative;
+        }
+
+        body {
+            font-family: 'Pretendard', sans-serif;
+            background: #f5f5f5; /* For screen viewing */
+            margin: 0;
+            padding: 0;
+            color: #333;
+            line-height: 1.6;
+            -webkit-print-color-adjust: exact;
+        }
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            background: white;
+            margin: 20px auto;
+            padding: 40px 50px;
+            box-sizing: border-box;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        
+        /* Save Button Style */
+        #save-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #820024;
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            cursor: pointer;
+            z-index: 1000;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        #save-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+            background-color: #a0002c;
+        }
+        #save-btn:active {
+            transform: translateY(0);
+        }
+
+        @media print {
+            body { background: white; }
+            #save-btn { display: none !important; } /* Hide button in print */
+            .page {
+                margin: 0;
+                box-shadow: none;
+                width: 210mm;
+                height: 297mm; /* Force exact A4 height */
+                padding: 40px 50px;
+            }
+        }
+
+        /* Header Layout */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start; /* Top align */
+            border-bottom: 2px solid #820024; /* Heroes Burgundy */
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        .header-left {
+            flex: 1;
+        }
+        .header-right {
+            margin-left: 20px;
+        }
+        h1 {
+            font-size: 32px;
+            font-weight: 800;
+            margin: 0 0 5px 0;
+            color: #1a1a1a;
+            letter-spacing: -0.5px;
+        }
+        .job-title {
+            font-size: 16px;
+            color: #820024; /* Heroes Burgundy */
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+        .contact-info {
+            font-size: 14px;
+            color: #555;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .profile-img {
+            width: 110px;
+            height: 140px;
+            object-fit: cover;
+            border: 1px solid #ddd;
+            background: #eee;
+        }
+
+        /* Section Styles */
+        section {
+            margin-bottom: 25px;
+        }
+        h2 {
+            font-size: 18px;
+            color: #820024;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        /* Summary */
+        .summary {
+            font-size: 14px;
+            color: #444;
+            text-align: justify;
+            margin-bottom: 30px;
+            word-break: keep-all; /* 단어 단위 줄바꿈 */
+        }
+        .summary ul {
+            margin: 0;
+            padding-left: 18px;
+        }
+        .summary li {
+            margin-bottom: 6px;
+        }
+
+        /* Experience Item */
+        .experience-item {
+            margin-bottom: 20px;
+        }
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 4px;
+        }
+        .company-name {
+            font-size: 16px;
+            font-weight: 700;
+            color: #000;
+        }
+        .exp-date {
+            font-size: 13px;
+            color: #666;
+            font-weight: 500;
+        }
+        .role-title {
+            font-size: 14px;
+            color: #444;
+            font-weight: 600;
+            margin-bottom: 6px;
+            font-style: italic;
+        }
+        .exp-details {
+            margin: 0;
+            padding-left: 18px;
+            font-size: 13.5px;
+            color: #333;
+        }
+        .exp-details li {
+            margin-bottom: 4px;
+        }
+
+        /* Grid for Education & Skills */
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        
+        /* Education */
+        .edu-item {
+            margin-bottom: 10px;
+        }
+        .school-name {
+            font-weight: 700;
+            font-size: 14px;
+        }
+        .major-info {
+            font-size: 13px;
+            color: #555;
+        }
+
+        /* Skills Tags */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        .skill-tag {
+            background: #f3f3f3;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            color: #444;
+            border: 1px solid #e0e0e0;
+        }
+
+        /* Special Section */
+        .special-box {
+            background: #fff9fa;
+            border-left: 3px solid #820024;
+            padding: 15px;
+            font-size: 13.5px;
+        }
+        .special-item {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: baseline; /* 제목과 내용 높이 맞춤 */
+        }
+        .special-item:last-child {
+            margin-bottom: 0;
+        }
+        .special-title {
+            font-weight: 700;
+            color: #820024;
+            width: 140px; /* 제목 너비 살짝 줄임 */
+            flex-shrink: 0;
+            display: flex;
+            align-items: center; /* 아이콘과 텍스트 수직 정렬 */
+            height: 100%; /* 전체 높이 사용 */
+            padding-top: 2px; /* 미세 조정 */
+        }
+        .special-desc {
+            color: #444;
+            line-height: 1.5;
+            flex: 1;
+            border-left: 2px solid #eee; /* 구분선 추가 */
+            padding-left: 15px; /* 간격 확보 */
+        }
+        .special-desc ul {
+            margin: 0;
+            padding-left: 15px;
+        }
+        .special-desc li {
+            margin-bottom: 2px;
+            letter-spacing: -0.3px; /* 자간 조절로 한 줄 확보 */
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 12px;
+            color: #888;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <button id="save-btn" contenteditable="false" onclick="saveChanges()">💾 변경사항 저장 (Save)</button>
+    <div class="page" contenteditable="true">
+        <!-- Header -->
+        <header>
+            <div class="header-left">
+                <h1>임 종 권 (LIM JONG KWON)</h1>
+                <div class="job-title">ERP 구축 전문가 & 문제 해결형 제너럴리스트</div>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span>📞</span> 010-4052-0834
+                    </div>
+                    <div class="contact-item">
+                        <span>📧</span> ssujklim@gmail.com
+                    </div>
+                    <div class="contact-item">
+                        <span>🏠</span> 경기도 광명시 도덕로 79, 1405호 (고척돔 버스 30분 거리)
+                    </div>
+                    <div class="contact-item">
+                        <span>🔗</span> https://sites.google.com/view/jongkwon/
+                    </div>
+                </div>
+            </div>
+            <div class="header-right">
+                <img src="photo_screenshot.png" alt="Profile Photo" class="profile-img">
+            </div>
+        </header>
+
+        <!-- Professional Summary -->
+        <section>
+            <h2>직무 요약</h2>
+            <div class="summary">
+                <ul>
+                    <li><b>[ERP & 시스템]</b> 커스텀 ERP 도입 실무 리딩 및 예산/회계 프로세스 시스템화. 업무 효율성 극대화 경험 보유.</li>
+                    <li><b>[총무 & 시설관리]</b> PC/네트워크 유지보수부터 시설 관리(전등 교체, 배관 등)까지 직접 해결하는 <b>'현장형 멀티플레이어'</b>.</li>
+                    <li><b>[문제 해결]</b> "안 되면 되게 하라"는 마인드로 IT/비IT 영역을 가리지 않고 조직의 크고 작은 문제를 주도적으로 해결함.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Core Competencies (Special Section) -->
+        <section>
+            <h2>핵심 역량</h2>
+            <div class="special-box">
+                <div class="special-item">
+                    <span class="special-title">🚀 현장 대응 능력</span>
+                    <span class="special-desc">
+                        <ul>
+                            <li>지방 출장 및 주말 근무, 야간 업무 등 유연한 근무 환경에 즉각 적응합니다.</li>
+                            <li>시설 유지보수 및 현장 지원 업무를 마다하지 않는 적극적인 실행력을 보유했습니다.</li>
+                        </ul>
+                    </span>
+                </div>
+                <div class="special-item">
+                    <span class="special-title">💻 실무형 전산 역량</span>
+                    <span class="special-desc">
+                        <ul>
+                            <li>ERP(더존/커스텀) 운영 및 데이터 관리에 능숙하며, 신규 시스템을 빠르게 습득합니다.</li>
+                            <li>PC 포맷, 네트워크 장애 등 돌발적인 전산 오류를 즉시 해결하여 업무 효율을 높입니다.</li>
+                        </ul>
+                    </span>
+                </div>
+                <div class="special-item">
+                    <span class="special-title">🔧 기술 융합형 행정</span>
+                    <span class="special-desc">
+                        <ul>
+                            <li>단순 행정 업무를 넘어 하드웨어 및 시설 관리까지 포괄하는 업무 수행이 가능합니다.</li>
+                            <li>IT 지식을 바탕으로 부서 간 기술적 소통을 원활하게 이끌어내는 가교 역할을 수행합니다.</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Work Experience -->
+        <section>
+            <h2>경력 기술서</h2>
+            
+            <div class="experience-item">
+                <div class="exp-header">
+                    <span class="company-name">(사)함께만드는세상</span>
+                    <span class="exp-date">2023.01 – 2026.02 (퇴사 예정)</span>
+                </div>
+                <div class="role-title">전산총무 및 IT 지원 (대리)</div>
+                <ul class="exp-details">
+                    <li><b>[비용 절감]</b> 사내 네트워크/PC 장애 1차 대응 내재화. <b>연간 유지보수 비용 30% 절감</b> 달성.</li>
+                    <li><b>[ERP 구축 실무]</b> 커스텀 ERP 도입 프로젝트 실무 리드(PM Assist). 예산/회계 프로세스 시스템화 및 계정과목 표준화.</li>
+                    <li><b>[자산 관리]</b> IT 자산(HW/SW) 수명 주기 관리 프로세스 정립. 유휴 장비 재배치로 중복 투자 방지.</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="exp-header">
+                    <span class="company-name">(주)맨지온</span>
+                    <span class="exp-date">2020.03 – 2021.11</span>
+                </div>
+                <div class="role-title">IoT 시스템 운영 및 QA</div>
+                <ul class="exp-details">
+                    <li><b>[시스템 안정화]</b> 시설 관제 데이터 로그 분석 수행. 통신 장애 원인 규명 및 해결 프로세스 확립.</li>
+                    <li><b>[QA 리딩]</b> 사용자 관점 UI/UX 테스트 시나리오 설계. 품질 보증 활동 주도로 시스템 사용성 개선.</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="exp-header">
+                    <span class="company-name">(주)엣지크로스</span>
+                    <span class="exp-date">2016.05 – 2018.02</span>
+                </div>
+                <div class="role-title">자재 관리 및 구매</div>
+                <ul class="exp-details">
+                    <li><b>[프로세스 최적화]</b> 자재 명세서(BOM) 관리 체계화. 생산 일정 조율로 납기 준수율 100% 달성.</li>
+                    <li><b>[공학적 소통]</b> PCB 회로 설계 및 납땜 실무 경험 보유. 제조 부서와 원활한 기술적 소통 수행.</li>
+                </ul>
+            </div>
+        </section>
+
+        <div class="grid-container">
+            <!-- Education -->
+            <section>
+                <h2>학력 사항</h2>
+                <div class="edu-item">
+                    <div class="school-name">숭실대학교 사회복지대학원 (석사)</div>
+                    <div class="major-info">사회적기업전공 / 2020.02 졸업</div>
+                </div>
+                <div class="edu-item">
+                    <div class="school-name">숭실대학교 공과대학 (학사)</div>
+                    <div class="major-info">전기공학부 / 2017.02 졸업</div>
+                </div>
+                <div class="edu-item">
+                    <div class="school-name">한국폴리텍 광명융합기술교육원</div>
+                    <div class="major-info">증강현실(AR) 시스템제어 / 2022.12 수료</div>
+                </div>
+            </section>
+
+            <!-- Skills -->
+            <section>
+                <h2>보유 기술 및 자격</h2>
+                <div class="skills-container">
+                    <span class="skill-tag">ERP 구축 실무</span>
+                    <span class="skill-tag">커스텀 ERP</span>
+                    <span class="skill-tag">IT 문제해결</span>
+                    <span class="skill-tag">총무/행정</span>
+                    <span class="skill-tag">Notion</span>
+                    <span class="skill-tag">Slack</span>
+                    <span class="skill-tag">Unity 3D/C#</span>
+                </div>
+                <div style="margin-top: 15px; font-size: 13.5px;">
+                    <div>• <b>사회복지사 1급</b> (보건복지부)</div>
+                    <div>• <b>1종 대형 운전면허</b> (12년 무사고, 경찰청)</div>
+                </div>
+            </section>
+        </div>
+
+        <footer>
+            위 내용은 사실과 다름이 없음을 확인합니다. <br>
+            <b>2026년 01월 22일 &nbsp;&nbsp;&nbsp; 지원자: 임 종 권 (인)</b>
+        </footer>
+    </div>
+    <script>
+        // Save Functionality
+        async function saveChanges() {
+            const btn = document.getElementById('save-btn');
+            const originalText = btn.innerText;
+            btn.innerText = '저장 중...';
+            btn.disabled = true;
+
+            try {
+                // Get the entire HTML content
+                const htmlContent = "<!DOCTYPE html>\n" + document.documentElement.outerHTML;
+                
+                const response = await fetch('/save', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'text/plain; charset=utf-8'
+                    },
+                    body: htmlContent
+                });
+
+                if (response.ok) {
+                    alert('성공적으로 저장되었습니다! (파일이 업데이트됨)');
+                } else {
+                    alert('저장 실패: 서버 응답 오류');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('저장 실패: 서버가 실행 중인지 확인하세요.\n(editor_server.py 실행 필요)');
+            } finally {
+                btn.innerText = originalText;
+                btn.disabled = false;
+            }
+        }
+
+        // Make specific text elements editable for better UX
+        document.addEventListener('DOMContentLoaded', () => {
+             const editableSelectors = [
+                 'h1', '.job-title', '.contact-item', '.summary', 
+                 '.company-name', '.role-title', '.exp-date', '.exp-details li', 
+                 '.school-name', '.major-info', '.skill-tag', '.special-item', 'footer'
+             ];
+             
+             const elements = document.querySelectorAll(editableSelectors.join(', '));
+             elements.forEach(el => {
+                 el.setAttribute('contenteditable', 'true');
+             });
+        });
+    </script>
+</body>
+</html>

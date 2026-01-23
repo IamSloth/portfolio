@@ -1,7 +1,7 @@
 {
     "meta": {
-        "version": "1.0",
-        "last_updated": "2026-01-20"
+        "version": "1.1",
+        "last_updated": "2026-01-22"
     },
     "personal_info": {
         "name_ko": "임종권",
@@ -36,11 +36,11 @@
         {
             "company": "(사)함께만드는세상",
             "role": "전산총무 및 IT 지원 (대리)",
-            "period": "2023.01 – 2026.02.01 (퇴사 예정)",
+            "period": "2023.01 – 2026.02 (퇴사 예정)",
             "details": [
-                "[비용 절감] 사내 네트워크/PC 장애 발생 시 1차 트러블슈팅 직접 수행 (유지보수비 30% 절감)",
-                "[ERP 고도화] 커스텀 ERP 구축 PM으로서 개발사와 직접 소통하며 데이터 마이그레이션 완수",
-                "[자산 관리] IT 자산(HW/SW) 수명 주기 관리 및 유휴 장비 재배치로 중복 투자 방지"
+                "<b>[Cost Reduction]</b> 사내 네트워크/PC 1차 트러블슈팅 내재화로 연간 유지보수 비용 <b>30% 절감</b>",
+                "<b>[ERP Implementation]</b> 커스텀 ERP(High-Q) 도입 프로젝트 실무 리딩(PM Assist). 예산/회계 프로세스 설계 및 계정과목 표준화 주도. (Tibero DB/Nexacro 기반)",
+                "<b>[Asset Management]</b> IT 자산(HW/SW) 수명 주기 관리 프로세스 정립 및 유휴 장비 재배치로 중복 투자 방지"
             ]
         },
         {
@@ -48,8 +48,8 @@
             "role": "IoT 시스템 운영 및 QA",
             "period": "2020.03 – 2021.11",
             "details": [
-                "[시스템 안정화] 시설 관제 데이터 로그 분석을 통해 통신 장애 원인 규명 및 해결",
-                "[품질 보증] 사용자 관점의 UI/UX 테스트를 주도하여 시스템 사용성 개선"
+                "<b>[System Stability]</b> 시설 관제 데이터 로그 분석을 통해 통신 장애 원인 규명 및 해결 프로세스 확립",
+                "<b>[QA Leadership]</b> 사용자 관점의 UI/UX 테스트 시나리오 설계 및 품질 보증 활동 주도"
             ]
         },
         {
@@ -57,25 +57,25 @@
             "role": "자재 관리 및 구매",
             "period": "2016.05 – 2018.02",
             "details": [
-                "[H/W 역량] PCB 회로 설계 및 납땜 실무 경험 (전자기기 작동 원리 완벽 이해)",
-                "[SCM 관리] 자재 명세서(BOM) 관리 및 생산 일정 조율로 납기 준수율 100% 달성"
+                "<b>[Process Optimization]</b> 자재 명세서(BOM) 관리 체계화 및 생산 일정 조율로 납기 준수율 100% 달성",
+                "<b>[Engineering Base]</b> PCB 회로 설계 및 납땜 실무 경험을 바탕으로 제조 부서와 원활한 커뮤니케이션 수행"
             ]
         }
     ],
     "special_section": {
-        "title": "GAME DEV LITERACY (개발 이해도)",
+        "title": "CORE COMPETENCIES & MOBILITY",
         "items": [
-            "교육 과정: 증강현실(AR) 및 Unity 게임 개발 과정 1,200시간 수료 (한국폴리텍)",
-            "주요 프로젝트: '종권의 숲'(3D Action), '나의 작은 유니티양'(AR) 등 7건 수행",
-            "수상 실적: 2022 메타버스 콘텐츠 리크루팅 캠프 대상 (주관: 과학기술정보통신부 & 정보통신산업진흥원)",
-            "의의: 클라이언트 개발 파이프라인(기획-에셋-빌드-QA)을 직접 경험함으로써, 개발팀 지원 시 기술적 병목을 사전에 제거하는 선제적 총무 수행 가능"
+            "<b>Proven Mobility:</b> 2025 시즌 키움 히어로즈 원정 경기 포함, <b>전국 야구장 투어 완료</b>. 지방 출장 및 야간/주말 근무에 최적화된 기동성 보유.",
+            "<b>Fast Learner (ERP):</b> Tibero/Nexacro 기반의 커스텀 ERP 도입 경험 보유. 더존(Douzone)/아마란스 등 신규 솔루션도 <b>1주 내 마스터 가능</b>한 시스템 습득력.",
+            "<b>Tech-Savvy Generalist:</b> 공학(전기) - 사회과학(복지) - IT(시스템)를 아우르는 배경으로 다양한 부서와의 협업 및 문제 해결 가능."
         ]
     },
     "skills": [
-        "Unity 3D", "C#", "Hardware Troubleshooting", "ERP (Nexacro/Tibero)", "Notion", "Slack"
+        "ERP Implementation (High-Q)", "Hardware/Network Troubleshooting", "General Affairs & Admin", 
+        "Notion", "Slack", "Unity 3D/C# (Basic)", "1종 대형 운전면허 (12년 무사고)"
     ],
     "certifications": [
         "사회복지사 1급 (보건복지부)",
-        "1종 대형 운전면허 (경찰청, 12년 무사고)"
+        "1종 대형 운전면허 (경찰청)"
     ]
 }
