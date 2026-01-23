@@ -1,13 +1,28 @@
 import http.server
 import socketserver
 import os
+import urllib.parse
 
 PORT = 8080
-FILE_TO_SAVE = "1_resume.html"
+ALLOWED_FILES = ["1_resume.html", "2_essay_free.html", "3_essay_required.html"]
 
 class EditorRequestHandler(http.server.SimpleHTTPRequestHandler):
     def do_POST(self):
-        if self.path == '/save':
+        parsed_path = urllib.parse.urlparse(self.path)
+        
+        if parsed_path.path == '/save':
+            # Parse query parameters
+            query_params = urllib.parse.parse_qs(parsed_path.query)
+            filename = query_params.get('file', [ALLOWED_FILES[0]])[0]
+            
+            # Security check: only allow saving specific files in current directory
+            if filename not in ALLOWED_FILES:
+                self.send_response(403)
+                self.end_headers()
+                self.wfile.write(b"Forbidden: Cannot save to this file")
+                print(f"Attempted to save unauthorized file: {filename}")
+                return
+
             content_length = int(self.headers['Content-Length'])
             post_data = self.rfile.read(content_length)
             
@@ -15,14 +30,14 @@ class EditorRequestHandler(http.server.SimpleHTTPRequestHandler):
             try:
                 # Ensure we are writing text, assuming UTF-8
                 content = post_data.decode('utf-8')
-                with open(FILE_TO_SAVE, 'w', encoding='utf-8') as f:
+                with open(filename, 'w', encoding='utf-8') as f:
                     f.write(content)
                 
                 self.send_response(200)
                 self.send_header('Content-type', 'text/plain')
                 self.end_headers()
-                self.wfile.write(b"Saved successfully")
-                print(f"Successfully saved {FILE_TO_SAVE}")
+                self.wfile.write(f"Saved {filename} successfully".encode('utf-8'))
+                print(f"Successfully saved {filename}")
             except Exception as e:
                 self.send_response(500)
                 self.send_header('Content-type', 'text/plain')
@@ -33,15 +48,18 @@ class EditorRequestHandler(http.server.SimpleHTTPRequestHandler):
             self.send_error(404, "File not found")
 
     def end_headers(self):
-        # Add CORS headers for good measure, though not strictly needed for same-origin
         self.send_header('Access-Control-Allow-Origin', '*')
         super().end_headers()
 
 if __name__ == "__main__":
-    # Change directory to the script's directory to serve files correctly
     os.chdir(os.path.dirname(os.path.abspath(__file__)))
+    
+    # Allow address reuse to prevent "Address already in use" errors on quick restarts
+    socketserver.TCPServer.allow_reuse_address = True
     
     with socketserver.TCPServer(("", PORT), EditorRequestHandler) as httpd:
         print(f"Serving at http://localhost:{PORT}")
-        print(f"Open http://localhost:{PORT}/{FILE_TO_SAVE} to edit")
+        print("Available files:")
+        for f in ALLOWED_FILES:
+            print(f" - http://localhost:{PORT}/{f}")
         httpd.serve_forever()
