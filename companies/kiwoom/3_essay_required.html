@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>필수 항목 자기소개서 - 임종권</title>
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+    <style>
+        /* Shared Styles from Resume */
+        [contenteditable="true"] {
+            transition: all 0.2s;
+            border-radius: 3px;
+            padding: 2px;
+        }
+        [contenteditable="true"]:hover {
+            background-color: rgba(130, 0, 36, 0.05);
+            outline: 1px dashed #820024;
+            cursor: text;
+        }
+        [contenteditable="true"]:focus {
+            background-color: white;
+            outline: 2px solid #820024;
+            box-shadow: 0 0 5px rgba(130, 0, 36, 0.2);
+            z-index: 10;
+            position: relative;
+        }
+
+        body {
+            font-family: 'Pretendard', sans-serif;
+            background: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            line-height: 1.6;
+        }
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            background: white;
+            margin: 20px auto;
+            padding: 50px;
+            box-sizing: border-box;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        
+        h1 {
+            font-size: 24px;
+            font-weight: 800;
+            color: #820024; /* Heroes Burgundy */
+            border-bottom: 2px solid #820024;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+        }
+
+        .question-box {
+            background-color: #f9f9f9;
+            border-left: 4px solid #820024;
+            padding: 20px;
+            margin-bottom: 30px;
+            font-weight: 700;
+            font-size: 16px;
+            color: #444;
+        }
+
+        .essay-content {
+            font-size: 15px;
+            text-align: justify;
+            word-break: keep-all;
+        }
+
+        .keyword-section {
+            margin-bottom: 25px;
+        }
+        
+        .keyword-title {
+            font-size: 18px;
+            font-weight: 800;
+            color: #820024;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .keyword-body {
+            color: #333;
+            line-height: 1.8;
+        }
+
+        /* Save Button */
+        #save-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #820024;
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            cursor: pointer;
+            z-index: 1000;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        #save-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+            background-color: #a0002c;
+        }
+
+        @media print {
+            body { background: white; }
+            .page { margin: 0; box-shadow: none; width: 100%; height: auto; }
+            #save-btn { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <button id="save-btn" onclick="saveChanges()">저장 중...</button>
+    <div class="page">
+        <h1>필수 항목 자기소개서</h1>
+        
+        <div class="question-box">
+            Q. 야구단 회계 담당자에게 가장 중요하다고 생각하는 역량(또는 가치) 3가지를 선정하고, 그 이유를 서술하시오. (1,000자 이내)
+        </div>
+
+        <div class="essay-content" contenteditable="true">
+            <div class="keyword-section">
+                <div class="keyword-title">1. 현장성(Field-Oriented): 숫자는 책상이 아닌 그라운드에서 시작됩니다.</div>
+                <div class="keyword-body">
+                    야구단의 회계는 단순한 장부 정리가 아닙니다. 티켓 수입, 굿즈 판매, 시설 유지보수 비용 등 재무제표의 모든 숫자는 현장에서 발생합니다. 저는 1종 대형 면허를 보유하고 직접 시설물을 수리하는 '발로 뛰는' 실무자입니다. 책상 앞에 머물지 않고, 고척돔의 구석구석을 누비며 숫자의 맥락을 파악하겠습니다. 현장의 물리적 상황을 이해하는 회계만이 정확한 손익 분석과 실질적인 비용 절감의 단초를 찾을 수 있습니다. 선수단이 그라운드에서 땀 흘릴 때, 프런트는 현장에서 예산의 효율을 고민해야 합니다.
+                </div>
+            </div>
+
+            <div class="keyword-section">
+                <div class="keyword-title">2. 투명성(Transparency): 자립형 구단의 신뢰 자본.</div>
+                <div class="keyword-body">
+                    모기업의 무조건적인 지원이 없는 히어로즈에게 '신뢰'는 곧 생존 자본입니다. 스폰서십 유치와 팬들의 지지는 투명한 구단 운영에서 비롯됩니다. 저는 비영리 법인에서 근무하며 RFP(제안요청서) 기반의 공개 입찰을 주도하고, 깐깐한 지출결의 검증을 통해 회계 투명성을 확보해왔습니다. 공학도의 논리적 사고와 사회복지사의 윤리 의식을 바탕으로, 10원 하나의 지출도 명확한 근거를 남기겠습니다. 대내외 이해관계자들에게 신뢰받는 재무 건전성을 지키는 파수꾼이 되겠습니다.
+                </div>
+            </div>
+
+            <div class="keyword-section">
+                <div class="keyword-title">3. 효율성(Efficiency): 머니볼 정신의 행정적 구현.</div>
+                <div class="keyword-body">
+                    한정된 예산으로 최대의 효과를 내는 '머니볼' 철학은 선수단 운영뿐만 아니라 프런트 행정에도 동일하게 적용되어야 합니다. 비용은 줄이되 가치는 높여야 합니다. 저는 커스텀 ERP 도입을 보조하고, 사내 전산 장애를 외주 없이 직접 해결하며 연간 유지보수 비용을 30% 절감한 경험이 있습니다. '원래 하던 방식'에 안주하지 않고, 불필요한 행정 소요를 줄이고 시스템을 자동화하겠습니다. 프런트에서 절감된 비용과 시간은 곧 선수단 전력 강화와 팬 서비스 향상으로 이어질 것입니다.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        async function saveChanges() {
+            const btn = document.getElementById('save-btn');
+            const originalText = btn.innerText;
+            btn.innerText = '저장 중...';
+            btn.disabled = true;
+
+            try {
+                const htmlContent = "<!DOCTYPE html>\n" + document.documentElement.outerHTML;
+                const response = await fetch('/save?file=3_essay_required.html', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'text/plain; charset=utf-8' },
+                    body: htmlContent
+                });
+                if (response.ok) alert('성공적으로 저장되었습니다!');
+                else alert('저장 실패: 서버 응답 오류');
+            } catch (error) {
+                console.error('Error:', error);
+                alert('저장 실패: editor_server.py 실행 필요');
+            } finally {
+                btn.innerText = originalText;
+                btn.disabled = false;
+            }
+        }
+    </script>
+</body>
+</html>

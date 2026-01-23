@@ -3,8 +3,8 @@ import socketserver
 import os
 import urllib.parse
 
-PORT = 8080
-ALLOWED_FILES = ["1_resume.html", "2_essay_free.html", "3_essay_required.html"]
+PORT = 8089
+ALLOWED_FILES = ["1_resume.html", "2_essay_free.html", "3_essay_required.html", "all_view.html", "kiwoom_application_full.html"]
 
 class EditorRequestHandler(http.server.SimpleHTTPRequestHandler):
     def do_POST(self):

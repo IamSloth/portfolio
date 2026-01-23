@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>임종권 - 서울히어로즈 지원서 전체 보기</title>
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+    <style>
+        /* Common Styles */
+        body {
+            font-family: 'Pretendard', sans-serif;
+            background: #555; /* Dark background for viewing context */
+            margin: 0;
+            padding: 20px;
+            color: #333;
+            line-height: 1.5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        /* Page Container mimicking A4 */
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            background: white;
+            padding: 50px;
+            box-sizing: border-box;
+            box-shadow: 0 0 15px rgba(0,0,0,0.3);
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        /* Print Settings */
+        @media print {
+            body { 
+                background: white; 
+                margin: 0; 
+                padding: 0; 
+                display: block; /* Restore block for print flow */
+            }
+            .page {
+                margin: 0;
+                box-shadow: none;
+                width: 210mm;
+                height: 297mm; /* Enforce height for print */
+                padding: 50px;
+                page-break-after: always; /* Force new page after each .page */
+                display: block;
+            }
+            .page:last-child {
+                page-break-after: auto;
+            }
+            /* Hide non-print elements */
+            .no-print { display: none !important; }
+        }
+
+        /* ---- Resume Styles (Copied & Scoped) ---- */
+        .resume-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .resume-content .page-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .resume-content h1 {
+            font-size: 32px;
+            margin: 0 0 5px 0;
+            color: #1a1a1a;
+            letter-spacing: -0.5px;
+        }
+        .resume-content header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            border-bottom: 2px solid #820024;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+        .resume-content .job-title {
+            font-size: 16px;
+            color: #820024;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+        .resume-content .contact-info {
+            font-size: 14px;
+            color: #555;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        .resume-content .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .resume-content .profile-img {
+            width: 110px;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 2px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            background: #eee;
+        }
+        .resume-content h2 {
+            font-size: 18px;
+            color: #820024;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 4px;
+            margin-bottom: 10px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+        .resume-content section { margin-bottom: 30px; }
+        .resume-content .summary {
+            font-size: 15px;
+            line-height: 1.6;
+            color: #444;
+            text-align: justify;
+            word-break: keep-all;
+        }
+        .resume-content .summary ul, .resume-content .exp-details, .resume-content .special-desc ul {
+            margin: 0;
+            padding-left: 18px;
+        }
+        .resume-content .summary li, .resume-content .exp-details li { margin-bottom: 6px; }
+        
+        /* Special Box */
+        .resume-content .special-box {
+            background: #fff9fa;
+            border-left: 3px solid #820024;
+            padding: 12px 15px;
+            font-size: 13.5px;
+            border-radius: 0 4px 4px 0;
+        }
+        .resume-content .special-item {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: baseline;
+        }
+        .resume-content .special-title {
+            font-weight: 700;
+            color: #820024;
+            width: 140px;
+            flex-shrink: 0;
+        }
+        .resume-content .special-desc {
+            color: #444;
+            line-height: 1.5;
+            flex: 1;
+            border-left: 2px solid #eee;
+            padding-left: 15px;
+        }
+
+        /* Experience */
+        .resume-content .experience-item { margin-bottom: 15px; }
+        .resume-content .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 4px;
+        }
+        .resume-content .company-name { font-size: 16px; font-weight: 700; color: #000; }
+        .resume-content .exp-date { font-size: 13px; color: #666; font-weight: 500; }
+        .resume-content .role-title {
+            font-size: 14px;
+            color: #444;
+            font-weight: 600;
+            margin-bottom: 6px;
+            font-style: italic;
+        }
+        
+        /* Education */
+        .resume-content .edu-item {
+            margin-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px dashed #eee;
+            padding-bottom: 8px;
+        }
+        .resume-content .school-name { font-weight: 700; font-size: 15px; color: #333; }
+        .resume-content .major-info { font-size: 14px; color: #666; }
+
+        /* Skills */
+        .resume-content .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .resume-content .skill-tag {
+            background: #fff9fa;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 13.5px;
+            font-weight: 600;
+            color: #820024;
+            border: 1px solid #e0c0c8;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+        .resume-content .license-list {
+            margin-top: 20px;
+            font-size: 14px;
+            line-height: 1.8;
+            color: #444;
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 4px;
+        }
+
+        /* Footer & Seal */
+        .resume-content footer {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 12px;
+            color: #888;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+            position: relative;
+        }
+        .seal-img {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            right: -10px;
+            top: -18px;
+            opacity: 0.8;
+            transform: rotate(-5deg);
+        }
+
+        /* Page 2 Header */
+        .page-header-repeat {
+            border-bottom: 2px solid #820024;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+            display: none; /* Hidden by default on screen if not needed, but good for consistency */
+            justify-content: space-between;
+            align-items: flex-end;
+            color: #888;
+        }
+        .page-header-repeat .name { font-size: 16px; font-weight: 800; color: #333; }
+        .page-header-repeat .meta { font-size: 13px; font-weight: 500; }
+        @media print { .page-header-repeat { display: flex !important; } }
+
+
+        /* ---- Essay Styles ---- */
+        .essay-content-wrapper h1 {
+            font-size: 24px;
+            font-weight: 800;
+            color: #820024;
+            border-bottom: 2px solid #820024;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+        }
+        .essay-content-wrapper .question-box {
+            background-color: #f9f9f9;
+            border-left: 4px solid #820024;
+            padding: 20px;
+            margin-bottom: 30px;
+            font-weight: 700;
+            font-size: 16px;
+            color: #444;
+        }
+        .essay-content-wrapper .keyword-section { margin-bottom: 25px; }
+        .essay-content-wrapper .keyword-title {
+            font-size: 18px;
+            font-weight: 800;
+            color: #820024;
+            margin-bottom: 10px;
+        }
+        .essay-content-wrapper .keyword-body, .essay-content-wrapper .section-body {
+            color: #333;
+            line-height: 1.8;
+            text-align: justify;
+            word-break: keep-all;
+            font-size: 15px;
+        }
+
+        /* Free Essay Specifics */
+        .essay-content-wrapper .main-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 30px;
+            text-align: center;
+            line-height: 1.4;
+            word-break: keep-all;
+        }
+        .essay-content-wrapper .section-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #820024;
+            margin-bottom: 10px;
+            border-left: 3px solid #820024;
+            padding-left: 10px;
+            display: flex;
+            align-items: center;
+        }
+        .essay-content-wrapper .essay-section { margin-bottom: 30px; }
+
+        /* Print Button */
+        .print-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            cursor: pointer;
+            z-index: 1000;
+        }
+        .print-btn:hover { background-color: #555; transform: translateY(-2px); }
+    </style>
+</head>
+<body>
+    <button class="print-btn no-print" onclick="window.print()">🖨️ PDF 저장 / 인쇄</button>
+
+    <!-- Page 1: Resume Part 1 -->
+    <div class="page resume-content">
+        <div class="page-content">
+            <header>
+                <div class="header-left">
+                    <h1>임 종 권 (LIM JONG KWON)</h1>
+                    <div class="job-title">ERP 구축 전문가 &amp; 문제 해결형 제너럴리스트</div>
+                    <div class="contact-info">
+                        <div class="contact-item"><span>📞</span> 010-4052-0834</div>
+                        <div class="contact-item"><span>📧</span> ssujklim@gmail.com</div>
+                        <div class="contact-item"><span>🏠</span> 경기도 광명시 도덕로 79, 1405호 (고척돔 버스 30분 거리)</div>
+                        <div class="contact-item"><span>🔗</span> https://sites.google.com/view/jongkwon/</div>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <img src="photo_screenshot.png" alt="Profile Photo" class="profile-img">
+                </div>
+            </header>
+
+            <section>
+                <h2>직무 요약</h2>
+                <div class="summary">
+                    <ul>
+                        <li><b>[ERP &amp; 시스템]</b> 커스텀 ERP 도입 실무 리딩 및 예산/회계 프로세스 시스템화. 업무 효율성 극대화 경험 보유.</li>
+                        <li><b>[총무 &amp; 시설관리]</b> PC/네트워크 유지보수부터 시설 관리(전등 교체, 배관 등)까지 직접 해결하는 <b>'현장형 멀티플레이어'</b>.</li>
+                        <li><b>[문제 해결]</b> "안 되면 되게 하라"는 마인드로 IT/비IT 영역을 가리지 않고 조직의 크고 작은 문제를 주도적으로 해결함.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section>
+                <h2>핵심 역량</h2>
+                <div class="special-box">
+                    <div class="special-item">
+                        <span class="special-title">🚀 현장 대응 능력</span>
+                        <span class="special-desc">
+                            <ul>
+                                <li>지방 출장 및 주말 근무, 야간 업무 등 유연한 근무 환경에 즉각 적응합니다.</li>
+                                <li>시설 유지보수 및 현장 지원 업무를 마다하지 않는 적극적인 실행력을 보유했습니다.</li>
+                                <li>1종 대형 운전면허를 보유하여, 비상 시 직접 차량 운행 및 현장 물류 지원이 가능합니다.</li>
+                            </ul>
+                        </span>
+                    </div>
+                    <div class="special-item">
+                        <span class="special-title">💻 실무형 전산 역량</span>
+                        <span class="special-desc">
+                            <ul>
+                                <li>ERP(더존/커스텀) 운영 및 데이터 관리에 능숙하며, 신규 시스템을 빠르게 습득합니다.</li>
+                                <li>PC 포맷, 네트워크 장애 등 돌발적인 전산 오류를 즉시 해결하여 업무 효율을 높입니다.</li>
+                                <li>반복적인 엑셀/문서 작업을 자동화하여 행정 소요 시간을 단축하고 휴먼 에러를 방지합니다.</li>
+                            </ul>
+                        </span>
+                    </div>
+                    <div class="special-item">
+                        <span class="special-title">🔧 기술 융합형 행정</span>
+                        <span class="special-desc">
+                            <ul>
+                                <li>단순 행정 업무를 넘어 하드웨어 및 시설 관리까지 포괄하는 업무 수행이 가능합니다.</li>
+                                <li>IT 지식을 바탕으로 부서 간 기술적 소통을 원활하게 이끌어내는 가교 역할을 수행합니다.</li>
+                                <li>공학 지식을 활용해 시설 공사/구매 건의 견적 적정성을 검증하고 예산을 절감합니다.</li>
+                            </ul>
+                        </span>
+                    </div>
+                </div>
+            </section>
+            
+            <section style="margin-bottom: 0;">
+                <h2>경력 기술서 (1/2)</h2>
+                <div class="experience-item">
+                    <div class="exp-header">
+                        <span class="company-name">(사)함께만드는세상</span>
+                        <span class="exp-date">2023.01 – 2026.01</span>
+                    </div>
+                    <div class="role-title">전산총무 및 IT 지원 (대리)</div>
+                    <ul class="exp-details">
+                        <li><b>[구매 및 계약 관리]</b> 공개 입찰(Bidding) 및 제안요청서(RFP) 작성 주도. 벤더 협상으로 <b>예산 절감</b> 및 투명성 확보.</li>
+                        <li><b>[ERP 구축 및 회계 운영]</b> 커스텀 ERP 도입 PM Assist 및 지출결의서/전표 데이터 검증. 계정과목 표준화.</li>
+                        <li><b>[비용 절감]</b> 사내 네트워크/PC 장애 1차 대응 내재화. 연간 유지보수 비용 30% 절감 달성.</li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Page 2: Resume Part 2 -->
+    <div class="page resume-content">
+        <div class="page-content">
+            <div class="page-header-repeat" style="display: flex;">
+                <div class="name">임 종 권 (LIM JONG KWON)</div>
+                <div class="meta">ERP 구축 전문가 &amp; 문제 해결형 제너럴리스트 (2/2)</div>
+            </div>
+            
+            <section>
+                <h2>경력 기술서 (2/2)</h2>
+                <div class="experience-item">
+                    <div class="exp-header">
+                        <span class="company-name">(주)맨지온</span>
+                        <span class="exp-date">2020.03 – 2021.11</span>
+                    </div>
+                    <div class="role-title">IoT 시스템 운영 및 QA</div>
+                    <ul class="exp-details">
+                        <li><b>[시스템 안정화]</b> 사내 프로토타입 장비 데이터 로그 분석. 통신 장애 원인 규명 및 해결 프로세스 확립.</li>
+                        <li><b>[품질 관리]</b> 제품 출하 전 기능 테스트 및 하드웨어 결함 점검. 불량률 최소화 및 품질 개선.</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="exp-header">
+                        <span class="company-name">(주)엣지크로스</span>
+                        <span class="exp-date">2016.05 – 2018.02</span>
+                    </div>
+                    <div class="role-title">자재 관리 및 구매</div>
+                    <ul class="exp-details">
+                        <li><b>[프로세스 최적화]</b> 자재 명세서(BOM) 관리 체계화. 생산 일정 조율로 납기 준수율 100% 달성.</li>
+                        <li><b>[공학적 소통]</b> PCB 회로 설계 및 납땜 실무 경험 보유. 제조 부서와 원활한 기술적 소통 수행.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section>
+                <h2>학력 사항</h2>
+                <div class="edu-item">
+                    <div class="school-name">숭실대학교 사회복지대학원 (석사)</div>
+                    <div class="major-info">사회적기업전공 / 2020.02 졸업</div>
+                </div>
+                <div class="edu-item">
+                    <div class="school-name">숭실대학교 공과대학 (학사)</div>
+                    <div class="major-info">전기공학부 / 2017.02 졸업</div>
+                </div>
+                <div class="edu-item">
+                    <div class="school-name">한국폴리텍 광명융합기술교육원</div>
+                    <div class="major-info">증강현실(AR) 개발 과정 / 2022.12 수료</div>
+                </div>
+            </section>
+
+            <section>
+                <h2>보유 기술 및 자격</h2>
+                <div class="skills-container">
+                    <span class="skill-tag">ERP 구축/운영</span>
+                    <span class="skill-tag">지출결의/전표 검증</span>
+                    <span class="skill-tag">전산 장애 대응(H/W, N/W)</span>
+                    <span class="skill-tag">시설 및 자산관리</span>
+                    <span class="skill-tag">협업툴 활용</span>
+                    <span class="skill-tag">Unity 3D/C#</span>
+                </div>
+                <div class="license-list">
+                    <div>• <b>사회복지사 1급</b> (보건복지부)</div>
+                    <div>• <b>1종 대형 운전면허</b> (12년 무사고, 경찰청)</div>
+                </div>
+            </section>
+        </div>
+
+        <footer>
+            위 내용은 사실과 다름이 없음을 확인합니다. <br>
+            <div style="display: inline-block; position: relative;">
+                <b>2026. 01. 23. &nbsp;&nbsp;&nbsp; 지원자: 임 종 권 (인)</b>
+                <img src="seal_stamp.png" class="seal-img" alt="도장">
+            </div>
+        </footer>
+    </div>
+
+    <!-- Page 3: Required Essay -->
+    <div class="page essay-content-wrapper">
+        <h1>필수 항목 자기소개서</h1>
+        
+        <div class="question-box">
+            Q. 야구단 회계 담당자에게 가장 중요하다고 생각하는 역량(또는 가치) 3가지를 선정하고, 그 이유를 서술하시오. (1,000자 이내)
+        </div>
+
+        <div class="keyword-section">
+            <div class="keyword-title">1. 현장성(Field-Oriented): 숫자는 책상이 아닌 그라운드에서 시작됩니다.</div>
+            <div class="keyword-body">
+                야구단의 회계는 단순한 장부 정리가 아닙니다. 티켓 수입, 굿즈 판매, 시설 유지보수 비용 등 재무제표의 모든 숫자는 현장에서 발생합니다. 저는 1종 대형 면허를 보유하고 직접 시설물을 수리하는 '발로 뛰는' 실무자입니다. 책상 앞에 머물지 않고, 고척돔의 구석구석을 누비며 숫자의 맥락을 파악하겠습니다. 현장의 물리적 상황을 이해하는 회계만이 정확한 손익 분석과 실질적인 비용 절감의 단초를 찾을 수 있습니다. 선수단이 그라운드에서 땀 흘릴 때, 프런트는 현장에서 예산의 효율을 고민해야 합니다.
+            </div>
+        </div>
+
+        <div class="keyword-section">
+            <div class="keyword-title">2. 투명성(Transparency): 자립형 구단의 신뢰 자본.</div>
+            <div class="keyword-body">
+                모기업의 무조건적인 지원이 없는 히어로즈에게 '신뢰'는 곧 생존 자본입니다. 스폰서십 유치와 팬들의 지지는 투명한 구단 운영에서 비롯됩니다. 저는 비영리 법인에서 근무하며 RFP(제안요청서) 기반의 공개 입찰을 주도하고, 깐깐한 지출결의 검증을 통해 회계 투명성을 확보해왔습니다. 공학도의 논리적 사고와 사회복지사의 윤리 의식을 바탕으로, 10원 하나의 지출도 명확한 근거를 남기겠습니다. 대내외 이해관계자들에게 신뢰받는 재무 건전성을 지키는 파수꾼이 되겠습니다.
+            </div>
+        </div>
+
+        <div class="keyword-section">
+            <div class="keyword-title">3. 효율성(Efficiency): 머니볼 정신의 행정적 구현.</div>
+            <div class="keyword-body">
+                한정된 예산으로 최대의 효과를 내는 '머니볼' 철학은 선수단 운영뿐만 아니라 프런트 행정에도 동일하게 적용되어야 합니다. 비용은 줄이되 가치는 높여야 합니다. 저는 커스텀 ERP 도입을 보조하고, 사내 전산 장애를 외주 없이 직접 해결하며 연간 유지보수 비용을 30% 절감한 경험이 있습니다. '원래 하던 방식'에 안주하지 않고, 불필요한 행정 소요를 줄이고 시스템을 자동화하겠습니다. 프런트에서 절감된 비용과 시간은 곧 선수단 전력 강화와 팬 서비스 향상으로 이어질 것입니다.
+            </div>
+        </div>
+    </div>
+
+    <!-- Page 4: Free Essay -->
+    <div class="page essay-content-wrapper">
+        <h1>자유 양식 자기소개서</h1>
+        
+        <div class="main-title">
+            "회로를 설계하던 공학도, 사람을 잇는 사회복지사,<br>
+            이제 히어로즈의 안살림을 책임지는 '살림꾼'이 되겠습니다."
+        </div>
+
+        <div class="essay-section">
+            <div class="section-title">1. [Why Heroes?] 자생력의 가치를 아는 '실전형 인재'</div>
+            <div class="section-body">
+                서울 히어로즈는 대한민국 프로야구에서 유일하게 모기업 없는 자생 구단으로서, 한정된 자원으로 최고의 효율을 창출하는 '머니볼(Moneyball)'의 상징입니다. 이러한 구단의 정체성은 저의 커리어 지향점과 깊이 맞닿아 있습니다. 저는 풍족한 자원보다는 주어진 제약 조건 속에서 최적의 해법을 찾아내는 과정에서 더 큰 성취를 느껴왔습니다. 공학적 논리성과 사회복지적 헌신, 그리고 ERP PM으로서 쌓아온 시스템 운영 능력을 하나로 융합하여, 히어로즈가 지속 가능한 성장을 이룰 수 있도록 안살림을 책임지고자 지원했습니다.
+            </div>
+        </div>
+
+        <div class="essay-section">
+            <div class="section-title">2. [Field Evidence] 2025년, 고척의 사계절을 함께하다</div>
+            <div class="section-body">
+                <div style="background: #fff; border: 1px dashed #820024; padding: 15px; margin: 10px 0; text-align: center; border-radius: 8px;">
+                    <div style="display: flex; gap: 10px; justify-content: center; margin-bottom: 10px;">
+                        <!-- 사진을 여기에 붙여넣으세요 -->
+                        <div style="width: 32%; height: 150px; background: #eee; border-radius: 4px; overflow: hidden; position: relative;">
+                            <img src="일요일 어느날 고척돔 산책 (타 야구경기 일정 후 쓰레기).png" style="width: 100%; height: 100%; object-fit: cover;" alt="시설 관리 모니터링">
+                            <div style="position: absolute; bottom: 0; width: 100%; background: rgba(0,0,0,0.6); color: white; font-size: 11px; padding: 4px 0;">시설/청소 현황 관찰</div>
+                        </div>
+                        <div style="width: 32%; height: 150px; background: #eee; border-radius: 4px; overflow: hidden; position: relative;">
+                            <img src="전광판에 사무국에 따로 요청해서 송출 요청드렸었던거.png" style="width: 100%; height: 100%; object-fit: cover;" alt="전광판 운영">
+                            <div style="position: absolute; bottom: 0; width: 100%; background: rgba(0,0,0,0.6); color: white; font-size: 11px; padding: 4px 0;">구단 운영 소통 경험</div>
+                        </div>
+                        <div style="width: 32%; height: 150px; background: #eee; border-radius: 4px; overflow: hidden; position: relative;">
+                            <img src="동료들과찍은사진.png" style="width: 100%; height: 100%; object-fit: cover;" alt="팬 문화">
+                            <div style="position: absolute; bottom: 0; width: 100%; background: rgba(0,0,0,0.6); color: white; font-size: 11px; padding: 4px 0;">팬 문화에 대한 이해</div>
+                        </div>
+                    </div>
+                    <div style="font-size: 13px; font-weight: 700; color: #820024;">
+                        "너무 좋아서 매일 가다 보니, 어느새 구석구석이 눈에 들어왔습니다."
+                    </div>
+                </div>
+                야구는 저에게 단순한 취미 그 이상입니다. 2025년 한 해, 홈과 원정을 가리지 않고 수없이 경기장을 찾았습니다. 그저 팀이 좋아서, 현장의 공기가 좋아서 발이 닳도록 드나들다 보니 자연스럽게 보이는 것들이 있었습니다. 관중들이 언제 환호하고 언제 불편해하는지, 매점 줄은 왜 특정 시간에만 길어지는지, 팬들의 동선은 어떻게 흐르는지... 책상 위에서는 알 수 없었던 '진짜 현장'의 디테일을 몸으로 익혔습니다. 이 생생한 경험과 애정을 바탕으로, 팬의 마음을 가장 잘 헤아리는 '센스 있는' 살림꾼이 되겠습니다.
+            </div>
+        </div>
+
+        <div class="essay-section">
+            <div class="section-title">3. [Engineering Base] 문제 해결의 논리적 기초</div>
+            <div class="section-body">
+                대학에서 전기공학을 전공하며 회로 설계와 시스템 제어를 배웠습니다. 이는 복잡한 문제를 논리적으로 분해하고 구조화하는 사고방식의 토대가 되었습니다. 과거 자재 관리 업무 수행 시, 복잡하게 얽힌 자재 데이터(BOM)를 체계화하여 생산 효율을 높였던 경험은, 향후 구단의 방대한 자산 및 시설 관리 업무를 시스템화하는 데 든든한 밑거름이 될 것입니다. 숫자에 대한 감각과 시스템에 대한 이해는 재무/회계 업무의 정확성을 담보하는 핵심 역량입니다.
+            </div>
+        </div>
+
+        <div class="essay-section">
+            <div class="section-title">4. [Social Welfare & Operations] 사람과 시스템의 조화</div>
+            <div class="section-body">
+                이후 사회복지 대학원에 진학하여 '사람'에 대한 이해를 넓혔고, 비영리 법인에서 3년간 실무를 담당했습니다. 이곳에서 저는 단순한 행정가를 넘어 조직의 빈틈을 메우는 '멀티플레이어'로 성장했습니다. 예산 집행의 투명성을 확보하는 회계 업무부터, 커스텀 ERP 도입을 통한 업무 자동화, 그리고 직접 드라이버를 들고 PC와 시설을 수리하는 현장 지원까지 도맡았습니다. 특히 외부 업체에 의존하던 유지보수를 내재화하여 연간 비용을 30% 절감한 성과는, 조직에 대한 깊은 애정과 '주인 의식'이 있었기에 가능한 결과였습니다.
+            </div>
+        </div>
+
+        <div class="essay-section">
+            <div class="section-title">5. [Ready for Heroes] 준비된 '유틸리티 플레이어'</div>
+            <div class="section-body">
+                야구단의 프런트는 1군 엔트리 뒤에서 묵묵히 팀을 지탱하는 26번째 선수입니다. 저는 화려한 조명을 받는 홈런타자는 아니지만, 내야와 외야, 투수와 포수 사이의 빈틈을 메우는 든든한 '유틸리티 플레이어'가 되고자 합니다. 1종 대형 면허로 구단 버스를 운전해야 한다면 핸들을 잡을 것이고, 전산 장애로 업무가 마비된다면 지체 없이 서버실로 달려갈 것입니다. 히어로즈 선수단이 오직 승리에만 집중할 수 있도록, 가장 든든하고 효율적인 후방 지원군이 되겠습니다.
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
