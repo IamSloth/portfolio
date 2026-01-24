@@ -23,13 +23,14 @@
         /* Page Container mimicking A4 */
         .page {
             width: 210mm;
-            min-height: 297mm;
+            min-height: 297mm; /* min-height로 복구 (짤림 방지) */
             background: white;
-            padding: 50px;
+            padding: 30px 40px;
             box-sizing: border-box;
             box-shadow: 0 0 15px rgba(0,0,0,0.3);
             position: relative;
             margin-bottom: 20px;
+            /* overflow: hidden; 제거 (내용이 짤리는 문제 해결) */
         }
 
         /* Print Settings */
@@ -44,10 +45,12 @@
                 margin: 0;
                 box-shadow: none;
                 width: 210mm;
-                height: 297mm; /* Enforce height for print */
-                padding: 50px;
-                page-break-after: always; /* Force new page after each .page */
+                min-height: 297mm; /* 인쇄 시에도 min-height */
+                padding: 30px 40px;
+                page-break-after: always;
+                page-break-inside: avoid;
                 display: block;
+                /* overflow: hidden; 제거 */
             }
             .page:last-child {
                 page-break-after: auto;
@@ -68,8 +71,10 @@
             flex-direction: column;
             justify-content: space-between;
         }
+        /* Resume Header Compact */
         .resume-content h1 {
-            font-size: 32px;
+            font-size: 28px; /* 32 -> 28 축소 */
+            font-weight: 800;
             margin: 0 0 5px 0;
             color: #1a1a1a;
             letter-spacing: -0.5px;
@@ -79,8 +84,8 @@
             justify-content: space-between;
             align-items: flex-start;
             border-bottom: 2px solid #820024;
-            padding-bottom: 15px;
-            margin-bottom: 20px;
+            padding-bottom: 10px; /* 15 -> 10 */
+            margin-bottom: 15px; /* 20 -> 15 */
         }
         .resume-content .job-title {
             font-size: 16px;
@@ -530,55 +535,54 @@
         <div class="essay-section">
             <div class="section-title">1. [Why Heroes?] 자생력의 가치를 아는 '실전형 인재'</div>
             <div class="section-body">
-                서울 히어로즈는 대한민국 프로야구에서 유일하게 모기업 없는 자생 구단으로서, 한정된 자원으로 최고의 효율을 창출하는 '머니볼(Moneyball)'의 상징입니다. 이러한 구단의 정체성은 저의 커리어 지향점과 깊이 맞닿아 있습니다. 저는 풍족한 자원보다는 주어진 제약 조건 속에서 최적의 해법을 찾아내는 과정에서 더 큰 성취를 느껴왔습니다. 공학적 논리성과 사회복지적 헌신, 그리고 ERP PM으로서 쌓아온 시스템 운영 능력을 하나로 융합하여, 히어로즈가 지속 가능한 성장을 이룰 수 있도록 안살림을 책임지고자 지원했습니다.
+                서울 히어로즈는 모기업 없이 자생하는 유일한 구단이자, '머니볼'의 상징입니다. 이는 한정된 자원 속에서 최적의 해법을 찾는 제 커리어 지향점과 일치합니다. 저는 공학적 논리성과 사회복지적 헌신, ERP 운영 능력을 융합하여 히어로즈의 지속 가능한 성장을 돕는 안살림꾼이 되고자 지원했습니다. 주어진 제약 조건을 기회로 바꾸는 도전, 히어로즈와 함께하고 싶습니다.
             </div>
         </div>
 
         <div class="essay-section">
             <div class="section-title">2. [Field Evidence] 2025년, 고척의 사계절을 함께하다</div>
             <div class="section-body">
-                <div style="background: #fff; border: 1px dashed #820024; padding: 15px; margin: 10px 0; text-align: center; border-radius: 8px;">
-                    <div style="display: flex; gap: 10px; justify-content: center; margin-bottom: 10px;">
-                        <!-- 사진을 여기에 붙여넣으세요 -->
-                        <div style="width: 32%; height: 150px; background: #eee; border-radius: 4px; overflow: hidden; position: relative;">
-                            <img src="일요일 어느날 고척돔 산책 (타 야구경기 일정 후 쓰레기).png" style="width: 100%; height: 100%; object-fit: cover;" alt="시설 관리 모니터링">
-                            <div style="position: absolute; bottom: 0; width: 100%; background: rgba(0,0,0,0.6); color: white; font-size: 11px; padding: 4px 0;">시설/청소 현황 관찰</div>
+                <div style="background: #fff; border: 1px dashed #820024; padding: 8px; margin: 5px 0; text-align: center; border-radius: 6px;">
+                    <div style="display: flex; gap: 6px; justify-content: center; margin-bottom: 6px;">
+                        <div style="width: 32%; height: 110px; background: #eee; border-radius: 3px; overflow: hidden; position: relative;">
+                            <img src="evidence_cleanup.png" style="width: 100%; height: 100%; object-fit: cover;" alt="시설 관리 모니터링">
+                            <div style="position: absolute; bottom: 0; width: 100%; background: rgba(0,0,0,0.6); color: white; font-size: 10px; padding: 3px 0;">시설/청소 현황 관찰</div>
                         </div>
-                        <div style="width: 32%; height: 150px; background: #eee; border-radius: 4px; overflow: hidden; position: relative;">
-                            <img src="전광판에 사무국에 따로 요청해서 송출 요청드렸었던거.png" style="width: 100%; height: 100%; object-fit: cover;" alt="전광판 운영">
-                            <div style="position: absolute; bottom: 0; width: 100%; background: rgba(0,0,0,0.6); color: white; font-size: 11px; padding: 4px 0;">구단 운영 소통 경험</div>
+                        <div style="width: 32%; height: 110px; background: #eee; border-radius: 3px; overflow: hidden; position: relative;">
+                            <img src="evidence_board.png" style="width: 100%; height: 100%; object-fit: cover;" alt="전광판 운영">
+                            <div style="position: absolute; bottom: 0; width: 100%; background: rgba(0,0,0,0.6); color: white; font-size: 10px; padding: 3px 0;">구단 운영 소통 경험</div>
                         </div>
-                        <div style="width: 32%; height: 150px; background: #eee; border-radius: 4px; overflow: hidden; position: relative;">
-                            <img src="동료들과찍은사진.png" style="width: 100%; height: 100%; object-fit: cover;" alt="팬 문화">
-                            <div style="position: absolute; bottom: 0; width: 100%; background: rgba(0,0,0,0.6); color: white; font-size: 11px; padding: 4px 0;">팬 문화에 대한 이해</div>
+                        <div style="width: 32%; height: 110px; background: #eee; border-radius: 3px; overflow: hidden; position: relative;">
+                            <img src="evidence_team.png" style="width: 100%; height: 100%; object-fit: cover;" alt="팬 문화">
+                            <div style="position: absolute; bottom: 0; width: 100%; background: rgba(0,0,0,0.6); color: white; font-size: 10px; padding: 3px 0;">팬 문화 이해</div>
                         </div>
                     </div>
-                    <div style="font-size: 13px; font-weight: 700; color: #820024;">
+                    <div style="font-size: 12px; font-weight: 700; color: #820024;">
                         "너무 좋아서 매일 가다 보니, 어느새 구석구석이 눈에 들어왔습니다."
                     </div>
                 </div>
-                야구는 저에게 단순한 취미 그 이상입니다. 2025년 한 해, 홈과 원정을 가리지 않고 수없이 경기장을 찾았습니다. 그저 팀이 좋아서, 현장의 공기가 좋아서 발이 닳도록 드나들다 보니 자연스럽게 보이는 것들이 있었습니다. 관중들이 언제 환호하고 언제 불편해하는지, 매점 줄은 왜 특정 시간에만 길어지는지, 팬들의 동선은 어떻게 흐르는지... 책상 위에서는 알 수 없었던 '진짜 현장'의 디테일을 몸으로 익혔습니다. 이 생생한 경험과 애정을 바탕으로, 팬의 마음을 가장 잘 헤아리는 '센스 있는' 살림꾼이 되겠습니다.
+                2025년 한 해, 홈과 원정을 가리지 않고 경기장을 찾았습니다. 팀이 좋아 발이 닳도록 드나들다 보니 자연스럽게 관중의 동선, 매점의 효율성, 팬들의 불편함이 보이기 시작했습니다. 책상 위에서는 알 수 없었던 '진짜 현장'의 디테일을 몸으로 익혔습니다. 이 생생한 경험을 바탕으로 팬의 마음을 가장 잘 아는 살림꾼이 되겠습니다.
             </div>
         </div>
 
         <div class="essay-section">
             <div class="section-title">3. [Engineering Base] 문제 해결의 논리적 기초</div>
             <div class="section-body">
-                대학에서 전기공학을 전공하며 회로 설계와 시스템 제어를 배웠습니다. 이는 복잡한 문제를 논리적으로 분해하고 구조화하는 사고방식의 토대가 되었습니다. 과거 자재 관리 업무 수행 시, 복잡하게 얽힌 자재 데이터(BOM)를 체계화하여 생산 효율을 높였던 경험은, 향후 구단의 방대한 자산 및 시설 관리 업무를 시스템화하는 데 든든한 밑거름이 될 것입니다. 숫자에 대한 감각과 시스템에 대한 이해는 재무/회계 업무의 정확성을 담보하는 핵심 역량입니다.
+                전기공학 전공을 통해 회로 설계와 시스템 제어를 배우며 논리적 사고의 틀을 갖췄습니다. 과거 자재 관리 업무 시, 복잡한 자재 데이터(BOM)를 체계화하여 생산 효율을 높인 경험이 있습니다. 이러한 공학적 베이스는 방대한 구단 자산 관리와 시설 유지보수 업무를 시스템화하고, 재무 데이터의 정확성을 담보하는 핵심 역량이 될 것입니다.
             </div>
         </div>
 
         <div class="essay-section">
             <div class="section-title">4. [Social Welfare & Operations] 사람과 시스템의 조화</div>
             <div class="section-body">
-                이후 사회복지 대학원에 진학하여 '사람'에 대한 이해를 넓혔고, 비영리 법인에서 3년간 실무를 담당했습니다. 이곳에서 저는 단순한 행정가를 넘어 조직의 빈틈을 메우는 '멀티플레이어'로 성장했습니다. 예산 집행의 투명성을 확보하는 회계 업무부터, 커스텀 ERP 도입을 통한 업무 자동화, 그리고 직접 드라이버를 들고 PC와 시설을 수리하는 현장 지원까지 도맡았습니다. 특히 외부 업체에 의존하던 유지보수를 내재화하여 연간 비용을 30% 절감한 성과는, 조직에 대한 깊은 애정과 '주인 의식'이 있었기에 가능한 결과였습니다.
+                비영리 법인에서 3년간 근무하며 조직의 빈틈을 메우는 '멀티플레이어'로 성장했습니다. 회계 투명성을 위한 지출결의 검증부터 커스텀 ERP 도입 지원, 그리고 직접 드라이버를 들고 시설을 수리하는 현장 업무까지 도맡았습니다. 특히 유지보수를 내재화하여 연간 비용을 30% 절감한 성과는 저의 주인의식과 실행력을 증명합니다.
             </div>
         </div>
 
         <div class="essay-section">
             <div class="section-title">5. [Ready for Heroes] 준비된 '유틸리티 플레이어'</div>
             <div class="section-body">
-                야구단의 프런트는 1군 엔트리 뒤에서 묵묵히 팀을 지탱하는 26번째 선수입니다. 저는 화려한 조명을 받는 홈런타자는 아니지만, 내야와 외야, 투수와 포수 사이의 빈틈을 메우는 든든한 '유틸리티 플레이어'가 되고자 합니다. 1종 대형 면허로 구단 버스를 운전해야 한다면 핸들을 잡을 것이고, 전산 장애로 업무가 마비된다면 지체 없이 서버실로 달려갈 것입니다. 히어로즈 선수단이 오직 승리에만 집중할 수 있도록, 가장 든든하고 효율적인 후방 지원군이 되겠습니다.
+                프런트는 1군 엔트리 뒤의 26번째 선수입니다. 저는 화려한 홈런타자는 아니지만, 내야와 외야를 오가는 든든한 '유틸리티 플레이어'가 되겠습니다. 1종 대형 면허로 구단 버스를 몰아야 한다면 핸들을 잡고, 전산 장애가 발생하면 서버실로 달려가겠습니다. 히어로즈 선수단이 승리에만 집중할 수 있도록, 가장 든든하고 효율적인 후방 지원군이 되겠습니다.
             </div>
         </div>
     </div>
