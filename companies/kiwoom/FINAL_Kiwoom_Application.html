@@ -1,333 +1,262 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>임종권 - 서울히어로즈 지원서 전체 보기</title>
-    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
-    <style>
-        /* Common Styles */
-        body {
-            font-family: 'Pretendard', sans-serif;
-            background: #555; /* Dark background for viewing context */
-            margin: 0;
-            padding: 20px;
-            color: #333;
-            line-height: 1.5;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>임종권 - 서울히어로즈 지원서 전체 보기</title>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+    /* Common Styles */
+    body {
+        font-family: 'Pretendard', sans-serif;
+        background: #555;
+        margin: 0;
+        padding: 20px;
+        color: #333;
+        line-height: 1.5;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        -webkit-font-smoothing: antialiased;
+    }
 
-        /* Page Container mimicking A4 */
-        .page {
-            width: 210mm;
-            min-height: 297mm; /* min-height로 복구 (짤림 방지) */
-            background: white;
-            padding: 30px 40px;
-            box-sizing: border-box;
-            box-shadow: 0 0 15px rgba(0,0,0,0.3);
-            position: relative;
-            margin-bottom: 20px;
-            /* overflow: hidden; 제거 (내용이 짤리는 문제 해결) */
-        }
+    .page {
+        width: 210mm;
+        height: 297mm;
+        background: white;
+        padding: 30px 40px;
+        box-sizing: border-box;
+        box-shadow: 0 0 15px rgba(0,0,0,0.3);
+        position: relative;
+        margin-bottom: 20px;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+    }
 
-        /* Print Settings */
-        @media print {
-            body { 
-                background: white; 
-                margin: 0; 
-                padding: 0; 
-                display: block; /* Restore block for print flow */
-            }
-            .page {
-                margin: 0;
-                box-shadow: none;
-                width: 210mm;
-                min-height: 297mm; /* 인쇄 시에도 min-height */
-                padding: 30px 40px;
-                page-break-after: always;
-                page-break-inside: avoid;
-                display: block;
-                /* overflow: hidden; 제거 */
-            }
-            .page:last-child {
-                page-break-after: auto;
-            }
-            /* Hide non-print elements */
-            .no-print { display: none !important; }
-        }
+    @media print {
+        body { background: none; }
+        .page { margin: 0; border: none; width: 210mm; height: 297mm; box-shadow: none; page-break-after: always; }
+        .no-print { display: none !important; }
+    }
 
-        /* ---- Resume Styles (Copied & Scoped) ---- */
-        .resume-content {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        .resume-content .page-content {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        /* Resume Header Compact */
-        .resume-content h1 {
-            font-size: 28px; /* 32 -> 28 축소 */
-            font-weight: 800;
-            margin: 0 0 5px 0;
-            color: #1a1a1a;
-            letter-spacing: -0.5px;
-        }
-        .resume-content header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            border-bottom: 2px solid #820024;
-            padding-bottom: 10px; /* 15 -> 10 */
-            margin-bottom: 15px; /* 20 -> 15 */
-        }
-        .resume-content .job-title {
-            font-size: 16px;
-            color: #820024;
-            font-weight: 700;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-        }
-        .resume-content .contact-info {
-            font-size: 14px;
-            color: #555;
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-        }
-        .resume-content .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .resume-content .profile-img {
-            width: 110px;
-            height: 140px;
-            object-fit: cover;
-            border-radius: 2px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            background: #eee;
-        }
-        .resume-content h2 {
-            font-size: 18px;
-            color: #820024;
-            border-bottom: 1px solid #ddd;
-            padding-bottom: 4px;
-            margin-bottom: 10px;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-        }
-        .resume-content section { margin-bottom: 30px; }
-        .resume-content .summary {
-            font-size: 15px;
-            line-height: 1.6;
-            color: #444;
-            text-align: justify;
-            word-break: keep-all;
-        }
-        .resume-content .summary ul, .resume-content .exp-details, .resume-content .special-desc ul {
-            margin: 0;
-            padding-left: 18px;
-        }
-        .resume-content .summary li, .resume-content .exp-details li { margin-bottom: 6px; }
-        
-        /* Special Box */
-        .resume-content .special-box {
-            background: #fff9fa;
-            border-left: 3px solid #820024;
-            padding: 12px 15px;
-            font-size: 13.5px;
-            border-radius: 0 4px 4px 0;
-        }
-        .resume-content .special-item {
-            margin-bottom: 8px;
-            display: flex;
-            align-items: baseline;
-        }
-        .resume-content .special-title {
-            font-weight: 700;
-            color: #820024;
-            width: 140px;
-            flex-shrink: 0;
-        }
-        .resume-content .special-desc {
-            color: #444;
-            line-height: 1.5;
-            flex: 1;
-            border-left: 2px solid #eee;
-            padding-left: 15px;
-        }
+    .resume-content header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        border-bottom: 2px solid #820024;
+        padding-bottom: 10px;
+        margin-bottom: 15px;
+    }
+    .resume-content .job-title {
+        font-size: 16px;
+        color: #820024;
+        font-weight: 700;
+        margin-bottom: 15px;
+        text-transform: uppercase;
+    }
+    .resume-content .contact-info {
+        font-size: 14px;
+        color: #555;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+    .resume-content .contact-item { display: flex; align-items: center; gap: 8px; }
+    .resume-content .profile-img {
+        width: 110px;
+        height: 140px;
+        object-fit: cover;
+        border-radius: 2px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        background: #eee;
+    }
+    .resume-content h2 {
+        font-size: 18px;
+        color: #820024;
+        border-bottom: 1px solid #ddd;
+        padding-bottom: 4px;
+        margin-bottom: 10px;
+        font-weight: 700;
+        letter-spacing: -0.5px;
+    }
+    
+    /* Spacious Layout for Page 1-3 */
+    .resume-content section { margin-bottom: 30px; }
+    .resume-content .summary, .resume-content .exp-details, .resume-content .special-desc, .essay-content-wrapper .keyword-body {
+        font-size: 14.5px; /* Restored size */
+        line-height: 1.6;
+        color: #333;
+        text-align: justify;
+        word-break: keep-all;
+    }
+    .resume-content .summary ul, .resume-content .exp-details, .resume-content .special-desc ul {
+        margin: 0;
+        padding-left: 18px;
+    }
+    .resume-content .summary li, .resume-content .exp-details li { 
+        margin-bottom: 6px; 
+        letter-spacing: -0.5px; /* Moderate tracking */
+    }
 
-        /* Experience */
-        .resume-content .experience-item { margin-bottom: 15px; }
-        .resume-content .exp-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 4px;
-        }
-        .resume-content .company-name { font-size: 16px; font-weight: 700; color: #000; }
-        .resume-content .exp-date { font-size: 13px; color: #666; font-weight: 500; }
-        .resume-content .role-title {
-            font-size: 14px;
-            color: #444;
-            font-weight: 600;
-            margin-bottom: 6px;
-            font-style: italic;
-        }
-        
-        /* Education */
-        .resume-content .edu-item {
-            margin-bottom: 12px;
-            display: flex;
-            justify-content: space-between;
-            border-bottom: 1px dashed #eee;
-            padding-bottom: 8px;
-        }
-        .resume-content .school-name { font-weight: 700; font-size: 15px; color: #333; }
-        .resume-content .major-info { font-size: 14px; color: #666; }
+    /* Special Box */
+    .resume-content .special-box {
+        background: #fff9fa;
+        border-left: 3px solid #820024;
+        padding: 12px 15px;
+        font-size: 13.5px;
+        border-radius: 0 4px 4px 0;
+    }
+    .resume-content .special-item { margin-bottom: 8px; display: flex; align-items: baseline; }
+    .resume-content .special-title { font-weight: 700; color: #820024; width: 140px; flex-shrink: 0; }
+    .resume-content .special-desc { 
+        font-size: 14.5px;
+        letter-spacing: -0.6px;
+        color: #444;
+        line-height: 1.6;
+        flex: 1;
+        border-left: 2px solid #eee;
+        padding-left: 15px;
+    }
 
-        /* Skills */
-        .resume-content .skills-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 10px;
-        }
-        .resume-content .skill-tag {
-            background: #fff9fa;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 13.5px;
-            font-weight: 600;
-            color: #820024;
-            border: 1px solid #e0c0c8;
-            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
-        }
-        .resume-content .license-list {
-            margin-top: 20px;
-            font-size: 14px;
-            line-height: 1.8;
-            color: #444;
-            background: #f9f9f9;
-            padding: 15px;
-            border-radius: 4px;
-        }
+    /* Experience */
+    .resume-content .experience-item { margin-bottom: 15px; }
+    .resume-content .exp-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px; }
+    .resume-content .company-name { font-size: 16px; font-weight: 700; color: #000; }
+    .resume-content .exp-date { font-size: 13px; color: #666; font-weight: 500; }
+    .resume-content .role-title { font-size: 14px; color: #444; font-weight: 600; margin-bottom: 6px; font-style: italic; }
 
-        /* Footer & Seal */
-        .resume-content footer {
-            margin-top: 30px;
-            text-align: center;
-            font-size: 12px;
-            color: #888;
-            border-top: 1px solid #eee;
-            padding-top: 15px;
-            position: relative;
-        }
-        .seal-img {
-            position: absolute;
-            width: 50px;
-            height: 50px;
-            right: -10px;
-            top: -18px;
-            opacity: 0.8;
-            transform: rotate(-5deg);
-        }
+    /* Education */
+    .resume-content .edu-item {
+        margin-bottom: 12px;
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px dashed #eee;
+        padding-bottom: 8px;
+    }
+    .resume-content .school-name { font-weight: 700; font-size: 15px; color: #333; }
+    .resume-content .major-info { font-size: 14px; color: #666; }
 
-        /* Page 2 Header */
-        .page-header-repeat {
-            border-bottom: 2px solid #820024;
-            padding-bottom: 10px;
-            margin-bottom: 30px;
-            display: none; /* Hidden by default on screen if not needed, but good for consistency */
-            justify-content: space-between;
-            align-items: flex-end;
-            color: #888;
-        }
-        .page-header-repeat .name { font-size: 16px; font-weight: 800; color: #333; }
-        .page-header-repeat .meta { font-size: 13px; font-weight: 500; }
-        @media print { .page-header-repeat { display: flex !important; } }
+    /* Redesigned Skills Section */
+    .skills-grid {
+        display: grid;
+        grid-template-columns: 100px 1fr;
+        gap: 10px;
+        background: #f9f9f9;
+        padding: 15px;
+        border-radius: 6px;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+    .skills-label {
+        font-weight: 700;
+        color: #820024;
+        font-size: 14.5px;
+        text-align: right;
+        padding-right: 15px;
+        border-right: 2px solid #e0e0e0;
+    }
+    .skills-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+    .skill-pill {
+        background: white;
+        border: 1px solid #ddd;
+        padding: 4px 10px;
+        border-radius: 4px;
+        font-size: 13.5px;
+        color: #444;
+        font-weight: 500;
+    }
+    .skill-pill.highlight {
+        border-color: #820024;
+        color: #820024;
+        background: #fff0f3;
+        font-weight: 700;
+    }
 
+    /* Footer */
+    .resume-content footer, .page footer {
+        margin-top: auto;
+        text-align: center;
+        font-size: 13px;
+        color: #888;
+        border-top: none;
+        padding-top: 20px;
+        position: relative;
+        padding-bottom: 5px;
+        font-family: 'Pretendard', sans-serif;
+    }
 
-        /* ---- Essay Styles ---- */
-        .essay-content-wrapper h1 {
-            font-size: 24px;
-            font-weight: 800;
-            color: #820024;
-            border-bottom: 2px solid #820024;
-            padding-bottom: 15px;
-            margin-bottom: 30px;
-        }
-        .essay-content-wrapper .question-box {
-            background-color: #f9f9f9;
-            border-left: 4px solid #820024;
-            padding: 20px;
-            margin-bottom: 30px;
-            font-weight: 700;
-            font-size: 16px;
-            color: #444;
-        }
-        .essay-content-wrapper .keyword-section { margin-bottom: 25px; }
-        .essay-content-wrapper .keyword-title {
-            font-size: 18px;
-            font-weight: 800;
-            color: #820024;
-            margin-bottom: 10px;
-        }
-        .essay-content-wrapper .keyword-body, .essay-content-wrapper .section-body {
-            color: #333;
-            line-height: 1.8;
-            text-align: justify;
-            word-break: keep-all;
-            font-size: 15px;
-        }
+    /* Essay Styles */
+    .essay-content-wrapper h1 {
+        font-size: 24px;
+        font-weight: 800;
+        color: #820024;
+        border-bottom: 2px solid #820024;
+        padding-bottom: 15px;
+        margin-bottom: 30px;
+    }
+    .essay-content-wrapper .question-box {
+        background-color: #f9f9f9;
+        border-left: 4px solid #820024;
+        padding: 20px;
+        margin-bottom: 30px;
+        font-weight: 700;
+        font-size: 16px;
+        color: #444;
+    }
+    .essay-content-wrapper .keyword-section { margin-bottom: 30px; }
+    .essay-content-wrapper .keyword-title { font-size: 18px; font-weight: 800; color: #820024; margin-bottom: 10px; }
+    
+    /* Essay Content Bigger Font */
+    .essay-content-wrapper .keyword-body, .essay-content-wrapper .section-body {
+        font-size: 15.5px; /* Bigger font for essay */
+        line-height: 1.8;
+        color: #333;
+        text-align: justify;
+        word-break: keep-all;
+    }
 
-        /* Free Essay Specifics */
-        .essay-content-wrapper .main-title {
-            font-size: 20px;
-            font-weight: 700;
-            color: #1a1a1a;
-            margin-bottom: 30px;
-            text-align: center;
-            line-height: 1.4;
-            word-break: keep-all;
-        }
-        .essay-content-wrapper .section-title {
-            font-size: 16px;
-            font-weight: 700;
-            color: #820024;
-            margin-bottom: 10px;
-            border-left: 3px solid #820024;
-            padding-left: 10px;
-            display: flex;
-            align-items: center;
-        }
-        .essay-content-wrapper .essay-section { margin-bottom: 30px; }
+    /* Compact Mode (Page 4) */
+    .compact-mode {
+        padding: 20px 30px !important;
+    }
+    .compact-mode .section-body {
+        font-size: 14.5px; /* Bigger font for page 4 too */
+        line-height: 1.65;
+    }
+    .compact-mode .essay-section { margin-bottom: 12px; }
+    .compact-mode h1 { margin-bottom: 15px; }
+    .compact-mode .main-title {
+        font-size: 20px;
+        font-weight: 700;
+        color: #1a1a1a;
+        margin-bottom: 30px;
+        text-align: center;
+        line-height: 1.4;
+        word-break: keep-all;
+    }
+    .compact-mode .section-title {
+        font-size: 16px;
+        font-weight: 700;
+        color: #820024;
+        margin-bottom: 15px;
+        border-left: 3px solid #820024;
+        padding-left: 10px;
+        display: flex;
+        align-items: center;
+    }
 
-        /* Print Button */
-        .print-btn {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background-color: #333;
-            color: white;
-            border: none;
-            padding: 15px 30px;
-            border-radius: 50px;
-            font-size: 16px;
-            font-weight: bold;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            cursor: pointer;
-            z-index: 1000;
-        }
-        .print-btn:hover { background-color: #555; transform: translateY(-2px); }
-    </style>
+    .print-btn {
+        position: fixed; bottom: 30px; right: 30px; background-color: #333; color: white; border: none; padding: 15px 30px;
+        border-radius: 50px; font-size: 16px; font-weight: bold; box-shadow: 0 4px 15px rgba(0,0,0,0.3); cursor: pointer; z-index: 1000;
+    }
+    .print-btn:hover { background-color: #555; transform: translateY(-2px); }
+</style>
 </head>
 <body>
     <button class="print-btn no-print" onclick="window.print()">🖨️ PDF 저장 / 인쇄</button>
@@ -381,7 +310,7 @@
                             <ul>
                                 <li>ERP(더존/커스텀) 운영 및 데이터 관리에 능숙하며, 신규 시스템을 빠르게 습득합니다.</li>
                                 <li>PC 포맷, 네트워크 장애 등 돌발적인 전산 오류를 즉시 해결하여 업무 효율을 높입니다.</li>
-                                <li>반복적인 엑셀/문서 작업을 자동화하여 행정 소요 시간을 단축하고 휴먼 에러를 방지합니다.</li>
+                                <li>반복적인 엑셀/문서 작업을 자동화하여 행정 시간을 단축하고 휴먼 에러를 방지합니다.</li>
                             </ul>
                         </span>
                     </div>
@@ -398,8 +327,52 @@
                 </div>
             </section>
             
-            <section style="margin-bottom: 0;">
-                <h2>경력 기술서 (1/2)</h2>
+            <section>
+                <h2>보유 기술 및 자격</h2>
+                <div class="skills-grid">
+                    <div class="skills-label">기술/툴</div>
+                    <div class="skills-list">
+                        <span class="skill-pill">ERP 구축/운영</span>
+                        <span class="skill-pill">지출결의/전표 검증</span>
+                        <span class="skill-pill">전산 장애 대응</span>
+                        <span class="skill-pill">시설/자산관리</span>
+                        <span class="skill-pill">협업툴(Slack/Notion)</span>
+                        <span class="skill-pill">Unity 3D/C#</span>
+                    </div>
+                </div>
+                <div class="skills-grid" style="margin-bottom: 0;">
+                    <div class="skills-label">자격/면허</div>
+                    <div class="skills-list">
+                        <span class="skill-pill highlight">사회복지사 1급</span>
+                        <span class="skill-pill highlight">1종 대형 운전면허</span>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <footer>Page 1 of 4</footer>
+    </div>
+
+    <!-- Page 2: Resume Part 2 -->
+    <div class="page resume-content">
+        <div class="page-content">
+            <header>
+                <div class="header-left">
+                    <h1>임 종 권 (LIM JONG KWON)</h1>
+                    <div class="job-title">ERP 구축 전문가 &amp; 문제 해결형 제너럴리스트</div>
+                    <div class="contact-info">
+                        <div class="contact-item"><span>📞</span> 010-4052-0834</div>
+                        <div class="contact-item"><span>📧</span> ssujklim@gmail.com</div>
+                        <div class="contact-item"><span>🏠</span> 경기도 광명시 도덕로 79, 1405호 (고척돔 버스 30분 거리)</div>
+                        <div class="contact-item"><span>🔗</span> https://sites.google.com/view/jongkwon/</div>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <img src="photo_screenshot.png" alt="Profile Photo" class="profile-img">
+                </div>
+            </header>
+            
+            <section>
+                <h2>경력 기술서</h2>
                 <div class="experience-item">
                     <div class="exp-header">
                         <span class="company-name">(사)함께만드는세상</span>
@@ -412,20 +385,7 @@
                         <li><b>[비용 절감]</b> 사내 네트워크/PC 장애 1차 대응 내재화. 연간 유지보수 비용 30% 절감 달성.</li>
                     </ul>
                 </div>
-            </section>
-        </div>
-    </div>
 
-    <!-- Page 2: Resume Part 2 -->
-    <div class="page resume-content">
-        <div class="page-content">
-            <div class="page-header-repeat" style="display: flex;">
-                <div class="name">임 종 권 (LIM JONG KWON)</div>
-                <div class="meta">ERP 구축 전문가 &amp; 문제 해결형 제너럴리스트 (2/2)</div>
-            </div>
-            
-            <section>
-                <h2>경력 기술서 (2/2)</h2>
                 <div class="experience-item">
                     <div class="exp-header">
                         <span class="company-name">(주)맨지온</span>
@@ -466,31 +426,9 @@
                     <div class="major-info">증강현실(AR) 개발 과정 / 2022.12 수료</div>
                 </div>
             </section>
-
-            <section>
-                <h2>보유 기술 및 자격</h2>
-                <div class="skills-container">
-                    <span class="skill-tag">ERP 구축/운영</span>
-                    <span class="skill-tag">지출결의/전표 검증</span>
-                    <span class="skill-tag">전산 장애 대응(H/W, N/W)</span>
-                    <span class="skill-tag">시설 및 자산관리</span>
-                    <span class="skill-tag">협업툴 활용</span>
-                    <span class="skill-tag">Unity 3D/C#</span>
-                </div>
-                <div class="license-list">
-                    <div>• <b>사회복지사 1급</b> (보건복지부)</div>
-                    <div>• <b>1종 대형 운전면허</b> (12년 무사고, 경찰청)</div>
-                </div>
-            </section>
         </div>
 
-        <footer>
-            위 내용은 사실과 다름이 없음을 확인합니다. <br>
-            <div style="display: inline-block; position: relative;">
-                <b>2026. 01. 23. &nbsp;&nbsp;&nbsp; 지원자: 임 종 권 (인)</b>
-                <img src="seal_stamp.png" class="seal-img" alt="도장">
-            </div>
-        </footer>
+        <footer>Page 2 of 4</footer>
     </div>
 
     <!-- Page 3: Required Essay -->
@@ -521,10 +459,11 @@
                 한정된 예산으로 최대의 효과를 내는 '머니볼' 철학은 선수단 운영뿐만 아니라 프런트 행정에도 동일하게 적용되어야 합니다. 비용은 줄이되 가치는 높여야 합니다. 저는 커스텀 ERP 도입을 보조하고, 사내 전산 장애를 외주 없이 직접 해결하며 연간 유지보수 비용을 30% 절감한 경험이 있습니다. '원래 하던 방식'에 안주하지 않고, 불필요한 행정 소요를 줄이고 시스템을 자동화하겠습니다. 프런트에서 절감된 비용과 시간은 곧 선수단 전력 강화와 팬 서비스 향상으로 이어질 것입니다.
             </div>
         </div>
+        <footer>Page 3 of 4</footer>
     </div>
 
-    <!-- Page 4: Free Essay -->
-    <div class="page essay-content-wrapper">
+    <!-- Page 4: Free Essay (Compact Mode applied) -->
+    <div class="page essay-content-wrapper compact-mode">
         <h1>자유 양식 자기소개서</h1>
         
         <div class="main-title">
@@ -544,15 +483,15 @@
             <div class="section-body">
                 <div style="background: #fff; border: 1px dashed #820024; padding: 8px; margin: 5px 0; text-align: center; border-radius: 6px;">
                     <div style="display: flex; gap: 6px; justify-content: center; margin-bottom: 6px;">
-                        <div style="width: 32%; height: 110px; background: #eee; border-radius: 3px; overflow: hidden; position: relative;">
+                        <div style="width: 32%; height: 100px; background: #eee; border-radius: 3px; overflow: hidden; position: relative;">
                             <img src="evidence_cleanup.png" style="width: 100%; height: 100%; object-fit: cover;" alt="시설 관리 모니터링">
                             <div style="position: absolute; bottom: 0; width: 100%; background: rgba(0,0,0,0.6); color: white; font-size: 10px; padding: 3px 0;">시설/청소 현황 관찰</div>
                         </div>
-                        <div style="width: 32%; height: 110px; background: #eee; border-radius: 3px; overflow: hidden; position: relative;">
+                        <div style="width: 32%; height: 100px; background: #eee; border-radius: 3px; overflow: hidden; position: relative;">
                             <img src="evidence_board.png" style="width: 100%; height: 100%; object-fit: cover;" alt="전광판 운영">
                             <div style="position: absolute; bottom: 0; width: 100%; background: rgba(0,0,0,0.6); color: white; font-size: 10px; padding: 3px 0;">구단 운영 소통 경험</div>
                         </div>
-                        <div style="width: 32%; height: 110px; background: #eee; border-radius: 3px; overflow: hidden; position: relative;">
+                        <div style="width: 32%; height: 100px; background: #eee; border-radius: 3px; overflow: hidden; position: relative;">
                             <img src="evidence_team.png" style="width: 100%; height: 100%; object-fit: cover;" alt="팬 문화">
                             <div style="position: absolute; bottom: 0; width: 100%; background: rgba(0,0,0,0.6); color: white; font-size: 10px; padding: 3px 0;">팬 문화 이해</div>
                         </div>
@@ -585,6 +524,7 @@
                 프런트는 1군 엔트리 뒤의 26번째 선수입니다. 저는 화려한 홈런타자는 아니지만, 내야와 외야를 오가는 든든한 '유틸리티 플레이어'가 되겠습니다. 1종 대형 면허로 구단 버스를 몰아야 한다면 핸들을 잡고, 전산 장애가 발생하면 서버실로 달려가겠습니다. 히어로즈 선수단이 승리에만 집중할 수 있도록, 가장 든든하고 효율적인 후방 지원군이 되겠습니다.
             </div>
         </div>
+        <footer>Page 4 of 4</footer>
     </div>
 
 </body>
