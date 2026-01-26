@@ -12,3 +12,7 @@
 5. **Context Hygiene**:
    - Proactively suggest running `/compact` or `/clear` after completing a logical unit of work.
 </system_rules>
+
+## 프로젝트 컨텍스트
+- **지원자 프로필**: `PROFILE_임종권.md` 참조 (핵심 역량, 연봉, 커리어 내러티브)
+- **회사별 지원 정보**: `companies/{회사명}/CLAUDE.md` 참조
