@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>임종권 - CSR 플랫폼 기획/운영 전문가</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+        
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #fff;
+            color: #222;
+            -webkit-print-color-adjust: exact;
+            word-break: keep-all;
+        }
+        
+        /* A4 Fixed Size Container */
+        .page {
+            width: 210mm;
+            height: 296mm; /* 1mm 여유 */
+            margin: 0 auto;
+            display: flex;
+            border-top: 5px solid #E65100; /* Smilegate Orange Tone */
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+
+        /* Left Sidebar: Compact & Formal */
+        .sidebar {
+            width: 32%;
+            background: #FFF3E0; /* Light Orange Background */
+            border-right: 1px solid #FFE0B2;
+            padding: 30px 20px;
+            display: flex;
+            flex-direction: column;
+            box-sizing: border-box;
+        }
+
+        .profile-img {
+            width: 130px;
+            height: 170px;
+            margin: 0 auto 25px;
+            border: 1px solid #FFCC80;
+            background: #fff;
+            padding: 4px;
+        }
+        .profile-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .contact-info { font-size: 12px; margin-bottom: 30px; line-height: 1.6; }
+        .contact-item { display: flex; align-items: flex-start; margin-bottom: 6px; color: #444; }
+        .contact-label { font-weight: 700; width: 45px; color: #E65100; }
+
+        .portfolio-btn {
+            display: block;
+            margin-top: 8px;
+            background: #E65100;
+            color: white;
+            text-align: center;
+            padding: 6px 0;
+            font-size: 11px;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 4px;
+        }
+
+        .side-section { margin-bottom: 30px; }
+        .side-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: #E65100;
+            border-bottom: 2px solid #E65100;
+            padding-bottom: 4px;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        .side-list-item { 
+            font-size: 12px; 
+            margin-bottom: 10px; 
+            padding-left: 10px;
+            position: relative;
+            line-height: 1.4;
+        }
+        .side-list-item::before {
+            content: '■';
+            position: absolute;
+            left: 0;
+            top: 3px;
+            font-size: 6px;
+            color: #EF6C00;
+        }
+
+        .school-name { font-weight: 700; display: block; color: #333; margin-bottom: 2px; }
+        .school-major { color: #555; font-size: 11px; }
+
+        .skill-box {
+            border: 1px solid #FFCC80;
+            background: #fff;
+            padding: 8px;
+            font-size: 11px;
+            line-height: 1.6;
+        }
+
+        /* Right Content: Compact */
+        .main-content {
+            flex: 1;
+            padding: 30px 35px;
+            box-sizing: border-box;
+        }
+
+        .header-name {
+            font-size: 28px;
+            font-weight: 800;
+            color: #000;
+            margin-bottom: 8px;
+            letter-spacing: -1px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 8px;
+        }
+        .header-role {
+            font-size: 14px;
+            font-weight: 700;
+            color: #E65100;
+            margin-bottom: 25px;
+        }
+
+        .summary-box {
+            border-left: 4px solid #E65100;
+            background: #FFF8F0;
+            padding: 15px;
+            font-size: 12px;
+            line-height: 1.6;
+            text-align: justify;
+            margin-bottom: 25px;
+            color: #333;
+        }
+
+        .main-section-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #000;
+            border-bottom: 2px solid #000;
+            padding-bottom: 6px;
+            margin-bottom: 15px;
+            margin-top: 5px;
+            display: flex;
+            align-items: center;
+        }
+        
+        /* Table Layout */
+        .exp-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        .exp-row { border-bottom: 1px solid #eee; }
+        .exp-date-col {
+            width: 100px;
+            font-size: 11px;
+            color: #666;
+            vertical-align: top;
+            padding: 8px 0;
+            font-weight: 500;
+        }
+        .exp-content-col {
+            padding: 8px 0 8px 12px;
+            vertical-align: top;
+        }
+        .company-name { font-size: 14px; font-weight: 700; color: #000; margin-bottom: 3px; display: inline-block;}
+        .role-name { font-size: 12px; color: #E65100; font-weight: 600; margin-left: 5px; }
+        
+        .exp-desc-list {
+            margin: 6px 0 0 0;
+            padding-left: 0;
+            list-style: none;
+        }
+        .exp-desc-item {
+            font-size: 12px;
+            margin-bottom: 4px;
+            padding-left: 8px;
+            position: relative;
+            line-height: 1.5;
+            color: #444;
+            text-align: justify;
+        }
+        .exp-desc-item::before {
+            content: '-';
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        .highlight { font-weight: 600; color: #000; }
+
+        .special-section {
+            border: 1px solid #E65100;
+            background-color: #FFF3E0;
+            padding: 12px;
+            margin-bottom: 25px;
+            border-radius: 4px;
+        }
+        .special-header {
+            font-size: 13px;
+            font-weight: 700;
+            border-bottom: 1px solid #FFB74D;
+            padding-bottom: 6px;
+            margin-bottom: 8px;
+            color: #E65100;
+            display: flex;
+            justify-content: space-between;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="page">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="profile-img">
+                <img src="../assets/profile_photo.jpg" alt="임종권">
+            </div>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span class="contact-label">주 소</span>
+                    <span>경기도 광명시<br>도덕로 79, 1405호</span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-label">연락처</span>
+                    <span>010-4052-0834</span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-label">이메일</span>
+                    <span>ssujklim@gmail.com</span>
+                </div>
+                <a href="https://sites.google.com/view/jongkwon/" class="portfolio-btn">포트폴리오 바로가기</a>
+            </div>
+
+            <div class="side-section">
+                <div class="side-title">학 력 (Education)</div>
+                <div class="side-list-item">
+                    <span class="school-name">숭실대학교 사회복지대학원</span>
+                    <span class="school-major">사회적기업전공 석사 (2020.02)</span>
+                    <span style="font-size:10px; color:#E65100;">*CSR/비영리 전문성 보유</span>
+                </div>
+                <div class="side-list-item">
+                    <span class="school-name">숭실대학교 공과대학</span>
+                    <span class="school-major">전기공학부 학사 (2017.02)</span>
+                </div>
+                <div class="side-list-item">
+                    <span class="school-name">한국폴리텍 광명융합기술교육원</span>
+                    <span class="school-major">증강현실(AR) 시스템제어 수료<br>(2022.03 ~ 2022.12)</span>
+                </div>
+            </div>
+
+            <div class="side-section">
+                <div class="side-title">자격 및 면허</div>
+                <div class="side-list-item">
+                    <span class="school-name">사회복지사 1급</span>
+                    <span class="school-major">보건복지부 (전문성 입증)</span>
+                </div>
+                <div class="side-list-item">
+                    <span class="school-name">1종 대형 운전면허</span>
+                    <span class="school-major">경찰청 (12년 무사고)</span>
+                </div>
+            </div>
+
+            <div class="side-section">
+                <div class="side-title">보유 기술 (Skills)</div>
+                <div class="skill-box">
+                    • <strong>Web/App Planning:</strong> UI/UX, QA<br>
+                    • <strong>Game Tech:</strong> Unity 3D, C#, AR<br>
+                    • <strong>ERP/Data:</strong> Nexacro, Tibero<br>
+                    • <strong>Collaboration:</strong> Notion, Slack
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="header-name">임 종 권</div>
+            <div class="header-role">사회적 가치(CSR)와 IT 기술을 연결하는 서비스 기획/운영 전문가</div>
+
+            <div class="summary-box">
+                <strong>□ Professional Summary</strong><br>
+                <strong>사회복지학 석사(사회적기업 전공)</strong>로서 CSR의 본질을 깊이 이해하고 있으며, 
+                <strong>3년간의 비영리/사회적기업(함께만드는세상) 실무 경험</strong>을 통해 공익 서비스 운영의 특수성을 체득했습니다.<br>
+                동시에 <strong>공대 출신(전기공학)</strong>이자 <strong>Unity 개발 과정을 수료</strong>한 기술적 배경을 바탕으로, 
+                개발팀과 원활하게 소통하며 안정적인 웹/플랫폼 서비스를 기획 및 운영할 수 있는 융합형 인재입니다.<br>
+                스마일게이트 희망스튜디오의 기부 플랫폼이 더 많은 사회적 가치를 창출하도록 기술과 감성을 연결하겠습니다.
+            </div>
+
+            <div class="main-section-title">1. CSR & 서비스 기획/운영 역량</div>
+            <div class="special-section">
+                <div class="special-header">
+                    <span>□ (사)함께만드는세상 - 사회적기업/비영리 실무</span>
+                    <span>[2023.01 ~ 2026.02]</span>
+                </div>
+                <ul class="exp-desc-list">
+                    <li class="exp-desc-item"><span class="highlight">운영 체계 최적화:</span> 사내 IT 인프라 및 ERP 시스템을 총괄 운영하며, 비영리 조직의 제한된 리소스 내에서 업무 효율을 극대화하는 프로세스 구축 (유지보수비 30% 절감).</li>
+                    <li class="exp-desc-item"><span class="highlight">서비스 고도화 PM:</span> 커스텀 ERP 구축 프로젝트의 PM을 맡아, 현업(사회복지사)의 니즈를 기술적 언어로 변환하여 개발사와 소통, 데이터 마이그레이션 및 시스템 안정화 완수.</li>
+                    <li class="exp-desc-item"><span class="highlight">공익적 가치 이해:</span> 사회복지대학원 석사 과정을 통해 기업의 사회적 책임(CSR)과 ESG 경영에 대한 이론적/실무적 지식 보유.</li>
+                </ul>
+            </div>
+
+            <div class="main-section-title">2. IT 기술 & 게임 산업 이해도</div>
+             <div class="special-section" style="background-color: #F3E5F5; border-color: #AB47BC;">
+                <div class="special-header" style="color: #8E24AA; border-color: #CE93D8;">
+                    <span>□ Unity/Metaverse 개발 교육 및 프로젝트</span>
+                    <span>[2022.03 ~ 2022.12]</span>
+                </div>
+                <ul class="exp-desc-list">
+                    <li class="exp-desc-item"><span class="highlight">개발 리터러시:</span> Unity/C# 과정을 1,200시간 수료하며 클라이언트 개발 파이프라인(기획-에셋-빌드-QA) 전 과정을 직접 경험.</li>
+                    <li class="exp-desc-item"><span class="highlight">프로젝트 성과:</span> '종권의 숲'(3D Action), '나의 작은 유니티양'(AR) 등 7건의 프로젝트 수행 및 <strong>메타버스 콘텐츠 리크루팅 캠프 대상(과기정통부 장관상 급)</strong> 수상.</li>
+                    <li class="exp-desc-item"><span class="highlight">적용점:</span> 기부 플랫폼의 Gamification 요소 도입이나 메타버스 연계 캠페인 기획 시 실질적인 기술적 제안 가능.</li>
+                </ul>
+            </div>
+
+            <div class="main-section-title">3. 추가 경력 사항</div>
+            <table class="exp-table">
+                <tr class="exp-row">
+                    <td class="exp-date-col">
+                        2020.03 ~ <br>2021.11
+                    </td>
+                    <td class="exp-content-col">
+                        <div class="company-name">(주)맨지온</div> <span class="role-name">IoT 시스템 운영 및 QA</span>
+                        <ul class="exp-desc-list">
+                            <li class="exp-desc-item"><span class="highlight">QA 및 UX 개선:</span> 시설 관제 시스템의 사용자 관점 UI/UX 테스트를 주도하여 사용성 개선 및 오류 수정.</li>
+                            <li class="exp-desc-item"><span class="highlight">데이터 분석:</span> 로그 데이터 분석을 통해 시스템 통신 장애 원인을 규명하고 안정화 기여.</li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+    </div>
+</body>
+</html>
