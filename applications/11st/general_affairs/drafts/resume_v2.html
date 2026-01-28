@@ -1,0 +1,502 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>임종권 - 11번가 총무 업무 담당자 지원 (v2)</title>
+<style>
+    @font-face {
+        font-family: 'SUIT';
+        font-weight: 100 900;
+        font-display: swap;
+        src: url('https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/variable/woff2/SUIT-Variable.woff2') format('woff2');
+    }
+
+    :root {
+        --brand: #ff0038;
+        --brand-soft: #fff0f3;
+        --ink: #111111;
+        --ink-2: #2b2b2b;
+        --muted: #5d6268;
+        --line: #e6e8eb;
+        --paper: #ffffff;
+        --soft: #f7f8fa;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+        font-family: 'SUIT', 'Pretendard', -apple-system, sans-serif;
+        background: #3a3a3a;
+        padding: 18px;
+        display: flex;
+        justify-content: center;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    .sheet {
+        width: 210mm;
+        height: 297mm;
+        background: var(--paper);
+        box-shadow: 0 6px 24px rgba(0,0,0,0.25);
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        position: relative;
+    }
+
+    @page { size: A4; margin: 0; }
+
+    @media print {
+        body { background: none; padding: 0; }
+        .sheet { box-shadow: none; }
+        .no-print { display: none !important; }
+    }
+
+    .print-btn {
+        position: fixed;
+        bottom: 28px;
+        right: 28px;
+        background: var(--brand);
+        color: #fff;
+        border: none;
+        padding: 14px 26px;
+        border-radius: 999px;
+        font-size: 14px;
+        font-weight: 700;
+        cursor: pointer;
+        z-index: 10;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .print-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(255,0,56,0.35);
+    }
+
+    /* Header */
+    .hero {
+        padding: 24px 34px 18px;
+        background: linear-gradient(120deg, #fff3f6 0%, #ffffff 55%, #ffffff 100%);
+        border-bottom: 2px solid var(--brand);
+        position: relative;
+    }
+    .hero::after {
+        content: '';
+        position: absolute;
+        right: -40px;
+        top: -40px;
+        width: 160px;
+        height: 160px;
+        background: radial-gradient(circle, rgba(255,0,56,0.14), transparent 70%);
+        transform: rotate(12deg);
+    }
+
+    .hero-grid {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 20px;
+        align-items: center;
+        position: relative;
+        z-index: 1;
+    }
+
+    .name {
+        font-size: 32px;
+        font-weight: 900;
+        color: var(--ink);
+        letter-spacing: -0.5px;
+        margin-bottom: 6px;
+    }
+
+    .tagline {
+        font-size: 14px;
+        font-weight: 700;
+        color: var(--muted);
+    }
+
+    .meta-row {
+        margin-top: 12px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        font-size: 12px;
+        color: var(--ink-2);
+    }
+    .meta-pill {
+        background: var(--paper);
+        border: 1px solid var(--line);
+        padding: 5px 10px;
+        border-radius: 999px;
+    }
+    .meta-pill strong { color: var(--brand); }
+
+    .photo-block {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .photo {
+        width: 98px;
+        height: 130px;
+        object-fit: cover;
+        border-radius: 8px;
+        border: 2px solid var(--brand);
+        background: #fff;
+    }
+
+    .contact {
+        font-size: 11.5px;
+        color: var(--ink-2);
+        text-align: right;
+        line-height: 1.6;
+    }
+
+    .metrics {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        margin-top: 14px;
+    }
+
+    .metric {
+        background: var(--paper);
+        border: 1px solid var(--line);
+        padding: 10px 12px;
+        border-radius: 10px;
+    }
+
+    .metric-value {
+        font-size: 16px;
+        font-weight: 800;
+        color: var(--brand);
+    }
+
+    .metric-label {
+        display: block;
+        font-size: 11px;
+        color: var(--muted);
+        margin-top: 4px;
+    }
+
+    /* Main layout */
+    .main {
+        display: grid;
+        grid-template-columns: 62% 38%;
+        gap: 20px;
+        padding: 18px 34px 16px;
+        flex: 1;
+    }
+
+    .section { margin-bottom: 14px; }
+
+    .section-title {
+        font-size: 15px;
+        font-weight: 800;
+        color: var(--ink);
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+    .section-title::before {
+        content: '';
+        width: 6px;
+        height: 16px;
+        background: var(--brand);
+        border-radius: 4px;
+    }
+
+    .summary-box {
+        border: 1px solid var(--line);
+        background: var(--soft);
+        padding: 12px 14px;
+        border-radius: 10px;
+        font-size: 12px;
+        line-height: 1.7;
+        color: var(--ink-2);
+    }
+    .summary-box strong { color: var(--ink); }
+
+    .bullet-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    .bullet-list li {
+        position: relative;
+        padding-left: 12px;
+        margin-bottom: 6px;
+        font-size: 12px;
+        line-height: 1.6;
+        color: var(--ink-2);
+    }
+    .bullet-list li::before {
+        content: '•';
+        position: absolute;
+        left: 0;
+        color: var(--brand);
+        font-weight: 900;
+    }
+
+    .timeline-item {
+        border-left: 2px solid var(--line);
+        padding-left: 12px;
+        margin-bottom: 12px;
+        position: relative;
+    }
+    .timeline-item::before {
+        content: '';
+        position: absolute;
+        left: -6px;
+        top: 4px;
+        width: 10px;
+        height: 10px;
+        background: var(--brand);
+        border-radius: 50%;
+    }
+
+    .role-line {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        margin-bottom: 4px;
+        gap: 8px;
+    }
+    .company {
+        font-size: 13px;
+        font-weight: 800;
+        color: var(--ink);
+    }
+    .period {
+        font-size: 11px;
+        color: var(--brand);
+        background: var(--brand-soft);
+        padding: 2px 8px;
+        border-radius: 999px;
+        white-space: nowrap;
+        font-weight: 700;
+    }
+    .role {
+        font-size: 12px;
+        color: var(--muted);
+        margin-bottom: 4px;
+    }
+
+    /* Right column */
+    .card {
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        padding: 12px;
+        background: #fff;
+    }
+
+    .tag-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+    .tag {
+        background: var(--soft);
+        border: 1px solid var(--line);
+        padding: 4px 9px;
+        border-radius: 999px;
+        font-size: 11px;
+        color: var(--ink-2);
+    }
+    .tag.highlight {
+        background: var(--brand);
+        border-color: var(--brand);
+        color: #fff;
+        font-weight: 700;
+    }
+
+    .edu-item {
+        padding: 8px 0;
+        border-bottom: 1px solid var(--line);
+    }
+    .edu-item:last-child { border-bottom: none; }
+    .edu-name {
+        font-size: 12px;
+        font-weight: 700;
+        color: var(--ink);
+    }
+    .edu-detail {
+        font-size: 11px;
+        color: var(--muted);
+    }
+
+    .cert-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 12px;
+        color: var(--ink-2);
+        padding: 6px 0;
+        border-bottom: 1px dashed var(--line);
+    }
+    .cert-item:last-child { border-bottom: none; }
+
+    .footer {
+        text-align: center;
+        font-size: 11px;
+        color: #777;
+        padding: 8px 10px 12px;
+        border-top: 1px solid var(--line);
+    }
+</style>
+</head>
+<body>
+    <button class="print-btn no-print" onclick="window.print()">PDF 저장 / 인쇄</button>
+
+    <div class="sheet">
+        <header class="hero">
+            <div class="hero-grid">
+                <div>
+                    <div class="name">임 종 권</div>
+                    <div class="tagline">총무·IT지원 실무 3년 | 시설관리·정산·안전보건 올라운더 | 1종 대형 면허</div>
+                    <div class="meta-row">
+                        <span class="meta-pill"><strong>경기도 광명시</strong> 거주</span>
+                        <span class="meta-pill">1992.01.04 (만 34세)</span>
+                        <span class="meta-pill">총무/시설/IT지원 즉시 투입</span>
+                    </div>
+                </div>
+                <div class="photo-block">
+                    <img src="../../../common/photos/profile.png" alt="Profile Photo" class="photo">
+                    <div class="contact">
+                        010-4052-0834<br>
+                        ssujklim@gmail.com
+                    </div>
+                </div>
+            </div>
+            <div class="metrics">
+                <div class="metric">
+                    <div class="metric-value">3년</div>
+                    <span class="metric-label">총무·IT지원 실무 경험</span>
+                </div>
+                <div class="metric">
+                    <div class="metric-value">3.6억</div>
+                    <span class="metric-label">연간 예산 집행 및 정산</span>
+                </div>
+                <div class="metric">
+                    <div class="metric-value">500만원</div>
+                    <span class="metric-label">연간 비용 절감 성과</span>
+                </div>
+            </div>
+        </header>
+
+        <main class="main">
+            <div>
+                <section class="section">
+                    <div class="section-title">지원 직무 적합성</div>
+                    <div class="summary-box">
+                        • 비영리 법인 <strong>3년차 총무·IT지원 실무자</strong>로 시설관리·비품관리·정산·문서관리 전 영역 1인 담당<br>
+                        • <strong>1종 대형 면허</strong> 보유 → 통근버스 관리 업무 직접 대응 가능<br>
+                        • ERP 도입 실무 경험 + PC/네트워크 트러블슈팅으로 <strong>IT 기반 총무 업무 효율화</strong><br>
+                        • <strong>소방안전관리자</strong> — 소방·승강기·전기·방역 법정점검 외주업체 관리 → <strong>안전보건 순회점검</strong> 즉시 투입
+                    </div>
+                </section>
+
+                <section class="section">
+                    <div class="section-title">핵심 역량</div>
+                    <ul class="bullet-list">
+                        <li><strong>시설·안전관리:</strong> 인테리어 공사 감리, PC·조명·가구 경정비 직접 수행, 소방안전관리자(외주업체 관리)</li>
+                        <li><strong>정산·비용관리:</strong> 30여 개 항목 예산 3.6억 집행, 재계약 협상 연 500만원 절감, 지출결의 검증·감사 대응</li>
+                        <li><strong>IT 기반 효율화:</strong> ERP 도입 실무 전 과정 담당, PC/네트워크 장애 직접 해결, SQL 데이터 추출·Excel 고급</li>
+                    </ul>
+                </section>
+
+                <section class="section">
+                    <div class="section-title">경력 사항</div>
+                    <div class="timeline-item">
+                        <div class="role-line">
+                            <span class="company">(사)함께만드는세상</span>
+                            <span class="period">2023.01 ~ 2026.01 (3년)</span>
+                        </div>
+                        <div class="role">총무·IT지원 (대리)</div>
+                        <ul class="bullet-list">
+                            <li><strong>시설관리:</strong> 사옥 인테리어 공사 감리 · PC·조명·사무가구 경정비 · IT 자산(HW/SW) 수명주기 관리</li>
+                            <li><strong>안전보건:</strong> 소방안전관리자 — 소방·승강기·전기·방역 법정점검 외주업체 선정·관리·일정 조율</li>
+                            <li><strong>정산/예산:</strong> 30여 개 항목 3.6억 집행 · 지출결의 검증 · 외부 감사 대응</li>
+                            <li><strong>비용절감:</strong> 복합기·전자계약 재계약 협상 연 500만원 절감 · IT 장애 내재화로 유지보수비 30% 절감</li>
+                        </ul>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="role-line">
+                            <span class="company">(주)맨지온</span>
+                            <span class="period">2020.03 ~ 2021.11 (1년 8개월)</span>
+                        </div>
+                        <div class="role">IoT 시스템 운영 / QA</div>
+                        <ul class="bullet-list">
+                            <li>시설 관제 시스템 운영 · 데이터 로그 분석 · 통신 장애 원인 규명 및 해결 프로세스 확립</li>
+                        </ul>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="role-line">
+                            <span class="company">(주)엣지크로스</span>
+                            <span class="period">2016.05 ~ 2018.02 (1년 9개월)</span>
+                        </div>
+                        <div class="role">H/W 개발 / 자재관리</div>
+                        <ul class="bullet-list">
+                            <li>BOM 기반 자재 관리 · 부품 수급 조율 · 프로토타입 제작 및 테스트</li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+
+            <aside>
+                <section class="section card">
+                    <div class="section-title">핵심 키워드</div>
+                    <div class="tag-grid">
+                        <span class="tag highlight">시설·안전관리</span>
+                        <span class="tag highlight">1종 대형 면허</span>
+                        <span class="tag highlight">ERP 구축/운영</span>
+                        <span class="tag">정산·예산관리</span>
+                        <span class="tag">PC/네트워크 장애대응</span>
+                        <span class="tag">SQL 데이터 추출</span>
+                        <span class="tag">Excel 고급</span>
+                        <span class="tag">문서관리</span>
+                    </div>
+                </section>
+
+                <section class="section card">
+                    <div class="section-title">자격 / 면허</div>
+                    <div class="cert-item">
+                        <span>사회복지사 1급</span>
+                        <span>보건복지부 (2020)</span>
+                    </div>
+                    <div class="cert-item">
+                        <span>1종 대형 면허</span>
+                        <span>12년 무사고</span>
+                    </div>
+                    <div class="cert-item">
+                        <span>소방안전관리자</span>
+                        <span>법정점검 관리</span>
+                    </div>
+                </section>
+
+                <section class="section card">
+                    <div class="section-title">학력</div>
+                    <div class="edu-item">
+                        <div class="edu-name">숭실대 사회복지대학원 (석사)</div>
+                        <div class="edu-detail">사회적기업 전공 · 2020.02</div>
+                    </div>
+                    <div class="edu-item">
+                        <div class="edu-name">숭실대 공과대학 (학사)</div>
+                        <div class="edu-detail">전기공학부 / 경제학 복수전공 · 2017.02</div>
+                    </div>
+                    <div class="edu-item">
+                        <div class="edu-name">한국폴리텍 광명융합기술교육원</div>
+                        <div class="edu-detail">메타버스·SW개발 (Unity/C#) · 2022.12</div>
+                    </div>
+                </section>
+            </aside>
+        </main>
+
+        <footer class="footer">임종권 · 11번가 총무 업무 담당자 지원</footer>
+    </div>
+</body>
+</html>

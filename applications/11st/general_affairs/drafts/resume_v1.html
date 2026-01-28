@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>임종권 - 11번가 총무 업무 담당자 지원</title>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+    :root {
+        /* 11번가 공식 디자인 시스템 (design.11stcorp.com) */
+        --11st-red: #FF0038;
+        --11st-gradient-1: #FF5A2E;
+        --11st-gradient-2: #FF0038;
+        --11st-gradient-3: #FF00EF;
+        --11st-dark: #1a1a1a;
+        --gray-02: #111111;
+        --gray-03: #333333;
+        --gray-04: #666666;
+        --gray-11: #EEEEEE;
+        --gray-12: #F4F4F4;
+        --gray-13: #FAFAFA;
+        --white: #ffffff;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+        font-family: 'Pretendard', -apple-system, sans-serif;
+        background: #444;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    .page {
+        width: 210mm;
+        height: 297mm;
+        background: var(--white);
+        box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+    }
+
+    @page { size: A4; margin: 0; }
+
+    @media print {
+        body { background: none; padding: 0; }
+        .page { box-shadow: none; margin: 0; }
+        .no-print { display: none !important; }
+    }
+
+    .print-btn {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background: var(--11st-red);
+        color: var(--white);
+        border: none;
+        padding: 15px 30px;
+        border-radius: 50px;
+        font-size: 16px;
+        font-weight: 700;
+        cursor: pointer;
+        z-index: 1000;
+        transition: all 0.3s;
+    }
+    .print-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(255,0,56,0.4);
+    }
+
+    /* ========== HEADER ========== */
+    .resume-header {
+        background: linear-gradient(135deg, var(--11st-gradient-1) 0%, var(--11st-gradient-2) 60%, #e6004f 100%);
+        padding: 28px 35px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .resume-header-left h1 {
+        color: var(--white);
+        font-size: 34px;
+        font-weight: 800;
+        letter-spacing: 4px;
+        margin-bottom: 14px;
+    }
+
+    .resume-header-left .tagline {
+        color: rgba(255,255,255,0.92);
+        font-size: 15px;
+        font-weight: 600;
+        letter-spacing: 0.3px;
+    }
+
+    .profile-photo {
+        width: 110px;
+        height: 140px;
+        object-fit: cover;
+        border: 3px solid rgba(255,255,255,0.7);
+        border-radius: 6px;
+    }
+
+    /* ========== BODY ========== */
+    .resume-body {
+        padding: 22px 35px 16px;
+        flex: 1;
+    }
+
+    .contact-bar {
+        display: flex;
+        gap: 20px;
+        padding: 11px 18px;
+        background: var(--gray-13);
+        border-radius: 8px;
+        margin-bottom: 18px;
+        font-size: 13px;
+        color: var(--gray-03);
+        border: 1px solid var(--gray-11);
+    }
+
+    .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    .contact-icon {
+        color: var(--11st-red);
+        font-size: 13px;
+    }
+
+    /* ========== SECTION TITLE ========== */
+    .section-title {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 12px;
+        padding-bottom: 7px;
+        border-bottom: 2px solid var(--gray-03);
+    }
+
+    .section-title h2 {
+        color: var(--gray-02);
+        font-size: 16px;
+        font-weight: 800;
+        letter-spacing: -0.5px;
+    }
+
+    .section-title::before {
+        content: '';
+        width: 4px;
+        height: 18px;
+        background: var(--11st-red);
+        border-radius: 2px;
+    }
+
+    .resume-section { margin-bottom: 14px; }
+
+    /* ========== FIT SUMMARY ========== */
+    .fit-summary {
+        background: var(--gray-13);
+        padding: 13px 16px;
+        border-left: 4px solid var(--11st-red);
+        border-radius: 0 8px 8px 0;
+        font-size: 13px;
+        line-height: 1.85;
+        color: var(--gray-03);
+    }
+
+    .fit-summary strong {
+        color: var(--gray-02);
+    }
+
+    /* ========== COMPETENCY CARDS ========== */
+    .competency-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        margin-bottom: 5px;
+    }
+
+    .competency-card {
+        background: var(--gray-02);
+        border-radius: 10px;
+        padding: 15px;
+        text-align: center;
+        border-top: 3px solid var(--11st-red);
+    }
+
+    .competency-card h3 {
+        color: var(--white);
+        font-size: 14px;
+        font-weight: 800;
+        margin-bottom: 9px;
+        letter-spacing: -0.3px;
+    }
+
+    .competency-card p {
+        color: rgba(255,255,255,0.85);
+        font-size: 11px;
+        line-height: 1.55;
+    }
+
+    /* ========== CAREER TIMELINE ========== */
+    .career-timeline {
+        position: relative;
+        padding-left: 20px;
+    }
+
+    .career-timeline::before {
+        content: '';
+        position: absolute;
+        left: 5px;
+        top: 5px;
+        bottom: 5px;
+        width: 2px;
+        background: linear-gradient(180deg, var(--11st-red) 0%, var(--gray-11) 100%);
+    }
+
+    .career-item {
+        position: relative;
+        margin-bottom: 12px;
+        padding-left: 20px;
+    }
+
+    .career-item::before {
+        content: '';
+        position: absolute;
+        left: -19px;
+        top: 6px;
+        width: 10px;
+        height: 10px;
+        background: var(--11st-red);
+        border: 2px solid var(--white);
+        border-radius: 50%;
+        box-shadow: 0 0 0 2px var(--11st-red);
+    }
+
+    .career-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        margin-bottom: 4px;
+    }
+
+    .career-company {
+        font-size: 14px;
+        font-weight: 700;
+        color: var(--gray-02);
+    }
+
+    .career-period {
+        font-size: 11.5px;
+        color: var(--11st-red);
+        font-weight: 700;
+        background: #FFF0F3;
+        padding: 2px 10px;
+        border-radius: 10px;
+    }
+
+    .career-role {
+        font-size: 12px;
+        color: var(--gray-04);
+        margin-bottom: 4px;
+    }
+
+    .career-desc {
+        font-size: 11.5px;
+        color: var(--gray-04);
+        line-height: 1.55;
+    }
+
+    .career-desc strong {
+        color: var(--gray-03);
+    }
+
+    /* ========== TWO COLUMN ========== */
+    .two-column {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+
+    .skill-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+
+    .skill-tag {
+        background: var(--gray-13);
+        border: 1px solid var(--gray-11);
+        padding: 5px 12px;
+        border-radius: 15px;
+        font-size: 11px;
+        color: var(--gray-03);
+        font-weight: 500;
+    }
+
+    .skill-tag.highlight {
+        background: var(--11st-red);
+        border-color: var(--11st-red);
+        color: var(--white);
+        font-weight: 700;
+    }
+
+    .edu-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 8px 0;
+        border-bottom: 1px solid var(--gray-11);
+    }
+
+    .edu-item:last-child { border-bottom: none; }
+
+    .edu-name {
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--gray-02);
+    }
+
+    .edu-detail {
+        font-size: 11px;
+        color: var(--gray-04);
+    }
+
+    .cert-grid {
+        display: flex;
+        gap: 10px;
+        margin-top: 8px;
+    }
+
+    .cert-badge {
+        flex: 1;
+        background: #FFF0F3;
+        border: 1px solid #FFD6DE;
+        padding: 10px;
+        border-radius: 8px;
+        text-align: center;
+    }
+
+    .cert-badge strong {
+        display: block;
+        font-size: 12px;
+        color: var(--gray-02);
+        margin-bottom: 2px;
+    }
+
+    .cert-badge span {
+        font-size: 10px;
+        color: var(--gray-04);
+    }
+
+    /* ========== FOOTER ========== */
+    .page-footer {
+        background: var(--gray-02);
+        padding: 8px;
+        text-align: center;
+        color: rgba(255,255,255,0.7);
+        font-size: 11px;
+        font-weight: 600;
+        margin-top: auto;
+    }
+</style>
+</head>
+<body>
+    <button class="print-btn no-print" onclick="window.print()">PDF 저장 / 인쇄</button>
+
+    <div class="page">
+        <header class="resume-header">
+            <div class="resume-header-left">
+                <h1>임 종 권</h1>
+                <div class="tagline">총무·IT지원 실무 3년 | 시설관리·정산·안전보건 올라운더 | 1종 대형 면허</div>
+            </div>
+            <img src="../../../common/photos/profile.png" alt="Profile Photo" class="profile-photo">
+        </header>
+
+        <div class="resume-body">
+            <div class="contact-bar">
+                <div class="contact-item"><span class="contact-icon">📞</span> 010-4052-0834</div>
+                <div class="contact-item"><span class="contact-icon">📧</span> ssujklim@gmail.com</div>
+                <div class="contact-item"><span class="contact-icon">🏠</span> 경기도 광명시</div>
+                <div class="contact-item"><span class="contact-icon">🎂</span> 1992.01.04 (만 34세)</div>
+            </div>
+
+            <section class="resume-section" style="margin-bottom: 15px;">
+                <div class="section-title"><h2>지원 직무 적합성</h2></div>
+                <div class="fit-summary">
+                    • 비영리 법인 <strong>3년차 총무·IT지원 실무자</strong> — 시설관리·비품관리·정산·문서관리 전 영역 1인 담당<br>
+                    • <strong>1종 대형 면허</strong> 보유 → 통근버스 관리 업무 직접 대응 가능<br>
+                    • ERP 도입 실무 경험 + PC/네트워크 트러블슈팅 → <strong>IT 기반 총무 업무 효율화</strong><br>
+                    • <strong>소방안전관리자</strong> — 소방·승강기·전기·방역 법정점검 외주업체 관리 → <strong>안전보건 순회점검</strong> 즉시 투입
+                </div>
+            </section>
+
+            <section class="resume-section">
+                <div class="section-title"><h2>핵심 역량</h2></div>
+                <div class="competency-grid">
+                    <div class="competency-card">
+                        <h3>시설·안전관리</h3>
+                        <p>인테리어 공사 감리 경험<br>PC·조명·가구 경정비 직접 수행<br>소방안전관리자 (외주업체 관리)</p>
+                    </div>
+                    <div class="competency-card">
+                        <h3>정산·비용관리</h3>
+                        <p>30여 개 항목 예산 3.6억 집행<br>재계약 협상 연 500만원 절감<br>지출결의 검증 · 감사 대응</p>
+                    </div>
+                    <div class="competency-card">
+                        <h3>IT 기반 효율화</h3>
+                        <p>ERP 도입 실무 전 과정 담당<br>PC/네트워크 장애 직접 해결<br>SQL 데이터 추출·Excel 고급</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="resume-section">
+                <div class="section-title"><h2>경력 사항</h2></div>
+                <div class="career-timeline">
+                    <div class="career-item">
+                        <div class="career-header">
+                            <span class="career-company">(사)함께만드는세상</span>
+                            <span class="career-period">2023.01 ~ 2026.01 (3년)</span>
+                        </div>
+                        <div class="career-role">총무·IT지원 (대리)</div>
+                        <div class="career-desc">
+                            <strong>시설관리:</strong> 사옥 인테리어 공사 감리 · PC·조명·사무가구 경정비 · IT 자산(HW/SW) 수명주기 관리<br>
+                            <strong>안전보건:</strong> 소방안전관리자 — 소방·승강기·전기·방역 법정점검 외주업체 선정·관리·일정 조율<br>
+                            <strong>정산/예산:</strong> 30여 개 항목 3.6억 집행 · 지출결의 검증 · 외부 감사 대응<br>
+                            <strong>비용절감:</strong> 복합기·전자계약 재계약 협상 연 500만원 절감 · IT 장애 내재화로 유지보수비 30% 절감
+                        </div>
+                    </div>
+                    <div class="career-item">
+                        <div class="career-header">
+                            <span class="career-company">(주)맨지온</span>
+                            <span class="career-period">2020.03 ~ 2021.11 (1년 8개월)</span>
+                        </div>
+                        <div class="career-role">IoT 시스템 운영 / QA</div>
+                        <div class="career-desc">
+                            시설 관제 시스템 운영 · 데이터 로그 분석 · 통신 장애 원인 규명 및 해결 프로세스 확립
+                        </div>
+                    </div>
+                    <div class="career-item">
+                        <div class="career-header">
+                            <span class="career-company">(주)엣지크로스</span>
+                            <span class="career-period">2016.05 ~ 2018.02 (1년 9개월)</span>
+                        </div>
+                        <div class="career-role">H/W 개발 / 자재관리</div>
+                        <div class="career-desc">
+                            BOM 기반 자재 관리 · 부품 수급 조율 · 프로토타입 제작 및 테스트
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="two-column">
+                <section class="resume-section">
+                    <div class="section-title"><h2>보유 스킬</h2></div>
+                    <div class="skill-tags">
+                        <span class="skill-tag highlight">시설·안전관리</span>
+                        <span class="skill-tag highlight">1종 대형 면허</span>
+                        <span class="skill-tag highlight">ERP 구축/운영</span>
+                        <span class="skill-tag">정산·예산관리</span>
+                        <span class="skill-tag">PC/네트워크 장애대응</span>
+                        <span class="skill-tag">SQL 데이터 추출</span>
+                        <span class="skill-tag">Excel 고급</span>
+                        <span class="skill-tag">문서관리</span>
+                    </div>
+                    <div class="cert-grid">
+                        <div class="cert-badge">
+                            <strong>사회복지사 1급</strong>
+                            <span>보건복지부 (2020)</span>
+                        </div>
+                        <div class="cert-badge">
+                            <strong>1종 대형 면허</strong>
+                            <span>12년 무사고</span>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="resume-section">
+                    <div class="section-title"><h2>학력</h2></div>
+                    <div class="edu-item">
+                        <div>
+                            <div class="edu-name">숭실대 사회복지대학원 (석사)</div>
+                            <div class="edu-detail">사회적기업 전공</div>
+                        </div>
+                        <span class="edu-detail">2020.02</span>
+                    </div>
+                    <div class="edu-item">
+                        <div>
+                            <div class="edu-name">숭실대 공과대학 (학사)</div>
+                            <div class="edu-detail">전기공학부 / 경제학 복수전공</div>
+                        </div>
+                        <span class="edu-detail">2017.02</span>
+                    </div>
+                    <div class="edu-item">
+                        <div>
+                            <div class="edu-name">한국폴리텍 광명융합기술교육원</div>
+                            <div class="edu-detail">메타버스·SW개발 (Unity/C#)</div>
+                        </div>
+                        <span class="edu-detail">2022.12</span>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <footer class="page-footer">임종권 · 11번가 총무 업무 담당자 지원</footer>
+    </div>
+
+</body>
+</html>

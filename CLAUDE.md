@@ -30,13 +30,13 @@ Job-Application-Pipeline-Desktop/
 ├── content/                         # Single Source of Truth
 │   ├── profile.json                 # 경력 데이터
 │   └── data.json                    # 보조 데이터
-├── applications/                    # 기업별 지원 기록
-│   └── {company}_{position}/        # 예: kiwoom_accounting/
-│       ├── {company}_{position}_strategy.md
-│       ├── jd/                      # 채용공고 원본
-│       ├── artifacts/               # 회사별 증거자료
-│       ├── drafts/                  # 작업 중간본
-│       └── final/                   # 최종 제출물
+├── applications/                    # 기업별 지원 기록 (회사 → 포지션 2단계)
+│   └── {company}/                   # 예: kiwoom/, smilegate/
+│       └── {position}/              # 예: accounting/, crossfire_test_engineer/
+│           ├── {position}_strategy.md  # 메인 허브 (JD 분석 포함)
+│           ├── artifacts/           # 증거자료 + 채용공고 원본 (이미지 등)
+│           ├── drafts/              # 작업 중간본
+│           └── final/              # 최종 제출물
 ├── templates/                       # 문서 템플릿
 │   ├── resumes/
 │   └── web/
@@ -79,8 +79,7 @@ Job-Application-Pipeline-Desktop/
 
 | 폴더 | 패턴 | 예시 |
 |------|------|------|
-| `jd/` | `jd_{YYMMDD}.{ext}` | `jd_260115.pdf` |
-| `artifacts/` | `{type}_{desc}.{ext}` | `evidence_scoreboard.png` |
+| `artifacts/` | `{type}_{desc}.{ext}` | `evidence_scoreboard.png`, `jd_260115.pdf` |
 | `drafts/` | `{doctype}_v{n}.{ext}` | `resume_v1.pdf` |
 | `final/` | `{doctype}_{YYMMDD}.{ext}` | `application_260127.pdf` |
 
@@ -95,6 +94,7 @@ Job-Application-Pipeline-Desktop/
 | DISCOVERED | 📋 | 공고 발견 |
 | ANALYZING | 📊 | JD 분석 중 |
 | PREPARING | ✍️ | 서류 작성 중 |
+| ON_HOLD | ⏸️ | 서류 준비 완료, 제출 보류 (strategy.md에 사유 기록) |
 | SUBMITTED | 📤 | 제출 완료 |
 | DOC_PASSED | 📬 | 서류 통과 |
 | INTERVIEW | 📞 | 면접 진행 |
@@ -121,5 +121,5 @@ Job-Application-Pipeline-Desktop/
 | 프로필 사진 | `common/photos/profile.png` |
 | 경력 데이터 | `content/profile.json` |
 | 셀링 전략 | `manual/NARRATIVE_STRATEGY.md` |
-| 기업별 전략 | `applications/{company}_{position}/{company}_{position}_strategy.md` |
+| 기업별 전략 | `applications/{company}/{position}/{position}_strategy.md` |
 | 이력서 템플릿 | `templates/resumes/` |

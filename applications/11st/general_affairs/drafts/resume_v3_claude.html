@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>임종권 - 11번가 총무 업무 담당자 지원 (v3)</title>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+    :root {
+        --brand: #FF0038;
+        --brand-soft: #FFF0F3;
+        --brand-border: #FFD6DE;
+        --grad-1: #FF5A2E;
+        --grad-2: #FF0038;
+        --ink: #111111;
+        --ink-2: #333333;
+        --muted: #666666;
+        --line: #EEEEEE;
+        --soft: #F7F8FA;
+        --paper: #ffffff;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+        font-family: 'Pretendard', -apple-system, sans-serif;
+        background: #3a3a3a;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    .sheet {
+        width: 210mm;
+        height: 297mm;
+        background: var(--paper);
+        box-shadow: 0 6px 24px rgba(0,0,0,0.3);
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        position: relative;
+    }
+
+    @page { size: A4; margin: 0; }
+
+    @media print {
+        body { background: none; padding: 0; }
+        .sheet { box-shadow: none; }
+        .no-print { display: none !important; }
+    }
+
+    .print-btn {
+        position: fixed;
+        bottom: 28px;
+        right: 28px;
+        background: var(--brand);
+        color: #fff;
+        border: none;
+        padding: 14px 26px;
+        border-radius: 999px;
+        font-size: 14px;
+        font-weight: 700;
+        cursor: pointer;
+        z-index: 10;
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .print-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(255,0,56,0.35);
+    }
+
+    /* ========== HEADER (v1 스타일: 빨간 그라데이션) ========== */
+    .hero {
+        background: linear-gradient(135deg, var(--grad-1) 0%, var(--grad-2) 60%, #e6004f 100%);
+        padding: 22px 34px 16px;
+        position: relative;
+    }
+
+    .hero-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 14px;
+    }
+
+    .hero-left h1 {
+        color: #fff;
+        font-size: 32px;
+        font-weight: 900;
+        letter-spacing: 3px;
+        margin-bottom: 8px;
+    }
+
+    .tagline {
+        color: rgba(255,255,255,0.92);
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    .contact-row {
+        display: flex;
+        gap: 14px;
+        margin-top: 10px;
+        font-size: 12px;
+        color: rgba(255,255,255,0.85);
+    }
+
+    .photo {
+        width: 96px;
+        height: 126px;
+        object-fit: cover;
+        border: 3px solid rgba(255,255,255,0.7);
+        border-radius: 6px;
+    }
+
+    /* 메트릭 카드 (v2 스타일) */
+    .metrics {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+    }
+
+    .metric {
+        background: rgba(255,255,255,0.15);
+        backdrop-filter: blur(4px);
+        border: 1px solid rgba(255,255,255,0.25);
+        padding: 10px 14px;
+        border-radius: 8px;
+        text-align: center;
+    }
+
+    .metric-value {
+        font-size: 18px;
+        font-weight: 900;
+        color: #fff;
+    }
+
+    .metric-label {
+        display: block;
+        font-size: 10.5px;
+        color: rgba(255,255,255,0.8);
+        margin-top: 2px;
+    }
+
+    /* ========== MAIN 2-COLUMN (v2 스타일) ========== */
+    .main {
+        display: grid;
+        grid-template-columns: 62% 38%;
+        gap: 18px;
+        padding: 16px 34px 12px;
+        flex: 1;
+    }
+
+    .section { margin-bottom: 12px; }
+
+    .section-title {
+        font-size: 14px;
+        font-weight: 800;
+        color: var(--ink);
+        margin-bottom: 8px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+    .section-title::before {
+        content: '';
+        width: 4px;
+        height: 16px;
+        background: var(--brand);
+        border-radius: 2px;
+    }
+
+    /* 적합성 박스 */
+    .fit-box {
+        background: var(--soft);
+        border-left: 4px solid var(--brand);
+        border-radius: 0 8px 8px 0;
+        padding: 11px 14px;
+        font-size: 12px;
+        line-height: 1.8;
+        color: var(--ink-2);
+    }
+    .fit-box strong { color: var(--ink); }
+
+    /* 핵심역량 카드 (v1 스타일: 다크) */
+    .comp-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+    }
+
+    .comp-card {
+        background: var(--ink);
+        border-radius: 8px;
+        padding: 12px 10px;
+        text-align: center;
+        border-top: 3px solid var(--brand);
+    }
+
+    .comp-card h3 {
+        color: #fff;
+        font-size: 12.5px;
+        font-weight: 800;
+        margin-bottom: 6px;
+    }
+
+    .comp-card p {
+        color: rgba(255,255,255,0.82);
+        font-size: 10.5px;
+        line-height: 1.5;
+    }
+
+    /* 경력 타임라인 */
+    .timeline-item {
+        border-left: 2px solid var(--line);
+        padding-left: 14px;
+        margin-bottom: 10px;
+        position: relative;
+    }
+    .timeline-item:first-child {
+        border-left-color: var(--brand);
+    }
+    .timeline-item::before {
+        content: '';
+        position: absolute;
+        left: -6px;
+        top: 4px;
+        width: 10px;
+        height: 10px;
+        background: var(--brand);
+        border: 2px solid var(--paper);
+        border-radius: 50%;
+        box-shadow: 0 0 0 2px var(--brand);
+    }
+
+    .role-line {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        margin-bottom: 3px;
+    }
+    .company {
+        font-size: 13px;
+        font-weight: 800;
+        color: var(--ink);
+    }
+    .period {
+        font-size: 10.5px;
+        color: var(--brand);
+        background: var(--brand-soft);
+        padding: 2px 8px;
+        border-radius: 999px;
+        font-weight: 700;
+        white-space: nowrap;
+    }
+    .role {
+        font-size: 11.5px;
+        color: var(--muted);
+        margin-bottom: 3px;
+    }
+
+    .desc-list {
+        list-style: none;
+        padding: 0;
+    }
+    .desc-list li {
+        position: relative;
+        padding-left: 10px;
+        font-size: 11px;
+        line-height: 1.55;
+        color: var(--ink-2);
+        margin-bottom: 2px;
+    }
+    .desc-list li::before {
+        content: '•';
+        position: absolute;
+        left: 0;
+        color: var(--brand);
+        font-weight: 900;
+    }
+    .desc-list li strong { color: var(--ink); }
+
+    /* ========== RIGHT SIDEBAR (v2 스타일) ========== */
+    .card {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 10px 12px;
+        background: #fff;
+        margin-bottom: 10px;
+    }
+
+    .tag-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+    .tag {
+        background: var(--soft);
+        border: 1px solid var(--line);
+        padding: 4px 9px;
+        border-radius: 999px;
+        font-size: 10.5px;
+        color: var(--ink-2);
+    }
+    .tag.hl {
+        background: var(--brand);
+        border-color: var(--brand);
+        color: #fff;
+        font-weight: 700;
+    }
+
+    .cert-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 11.5px;
+        color: var(--ink-2);
+        padding: 5px 0;
+        border-bottom: 1px dashed var(--line);
+    }
+    .cert-item:last-child { border-bottom: none; }
+    .cert-item strong { color: var(--ink); }
+
+    .edu-item {
+        padding: 6px 0;
+        border-bottom: 1px solid var(--line);
+    }
+    .edu-item:last-child { border-bottom: none; }
+    .edu-name {
+        font-size: 11.5px;
+        font-weight: 700;
+        color: var(--ink);
+    }
+    .edu-detail {
+        font-size: 10.5px;
+        color: var(--muted);
+    }
+
+    /* Footer */
+    .footer {
+        background: var(--ink);
+        padding: 7px;
+        text-align: center;
+        color: rgba(255,255,255,0.7);
+        font-size: 10.5px;
+        font-weight: 600;
+        margin-top: auto;
+    }
+</style>
+</head>
+<body>
+    <button class="print-btn no-print" onclick="window.print()">PDF 저장 / 인쇄</button>
+
+    <div class="sheet">
+        <!-- HEADER: v1 빨간 그라데이션 + v2 메트릭 카드 -->
+        <header class="hero">
+            <div class="hero-top">
+                <div class="hero-left">
+                    <h1>임 종 권</h1>
+                    <div class="tagline">총무·IT지원 실무 3년 | 시설관리·정산·안전보건 올라운더 | 1종 대형 면허</div>
+                    <div class="contact-row">
+                        <span>📞 010-4052-0834</span>
+                        <span>📧 ssujklim@gmail.com</span>
+                        <span>🏠 경기도 광명시</span>
+                        <span>🎂 1992.01.04 (만 34세)</span>
+                    </div>
+                </div>
+                <img src="../../../common/photos/profile.png" alt="Profile Photo" class="photo">
+            </div>
+            <div class="metrics">
+                <div class="metric">
+                    <div class="metric-value">3년</div>
+                    <span class="metric-label">총무·IT지원 실무</span>
+                </div>
+                <div class="metric">
+                    <div class="metric-value">3.6억</div>
+                    <span class="metric-label">연간 예산 집행·정산</span>
+                </div>
+                <div class="metric">
+                    <div class="metric-value">500만원</div>
+                    <span class="metric-label">연간 비용 절감 성과</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- BODY: v2 2단 레이아웃 -->
+        <main class="main">
+            <!-- LEFT COLUMN -->
+            <div>
+                <section class="section">
+                    <div class="section-title">지원 직무 적합성</div>
+                    <div class="fit-box">
+                        • 비영리 법인 <strong>3년차 총무·IT지원 실무자</strong> — 시설관리·비품관리·정산·문서관리 전 영역 1인 담당<br>
+                        • <strong>1종 대형 면허</strong> 보유 → 통근버스 관리 업무 직접 대응 가능<br>
+                        • ERP 도입 실무 경험 + PC/네트워크 트러블슈팅 → <strong>IT 기반 총무 업무 효율화</strong><br>
+                        • <strong>소방안전관리자</strong> — 소방·승강기·전기·방역 법정점검 외주업체 관리 → <strong>안전보건 순회점검</strong> 즉시 투입
+                    </div>
+                </section>
+
+                <!-- 핵심역량: v1 다크 카드 -->
+                <section class="section">
+                    <div class="section-title">핵심 역량</div>
+                    <div class="comp-grid">
+                        <div class="comp-card">
+                            <h3>시설·안전관리</h3>
+                            <p>인테리어 공사 감리 경험<br>PC·조명·가구 경정비<br>소방안전관리자</p>
+                        </div>
+                        <div class="comp-card">
+                            <h3>정산·비용관리</h3>
+                            <p>30여 항목 3.6억 집행<br>재계약 협상 500만 절감<br>지출결의·감사 대응</p>
+                        </div>
+                        <div class="comp-card">
+                            <h3>IT 기반 효율화</h3>
+                            <p>ERP 도입 전 과정<br>PC/NW 장애 직접 해결<br>SQL·Excel 고급</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 경력 -->
+                <section class="section">
+                    <div class="section-title">경력 사항</div>
+                    <div class="timeline-item">
+                        <div class="role-line">
+                            <span class="company">(사)함께만드는세상</span>
+                            <span class="period">2023.01 ~ 2026.01 (3년)</span>
+                        </div>
+                        <div class="role">총무·IT지원 (대리)</div>
+                        <ul class="desc-list">
+                            <li><strong>시설관리:</strong> 사옥 인테리어 공사 감리 · PC·조명·사무가구 경정비 · IT 자산 수명주기 관리</li>
+                            <li><strong>안전보건:</strong> 소방안전관리자 — 소방·승강기·전기·방역 법정점검 외주업체 선정·관리</li>
+                            <li><strong>정산/예산:</strong> 30여 개 항목 3.6억 집행 · 지출결의 검증 · 외부 감사 대응</li>
+                            <li><strong>비용절감:</strong> 복합기·전자계약 재계약 협상 연 500만원 절감 · IT 유지보수비 30% 절감</li>
+                        </ul>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="role-line">
+                            <span class="company">(주)맨지온</span>
+                            <span class="period">2020.03 ~ 2021.11 (1년 8개월)</span>
+                        </div>
+                        <div class="role">IoT 시스템 운영 / QA</div>
+                        <ul class="desc-list">
+                            <li>시설 관제 시스템 운영 · 데이터 로그 분석 · 통신 장애 원인 규명 및 해결 프로세스 확립</li>
+                        </ul>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="role-line">
+                            <span class="company">(주)엣지크로스</span>
+                            <span class="period">2016.05 ~ 2018.02 (1년 9개월)</span>
+                        </div>
+                        <div class="role">H/W 개발 / 자재관리</div>
+                        <ul class="desc-list">
+                            <li>BOM 기반 자재 관리 · 부품 수급 조율 · 프로토타입 제작 및 테스트</li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+
+            <!-- RIGHT SIDEBAR -->
+            <aside>
+                <section class="section card">
+                    <div class="section-title">핵심 키워드</div>
+                    <div class="tag-grid">
+                        <span class="tag hl">시설·안전관리</span>
+                        <span class="tag hl">1종 대형 면허</span>
+                        <span class="tag hl">ERP 구축/운영</span>
+                        <span class="tag">정산·예산관리</span>
+                        <span class="tag">PC/NW 장애대응</span>
+                        <span class="tag">SQL 데이터 추출</span>
+                        <span class="tag">Excel 고급</span>
+                        <span class="tag">문서관리</span>
+                    </div>
+                </section>
+
+                <section class="section card">
+                    <div class="section-title">자격 / 면허</div>
+                    <div class="cert-item">
+                        <strong>소방안전관리자</strong>
+                        <span>법정점검 관리</span>
+                    </div>
+                    <div class="cert-item">
+                        <strong>1종 대형 면허</strong>
+                        <span>12년 무사고</span>
+                    </div>
+                    <div class="cert-item">
+                        <strong>사회복지사 1급</strong>
+                        <span>보건복지부 (2020)</span>
+                    </div>
+                </section>
+
+                <section class="section card">
+                    <div class="section-title">학력</div>
+                    <div class="edu-item">
+                        <div class="edu-name">숭실대 사회복지대학원 (석사)</div>
+                        <div class="edu-detail">사회적기업 전공 · 2020.02</div>
+                    </div>
+                    <div class="edu-item">
+                        <div class="edu-name">숭실대 공과대학 (학사)</div>
+                        <div class="edu-detail">전기공학부 / 경제학 복수전공 · 2017.02</div>
+                    </div>
+                    <div class="edu-item">
+                        <div class="edu-name">한국폴리텍 광명융합기술교육원</div>
+                        <div class="edu-detail">메타버스·SW개발 (Unity/C#) · 2022.12</div>
+                    </div>
+                </section>
+            </aside>
+        </main>
+
+        <footer class="footer">임종권 · 11번가 총무 업무 담당자 지원</footer>
+    </div>
+</body>
+</html>
