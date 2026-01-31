@@ -1,0 +1,1744 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>임종권 포트폴리오 - CSR 플랫폼 서비스 기획/운영</title>
+    <style>
+        @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css");
+
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+            background: #e8e8e8;
+            color: #333;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+            word-break: keep-all;
+        }
+
+        /* ===== Colors ===== */
+        :root {
+            --primary: #FF6600;
+            --primary-dark: #E55A00;
+            --primary-light: #FF9A50;
+            --primary-bg: #FFF5EE;
+            --primary-bg2: #FFE0C2;
+            --dark: #1a1a1a;
+            --gray: #555;
+            --light-gray: #999;
+            --border: #e5e5e5;
+            --card-shadow: 0 1px 4px rgba(0,0,0,0.08);
+        }
+
+        /* ===== Page Container ===== */
+        .page {
+            width: 210mm;
+            height: 297mm;
+            margin: 10px auto;
+            background: #fff;
+            position: relative;
+            overflow: hidden;
+            page-break-after: always;
+        }
+        .page:last-child { page-break-after: avoid; }
+
+        /* ===== Page Header Bar ===== */
+        .page-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: #fff;
+            padding: 12px 32px;
+            font-size: 11px;
+            font-weight: 500;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            letter-spacing: 0.5px;
+        }
+        .page-header .page-num {
+            font-weight: 700;
+            font-size: 11px;
+            opacity: 0.85;
+            letter-spacing: 2px;
+        }
+
+        /* ===== P1: Cover — 완전 리디자인 ===== */
+        .cover {
+            display: flex;
+            height: 100%;
+        }
+        .cover-left {
+            width: 38%;
+            background: linear-gradient(180deg, #FF6600 0%, #E55A00 60%, #CC4D00 100%);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 60px 35px;
+            position: relative;
+        }
+        .cover-left::before {
+            content: '';
+            position: absolute;
+            top: 60px;
+            left: 35px;
+            width: 50px;
+            height: 3px;
+            background: rgba(255,255,255,0.5);
+        }
+        .cover-photo {
+            width: 130px;
+            height: 160px;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 3px solid rgba(255,255,255,0.4);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+            margin-bottom: 30px;
+        }
+        .cover-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .cover-left-label {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            opacity: 0.7;
+            margin-bottom: 12px;
+        }
+        .cover-left-name {
+            font-size: 36px;
+            font-weight: 900;
+            letter-spacing: 6px;
+            margin-bottom: 8px;
+            line-height: 1.2;
+        }
+        .cover-left-role {
+            font-size: 13px;
+            font-weight: 500;
+            opacity: 0.9;
+            line-height: 1.6;
+            margin-bottom: 40px;
+        }
+        .cover-left-contact {
+            font-size: 11px;
+            line-height: 2.2;
+            opacity: 0.85;
+        }
+        .cover-left-contact strong {
+            display: inline-block;
+            width: 48px;
+            font-weight: 700;
+            opacity: 1;
+        }
+        .cover-right {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 40px 36px;
+        }
+        .cover-tagline {
+            font-size: 24px;
+            font-weight: 900;
+            color: var(--dark);
+            line-height: 1.6;
+            margin-bottom: 24px;
+            letter-spacing: -0.5px;
+        }
+        .cover-tagline em {
+            font-style: normal;
+            color: var(--primary);
+        }
+        .cover-desc {
+            font-size: 13px;
+            color: var(--gray);
+            line-height: 1.9;
+            margin-bottom: 28px;
+        }
+        .cover-profile-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 28px;
+            font-size: 12px;
+        }
+        .cover-profile-table td {
+            padding: 9px 12px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .cover-profile-table td:first-child {
+            color: var(--primary);
+            font-weight: 700;
+            width: 80px;
+            font-size: 10px;
+            letter-spacing: 1px;
+            vertical-align: top;
+        }
+        .cover-profile-table td:last-child {
+            color: var(--dark);
+            font-weight: 500;
+        }
+        .cover-keywords {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .cover-keyword {
+            background: var(--primary-bg);
+            border: 1px solid var(--primary-bg2);
+            color: var(--primary);
+            font-size: 11px;
+            font-weight: 700;
+            padding: 8px 16px;
+            border-radius: 30px;
+            letter-spacing: 0.5px;
+        }
+        .cover-toc {
+            margin-top: 24px;
+            padding: 18px 20px;
+            background: #fafafa;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+        .cover-toc-title {
+            font-size: 10px;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+        .cover-toc-item {
+            font-size: 11.5px;
+            color: var(--gray);
+            line-height: 1.5;
+            padding: 5px 0;
+            border-bottom: 1px solid #f0f0f0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .cover-toc-item:last-child { border-bottom: none; }
+        .cover-toc-num {
+            font-size: 10px;
+            font-weight: 800;
+            color: var(--primary);
+            min-width: 20px;
+        }
+
+        .cover-target {
+            margin-top: auto;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+            font-size: 12px;
+            color: var(--light-gray);
+            line-height: 1.8;
+        }
+        .cover-target strong {
+            color: var(--dark);
+            font-weight: 700;
+        }
+
+        /* ===== Content Pages Common ===== */
+        .content {
+            padding: 0 32px 24px;
+        }
+        .section-label {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+            margin-top: 14px;
+        }
+        .section-title {
+            font-size: 21px;
+            font-weight: 900;
+            color: var(--dark);
+            margin-bottom: 14px;
+            padding-bottom: 8px;
+            border-bottom: 3px solid var(--dark);
+            letter-spacing: -0.5px;
+        }
+        .section-title span {
+            color: var(--primary);
+        }
+
+        /* ===== P2: ERP Background ===== */
+        .project-meta {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+        .meta-card {
+            flex: 1;
+            background: #fff;
+            border: 1px solid var(--border);
+            border-top: 3px solid var(--primary);
+            padding: 12px 14px;
+            border-radius: 0 0 6px 6px;
+            box-shadow: var(--card-shadow);
+        }
+        .meta-label {
+            font-size: 9px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 5px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        .meta-value {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .comparison-box {
+            display: flex;
+            gap: 0;
+            margin: 16px 0;
+            position: relative;
+        }
+        .comp-card {
+            flex: 1;
+            padding: 20px;
+        }
+        .comp-before {
+            background: #f7f7f7;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px 0 0 8px;
+            border-right: none;
+            padding-right: 28px;
+        }
+        .comp-after {
+            background: var(--primary-bg);
+            border: 1px solid var(--primary-bg2);
+            border-radius: 0 8px 8px 0;
+            padding-left: 28px;
+        }
+        .comp-arrow {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 38px;
+            height: 38px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 16px;
+            font-weight: 900;
+            z-index: 2;
+            box-shadow: 0 2px 8px rgba(255,102,0,0.3);
+            border: 3px solid #fff;
+        }
+        .comp-label {
+            font-size: 10px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            padding-bottom: 6px;
+            border-bottom: 1px solid #ddd;
+            letter-spacing: 1px;
+        }
+        .comp-before .comp-label { color: #999; }
+        .comp-after .comp-label { color: var(--primary); border-color: var(--primary-bg2); }
+        .comp-item {
+            font-size: 11.5px;
+            line-height: 1.8;
+            color: var(--gray);
+        }
+        .comp-item strong { color: var(--dark); }
+
+        .erp-screenshot {
+            margin-top: 14px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+        }
+        .erp-screenshot img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            object-position: top;
+            display: block;
+        }
+        .erp-screenshot-caption {
+            background: #fafafa;
+            padding: 8px 12px;
+            font-size: 10px;
+            color: var(--light-gray);
+            text-align: center;
+            letter-spacing: 0.5px;
+        }
+
+        /* ===== P3: ERP Process ===== */
+        .flow-label {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .flow-label::before {
+            content: '';
+            width: 4px;
+            height: 16px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+        .flow-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0;
+            margin: 0 0 16px;
+            justify-content: center;
+            background: #fafafa;
+            padding: 22px 16px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+        .flow-step {
+            display: flex;
+            align-items: center;
+        }
+        .flow-box {
+            background: #fff;
+            border: 1px solid var(--border);
+            padding: 8px 12px;
+            font-size: 10.5px;
+            font-weight: 500;
+            color: var(--dark);
+            border-radius: 6px;
+            text-align: center;
+            min-width: 78px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+        }
+        .flow-box.highlight-box {
+            background: var(--primary);
+            color: #fff;
+            border-color: var(--primary);
+            font-weight: 700;
+            box-shadow: 0 2px 6px rgba(255,102,0,0.25);
+        }
+        .flow-arrow {
+            font-size: 14px;
+            color: var(--primary);
+            margin: 0 3px;
+            font-weight: 900;
+        }
+        .flow-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 8px;
+        }
+        .flow-row:last-child { margin-bottom: 0; }
+
+        .challenge-box {
+            display: flex;
+            gap: 14px;
+            margin: 12px 0;
+        }
+        .ch-card {
+            flex: 1;
+            padding: 18px;
+            border-radius: 8px;
+            box-shadow: var(--card-shadow);
+        }
+        .ch-problem {
+            background: #fff;
+            border: 1px solid #FFCDD2;
+            border-left: 4px solid #EF5350;
+        }
+        .ch-solution {
+            background: #fff;
+            border: 1px solid #C8E6C9;
+            border-left: 4px solid #66BB6A;
+        }
+        .ch-label {
+            font-size: 10px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+        .ch-problem .ch-label { color: #EF5350; }
+        .ch-solution .ch-label { color: #66BB6A; }
+        .ch-text {
+            font-size: 11.5px;
+            line-height: 1.7;
+            color: var(--gray);
+        }
+
+        /* Contribution Detail */
+        .contrib-section {
+            margin: 16px 0;
+        }
+        .contrib-label {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .contrib-label::before {
+            content: '';
+            width: 4px;
+            height: 16px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+        .contrib-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+        .contrib-card {
+            padding: 12px 14px;
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            box-shadow: var(--card-shadow);
+        }
+        .contrib-icon {
+            font-size: 18px;
+            margin-bottom: 6px;
+        }
+        .contrib-title {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 5px;
+        }
+        .contrib-text {
+            font-size: 10.5px;
+            color: var(--gray);
+            line-height: 1.6;
+        }
+
+        /* Result Infographic */
+        .result-section {
+            margin-top: 16px;
+        }
+        .result-label {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .result-label::before {
+            content: '';
+            width: 4px;
+            height: 16px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+        .result-box {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: #fff;
+            padding: 22px 26px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 22px;
+            box-shadow: 0 4px 16px rgba(255,102,0,0.2);
+        }
+        .result-visual {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-shrink: 0;
+        }
+        .result-circle {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            font-weight: 900;
+        }
+        .result-arrow-icon {
+            font-size: 20px;
+            opacity: 0.6;
+        }
+        .result-text {
+            font-size: 13px;
+            line-height: 1.7;
+        }
+        .result-text strong {
+            font-size: 14px;
+        }
+
+        .skill-tags {
+            margin-top: 14px;
+            padding: 14px;
+            background: #fafafa;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+        .skill-tags-label {
+            font-size: 10px;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+        .skill-tags-list {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .skill-tag {
+            background: #fff;
+            border: 1px solid var(--primary-bg2);
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 10.5px;
+            color: var(--primary);
+            font-weight: 600;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+        }
+
+        /* ===== P4: IoT Project ===== */
+        .iot-overview {
+            display: flex;
+            gap: 22px;
+            margin-bottom: 20px;
+        }
+        .iot-photo {
+            width: 44%;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .iot-photo img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            display: block;
+        }
+        .iot-photo-caption {
+            background: #f5f5f5;
+            padding: 8px 10px;
+            font-size: 10px;
+            color: var(--light-gray);
+            text-align: center;
+        }
+        .iot-info {
+            flex: 1;
+        }
+        .iot-info-item {
+            margin-bottom: 14px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .iot-info-item:last-child { border-bottom: none; padding-bottom: 0; }
+        .iot-info-label {
+            font-size: 9px;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: 2px;
+            margin-bottom: 4px;
+            text-transform: uppercase;
+        }
+        .iot-info-value {
+            font-size: 12.5px;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        .blynk-label {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .blynk-label::before {
+            content: '';
+            width: 4px;
+            height: 16px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+        .blynk-gallery {
+            display: flex;
+            gap: 12px;
+        }
+        .blynk-item {
+            flex: 1;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .blynk-item img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+        }
+        .blynk-caption {
+            background: #f5f5f5;
+            padding: 7px;
+            font-size: 10px;
+            color: var(--light-gray);
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .transfer-box {
+            margin-top: 18px;
+            padding: 16px;
+            background: #fafafa;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+        .transfer-label {
+            font-size: 10px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+        .transfer-text {
+            font-size: 11.5px;
+            color: var(--gray);
+            line-height: 1.7;
+        }
+
+        /* ===== P5: HW + Award ===== */
+        .hw-gallery {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 18px;
+        }
+        .hw-card {
+            flex: 1;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            border: 1px solid var(--border);
+        }
+        .hw-card img {
+            width: 100%;
+            height: 210px;
+            object-fit: cover;
+            display: block;
+        }
+        .hw-card-body {
+            padding: 14px;
+        }
+        .hw-card-title {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 5px;
+        }
+        .hw-card-desc {
+            font-size: 11px;
+            color: var(--gray);
+            line-height: 1.6;
+        }
+
+        .hw-context {
+            padding: 14px 16px;
+            background: #fafafa;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            margin-bottom: 18px;
+        }
+        .hw-context-title {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 4px;
+        }
+        .hw-context-text {
+            font-size: 11.5px;
+            color: var(--gray);
+            line-height: 1.7;
+        }
+
+        .award-section {
+            display: flex;
+            gap: 22px;
+            padding: 20px;
+            background: linear-gradient(135deg, #FFF8F0 0%, #FFF3E0 100%);
+            border-radius: 10px;
+            border: 1px solid var(--primary-bg2);
+        }
+        .award-photo {
+            width: 38%;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+        }
+        .award-photo img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            display: block;
+        }
+        .award-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .award-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: #fff;
+            font-size: 9px;
+            font-weight: 700;
+            padding: 5px 14px;
+            border-radius: 20px;
+            margin-bottom: 12px;
+            width: fit-content;
+            letter-spacing: 2px;
+        }
+        .award-title {
+            font-size: 18px;
+            font-weight: 900;
+            color: var(--dark);
+            margin-bottom: 6px;
+            line-height: 1.4;
+        }
+        .award-org {
+            font-size: 12px;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        .award-desc {
+            font-size: 11.5px;
+            color: var(--gray);
+            line-height: 1.7;
+        }
+
+        /* ===== P4: Tech Projects Combined ===== */
+        .tech-gallery {
+            display: flex;
+            gap: 14px;
+            margin-bottom: 18px;
+        }
+        .tech-card {
+            flex: 1;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            box-shadow: var(--card-shadow);
+        }
+        .tech-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            display: block;
+        }
+        .tech-card-body {
+            padding: 14px;
+        }
+        .tech-card-badge {
+            display: inline-block;
+            font-size: 9px;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 12px;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+        .tech-card:nth-child(1) .tech-card-badge {
+            background: #E3F2FD;
+            color: #1565C0;
+        }
+        .tech-card:nth-child(2) .tech-card-badge {
+            background: #E8F5E9;
+            color: #2E7D32;
+        }
+        .tech-card:nth-child(3) .tech-card-badge {
+            background: #FFF3E0;
+            color: var(--primary);
+        }
+        .tech-card-title {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 4px;
+        }
+        .tech-card-meta {
+            font-size: 10px;
+            color: var(--light-gray);
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        .tech-card-desc {
+            font-size: 10.5px;
+            color: var(--gray);
+            line-height: 1.6;
+        }
+
+        /* ===== P5: Service Proposal ===== */
+        .analysis-box {
+            padding: 20px;
+            background: linear-gradient(135deg, #FFF8F0 0%, #FFF3E0 100%);
+            border-radius: 10px;
+            border: 1px solid var(--primary-bg2);
+            margin-bottom: 18px;
+        }
+        .analysis-title {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .analysis-title::before {
+            content: '';
+            width: 4px;
+            height: 16px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+        .analysis-features {
+            display: flex;
+            gap: 12px;
+            margin-top: 12px;
+        }
+        .analysis-feature {
+            flex: 1;
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 12px;
+            text-align: center;
+        }
+        .analysis-feature-icon {
+            font-size: 20px;
+            margin-bottom: 6px;
+        }
+        .analysis-feature-name {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 3px;
+        }
+        .analysis-feature-desc {
+            font-size: 9.5px;
+            color: var(--light-gray);
+        }
+        .proposal-label {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .proposal-label::before {
+            content: '';
+            width: 4px;
+            height: 16px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+        .proposal-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 18px;
+        }
+        .proposal-card {
+            padding: 16px;
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            box-shadow: var(--card-shadow);
+            border-top: 3px solid transparent;
+        }
+        .proposal-card:nth-child(1) { border-top-color: var(--primary); }
+        .proposal-card:nth-child(2) { border-top-color: #42A5F5; }
+        .proposal-card:nth-child(3) { border-top-color: #66BB6A; }
+        .proposal-card:nth-child(4) { border-top-color: #AB47BC; }
+        .proposal-icon {
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+        .proposal-card-title {
+            font-size: 12.5px;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 6px;
+        }
+        .proposal-card-text {
+            font-size: 10.5px;
+            color: var(--gray);
+            line-height: 1.6;
+        }
+        .proposal-basis {
+            padding: 16px 18px;
+            background: #fafafa;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+        .proposal-basis-title {
+            font-size: 10px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+        .proposal-basis-item {
+            font-size: 11px;
+            color: var(--gray);
+            line-height: 1.8;
+        }
+        .proposal-basis-item strong {
+            color: var(--dark);
+        }
+        .proposal-disclaimer {
+            margin-top: 14px;
+            text-align: center;
+            font-size: 9.5px;
+            color: var(--light-gray);
+            font-style: italic;
+        }
+
+        /* ===== P6: Why CSR ===== */
+        .reason-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin: 14px 0;
+        }
+        .reason-card {
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #eee;
+            box-shadow: var(--card-shadow);
+            position: relative;
+            overflow: hidden;
+        }
+        .reason-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+        }
+        .reason-card:nth-child(1) { background: #FFFAF5; }
+        .reason-card:nth-child(1)::before { background: var(--primary); }
+        .reason-card:nth-child(2) { background: #F5FFF5; }
+        .reason-card:nth-child(2)::before { background: #66BB6A; }
+        .reason-card:nth-child(3) { background: #F5F9FF; }
+        .reason-card:nth-child(3)::before { background: #42A5F5; }
+        .reason-card:nth-child(4) { background: #FAF5FF; }
+        .reason-card:nth-child(4)::before { background: #AB47BC; }
+        .reason-num {
+            font-size: 28px;
+            font-weight: 900;
+            margin-bottom: 6px;
+            opacity: 0.15;
+            position: absolute;
+            top: 12px;
+            right: 16px;
+        }
+        .reason-card:nth-child(1) .reason-num { color: var(--primary); }
+        .reason-card:nth-child(2) .reason-num { color: #66BB6A; }
+        .reason-card:nth-child(3) .reason-num { color: #42A5F5; }
+        .reason-card:nth-child(4) .reason-num { color: #AB47BC; }
+        .reason-title {
+            font-size: 14px;
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 8px;
+            margin-top: 4px;
+        }
+        .reason-text {
+            font-size: 11.5px;
+            color: var(--gray);
+            line-height: 1.7;
+        }
+
+        .closing-box {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: #fff;
+            padding: 28px 36px;
+            border-radius: 10px;
+            margin-top: 14px;
+            text-align: center;
+            box-shadow: 0 4px 16px rgba(255,102,0,0.2);
+        }
+        .closing-quote {
+            font-size: 19px;
+            font-weight: 700;
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+        .closing-sub {
+            font-size: 12px;
+            opacity: 0.85;
+            line-height: 1.8;
+            margin-bottom: 14px;
+        }
+        .closing-name {
+            font-size: 12px;
+            opacity: 0.8;
+            letter-spacing: 0.5px;
+        }
+
+        /* ===== P6: Summary Bar ===== */
+        .summary-bar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0;
+            margin-top: 14px;
+            padding: 14px 20px;
+            background: #fafafa;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+        .summary-item {
+            flex: 1;
+            text-align: center;
+        }
+        .summary-value {
+            font-size: 20px;
+            font-weight: 900;
+            color: var(--primary);
+            margin-bottom: 2px;
+        }
+        .summary-desc {
+            font-size: 10px;
+            color: var(--light-gray);
+            font-weight: 500;
+        }
+        .summary-divider {
+            width: 1px;
+            height: 32px;
+            background: var(--border);
+        }
+
+        /* ===== Print ===== */
+        @media print {
+            body { background: #fff; }
+            .page {
+                margin: 0;
+                box-shadow: none;
+                page-break-after: always;
+                page-break-inside: avoid;
+            }
+            .page:last-child { page-break-after: avoid; }
+            img { max-width: 100% !important; }
+            p, .ch-text, .reason-text { orphans: 3; widows: 3; }
+        }
+
+        /* ===== Screen shadow ===== */
+        @media screen {
+            .page {
+                box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+                margin: 24px auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ==================== P1: COVER ==================== -->
+<div class="page">
+    <div class="cover">
+        <div class="cover-left">
+            <div class="cover-photo">
+                <img src="../../../../common/photos/profile.png" alt="임종권 프로필 사진">
+            </div>
+            <div class="cover-left-label">Portfolio</div>
+            <div class="cover-left-name">임종권</div>
+            <div class="cover-left-role">
+                CSR 플랫폼<br>
+                서비스 기획/운영 지원
+            </div>
+            <div class="cover-left-contact">
+                <strong>Email</strong> ssujklim@gmail.com<br>
+                <strong>Phone</strong> 010-4052-0834<br>
+                <strong>Web</strong> sites.google.com/view/jongkwon
+            </div>
+        </div>
+        <div class="cover-right">
+            <div class="cover-tagline">
+                <em>비영리 도메인</em>을 이해하고,<br>
+                <em>프로젝트 풀사이클</em>을 리드하며,<br>
+                <em>기술 감각</em>으로 소통하는 사람
+            </div>
+            <div class="cover-desc">
+                비영리 법인 3년 근무와 사회복지대학원 석사 과정을 통해 사회공헌 조직의 운영 구조와 CSR의 본질을 이해하고 있습니다.
+                이 도메인 지식을 바탕으로 커스텀 ERP 도입 프로젝트를 리드하며, 현업 니즈를 기술 언어로 변환하고
+                개발사와 소통하여 서비스를 안정화한 경험이 있습니다.
+            </div>
+
+            <table class="cover-profile-table">
+                <tr><td>학력</td><td>숭실대 사회복지대학원 석사(사회적기업 전공)</td></tr>
+                <tr><td>비영리</td><td>(사)함께만드는세상 경영지원부 — ERP 도입 실무 리드 (3년)</td></tr>
+                <tr><td>개발</td><td>(주)맨지온 IoT 프로토타입 / (주)엣지크로스 H/W 설계</td></tr>
+                <tr><td>수상</td><td>메타버스 콘텐츠 리크루팅 캠프 대상 (과기정통부, 2022)</td></tr>
+                <tr><td>자격</td><td>사회복지사 1급 / 정보처리기사 / 전자기사</td></tr>
+            </table>
+
+            <div class="cover-keywords">
+                <span class="cover-keyword">비영리 3년 실무</span>
+                <span class="cover-keyword">사회복지 석사</span>
+                <span class="cover-keyword">ERP 풀사이클</span>
+                <span class="cover-keyword">IoT 개발</span>
+                <span class="cover-keyword">Unity/메타버스</span>
+            </div>
+
+            <div class="cover-toc">
+                <div class="cover-toc-title">포트폴리오 구성</div>
+                <div class="cover-toc-item"><span class="cover-toc-num">01</span>ERP 기반 업무 시스템 개선 프로젝트 — 배경 및 목표</div>
+                <div class="cover-toc-item"><span class="cover-toc-num">02</span>ERP 기반 업무 시스템 개선 프로젝트 — 프로세스 및 성과</div>
+                <div class="cover-toc-item"><span class="cover-toc-num">03</span>기술 프로젝트 & 수상 경험</div>
+                <div class="cover-toc-item"><span class="cover-toc-num">04</span>희망스튜디오 기부 플랫폼 — 서비스 분석 & 개선 제안</div>
+                <div class="cover-toc-item"><span class="cover-toc-num">05</span>왜 스마일게이트 희망스튜디오인가</div>
+            </div>
+
+            <div class="cover-target">
+                <strong>스마일게이트 희망스튜디오</strong><br>
+                CSR 플랫폼 서비스 기획/운영 담당 · 2026. 01
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ==================== P2: ERP — Background ==================== -->
+<div class="page">
+    <div class="page-header">
+        <span>임종권 Portfolio — 스마일게이트 희망스튜디오</span>
+        <span class="page-num">02 / 06</span>
+    </div>
+    <div class="content">
+        <div class="section-label">Project 01</div>
+        <div class="section-title">ERP 기반 업무 시스템 개선 프로젝트 — <span>배경 및 목표</span></div>
+
+        <div class="project-meta">
+            <div class="meta-card">
+                <div class="meta-label">소속</div>
+                <div class="meta-value">(사)함께만드는세상 · 경영지원부</div>
+            </div>
+            <div class="meta-card">
+                <div class="meta-label">기간</div>
+                <div class="meta-value">2023. 07 — 2024. 12 (18개월)</div>
+            </div>
+            <div class="meta-card">
+                <div class="meta-label">역할</div>
+                <div class="meta-value">프로젝트 실무 리드</div>
+            </div>
+        </div>
+
+        <div class="comparison-box">
+            <div class="comp-card comp-before">
+                <div class="comp-label">AS-IS (도입 전)</div>
+                <div class="comp-item">
+                    <strong>3개 분산 시스템 + 수기 관리</strong><br><br>
+                    • 예산 관리: 자체 제작 시스템<br>
+                    • 여신 관리: 뱅크웨어글로벌<br>
+                    • 인사/회계: 더존 Icube<br>
+                    • 일상 업무: 엑셀 + 수기 대장<br><br>
+                    시스템 간 데이터 불일치, 이중 입력 빈발
+                </div>
+            </div>
+            <div class="comp-arrow">→</div>
+            <div class="comp-card comp-after">
+                <div class="comp-label">TO-BE (도입 후)</div>
+                <div class="comp-item">
+                    <strong>High-Q 통합 ERP 1개 시스템</strong><br><br>
+                    • 기술 스택: Tibero DB / Nexacro<br>
+                    • 여신 데이터 마이그레이션 완료<br>
+                    • 더존 DB 마이그레이션 완료<br>
+                    • 그룹웨어 API 연동<br><br>
+                    단일 시스템에서 예산·여신·회계 통합 관리
+                </div>
+            </div>
+        </div>
+
+        <div class="hw-context" style="margin-bottom: 14px;">
+            <div class="hw-context-title">프로젝트 배경</div>
+            <div class="hw-context-text">
+                (사)함께만드는세상은 설립 이후 약 10년간 예산·여신·인사/회계를 각각 별도 시스템으로 운영해 왔음.
+                시스템 간 데이터 불일치와 이중 입력이 누적되며 결산·감사 시 수작업 검증 부담이 증가.
+                2023년 경영지원부에서 통합 ERP 도입을 결정하였고, 본인이 개발사 선정부터 운영 안정화까지 실무를 전담하게 됨.
+            </div>
+        </div>
+
+        <div class="erp-screenshot">
+            <img src="../../../../common/photos/photo_erp_highq.png" alt="High-Q ERP 상환현황 화면">
+            <div class="erp-screenshot-caption">High-Q ERP 시스템 — 상환현황 관리 화면 (실제 운영 캡처)</div>
+        </div>
+
+        <div class="skill-tags">
+            <div class="skill-tags-label">도입 시스템 기술 스택</div>
+            <div class="skill-tags-list">
+                <span class="skill-tag">High-Q ERP</span>
+                <span class="skill-tag">Tibero DB</span>
+                <span class="skill-tag">Nexacro (UI)</span>
+                <span class="skill-tag">그룹웨어 API</span>
+                <span class="skill-tag">뱅크웨어글로벌 → 마이그레이션</span>
+                <span class="skill-tag">더존 Icube → 마이그레이션</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ==================== P3: ERP — Process & Results ==================== -->
+<div class="page">
+    <div class="page-header">
+        <span>임종권 Portfolio — 스마일게이트 희망스튜디오</span>
+        <span class="page-num">03 / 06</span>
+    </div>
+    <div class="content">
+        <div class="section-label">Project 01</div>
+        <div class="section-title">ERP 기반 업무 시스템 개선 프로젝트 — <span>프로세스 및 성과</span></div>
+
+        <!-- Flow Chart -->
+        <div class="flow-label">도입 프로세스</div>
+        <div class="flow-container">
+            <div class="flow-row">
+                <div class="flow-step">
+                    <div class="flow-box">요구사항 정의<br><span style="font-size:9px;color:var(--light-gray);">팀장</span></div>
+                    <span class="flow-arrow">→</span>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-box">솔루션 선정</div>
+                    <span class="flow-arrow">→</span>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-box highlight-box">개발사 소통<br><span style="font-size:9px;opacity:0.8;">본인 전담</span></div>
+                    <span class="flow-arrow">→</span>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-box">여신 데이터<br>마이그레이션</div>
+                    <span class="flow-arrow">→</span>
+                </div>
+            </div>
+            <div class="flow-row">
+                <div class="flow-step">
+                    <div class="flow-box">더존 DB<br>마이그레이션</div>
+                    <span class="flow-arrow">→</span>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-box">그룹웨어<br>API 연동</div>
+                    <span class="flow-arrow">→</span>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-box highlight-box">현업 테스트<br><span style="font-size:9px;opacity:0.8;">본인 조율</span></div>
+                    <span class="flow-arrow">→</span>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-box highlight-box">검수<br><span style="font-size:9px;opacity:0.8;">본인 전담</span></div>
+                    <span class="flow-arrow">→</span>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-box" style="background:var(--primary);color:#fff;border-color:var(--primary);font-weight:700;">운영 안정화</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Challenge & Solution -->
+        <div class="challenge-box">
+            <div class="ch-card ch-problem">
+                <div class="ch-label">CHALLENGE</div>
+                <div class="ch-text">
+                    도입 초기, 예상치 못한 오류가 빈발하며 현업 담당자(사회복지사)에게 혼란 초래.
+                    개발 콘솔 에러가 노출되는 등 사용자 경험 저하.
+                    기존 시스템에 익숙한 실무자들의 신규 시스템 거부감.
+                </div>
+            </div>
+            <div class="ch-card ch-solution">
+                <div class="ch-label">SOLUTION</div>
+                <div class="ch-text">
+                    빈도 높은 이슈를 분류하여 개발사(High-Q)에 수정 일정 합의.
+                    임시 조치 방법을 파악하여 현업에 즉시 공유.
+                    점진적 보완을 통해 안정화 달성.
+                    개발사와 대면 미팅 중심의 직접 소통으로 신뢰 구축.
+                </div>
+            </div>
+        </div>
+
+        <!-- My Contributions Detail -->
+        <div class="contrib-section">
+            <div class="contrib-label">본인 기여 상세</div>
+            <div class="contrib-grid">
+                <div class="contrib-card">
+                    <div class="contrib-icon">💬</div>
+                    <div class="contrib-title">개발사 소통 창구</div>
+                    <div class="contrib-text">High-Q 개발사와의 유일한 실무 소통 창구로서, 현업 요구사항을 기술 명세로 변환하여 전달. 대면 미팅을 통해 개발 일정과 우선순위 조율.</div>
+                </div>
+                <div class="contrib-card">
+                    <div class="contrib-icon">🔄</div>
+                    <div class="contrib-title">데이터 마이그레이션 검증</div>
+                    <div class="contrib-text">뱅크웨어글로벌(여신) 및 더존 Icube(인사/회계) 데이터를 High-Q로 이관하는 과정에서 데이터 정합성 검증 및 오류 사례 보고.</div>
+                </div>
+                <div class="contrib-card">
+                    <div class="contrib-icon">✅</div>
+                    <div class="contrib-title">테스트 · 검수 전담</div>
+                    <div class="contrib-text">현업 시나리오 기반 테스트 케이스 작성 및 실행. 사회복지사 실무자 대상 수용 테스트(UAT) 조율. 오류 발견 시 재현 조건 정리하여 개발사 전달.</div>
+                </div>
+                <div class="contrib-card">
+                    <div class="contrib-icon">📋</div>
+                    <div class="contrib-title">변화 관리 · 안정화</div>
+                    <div class="contrib-text">신규 시스템 전환에 따른 실무자 혼란을 최소화하기 위해 빈발 이슈별 임시 조치 가이드 공유. 점진적 기능 안정화로 시스템 신뢰도 회복.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results -->
+        <div class="result-section">
+            <div class="result-label">핵심 성과</div>
+            <div class="result-box">
+                <div class="result-visual">
+                    <div class="result-circle">3</div>
+                    <span class="result-arrow-icon">→</span>
+                    <div class="result-circle">1</div>
+                </div>
+                <div class="result-text">
+                    <strong>3개 분산 시스템을 1개 통합 ERP로 전환 완료</strong><br>
+                    예산·여신·회계 데이터의 일원화로 이중 입력 제거, 데이터 정합성 확보.
+                    현업 담당자의 업무 흐름 단순화 및 보고 체계 표준화.
+                </div>
+            </div>
+        </div>
+
+        <div class="skill-tags">
+            <div class="skill-tags-label">본 프로젝트에서 습득한 역량</div>
+            <div class="skill-tags-list">
+                <span class="skill-tag">요구사항 → 기술 언어 변환</span>
+                <span class="skill-tag">개발사 커뮤니케이션</span>
+                <span class="skill-tag">테스트/검수 프로세스</span>
+                <span class="skill-tag">데이터 마이그레이션</span>
+                <span class="skill-tag">변화 관리</span>
+                <span class="skill-tag">UAT 조율</span>
+                <span class="skill-tag">이해관계자 조율</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ==================== P4: Tech Projects Combined ==================== -->
+<div class="page">
+    <div class="page-header">
+        <span>임종권 Portfolio — 스마일게이트 희망스튜디오</span>
+        <span class="page-num">04 / 06</span>
+    </div>
+    <div class="content">
+        <div class="section-label">Technical Background</div>
+        <div class="section-title">기술 프로젝트 & <span>수상 경험</span></div>
+
+        <div class="tech-gallery">
+            <div class="tech-card">
+                <img src="../../../../common/photos/photo_desalination_equipment.jpg" alt="해수담수화 프로토타입 장비">
+                <div class="tech-card-body">
+                    <div class="tech-card-badge">IoT · SW</div>
+                    <div class="tech-card-title">해수담수화 IoT 프로토타입</div>
+                    <div class="tech-card-meta">(주)맨지온 · 2020.03 — 2021.11</div>
+                    <div class="tech-card-desc">
+                        ESP32 기반 진공 감압 방식 해수담수화 시스템의 제어부를 전담 개발.
+                        솔레노이드 밸브/릴레이 제어 펌웨어 작성, Blynk IoT 플랫폼으로
+                        원격 모니터링 대시보드 구축. 비전공자도 직관적으로 사용 가능한 UI 설계.
+                    </div>
+                </div>
+            </div>
+            <div class="tech-card">
+                <img src="../../../../common/photos/photo_iot_modlink_board.jpg" alt="IoT-MODLINK 보드">
+                <div class="tech-card-body">
+                    <div class="tech-card-badge">H/W · 풀사이클</div>
+                    <div class="tech-card-title">H/W 개발 · 회로→양산</div>
+                    <div class="tech-card-meta">(주)엣지크로스 · 2016.05 — 2018.02</div>
+                    <div class="tech-card-desc">
+                        IoT-MODLINK 통신 보드, 32ch 릴레이 제어 보드 등 설계·제작.
+                        회로 설계 → PCB 레이아웃 → 실장/납땜 → 기능 테스트 → 양산까지
+                        하드웨어 풀사이클을 수행. BOM 관리 및 생산 일정 조율.
+                    </div>
+                </div>
+            </div>
+            <div class="tech-card">
+                <img src="../../../../common/photos/photo_metaverse_award.jpg" alt="메타버스 수상">
+                <div class="tech-card-body">
+                    <div class="tech-card-badge">AWARD · 대상</div>
+                    <div class="tech-card-title">메타버스 콘텐츠 캠프 대상</div>
+                    <div class="tech-card-meta">과학기술정보통신부 · 2022.09</div>
+                    <div class="tech-card-desc">
+                        한국폴리텍 광명융합기술교육원 AR 시스템제어 과정 수강하며 참가.
+                        Unity/C# 기반 메타버스 콘텐츠를 기획·개발하여 대상 수상.
+                        게임 엔진 파이프라인(기획→에셋→빌드→QA) 전 과정 경험.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="hw-context">
+            <div class="hw-context-title">기술 프로젝트가 서비스 기획에 연결되는 이유</div>
+            <div class="hw-context-text">
+                H/W 풀사이클(설계→제작→검증)과 S/W 풀사이클(기획→개발→QA)은 구조적으로 동일한 사이클입니다.
+                물리적 제품과 디지털 서비스 모두 경험한 것은 서비스 기획 시 개발팀과의 기술적 소통 능력,
+                일정/난이도 판단, QA 프로세스 설계에 직접 활용 가능합니다.
+            </div>
+        </div>
+
+        <div class="transfer-box">
+            <div class="transfer-label">CSR 플랫폼 기획에 전이 가능한 역량</div>
+            <div class="transfer-text">
+                • <strong>기술적 실현 가능성 판단:</strong> 직접 개발 경험을 바탕으로 개발팀과의 기술 커뮤니케이션 및 일정/난이도 판단 가능<br>
+                • <strong>사용자 관점 UI/UX:</strong> Blynk 앱 설계 시 비전공자도 직관적으로 사용할 수 있는 인터페이스 설계 경험<br>
+                • <strong>게임 기반 CSR 이해:</strong> Unity 개발 경험으로 Gamification 요소나 인터랙티브 캠페인의 기술적 맥락 이해 가능
+            </div>
+        </div>
+
+        <div class="skill-tags">
+            <div class="skill-tags-label">기술 역량 키워드</div>
+            <div class="skill-tags-list">
+                <span class="skill-tag">ESP32 (C/C++)</span>
+                <span class="skill-tag">Blynk IoT</span>
+                <span class="skill-tag">Unity / C#</span>
+                <span class="skill-tag">회로 설계 / PCB</span>
+                <span class="skill-tag">센서 데이터</span>
+                <span class="skill-tag">원격 모니터링</span>
+                <span class="skill-tag">데이터 시각화</span>
+                <span class="skill-tag">QA / 테스트</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ==================== P5: CSR Platform Proposal ==================== -->
+<div class="page">
+    <div class="page-header">
+        <span>임종권 Portfolio — 스마일게이트 희망스튜디오</span>
+        <span class="page-num">05 / 06</span>
+    </div>
+    <div class="content">
+        <div class="section-label">Service Proposal</div>
+        <div class="section-title">희망스튜디오 기부 플랫폼 — <span>서비스 분석 & 개선 제안</span></div>
+
+        <div class="analysis-box">
+            <div class="analysis-title">현황 분석 — heemangstudio.org</div>
+            <div style="font-size:11.5px; color:var(--gray); line-height:1.7; margin-bottom:12px;">
+                희망스튜디오는 국내 최초 게이미피케이션 기반 기부 플랫폼으로, 기부(Funding)·봉사(Healing)·창작(Creating) 3축 구조를 운영합니다.
+                Stove 포인트 연동으로 게임 유저의 자연스러운 기부 참여를 유도하고, 레벨/뱃지 시스템으로 지속 참여를 설계한 점이 특징적입니다.
+            </div>
+            <div class="analysis-features">
+                <div class="analysis-feature">
+                    <div class="analysis-feature-icon">💰</div>
+                    <div class="analysis-feature-name">Funding</div>
+                    <div class="analysis-feature-desc">기부 캠페인 참여</div>
+                </div>
+                <div class="analysis-feature">
+                    <div class="analysis-feature-icon">💚</div>
+                    <div class="analysis-feature-name">Healing</div>
+                    <div class="analysis-feature-desc">자원봉사 활동</div>
+                </div>
+                <div class="analysis-feature">
+                    <div class="analysis-feature-icon">🎨</div>
+                    <div class="analysis-feature-name">Creating</div>
+                    <div class="analysis-feature-desc">창작 활동 지원</div>
+                </div>
+                <div class="analysis-feature">
+                    <div class="analysis-feature-icon">🎮</div>
+                    <div class="analysis-feature-name">Stove 연동</div>
+                    <div class="analysis-feature-desc">게임 포인트 기부</div>
+                </div>
+                <div class="analysis-feature">
+                    <div class="analysis-feature-icon">🏅</div>
+                    <div class="analysis-feature-name">게이미피케이션</div>
+                    <div class="analysis-feature-desc">레벨 · 뱃지 · 랭크</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="proposal-label">서비스 개선 제안 — 4가지 방향</div>
+        <div class="proposal-grid">
+            <div class="proposal-card">
+                <div class="proposal-icon">🎯</div>
+                <div class="proposal-card-title">기부자 여정 UX 개선</div>
+                <div class="proposal-card-text">
+                    신규 기부자의 온보딩 퍼널을 단순화하고, 첫 기부까지의 단계를 줄여 전환율을 개선합니다.
+                    비영리 현장에서 기부자 심리를 관찰한 경험을 바탕으로, 기부 동기 유형별 맞춤 여정을 설계할 수 있습니다.
+                </div>
+            </div>
+            <div class="proposal-card">
+                <div class="proposal-icon">📊</div>
+                <div class="proposal-card-title">임팩트 대시보드 구축</div>
+                <div class="proposal-card-text">
+                    기부금 사용처와 수혜 결과를 시각적으로 보여주는 대시보드를 기획합니다.
+                    IoT 프로젝트에서 센서 데이터를 대시보드로 변환한 경험이 기부 데이터 시각화에 직접 적용 가능합니다.
+                </div>
+            </div>
+            <div class="proposal-card">
+                <div class="proposal-icon">🎮</div>
+                <div class="proposal-card-title">게이미피케이션 고도화</div>
+                <div class="proposal-card-text">
+                    기존 레벨/뱃지 시스템에 시즌제 미션, 팀 기부 챌린지, 게임사 협업 이벤트를 추가하여 재참여율을 높입니다.
+                    Unity 개발 경험으로 인터랙티브 요소의 기술적 실현 가능성을 판단하고 제안할 수 있습니다.
+                </div>
+            </div>
+            <div class="proposal-card">
+                <div class="proposal-icon">🤝</div>
+                <div class="proposal-card-title">캠페인 운영 체계 표준화</div>
+                <div class="proposal-card-text">
+                    정기 캠페인의 기획→실행→성과 측정 프로세스를 표준화합니다.
+                    ERP 도입에서 운영 프로세스를 설계하고 안정화한 경험이 캠페인 운영 체계 구축에 전이 가능합니다.
+                </div>
+            </div>
+        </div>
+
+        <div class="proposal-basis">
+            <div class="proposal-basis-title">제안의 근거</div>
+            <div class="proposal-basis-item">
+                • <strong>비영리 3년 운영:</strong> 기부자·수혜자·운영자 3자 관점에서의 니즈를 실무로 파악<br>
+                • <strong>ERP 풀사이클 리드:</strong> 운영 체계 설계 → 개발사 소통 → 안정화까지의 서비스 개선 프로세스 경험<br>
+                • <strong>IoT 데이터 시각화:</strong> 센서 데이터를 의미 있는 대시보드로 변환한 경험 → 기부 임팩트 시각화에 적용<br>
+                • <strong>사회복지 석사:</strong> CSR 이론과 임팩트 측정 방법론에 대한 학문적 기반
+            </div>
+        </div>
+
+        <div class="proposal-disclaimer">
+            * 본 제안은 heemangstudio.org 공개 서비스를 기반으로 분석한 것이며, 내부 데이터에 기반한 것이 아닙니다.
+        </div>
+    </div>
+</div>
+
+<!-- ==================== P6: Why CSR Platform ==================== -->
+<div class="page">
+    <div class="page-header">
+        <span>임종권 Portfolio — 스마일게이트 희망스튜디오</span>
+        <span class="page-num">06 / 06</span>
+    </div>
+    <div class="content">
+        <div class="section-label">Motivation</div>
+        <div class="section-title">왜 <span>스마일게이트 희망스튜디오</span>인가</div>
+
+        <div class="reason-grid">
+            <div class="reason-card">
+                <div class="reason-num">01</div>
+                <div class="reason-title">CSR의 현장을 아는 사람</div>
+                <div class="reason-text">
+                    비영리 법인에서 3년간 근무하며 사회공헌 조직의 운영 구조, 예산 체계, 의사결정 과정을 체득했습니다.
+                    CSR 플랫폼의 사용자(기부자·수혜자·운영자)가 각각 무엇을 필요로 하는지 실무 감각으로 이해하며,
+                    현장에서 발생하는 운영 이슈를 시스템적으로 해결한 경험이 있습니다.
+                </div>
+            </div>
+            <div class="reason-card">
+                <div class="reason-num">02</div>
+                <div class="reason-title">이론과 실무의 교차점</div>
+                <div class="reason-text">
+                    사회복지대학원에서 사회적기업을 전공하며 CSR 이론과 임팩트 측정 방법론을 학습했습니다.
+                    이를 비영리 현장에서 직접 적용한 경험이 서비스 기획의 방향성을 잡는 데 기여할 수 있으며,
+                    사회적 가치와 비즈니스 지속가능성의 균형점을 설계하는 데 학문적 근거를 활용할 수 있습니다.
+                </div>
+            </div>
+            <div class="reason-card">
+                <div class="reason-num">03</div>
+                <div class="reason-title">서비스 개선을 리드한 경험</div>
+                <div class="reason-text">
+                    ERP 도입 프로젝트에서 요구사항 정의부터 검수·안정화까지 풀사이클을 리드했습니다.
+                    현업의 니즈를 기술 언어로 변환하고 개발사와 소통한 이 경험은 CSR 플랫폼의 서비스 기획/운영과 직접 연결됩니다.
+                    특히 사용자(사회복지사) 중심의 변화 관리 경험은 다양한 이해관계자가 참여하는 플랫폼 운영에 강점이 됩니다.
+                </div>
+            </div>
+            <div class="reason-card">
+                <div class="reason-num">04</div>
+                <div class="reason-title">게임 회사의 CSR이기에</div>
+                <div class="reason-text">
+                    IoT·H/W·Unity 개발 경험에서 비롯된 기술 감각은 개발팀과의 실질적 협업을 가능하게 합니다.
+                    특히 게임 기반 CSR이라는 스마일게이트만의 고유한 영역에서, Gamification 요소나 인터랙티브 캠페인의 기술적 맥락을 이해하고
+                    기술과 사회적 가치를 연결하는 기획자 역할을 하고 싶습니다.
+                </div>
+            </div>
+        </div>
+
+        <div class="closing-box">
+            <div class="closing-quote">
+                "사회적 가치를 기술로 설계하고,<br>
+                사용자 경험으로 완성하겠습니다."
+            </div>
+            <div class="closing-sub">
+                비영리 현장의 이해 · ERP 풀사이클 리드 · 기술 기반 커뮤니케이션<br>
+                이 세 가지를 갖춘 사람으로서 희망스튜디오의 CSR 플랫폼에 기여하겠습니다.
+            </div>
+            <div class="closing-name">임종권 · ssujklim@gmail.com · 010-4052-0834</div>
+        </div>
+
+        <div class="skill-tags" style="margin-top: 18px;">
+            <div class="skill-tags-label">핵심 역량 키워드</div>
+            <div class="skill-tags-list">
+                <span class="skill-tag">비영리 운영 실무</span>
+                <span class="skill-tag">CSR 이론/임팩트 측정</span>
+                <span class="skill-tag">ERP 풀사이클 리드</span>
+                <span class="skill-tag">개발사 커뮤니케이션</span>
+                <span class="skill-tag">IoT/HW 개발</span>
+                <span class="skill-tag">Unity/메타버스</span>
+                <span class="skill-tag">변화 관리</span>
+                <span class="skill-tag">사용자 중심 기획</span>
+            </div>
+        </div>
+
+        <div class="summary-bar">
+            <div class="summary-item">
+                <div class="summary-value">3년</div>
+                <div class="summary-desc">비영리 법인 실무</div>
+            </div>
+            <div class="summary-divider"></div>
+            <div class="summary-item">
+                <div class="summary-value">18개월</div>
+                <div class="summary-desc">ERP 도입 리드</div>
+            </div>
+            <div class="summary-divider"></div>
+            <div class="summary-item">
+                <div class="summary-value">석사</div>
+                <div class="summary-desc">사회적기업 전공</div>
+            </div>
+            <div class="summary-divider"></div>
+            <div class="summary-item">
+                <div class="summary-value">대상</div>
+                <div class="summary-desc">메타버스 공모전</div>
+            </div>
+            <div class="summary-divider"></div>
+            <div class="summary-item">
+                <div class="summary-value">3개</div>
+                <div class="summary-desc">기술 자격증</div>
+            </div>
+        </div>
+
+        <div style="margin-top: 14px; text-align: center; font-size: 10px; color: var(--light-gray); letter-spacing: 0.5px;">
+            본 포트폴리오는 스마일게이트 희망스튜디오 CSR 플랫폼 서비스 기획/운영 담당 지원을 위해 작성되었습니다.
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
