@@ -1,11 +1,11 @@
 ---
 company: 스마일게이트
 position: 그룹 IT구매 담당 (육휴대체 계약직)
-status: 📊 ANALYZING
+status: ❌ REJECTED
 discovered: 2026-01-28
 submitted: null
-result: null
-last_updated: 2026-01-28
+result: 공고 조기마감 (채용완료 추정)
+last_updated: 2026-01-29
 ---
 
 # 스마일게이트 IT구매 담당 지원 전략

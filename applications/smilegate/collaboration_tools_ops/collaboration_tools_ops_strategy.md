@@ -1,11 +1,11 @@
 ---
 company: 스마일게이트
 position: 통합 협업솔루션 운영 및 관리 담당
-status: 📊 ANALYZING
+status: 🗄️ ARCHIVED
 discovered: 2026-01-28
 submitted: null
-result: null
-last_updated: 2026-01-28
+result: 지원 포기 (기술 갭 과다)
+last_updated: 2026-01-29
 ---
 
 # 스마일게이트 협업솔루션 운영 지원 전략

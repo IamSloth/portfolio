@@ -1,11 +1,11 @@
 ---
 company: 스마일게이트
 position: CROSSFIRE Test Engineer (계약직)
-status: 📊 ANALYZING
+status: 🗄️ ARCHIVED
 discovered: 2026-01-28
 submitted: null
-result: null
-last_updated: 2026-01-28
+result: 지원 포기 (게임 도메인 경험 부재)
+last_updated: 2026-01-29
 ---
 
 # 스마일게이트 CROSSFIRE QA 지원 전략

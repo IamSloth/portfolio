@@ -1,7 +1,7 @@
 {
     "meta": {
         "version": "1.1",
-        "last_updated": "2026-01-27"
+        "last_updated": "2026-01-29"
     },
     "personal_info": {
         "name_ko": "임종권",
@@ -35,11 +35,13 @@
     "experience": [
         {
             "company": "(사)함께만드는세상",
+            "department": "경영지원부 인프라지원팀",
             "role": "총무·IT지원 (대리)",
-            "period": "2023.01 – 2026.02 (퇴사 예정)",
+            "period": "2023.01.09 – 재직중",
+            "salary": "3,423만원 (2024년 기준)",
             "details": [
                 "<b>[Cost Reduction]</b> 사내 네트워크/PC 1차 트러블슈팅 내재화로 연간 유지보수 비용 <b>30% 절감</b>",
-                "<b>[ERP Implementation]</b> 커스텀 ERP(High-Q) 도입 프로젝트 실무 리딩(PM Assist). 예산/회계 프로세스 설계 및 계정과목 표준화 주도. (Tibero DB/Nexacro 기반)",
+                "<b>[ERP Implementation]</b> 커스텀 ERP(High-Q) 도입 프로젝트 실무 전담 (2023.07–2024.12). 요구사항 정의·예산/회계 프로세스 설계·계정과목 표준화·검수까지 풀사이클 수행. (Tibero DB/Nexacro 기반)",
                 "<b>[Asset Management]</b> IT 자산(HW/SW) 수명 주기 관리 프로세스 정립 및 유휴 장비 재배치로 중복 투자 방지",
                 "<b>[Facility Maintenance]</b> PC·전산장비, 조명, 사무가구 등 경정비 직접 수행. 중대 고장 시 임시조치 후 전문업체 연계",
                 "<b>[Safety Management]</b> 소방안전관리자로서 소방·승강기·전기·방역 등 법정 안전점검 외주업체 선정·관리·일정 조율"
@@ -47,20 +49,26 @@
         },
         {
             "company": "(주)맨지온",
-            "role": "IoT 시스템 운영 및 QA",
-            "period": "2020.03 – 2021.11",
+            "department": "개발부",
+            "role": "임베디드 시스템 개발 및 QA (대리)",
+            "period": "2020.03.01 – 2021.11.20",
+            "salary": "3,600만원",
             "details": [
+                "<b>[Embedded Development]</b> ESP32 기반 해수담수화 프로토타입 개발. 진공 감압 방식 증류 시스템의 솔레노이드 밸브/릴레이 제어 구현",
+                "<b>[IoT Monitoring]</b> Blynk 앱 연동으로 센서 데이터 원격 모니터링 및 시각화 대시보드 구축",
                 "<b>[System Stability]</b> 시설 관제 데이터 로그 분석을 통해 통신 장애 원인 규명 및 해결 프로세스 확립",
                 "<b>[QA Leadership]</b> 사용자 관점의 UI/UX 테스트 시나리오 설계 및 품질 보증 활동 주도"
             ]
         },
         {
-            "company": "(주)엣지크로스",
-            "role": "자재 관리 및 구매",
-            "period": "2016.05 – 2018.02",
+            "company": "주식회사 엣지크로스",
+            "department": "기술연구소",
+            "role": "H/W 개발 및 자재 관리 (주임)",
+            "period": "2016.05.30 – 2018.02.01",
+            "salary": "2,760만원",
             "details": [
-                "<b>[Process Optimization]</b> 자재 명세서(BOM) 관리 체계화 및 생산 일정 조율로 납기 준수율 100% 달성",
-                "<b>[Engineering Base]</b> PCB 회로 설계 및 납땜 실무 경험을 바탕으로 제조 부서와 원활한 커뮤니케이션 수행"
+                "<b>[H/W Development]</b> 회로 설계 → PCB 레이아웃 → 시제품 제작(납땜·실장) → 테스트/검증 풀사이클 수행",
+                "<b>[Process Optimization]</b> 자재 명세서(BOM) 관리 체계화 및 생산 일정 조율로 납기 준수율 100% 달성"
             ]
         }
     ],
@@ -77,7 +85,39 @@
         "Notion", "Slack", "Unity 3D/C# (Basic)", "1종 대형 운전면허 (12년 무사고)"
     ],
     "certifications": [
-        "사회복지사 1급 (보건복지부)",
-        "1종 대형 운전면허 (경찰청)"
+        {
+            "name": "사회복지사 1급",
+            "organization": "보건복지부",
+            "acquired": "2020.02"
+        },
+        {
+            "name": "1종 대형 운전면허",
+            "organization": "경찰청",
+            "acquired": "2019.02"
+        }
+    ],
+    "awards": [
+        {
+            "name": "2022 메타버스 콘텐츠 리크루팅 캠프 대상",
+            "organization": "과학기술정보통신부",
+            "year": "2022",
+            "month": "09"
+        }
+    ],
+    "gaming": [
+        {
+            "genre": "MOBA",
+            "title": "리그오브레전드",
+            "level": "미들 유저",
+            "period": "3년 이상",
+            "note": "시즌2 골드, 시즌3~6 플레티넘, 이후 골드 / 최근엔 칼바람나락만 즐기는중"
+        },
+        {
+            "genre": "캐주얼",
+            "title": "TFT (전략적 팀 전투)",
+            "level": "미들 유저",
+            "period": "3년 이상",
+            "note": "매 시즌 플레티넘 / 하루 최소 1시간 이상 플레이"
+        }
     ]
 }

@@ -67,6 +67,23 @@ Job-Application-Pipeline-Desktop/
 
 ---
 
+### 🤖 모델 라우팅 (Sub-agent)
+
+Task tool로 서브에이전트 실행 시, 작업 난이도에 따라 모델을 동적 선택한다.
+
+| 모델 | 용도 | 프로세스 단계 |
+|------|------|---------------|
+| **haiku** ⚡ | 파일/폴더 검색, 구조 검증, 컨벤션 체크, 상태 업데이트 | DISCOVER, TRACK |
+| **sonnet** ⚖️ | JD 분석, 전략서 작성, 이력서/자소서 드래프트, 매칭도 분석 | ANALYZE, PREPARE |
+| **opus** 🧠 | 최종 품질 리뷰, 약점 포지션 포지셔닝, 면접 시뮬레이션, 회고 분석 | PREPARE(리뷰), CLOSE |
+
+**선택 기준**
+- 단순 조회/검증 → haiku (비용↓ 속도↑)
+- 창작/분석 → sonnet (기본값)
+- 고난도 판단/리뷰 → opus (품질↑)
+
+---
+
 ### 📛 파일명 규칙
 
 **기본 원칙**
@@ -102,6 +119,18 @@ Job-Application-Pipeline-Desktop/
 | ACCEPTED | ✅ | 합격 |
 | REJECTED | ❌ | 불합격 |
 | ARCHIVED | 🗄️ | 회고 완료 |
+
+---
+
+### 🧠 프로필 실시간 동기화 (Profile Live Sync)
+
+> `content/profile.json`은 지원자의 **Single Source of Truth**이다. Claude는 수석비서로서 지원자를 누구보다 정확히 파악해야 한다.
+
+**원칙**
+- 대화 중 새로운 경력·스킬·자격·개인 정보가 확인되면 **즉시** `profile.json`에 반영
+- 기존 정보와 충돌 시 User 확인 후 업데이트
+- 업데이트 시 `meta.last_updated` 날짜도 갱신
+- 반영 후 User에게 변경 사항 간략 보고
 
 ---
 
