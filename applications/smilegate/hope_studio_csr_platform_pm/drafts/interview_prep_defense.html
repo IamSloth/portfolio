@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>면접 방어 전략 - 스마일게이트 희망스튜디오</title>
+    <style>
+        @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
+        
+        body {
+            font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+            line-height: 1.7;
+            color: #333;
+            background: #f9f9fb;
+            margin: 0;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 50px 60px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+        }
+
+        h1 {
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+            color: #111;
+        }
+
+        h2 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #666;
+            margin-top: 0;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .alert {
+            background: #FFF3E0;
+            border-left: 5px solid #FF9800;
+            padding: 20px;
+            border-radius: 4px;
+            margin-bottom: 40px;
+        }
+
+        .alert strong {
+            color: #E65100;
+            font-weight: 700;
+        }
+        
+        .section-title {
+            font-size: 22px;
+            font-weight: 800;
+            color: #1a1a1a;
+            margin-top: 50px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card {
+            background: #fff;
+            border: 1px solid #e5e5e5;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+            border-color: #FF9800;
+        }
+
+        .q-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #d32f2f;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .logic-box {
+            background: #fafafa;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 15px;
+        }
+
+        .step {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 8px;
+            font-size: 15px;
+        }
+
+        .step-label {
+            font-weight: 700;
+            min-width: 60px;
+            color: #555;
+            font-size: 13px;
+            margin-top: 3px;
+            text-transform: uppercase;
+        }
+
+        .attack-card {
+            background: #E3F2FD;
+            border: 1px solid #BBDEFB;
+        }
+        
+        .attack-card .q-title {
+            color: #1565C0;
+        }
+
+        .emergency-list {
+            background: #263238;
+            color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+        }
+
+        .emergency-item {
+            margin-bottom: 20px;
+            padding-left: 20px;
+            border-left: 3px solid #FF9800;
+        }
+
+        .emergency-item strong {
+            font-size: 18px;
+            color: #FFB74D;
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .emergency-desc {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        blockquote {
+            background: #fff;
+            border-left: 4px solid #FF9800;
+            margin: 10px 0;
+            padding: 10px 20px;
+            font-style: italic;
+            color: #555;
+            font-weight: 500;
+        }
+
+        @media print {
+            body { background: #fff; padding: 0; }
+            .container { padding: 0; box-shadow: none; border: none; }
+            .card { break-inside: avoid; border: 1px solid #ddd; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>면접 방어 전략 (Interview Defense Logic)</h1>
+        <h2>스마일게이트 희망스튜디오 CSR 플랫폼 PM</h2>
+        
+        <div class="alert">
+            <strong>핵심 마인드셋</strong><br>
+            "나는 배우러 온 신입이 아니라, <strong>현장의 문제를 해결하러 온 전문가</strong>다."<br>
+            윽엑윽엑하지 않는 유일한 방법은 질문을 나의 <strong>홈그라운드(도메인 지식)</strong>로 끌고 오는 것뿐입니다.
+        </div>
+
+        <div class="section-title">🛡️ 1. 약점 방어 (Defense Logic)</div>
+        <p style="color:#666; margin-bottom:20px;">가장 아픈 질문들이 들어올 때, 변명하지 않고 <strong>'관점'을 바꿔서</strong> 받아치는 논리입니다.</p>
+
+        <div class="card">
+            <div class="q-title">Q1. "경력 6년 이상이 필수인데, 5년차시고 그마저도 기획 직무는 아니셨네요?"</div>
+            <div style="font-size:14px; color:#666; margin-bottom:10px;">[의도] Jira, Confluence 같은 툴 사용 능력이나 방법론 부재 검증</div>
+            <div class="logic-box">
+                <div class="step">
+                    <div class="step-label">인정</div>
+                    <div>"맞습니다. IT 기업의 정통 서비스 기획자 커리어는 아닙니다."</div>
+                </div>
+                <div class="step">
+                    <div class="step-label">전환</div>
+                    <div>"하지만 저는 <strong>기획자가 모르는 '비영리 현장'의 오퍼레이션</strong>을 압니다."</div>
+                </div>
+                <div class="step">
+                    <div class="step-label">근거</div>
+                    <div>"시스템은 결국 현장의 맥락을 담아야 합니다. 저는 기부금 영수증 처리가 왜 늦어지는지, 사회복지사가 어디서 좌절하는지 압니다. 툴은 배우면 되지만, 현장의 맥락은 경험 없이는 모릅니다."</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="q-title">Q2. "High-Q ERP는 솔루션 도입이지, 직접 바닥부터 기획한 건 아니지 않나요?"</div>
+            <div style="font-size:14px; color:#666; margin-bottom:10px;">[의도] 기획력 검증 (단순 운영만 한 것 아닌가?)</div>
+            <div class="logic-box">
+                <div class="step">
+                    <div class="step-label">정의</div>
+                    <div>"네, 솔루션 도입 맞습니다. 하지만 <strong>'우리 조직에 맞게 뜯어고치는 과정'</strong>이 진짜 기획이었습니다."</div>
+                </div>
+                <div class="step">
+                    <div class="step-label">상세</div>
+                    <div>"현업 용어(상환)와 시스템 용어(입금)의 갭을 메우기 위해 모든 화면 필드를 재정의하고 매핑했습니다. 이 설계 과정이 서비스 기획의 본질인 '요구사항 구체화'와 다르지 않습니다."</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="q-title">Q3. "말씀하시는 게 기획자보다는 개발자나 운영자 같네요."</div>
+            <div style="font-size:14px; color:#666; margin-bottom:10px;">[의도] 커뮤니케이션 스타일과 직무 적합성 확인</div>
+            <div class="logic-box">
+                <div class="step">
+                    <div class="step-label">긍정</div>
+                    <div>"그렇게 보셨다면 다행입니다. 그게 제 <strong>무기</strong>니까요."</div>
+                </div>
+                <div class="step">
+                    <div class="step-label">이유</div>
+                    <div>"기획자는 통역사입니다. 저는 IoT 개발 경험으로 개발자의 언어를 알고, 사회복지사 경험으로 현장의 언어를 압니다. 양쪽의 제약사항을 이해하고 조율할 수 있는 기획자, 희망스튜디오에 꼭 필요하다고 확신합니다."</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-title">⚔️ 2. 필살기 (Attack Logic)</div>
+        <p style="color:#666; margin-bottom:20px;">면접관에게 끌려다니지 말고, 내가 먼저 질문을 던져서 주도권을 잡으세요.</p>
+
+        <div class="card attack-card">
+            <div class="q-title">카드 1: "임팩트 시각화" (포트폴리오 P5 연계)</div>
+            <blockquote>
+                "제가 포트폴리오 5페이지에 제안드린 '임팩트 대시보드' 말인데요. 제가 IoT 센서 데이터 시각화할 때 썼던 로직을 적용하면 개발 공수를 절반으로 줄일 수 있을 것 같은데, <strong>현재 내부 데이터 구조는 어떻게 되어 있나요?</strong>"
+            </blockquote>
+            <div style="font-size:13px; color:#1565C0; margin-top:5px;">👉 <strong>효과</strong>: 입사 후 바로 일할 사람처럼 보임 + 기술적 이해도 어필</div>
+        </div>
+
+        <div class="card attack-card">
+            <div class="q-title">카드 2: "게이미피케이션의 한계"</div>
+            <blockquote>
+                "스토브(Stove) 포인트 연동은 훌륭하지만, 기부자는 포인트 소진보다 '서사'에 반응합니다. 혹시 <strong>로스트아크 모코코 캐릭터를 활용한 인터랙티브 캠페인</strong>도 기획 범위에 포함되어 있나요?"
+            </blockquote>
+            <div style="font-size:13px; color:#1565C0; margin-top:5px;">👉 <strong>효과</strong>: 게임 산업 이해도 + 덕력 어필 (면접관이 신나서 대답하게 만듦)</div>
+        </div>
+
+        <div class="section-title">💊 3. 긴급 처방 (Panic Button)</div>
+        <p style="color:#666; margin-bottom:20px;">면접장 들어가기 직전, 마인드 컨트롤용 세 문장입니다.</p>
+
+        <div class="emergency-list">
+            <div class="emergency-item">
+                <strong>"잠시만요, 정리해서 말씀드리겠습니다."</strong>
+                <span class="emergency-desc">말 꼬일 것 같으면 바로 끊고 3초 숨 고르기. 오히려 '신중하다'고 좋아함.</span>
+            </div>
+            <div class="emergency-item">
+                <strong>"제가 이해한 바로는 ~가 맞나요?"</strong>
+                <span class="emergency-desc">동문서답 방지. 질문 다시 정의하면서 시간 벌기.</span>
+            </div>
+            <div class="emergency-item">
+                <strong>"기술적인 부분은 제가 부족할 수 있습니다.<br>하지만 이 문제는 이렇게 해결해보겠습니다."</strong>
+                <span class="emergency-desc">모르는 건 쿨하게 인정하고, '해결하려는 태도'로 커버하기.</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

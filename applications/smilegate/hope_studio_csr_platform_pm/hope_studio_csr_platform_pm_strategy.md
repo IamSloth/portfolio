@@ -1,11 +1,11 @@
 ---
 company: 스마일게이트 희망스튜디오
 position: CSR 플랫폼 서비스 기획/운영 담당
-status: 📊 ANALYZING
+status: 📤 SUBMITTED
 discovered: 2026-01-28
-submitted: null
+submitted: 2026-01-31
 result: null
-last_updated: 2026-01-28
+last_updated: 2026-01-31
 ---
 
 # 스마일게이트 희망스튜디오 CSR 기획 지원 전략
@@ -60,16 +60,15 @@ last_updated: 2026-01-28
 
 ## 4. 제출 이력 (Submission Log)
 
-| 날짜 | 서류 | 비고 |
-|------|------|------|
-| - | - | - |
+| 2026-01-31 | 포트폴리오 v4 (HTML/PDF) | 6p 분량, 상용 서비스 분석 및 개선 제안 포함 |
 
 ## 5. 진행 상황 (Timeline)
 
 | 날짜 | 상태 | 메모 |
 |------|------|------|
 | 2026-01-28 | 📋 DISCOVERED | 채용공고 발견 |
-| 2026-01-28 | 📊 ANALYZING | JD 분석 완료 — No-Go 판정 |
+| 2026-01-28 | 📊 ANALYZING | JD 분석 완료 — No-Go 판정이었으나 도전 결정 |
+| 2026-01-31 | 📤 SUBMITTED | 포트폴리오 v4 완성 및 최종 제출 |
 
 ---
 **관련 문서**: [채용공고](jd/)

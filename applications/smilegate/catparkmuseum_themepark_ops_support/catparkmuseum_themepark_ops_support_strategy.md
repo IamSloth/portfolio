@@ -1,11 +1,11 @@
 ---
 company: 캣파크뮤지엄 (스마일게이트)
 position: 테마파크 운영지원 - 회계/총무 (정규직)
-status: 📊 ANALYZING
+status: 🗄️ ARCHIVED
 discovered: 2026-01-28
 submitted: null
 result: null
-last_updated: 2026-01-28
+last_updated: 2026-02-05
 ---
 
 # 캣파크뮤지엄 회계/총무 지원 전략
