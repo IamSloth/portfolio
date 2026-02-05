@@ -72,6 +72,59 @@ Job-Application-Pipeline-Desktop/
 5. **작업 시작**: 참조 문서 복사 → `drafts/{doctype}_v1.html`
 6. **반복**: v1 → v2 → ... → 완성 시 `final/{doctype}_{YYMMDD}.html`로 이동
 
+### ⛔ STOP — 실행 전 필수 체크리스트 (Execution Gate)
+
+> **CRITICAL**: 폴더/파일 생성 전 반드시 아래 항목을 확인하라. 이해했다고 넘어가지 말고, 실제로 체크하라.
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│  BEFORE YOU CREATE ANY FILE, VERIFY ALL ITEMS BELOW:            │
+├─────────────────────────────────────────────────────────────────┤
+│  □ 1. COMPANY NAME CONFIRMED?                                   │
+│     - If unknown, ASK USER first. Do NOT guess.                 │
+│     - 회사명 불명확 시 User에게 질문. 추측 금지.                    │
+│                                                                 │
+│  □ 2. FOLDER PATH CORRECT?                                      │
+│     - Pattern: applications/{company}/{position}/               │
+│     - ❌ WRONG: applications/sports_service/operation/          │
+│     - ✅ RIGHT: applications/tving/sports_ops/                  │
+│                                                                 │
+│  □ 3. STRATEGY.MD FILENAME CORRECT?                             │
+│     - Pattern: {company}_{position}_strategy.md                 │
+│     - ❌ WRONG: strategy.md, application_strategy.md            │
+│     - ✅ RIGHT: tving_sports_ops_strategy.md                    │
+│                                                                 │
+│  □ 4. STRATEGY.MD HAS ALL 7 SECTIONS?                           │
+│     - #1 JD Analysis                                            │
+│     - #2 Fit Analysis                                           │
+│     - #3 Go/No-Go                                               │
+│     - #4 Positioning                                            │
+│     - #5 Submission Log                                         │
+│     - #6 Timeline                                               │
+│     - #7 Interview Prep (add when DOC_PASSED)                   │
+│                                                                 │
+│  □ 5. JD SAVED TO ARTIFACTS?                                    │
+│     - Location: artifacts/jd_YYMMDD.md                          │
+│     - 오늘 날짜 기준 YYMMDD 형식                                   │
+│                                                                 │
+│  □ 6. DEADLINE RECORDED IN TIMELINE?                            │
+│     - 마감일을 #6 Timeline 섹션에 반드시 기록                       │
+│                                                                 │
+│  □ 7. FRONTMATTER COMPLETE?                                     │
+│     - company, position, status, discovered, last_updated       │
+│     - status 초기값: 📋 DISCOVERED                               │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+**Common Mistakes to Avoid:**
+- ❌ Using job category as company name (e.g., "sports_service" is NOT a company)
+- ❌ Creating `strategy.md` without `{company}_{position}_` prefix
+- ❌ Skipping JD save step
+- ❌ Forgetting deadline in Timeline section
+- ❌ Using custom section structure instead of the 7-section template
+
+---
+
 ### 📊 ANALYZE 단계 상세 가이드
 
 **Step 1: JD 파싱**
