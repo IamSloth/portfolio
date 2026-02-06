@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>시니어금융교육협의회 이력서 및 자기소개서 - 임종권</title>
+<style>
+  @page {
+    size: A4;
+    margin: 15mm 15mm 15mm 15mm;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: '맑은 고딕', 'Malgun Gothic', sans-serif;
+    font-size: 10pt;
+    color: #000;
+    background: #f0f0f0;
+    line-height: 1.5;
+  }
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 10mm auto;
+    padding: 12mm 15mm;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    page-break-after: always;
+    position: relative;
+  }
+  .page:last-child { page-break-after: auto; }
+
+  /* === PAGE 1: 이력서 === */
+  .title {
+    text-align: center;
+    font-size: 22pt;
+    font-weight: bold;
+    letter-spacing: 12px;
+    margin-bottom: 14px;
+    padding-top: 4px;
+  }
+
+  /* 인적사항 상단 */
+  .personal-section {
+    display: flex;
+    gap: 0;
+    margin-bottom: 10px;
+    border: 1.5px solid #000;
+  }
+  .photo-area {
+    width: 105px;
+    min-height: 130px;
+    border-right: 1px solid #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 9pt;
+    color: #666;
+    background: #fafafa;
+    padding: 4px;
+  }
+  .photo-area img {
+    max-width: 95px;
+    max-height: 125px;
+    object-fit: cover;
+  }
+  .personal-info {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(4, auto);
+  }
+  .personal-info .left, .personal-info .right {
+    display: contents;
+  }
+  .pi-row {
+    display: flex;
+    border-bottom: 1px solid #999;
+  }
+  .pi-row:last-child { border-bottom: none; }
+  .pi-label {
+    background: #C8D4E8;
+    font-weight: bold;
+    font-size: 9pt;
+    padding: 5px 8px;
+    min-width: 70px;
+    text-align: center;
+    letter-spacing: 4px;
+    border-right: 1px solid #999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .pi-value {
+    padding: 5px 8px;
+    font-size: 9.5pt;
+    flex: 1;
+    display: flex;
+    align-items: center;
+  }
+  .pi-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .pi-grid .pi-col {
+    border-right: 1px solid #999;
+  }
+  .pi-grid .pi-col:last-child { border-right: none; }
+  .pi-grid .pi-col .pi-row { }
+
+  /* 메인 테이블 */
+  .main-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1.5px solid #000;
+    margin-bottom: 0;
+    table-layout: fixed;
+  }
+  .main-table td, .main-table th {
+    border: 1px solid #999;
+    padding: 4px 6px;
+    font-size: 9pt;
+    vertical-align: middle;
+    text-align: center;
+  }
+  .section-label {
+    background: #C8D4E8;
+    font-weight: bold;
+    font-size: 9pt;
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    letter-spacing: 6px;
+    width: 32px;
+    text-align: center;
+    padding: 8px 2px;
+  }
+  .header-cell {
+    background: #C8D4E8;
+    font-weight: bold;
+    font-size: 8.5pt;
+    padding: 5px 4px;
+  }
+  .content-cell {
+    text-align: left;
+    padding: 3px 6px;
+    font-size: 9pt;
+    line-height: 1.4;
+  }
+  .summary-cell {
+    text-align: left;
+    padding: 6px 8px;
+    font-size: 9pt;
+    line-height: 1.6;
+    vertical-align: top;
+  }
+
+  /* 서명란 */
+  .signature-line {
+    text-align: center;
+    margin-top: 16px;
+    font-size: 10pt;
+    line-height: 2;
+  }
+
+  /* === PAGE 2: 자기소개서 === */
+  .page2-border {
+    border: 1.5px solid #000;
+    min-height: 255mm;
+    display: flex;
+    flex-direction: column;
+  }
+  .page2-title {
+    background: #C8D4E8;
+    text-align: center;
+    font-size: 18pt;
+    font-weight: bold;
+    letter-spacing: 10px;
+    padding: 10px 0;
+    border-bottom: 1.5px solid #000;
+  }
+  .page2-content {
+    padding: 14px 18px;
+    font-size: 10pt;
+    line-height: 1.8;
+    flex: 1;
+  }
+  .page2-content .section-title {
+    font-weight: bold;
+    margin-top: 14px;
+    margin-bottom: 4px;
+    font-size: 10.5pt;
+  }
+  .page2-content .section-title:first-child {
+    margin-top: 0;
+  }
+  .page2-content p {
+    text-indent: 0;
+    margin-bottom: 6px;
+  }
+
+  /* === PAGE 3: 동의서 === */
+  .page3-border {
+    border: 1.5px solid #000;
+    padding: 20px 25px;
+    min-height: 255mm;
+  }
+  .page3-title {
+    background: #C8D4E8;
+    text-align: center;
+    font-size: 16pt;
+    font-weight: bold;
+    letter-spacing: 6px;
+    padding: 10px 0;
+    border-bottom: 1.5px solid #000;
+    margin: -20px -25px 20px -25px;
+  }
+  .page3-border h3 {
+    font-size: 11pt;
+    margin: 18px 0 8px 0;
+  }
+  .page3-border p, .page3-border li {
+    font-size: 10pt;
+    line-height: 1.8;
+    margin-left: 10px;
+  }
+  .consent-box {
+    margin-top: 30px;
+    font-size: 10.5pt;
+    line-height: 2.4;
+  }
+  .consent-box .line {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+  }
+
+  /* 인쇄 */
+  @media print {
+    body { background: #fff; }
+    .page {
+      margin: 0;
+      box-shadow: none;
+      padding: 10mm 12mm;
+    }
+  }
+
+  /* placeholder */
+  .placeholder {
+    color: #C00;
+    font-style: italic;
+    font-size: 8.5pt;
+  }
+</style>
+</head>
+<body>
+
+<!-- ==================== PAGE 1: 이력서 ==================== -->
+<div class="page">
+  <div class="title">이 력 서</div>
+
+  <!-- 인적사항 -->
+  <table class="main-table" style="margin-bottom: 10px;">
+    <colgroup>
+      <col style="width: 105px;">
+      <col style="width: 70px;">
+      <col>
+      <col style="width: 70px;">
+      <col>
+    </colgroup>
+    <tr>
+      <td rowspan="4" style="padding: 4px; vertical-align: middle; background: #fafafa;">
+        <img src="../../../../common/photos/profile.png" alt="증명사진" style="max-width: 95px; max-height: 120px; object-fit: cover; display: block; margin: 0 auto;">
+      </td>
+      <td class="header-cell">성 명</td>
+      <td class="content-cell" style="font-weight:bold; font-size:11pt;">임종권</td>
+      <td class="header-cell">회 사 명</td>
+      <td class="content-cell">시니어금융교육협의회</td>
+    </tr>
+    <tr>
+      <td class="header-cell">생년월일</td>
+      <td class="content-cell">1992. 01. 04</td>
+      <td class="header-cell">지원부문</td>
+      <td class="content-cell">사회공헌사업 운영</td>
+    </tr>
+    <tr>
+      <td class="header-cell">연 령</td>
+      <td class="content-cell">만 34세 &nbsp;&nbsp;&nbsp; <b>성 별</b> &nbsp; 남</td>
+      <td class="header-cell">전화번호</td>
+      <td class="content-cell">010-4052-0834</td>
+    </tr>
+    <tr>
+      <td class="header-cell">자택주소</td>
+      <td class="content-cell">경기도 광명시 도덕로 79, 1405호</td>
+      <td class="header-cell">이 메 일</td>
+      <td class="content-cell">ssujklim@gmail.com</td>
+    </tr>
+  </table>
+
+  <!-- 학력사항 -->
+  <table class="main-table" style="margin-bottom: 0; border-bottom: none;">
+    <colgroup>
+      <col style="width: 32px;">
+      <col style="width: 42px;">
+      <col style="width: 28px;">
+      <col style="width: 135px;">
+      <col>
+      <col style="width: 85px;">
+      <col style="width: 62px;">
+    </colgroup>
+    <tr>
+      <td class="section-label" rowspan="4">학력사항</td>
+      <td class="header-cell" colspan="2">졸업년월</td>
+      <td class="header-cell">학교명</td>
+      <td class="header-cell">전공</td>
+      <td class="header-cell">졸업구분</td>
+      <td class="header-cell">성적(학점)</td>
+    </tr>
+    <tr>
+      <td class="content-cell">2010</td>
+      <td class="content-cell">02</td>
+      <td class="content-cell">명문고등학교</td>
+      <td class="content-cell">-</td>
+      <td class="content-cell">졸업</td>
+      <td class="content-cell">-</td>
+    </tr>
+    <tr>
+      <td class="content-cell">2017</td>
+      <td class="content-cell">02</td>
+      <td class="content-cell">숭실대학교</td>
+      <td class="content-cell">전기공학부<br>(복수전공: 경제학부)</td>
+      <td class="content-cell">졸업</td>
+      <td class="content-cell">3.0/4.5</td>
+    </tr>
+    <tr>
+      <td class="content-cell">2020</td>
+      <td class="content-cell">02</td>
+      <td class="content-cell">숭실대학교 사회복지대학원</td>
+      <td class="content-cell">사회적기업전공</td>
+      <td class="content-cell">졸업</td>
+      <td class="content-cell">4.2/4.5</td>
+    </tr>
+  </table>
+
+  <!-- 경력사항 -->
+  <table class="main-table" style="margin-bottom: 0; border-top: none; border-bottom: none;">
+    <colgroup>
+      <col style="width: 32px;">
+      <col style="width: 130px;">
+      <col style="width: 145px;">
+      <col>
+    </colgroup>
+    <tr>
+      <td class="section-label" rowspan="4">경력사항</td>
+      <td class="header-cell">회사명</td>
+      <td class="header-cell">재직 기간</td>
+      <td class="header-cell">부서 및 업무내용(직위)</td>
+    </tr>
+    <tr>
+      <td class="content-cell">(사)함께만드는세상</td>
+      <td class="content-cell">2023.01 ~ 2026.02</td>
+      <td class="content-cell" style="text-align:left; font-size:8.5pt; line-height:1.35;">
+        경영지원부 인프라지원팀 / 총무·IT지원 (대리)<br>
+        - KDB시니어브리지 사회공헌아카데미 등 사업 운영 지원<br>
+        - 연간 3.6억 원 운영 예산 집행·관리, 협력기관 계약·관리<br>
+        - ERP 도입 프로젝트 실무 전담, 문서·데이터 관리
+      </td>
+    </tr>
+    <tr>
+      <td class="content-cell">(주)맨지온</td>
+      <td class="content-cell">2020.03 ~ 2021.11</td>
+      <td class="content-cell" style="text-align:left; font-size:8.5pt;">
+        개발부 / 임베디드 시스템 개발 및 QA (대리)
+      </td>
+    </tr>
+    <tr>
+      <td class="content-cell">(주)엣지크로스</td>
+      <td class="content-cell">2016.05 ~ 2018.02</td>
+      <td class="content-cell" style="text-align:left; font-size:8.5pt;">
+        기술연구소 / H/W 개발 및 자재 관리 (주임)
+      </td>
+    </tr>
+  </table>
+
+  <!-- 활동사항 -->
+  <table class="main-table" style="margin-bottom: 0; border-top: none; border-bottom: none;">
+    <colgroup>
+      <col style="width: 32px;">
+      <col style="width: 130px;">
+      <col style="width: 145px;">
+      <col>
+    </colgroup>
+    <tr>
+      <td class="section-label" rowspan="3">활동사항</td>
+      <td class="header-cell">단체명</td>
+      <td class="header-cell">활동기간</td>
+      <td class="header-cell">활동사항(직위)</td>
+    </tr>
+    <tr>
+      <td class="content-cell" style="font-size:8pt;">한국폴리텍 광명융합기술교육원</td>
+      <td class="content-cell">2022.01 ~ 2022.12</td>
+      <td class="content-cell" style="text-align:left; font-size:8.5pt;">증강현실(AR) 시스템제어 과정 수료</td>
+    </tr>
+    <tr>
+      <td class="content-cell" style="font-size:8pt;">과학기술정보통신부</td>
+      <td class="content-cell">2022.09</td>
+      <td class="content-cell" style="text-align:left; font-size:8.5pt;">메타버스 콘텐츠 리크루팅 캠프 대상 수상</td>
+    </tr>
+  </table>
+
+  <!-- 자격증 -->
+  <table class="main-table" style="margin-bottom: 0; border-top: none; border-bottom: none;">
+    <colgroup>
+      <col style="width: 32px;">
+      <col>
+      <col style="width: 145px;">
+      <col style="width: 130px;">
+    </colgroup>
+    <tr>
+      <td class="section-label" rowspan="3">자격증</td>
+      <td class="header-cell">종 류</td>
+      <td class="header-cell">취득일자</td>
+      <td class="header-cell">발행기관</td>
+    </tr>
+    <tr>
+      <td class="content-cell">사회복지사 1급</td>
+      <td class="content-cell">2020.02</td>
+      <td class="content-cell">보건복지부</td>
+    </tr>
+    <tr>
+      <td class="content-cell">1종 대형 운전면허</td>
+      <td class="content-cell">2019.02</td>
+      <td class="content-cell">경찰청</td>
+    </tr>
+  </table>
+
+  <!-- 자기소개요약 -->
+  <table class="main-table" style="border-top: none;">
+    <colgroup>
+      <col style="width: 32px;">
+      <col>
+    </colgroup>
+    <tr>
+      <td class="section-label" style="letter-spacing: 3px; padding: 6px 2px;">자기소개요약</td>
+      <td class="summary-cell" style="height: 80px; font-size: 8.5pt; line-height: 1.55;">
+        사회복지 석사(사회적기업 전공) | 사회복지사 1급 | 비영리 법인 3년+ 사업운영 지원 실무<br><br>
+        - (사)함께만드는세상에서 KDB시니어브리지 사회공헌아카데미 등 시니어 교육 사업 운영 지원<br>
+        - 연간 3.6억 원 사업 운영 예산 집행·관리, 외부 협력기관 선정·계약·관리 경험<br>
+        - 문서 작성 능숙 (PPT, Excel, 한글), 데이터 정리·성과 보고 역량<br><br>
+        시니어 교육 사업 지원 경험과 사회복지 전문성을 바탕으로, 금융취약계층을 위한 사업 운영에 기여하고자 합니다.
+      </td>
+    </tr>
+  </table>
+
+  <!-- 서명란 -->
+  <div class="signature-line">
+    <br>
+    상기 지원서 상의 모든 기재사항은 사실과 다름없음을 확인합니다.<br><br>
+    2026년 02월 &nbsp;&nbsp;&nbsp;&nbsp;일 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 작성자 : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (印/서명)
+  </div>
+</div>
+
+<!-- ==================== PAGE 2: 자기소개서 ==================== -->
+<div class="page">
+  <div class="page2-border">
+    <div class="page2-title">자 기 소 개 서</div>
+    <div class="page2-content">
+
+      <p>
+        사회복지대학원에서 사회적기업을 전공하고, 비영리 법인 (사)함께만드는세상(사회연대은행)에서 3년간 사업 운영을 가까이에서 지원해 왔습니다. 특히 소속 기관이 KDB나눔재단과 함께 운영하는 'KDB시니어브리지 사회공헌아카데미' 사업을 지원하면서, 시니어 대상 교육 사업이 기획부터 모집, 운영, 정산까지 어떻게 돌아가는지 현장에서 체득할 수 있었습니다. 이제 그 경험을 바탕으로, 시니어 금융취약계층을 위한 사회공헌사업의 현장에 직접 서고자 지원합니다.
+      </p>
+
+      <div class="section-title">&#9632; 시니어 교육 사업을 가까이서 지원한 경험</div>
+      <p>
+        (사)함께만드는세상은 KDB나눔재단의 지원을 받아 5060 신중년 대상 'KDB시니어브리지 사회공헌아카데미'를 운영하고 있으며, 저는 경영지원 부서에서 이 사업의 원활한 수행을 지원했습니다. 교육 프로그램 운영에 필요한 예산 집행·정산, 외부 협력기관 계약·관리, 교육장 환경 조성, 일정 조율 등 사업의 뒷단을 담당하며 시니어 교육 사업이 현장에서 어떻게 운영되는지 가까이서 익혔습니다. 연간 약 3.6억 원 규모의 운영 예산을 집행·관리한 경험과, 사업보고서 작성 과정, 성과 지표 관리 방식, 재단·유관기관과의 협력 구조를 자연스럽게 체득한 점은 사회공헌사업 운영 직무에 바로 적용 가능한 역량이라고 생각합니다.
+      </p>
+
+      <div class="section-title">&#9632; 사회복지 전문성과 금융취약계층에 대한 이해</div>
+      <p>
+        사회복지대학원에서 사회적기업을 전공하고, 학부에서는 경제학을 복수전공하며 금융·경제의 기초 소양을 갖추었습니다. 사회복지사 1급 자격은 단순한 스펙이 아니라, 복지 대상자의 니즈를 파악하고 서비스를 설계하는 관점을 갖추고 있다는 의미입니다. 시니어브리지 아카데미 교육 운영을 지원하면서 60~70대 교육생분들이 스마트폰 앱 설치나 온라인 금융 서비스 이용을 어려워하시는 모습을 자주 접했고, 이러한 디지털 격차가 보이스피싱 등 금융 사기 피해로 직결된다는 점을 실감했습니다. 협의회가 금감원과 협력하여 시니어 맞춤형 금융교육과 금융사기 예방교육을 전국 경로당·노인복지관 등 현장에서 직접 수행하고 계신다는 점에서, 저의 현장 경험과 사회복지 전문성을 가장 의미 있게 발휘할 수 있는 곳이라 확신합니다.
+      </p>
+
+      <div class="section-title">&#9632; 문서 역량과 꼼꼼한 업무 처리</div>
+      <p>
+        파워포인트, 엑셀, 한글 등 문서 작성 도구를 일상적으로 활용해 왔습니다. 특히 사업 수행 부서에서 재단에 제출하는 사업보고서의 교육 참여자 데이터를 엑셀로 정리하거나, 월간 운영 현황을 정리하여 경영진에 보고하는 업무를 수행한 경험이 있습니다. 또한 ERP 시스템 도입 프로젝트를 실무 전담하며 부서별 업무 프로세스를 설계하고 체계화한 경험도 있어, 교육 참여자 관리, 사업 실적 정리, 정산 보고서 작성 등의 업무에 빠르게 적응할 수 있습니다.
+      </p>
+
+      <div class="section-title">&#9632; 지원 동기</div>
+      <p>
+        비영리 법인에서 3년간 일하며 '사회적 가치를 추구하는 조직에서 일하는 것'이 저와 맞는다는 확신을 갖게 되었습니다. 다만 지원 부서에서 간접적으로 사업을 지원하는 데 그치지 않고, 직접 사업을 기획하고 운영하며 대상자를 만나는 역할을 하고 싶다는 바람이 커졌습니다. 시니어금융교육협의회는 금융취약계층이라는 분명한 대상, 금융사기 예방과 디지털 금융 접근성 향상이라는 구체적 미션, 그리고 금융위원회 산하 공익법인이라는 안정적 기반을 갖추고 있어, 사회공헌 실무자로서 성장하기에 가장 적합한 곳이라 생각합니다. 사회복지 전문성과 비영리 현장 경험을 바탕으로, 맡겨주신 사업을 책임감 있게 운영하겠습니다.
+      </p>
+
+    </div>
+  </div>
+</div>
+
+<!-- ==================== PAGE 3: 개인정보제공·이용 동의서 ==================== -->
+<div class="page">
+  <div class="page3-border">
+    <div class="page3-title">개 인 정 보 제 공 ・ 이 용 동 의 서</div>
+
+    <p style="margin-top: 10px; margin-left: 0;">
+      시니어금융교육협의회 신규채용을 위해 아래와 같은 개인정보를 수집합니다.
+    </p>
+
+    <h3>1. 개인정보 수집·이용목적</h3>
+    <p>- 채용심사를 위해 필요한 본인확인 및 심사자료</p>
+
+    <h3>2. 개인정보 수집항목</h3>
+    <p>- 수집항목 : 성명, 생년월일, 주소, 연락처, 학력, 경력·자격사항</p>
+    <p>- 고유식별정보 : 생년월일</p>
+
+    <h3>3. 개인정보의 보유 및 이용기간</h3>
+    <p>
+      - 수집된 개인정보는 수집·이용에 관한 동의일로부터 채용절차 종료 시까지 보유·이용되며,
+      채용절차 종료 후에는 「채용절차의 공정화에 관한 법률」 및 동법 시행령,
+      「개인정보보호법」에 따라 필요한 범위 내에서만 보유·이용됩니다.
+    </p>
+
+    <h3>4. 동의 거부 및 동의 거부 시 불이익 내용</h3>
+    <p>
+      - 개인정보 수집 동의를 거부하실 수 있습니다. 다만, 동의하지 않을 경우
+      채용심사 대상에서 제외됩니다.
+    </p>
+
+    <p style="margin-top: 15px; margin-left: 0;">
+      ※ 개인정보는 채용업무 이외의 다른 목적으로 사용하지 않습니다.
+    </p>
+
+    <div class="consent-box">
+      <div class="line">
+        <span>개인정보 수집 및 이용에 동의하십니까?</span>
+        <span><b>동의함( &nbsp;&#10003;&nbsp; ), &nbsp; 동의하지 않음( &nbsp;&nbsp; )</b></span>
+      </div>
+      <div class="line">
+        <span>고유식별정보(생년월일) 처리에 동의하십니까?</span>
+        <span><b>동의함( &nbsp;&#10003;&nbsp; ), &nbsp; 동의하지 않음( &nbsp;&nbsp; )</b></span>
+      </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 50px; font-size: 11pt; line-height: 2.5;">
+      2026년 &nbsp;&nbsp; 02 &nbsp;&nbsp;월 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;일<br><br>
+      성명 : &nbsp;&nbsp; 임종권 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (서명)
+    </div>
+
+    <p style="text-align: right; margin-top: 30px; font-size: 9pt;">
+      ※ 반드시 자필 서명 후 제출
+    </p>
+  </div>
+</div>
+
+</body>
+</html>
