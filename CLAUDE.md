@@ -82,7 +82,7 @@ Job-Application-Pipeline-Desktop/
 ├─────────────────────────────────────────────────────────────────┤
 │  □ 1. COMPANY NAME CONFIRMED?                                   │
 │     - If unknown, ASK USER first. Do NOT guess.                 │
-│     - 회사명 불명확 시 User에게 질문. 추측 금지.                    │
+│     - 회사명 불명확 시 User에게 질문. 추측 금지.                   │
 │                                                                 │
 │  □ 2. FOLDER PATH CORRECT?                                      │
 │     - Pattern: applications/{company}/{position}/               │
