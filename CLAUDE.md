@@ -24,11 +24,12 @@
 ```
 Job-Application-Pipeline-Desktop/
 ├── common/                          # 공통 자산 금고
-│   ├── photos/                      # 프로필 사진 (profile.png)
+│   ├── photos/                      # 프로필 사진, 프로젝트 이미지
 │   ├── evidence/                    # 범용 증거 (자격증 등)
 │   └── snippets/                    # 재사용 텍스트 블록 (자소서 문단 등)
 ├── content/                         # Single Source of Truth
 │   ├── profile.json                 # 경력 데이터
+│   ├── personal_profile.md          # 개인 성향/커뮤니케이션 가이드
 │   └── data.json                    # 보조 데이터 (현재 미사용, 확장용)
 ├── applications/                    # 기업별 지원 기록 (회사 → 포지션 2단계)
 │   └── {company}/                   # 예: kiwoom/, smilegate/
@@ -36,10 +37,16 @@ Job-Application-Pipeline-Desktop/
 │           ├── {company}_{position}_strategy.md  # 메인 허브 (JD 분석 포함)
 │           ├── artifacts/           # 증거자료 + 채용공고 원본 (이미지 등)
 │           ├── drafts/              # 작업 중간본
-│           └── final/              # 최종 제출물
+│           └── final/               # 최종 제출물
+├── docs/                            # 웹 포트폴리오 소스 (→ IamSloth/portfolio로 subtree push)
+│   ├── index.html                   # 메인 페이지 (KO/EN 이중언어, 다크모드)
+│   ├── style.css                    # 스타일시트
+│   ├── lang.js                      # 언어/테마 토글
+│   └── assets/                      # 이미지 (profile, projects)
+├── vault/                           # 비공개 문서 아카이브 (제출물 백업, public repo 미포함)
+│   └── x7k9m2p4/                    # 난독화 경로
 ├── templates/                       # 문서 템플릿
-│   ├── resumes/
-│   └── web/
+│   └── resumes/
 ├── manual/                          # 운영 문서
 │   └── NARRATIVE_STRATEGY.md        # 셀링 전략
 ├── README.md

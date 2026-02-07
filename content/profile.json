@@ -1,7 +1,7 @@
 {
     "meta": {
         "version": "1.1",
-        "last_updated": "2026-02-06"
+        "last_updated": "2026-02-08"
     },
     "personal_info": {
         "name_ko": "임종권",
@@ -10,7 +10,7 @@
         "phone": "010-4052-0834",
         "address": "경기도 광명시 도덕로 79, 1405호",
         "birthdate": "1992-01-04",
-        "portfolio_url": "https://sites.google.com/view/jongkwon/"
+        "portfolio_url": "https://iamsloth.github.io/portfolio/"
     },
     "education": [
         {
