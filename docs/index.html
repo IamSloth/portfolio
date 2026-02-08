@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>임종권 | Jong Kwon Lim</title>
-  <meta name="description" content="실전형 Ops 전문가 — ERP 풀사이클 · IT 인프라 · 예산 3.6억 집행">
+  <meta name="description" content="실전형 Ops 전문가 — ERP 풀사이클 · IT 인프라 · 예산 3.6억 집행 · AI 업무자동화">
   <!-- OG Tags -->
   <meta property="og:title" content="임종권 | Ops 전문가">
-  <meta property="og:description" content="ERP 풀사이클 도입 · IT 인프라 관리 · 인프라 예산 3.6억 집행 · 유지보수 30% 절감">
+  <meta property="og:description" content="ERP 풀사이클 도입 · IT 인프라 관리 · 인프라 예산 3.6억 집행 · AI 업무자동화">
   <meta property="og:image" content="assets/profile.png">
   <meta property="og:type" content="website">
   <link rel="stylesheet" href="style.css">
@@ -28,11 +28,19 @@
       <a href="#projects" class="nav-link">
         <span class="ko">프로젝트</span><span class="en">Projects</span>
       </a>
+      <a href="#ai-showcase" class="nav-link">
+        <span class="ko">AI 활용</span><span class="en">AI Showcase</span>
+      </a>
       <a href="#skills" class="nav-link">
         <span class="ko">기술</span><span class="en">Skills</span>
       </a>
     </div>
     <div class="nav-controls">
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <span class="menu-bar"></span>
+        <span class="menu-bar"></span>
+        <span class="menu-bar"></span>
+      </button>
       <button class="theme-toggle" aria-label="Toggle dark mode">
         <span class="theme-icon light-icon">&#9789;</span>
         <span class="theme-icon dark-icon">&#9788;</span>
@@ -60,12 +68,13 @@
     </p>
     <div class="hero-links">
       <a href="mailto:ssujklim@gmail.com">ssujklim@gmail.com</a>
+      <a href="https://github.com/IamSloth" target="_blank" rel="noopener">GitHub</a>
     </div>
 
     <!-- Stat Cards -->
     <div class="stat-cards">
       <div class="stat-card">
-        <span class="stat-value">18<span class="stat-unit">
+        <span class="stat-value"><span class="count-up" data-target="18">0</span><span class="stat-unit">
           <span class="ko">개월</span><span class="en">mo</span>
         </span></span>
         <span class="stat-label">
@@ -74,8 +83,8 @@
         </span>
       </div>
       <div class="stat-card">
-        <span class="stat-value">3.6<span class="stat-unit">
-          <span class="ko">억</span><span class="en">억원</span>
+        <span class="stat-value"><span class="count-up" data-target="3.6" data-decimal="1">0</span><span class="stat-unit">
+          <span class="ko">억</span><span class="en">억₩</span>
         </span></span>
         <span class="stat-label">
           <span class="ko">인프라 예산 직접 집행</span>
@@ -83,7 +92,7 @@
         </span>
       </div>
       <div class="stat-card">
-        <span class="stat-value">30<span class="stat-unit">%</span></span>
+        <span class="stat-value"><span class="count-up" data-target="30">0</span><span class="stat-unit">%</span></span>
         <span class="stat-label">
           <span class="ko">유지보수 비용 절감</span>
           <span class="en">Maintenance Cost Reduction</span>
@@ -94,7 +103,7 @@
 </section>
 
 <!-- About (Icon Cards) -->
-<section class="about" id="about">
+<section class="about reveal" id="about">
   <div class="container">
     <h2 class="section-title">
       <span class="ko">핵심 역량</span>
@@ -102,7 +111,9 @@
     </h2>
     <div class="about-cards">
       <div class="about-card">
-        <div class="about-icon">&#9881;</div>
+        <div class="about-icon">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M7 8h2m2 0h2m2 0h2M7 11h10"/></svg>
+        </div>
         <h3>
           <span class="ko">ERP 도입</span>
           <span class="en">ERP Implementation</span>
@@ -113,7 +124,9 @@
         </p>
       </div>
       <div class="about-card">
-        <div class="about-icon">&#128187;</div>
+        <div class="about-icon">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="4" width="22" height="16" rx="2"/><path d="M1 10h22"/><circle cx="18" cy="15" r="2"/></svg>
+        </div>
         <h3>
           <span class="ko">IT 인프라</span>
           <span class="en">IT Infrastructure</span>
@@ -124,7 +137,9 @@
         </p>
       </div>
       <div class="about-card">
-        <div class="about-icon">&#128176;</div>
+        <div class="about-icon">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2v4m0 12v4M2 12h4m12 0h4"/><circle cx="12" cy="12" r="3"/><path d="M4.93 4.93l2.83 2.83m8.48 8.48l2.83 2.83M4.93 19.07l2.83-2.83m8.48-8.48l2.83-2.83"/></svg>
+        </div>
         <h3>
           <span class="ko">비용 최적화</span>
           <span class="en">Cost Optimization</span>
@@ -139,7 +154,7 @@
 </section>
 
 <!-- Experience -->
-<section id="experience">
+<section id="experience" class="reveal">
   <div class="container">
     <h2 class="section-title">
       <span class="ko">경력</span>
@@ -255,7 +270,7 @@
 </section>
 
 <!-- Projects -->
-<section id="projects">
+<section id="projects" class="reveal">
   <div class="container">
     <h2 class="section-title">
       <span class="ko">주요 프로젝트</span>
@@ -273,10 +288,20 @@
             <span class="ko">커스텀 ERP 도입</span>
             <span class="en">Custom ERP Implementation</span>
           </h3>
-          <p>
-            <span class="ko">High-Q ERP 도입 풀사이클. 요구사항 정의, 예산/회계 프로세스 설계, 계정과목 표준화, 검수까지 18개월 실무 전담.</span>
-            <span class="en">End-to-end High-Q ERP rollout over 18 months — requirements, process design, chart of accounts standardization, UAT.</span>
-          </p>
+          <div class="project-flow">
+            <span class="flow-problem">
+              <span class="ko">수기 장부 + Excel 혼용으로 데이터 불일치</span>
+              <span class="en">Data inconsistency from manual ledgers + Excel</span>
+            </span>
+            <span class="flow-solution">
+              <span class="ko">High-Q ERP 도입 PM — 요구사항~검수 18개월 전담</span>
+              <span class="en">Led High-Q ERP rollout end-to-end over 18 months</span>
+            </span>
+            <span class="flow-impact">
+              <span class="ko">예산/회계 프로세스 표준화, 데이터 신뢰도 확보</span>
+              <span class="en">Standardized budget/accounting processes, ensured data reliability</span>
+            </span>
+          </div>
           <div class="project-tags">
             <span class="tag">Tibero DB</span>
             <span class="tag">Nexacro</span>
@@ -295,10 +320,20 @@
             <span class="ko">IoT 해수담수화 시스템</span>
             <span class="en">IoT Desalination System</span>
           </h3>
-          <p>
-            <span class="ko">ESP32 기반 진공 감압 증류 시스템 제어 및 Blynk 연동 원격 모니터링 대시보드.</span>
-            <span class="en">ESP32-based vacuum distillation control with Blynk-integrated remote monitoring dashboard.</span>
-          </p>
+          <div class="project-flow">
+            <span class="flow-problem">
+              <span class="ko">원격 설비 상태 확인 불가, 장애 대응 지연</span>
+              <span class="en">No remote monitoring, delayed fault response</span>
+            </span>
+            <span class="flow-solution">
+              <span class="ko">ESP32 + Blynk IoT 대시보드 구축</span>
+              <span class="en">Built ESP32 + Blynk IoT monitoring dashboard</span>
+            </span>
+            <span class="flow-impact">
+              <span class="ko">실시간 센서 모니터링, 장애 원인 규명 프로세스 확립</span>
+              <span class="en">Real-time sensor monitoring, established fault diagnosis process</span>
+            </span>
+          </div>
           <div class="project-tags">
             <span class="tag">ESP32</span>
             <span class="tag">Blynk</span>
@@ -318,10 +353,20 @@
             <span class="ko">메타버스 콘텐츠 (대상 수상)</span>
             <span class="en">Metaverse Content (Grand Prize)</span>
           </h3>
-          <p>
-            <span class="ko">과기정통부 '2022 메타버스 콘텐츠 리크루팅 캠프' 대상. Unity 3D 기반 콘텐츠 개발.</span>
-            <span class="en">Grand Prize — 2022 Metaverse Content Camp by Ministry of Science & ICT. Unity 3D development.</span>
-          </p>
+          <div class="project-flow">
+            <span class="flow-problem">
+              <span class="ko">경진대회 참가 — 메타버스 콘텐츠 기획·개발</span>
+              <span class="en">Competition entry — Metaverse content planning & development</span>
+            </span>
+            <span class="flow-solution">
+              <span class="ko">Unity 3D / C# 기반 인터랙티브 콘텐츠 제작</span>
+              <span class="en">Built interactive content with Unity 3D / C#</span>
+            </span>
+            <span class="flow-impact">
+              <span class="ko">과기정통부 주최 대회 대상 수상</span>
+              <span class="en">Grand Prize — Ministry of Science & ICT competition</span>
+            </span>
+          </div>
           <div class="project-tags">
             <span class="tag">Unity 3D</span>
             <span class="tag">C#</span>
@@ -334,14 +379,203 @@
   </div>
 </section>
 
-<!-- Skills -->
-<section id="skills">
+<!-- AI Showcase -->
+<section id="ai-showcase" class="reveal">
   <div class="container">
     <h2 class="section-title">
-      <span class="ko">기술 및 자격</span>
-      <span class="en">Skills & Certifications</span>
+      <span class="ko">AI 활용 쇼케이스</span>
+      <span class="en">AI Automation Showcase</span>
+    </h2>
+    <p class="section-desc">
+      <span class="ko">비개발자가 AI를 실무에 활용하여 업무 효율을 극대화한 실제 사례</span>
+      <span class="en">Real cases where a non-developer leveraged AI to maximize work efficiency</span>
+    </p>
+
+    <div class="showcase-grid">
+
+      <!-- Case 1: Job Pipeline -->
+      <div class="showcase-card">
+        <div class="showcase-header">
+          <span class="showcase-num">01</span>
+          <h3>
+            <span class="ko">채용 지원 파이프라인</span>
+            <span class="en">Job Application Pipeline</span>
+          </h3>
+        </div>
+        <div class="showcase-before-after">
+          <div class="ba-item ba-before">
+            <span class="ba-label">Before</span>
+            <span class="ko">매 지원마다 이력서+자소서 새로 작성 <strong>2~3일</strong></span>
+            <span class="en">Rewrite resume + cover letter per application: <strong>2-3 days</strong></span>
+          </div>
+          <div class="ba-item ba-after">
+            <span class="ba-label">After</span>
+            <span class="ko">Claude Code로 JD 분석 → 맞춤 서류 생성 <strong>3시간</strong></span>
+            <span class="en">Claude Code: JD analysis → custom docs in <strong>3 hours</strong></span>
+          </div>
+        </div>
+        <div class="showcase-metric">
+          <span class="metric-value">94%</span>
+          <span class="metric-label">
+            <span class="ko">소요시간 단축</span>
+            <span class="en">Time Reduction</span>
+          </span>
+        </div>
+        <p class="showcase-desc">
+          <span class="ko">이 포트폴리오 웹사이트 자체가 Claude Code로 제작됨. 비개발자가 대화만으로 HTML/CSS/JS 사이트 구축.</span>
+          <span class="en">This portfolio website itself was built with Claude Code. A non-developer built a full site through conversation alone.</span>
+        </p>
+        <div class="project-tags">
+          <span class="tag">Claude Code</span>
+          <span class="tag">HTML/CSS/JS</span>
+          <span class="tag">GitHub Pages</span>
+        </div>
+      </div>
+
+      <!-- Case 2: Email Automation -->
+      <div class="showcase-card">
+        <div class="showcase-header">
+          <span class="showcase-num">02</span>
+          <h3>
+            <span class="ko">영문 비즈니스 이메일 자동화</span>
+            <span class="en">Business Email Automation</span>
+          </h3>
+        </div>
+        <div class="showcase-before-after">
+          <div class="ba-item ba-before">
+            <span class="ba-label">Before</span>
+            <span class="ko">번역기 돌려서 교정 반복 <strong>30분/건</strong></span>
+            <span class="en">Translate → proofread → iterate: <strong>30 min/email</strong></span>
+          </div>
+          <div class="ba-item ba-after">
+            <span class="ba-label">After</span>
+            <span class="ko">상황별 프롬프트 템플릿으로 <strong>3분/건</strong></span>
+            <span class="en">Context-specific prompt templates: <strong>3 min/email</strong></span>
+          </div>
+        </div>
+        <div class="showcase-metric">
+          <span class="metric-value">90%</span>
+          <span class="metric-label">
+            <span class="ko">소요시간 단축</span>
+            <span class="en">Time Reduction</span>
+          </span>
+        </div>
+        <p class="showcase-desc">
+          <span class="ko">ERP 벤더 커뮤니케이션, 해외 장비 문의 등 실무 영문 이메일을 Claude/ChatGPT로 작성. 상황별 프롬프트 라이브러리 구축.</span>
+          <span class="en">Wrote real business emails (ERP vendors, overseas equipment inquiries) using AI. Built a prompt library for common scenarios.</span>
+        </p>
+        <div class="project-tags">
+          <span class="tag">ChatGPT</span>
+          <span class="tag">Claude</span>
+          <span class="tag">Prompt Engineering</span>
+        </div>
+      </div>
+
+      <!-- Case 3: Data Cleanup -->
+      <div class="showcase-card">
+        <div class="showcase-header">
+          <span class="showcase-num">03</span>
+          <h3>
+            <span class="ko">데이터 정리 자동화</span>
+            <span class="en">Data Cleanup Automation</span>
+          </h3>
+        </div>
+        <div class="showcase-before-after">
+          <div class="ba-item ba-before">
+            <span class="ba-label">Before</span>
+            <span class="ko">엑셀 수작업 정리 <strong>반나절</strong></span>
+            <span class="en">Manual Excel cleanup: <strong>half a day</strong></span>
+          </div>
+          <div class="ba-item ba-after">
+            <span class="ba-label">After</span>
+            <span class="ko">AI로 규칙 생성 + 일괄 처리 <strong>30분</strong></span>
+            <span class="en">AI-generated rules + batch processing: <strong>30 min</strong></span>
+          </div>
+        </div>
+        <div class="showcase-metric">
+          <span class="metric-value">90%</span>
+          <span class="metric-label">
+            <span class="ko">소요시간 단축</span>
+            <span class="en">Time Reduction</span>
+          </span>
+        </div>
+        <p class="showcase-desc">
+          <span class="ko">거래처 정보 정제, 중복 제거, 카테고리 자동 분류. AI가 정리 규칙을 생성하고 Excel 수식/VBA로 변환.</span>
+          <span class="en">Vendor data cleansing, deduplication, auto-categorization. AI generates cleanup rules converted to Excel formulas/VBA.</span>
+        </p>
+        <div class="project-tags">
+          <span class="tag">Excel VBA</span>
+          <span class="tag">Claude</span>
+          <span class="tag">Data Processing</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Skills & Tools -->
+<section id="skills" class="reveal">
+  <div class="container">
+    <h2 class="section-title">
+      <span class="ko">기술 및 도구</span>
+      <span class="en">Skills & Tools</span>
     </h2>
 
+    <!-- Tool Mastery Bars -->
+    <div class="tools-mastery">
+      <div class="tool-item">
+        <div class="tool-info">
+          <span class="tool-name">AI Tools (Claude / ChatGPT)</span>
+          <span class="tool-level">95%</span>
+        </div>
+        <div class="tool-bar"><div class="tool-fill" data-width="95"></div></div>
+      </div>
+      <div class="tool-item">
+        <div class="tool-info">
+          <span class="tool-name">Excel (Pivot / VBA / Power Query)</span>
+          <span class="tool-level">90%</span>
+        </div>
+        <div class="tool-bar"><div class="tool-fill" data-width="90"></div></div>
+      </div>
+      <div class="tool-item">
+        <div class="tool-info">
+          <span class="tool-name">SQL (Data Extraction & Analysis)</span>
+          <span class="tool-level">75%</span>
+        </div>
+        <div class="tool-bar"><div class="tool-fill" data-width="75"></div></div>
+      </div>
+      <div class="tool-item">
+        <div class="tool-info">
+          <span class="tool-name">ERP (High-Q / Tibero / Nexacro)</span>
+          <span class="tool-level">85%</span>
+        </div>
+        <div class="tool-bar"><div class="tool-fill" data-width="85"></div></div>
+      </div>
+      <div class="tool-item">
+        <div class="tool-info">
+          <span class="tool-name">Notion / Slack</span>
+          <span class="tool-level">85%</span>
+        </div>
+        <div class="tool-bar"><div class="tool-fill" data-width="85"></div></div>
+      </div>
+      <div class="tool-item">
+        <div class="tool-info">
+          <span class="tool-name">Unity 3D / C#</span>
+          <span class="tool-level">55%</span>
+        </div>
+        <div class="tool-bar"><div class="tool-fill" data-width="55"></div></div>
+      </div>
+      <div class="tool-item">
+        <div class="tool-info">
+          <span class="tool-name">ESP32 / Arduino (IoT)</span>
+          <span class="tool-level">65%</span>
+        </div>
+        <div class="tool-bar"><div class="tool-fill" data-width="65"></div></div>
+      </div>
+    </div>
+
+    <!-- Core Skills Badges -->
     <div class="skill-group">
       <h3>
         <span class="ko">핵심 역량</span>
@@ -354,22 +588,6 @@
         <span class="badge">IT Asset Management</span>
         <span class="badge">Facility Management</span>
         <span class="badge">Budget Management</span>
-      </div>
-    </div>
-
-    <div class="skill-group">
-      <h3>
-        <span class="ko">도구</span>
-        <span class="en">Tools</span>
-      </h3>
-      <div class="skill-badges">
-        <span class="badge outline">SQL</span>
-        <span class="badge outline">Excel (Pivot/VBA)</span>
-        <span class="badge outline">Notion</span>
-        <span class="badge outline">Slack</span>
-        <span class="badge outline">AI Tools (ChatGPT / Claude / Copilot)</span>
-        <span class="badge outline">Unity 3D / C#</span>
-        <span class="badge outline">ESP32 / Arduino</span>
       </div>
     </div>
 
@@ -393,7 +611,7 @@
 </section>
 
 <!-- Education -->
-<section>
+<section class="reveal">
   <div class="container">
     <h2 class="section-title">
       <span class="ko">학력</span>
@@ -448,7 +666,7 @@
 </section>
 
 <!-- Awards -->
-<section>
+<section class="reveal">
   <div class="container">
     <h2 class="section-title">
       <span class="ko">수상</span>
@@ -468,7 +686,7 @@
 </section>
 
 <!-- Contact -->
-<section class="contact-section">
+<section class="contact-section reveal">
   <div class="container">
     <h2 class="section-title">
       <span class="ko">연락처</span>
@@ -477,6 +695,7 @@
     <div class="contact-card">
       <ul class="contact-list">
         <li><a href="mailto:ssujklim@gmail.com">ssujklim@gmail.com</a></li>
+        <li><a href="https://github.com/IamSloth" target="_blank" rel="noopener">GitHub</a></li>
       </ul>
     </div>
   </div>

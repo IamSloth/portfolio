@@ -1,6 +1,6 @@
 {
     "meta": {
-        "version": "1.1",
+        "version": "1.2",
         "last_updated": "2026-02-08"
     },
     "personal_info": {
@@ -52,7 +52,8 @@
             "period": "2023.01.09 – 2026.02",
             "salary": "3,423만원 (2024년 기준)",
             "details": [
-                "<b>[Cost Reduction]</b> 사내 네트워크/PC 1차 트러블슈팅 내재화로 연간 유지보수 비용 <b>30% 절감</b>",
+                "<b>[Budget Management]</b> 인프라 예산 약 <b>3.6억 원</b> 직접 집행 및 통제 (집행률 <b>88.5%</b>)",
+                "<b>[Cost Reduction]</b> 사내 네트워크/PC 1차 트러블슈팅 내재화로 연간 유지보수 비용 <b>30% 절감</b>. 재계약 협상(복합기 렌탈, 전자계약, 본인확인서비스)으로 연 약 <b>500만 원 절감</b>",
                 "<b>[ERP Implementation]</b> 커스텀 ERP(High-Q) 도입 프로젝트 실무 전담 (2023.07–2024.12). 요구사항 정의·예산/회계 프로세스 설계·계정과목 표준화·검수까지 풀사이클 수행. (Tibero DB/Nexacro 기반)",
                 "<b>[Asset Management]</b> IT 자산(HW/SW) 수명 주기 관리 프로세스 정립 및 유휴 장비 재배치로 중복 투자 방지",
                 "<b>[Facility Maintenance]</b> PC·전산장비, 조명, 사무가구 등 경정비 직접 수행. 중대 고장 시 임시조치 후 전문업체 연계",
@@ -93,7 +94,8 @@
         ]
     },
     "skills": [
-        "ERP Implementation (High-Q)", "Hardware/Network Troubleshooting", "General Affairs & Admin", 
+        "ERP Implementation (High-Q)", "Hardware/Network Troubleshooting", "General Affairs & Admin",
+        "SQL (Data Extraction & Analysis)", "Excel (Pivot/VBA/Power Query)", "AI Tools (Claude/ChatGPT)",
         "Notion", "Slack", "Unity 3D/C# (Basic)", "1종 대형 운전면허 (12년 무사고)"
     ],
     "certifications": [
