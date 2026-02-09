@@ -45,8 +45,6 @@ Job-Application-Pipeline-Desktop/
 │   └── assets/                      # 이미지 (profile, projects)
 ├── vault/                           # 비공개 문서 아카이브 (제출물 백업, public repo 미포함)
 │   └── x7k9m2p4/                    # 난독화 경로
-├── tools/                           # 유틸리티 스크립트 (python-docx 등)
-│   └── fill_doc.py                  # Word 양식 자동 입력
 ├── templates/                       # 문서 템플릿
 │   └── resumes/
 ├── manual/                          # 운영 문서
@@ -329,7 +327,7 @@ last_updated: YYYY-MM-DD
 
 - **루트 폴더에 MD 파일 난립 금지**: `README.md`와 `CLAUDE.md`만 허용
 - **중복 전략 문서 금지**: 한 지원당 하나의 `strategy.md`만
-- **자동화 잔재 금지**: 루트에 `.js`, `.py` 파일 생성 금지 (`tools/` 폴더는 예외)
+- **자동화 잔재 금지**: 루트에 `.js`, `.py` 파일 생성 금지
 - **한글 파일명 금지**: 모든 파일명은 영문 snake_case
 
 ---

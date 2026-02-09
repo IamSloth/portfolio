@@ -61,7 +61,8 @@ last_updated: 2026-02-09
 
 | 날짜 | 문서 | 버전 | 비고 |
 |------|------|------|------|
-| 2026-02-09 | 간편이력서 (Word) | drafts/resume_v3.docx | 사진+도장+전체 입력 완료, 검증 필요 |
+| 2026-02-09 | 간편이력서 (Word) | drafts/resume_v8.docx | 강제 페이지 나누기(Hard Break) 제거 로직 적용 (빈 페이지 해결) |
+| 2026-02-09 | 간편이력서 (Word) | drafts/resume_v9.docx | 자기소개서 좌측정렬, 지원동기 SK맞춤화, ERP 기술명 단순화 |
 
 ---
 
@@ -69,7 +70,7 @@ last_updated: 2026-02-09
 
 | 날짜 | 이벤트 |
 |------|--------|
-| 2026-02-09 | 공고 발견 (사람인), JD 저장, 이력서 v1~v3 작성 |
+| 2026-02-09 | 공고 발견 (사람인), JD 저장, 이력서 v1~v8 작성 |
 | - | **마감: 채용시 마감 (수시)** — 빠른 제출 권장 |
 
 ---
@@ -85,22 +86,16 @@ last_updated: 2026-02-09
 > 이 섹션은 이 프로젝트를 함께 보는 다른 AI 에이전트를 위한 컨텍스트임.
 
 ## 현재 상태
-- `drafts/resume_v3.docx`: **사용자 검증 대기 중** (Word에서 열어서 표 깨짐, 병역 라벨 정렬, 도장 위치 확인 필요)
+- `drafts/resume_v9.docx`: **최신 버전** — 자기소개서 좌측정렬, 지원동기 SK맞춤화, ERP 기술명 단순화 적용
 - 전략서(이 파일): 초안 완성
 - **아직 strategy.md 외의 서류(자소서/포트폴리오 등)는 별도 없음** — 간편이력서 양식에 자기소개서 포함되어 있음
 
 ## 도구
-- `tools/fill_doc.py`: python-docx 기반 Word 양식 자동 입력. 사용법:
-  ```
-  python tools/fill_doc.py <input.docx> <output.docx> [--profile content/profile.json]
-  ```
+- `scripts/fill_doc.py`: python-docx 기반 Word 양식 자동 입력 (이 폴더 내 scripts/ 하위)
+- `scripts/patch_v9.py`: v8→v9 패치 (자기소개서 정렬 + 내용 수정)
+- `scripts/inspect_*.py`, `scripts/analyze_pdf.py`: 디버깅용 검사 도구
 - 핵심 난이도: Word 표의 merged cell 그리드 (시각 10열 → 실제 23열). fill_doc.py 내 주석 참조.
 
-## 알려진 이슈
-1. **병역 라벨-값 정렬 의심**: R20=군별(→군필), R21=계급(→공군), R22=병과(→병장) — 1칸 밀림 가능성. 사용자 확인 대기.
-2. **resume_v3 미검증**: 도장 이미지, 날짜 필드 실제 렌더링 미확인.
-
 ## 다음 스텝
-1. 사용자가 v3 검증 후 수정사항 반영
-2. 최종본 → `final/resume_260209.docx`로 이동
-3. 이메일 제출: kje@saraminhs.co.kr (제목: SK ESG_임종권)
+1. v9 최종 검증 후 `final/resume_260210.docx`로 이동
+2. 이메일 제출: kje@saraminhs.co.kr (제목: SK ESG_임종권)

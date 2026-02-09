@@ -12,6 +12,12 @@
         "birthdate": "1992-01-04",
         "portfolio_url": "https://iamsloth.github.io/portfolio/"
     },
+    "military": {
+        "service_type": "공군",
+        "rank": "병장",
+        "period": "2012.05.21 ~ 2014.05.20",
+        "discharge_type": "만기제대"
+    },
     "education": [
         {
             "school": "숭실대학교 사회복지대학원",
