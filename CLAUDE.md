@@ -23,6 +23,7 @@
 
 ```
 Job-Application-Pipeline-Desktop/
+├── AI_CONTEXT.md                    # 멀티AI 공동작업 대시보드 (세션 핸드오프)
 ├── common/                          # 공통 자산 금고
 │   ├── photos/                      # 프로필 사진, 프로젝트 이미지
 │   ├── evidence/                    # 범용 증거 (자격증 등)
@@ -325,10 +326,21 @@ last_updated: YYYY-MM-DD
 
 ### 🚫 금지 사항
 
-- **루트 폴더에 MD 파일 난립 금지**: `README.md`와 `CLAUDE.md`만 허용
+- **루트 폴더에 MD 파일 난립 금지**: `README.md`, `CLAUDE.md`, `AI_CONTEXT.md`만 허용
 - **중복 전략 문서 금지**: 한 지원당 하나의 `strategy.md`만
 - **자동화 잔재 금지**: 루트에 `.js`, `.py` 파일 생성 금지
 - **한글 파일명 금지**: 모든 파일명은 영문 snake_case
+
+---
+
+### 🤝 멀티 AI 공동작업 프로토콜
+
+> 이 프로젝트는 여러 AI 에이전트가 교대로 작업함 (Opus, Sonnet, 기타).
+
+- `AI_CONTEXT.md` (루트): **전체 현황 대시보드**. 세션 시작/종료 시 필독/갱신.
+- `{company}_{position}_strategy.md` 핸드오프 섹션: 지원건별 상세 컨텍스트.
+- **세션 종료 시**: AI_CONTEXT.md 업데이트 → git commit → push
+- 커밋 `Co-Authored-By`로 어떤 AI가 작업했는지 추적
 
 ---
 
@@ -337,13 +349,11 @@ last_updated: YYYY-MM-DD
 > **토큰 절약**: 아래 파일들을 먼저 읽으면 탐색 시간 대폭 절약
 
 **매 세션 시작 시 필수 참조:**
-1. `content/profile.json` — 경력 데이터 (Single Source of Truth)
-2. `content/personal_profile.md` — 개인 성향, 커뮤니케이션 가이드 (ISFP, 간섭 싫어함)
-3. `manual/NARRATIVE_STRATEGY.md` — 셀링 전략, "Why Him?"
-4. 현재 지원 현황 확인:
-   - Unix/Mac: `grep "^status:" applications/**/*_strategy.md`
-   - Windows: `Get-ChildItem applications -Recurse -Filter "*_strategy.md" | Select-String "^status:"`
-   - 또는 각 `*_strategy.md` 파일의 `status:` 라인 직접 확인
+1. `AI_CONTEXT.md` — 직전 세션 요약, 활성 작업 현황 (최우선 읽기)
+2. `content/profile.json` — 경력 데이터 (Single Source of Truth)
+3. `content/personal_profile.md` — 개인 성향, 커뮤니케이션 가이드 (ISFP, 간섭 싫어함)
+4. `manual/NARRATIVE_STRATEGY.md` — 셀링 전략, "Why Him?"
+5. 현재 지원 현황: `AI_CONTEXT.md`의 활성 지원 현황 테이블 참조
 
 ---
 
