@@ -10,7 +10,7 @@
 | date | 2026-02-10 |
 | agent | GPT-5 Codex (OpenAI) |
 | work | Kolon resume `.doc` automation stabilized (`resume_v7`), photo/signature/consent check, artifacts cleanup, handoff guide documented |
-| commit | (this session) |
+| commit | e222056 |
 
 ## Active Applications
 
