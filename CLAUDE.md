@@ -195,6 +195,11 @@ Task tool로 서브에이전트 실행 시, 작업 난이도에 따라 모델을
 
 **Document Types**: `resume`, `coverletter`, `essay`, `application`, `portfolio`, `interview_prep`
 
+**Company 폴더 넘버링**
+- 채용공고 발견 날짜순으로 `{NN}_{company}` 형식 (01부터 시작)
+- 신규 지원 시 마지막 번호 +1 부여
+- 예: `01_kiwoom`, `06_sk_energy`, `07_next_company`
+
 **Company/Position 네이밍 규칙**
 
 | 항목 | 규칙 | 예시 |
@@ -207,9 +212,9 @@ Task tool로 서브에이전트 실행 시, 작업 난이도에 따라 모델을
 **예시 변환:**
 - "카카오 백엔드 개발자" → `applications/kakao/backend_developer/`
 - "네이버 PM" → `applications/naver/pm/`
-- "스마일게이트 크로스파이어 QA" → `applications/smilegate/crossfire_qa/`
+- "스마일게이트 크로스파이어 QA" → `applications/04_smilegate/crossfire_qa/`
 - "우아한형제들 QA(Test Engineer)" → `applications/woowa/qa_test_engineer/`
-- "11번가 총무" → `applications/11st/general_affairs/`
+- "11번가 총무" → `applications/03_11st/general_affairs/`
 
 ---
 
@@ -219,10 +224,10 @@ Task tool로 서브에이전트 실행 시, 작업 난이도에 따라 모델을
 
 | 문서 유형 | 참조 소스 | 적합 포지션 |
 |----------|----------|------------|
-| **strategy.md 예시** | `applications/kiwoom/accounting/kiwoom_accounting_strategy.md` | 모든 지원 |
-| 통합 이력서+자소서 (HTML) | `applications/kiwoom/accounting/final/application_260127.html` | 회계/총무/운영직 |
-| 포트폴리오 (HTML) | `applications/smilegate/hope_studio_csr_platform_pm/final/portfolio_260131.html` | 기획/PM직 |
-| **QA/테스트 전략 참조** | `applications/smilegate/crossfire_test_engineer/crossfire_test_engineer_strategy.md` | QA/Test Engineer |
+| **strategy.md 예시** | `applications/01_kiwoom/accounting/kiwoom_accounting_strategy.md` | 모든 지원 |
+| 통합 이력서+자소서 (HTML) | `applications/01_kiwoom/accounting/final/application_260127.html` | 회계/총무/운영직 |
+| 포트폴리오 (HTML) | `applications/04_smilegate/hope_studio_csr_platform_pm/final/portfolio_260131.html` | 기획/PM직 |
+| **QA/테스트 전략 참조** | `applications/04_smilegate/crossfire_test_engineer/crossfire_test_engineer_strategy.md` | QA/Test Engineer |
 | 범용 이력서 템플릿 | `templates/resumes/standard_v1.html` | 기본 베이스 |
 
 **strategy.md 필수 구조:**

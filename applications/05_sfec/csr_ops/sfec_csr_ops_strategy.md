@@ -1,9 +1,9 @@
 ---
 company: 시니어금융교육협의회
 position: 사회공헌사업 운영
-status: ⏸️ ON_HOLD
+status: 📤 SUBMITTED
 discovered: 2026-02-06
-last_updated: 2026-02-07
+last_updated: 2026-02-09
 ---
 
 # 시니어금융교육협의회 사회공헌사업 운영 지원 전략
@@ -116,6 +116,7 @@ last_updated: 2026-02-07
 | 날짜 | 서류 | 비고 |
 |------|------|------|
 | 2026-02-07 | `final/application_260207.html` | 최종본 (v3 + 미세조정). User가 HWP에 옮겨넣어 이메일 제출 예정 |
+| 2026-02-09 | `final/[시니어금융교육협의회] 이력서 및 자기소개서_임종권_260209.pdf` | **이메일 제출 완료** (ssujklim@gmail.com → arasi66@sfec.or.kr) |
 
 ---
 
@@ -127,7 +128,8 @@ last_updated: 2026-02-07
 | 2026-02-06 | ✍️ PREPARING | 이력서+자기소개서 HTML 초안 작성 (application_v1.html) |
 | 2026-02-07 | ✍️ PREPARING | 3인 평가위원 심사 (71.3→81.7), 신규 소재 반영 v3, 미세조정 완료 |
 | 2026-02-07 | ⏸️ ON_HOLD | 최종본 확정 (`final/application_260207.html`). User HWP 옮겨넣기 대기 |
-| **2026-02-10** | ⏰ **마감** | **이메일 제출 마감일 (arasi66@sfec.or.kr)** |
+| 2026-02-09 | 📤 SUBMITTED | HWP 작성·서명 완료, PDF 변환, **이메일 제출** (ssujklim@gmail.com → arasi66@sfec.or.kr) |
+| **2026-02-10** | ⏰ **마감** | **이메일 제출 마감일** — ✅ 마감 1일 전 제출 완료 |
 
 ---
 
