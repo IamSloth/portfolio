@@ -32,8 +32,8 @@ Job-Application-Pipeline-Desktop/
 │   ├── profile.json                 # 경력 데이터
 │   ├── personal_profile.md          # 개인 성향/커뮤니케이션 가이드
 │   └── data.json                    # 보조 데이터 (현재 미사용, 확장용)
-├── applications/                    # 기업별 지원 기록 (회사 → 포지션 2단계)
-│   └── {company}/                   # 예: kiwoom/, smilegate/
+├── applications/                    # 기업별 지원 기록 ({NN}_{company} 넘버링)
+│   └── {NN}_{company}/              # 예: 01_kiwoom/, 04_smilegate/
 │       └── {position}/              # 예: accounting/, crossfire_test_engineer/
 │           ├── {company}_{position}_strategy.md  # 메인 허브 (JD 분석 포함)
 │           ├── artifacts/           # 증거자료 + 채용공고 원본 (이미지 등)
@@ -50,6 +50,7 @@ Job-Application-Pipeline-Desktop/
 │   └── resumes/
 ├── manual/                          # 운영 문서
 │   └── NARRATIVE_STRATEGY.md        # 셀링 전략
+├── AI_CONTEXT.md                    # 멀티AI 세션 핸드오프 대시보드
 ├── README.md
 └── CLAUDE.md
 ```
@@ -73,7 +74,7 @@ Job-Application-Pipeline-Desktop/
 
 ### 🆕 신규 지원 시작 워크플로우
 
-1. **폴더 생성**: `applications/{company}/{position}/`
+1. **폴더 생성**: `applications/{NN}_{company}/{position}/` (다음 번호: AI_CONTEXT.md 참조)
 2. **전략 문서 생성**: `{company}_{position}_strategy.md` (status: DISCOVERED)
 3. **JD 저장**: `artifacts/jd_YYMMDD.md` 또는 `.pdf`
 4. **템플릿 선택**: 템플릿 레지스트리에서 유사 포지션 참조
@@ -210,10 +211,10 @@ Task tool로 서브에이전트 실행 시, 작업 난이도에 따라 모델을
 | **그룹사/부서** | 상위 조직 포함 | `smilegate/group_it_procurement` |
 
 **예시 변환:**
-- "카카오 백엔드 개발자" → `applications/kakao/backend_developer/`
-- "네이버 PM" → `applications/naver/pm/`
+- "카카오 백엔드 개발자" → `applications/07_kakao/backend_developer/`
+- "네이버 PM" → `applications/08_naver/pm/`
 - "스마일게이트 크로스파이어 QA" → `applications/04_smilegate/crossfire_qa/`
-- "우아한형제들 QA(Test Engineer)" → `applications/woowa/qa_test_engineer/`
+- "우아한형제들 QA(Test Engineer)" → `applications/09_woowa/qa_test_engineer/`
 - "11번가 총무" → `applications/03_11st/general_affairs/`
 
 ---

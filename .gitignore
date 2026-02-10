@@ -8,6 +8,17 @@ package-lock.json
 # System Files
 .DS_Store
 Thumbs.db
+nul
+
+# Local tool settings
+.claude/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Word temporary lock files
+~$*.doc
 
 # Output Files (PDFs are generated artifacts, usually ignored, but if you want to archive the result, keep them)
 # For now, let's keep the final results but ignore temp files

@@ -1,0 +1,10 @@
+scripts/__pycache__/
+
+# Word temp lock files
+artifacts/~$*.doc
+drafts/~$*.doc
+
+# Debug / investigation outputs
+drafts/_*/
+drafts/_*.png
+drafts/_*.pdf
