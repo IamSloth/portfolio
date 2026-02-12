@@ -1,9 +1,9 @@
 ---
 company: SK에너지 (비공개, SK그룹 에너지 매출7조+)
 position: ESG 사무 (계약직 1~1.5년, 육휴대체)
-status: ✍️ PREPARING
+status: 📤 SUBMITTED
 discovered: 2026-02-09
-last_updated: 2026-02-09
+last_updated: 2026-02-12
 ---
 
 # 1. 채용공고 분석 (JD Analysis)
@@ -63,6 +63,8 @@ last_updated: 2026-02-09
 |------|------|------|------|
 | 2026-02-09 | 간편이력서 (Word) | drafts/resume_v8.docx | 강제 페이지 나누기(Hard Break) 제거 로직 적용 (빈 페이지 해결) |
 | 2026-02-09 | 간편이력서 (Word) | drafts/resume_v9.docx | 자기소개서 좌측정렬, 지원동기 SK맞춤화, ERP 기술명 단순화 |
+| 2026-02-12 | 간편이력서 (Word) | drafts/resume_v10.docx | 사진 삽입 (3:4 증명사진 비율) |
+| 2026-02-12 | **이메일 제출** | resume_v10.docx | kje@saraminhs.co.kr / 제목: SK ESG_임종권 (ESG 사무) |
 
 ---
 
@@ -71,7 +73,8 @@ last_updated: 2026-02-09
 | 날짜 | 이벤트 |
 |------|--------|
 | 2026-02-09 | 공고 발견 (사람인), JD 저장, 이력서 v1~v8 작성 |
-| - | **마감: 채용시 마감 (수시)** — 빠른 제출 권장 |
+| 2026-02-12 | v10 사진삽입, **이메일 제출 완료** |
+| - | **마감: 채용시 마감 (수시)** |
 
 ---
 

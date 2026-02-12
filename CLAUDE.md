@@ -33,7 +33,7 @@ Job-Application-Pipeline-Desktop/
 │   ├── personal_profile.md          # 개인 성향/커뮤니케이션 가이드
 │   └── data.json                    # 보조 데이터 (현재 미사용, 확장용)
 ├── applications/                    # 기업별 지원 기록 ({NN}_{company} 넘버링)
-│   └── {NN}_{company}/              # 예: 01_kiwoom/, 04_smilegate/
+│   └── {NN}_{company}/              # 예: 01_seoul_heroes/, 04_smilegate/
 │       └── {position}/              # 예: accounting/, crossfire_test_engineer/
 │           ├── {company}_{position}_strategy.md  # 메인 허브 (JD 분석 포함)
 │           ├── artifacts/           # 증거자료 + 채용공고 원본 (이미지 등)
@@ -199,7 +199,7 @@ Task tool로 서브에이전트 실행 시, 작업 난이도에 따라 모델을
 **Company 폴더 넘버링**
 - 채용공고 발견 날짜순으로 `{NN}_{company}` 형식 (01부터 시작)
 - 신규 지원 시 마지막 번호 +1 부여
-- 예: `01_kiwoom`, `06_sk_energy`, `07_next_company`
+- 예: `01_seoul_heroes`, `06_sk_energy`, `07_next_company`
 
 **Company/Position 네이밍 규칙**
 
@@ -225,8 +225,8 @@ Task tool로 서브에이전트 실행 시, 작업 난이도에 따라 모델을
 
 | 문서 유형 | 참조 소스 | 적합 포지션 |
 |----------|----------|------------|
-| **strategy.md 예시** | `applications/01_kiwoom/accounting/kiwoom_accounting_strategy.md` | 모든 지원 |
-| 통합 이력서+자소서 (HTML) | `applications/01_kiwoom/accounting/final/application_260127.html` | 회계/총무/운영직 |
+| **strategy.md 예시** | `applications/01_seoul_heroes/accounting/seoul_heroes_accounting_strategy.md` | 모든 지원 |
+| 통합 이력서+자소서 (HTML) | `applications/01_seoul_heroes/accounting/final/application_260127.html` | 회계/총무/운영직 |
 | 포트폴리오 (HTML) | `applications/04_smilegate/hope_studio_csr_platform_pm/final/portfolio_260131.html` | 기획/PM직 |
 | **QA/테스트 전략 참조** | `applications/04_smilegate/crossfire_test_engineer/crossfire_test_engineer_strategy.md` | QA/Test Engineer |
 | 범용 이력서 템플릿 | `templates/resumes/standard_v1.html` | 기본 베이스 |
@@ -368,6 +368,7 @@ last_updated: YYYY-MM-DD
 | 용도 | 경로 |
 |------|------|
 | 프로필 사진 | `common/photos/profile.png` |
+| 서명 이미지 | `common/photos/signature.png` |
 | 경력 데이터 | `content/profile.json` |
 | **개인 프로필** | `content/personal_profile.md` |
 | 셀링 전략 | `manual/NARRATIVE_STRATEGY.md` |

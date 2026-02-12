@@ -54,7 +54,7 @@ Job-Application-Pipeline-Desktop/
 │   ├── personal_profile.md          # 개인 성향/커뮤니케이션 가이드
 │   └── data.json                    # 보조 데이터 (미사용)
 ├── applications/                    # [Archive] 기업별 지원 기록 ({NN}_{company}/ 넘버링)
-│   └── {NN}_{company}/{position}/   # 예: 01_kiwoom/accounting/
+│   └── {NN}_{company}/{position}/   # 예: 01_seoul_heroes/accounting/
 │       ├── {company}_{position}_strategy.md
 │       ├── artifacts/               # 증거자료 + 채용공고 원본
 │       ├── drafts/                  # 작업 중간본
@@ -149,7 +149,7 @@ git remote add portfolio https://github.com/IamSloth/portfolio.git
 | 04 | 스마일게이트 희망스튜디오 | CSR 플랫폼 PM | 📤 SUBMITTED | `04_smilegate/hope_studio_csr_platform_pm/` |
 | 03 | 11번가 | 총무 | ⏸️ ON_HOLD | `03_11st/general_affairs/` |
 | 02 | 시프트업 | 자산담당 | 🗄️ ARCHIVED | `02_shiftup/asset/` |
-| 01 | 키움 히어로즈 | 회계담당 | 📤 SUBMITTED | `01_kiwoom/accounting/` |
+| 01 | 서울히어로즈 | 회계담당 | 📤 SUBMITTED | `01_seoul_heroes/accounting/` |
 | 04 | 스마일게이트 | 그룹IT구매 | ❌ REJECTED | `04_smilegate/group_it_procurement/` |
 | 04 | 스마일게이트 | 협업툴운영 | 🗄️ ARCHIVED | `04_smilegate/collaboration_tools_ops/` |
 | 04 | 스마일게이트 | 크로스파이어 QA | 🗄️ ARCHIVED | `04_smilegate/crossfire_test_engineer/` |

@@ -28,7 +28,7 @@ python applications/07_kolon/energy_edu_ops/scripts/fill_doc.py
 
 ## Assets Used
 - Profile photo: `common/photos/profile.png` (fallback: `docs/assets/profile.png`)
-- Seal stamp: `applications/01_kiwoom/accounting/artifacts/seal_stamp.png`
+- Seal stamp: `applications/01_seoul_heroes/accounting/artifacts/seal_stamp.png`
 - Fallback seal auto-generation when stamp file is missing
 
 ## Common Failure Patterns and Fixes

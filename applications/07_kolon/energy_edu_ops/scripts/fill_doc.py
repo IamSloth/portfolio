@@ -21,7 +21,7 @@ PROFILE_PATH = os.path.join(PROJECT_ROOT, 'content', 'profile.json')
 PHOTO_PATH_PRIMARY = os.path.join(PROJECT_ROOT, 'common', 'photos', 'profile.png')
 PHOTO_PATH_FALLBACK = os.path.join(PROJECT_ROOT, 'docs', 'assets', 'profile.png')
 SEAL_PATH_PRIMARY = os.path.join(
-    PROJECT_ROOT, 'applications', '01_kiwoom', 'accounting', 'artifacts', 'seal_stamp.png'
+    PROJECT_ROOT, 'applications', '01_seoul_heroes', 'accounting', 'artifacts', 'seal_stamp.png'
 )
 
 
