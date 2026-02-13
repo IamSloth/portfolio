@@ -4,8 +4,8 @@ position: 총무담당자 (자산/계약직)
 status: 🗄️ ARCHIVED
 discovered: 2026-01-15
 submitted: 2026-01-20
-result: ⏳ 결과 대기
-last_updated: 2026-01-27
+result: ❌ REJECTED (무응답)
+last_updated: 2026-02-13
 ---
 
 # 시프트업 총무담당자 지원 전략

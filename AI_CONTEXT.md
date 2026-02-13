@@ -8,8 +8,8 @@
 | Field | Value |
 |-------|-------|
 | date | 2026-02-13 |
-| agent | Claude Opus 4.6 + GPT (혼합) |
-| work | send_email.py 인코딩/인자 개선, SK제출본 final 정리(한글네이밍), 전체 final 파일 네이밍 통일(임종권_회사_직무_문서유형_YYMMDD), 코오롱 사람인 제출 완료, hooks 기반 자동메모리 시스템 구축 |
+| agent | Claude Opus 4.6 |
+| work | 프로젝트 폴더 대정리: 스마일게이트 포기 3폴더 삭제, SK ESG drafts/scripts 정리, shiftup REJECTED 처리, 컨벤션 수정 |
 | commit | pending |
 
 ## Active Applications
