@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>임종권 이력서</title>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+    :root {
+        --teal: #0F766E;
+        --teal-dark: #115E59;
+        --navy: #1E3A5F;
+        --amber: #D97706;
+        --amber-soft: #FFFBEB;
+        --amber-border: #FDE68A;
+        --ink: #111111;
+        --ink-2: #333333;
+        --muted: #666666;
+        --line: #E5E7EB;
+        --soft: #F8FAFB;
+        --paper: #ffffff;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+        font-family: 'Pretendard', -apple-system, sans-serif;
+        background: #3a3a3a;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    .sheet {
+        width: 210mm;
+        height: 297mm;
+        background: var(--paper);
+        box-shadow: 0 6px 24px rgba(0,0,0,0.3);
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        position: relative;
+    }
+
+    @page { size: A4; margin: 0; }
+    @media print {
+        body { background: none; padding: 0; }
+        .sheet { box-shadow: none; }
+        .no-print { display: none !important; }
+    }
+
+    .print-btn {
+        position: fixed;
+        bottom: 28px;
+        right: 28px;
+        background: var(--teal);
+        color: #fff;
+        border: none;
+        padding: 14px 26px;
+        border-radius: 999px;
+        font-size: 14px;
+        font-weight: 700;
+        cursor: pointer;
+        z-index: 10;
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .print-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(15,118,110,0.35);
+    }
+
+    /* ===== HERO HEADER ===== */
+    .hero {
+        background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 45%, var(--navy) 100%);
+        padding: 20px 32px 16px;
+        position: relative;
+    }
+
+    .hero-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 12px;
+    }
+
+    .hero-left h1 {
+        color: #fff;
+        font-size: 30px;
+        font-weight: 900;
+        letter-spacing: 4px;
+        margin-bottom: 6px;
+    }
+
+    .tagline {
+        color: rgba(255,255,255,0.88);
+        font-size: 13.5px;
+        font-weight: 600;
+        margin-bottom: 8px;
+    }
+
+    .contact-row {
+        display: flex;
+        gap: 12px;
+        font-size: 11px;
+        color: rgba(255,255,255,0.8);
+        flex-wrap: wrap;
+    }
+
+    .photo {
+        width: 90px;
+        height: 118px;
+        object-fit: cover;
+        border: 3px solid rgba(255,255,255,0.5);
+        border-radius: 6px;
+        flex-shrink: 0;
+    }
+
+    /* Metric Cards */
+    .metrics {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 8px;
+    }
+
+    .metric {
+        background: rgba(255,255,255,0.12);
+        backdrop-filter: blur(4px);
+        border: 1px solid rgba(255,255,255,0.2);
+        padding: 8px 10px;
+        border-radius: 8px;
+        text-align: center;
+    }
+
+    .metric-value {
+        font-size: 17px;
+        font-weight: 900;
+        color: #fff;
+    }
+
+    .metric-label {
+        display: block;
+        font-size: 9.5px;
+        color: rgba(255,255,255,0.75);
+        margin-top: 1px;
+    }
+
+    /* ===== MAIN 2-COLUMN ===== */
+    .main {
+        display: grid;
+        grid-template-columns: 62% 38%;
+        gap: 16px;
+        padding: 14px 32px 10px;
+        flex: 1;
+    }
+
+    .section { margin-bottom: 10px; }
+
+    .section-title {
+        font-size: 13px;
+        font-weight: 800;
+        color: var(--ink);
+        margin-bottom: 7px;
+        display: flex;
+        align-items: center;
+        gap: 7px;
+    }
+    .section-title::before {
+        content: '';
+        width: 3.5px;
+        height: 14px;
+        background: var(--teal);
+        border-radius: 2px;
+        flex-shrink: 0;
+    }
+
+    /* Summary */
+    .summary {
+        background: var(--soft);
+        border-left: 3.5px solid var(--teal);
+        border-radius: 0 8px 8px 0;
+        padding: 10px 12px;
+        font-size: 11.5px;
+        line-height: 1.7;
+        color: var(--ink-2);
+        margin-bottom: 10px;
+    }
+    .summary strong { color: var(--ink); }
+
+    /* Timeline */
+    .timeline-item {
+        border-left: 2px solid var(--line);
+        padding-left: 12px;
+        margin-bottom: 9px;
+        position: relative;
+    }
+    .timeline-item:first-child { border-left-color: var(--teal); }
+    .timeline-item::before {
+        content: '';
+        position: absolute;
+        left: -5.5px;
+        top: 3px;
+        width: 9px;
+        height: 9px;
+        background: var(--teal);
+        border: 2px solid var(--paper);
+        border-radius: 50%;
+        box-shadow: 0 0 0 1.5px var(--teal);
+    }
+
+    .role-line {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        margin-bottom: 2px;
+    }
+    .company {
+        font-size: 12.5px;
+        font-weight: 800;
+        color: var(--ink);
+    }
+    .period {
+        font-size: 10px;
+        color: var(--teal);
+        background: rgba(15,118,110,0.08);
+        padding: 1.5px 7px;
+        border-radius: 999px;
+        font-weight: 700;
+        white-space: nowrap;
+    }
+    .role {
+        font-size: 11px;
+        color: var(--muted);
+        margin-bottom: 3px;
+    }
+
+    .desc-list { list-style: none; padding: 0; }
+    .desc-list li {
+        position: relative;
+        padding-left: 9px;
+        font-size: 10.5px;
+        line-height: 1.5;
+        color: var(--ink-2);
+        margin-bottom: 1.5px;
+    }
+    .desc-list li::before {
+        content: '•';
+        position: absolute;
+        left: 0;
+        color: var(--teal);
+        font-weight: 900;
+    }
+    .desc-list li strong { color: var(--ink); }
+
+    /* Project Highlight */
+    .highlight-box {
+        border: 1px solid var(--amber-border);
+        background: var(--amber-soft);
+        padding: 9px 11px;
+        border-radius: 8px;
+        border-left: 3.5px solid var(--amber);
+    }
+
+    .highlight-header {
+        font-size: 11.5px;
+        font-weight: 800;
+        color: var(--amber);
+        margin-bottom: 5px;
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+    }
+    .highlight-header span:last-child {
+        font-size: 10px;
+        font-weight: 600;
+        color: var(--muted);
+    }
+
+    .highlight-box .desc-list li::before { color: var(--amber); }
+
+    /* ===== RIGHT SIDEBAR ===== */
+    .card {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 9px 11px;
+        background: #fff;
+        margin-bottom: 9px;
+    }
+
+    .tag-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px;
+    }
+    .tag {
+        background: var(--soft);
+        border: 1px solid var(--line);
+        padding: 3px 8px;
+        border-radius: 999px;
+        font-size: 10px;
+        color: var(--ink-2);
+    }
+    .tag.hl {
+        background: var(--teal);
+        border-color: var(--teal);
+        color: #fff;
+        font-weight: 700;
+    }
+    .tag.amber {
+        background: var(--amber);
+        border-color: var(--amber);
+        color: #fff;
+        font-weight: 700;
+    }
+
+    .cert-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 11px;
+        color: var(--ink-2);
+        padding: 4px 0;
+        border-bottom: 1px dashed var(--line);
+    }
+    .cert-item:last-child { border-bottom: none; }
+    .cert-item strong { color: var(--ink); }
+
+    .edu-item {
+        padding: 4px 0;
+        border-bottom: 1px solid var(--line);
+    }
+    .edu-item:last-child { border-bottom: none; }
+    .edu-name {
+        font-size: 11px;
+        font-weight: 700;
+        color: var(--ink);
+    }
+    .edu-detail {
+        font-size: 10px;
+        color: var(--muted);
+    }
+
+    .award-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 6px;
+        font-size: 10.5px;
+        color: var(--ink-2);
+        line-height: 1.4;
+    }
+    .award-icon {
+        color: var(--amber);
+        font-size: 14px;
+        flex-shrink: 0;
+        line-height: 1;
+    }
+    .award-item strong { color: var(--ink); }
+
+    .mil-item {
+        font-size: 10.5px;
+        color: var(--ink-2);
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+        background: var(--ink);
+        padding: 6px;
+        text-align: center;
+        color: rgba(255,255,255,0.65);
+        font-size: 10px;
+        font-weight: 500;
+        margin-top: auto;
+    }
+    .footer a { color: rgba(255,255,255,0.8); text-decoration: none; }
+</style>
+</head>
+<body>
+    <button class="print-btn no-print" onclick="window.print()">PDF 저장 / 인쇄</button>
+
+    <div class="sheet">
+        <!-- ===== HERO ===== -->
+        <header class="hero">
+            <div class="hero-top">
+                <div class="hero-left">
+                    <h1>임 종 권</h1>
+                    <div class="tagline">기술을 이해하는 실전형 Ops 전문가 · 총무 · IT지원 · 자산관리</div>
+                    <div class="contact-row">
+                        <span>&#128222; 010-4052-0834</span>
+                        <span>&#9993; ssujklim@gmail.com</span>
+                        <span>&#128205; 경기도 광명시</span>
+                        <span>&#127874; 1992.01.04 (만 34세)</span>
+                    </div>
+                </div>
+                <img src="assets/profile.png" alt="임종권" class="photo">
+            </div>
+            <div class="metrics">
+                <div class="metric">
+                    <div class="metric-value">3년+</div>
+                    <span class="metric-label">총무 · IT지원 실무</span>
+                </div>
+                <div class="metric">
+                    <div class="metric-value">3.6억</div>
+                    <span class="metric-label">인프라 예산 집행</span>
+                </div>
+                <div class="metric">
+                    <div class="metric-value">30%</div>
+                    <span class="metric-label">유지보수 비용 절감</span>
+                </div>
+                <div class="metric">
+                    <div class="metric-value">500만</div>
+                    <span class="metric-label">재계약 협상 절감</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- ===== BODY ===== -->
+        <main class="main">
+            <!-- LEFT COLUMN -->
+            <div>
+                <section class="section">
+                    <div class="section-title">Professional Summary</div>
+                    <div class="summary">
+                        공학(전기공학 + 경제학)에서 출발해 <strong>HW 개발, IoT, 소프트웨어</strong>까지 기술의 전 스펙트럼을 경험한 뒤,
+                        비영리법인에서 <strong>3년간 총무 · IT 인프라 · 자산관리</strong>를 1인 전담하며 실전 운영 역량을 갖추었습니다.
+                        기술을 이해하기에 <strong>개발팀·외주업체와 통역 없이 소통</strong>하고, AI 도구를 활용해 업무를 자동화합니다.
+                    </div>
+                </section>
+
+                <section class="section">
+                    <div class="section-title">경력 사항</div>
+                    <!-- 함께만드는세상 -->
+                    <div class="timeline-item">
+                        <div class="role-line">
+                            <span class="company">(사)함께만드는세상</span>
+                            <span class="period">2023.01 – 2026.02 (3년 1개월)</span>
+                        </div>
+                        <div class="role">경영지원부 인프라지원팀 · 총무 · IT지원 (대리)</div>
+                        <ul class="desc-list">
+                            <li><strong>예산 관리:</strong> 인프라 예산 3.6억 원 직접 집행 및 통제 (집행률 88.5%)</li>
+                            <li><strong>비용 절감:</strong> PC/NW 1차 트러블슈팅 내재화 → 유지보수비 30% 절감, 재계약 협상 연 500만 원 절감</li>
+                            <li><strong>ERP 구축:</strong> 커스텀 ERP(Tibero/Nexacro) 도입 PM — 요구사항 정의 → 프로세스 설계 → 검수 풀사이클</li>
+                            <li><strong>자산 · 시설:</strong> IT 자산 수명주기 관리, PC·조명·사무가구 경정비, 소방안전관리자</li>
+                        </ul>
+                    </div>
+                    <!-- 맨지온 -->
+                    <div class="timeline-item">
+                        <div class="role-line">
+                            <span class="company">(주)맨지온</span>
+                            <span class="period">2020.03 – 2021.11 (1년 8개월)</span>
+                        </div>
+                        <div class="role">개발부 · 임베디드 시스템 개발 및 QA (대리)</div>
+                        <ul class="desc-list">
+                            <li><strong>IoT 개발:</strong> ESP32 기반 해수담수화 프로토타입 — 밸브/릴레이 제어 + Blynk 원격 모니터링</li>
+                            <li><strong>QA:</strong> 시설 관제 시스템 로그 분석으로 통신 장애 원인 규명, UI/UX 테스트 주도</li>
+                        </ul>
+                    </div>
+                    <!-- 엣지크로스 -->
+                    <div class="timeline-item">
+                        <div class="role-line">
+                            <span class="company">(주)엣지크로스</span>
+                            <span class="period">2016.05 – 2018.02 (1년 9개월)</span>
+                        </div>
+                        <div class="role">기술연구소 · H/W 개발 및 자재관리 (주임)</div>
+                        <ul class="desc-list">
+                            <li><strong>H/W:</strong> 회로 설계 → PCB → 시제품 제작(납땜·실장) → 테스트/검증 풀사이클</li>
+                            <li><strong>SCM:</strong> BOM 관리 체계화 및 생산 일정 조율 → 납기 준수율 100%</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Project Highlight -->
+                <section class="section">
+                    <div class="section-title">프로젝트 하이라이트</div>
+                    <div class="highlight-box">
+                        <div class="highlight-header">
+                            <span>Unity / Metaverse 개발 교육 · 프로젝트</span>
+                            <span>2022.03 – 2022.12</span>
+                        </div>
+                        <ul class="desc-list">
+                            <li>한국폴리텍 AR · Unity 게임 개발 과정 <strong>1,200시간 수료</strong></li>
+                            <li>3D Action, AR 등 <strong>7건 프로젝트</strong> 완수 (기획 → 에셋 → 빌드 → QA)</li>
+                            <li><strong>메타버스 콘텐츠 리크루팅 캠프 대상</strong> 수상 (과학기술정보통신부)</li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+
+            <!-- RIGHT SIDEBAR -->
+            <aside>
+                <section class="section card">
+                    <div class="section-title">핵심 키워드</div>
+                    <div class="tag-grid">
+                        <span class="tag hl">총무 · 자산관리</span>
+                        <span class="tag hl">ERP 구축/운영</span>
+                        <span class="tag hl">IT 트러블슈팅</span>
+                        <span class="tag amber">AI 업무 자동화</span>
+                        <span class="tag">예산 · 비용관리</span>
+                        <span class="tag">SQL / Excel</span>
+                        <span class="tag">HW · IoT</span>
+                        <span class="tag">Unity 3D / C#</span>
+                        <span class="tag">소방안전관리</span>
+                    </div>
+                </section>
+
+                <section class="section card">
+                    <div class="section-title">자격 / 면허</div>
+                    <div class="cert-item">
+                        <strong>사회복지사 1급</strong>
+                        <span>보건복지부 (2020)</span>
+                    </div>
+                    <div class="cert-item">
+                        <strong>1종 대형 면허</strong>
+                        <span>12년 무사고</span>
+                    </div>
+                </section>
+
+                <section class="section card">
+                    <div class="section-title">학력</div>
+                    <div class="edu-item">
+                        <div class="edu-name">숭실대 사회복지대학원 (석사)</div>
+                        <div class="edu-detail">사회적기업 전공 · GPA 4.2/4.5 · 2020.02</div>
+                    </div>
+                    <div class="edu-item">
+                        <div class="edu-name">숭실대 공과대학 (학사)</div>
+                        <div class="edu-detail">전기공학부 / 경제학 복수전공 · 2017.02</div>
+                    </div>
+                    <div class="edu-item">
+                        <div class="edu-name">한국폴리텍 광명융합기술교육원</div>
+                        <div class="edu-detail">증강현실(AR) 시스템제어 · 수료 · 2022.12</div>
+                    </div>
+                </section>
+
+                <section class="section card">
+                    <div class="section-title">수상</div>
+                    <div class="award-item">
+                        <span class="award-icon">&#127942;</span>
+                        <div>
+                            <strong>메타버스 콘텐츠 리크루팅 캠프 대상</strong><br>
+                            과학기술정보통신부 · 정보통신산업진흥원 (2022.09)
+                        </div>
+                    </div>
+                </section>
+
+                <section class="section card">
+                    <div class="section-title">병역</div>
+                    <div class="mil-item">
+                        <strong>공군 병장</strong> · 만기제대<br>
+                        <span style="color:var(--muted);font-size:10px;">2012.05 – 2014.05</span>
+                    </div>
+                </section>
+
+                <section class="section card">
+                    <div class="section-title">포트폴리오</div>
+                    <div style="font-size:10.5px; color:var(--ink-2); word-break:break-all;">
+                        <a href="https://iamsloth.github.io/portfolio/" style="color:var(--teal); font-weight:600; text-decoration:none;">
+                            iamsloth.github.io/portfolio
+                        </a>
+                    </div>
+                </section>
+            </aside>
+        </main>
+
+        <!-- ===== FOOTER ===== -->
+        <footer class="footer">
+            <a href="https://iamsloth.github.io/portfolio/">iamsloth.github.io/portfolio</a> &nbsp;|&nbsp; &copy; 2026 임종권
+        </footer>
+    </div>
+</body>
+</html>

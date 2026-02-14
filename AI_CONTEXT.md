@@ -7,10 +7,16 @@
 
 | Field | Value |
 |-------|-------|
-| date | 2026-02-13 |
+| date | 2026-02-14 |
 | agent | Claude Opus 4.6 |
-| work | 프로젝트 폴더 대정리: 스마일게이트 포기 3폴더 삭제, SK ESG drafts/scripts 정리, shiftup REJECTED 처리, 컨벤션 수정 |
-| commit | pending |
+| work | 포트폴리오(docs/) 대규모 리뉴얼 + 범용 이력서 신규 생성 |
+| commit | see below |
+
+### 이번 세션 변경 상세
+- **docs/index.html**: 컬러 Teal+Amber 전환, 섹션 재구성(AI showcase→커리어스토리, 교육+수상→Skills 통합), GitHub 링크 제거, hero링크 pill 버튼 통일, 이모지 추가, 이력서PDF→resume.html 연결, 커리어스토리 한글 자연스럽게 재작성, CTA 2문장 분리
+- **docs/style.css**: Teal+Amber CSS변수, text-wrap:balance, hero-cta pill, story-narrative max-width 780px, background-grid, scroll-indicator bounce, hero grain texture 등 전면 리팩터
+- **docs/resume.html**: (신규) A4 범용 이력서 — Teal gradient 헤더, 2-column 레이아웃, 타임라인 경력3사, Unity 프로젝트 하이라이트(Amber), 키워드태그/자격증/학력/수상/병역. Ctrl+P로 PDF 저장 가능
+- **docs/assets/projects/photo_blynk_graph.jpg**: IoT 카드 이미지 교체
 
 ## Active Applications
 
