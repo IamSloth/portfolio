@@ -1,7 +1,7 @@
 {
     "meta": {
-        "version": "1.2",
-        "last_updated": "2026-02-08"
+        "version": "1.3",
+        "last_updated": "2026-02-20"
     },
     "personal_info": {
         "name_ko": "임종권",
@@ -55,7 +55,7 @@
             "company": "(사)함께만드는세상",
             "department": "경영지원부 인프라지원팀",
             "role": "총무·IT지원 (대리)",
-            "period": "2023.01.09 – 2026.02",
+            "period": "2023.01.09 – 2026.01",
             "salary": "3,423만원 (2024년 기준)",
             "details": [
                 "<b>[Budget Management]</b> 인프라 예산 약 <b>3.6억 원</b> 직접 집행 및 통제 (집행률 <b>88.5%</b>)",
@@ -63,7 +63,8 @@
                 "<b>[ERP Implementation]</b> 커스텀 ERP(High-Q) 도입 프로젝트 실무 전담 (2023.07–2024.12). 요구사항 정의·예산/회계 프로세스 설계·계정과목 표준화·검수까지 풀사이클 수행. (Tibero DB/Nexacro 기반)",
                 "<b>[Asset Management]</b> IT 자산(HW/SW) 수명 주기 관리 프로세스 정립 및 유휴 장비 재배치로 중복 투자 방지",
                 "<b>[Facility Maintenance]</b> PC·전산장비, 조명, 사무가구 등 경정비 직접 수행. 중대 고장 시 임시조치 후 전문업체 연계",
-                "<b>[Safety Management]</b> 소방안전관리자로서 소방·승강기·전기·방역 등 법정 안전점검 외주업체 선정·관리·일정 조율"
+                "<b>[Vendor Management]</b> 외주업체 8개+ 계약·관리·정산 총괄 (소방·승강기·전기·방역·복합기·전자계약·본인확인·네트워크)",
+                "<b>[Safety Management]</b> 소방안전관리자로서 법정 안전점검 일정 조율 및 비상 인원편성 담당"
             ]
         },
         {
@@ -102,7 +103,7 @@
     "skills": [
         "ERP Implementation (High-Q)", "Hardware/Network Troubleshooting", "General Affairs & Admin",
         "SQL (Data Extraction & Analysis)", "Excel (Pivot/VBA/Power Query)", "AI Tools (Claude/ChatGPT)",
-        "Notion", "Slack", "Unity 3D/C# (Basic)", "1종 대형 운전면허 (12년 무사고)"
+        "Notion", "Slack", "Unity 3D/C# (Basic)", "1종 대형 운전면허", "한글(HWP)"
     ],
     "certifications": [
         {
