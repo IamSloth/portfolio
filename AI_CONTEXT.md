@@ -7,21 +7,23 @@
 
 | Field | Value |
 |-------|-------|
-| date | 2026-02-14 |
+| date | 2026-02-20 |
 | agent | Claude Opus 4.6 |
-| work | 포트폴리오(docs/) 대규모 리뉴얼 + 범용 이력서 신규 생성 |
-| commit | see below |
+| work | 화영운수 배차관리직 지원서 v1→v2 작성 + 사람인 제출 완료 |
+| commit | TBD (이번 세션) |
 
-### 이번 세션 변경 상세
-- **docs/index.html**: 컬러 Teal+Amber 전환, 섹션 재구성(AI showcase→커리어스토리, 교육+수상→Skills 통합), GitHub 링크 제거, hero링크 pill 버튼 통일, 이모지 추가, 이력서PDF→resume.html 연결, 커리어스토리 한글 자연스럽게 재작성, CTA 2문장 분리
-- **docs/style.css**: Teal+Amber CSS변수, text-wrap:balance, hero-cta pill, story-narrative max-width 780px, background-grid, scroll-indicator bounce, hero grain texture 등 전면 리팩터
-- **docs/resume.html**: (신규) A4 범용 이력서 — Teal gradient 헤더, 2-column 레이아웃, 타임라인 경력3사, Unity 프로젝트 하이라이트(Amber), 키워드태그/자격증/학력/수상/병역. Ctrl+P로 PDF 저장 가능
-- **docs/assets/projects/photo_blynk_graph.jpg**: IoT 카드 이미지 교체
+### 이번 세션 요약
+- **화영운수 배차관리직** 지원서 작성 (v1 모던→v2 공문서 스타일)
+- v2: 이력서+자기소개서 2p HTML, 브라우저 인쇄→PDF
+- 첨부: 등본(주민번호 미공개), 건강보험자격득실확인원
+- 사람인 입사지원 완료 (2026-02-20)
+- 증빙서류 `common/evidence/`에 범용 보관본 복사
 
 ## Active Applications
 
 | # | Company | Position | Status | Priority TODO | Strategy Path |
 |---|---------|----------|--------|---------------|---------------|
+| 08 | 화영운수(주) | Bus Dispatch Admin | SUBMITTED | 사람인 제출 완료 (2026-02-20). 마감 2026-03-11 | `08_hwayoungunsu/bus_dispatch_admin/` |
 | 07 | Kolon CSR | Energy Edu Ops | SUBMITTED | 사람인 제출 완료 (2026-02-13). 마감 2026-03-11 | `07_kolon/energy_edu_ops/` |
 | 06a | SK E&S (추정) | ESG Admin | SUBMITTED | 이메일 제출 완료 (2026-02-12) | `06_sk_energy/esg_admin/` |
 | 06b | SK E&S (추정) | CSR Planning | SUBMITTED | 이메일 제출 완료 (2026-02-12) | `06_sk_energy/csr_planning/` |
@@ -49,6 +51,6 @@
 - **Filenames**: English snake_case only. No Korean filenames (except original form templates and final 제출본).
 - **Scripts**: Place inside the relevant application's `scripts/` subfolder. Never in project root.
 - **Commits**: Always include `Co-Authored-By: {Model Name} <noreply@anthropic.com>` trailer.
-- **Application folders**: Numbered by discovery date: `{NN}_{company}/`. Next new company = `08_`.
+- **Application folders**: Numbered by discovery date: `{NN}_{company}/`. Next new company = `09_`.
 - **Profile sync**: If you discover new career/skill/cert info during work, update `profile.json` immediately.
 - **Session end**: Update this file → commit → push. Keep entries concise (token budget matters).

@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>임종권 - 화영운수(주) 배차관리직 지원서</title>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+    :root {
+        --navy-dark: #1E3A5F;
+        --navy: #2563EB;
+        --navy-light: #3B82F6;
+        --accent: #0EA5E9;
+        --accent-light: #BAE6FD;
+        --cream: #F0F9FF;
+        --white: #ffffff;
+        --text-dark: #1A202C;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+        font-family: 'Pretendard', -apple-system, sans-serif;
+        background: #444;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    .page {
+        width: 210mm;
+        min-height: 297mm;
+        height: auto;
+        background: var(--white);
+        box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        position: relative;
+        overflow: hidden;
+    }
+
+    @page {
+        size: A4;
+        margin: 0;
+    }
+
+    @media print {
+        body { background: none; padding: 0; }
+        .page {
+            box-shadow: none;
+            page-break-after: always;
+            page-break-inside: avoid;
+            margin: 0;
+            height: 297mm;
+            overflow: hidden;
+        }
+        .page:last-child { page-break-after: auto; }
+        .no-print { display: none !important; }
+    }
+
+    .print-btn {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%);
+        color: var(--accent-light);
+        border: 2px solid var(--accent);
+        padding: 15px 30px;
+        border-radius: 50px;
+        font-size: 16px;
+        font-weight: 700;
+        cursor: pointer;
+        z-index: 1000;
+        transition: all 0.3s;
+    }
+    .print-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(11,37,69,0.4);
+    }
+
+    /* ========== PAGE 1: RESUME ========== */
+    .resume-page {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .resume-header {
+        background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%);
+        padding: 25px 35px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .resume-header-left h1 {
+        color: var(--white);
+        font-size: 32px;
+        font-weight: 800;
+        letter-spacing: 2px;
+        margin-bottom: 12px;
+    }
+
+    .resume-header-left .tagline {
+        color: var(--accent-light);
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 0.3px;
+    }
+
+    .profile-photo {
+        width: 110px;
+        height: 140px;
+        object-fit: cover;
+        border: 3px solid var(--accent);
+        border-radius: 4px;
+    }
+
+    .resume-body {
+        padding: 18px 35px;
+        flex: 1;
+    }
+
+    .contact-bar {
+        display: flex;
+        gap: 20px;
+        padding: 11px 18px;
+        background: var(--cream);
+        border-radius: 6px;
+        margin-bottom: 16px;
+        font-size: 12.5px;
+        color: var(--text-dark);
+        flex-wrap: wrap;
+    }
+
+    .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .contact-item span:first-child {
+        color: var(--navy);
+    }
+
+    .section-title {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 10px;
+        padding-bottom: 7px;
+        border-bottom: 2px solid var(--navy);
+    }
+
+    .section-title h2 {
+        color: var(--navy);
+        font-size: 15px;
+        font-weight: 800;
+        letter-spacing: -0.5px;
+    }
+
+    .section-title::before {
+        content: '';
+        width: 4px;
+        height: 17px;
+        background: var(--accent);
+        border-radius: 2px;
+    }
+
+    .resume-section {
+        margin-bottom: 13px;
+    }
+
+    /* Fit Box */
+    .fit-box {
+        background: linear-gradient(90deg, var(--cream) 0%, var(--white) 100%);
+        padding: 12px 15px;
+        border-left: 4px solid var(--navy);
+        border-radius: 0 6px 6px 0;
+        font-size: 12.5px;
+        line-height: 1.85;
+        color: var(--text-dark);
+    }
+
+    /* Core Competencies - 3 Cards */
+    .competency-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        margin-bottom: 4px;
+    }
+
+    .competency-card {
+        background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%);
+        border-radius: 8px;
+        padding: 13px;
+        text-align: center;
+    }
+
+    .competency-card h3 {
+        color: var(--accent-light);
+        font-size: 13px;
+        font-weight: 800;
+        margin-bottom: 7px;
+        letter-spacing: -0.3px;
+    }
+
+    .competency-card p {
+        color: var(--white);
+        font-size: 10.5px;
+        line-height: 1.55;
+        opacity: 0.95;
+    }
+
+    /* Career Timeline */
+    .career-timeline {
+        position: relative;
+        padding-left: 20px;
+    }
+
+    .career-timeline::before {
+        content: '';
+        position: absolute;
+        left: 5px;
+        top: 5px;
+        bottom: 5px;
+        width: 2px;
+        background: var(--accent);
+    }
+
+    .career-item {
+        position: relative;
+        margin-bottom: 12px;
+        padding-left: 20px;
+    }
+
+    .career-item::before {
+        content: '';
+        position: absolute;
+        left: -19px;
+        top: 6px;
+        width: 10px;
+        height: 10px;
+        background: var(--navy);
+        border: 2px solid var(--accent);
+        border-radius: 50%;
+    }
+
+    .career-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        margin-bottom: 3px;
+    }
+
+    .career-company {
+        font-size: 13.5px;
+        font-weight: 700;
+        color: var(--text-dark);
+    }
+
+    .career-period {
+        font-size: 11.5px;
+        color: var(--navy);
+        font-weight: 600;
+        background: var(--cream);
+        padding: 2px 9px;
+        border-radius: 10px;
+    }
+
+    .career-role {
+        font-size: 11.5px;
+        color: #666;
+        margin-bottom: 3px;
+    }
+
+    .career-desc {
+        font-size: 11px;
+        color: #555;
+        line-height: 1.55;
+    }
+
+    /* Skills & Education */
+    .two-column {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+
+    .skill-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+        margin-bottom: 10px;
+    }
+
+    .skill-tag {
+        background: var(--cream);
+        border: 1px solid #bee3f8;
+        padding: 4px 10px;
+        border-radius: 12px;
+        font-size: 10.5px;
+        color: var(--text-dark);
+        font-weight: 500;
+    }
+
+    .skill-tag.highlight {
+        background: var(--navy);
+        border-color: var(--navy);
+        color: var(--white);
+        font-weight: 700;
+    }
+
+    .edu-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 7px 0;
+        border-bottom: 1px dashed #ddd;
+    }
+
+    .edu-item:last-child { border-bottom: none; }
+
+    .edu-name {
+        font-size: 11.5px;
+        font-weight: 600;
+        color: var(--text-dark);
+    }
+
+    .edu-detail {
+        font-size: 10.5px;
+        color: #666;
+    }
+
+    .cert-grid {
+        display: flex;
+        gap: 8px;
+        margin-top: 8px;
+    }
+
+    .cert-badge {
+        flex: 1;
+        background: linear-gradient(135deg, var(--accent-light) 0%, var(--accent) 100%);
+        padding: 9px;
+        border-radius: 6px;
+        text-align: center;
+    }
+
+    .cert-badge strong {
+        display: block;
+        font-size: 11px;
+        color: var(--navy-dark);
+        margin-bottom: 2px;
+        font-weight: 800;
+    }
+
+    .cert-badge span {
+        font-size: 9.5px;
+        color: #1a4a6b;
+    }
+
+    .page-footer {
+        background: var(--navy-dark);
+        padding: 7px;
+        text-align: center;
+        color: var(--accent-light);
+        font-size: 10.5px;
+        font-weight: 600;
+        margin-top: auto;
+    }
+
+    /* ========== PAGE 2: COVER LETTER ========== */
+    .cover-page {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .cover-header {
+        background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%);
+        padding: 26px 35px;
+        text-align: center;
+    }
+
+    .cover-header h1 {
+        color: var(--white);
+        font-size: 26px;
+        font-weight: 800;
+        letter-spacing: 4px;
+        margin-bottom: 10px;
+    }
+
+    .cover-header .subtitle {
+        color: var(--accent-light);
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    .cover-body {
+        padding: 22px 40px;
+        flex: 1;
+    }
+
+    .story-section {
+        margin-bottom: 18px;
+    }
+
+    .story-title {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 10px;
+    }
+
+    .story-number {
+        background: var(--navy);
+        color: var(--accent-light);
+        width: 27px;
+        height: 27px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 13px;
+        font-weight: 800;
+        flex-shrink: 0;
+    }
+
+    .story-title h3 {
+        color: var(--navy);
+        font-size: 15px;
+        font-weight: 800;
+        letter-spacing: -0.5px;
+    }
+
+    .story-content {
+        font-size: 13px;
+        line-height: 1.85;
+        color: var(--text-dark);
+        text-align: justify;
+        word-break: keep-all;
+    }
+
+    .highlight-text {
+        color: var(--navy);
+        font-weight: 700;
+    }
+
+    /* 강조 인포 박스 */
+    .info-box {
+        background: var(--cream);
+        border: 2px solid var(--accent);
+        border-radius: 8px;
+        padding: 13px 18px;
+        margin: 12px 0;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .info-box .icon {
+        font-size: 28px;
+        flex-shrink: 0;
+    }
+
+    .info-box .text {
+        font-size: 12.5px;
+        line-height: 1.6;
+        color: var(--text-dark);
+    }
+
+    .info-box .text strong {
+        color: var(--navy);
+        font-size: 14px;
+    }
+
+    .closing-box {
+        background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%);
+        border-radius: 10px;
+        padding: 17px 25px;
+        margin-top: 15px;
+    }
+
+    .closing-box p {
+        color: var(--white);
+        font-size: 13.5px;
+        line-height: 1.8;
+        text-align: center;
+    }
+
+    .closing-box .accent {
+        color: var(--accent-light);
+        font-weight: 700;
+    }
+</style>
+</head>
+<body>
+    <button class="print-btn no-print" onclick="window.print()">PDF 저장 / 인쇄</button>
+
+    <!-- ========== PAGE 1: RESUME ========== -->
+    <div class="page resume-page">
+        <header class="resume-header">
+            <div class="resume-header-left">
+                <h1>임 종 권</h1>
+                <div class="tagline">배차·인사 행정 담당 | 1종 대형 면허 | 총무·전산 3년 경력 | 광명시 도덕로 거주</div>
+            </div>
+            <img src="../../../../common/photos/profile.png" alt="Profile Photo" class="profile-photo">
+        </header>
+
+        <div class="resume-body">
+            <div class="contact-bar">
+                <div class="contact-item"><span>📞</span> 010-4052-0834</div>
+                <div class="contact-item"><span>📧</span> ssujklim@gmail.com</div>
+                <div class="contact-item"><span>🏠</span> 경기도 광명시 도덕로 79 (본사까지 도보 5분)</div>
+                <div class="contact-item"><span>🎂</span> 1992.01.04 (만 34세)</div>
+            </div>
+
+            <section class="resume-section">
+                <div class="section-title"><h2>지원 직무 적합성</h2></div>
+                <div class="fit-box">
+                    • 비영리 법인 <strong>3년차 총무·행정 실무자</strong> — 예산 집행, 외주업체 관리, 인사 행정 경험 보유<br>
+                    • <strong>1종 대형 운전면허</strong> (2019 취득) — 대형차 운행 특성·법규 이해, JD 면허 요건 충족<br>
+                    • <strong>도덕로 79번지 거주</strong> ↔ 본사 도덕로 13번지 — 새벽 6시 출근·비상상황 즉각 대응 가능<br>
+                    • 한글·엑셀(VBA/Pivot) 능숙 — <strong>배차표, 인원편성표, 근태 관리 즉시 운용 가능</strong>
+                </div>
+            </section>
+
+            <section class="resume-section">
+                <div class="section-title"><h2>핵심 역량</h2></div>
+                <div class="competency-grid">
+                    <div class="competency-card">
+                        <h3>현장 이해력</h3>
+                        <p>1종 대형 면허 보유<br>대형차 운행 특성·법규<br>취득 과정에서 체계적 습득</p>
+                    </div>
+                    <div class="competency-card">
+                        <h3>인원 관리</h3>
+                        <p>외주업체 20+ 관리 경험<br>소방안전관리자로<br>비상 인원 편성 경험</p>
+                    </div>
+                    <div class="competency-card">
+                        <h3>행정 처리</h3>
+                        <p>예산 3.6억 집행 관리<br>엑셀 고급 · ERP 운용<br>각종 법정 문서 처리</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="resume-section">
+                <div class="section-title"><h2>경력 사항</h2></div>
+                <div class="career-timeline">
+                    <div class="career-item">
+                        <div class="career-header">
+                            <span class="career-company">(사)함께만드는세상</span>
+                            <span class="career-period">2023.01 ~ 2026.01 (3년)</span>
+                        </div>
+                        <div class="career-role">총무·IT지원 / 인프라지원팀 (대리)</div>
+                        <div class="career-desc">
+                            <strong>행정·인사:</strong> 외주업체 20개+ 계약·관리·정산 / 소방안전관리자 — 비상연락망·외부 점검업체 인원편성 담당<br>
+                            <strong>예산관리:</strong> 인프라 예산 3.6억 집행·통제 · 재계약 협상으로 연 500만원 절감<br>
+                            <strong>전산·ERP:</strong> 커스텀 ERP 도입 실무 전담 (요구정의·계정과목 표준화·검수) / IT 장애 1차 직접 대응
+                        </div>
+                    </div>
+                    <div class="career-item">
+                        <div class="career-header">
+                            <span class="career-company">(주)맨지온</span>
+                            <span class="career-period">2020.03 ~ 2021.11 (1년 8개월)</span>
+                        </div>
+                        <div class="career-role">IoT 시스템 운영 / QA</div>
+                        <div class="career-desc">
+                            시설 관제 데이터 로그 분석 · 통신 장애 원인 규명 · QA 테스트 시나리오 설계 및 품질 보증
+                        </div>
+                    </div>
+                    <div class="career-item">
+                        <div class="career-header">
+                            <span class="career-company">(주)엣지크로스</span>
+                            <span class="career-period">2016.05 ~ 2018.02 (1년 9개월)</span>
+                        </div>
+                        <div class="career-role">H/W 개발 / 자재관리 (주임)</div>
+                        <div class="career-desc">
+                            BOM 기반 자재 원가 관리 · 부품 수급 일정 조율 (납기 준수율 100%) · 프로토타입 제작 및 테스트
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="two-column">
+                <section class="resume-section">
+                    <div class="section-title"><h2>보유 스킬 및 자격</h2></div>
+                    <div class="skill-tags">
+                        <span class="skill-tag highlight">1종 대형 운전면허</span>
+                        <span class="skill-tag highlight">Excel 고급 (VBA/Pivot)</span>
+                        <span class="skill-tag">인사·행정 관리</span>
+                        <span class="skill-tag">외주업체 관리</span>
+                        <span class="skill-tag">ERP 운용</span>
+                        <span class="skill-tag">SQL 데이터 추출</span>
+                        <span class="skill-tag">한글(HWP)</span>
+                        <span class="skill-tag">시설 유지보수</span>
+                    </div>
+                    <div class="cert-grid">
+                        <div class="cert-badge">
+                            <strong>1종 대형 면허</strong>
+                            <span>12년 무사고 (2019취득)</span>
+                        </div>
+                        <div class="cert-badge">
+                            <strong>사회복지사 1급</strong>
+                            <span>보건복지부 (2020)</span>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="resume-section">
+                    <div class="section-title"><h2>학력</h2></div>
+                    <div class="edu-item">
+                        <div>
+                            <div class="edu-name">숭실대학교 사회복지대학원 (석사)</div>
+                            <div class="edu-detail">사회적기업 전공 · GPA 4.2/4.5</div>
+                        </div>
+                        <span class="edu-detail">2020.02</span>
+                    </div>
+                    <div class="edu-item">
+                        <div>
+                            <div class="edu-name">숭실대학교 공과대학 (학사)</div>
+                            <div class="edu-detail">전기공학부 / 경제학 복수전공</div>
+                        </div>
+                        <span class="edu-detail">2017.02</span>
+                    </div>
+                    <div class="edu-item">
+                        <div>
+                            <div class="edu-name">공군 만기제대</div>
+                            <div class="edu-detail">병장 (2012.05 ~ 2014.05)</div>
+                        </div>
+                        <span class="edu-detail">2014.05</span>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <footer class="page-footer">Page 1 / 2 · 임종권 · 화영운수(주) 배차관리직 지원</footer>
+    </div>
+
+    <!-- ========== PAGE 2: COVER LETTER ========== -->
+    <div class="page cover-page">
+        <header class="cover-header">
+            <h1>자 기 소 개 서</h1>
+            <div class="subtitle">"같은 도로에서 걸어오는 배차관리자, 버스도 직접 운전합니다"</div>
+        </header>
+
+        <div class="cover-body">
+            <section class="story-section">
+                <div class="story-title">
+                    <span class="story-number">1</span>
+                    <h3>도덕로에서 도덕로로 — 이 직무가 저를 선택했습니다</h3>
+                </div>
+                <div class="story-content">
+                    우연히 채용공고를 보고 주소를 확인하는 순간, 멈춰 섰습니다. 본사 주소가 <span class="highlight-text">경기도 광명시 도덕로 13번지</span>. 제 집은 <span class="highlight-text">도덕로 79번지</span>입니다. 같은 도로, 도보 5분 거리. 새벽 6시 출근도, 비상상황 야간 복귀도 전혀 부담이 없습니다. "인근거주자 우대"라는 조건이 저를 위한 문장처럼 느껴졌습니다. 단순한 근거리가 아닙니다. 저는 이 동네에서 오래 살았고, <span class="highlight-text">이 지역 버스를 매일 타며 생활해왔습니다.</span> 화영운수의 노선이 어떻게 운행되는지, 승객이 어떤 경험을 하는지 누구보다 잘 압니다. 지역을 이해하는 사람이 지역을 운영해야 합니다.
+                </div>
+            </section>
+
+            <section class="story-section">
+                <div class="story-title">
+                    <span class="story-number">2</span>
+                    <h3>1종 대형 면허 — 관리자가 현장을 알아야 합니다</h3>
+                </div>
+                <div class="story-content">
+                    배차관리직에 지원하는 대부분의 지원자는 일반 운전면허를 보유합니다. 저는 <span class="highlight-text">1종 대형 운전면허를 보유하고 있습니다.</span> 면허 취득 과정에서 대형차의 운행 특성, 도로 법규, 사각지대와 같은 안전 기준을 체계적으로 이해했습니다. 이것이 단순한 자격 등급의 차이라고 생각하지 않습니다. 승무사원들이 어떤 조건에서 운행하는지, 배차표가 촉박하면 현장에 어떤 부담이 생기는지—<span class="highlight-text">대형차 운행 구조를 아는 관리자</span>만이 현실적인 편성을 할 수 있습니다.
+                </div>
+                <div class="info-box">
+                    <div class="icon">🚌</div>
+                    <div class="text">
+                        <strong>1종 대형 운전면허 보유 (2019년 취득)</strong><br>
+                        대형차 운행 구조를 이해하는 면허 소지자 — 현장 감각을 갖춘 배차관리자
+                    </div>
+                </div>
+                <div class="story-content">
+                    승무사원 인원편성 시 단순히 숫자를 채우는 것이 아니라, <span class="highlight-text">현장의 맥락을 이해하며 조율하는 관리자</span>가 되겠습니다.
+                </div>
+            </section>
+
+            <section class="story-section">
+                <div class="story-title">
+                    <span class="story-number">3</span>
+                    <h3>3년의 총무 경험 — 인원관리와 행정은 제 본업입니다</h3>
+                </div>
+                <div class="story-content">
+                    (사)함께만드는세상에서 3년간 총무·행정을 담당하며 <span class="highlight-text">20개 이상의 외주업체를 직접 관리</span>했습니다. 계약·일정 조율·정산·비상연락망 운용까지, 다수 외부 인원을 체계적으로 편성하는 일이 핵심 업무였습니다. 특히 소방안전관리자로서 <span class="highlight-text">연간 수십 회의 법정 점검 일정을 조율하고 인원을 편성</span>하며, 촉박한 상황에서도 누락 없이 관리하는 경험을 쌓았습니다. 엑셀(VBA/Pivot)과 ERP를 활용한 데이터 관리에도 익숙해, <span class="highlight-text">배차표와 근태 관리를 즉시 운용</span>할 수 있습니다.
+                </div>
+            </section>
+
+            <div class="closing-box">
+                <p>
+                    배차관리직은 단순 사무직이 아닙니다. 승무사원과 관리자 사이의 <span class="accent">교량</span>입니다.<br>
+                    저는 현장을 아는 면허, 같은 도로의 거주지, 3년의 행정 경험으로<br>
+                    <span class="accent">화영운수의 안정적인 운행을 뒷받침하는 장기 파트너</span>가 되겠습니다.
+                </p>
+            </div>
+        </div>
+
+        <footer class="page-footer">Page 2 / 2 · 임종권 · 화영운수(주) 배차관리직 지원</footer>
+    </div>
+
+</body>
+</html>
