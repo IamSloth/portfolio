@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>화영운수(주) 입사지원서 - 임종권</title>
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+        font-family: '맑은 고딕', 'Malgun Gothic', sans-serif;
+        background: #666;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        color: #111;
+        font-size: 11px;
+    }
+
+    .page {
+        width: 210mm;
+        min-height: 297mm;
+        background: #fff;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+        padding: 15mm 18mm;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+    }
+
+    @page { size: A4; margin: 0; }
+    @media print {
+        body { background: none; padding: 0; }
+        .page {
+            box-shadow: none;
+            page-break-after: always;
+            page-break-inside: avoid;
+            margin: 0;
+            height: 297mm;
+            overflow: hidden;
+        }
+        .page:last-child { page-break-after: auto; }
+        .no-print { display: none !important; }
+    }
+
+    .print-btn {
+        position: fixed; bottom: 30px; right: 30px;
+        background: #333; color: #fff; border: none;
+        padding: 12px 24px; border-radius: 4px; font-size: 14px;
+        font-weight: 700; cursor: pointer; z-index: 1000;
+    }
+
+    .header-line {
+        text-align: left;
+        font-size: 11px;
+        margin-bottom: 6px;
+        font-weight: 600;
+    }
+
+    h1 {
+        text-align: center;
+        font-size: 22px;
+        font-weight: 800;
+        letter-spacing: 12px;
+        margin-bottom: 12px;
+    }
+
+    h1.sub { font-size: 20px; letter-spacing: 8px; }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 0;
+        font-size: 11px;
+    }
+
+    table, th, td { border: 1px solid #333; }
+
+    th {
+        background: #E8E8E8;
+        font-weight: 700;
+        padding: 4px 6px;
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    td {
+        padding: 4px 6px;
+        vertical-align: middle;
+        line-height: 1.5;
+    }
+
+    .label {
+        background: #E8E8E8;
+        font-weight: 700;
+        text-align: center;
+        white-space: nowrap;
+    }
+
+    .photo-cell {
+        width: 100px;
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    .photo-cell img {
+        width: 90px;
+        height: 110px;
+        object-fit: cover;
+    }
+
+    .note {
+        font-size: 10px;
+        color: #555;
+        margin: 3px 0 2px 0;
+    }
+
+    .sign-area {
+        text-align: center;
+        margin-top: auto;
+        padding-top: 15px;
+        font-size: 12px;
+        line-height: 2.0;
+    }
+
+    /* 자소서 전용 */
+    .essay-table td.essay-label {
+        background: #E8E8E8;
+        font-weight: 700;
+        text-align: center;
+        width: 70px;
+        vertical-align: top;
+        padding: 8px 4px;
+        writing-mode: vertical-rl;
+        text-orientation: upright;
+        letter-spacing: 2px;
+        font-size: 11px;
+    }
+
+    .essay-table td.essay-content {
+        padding: 8px 10px;
+        font-size: 11.5px;
+        line-height: 1.9;
+        text-align: justify;
+        word-break: keep-all;
+    }
+</style>
+</head>
+<body>
+    <button class="print-btn no-print" onclick="window.print()">PDF 저장 / 인쇄</button>
+
+    <!-- ========== PAGE 1: 입사지원서 ========== -->
+    <div class="page">
+        <div class="header-line">화영운수주식회사 귀중</div>
+        <h1>화영운수(주) 입사지원서</h1>
+
+        <!-- 인적사항 -->
+        <table>
+            <tr>
+                <td class="label" rowspan="3" style="width:40px;">인<br>적<br>사<br>항</td>
+                <td class="label" style="width:50px;">성명</td>
+                <td class="label" style="width:35px;">한글</td>
+                <td style="width:110px; font-weight:700; font-size:13px; text-align:center;">임 종 권</td>
+                <td class="label" style="width:60px;">생년월일</td>
+                <td style="text-align:center;">1992. 01. 04. (만 34세)</td>
+                <td class="photo-cell" rowspan="3">
+                    <img src="../../../../common/photos/profile.png" alt="사진">
+                </td>
+            </tr>
+            <tr>
+                <td class="label" colspan="2">연락처</td>
+                <td colspan="3">010-4052-0834</td>
+            </tr>
+            <tr>
+                <td class="label" colspan="2">주 소</td>
+                <td colspan="3">경기도 광명시 도덕로 79, 1405호 (중앙하이츠)</td>
+            </tr>
+            <tr>
+                <td class="label" colspan="3">전자메일</td>
+                <td colspan="4">ssujklim@gmail.com</td>
+            </tr>
+        </table>
+
+        <!-- 학력사항 -->
+        <table style="margin-top:-1px;">
+            <tr>
+                <td class="label" rowspan="4" style="width:40px;">학<br>력<br>사<br>항</td>
+                <th style="width:130px;">기 간</th>
+                <th>학 교 명</th>
+                <th style="width:100px;">전 공</th>
+                <th style="width:65px;">소 재 지</th>
+                <th style="width:50px;">비 고</th>
+            </tr>
+            <tr>
+                <td style="text-align:center;">2007년 03월 ~ 2010년 02월</td>
+                <td style="text-align:center;">명문고등학교</td>
+                <td style="text-align:center;">인문계</td>
+                <td style="text-align:center;">경기 광명</td>
+                <td style="text-align:center;">졸업</td>
+            </tr>
+            <tr>
+                <td style="text-align:center;">2010년 03월 ~ 2017년 02월</td>
+                <td style="text-align:center;">숭실대학교 공과대학</td>
+                <td style="text-align:center;">전기공학부<br>(경제학 복수전공)</td>
+                <td style="text-align:center;">서울 동작</td>
+                <td style="text-align:center;">졸업</td>
+            </tr>
+            <tr>
+                <td style="text-align:center;">2018년 03월 ~ 2020년 02월</td>
+                <td style="text-align:center;">숭실대학교 사회복지대학원</td>
+                <td style="text-align:center;">사회적기업 전공<br>(석사)</td>
+                <td style="text-align:center;">서울 동작</td>
+                <td style="text-align:center;">졸업</td>
+            </tr>
+        </table>
+
+        <!-- 경력사항 -->
+        <p class="note">※ 운전경력을 포함한 전체 경력사항 기재 요망 (위에부터 과거이력 작성)</p>
+        <table>
+            <tr>
+                <td class="label" rowspan="5" style="width:40px;">경<br>력<br>사<br>항</td>
+                <th style="width:130px;">기 간</th>
+                <th style="width:120px;">회 사 명</th>
+                <th>담 당 업 무</th>
+                <th style="width:65px;">소 재 지</th>
+                <th style="width:55px;">퇴사사유</th>
+            </tr>
+            <tr>
+                <td style="text-align:center;">2016년 05월 ~ 2018년 02월</td>
+                <td style="text-align:center;">(주)엣지크로스<br>기술연구소</td>
+                <td>H/W 개발 · 자재(BOM) 관리, 납기 관리</td>
+                <td style="text-align:center;">서울 금천</td>
+                <td style="text-align:center;">대학원<br>진학</td>
+            </tr>
+            <tr>
+                <td style="text-align:center;">2020년 03월 ~ 2021년 11월</td>
+                <td style="text-align:center;">(주)맨지온<br>개발부</td>
+                <td>임베디드(IoT) 개발, 관제 데이터 분석, QA</td>
+                <td style="text-align:center;">서울 금천</td>
+                <td style="text-align:center;">계약만료</td>
+            </tr>
+            <tr>
+                <td style="text-align:center;">2023년 01월 ~ 2026년 01월</td>
+                <td style="text-align:center;">(사)함께만드는세상<br>경영지원부</td>
+                <td>총무·IT지원(대리) — 외주업체 8개+ 관리,<br>소방안전관리자, 인프라 예산 3.6억 집행, ERP 도입</td>
+                <td style="text-align:center;">서울 종로</td>
+                <td style="text-align:center;">자발적<br>퇴사</td>
+            </tr>
+            <tr>
+                <td style="text-align:center;" colspan="5">(승용차 12년 무사고 운전 경력 / 1종 대형 면허 보유)</td>
+            </tr>
+        </table>
+
+        <!-- 병역 -->
+        <table style="margin-top:-1px;">
+            <tr>
+                <td class="label" style="width:40px;">병<br>역</td>
+                <td class="label" style="width:50px;">구분</td>
+                <td style="width:120px; text-align:center;">군필( ✔ ) 미필(   )</td>
+                <td class="label" style="width:50px;">사유</td>
+                <td style="text-align:center;">공군 병장 만기제대 (2010.07 ~ 2012.08)</td>
+            </tr>
+        </table>
+
+        <!-- 자격사항 -->
+        <table style="margin-top:-1px;">
+            <tr>
+                <td class="label" rowspan="3" style="width:40px;">자<br>격<br>사<br>항</td>
+                <th>자격증명</th>
+                <th style="width:100px;">취 득 일 자</th>
+                <th style="width:100px;">발 행 처</th>
+            </tr>
+            <tr>
+                <td style="text-align:center;">1종 대형 운전면허</td>
+                <td style="text-align:center;">2019년 02월</td>
+                <td style="text-align:center;">경찰청</td>
+            </tr>
+            <tr>
+                <td style="text-align:center;">사회복지사 1급</td>
+                <td style="text-align:center;">2020년 02월</td>
+                <td style="text-align:center;">보건복지부</td>
+            </tr>
+        </table>
+
+        <!-- 기타 -->
+        <table style="margin-top:-1px;">
+            <tr>
+                <td class="label" rowspan="2" style="width:40px;">기<br>타</td>
+                <td class="label" style="width:65px;">장애여부</td>
+                <td style="text-align:center;">해당 없음</td>
+                <td class="label" style="width:65px;">보훈여부</td>
+                <td style="text-align:center;">해당 없음</td>
+            </tr>
+            <tr>
+                <td class="label">입사경로</td>
+                <td colspan="3">자사광고 / <u><strong>인터넷 (사람인)</strong></u> / 기타 / 추천인(         )</td>
+            </tr>
+        </table>
+
+        <!-- 서약 -->
+        <div class="sign-area">
+            <p style="font-size:10.5px; margin-top:8px; text-align:justify;">
+                상기 내용이 사실과 다를 경우 채용취소 등 어떠한 조치에도 이의를 제기하지 않을 것을 서약합니다.
+            </p>
+            <p style="margin-top:10px;">2026년 &nbsp; 02월 &nbsp; 20일</p>
+            <p style="margin-top:6px; font-size:13px;">성 명: &nbsp; <strong>임 종 권</strong> &nbsp; (인)</p>
+        </div>
+    </div>
+
+    <!-- ========== PAGE 2: 자기소개서 ========== -->
+    <div class="page">
+        <div class="header-line">화영운수주식회사 귀중</div>
+        <h1 class="sub">자 기 소 개 서</h1>
+
+        <table class="essay-table" style="flex:1;">
+            <tr>
+                <td class="essay-label">성장과정</td>
+                <td class="essay-content">
+                    경기도 광명시에서 유치원 때부터 살고 있습니다. 화영운수 12번 버스를 타고 구 광명역 정류장에서 내려 롯데리아에 가던 기억이 아직도 선명합니다. 집 앞 종점에서 출발하는 화영운수 버스와 함께 자랐다고 해도 과언이 아닙니다.
+                    <br><br>
+                    숭실대학교에서 전기공학을 전공하고 경제학을 복수전공했습니다. 이후 같은 대학 사회복지대학원에서 사회적기업 전공으로 석사 학위를 취득했습니다. 공학적 사고와 사회과학적 시각을 함께 갖추게 되었고, 이 배경이 총무·행정 직무에서 다양한 부서와 소통하는 데 큰 도움이 되었습니다.
+                </td>
+            </tr>
+            <tr>
+                <td class="essay-label">성격</td>
+                <td class="essay-content">
+                    꼼꼼하고 책임감이 강합니다. 직전 직장에서 소방안전관리자를 겸임하면서 법정 안전점검 일정을 한 건도 빠뜨리지 않고 관리했습니다. 외주업체 8곳의 계약·정산을 혼자 처리하면서도 누락 없이 마감한 것이 이를 보여줍니다.
+                    <br><br>
+                    사람들과의 관계에서는 불필요한 마찰을 만들지 않되, 해야 할 말은 하는 편입니다. 현장 인력과 직접 소통하며 일정을 조율해온 경험이 많아, 승무사원분들과의 원활한 협업에 자신이 있습니다.
+                </td>
+            </tr>
+            <tr>
+                <td class="essay-label" style="letter-spacing:1px;">생활신조</td>
+                <td class="essay-content">
+                    "맡은 자리를 흔들리지 않게 지킨다." 총무 업무의 핵심은 눈에 띄지 않지만 빠지면 안 되는 일을 묵묵히 해내는 것이라고 생각합니다. 배차관리도 마찬가지입니다. 매일 같은 시간에 버스가 출발하고, 결원 없이 노선이 돌아가는 것 — 그 당연함을 유지하는 사람이 되겠습니다.
+                </td>
+            </tr>
+            <tr>
+                <td class="essay-label" style="writing-mode:vertical-rl; letter-spacing:0px; font-size:10px; line-height:1.3;">지원동기<br>및 목표</td>
+                <td class="essay-content">
+                    도덕로 79번지 거주자로서 도덕로 13번지 본사까지 도보 5분 거리입니다. 새벽 6시 출근이 부담이 아니라 평소 생활 리듬과 같고, 비상시 야간 복귀도 걸어서 가능합니다. 출퇴근길에 어느 시간대에 사람이 몰리는지, 어떤 정류장에서 오래 서는지를 몸으로 알고 있습니다.
+                    <br><br>
+                    입사 초기 3개월 안에 전체 노선과 승무사원 현황을 파악하는 것이 첫 번째 목표입니다. 누가 어떤 노선을 주로 담당하는지, 교대 패턴은 어떤지, 결원이 잦은 시간대는 언제인지를 빠르게 익혀 선임 담당자의 업무 부담을 줄이겠습니다.
+                    <br><br>
+                    집에서 걸어서 출근할 수 있는 회사입니다. 이직이나 이사를 고민할 이유가 없고, 오래 다닐 생각으로 지원했습니다.
+                </td>
+            </tr>
+            <tr>
+                <td class="essay-label" style="letter-spacing:0px; font-size:10.5px;">취미<br>/<br>특기</td>
+                <td class="essay-content">
+                    <strong>엑셀(VBA/Pivot)</strong> — 업무 자동화와 데이터 정리에 활용. 복잡한 스케줄표나 정산서도 직접 만들 수 있습니다.<br>
+                    <strong>야구 관람</strong> — 키움 히어로즈 팬으로 전국 야구장을 다녀왔습니다. 체력과 기동성에 자신 있습니다.<br>
+                    <strong>운전</strong> — 오토 승용차 12년 무사고. 1종 대형 면허 보유.
+                </td>
+            </tr>
+        </table>
+
+        <div class="sign-area" style="padding-top:8px;">
+            <p style="font-size:11px;">위 사항은 틀림이 없습니다.</p>
+            <p style="margin-top:6px; font-size:13px;">성 명: &nbsp; <strong>임 종 권</strong> &nbsp; (인)</p>
+        </div>
+    </div>
+</body>
+</html>

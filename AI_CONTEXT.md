@@ -9,21 +9,22 @@
 |-------|-------|
 | date | 2026-02-20 |
 | agent | Claude Opus 4.6 |
-| work | 화영운수 배차관리직 지원서 v1→v2 작성 + 사람인 제출 완료 |
-| commit | d9eab99 |
+| work | 화영운수 1차면접 통과 → 자사양식 HWP 이메일 회신 + profile.json 병역 수정 |
+| commit | (pending) |
 
 ### 이번 세션 요약
-- **화영운수 배차관리직** 지원서 작성 (v1 모던→v2 공문서 스타일)
-- v2: 이력서+자기소개서 2p HTML, 브라우저 인쇄→PDF
-- 첨부: 등본(주민번호 미공개), 건강보험자격득실확인원
-- 사람인 입사지원 완료 (2026-02-20)
-- 증빙서류 `common/evidence/`에 범용 보관본 복사
+- **화영운수 1차면접 당일 통과** (2/20 10:00 전화 → 11:30 1차면접 → 13:00 2차면접 안내)
+- 자사양식 HWP 이력서·자기소개서 작성 (`company_form_v1.html` → HWP 변환)
+- Gmail IMAP으로 화영운수 메일 확인 → `reply_email.py`로 답장 발송 (첨부 3건)
+- 이슈: 한국어 파일명 MIME 인코딩 "noname" → RFC 2231 수정 후 재발송
+- profile.json 병역 기간 수정 (2012.05~2014.05 → 2010.07~2012.08)
+- **2차 면접: 2026-02-23(월) 11:20까지 도착**
 
 ## Active Applications
 
 | # | Company | Position | Status | Priority TODO | Strategy Path |
 |---|---------|----------|--------|---------------|---------------|
-| 08 | 화영운수(주) | Bus Dispatch Admin | SUBMITTED | 사람인 제출 완료 (2026-02-20). 마감 2026-03-11 | `08_hwayoungunsu/bus_dispatch_admin/` |
+| 08 | 화영운수(주) | Bus Dispatch Admin | **INTERVIEW** | **2차 면접 2/23(월) 11:20**. 면접 준비 필요 | `08_hwayoungunsu/bus_dispatch_admin/` |
 | 07 | Kolon CSR | Energy Edu Ops | SUBMITTED | 사람인 제출 완료 (2026-02-13). 마감 2026-03-11 | `07_kolon/energy_edu_ops/` |
 | 06a | SK E&S (추정) | ESG Admin | SUBMITTED | 이메일 제출 완료 (2026-02-12) | `06_sk_energy/esg_admin/` |
 | 06b | SK E&S (추정) | CSR Planning | SUBMITTED | 이메일 제출 완료 (2026-02-12) | `06_sk_energy/csr_planning/` |
