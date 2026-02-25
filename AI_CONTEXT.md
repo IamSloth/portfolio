@@ -7,31 +7,36 @@
 
 | Field | Value |
 |-------|-------|
-| date | 2026-02-20 |
+| date | 2026-02-26 |
 | agent | Claude Opus 4.6 |
-| work | 화영운수 1차면접 통과 → 자사양식 HWP 이메일 회신 + profile.json 병역 수정 |
+| work | 히어로즈 운영팀 2차 지원 제출, 1차 회계직 NO_RESPONSE, 화영운수 REJECTED |
 | commit | (pending) |
 
 ### 이번 세션 요약
-- **화영운수 1차면접 당일 통과** (2/20 10:00 전화 → 11:30 1차면접 → 13:00 2차면접 안내)
-- 자사양식 HWP 이력서·자기소개서 작성 (`company_form_v1.html` → HWP 변환)
-- Gmail IMAP으로 화영운수 메일 확인 → `reply_email.py`로 답장 발송 (첨부 3건)
-- 이슈: 한국어 파일명 MIME 인코딩 "noname" → RFC 2231 수정 후 재발송
-- profile.json 병역 기간 수정 (2012.05~2014.05 → 2010.07~2012.08)
-- **2차 면접: 2026-02-23(월) 11:20까지 도착**
+- **키움 히어로즈 운영팀** 2차 지원: strategy.md + 이력서/자소서 → 사람인 PDF 제출 완료
+- 1차 회계직(지원팀): SUBMITTED → NO_RESPONSE (팔로업 2통 무응답)
+- 화영운수 2차 면접: **불합격** → REJECTED
+- 네오플 예산관리직 자소서 완료 (이전 세션, commit 41bcc00)
 
 ## Active Applications
 
 | # | Company | Position | Status | Priority TODO | Strategy Path |
 |---|---------|----------|--------|---------------|---------------|
-| 08 | 화영운수(주) | Bus Dispatch Admin | **INTERVIEW** | **2차 면접 2/23(월) 11:20**. 면접 준비 필요 | `08_hwayoungunsu/bus_dispatch_admin/` |
+| 01 | Seoul Heroes | Operations | **SUBMITTED** | 사람인 제출 완료 (2026-02-26). 마감 03/13 | `01_seoul_heroes/operations/` |
+| 09 | Neople (넥슨) | Budget Management | **SUBMITTED** | 사람인 제출 완료. 서류 결과 대기 | `09_neople/budget_management/` |
 | 07 | Kolon CSR | Energy Edu Ops | SUBMITTED | 사람인 제출 완료 (2026-02-13). 마감 2026-03-11 | `07_kolon/energy_edu_ops/` |
 | 06a | SK E&S (추정) | ESG Admin | SUBMITTED | 이메일 제출 완료 (2026-02-12) | `06_sk_energy/esg_admin/` |
 | 06b | SK E&S (추정) | CSR Planning | SUBMITTED | 이메일 제출 완료 (2026-02-12) | `06_sk_energy/csr_planning/` |
 | 05 | SFEC | CSR Ops | SUBMITTED | Awaiting result | `05_sfec/csr_ops/` |
-| 01 | Seoul Heroes (서울히어로즈) | Accounting | SUBMITTED | Awaiting result (접수마감 02/03, 면접 2월 둘째주 예정) | `01_seoul_heroes/accounting/` |
 | 04 | Smilegate | Hope Studio PM | SUBMITTED | Awaiting result | `04_smilegate/hope_studio_csr_platform_pm/` |
 | 03 | 11st | General Affairs | ON_HOLD | Paused | `03_11st/general_affairs/` |
+
+### Closed Applications
+
+| # | Company | Position | Status | Result |
+|---|---------|----------|--------|--------|
+| 01 | Seoul Heroes | Accounting | NO_RESPONSE | 팔로업 2통 무응답 → 사실상 탈락 |
+| 08 | 화영운수(주) | Bus Dispatch Admin | REJECTED | 2차 면접 불합격 |
 
 ## Pending Decisions
 
@@ -52,6 +57,6 @@
 - **Filenames**: English snake_case only. No Korean filenames (except original form templates and final 제출본).
 - **Scripts**: Place inside the relevant application's `scripts/` subfolder. Never in project root.
 - **Commits**: Always include `Co-Authored-By: {Model Name} <noreply@anthropic.com>` trailer.
-- **Application folders**: Numbered by discovery date: `{NN}_{company}/`. Next new company = `09_`.
+- **Application folders**: Numbered by discovery date: `{NN}_{company}/`. Next new company = `10_`.
 - **Profile sync**: If you discover new career/skill/cert info during work, update `profile.json` immediately.
 - **Session end**: Update this file → commit → push. Keep entries concise (token budget matters).

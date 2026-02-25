@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>임종권 - 키움 히어로즈 운영팀 지원서</title>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+    :root {
+        --burgundy-dark: #3d1018;
+        --burgundy: #5a1a2a;
+        --burgundy-light: #7a2a3a;
+        --gold: #d4a574;
+        --gold-light: #e8c9a0;
+        --cream: #faf6f0;
+        --white: #ffffff;
+        --text-dark: #2a2a2a;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+        font-family: 'Pretendard', -apple-system, sans-serif;
+        background: #444;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    .page {
+        width: 210mm;
+        min-height: 297mm;
+        height: auto;
+        background: var(--white);
+        box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        position: relative;
+        overflow: hidden;
+    }
+
+    @page {
+        size: A4;
+        margin: 0;
+    }
+
+    @media print {
+        body { background: none; padding: 0; }
+        .page {
+            box-shadow: none;
+            page-break-after: always;
+            page-break-inside: avoid;
+            margin: 0;
+            height: 297mm;
+            overflow: hidden;
+        }
+        .page:last-child { page-break-after: auto; }
+        .no-print { display: none !important; }
+    }
+
+    .print-btn {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background: linear-gradient(135deg, var(--burgundy) 0%, var(--burgundy-dark) 100%);
+        color: var(--gold);
+        border: 2px solid var(--gold);
+        padding: 15px 30px;
+        border-radius: 50px;
+        font-size: 16px;
+        font-weight: 700;
+        cursor: pointer;
+        z-index: 1000;
+        transition: all 0.3s;
+    }
+    .print-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(90,26,42,0.4);
+    }
+
+    /* ========== PAGE 1: RESUME ========== */
+    .resume-page {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .resume-header {
+        background: linear-gradient(135deg, var(--burgundy) 0%, var(--burgundy-dark) 100%);
+        padding: 25px 35px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .resume-header-left h1 {
+        color: var(--white);
+        font-size: 32px;
+        font-weight: 800;
+        letter-spacing: 2px;
+        margin-bottom: 12px;
+    }
+
+    .resume-header-left .tagline {
+        color: var(--gold);
+        font-size: 15px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+    }
+
+    .profile-photo {
+        width: 110px;
+        height: 140px;
+        object-fit: cover;
+        border: 3px solid var(--gold);
+        border-radius: 4px;
+    }
+
+    .resume-body {
+        padding: 20px 35px;
+        flex: 1;
+    }
+
+    .contact-bar {
+        display: flex;
+        gap: 25px;
+        padding: 12px 20px;
+        background: var(--cream);
+        border-radius: 6px;
+        margin-bottom: 20px;
+        font-size: 13px;
+        color: var(--text-dark);
+    }
+
+    .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    .contact-item span:first-child {
+        color: var(--burgundy);
+    }
+
+    .section-title {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 12px;
+        padding-bottom: 8px;
+        border-bottom: 2px solid var(--burgundy);
+    }
+
+    .section-title h2 {
+        color: var(--burgundy);
+        font-size: 16px;
+        font-weight: 800;
+        letter-spacing: -0.5px;
+    }
+
+    .section-title::before {
+        content: '';
+        width: 4px;
+        height: 18px;
+        background: var(--gold);
+        border-radius: 2px;
+    }
+
+    .resume-section {
+        margin-bottom: 14px;
+    }
+
+    /* Core Competencies - 3 Cards */
+    .competency-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        margin-bottom: 5px;
+    }
+
+    .competency-card {
+        background: linear-gradient(135deg, var(--burgundy) 0%, var(--burgundy-dark) 100%);
+        border-radius: 8px;
+        padding: 14px;
+        text-align: center;
+    }
+
+    .competency-card h3 {
+        color: var(--gold);
+        font-size: 14px;
+        font-weight: 800;
+        margin-bottom: 8px;
+        letter-spacing: -0.3px;
+    }
+
+    .competency-card p {
+        color: var(--white);
+        font-size: 11px;
+        line-height: 1.5;
+        opacity: 0.95;
+    }
+
+    /* Career Timeline */
+    .career-timeline {
+        position: relative;
+        padding-left: 20px;
+    }
+
+    .career-timeline::before {
+        content: '';
+        position: absolute;
+        left: 5px;
+        top: 5px;
+        bottom: 5px;
+        width: 2px;
+        background: var(--gold);
+    }
+
+    .career-item {
+        position: relative;
+        margin-bottom: 14px;
+        padding-left: 20px;
+    }
+
+    .career-item::before {
+        content: '';
+        position: absolute;
+        left: -19px;
+        top: 6px;
+        width: 10px;
+        height: 10px;
+        background: var(--burgundy);
+        border: 2px solid var(--gold);
+        border-radius: 50%;
+    }
+
+    .career-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        margin-bottom: 4px;
+    }
+
+    .career-company {
+        font-size: 14px;
+        font-weight: 700;
+        color: var(--text-dark);
+    }
+
+    .career-period {
+        font-size: 12px;
+        color: var(--burgundy);
+        font-weight: 600;
+        background: var(--cream);
+        padding: 2px 10px;
+        border-radius: 10px;
+    }
+
+    .career-role {
+        font-size: 12px;
+        color: #666;
+        margin-bottom: 4px;
+    }
+
+    .career-desc {
+        font-size: 11.5px;
+        color: #555;
+        line-height: 1.5;
+    }
+
+    /* Skills & Education */
+    .two-column {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+
+    .skill-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+
+    .skill-tag {
+        background: var(--cream);
+        border: 1px solid #ddd;
+        padding: 5px 12px;
+        border-radius: 15px;
+        font-size: 11px;
+        color: var(--text-dark);
+        font-weight: 500;
+    }
+
+    .skill-tag.highlight {
+        background: var(--burgundy);
+        border-color: var(--burgundy);
+        color: var(--white);
+        font-weight: 700;
+    }
+
+    .edu-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 8px 0;
+        border-bottom: 1px dashed #ddd;
+    }
+
+    .edu-item:last-child { border-bottom: none; }
+
+    .edu-name {
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--text-dark);
+    }
+
+    .edu-detail {
+        font-size: 11px;
+        color: #666;
+    }
+
+    .cert-grid {
+        display: flex;
+        gap: 10px;
+        margin-top: 8px;
+    }
+
+    .cert-badge {
+        flex: 1;
+        background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 100%);
+        padding: 10px;
+        border-radius: 6px;
+        text-align: center;
+    }
+
+    .cert-badge strong {
+        display: block;
+        font-size: 12px;
+        color: var(--burgundy-dark);
+        margin-bottom: 2px;
+    }
+
+    .cert-badge span {
+        font-size: 10px;
+        color: #5a4030;
+    }
+
+    .page-footer {
+        background: var(--burgundy-dark);
+        padding: 8px;
+        text-align: center;
+        color: var(--gold);
+        font-size: 11px;
+        font-weight: 600;
+        margin-top: auto;
+    }
+
+    /* ========== PAGE 2: COVER LETTER ========== */
+    .cover-page {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .cover-header {
+        background: linear-gradient(135deg, var(--burgundy) 0%, var(--burgundy-dark) 100%);
+        padding: 28px 35px;
+        text-align: center;
+    }
+
+    .cover-header h1 {
+        color: var(--white);
+        font-size: 28px;
+        font-weight: 800;
+        letter-spacing: 3px;
+        margin-bottom: 10px;
+    }
+
+    .cover-header .subtitle {
+        color: var(--gold);
+        font-size: 16px;
+        font-weight: 600;
+    }
+
+    .cover-body {
+        padding: 25px 40px;
+        flex: 1;
+    }
+
+    .story-section {
+        margin-bottom: 22px;
+    }
+
+    .story-title {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 12px;
+    }
+
+    .story-number {
+        background: var(--burgundy);
+        color: var(--gold);
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        font-weight: 800;
+    }
+
+    .story-title h3 {
+        color: var(--burgundy);
+        font-size: 16px;
+        font-weight: 800;
+        letter-spacing: -0.5px;
+    }
+
+    .story-content {
+        font-size: 13.5px;
+        line-height: 1.75;
+        color: var(--text-dark);
+        text-align: justify;
+        word-break: keep-all;
+    }
+
+    .highlight-text {
+        color: var(--burgundy);
+        font-weight: 700;
+    }
+
+    .closing-box {
+        background: linear-gradient(135deg, var(--burgundy) 0%, var(--burgundy-dark) 100%);
+        border-radius: 10px;
+        padding: 18px 25px;
+        margin-top: 15px;
+    }
+
+    .closing-box p {
+        color: var(--white);
+        font-size: 14px;
+        line-height: 1.7;
+        text-align: center;
+    }
+
+    .closing-box .gold {
+        color: #f5deb3;
+        font-weight: 700;
+    }
+</style>
+</head>
+<body>
+    <button class="print-btn no-print" onclick="window.print()">PDF 저장 / 인쇄</button>
+
+    <!-- ========== PAGE 1: RESUME ========== -->
+    <div class="page resume-page">
+        <header class="resume-header">
+            <div class="resume-header-left">
+                <h1>임 종 권</h1>
+                <div class="tagline">현장형 총무 올라운더 | 예산 정산 · 외주 관리 · 시설 운영</div>
+            </div>
+            <img src="../../../../common/photos/profile.png" alt="Profile Photo" class="profile-photo">
+        </header>
+
+        <div class="resume-body">
+            <div class="contact-bar">
+                <div class="contact-item"><span>📞</span> 010-4052-0834</div>
+                <div class="contact-item"><span>📧</span> ssujklim@gmail.com</div>
+                <div class="contact-item"><span>🏠</span> 경기도 광명시 (고척돔 30분)</div>
+                <div class="contact-item"><span>🎂</span> 1992.01.04 (만 34세)</div>
+            </div>
+
+            <section class="resume-section" style="margin-bottom: 15px;">
+                <div class="section-title"><h2>지원 직무 적합성</h2></div>
+                <div style="background: linear-gradient(90deg, var(--cream) 0%, var(--white) 100%); padding: 12px 15px; border-left: 4px solid var(--burgundy); border-radius: 0 6px 6px 0; font-size: 13px; line-height: 1.8; color: var(--text-dark);">
+                    • 비영리 법인 <strong>3년 총무·시설·정산 실무 경험</strong> — 외주업체 8개 계약·관리·정산 총괄<br>
+                    • <strong>1종 대형 면허</strong> 보유 (12년 무사고) — 지방출장·장비 운반·원정 수행 대응<br>
+                    • 야간/주말 근무 <strong>완벽 대응</strong> · 2025시즌 <strong>37경기 직관</strong>으로 시즌 리듬 체득<br>
+                    • <strong>Excel 상급</strong> (Pivot/VBA/Power Query) · ERP 도입 실무 경험
+                </div>
+            </section>
+
+            <section class="resume-section">
+                <div class="section-title"><h2>핵심 역량</h2></div>
+                <div class="competency-grid">
+                    <div class="competency-card">
+                        <h3>총무 실전력</h3>
+                        <p>시설·소방·IT·계약 관리<br>외주 8개사 정산·감독 총괄</p>
+                    </div>
+                    <div class="competency-card">
+                        <h3>정산 정확성</h3>
+                        <p>예산 3.6억 집행 (88.5%)<br>1원 단위 외부 감사 대응</p>
+                    </div>
+                    <div class="competency-card">
+                        <h3>기동성</h3>
+                        <p>1종 대형 면허 · 12년 무사고<br>전국 원정 직관 · 즉시 출장 가능</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="resume-section">
+                <div class="section-title"><h2>경력 사항</h2></div>
+                <div class="career-timeline">
+                    <div class="career-item">
+                        <div class="career-header">
+                            <span class="career-company">(사)함께만드는세상</span>
+                            <span class="career-period">2023.01 ~ 2026.01 (3년)</span>
+                        </div>
+                        <div class="career-role">총무·IT지원 (대리) — 경영지원부 인프라지원팀</div>
+                        <div class="career-desc">
+                            <strong>총무 전반:</strong> 시설관리·소방안전관리자·IT자산 수명주기 관리·사무가구 경정비<br>
+                            <strong>정산·예산:</strong> 30여 개 항목 3.6억 집행 · 외주업체 8개 계약·관리·정산 총괄<br>
+                            <strong>비용절감:</strong> 재계약 협상으로 연 500만원 절감 · IT 장애 내재화로 유지보수 30% 절감
+                        </div>
+                    </div>
+                    <div class="career-item">
+                        <div class="career-header">
+                            <span class="career-company">(주)맨지온</span>
+                            <span class="career-period">2020.03 ~ 2021.11 (1년 8개월)</span>
+                        </div>
+                        <div class="career-role">IoT 시스템 운영 / QA (대리)</div>
+                        <div class="career-desc">
+                            시설 관제 데이터 로그 분석 · 통신 장애 원인 규명 · 사용자 관점 테스트 시나리오 설계
+                        </div>
+                    </div>
+                    <div class="career-item">
+                        <div class="career-header">
+                            <span class="career-company">(주)엣지크로스</span>
+                            <span class="career-period">2016.05 ~ 2018.02 (1년 9개월)</span>
+                        </div>
+                        <div class="career-role">H/W 개발 / 자재관리 (주임)</div>
+                        <div class="career-desc">
+                            BOM 기반 자재 원가 관리 · 부품 수급 조율 · 납기 준수율 100% 달성
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="two-column">
+                <section class="resume-section">
+                    <div class="section-title"><h2>보유 스킬</h2></div>
+                    <div class="skill-tags">
+                        <span class="skill-tag highlight">총무·시설관리</span>
+                        <span class="skill-tag highlight">Excel 상급</span>
+                        <span class="skill-tag highlight">1종 대형 면허</span>
+                        <span class="skill-tag">예산 정산</span>
+                        <span class="skill-tag">외주 계약관리</span>
+                        <span class="skill-tag">ERP 운영</span>
+                        <span class="skill-tag">SQL 데이터 추출</span>
+                        <span class="skill-tag">전산 장애 대응</span>
+                    </div>
+                    <div class="cert-grid">
+                        <div class="cert-badge">
+                            <strong>1종 대형 면허</strong>
+                            <span>12년 무사고</span>
+                        </div>
+                        <div class="cert-badge">
+                            <strong>사회복지사 1급</strong>
+                            <span>보건복지부 (2020)</span>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="resume-section">
+                    <div class="section-title"><h2>학력</h2></div>
+                    <div class="edu-item">
+                        <div>
+                            <div class="edu-name">숭실대 사회복지대학원 (석사)</div>
+                            <div class="edu-detail">사회적기업 전공</div>
+                        </div>
+                        <span class="edu-detail">2020.02</span>
+                    </div>
+                    <div class="edu-item">
+                        <div>
+                            <div class="edu-name">숭실대 공과대학 (학사)</div>
+                            <div class="edu-detail">전기공학부 / 경제학 복수전공</div>
+                        </div>
+                        <span class="edu-detail">2017.02</span>
+                    </div>
+                    <div class="edu-item">
+                        <div>
+                            <div class="edu-name">한국폴리텍 광명융합기술교육원</div>
+                            <div class="edu-detail">메타버스·SW개발 (Unity/C#)</div>
+                        </div>
+                        <span class="edu-detail">2022.12</span>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <footer class="page-footer">Page 1 / 2 · 임종권 · 키움 히어로즈 운영팀 지원</footer>
+    </div>
+
+    <!-- ========== PAGE 2: COVER LETTER ========== -->
+    <div class="page cover-page">
+        <header class="cover-header">
+            <h1>자 기 소 개 서</h1>
+            <div class="subtitle">"3년 총무의 현장 감각으로, 선수단 뒤에서 묵묵히 뛰겠습니다"</div>
+        </header>
+
+        <div class="cover-body">
+            <section class="story-section">
+                <div class="story-title">
+                    <span class="story-number">1</span>
+                    <h3>지원 동기 — 관중석에서 보이지 않던 것들</h3>
+                </div>
+                <div class="story-content">
+                    2025년 한 해, <span class="highlight-text">37경기를 직관</span>하며 경기장에서 살다시피 했습니다. 기아·롯데 전 매진 속 인파와, NC·SSG 전 평일 한산함 사이의 낙차를 몸으로 느꼈습니다. 그러나 어느 순간부터 눈에 들어온 건 스코어보드가 아니라, <span class="highlight-text">경기가 시작되기 전과 끝난 후의 구장</span>이었습니다. 선수단 버스에서 장비를 내리는 스태프, 원정 이동 일정을 조율하는 뒷모습, 훈련장 물품을 정리하는 손길. 그 현장을 보면서 <span class="highlight-text">"저 일을 하고 싶다"</span>는 확신이 생겼습니다.
+                    <br><br>
+                    비영리 법인에서 3년간 총무를 하며 <span class="highlight-text">시설관리·예산 정산·외주 감독</span>을 해왔습니다. 이 경험이 선수단 운영이라는 새로운 현장에서 곧바로 쓰일 수 있다고 생각합니다. 모기업 없이 자생하는 히어로즈에서, 한 푼도 허투루 쓰지 않으면서 선수단이 경기에만 집중할 수 있게 만드는 살림꾼이 되고 싶습니다.
+                </div>
+            </section>
+
+            <section class="story-section">
+                <div class="story-title">
+                    <span class="story-number">2</span>
+                    <h3>관련 경험 — 총무 3년, 숫자와 현장 사이에서</h3>
+                </div>
+                <div class="story-content">
+                    (사)함께만드는세상에서 <span class="highlight-text">30여 개 항목, 연 3.6억 원의 예산을 직접 집행</span>했습니다. 지출결의서 하나하나를 검증하고, 외부 감사에서 1원 단위까지 소명했습니다. 외주업체 <span class="highlight-text">8개사의 계약·관리·정산을 총괄</span>하며, 소방·승강기·전기·방역·복합기·네트워크 등 영역을 가리지 않고 다뤘습니다.
+                    <br><br>
+                    이 경험은 선수단 급여·수당 관리, 전지훈련·홈/원정 경기 비용 정산과 본질적으로 같은 일입니다. 항목이 바뀔 뿐, <span class="highlight-text">"정확하게 집행하고, 빈틈없이 정산하는"</span> 업무의 골격은 동일합니다. 또한 재계약 협상으로 <span class="highlight-text">연간 약 500만 원을 절감</span>한 경험이 있어, 구단의 비용 효율화에도 기여할 수 있습니다.
+                </div>
+            </section>
+
+            <section class="story-section">
+                <div class="story-title">
+                    <span class="story-number">3</span>
+                    <h3>강점 — 즉시 투입 가능한 기동력</h3>
+                </div>
+                <div class="story-content">
+                    <span class="highlight-text">1종 대형 운전면허</span>를 보유하고 있으며, 승용차 <span class="highlight-text">12년 무사고</span> 운전자입니다. 2025년에는 전국 야구장을 직접 운전해 원정 직관을 다녔습니다. 지방출장이 잦은 운영팀 특성상, 이 기동력은 단순 자격 이상의 실전적 장점입니다. 고척돔까지 <span class="highlight-text">자택에서 30분 거리</span>에 거주하고 있어 시즌 중 야간·주말 탄력근무에도 즉각 대응 가능합니다.
+                    <br><br>
+                    <span class="highlight-text">Excel은 Pivot Table, VBA, Power Query</span>를 실무에서 활용해 왔고, 더존 ERP 사용 경험과 커스텀 ERP 도입 프로젝트 실무(입찰·계약·검수)도 보유하고 있습니다. 개발자가 없으면 직접 SQL을 돌려 데이터를 추출하고, 시설에 문제가 생기면 공구를 들고 직접 고쳤습니다. <span class="highlight-text">"어떻게든 되게 만드는"</span> 것이 저의 일하는 방식입니다.
+                </div>
+            </section>
+
+            <div class="closing-box">
+                <p>
+                    선수단이 오직 경기에만 집중할 수 있도록,<br>
+                    <span class="gold">급여 정산의 정확성, 출장의 기동력, 총무의 꼼꼼함</span>으로<br>
+                    보이지 않는 곳에서 묵묵히 뛰는 <span class="gold">운영팀의 올라운더</span>가 되겠습니다.
+                </p>
+            </div>
+        </div>
+
+        <footer class="page-footer">Page 2 / 2 · 임종권 · 키움 히어로즈 운영팀 지원</footer>
+    </div>
+
+</body>
+</html>

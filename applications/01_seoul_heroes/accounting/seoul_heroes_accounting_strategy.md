@@ -1,11 +1,11 @@
 ---
 company: 키움 히어로즈
 position: 회계담당 (지원팀)
-status: 📤 SUBMITTED
+status: 🚫 NO_RESPONSE
 discovered: 2026-01-15
 submitted: 2026-01-27
-result: null
-last_updated: 2026-01-28
+result: no_response
+last_updated: 2026-02-25
 ---
 
 # 키움 히어로즈 회계담당 지원 전략
@@ -65,6 +65,9 @@ last_updated: 2026-01-28
 | 2026-01-20 | 📊 ANALYZING | JD 분석 완료 |
 | 2026-01-25 | ✍️ PREPARING | 서류 작성 시작 |
 | 2026-01-27 | 📤 SUBMITTED | 서류 제출 완료 |
+| 2026-02-10 | 📤 FOLLOW-UP | 면접 일정 확인 메일 발송 → 무응답 |
+| 2026-02-23 | 📤 FOLLOW-UP | 전형 결과 + 추가 지원 문의 메일 → 무응답 |
+| 2026-02-25 | 🚫 NO_RESPONSE | 팔로업 2통 무응답 → 사실상 탈락 처리 |
 
 ---
 **관련 문서**: [최종 지원서](final/application_260127.html)
