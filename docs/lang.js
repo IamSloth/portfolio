@@ -114,6 +114,37 @@
     toolFills.forEach(function (el) { barObs.observe(el); });
   }
 
+  // ===== 3D Card Tilt Effect =====
+  var tiltCards = document.querySelectorAll('.project-card, .showcase-card');
+  tiltCards.forEach(function (card) {
+    card.addEventListener('mousemove', function (e) {
+      var rect = card.getBoundingClientRect();
+      var x = e.clientX - rect.left;
+      var y = e.clientY - rect.top;
+      var centerX = rect.width / 2;
+      var centerY = rect.height / 2;
+      var rotateX = (y - centerY) / centerY * -4;
+      var rotateY = (x - centerX) / centerX * 4;
+      card.style.transform = 'translateY(-10px) scale(1.02) perspective(800px) rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg)';
+    });
+
+    card.addEventListener('mouseleave', function () {
+      card.style.transform = '';
+    });
+  });
+
+  // ===== Nav Background on Scroll =====
+  var nav = document.querySelector('.nav');
+  if (nav) {
+    window.addEventListener('scroll', function () {
+      if (window.scrollY > 50) {
+        nav.style.boxShadow = '0 4px 20px rgba(0,0,0,0.1)';
+      } else {
+        nav.style.boxShadow = '';
+      }
+    });
+  }
+
   // ===== Scroll Spy =====
   var navLinks = document.querySelectorAll('.nav-link');
   var sections = [];
