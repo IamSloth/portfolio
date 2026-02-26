@@ -23,7 +23,7 @@
 | # | Company | Position | Status | Priority TODO | Strategy Path |
 |---|---------|----------|--------|---------------|---------------|
 | 01 | Seoul Heroes | Operations | **SUBMITTED** | 사람인 제출 완료 (2026-02-26). 마감 03/13 | `01_seoul_heroes/operations/` |
-| 09 | Neople (넥슨) | Budget Management | **SUBMITTED** | 사람인 제출 완료. 서류 결과 대기 | `09_neople/budget_management/` |
+| 09 | Neople (넥슨) | Budget Management | **PREPARING** | v2 작성 완료. 제출 대기 중 | `09_neople/budget_management/` |
 | 07 | Kolon CSR | Energy Edu Ops | SUBMITTED | 사람인 제출 완료 (2026-02-13). 마감 2026-03-11 | `07_kolon/energy_edu_ops/` |
 | 06a | SK E&S (추정) | ESG Admin | SUBMITTED | 이메일 제출 완료 (2026-02-12) | `06_sk_energy/esg_admin/` |
 | 06b | SK E&S (추정) | CSR Planning | SUBMITTED | 이메일 제출 완료 (2026-02-12) | `06_sk_energy/csr_planning/` |
