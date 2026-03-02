@@ -1,14 +1,14 @@
 {
     "meta": {
-        "version": "1.3",
-        "last_updated": "2026-02-20"
+        "version": "1.4",
+        "last_updated": "2026-03-02"
     },
     "personal_info": {
         "name_ko": "임종권",
         "name_en": "Lim Jong Kwon",
         "email": "ssujklim@gmail.com",
         "phone": "010-4052-0834",
-        "address": "경기도 광명시 도덕로 79, 1405호",
+        "address": "경기도 광명시 도덕로 79 (광명동, 상우1차아파트), 1405호",
         "birthdate": "1992-01-04",
         "portfolio_url": "https://iamsloth.github.io/portfolio/"
     },
@@ -55,8 +55,8 @@
             "company": "(사)함께만드는세상",
             "department": "경영지원부 인프라지원팀",
             "role": "총무·IT지원 (대리)",
-            "period": "2023.01.09 – 2026.01",
-            "salary": "3,423만원 (2024년 기준)",
+            "period": "2023.01.09 – 2026.02.01",
+            "salary": "3,300만원",
             "details": [
                 "<b>[Budget Management]</b> 인프라 예산 약 <b>3.6억 원</b> 직접 집행 및 통제 (집행률 <b>88.5%</b>)",
                 "<b>[Cost Reduction]</b> 사내 네트워크/PC 1차 트러블슈팅 내재화로 연간 유지보수 비용 <b>30% 절감</b>. 재계약 협상(복합기 렌탈, 전자계약, 본인확인서비스)으로 연 약 <b>500만 원 절감</b>",
@@ -84,8 +84,8 @@
             "company": "주식회사 엣지크로스",
             "department": "기술연구소",
             "role": "H/W 개발 및 자재 관리 (주임)",
-            "period": "2016.05.30 – 2018.02.01",
-            "salary": "2,760만원",
+            "period": "2016.05.01 – 2018.02.28",
+            "salary": "2,800만원",
             "details": [
                 "<b>[H/W Development]</b> 회로 설계 → PCB 레이아웃 → 시제품 제작(납땜·실장) → 테스트/검증 풀사이클 수행",
                 "<b>[Process Optimization]</b> 자재 명세서(BOM) 관리 체계화 및 생산 일정 조율로 납기 준수율 100% 달성"
@@ -109,7 +109,7 @@
         {
             "name": "사회복지사 1급",
             "organization": "보건복지부",
-            "acquired": "2020.02"
+            "acquired": "2021.02.04"
         },
         {
             "name": "1종 대형 운전면허",

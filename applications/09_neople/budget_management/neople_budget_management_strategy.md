@@ -1,9 +1,9 @@
 ---
 company: 네오플
 position: 경영관리팀 예산관리 담당
-status: 📊 ANALYZING
+status: ✍️ PREPARING
 discovered: 2026-02-23
-last_updated: 2026-02-23
+last_updated: 2026-03-02
 deadline: 수시채용 (조기마감 가능 — 조속 제출 권장)
 ---
 
@@ -88,3 +88,4 @@ deadline: 수시채용 (조기마감 가능 — 조속 제출 권장)
 |------|------|------|
 | 2026-02-23 | 📋 DISCOVERED | 공고 발견 |
 | 2026-02-23 | 📊 ANALYZING | JD 분석 + 전략 수립 + 자소서 작성 |
+| 2026-03-02 | ✍️ PREPARING | profile.json 동기화 완료. 담당직무 최신화. 채용사이트 입력 대기 중 |
