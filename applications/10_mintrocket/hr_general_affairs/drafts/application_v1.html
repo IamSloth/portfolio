@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>임종권 - 민트로켓 인사총무 담당자 지원서</title>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+    :root {
+        --deep:    #0a3d62;
+        --deep-dk: #051e30;
+        --teal:    #00b4d8;
+        --teal-lt: #90e0ef;
+        --seafoam: #e8f8fc;
+        --white:   #ffffff;
+        --text:    #1e2a38;
+        --gray:    #5a6a7a;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+        font-family: 'Pretendard', -apple-system, sans-serif;
+        background: #334;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    .page {
+        width: 210mm;
+        min-height: 297mm;
+        height: auto;
+        background: var(--white);
+        box-shadow: 0 4px 24px rgba(0,0,0,0.4);
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+    }
+
+    @page { size: A4; margin: 0; }
+
+    @media print {
+        body { background: none; padding: 0; }
+        .page {
+            box-shadow: none;
+            page-break-after: always;
+            page-break-inside: avoid;
+            margin: 0;
+            height: 297mm;
+            overflow: hidden;
+        }
+        .page:last-child { page-break-after: auto; }
+        .no-print { display: none !important; }
+    }
+
+    .print-btn {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background: linear-gradient(135deg, var(--deep) 0%, var(--deep-dk) 100%);
+        color: var(--teal-lt);
+        border: 2px solid var(--teal);
+        padding: 14px 28px;
+        border-radius: 50px;
+        font-size: 15px;
+        font-weight: 700;
+        cursor: pointer;
+        z-index: 1000;
+        transition: all 0.3s;
+    }
+    .print-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(0,180,216,0.3);
+    }
+
+    /* ─── HEADER ─── */
+    .resume-header {
+        background: linear-gradient(135deg, var(--deep) 0%, var(--deep-dk) 100%);
+        padding: 22px 32px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-shrink: 0;
+    }
+
+    .header-left h1 {
+        color: var(--white);
+        font-size: 30px;
+        font-weight: 800;
+        letter-spacing: 3px;
+        margin-bottom: 8px;
+    }
+
+    .tagline {
+        color: var(--teal-lt);
+        font-size: 12.5px;
+        font-weight: 600;
+        letter-spacing: 0.3px;
+        line-height: 1.6;
+    }
+
+    .profile-photo {
+        width: 100px;
+        height: 128px;
+        object-fit: cover;
+        border: 3px solid var(--teal);
+        border-radius: 4px;
+    }
+
+    /* ─── BODY ─── */
+    .resume-body {
+        padding: 18px 32px;
+        flex: 1;
+    }
+
+    .contact-bar {
+        display: flex;
+        gap: 20px;
+        padding: 10px 16px;
+        background: var(--seafoam);
+        border-radius: 6px;
+        margin-bottom: 16px;
+        font-size: 12.5px;
+        color: var(--text);
+        flex-wrap: wrap;
+    }
+
+    .contact-item { display: flex; align-items: center; gap: 5px; }
+    .contact-item span:first-child { color: var(--teal); font-weight: 700; }
+
+    /* ─── SECTION TITLE ─── */
+    .section-title {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 10px;
+        padding-bottom: 6px;
+        border-bottom: 2px solid var(--deep);
+    }
+    .section-title::before {
+        content: '';
+        width: 4px;
+        height: 16px;
+        background: var(--teal);
+        border-radius: 2px;
+    }
+    .section-title h2 {
+        color: var(--deep);
+        font-size: 15px;
+        font-weight: 800;
+        letter-spacing: -0.3px;
+    }
+
+    .resume-section { margin-bottom: 13px; }
+
+    /* ─── FIT SUMMARY ─── */
+    .fit-box {
+        background: linear-gradient(90deg, var(--seafoam) 0%, var(--white) 100%);
+        padding: 11px 14px;
+        border-left: 4px solid var(--deep);
+        border-radius: 0 6px 6px 0;
+        font-size: 12.5px;
+        line-height: 1.8;
+        color: var(--text);
+    }
+    .fit-box strong { color: var(--deep); }
+
+    /* ─── COMPETENCY CARDS ─── */
+    .competency-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+    }
+
+    .competency-card {
+        background: linear-gradient(135deg, var(--deep) 0%, var(--deep-dk) 100%);
+        border-radius: 8px;
+        padding: 13px;
+        text-align: center;
+    }
+    .competency-card h3 {
+        color: var(--teal-lt);
+        font-size: 13px;
+        font-weight: 800;
+        margin-bottom: 7px;
+    }
+    .competency-card p {
+        color: rgba(255,255,255,0.92);
+        font-size: 10.5px;
+        line-height: 1.55;
+    }
+
+    /* ─── CAREER TIMELINE ─── */
+    .career-timeline {
+        position: relative;
+        padding-left: 20px;
+    }
+    .career-timeline::before {
+        content: '';
+        position: absolute;
+        left: 5px; top: 5px; bottom: 5px;
+        width: 2px;
+        background: var(--teal);
+    }
+    .career-item {
+        position: relative;
+        margin-bottom: 12px;
+        padding-left: 20px;
+    }
+    .career-item::before {
+        content: '';
+        position: absolute;
+        left: -19px; top: 5px;
+        width: 10px; height: 10px;
+        background: var(--deep);
+        border: 2px solid var(--teal);
+        border-radius: 50%;
+    }
+    .career-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        margin-bottom: 3px;
+    }
+    .career-company { font-size: 13.5px; font-weight: 700; color: var(--text); }
+    .career-period {
+        font-size: 11.5px;
+        color: var(--deep);
+        font-weight: 600;
+        background: var(--seafoam);
+        padding: 2px 9px;
+        border-radius: 10px;
+    }
+    .career-role { font-size: 11.5px; color: var(--gray); margin-bottom: 4px; }
+    .career-desc { font-size: 11px; color: #4a5a6a; line-height: 1.55; }
+    .career-desc strong { color: var(--deep); }
+
+    /* ─── TWO COLUMN ─── */
+    .two-column {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 18px;
+    }
+
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+    .skill-tag {
+        background: var(--seafoam);
+        border: 1px solid #bbd8e8;
+        padding: 4px 10px;
+        border-radius: 12px;
+        font-size: 10.5px;
+        color: var(--text);
+        font-weight: 500;
+    }
+    .skill-tag.hi {
+        background: var(--deep);
+        border-color: var(--deep);
+        color: var(--white);
+        font-weight: 700;
+    }
+    .skill-tag.game {
+        background: linear-gradient(135deg, #00b4d8, #0077b6);
+        border-color: transparent;
+        color: var(--white);
+        font-weight: 700;
+    }
+
+    .cert-grid { display: flex; gap: 8px; margin-top: 8px; }
+    .cert-badge {
+        flex: 1;
+        background: linear-gradient(135deg, var(--teal-lt) 0%, var(--teal) 100%);
+        padding: 9px;
+        border-radius: 6px;
+        text-align: center;
+    }
+    .cert-badge strong {
+        display: block;
+        font-size: 11px;
+        color: var(--deep-dk);
+        margin-bottom: 2px;
+    }
+    .cert-badge span { font-size: 10px; color: #0a3d62; }
+
+    .edu-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 7px 0;
+        border-bottom: 1px dashed #cde;
+    }
+    .edu-item:last-child { border-bottom: none; }
+    .edu-name { font-size: 11.5px; font-weight: 600; color: var(--text); }
+    .edu-detail { font-size: 10.5px; color: var(--gray); }
+
+    .page-footer {
+        background: var(--deep-dk);
+        padding: 7px;
+        text-align: center;
+        color: var(--teal-lt);
+        font-size: 10.5px;
+        font-weight: 600;
+        flex-shrink: 0;
+    }
+
+    /* ─── COVER LETTER ─── */
+    .cover-header {
+        background: linear-gradient(135deg, var(--deep) 0%, var(--deep-dk) 100%);
+        padding: 25px 35px;
+        text-align: center;
+        flex-shrink: 0;
+    }
+    .cover-header h1 {
+        color: var(--white);
+        font-size: 26px;
+        font-weight: 800;
+        letter-spacing: 3px;
+        margin-bottom: 8px;
+    }
+    .cover-header .subtitle {
+        color: var(--teal-lt);
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    .cover-body {
+        padding: 22px 38px;
+        flex: 1;
+    }
+
+    .story-section { margin-bottom: 18px; }
+    .story-title {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 10px;
+    }
+    .story-number {
+        background: var(--deep);
+        color: var(--teal-lt);
+        width: 26px; height: 26px;
+        border-radius: 50%;
+        display: flex; align-items: center; justify-content: center;
+        font-size: 13px; font-weight: 800;
+        flex-shrink: 0;
+    }
+    .story-title h3 {
+        color: var(--deep);
+        font-size: 15px;
+        font-weight: 800;
+        letter-spacing: -0.3px;
+    }
+    .story-content {
+        font-size: 13px;
+        line-height: 1.78;
+        color: var(--text);
+        text-align: justify;
+        word-break: keep-all;
+    }
+    .hl { color: var(--deep); font-weight: 700; }
+
+    .highlight-row {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        margin: 12px 0;
+    }
+    .highlight-card {
+        background: var(--seafoam);
+        border: 1px solid #bbd8e8;
+        border-radius: 8px;
+        padding: 11px 12px;
+        text-align: center;
+    }
+    .highlight-card .num {
+        font-size: 20px;
+        font-weight: 800;
+        color: var(--deep);
+        margin-bottom: 3px;
+    }
+    .highlight-card .label {
+        font-size: 10.5px;
+        color: var(--gray);
+        line-height: 1.4;
+    }
+
+    .closing-box {
+        background: linear-gradient(135deg, var(--deep) 0%, var(--deep-dk) 100%);
+        border-radius: 10px;
+        padding: 16px 22px;
+        margin-top: 14px;
+    }
+    .closing-box p {
+        color: var(--white);
+        font-size: 13.5px;
+        line-height: 1.75;
+        text-align: center;
+    }
+    .closing-box .teal { color: var(--teal-lt); font-weight: 700; }
+</style>
+</head>
+<body>
+<button class="print-btn no-print" onclick="window.print()">📄 PDF 저장 / 인쇄</button>
+
+<!-- ========== PAGE 1: RESUME ========== -->
+<div class="page">
+    <header class="resume-header">
+        <div class="header-left">
+            <h1>임 종 권</h1>
+            <div class="tagline">
+                인사총무 실무자 | 3년 1인 체제 HR·총무·예산 풀운영<br>
+                소규모 스튜디오 총무 적합 | LOL·TFT 현역 게이머
+            </div>
+        </div>
+        <img src="../../../../common/photos/profile.png" alt="프로필 사진" class="profile-photo">
+    </header>
+
+    <div class="resume-body">
+        <div class="contact-bar">
+            <div class="contact-item"><span>📞</span> 010-4052-0834</div>
+            <div class="contact-item"><span>📧</span> ssujklim@gmail.com</div>
+            <div class="contact-item"><span>🏠</span> 경기도 광명시</div>
+            <div class="contact-item"><span>🎂</span> 1992.01.04 (만 34세)</div>
+            <div class="contact-item"><span>🔗</span> iamsloth.github.io/portfolio</div>
+        </div>
+
+        <!-- FIT SUMMARY -->
+        <section class="resume-section">
+            <div class="section-title"><h2>지원 직무 적합성</h2></div>
+            <div class="fit-box">
+                • <strong>인사총무 풀사이클 3년 (1인 체제)</strong> — 입퇴사 온보딩·법정의무교육·단체보험·예산집행·시설관리 직접 수행<br>
+                • <strong>200인 미만 소규모 조직 전문</strong> — 민트로켓(20명대)과 동일 규모의 비영리법인에서 총무 혼자 전체 인프라 담당<br>
+                • <strong>게임 현역 유저</strong> — LOL(플래티넘 이력)·TFT(시즌 플래티넘) 일상 플레이, 게임 회사 문화 이해
+            </div>
+        </section>
+
+        <!-- CORE COMPETENCIES -->
+        <section class="resume-section">
+            <div class="section-title"><h2>핵심 역량</h2></div>
+            <div class="competency-grid">
+                <div class="competency-card">
+                    <h3>HR 운영</h3>
+                    <p>입퇴사 온보딩·오프보딩<br>소방안전관리자 법정교육<br>단체보험·전자계약 관리</p>
+                </div>
+                <div class="competency-card">
+                    <h3>총무·예산</h3>
+                    <p>3.6억 예산 집행·통제<br>외주업체 8개사 계약·정산<br>재계약 협상 연 500만원 절감</p>
+                </div>
+                <div class="competency-card">
+                    <h3>소규모 실행력</h3>
+                    <p>1인 체제 3년 운영<br>IT 장애 직접 트러블슈팅<br>어디든 "되게 만드는" 실행</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CAREER -->
+        <section class="resume-section">
+            <div class="section-title"><h2>경력 사항</h2></div>
+            <div class="career-timeline">
+                <div class="career-item">
+                    <div class="career-header">
+                        <span class="career-company">(사)함께만드는세상</span>
+                        <span class="career-period">2023.01 ~ 2026.02 (3년 1개월)</span>
+                    </div>
+                    <div class="career-role">경영지원부 인프라지원팀 / 총무·IT지원 대리</div>
+                    <div class="career-desc">
+                        <strong>HR 운영:</strong> 입/퇴사자 IT자산 세팅·회수(온보딩·오프보딩 지원), 소방안전관리자로서 법정의무교육 일정 운영, 단체상해보험·전자계약 계약관리<br>
+                        <strong>예산·정산:</strong> 인프라 예산 3.6억 직접 편성·집행·통제(집행률 88.5%), 외주업체 8개사 계약·정산 총괄<br>
+                        <strong>시설·자산:</strong> 사옥(B2~5F) 전기·통신 시설관리, IT자산 수명주기 관리, 소모품 관리
+                    </div>
+                </div>
+                <div class="career-item">
+                    <div class="career-header">
+                        <span class="career-company">(주)맨지온</span>
+                        <span class="career-period">2020.03 ~ 2021.11 (1년 8개월)</span>
+                    </div>
+                    <div class="career-role">개발부 / IoT 시스템 운영·QA 대리</div>
+                    <div class="career-desc">
+                        IoT 시설관제 시스템 운영, 장애 로그 분석·원인규명, 시스템 QA 테스트 수행
+                    </div>
+                </div>
+                <div class="career-item">
+                    <div class="career-header">
+                        <span class="career-company">(주)엣지크로스</span>
+                        <span class="career-period">2016.05 ~ 2018.02 (1년 9개월)</span>
+                    </div>
+                    <div class="career-role">기술연구소 / H/W 개발·자재관리 주임</div>
+                    <div class="career-desc">
+                        회로설계·양산공정 관리, BOM 자재 명세 관리, 협력사 기술협의·납기 조율
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SKILLS + EDUCATION -->
+        <div class="two-column">
+            <section class="resume-section">
+                <div class="section-title"><h2>보유 스킬 · 자격</h2></div>
+                <div class="skill-tags">
+                    <span class="skill-tag hi">입퇴사 온보딩 지원</span>
+                    <span class="skill-tag hi">법정의무교육 운영</span>
+                    <span class="skill-tag hi">보험·계약 관리</span>
+                    <span class="skill-tag hi">예산 집행·정산</span>
+                    <span class="skill-tag">시설·자산관리</span>
+                    <span class="skill-tag">ERP (Nexacro/Tibero)</span>
+                    <span class="skill-tag">SQL 데이터 추출</span>
+                    <span class="skill-tag">Excel 고급</span>
+                    <span class="skill-tag game">🎮 LOL · TFT</span>
+                </div>
+                <div class="cert-grid">
+                    <div class="cert-badge">
+                        <strong>사회복지사 1급</strong>
+                        <span>보건복지부 (2021.02)</span>
+                    </div>
+                    <div class="cert-badge">
+                        <strong>1종 대형 면허</strong>
+                        <span>12년 무사고</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="resume-section">
+                <div class="section-title"><h2>학력</h2></div>
+                <div class="edu-item">
+                    <div>
+                        <div class="edu-name">숭실대 사회복지대학원 (석사)</div>
+                        <div class="edu-detail">사회적기업 전공 / GPA 4.2/4.5</div>
+                    </div>
+                    <span class="edu-detail">2020.02</span>
+                </div>
+                <div class="edu-item">
+                    <div>
+                        <div class="edu-name">숭실대 공과대학 (학사)</div>
+                        <div class="edu-detail">전기공학부 / 경제학 복수전공</div>
+                    </div>
+                    <span class="edu-detail">2017.02</span>
+                </div>
+                <div class="edu-item">
+                    <div>
+                        <div class="edu-name">한국폴리텍 광명융합기술교육원</div>
+                        <div class="edu-detail">메타버스·SW개발 과정 수료</div>
+                    </div>
+                    <span class="edu-detail">2022.12</span>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <footer class="page-footer">Page 1 / 2 · 임종권 · 민트로켓 인사총무 담당자 지원</footer>
+</div>
+
+<!-- ========== PAGE 2: COVER LETTER ========== -->
+<div class="page">
+    <header class="cover-header">
+        <h1>자 기 소 개 서</h1>
+        <div class="subtitle">"20명 스튜디오의 뒤를 책임지는 인사총무 — 게임 좋아하는 실무자"</div>
+    </header>
+
+    <div class="cover-body">
+
+        <!-- SECTION 1 -->
+        <section class="story-section">
+            <div class="story-title">
+                <span class="story-number">1</span>
+                <h3>왜 민트로켓인가 — 20명이 BAFTA를 받은 구조를 이해합니다</h3>
+            </div>
+            <div class="story-content">
+                데이브 더 다이버가 메타크리틱 90점을 받은 건 단순히 게임이 재밌어서가 아닙니다. <span class="hl">20여 명이 각자 본연의 역할에 완전히 집중할 수 있는 구조</span>가 있었기 때문입니다. 소규모 조직에서 총무의 역할은 특히 중요합니다. 채용, 온보딩, 보험, 교육, 사무환경 — 이것들이 삐걱거리면 개발팀의 집중이 깨집니다.
+            </div>
+            <div class="highlight-row">
+                <div class="highlight-card">
+                    <div class="num">3년</div>
+                    <div class="label">1인 체제 총무<br>인사·총무·예산·시설</div>
+                </div>
+                <div class="highlight-card">
+                    <div class="num">8개사</div>
+                    <div class="label">외주업체 계약·정산<br>총괄 단독 수행</div>
+                </div>
+                <div class="highlight-card">
+                    <div class="num">3.6억</div>
+                    <div class="label">인프라 예산<br>직접 편성·집행·통제</div>
+                </div>
+            </div>
+            <div class="story-content">
+                비영리법인 (사)함께만드는세상에서 인프라지원팀 대리로 <span class="hl">3년간 1인으로 총무 전 영역을 담당</span>했습니다. 조직 규모, 자원의 제약, 혼자 다 해야 한다는 현실 — 민트로켓의 20명 스튜디오 환경과 구조적으로 동일합니다.
+            </div>
+        </section>
+
+        <!-- SECTION 2 -->
+        <section class="story-section">
+            <div class="story-title">
+                <span class="story-number">2</span>
+                <h3>인사총무 실무 — HR 운영부터 예산·시설까지 풀사이클</h3>
+            </div>
+            <div class="story-content">
+                <span class="hl">입퇴사 지원</span>은 단순한 서류 처리가 아닙니다. 퇴사자의 노트북·모니터·사원증을 회수하고, 신규 입사자의 장비를 세팅해서 첫날 바로 업무에 투입될 수 있게 하는 것 — 이 온보딩·오프보딩 사이클을 3년간 직접 수행했습니다. <span class="hl">소방안전관리자 자격</span>으로 법정의무교육 일정을 운영했고, <span class="hl">단체상해보험 갱신·관리</span>와 <span class="hl">전자계약 플랫폼 운영</span>도 담당했습니다. 채용 운영 보조(면접 준비, 신규입사 준비)는 직접 경험이 없지만, 입퇴사 실무와 온보딩 지원의 연장선에서 빠르게 익힐 수 있습니다.
+            </div>
+        </section>
+
+        <!-- SECTION 3 -->
+        <section class="story-section">
+            <div class="story-title">
+                <span class="story-number">3</span>
+                <h3>게임 좋아하는 총무 — 개발팀 언어를 이해하는 사람</h3>
+            </div>
+            <div class="story-content">
+                LOL 시즌2~6 플래티넘, TFT 매 시즌 플래티넘 — 게임은 취미가 아니라 일상입니다. 개발팀이 야근을 할 때 무엇이 필요한지, 게임 출시 후 라이브 운영 단계에서 어떤 긴장감이 팀에 흐르는지 — <span class="hl">유저로서 직접 경험한 사람이 총무로 옆에 있는 것</span>과 그렇지 않은 것은 다릅니다. 사내행사 기획 경험은 없지만, 예산 확보 → 외주 조율 → 현장 실행 사이클은 총무 일상이었습니다. 행사도 결국 같은 구조입니다.
+            </div>
+        </section>
+
+        <div class="closing-box">
+            <p>
+                개발팀이 다음 게임에만 집중할 수 있도록,<br>
+                채용·온보딩·보험·교육·예산·사무환경 — <span class="teal">뒤에서 조용히 전부 돌아가게 만드는 사람</span>이 되겠습니다.<br>
+                <span class="teal">소규모 조직에서 혼자 해본 3년</span>이 민트로켓에서의 첫날부터 증명될 것입니다.
+            </p>
+        </div>
+    </div>
+
+    <footer class="page-footer">Page 2 / 2 · 임종권 · 민트로켓 인사총무 담당자 지원</footer>
+</div>
+
+</body>
+</html>

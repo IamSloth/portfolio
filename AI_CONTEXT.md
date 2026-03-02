@@ -7,23 +7,24 @@
 
 | Field | Value |
 |-------|-------|
-| date | 2026-02-26 |
-| agent | Claude Opus 4.6 |
-| work | 히어로즈 운영팀 2차 지원 제출, 1차 회계직 NO_RESPONSE, 화영운수 REJECTED |
-| commit | (pending) |
+| date | 2026-03-02 |
+| agent | Claude Sonnet 4.6 |
+| work | 네오플 제출 완료, profile.json v1.4 동기화, 민트로켓 3차 지원 v1 작성 |
+| commit | 426270b (profile sync) |
 
 ### 이번 세션 요약
-- **키움 히어로즈 운영팀** 2차 지원: strategy.md + 이력서/자소서 → 사람인 PDF 제출 완료
-- 1차 회계직(지원팀): SUBMITTED → NO_RESPONSE (팔로업 2통 무응답)
-- 화영운수 2차 면접: **불합격** → REJECTED
-- 네오플 예산관리직 자소서 완료 (이전 세션, commit 41bcc00)
+- **포트폴리오** 대규모 시각 리뉴얼 + GitHub Pages 배포 완료 (https://iamsloth.github.io/portfolio/)
+- **네오플 예산관리직**: 자체 채용사이트에 지원서 제출 완료 → SUBMITTED
+- **profile.json v1.4**: 지원서 미리보기와 대조하여 주소·날짜·연봉·자격증 취득일 전수 교정
+- **민트로켓 인사총무**: 3차 지원 시작 — 폴더 생성, 전략 수립, application_v1.html 작성 완료
 
 ## Active Applications
 
 | # | Company | Position | Status | Priority TODO | Strategy Path |
 |---|---------|----------|--------|---------------|---------------|
 | 01 | Seoul Heroes | Operations | **SUBMITTED** | 사람인 제출 완료 (2026-02-26). 마감 03/13 | `01_seoul_heroes/operations/` |
-| 09 | Neople (넥슨) | Budget Management | **PREPARING** | v2 작성 완료. 제출 대기 중 | `09_neople/budget_management/` |
+| 10 | Mintrocket (넥슨) | HR General Affairs | **PREPARING** | v1 작성 완료. 3차 지원. 서류 교정 필요 | `10_mintrocket/hr_general_affairs/` |
+| 09 | Neople (넥슨) | Budget Management | **SUBMITTED** | 채용사이트 직접 제출 완료 (2026-03-02). 결과 대기 | `09_neople/budget_management/` |
 | 07 | Kolon CSR | Energy Edu Ops | SUBMITTED | 사람인 제출 완료 (2026-02-13). 마감 2026-03-11 | `07_kolon/energy_edu_ops/` |
 | 06a | SK E&S (추정) | ESG Admin | SUBMITTED | 이메일 제출 완료 (2026-02-12) | `06_sk_energy/esg_admin/` |
 | 06b | SK E&S (추정) | CSR Planning | SUBMITTED | 이메일 제출 완료 (2026-02-12) | `06_sk_energy/csr_planning/` |
