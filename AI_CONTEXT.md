@@ -9,13 +9,11 @@
 |-------|-------|
 | date | 2026-03-03 |
 | agent | Claude Sonnet 4.6 |
-| work | 넷마블 CSR 이력서 사이드바 레이아웃 완성 + 랜딩페이지 동기화 / 우아한형제들 로보틱스운영 지원 아카이빙 |
+| work | 동양미래대학교 일학습병행사업 관리 및 운영 지원 서류 전체 작성 + 합본 PDF 생성 |
 | commit | latest |
 
 ### 이번 세션 요약
-- **넷마블문화재단 CSR**: 이력서 사이드바 레이아웃(v1) 완성. LoL/TFT 제거, 성과카드 4개(3.6억/88.5%/8개사/30%) + Why박스 추가. 제출 완료.
-- **포트폴리오 랜딩(netmarble-csr.html)**: 이력서와 일치하도록 게임섹션·스탯카드 동기화. GitHub Pages 배포 완료.
-- **우아한형제들 배달로봇**: `12_woowa/robotics_ops/` 생성. JD+자소서 아카이빙. 이미 제출 완료 상태.
+- **동양미래대학교 일학습병행사업**: `13_dongyang/general_admin/` 생성. 오늘 마감(2026-03-03). 지원분야를 일반행정→일학습병행사업으로 변경. HWP 직접 입력 방식. hwp_form_data.md에 전체 입력 데이터 작성. 자격증사본 PDF 생성(자필 원본대조필 포함). 전체 서류 합본 PDF(19페이지) 생성: `final/[일학습병행사업] 임종권_지원서류_260303.pdf`. 이메일 발송 완료: eusung@dongyang.ac.kr.
 
 ## Active Applications
 
@@ -25,6 +23,7 @@
 | 09 | Neople (넥슨) | Budget Management | **SUBMITTED** | 넥슨 채용시스템 제출 완료 (2026-03-02). 결과 대기 | `09_neople/budget_management/` |
 | 11 | Netmarble Foundation | CSR | **SUBMITTED** | 사이드바 이력서+자소서 제출 완료 (2026-03-03). 결과 대기 | `11_netmarble/csr/` |
 | 12 | 우아한형제들 (Woowa) | Robotics Ops | **SUBMITTED** | 온라인 지원 완료 (2026-03-03). 12개월 계약직. 결과 대기 | `12_woowa/robotics_ops/` |
+| 13 | 동양미래대학교 | 일학습병행사업 관리 및 운영 | **SUBMITTED** | 이메일 제출 완료 (2026-03-03). 마감일 = 제출일. 면접 2026-03-06 예정. 결과 대기 | `13_dongyang/general_admin/` |
 | 03 | 11st | General Affairs | ON_HOLD | 지원 안 함 (보류 유지) | `03_11st/general_affairs/` |
 
 ### Closed Applications
