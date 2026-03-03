@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>임종권 - 넷마블문화재단 사회공헌 담당자 이력서</title>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+:root {
+    --y: #FFD200; --yl: #FFECB3;
+    --b: #5C3A1E; --bd: #3E2723;
+    --cr: #FFF8E1; --w: #fff;
+    --gr: #6D5D4B; --tx: #2a1a0e;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+    font-family:'Pretendard',-apple-system,sans-serif;
+    background:#555; display:flex; flex-direction:column;
+    align-items:center; padding:20px; -webkit-font-smoothing:antialiased;
+}
+.page {
+    width:210mm; height:297mm; background:var(--w);
+    box-shadow:0 4px 24px rgba(0,0,0,.5);
+    display:grid;
+    grid-template-rows:auto 1fr auto;
+    overflow:hidden;
+}
+@page { size:A4; margin:0; }
+@media print {
+    body { background:none; padding:0; }
+    .page { box-shadow:none; margin:0; }
+    .no-print { display:none !important; }
+}
+.print-btn {
+    position:fixed; bottom:24px; right:24px;
+    background:var(--bd); color:var(--y);
+    border:2px solid var(--y); padding:12px 24px;
+    border-radius:40px; font-size:14px; font-weight:700;
+    cursor:pointer; z-index:999;
+}
+
+/* ── HEADER (full-width) ── */
+.hd {
+    background:linear-gradient(120deg,var(--b),var(--bd));
+    padding:18px 28px;
+    display:flex; align-items:center; gap:18px;
+}
+.hd img {
+    width:82px; height:105px; object-fit:cover;
+    border:3px solid var(--y); border-radius:4px; flex-shrink:0;
+}
+.hd-info { flex:1; }
+.hd-info h1 {
+    color:var(--w); font-size:26px; font-weight:800;
+    letter-spacing:3px; margin-bottom:5px;
+}
+.hd-sub { color:var(--y); font-size:11px; font-weight:600; line-height:1.65; }
+.hd-tags { display:flex; gap:6px; margin-top:8px; flex-wrap:wrap; }
+.hd-tag {
+    background:rgba(255,210,0,.18); color:var(--yl);
+    border:1px solid rgba(255,210,0,.35);
+    padding:2px 10px; border-radius:20px; font-size:10px; font-weight:600;
+}
+
+/* ── BODY (sidebar + main) ── */
+.body { display:grid; grid-template-columns:78mm 1fr; overflow:hidden; }
+
+/* ── SIDEBAR ── */
+.sb {
+    background:var(--bd); padding:18px 16px;
+    display:flex; flex-direction:column; gap:14px;
+    overflow:hidden;
+}
+.sb-section h3 {
+    color:var(--y); font-size:10.5px; font-weight:800;
+    letter-spacing:.8px; text-transform:uppercase;
+    border-bottom:1px solid rgba(255,210,0,.3);
+    padding-bottom:4px; margin-bottom:7px;
+}
+.sb-row {
+    display:flex; align-items:flex-start; gap:7px;
+    font-size:10.5px; color:rgba(255,255,255,.85);
+    margin-bottom:5px; line-height:1.4;
+}
+.sb-row .ico { color:var(--y); width:14px; flex-shrink:0; text-align:center; }
+
+.tags { display:flex; flex-wrap:wrap; gap:4px; }
+.tag {
+    background:rgba(255,255,255,.1); color:rgba(255,255,255,.88);
+    border:1px solid rgba(255,255,255,.15);
+    padding:3px 8px; border-radius:12px; font-size:10px;
+}
+.tag.hi { background:var(--y); color:var(--bd); border-color:var(--y); font-weight:700; }
+.tag.gm { background:linear-gradient(135deg,#FFD200,#FFA000); color:var(--bd); border:none; font-weight:700; }
+
+.cert-wrap { display:flex; flex-direction:column; gap:5px; }
+.cert {
+    background:linear-gradient(90deg,rgba(255,210,0,.2),rgba(255,210,0,.08));
+    border:1px solid rgba(255,210,0,.3); border-radius:5px;
+    padding:6px 10px;
+}
+.cert strong { display:block; color:var(--y); font-size:10.5px; margin-bottom:1px; }
+.cert span { color:rgba(255,255,255,.65); font-size:9.5px; }
+
+.edu-row { margin-bottom:6px; }
+.edu-row .en { color:rgba(255,255,255,.9); font-size:10.5px; font-weight:600; }
+.edu-row .ed { color:rgba(255,255,255,.55); font-size:9.5px; margin-top:1px; }
+
+.game-box {
+    background:linear-gradient(135deg,rgba(255,210,0,.15),rgba(255,160,0,.08));
+    border:1px solid rgba(255,210,0,.25); border-radius:6px; padding:8px 10px;
+    color:rgba(255,255,255,.85); font-size:10px; line-height:1.6;
+}
+.game-box .gc { color:var(--y); font-weight:700; font-size:11px; }
+
+/* ── MAIN ── */
+.main { padding:18px 22px; display:flex; flex-direction:column; gap:13px; overflow:hidden; }
+
+.sec-title {
+    display:flex; align-items:center; gap:6px;
+    border-bottom:2px solid var(--b); padding-bottom:5px; margin-bottom:8px;
+}
+.sec-title::before {
+    content:''; width:3px; height:13px;
+    background:var(--y); border-radius:2px; flex-shrink:0;
+}
+.sec-title h2 { color:var(--b); font-size:13px; font-weight:800; }
+
+.fit-box {
+    background:linear-gradient(90deg,var(--cr),var(--w));
+    border-left:3px solid var(--b); border-radius:0 5px 5px 0;
+    padding:9px 13px; font-size:10.5px; line-height:1.75; color:var(--tx);
+}
+.fit-box strong { color:var(--b); }
+
+/* timeline */
+.tl { position:relative; padding-left:16px; }
+.tl::before {
+    content:''; position:absolute; left:3px; top:4px; bottom:4px;
+    width:2px; background:var(--y);
+}
+.ci { position:relative; padding-left:16px; margin-bottom:11px; }
+.ci:last-child { margin-bottom:0; }
+.ci::before {
+    content:''; position:absolute; left:-17px; top:4px;
+    width:8px; height:8px; border-radius:50%;
+    background:var(--b); border:2px solid var(--y);
+}
+.ci-hd { display:flex; justify-content:space-between; align-items:baseline; margin-bottom:2px; }
+.ci-co { font-size:12.5px; font-weight:700; color:var(--tx); }
+.ci-pd {
+    font-size:9.5px; color:var(--b); font-weight:600;
+    background:var(--cr); padding:2px 7px; border-radius:8px;
+}
+.ci-ro { font-size:10px; color:var(--gr); margin-bottom:3px; }
+.ci-dc { font-size:10px; color:#3a2a1a; line-height:1.62; }
+.ci-dc strong { color:var(--b); }
+
+/* ── FOOTER ── */
+.ft {
+    background:var(--bd); padding:5px 0; text-align:center;
+    color:var(--y); font-size:9.5px; font-weight:600;
+}
+</style>
+</head>
+<body>
+<button class="print-btn no-print" onclick="window.print()">📄 PDF 저장</button>
+
+<div class="page">
+
+    <!-- HEADER -->
+    <header class="hd">
+        <img src="../../../../common/photos/profile.png" alt="프로필">
+        <div class="hd-info">
+            <h1>임 종 권</h1>
+            <div class="hd-sub">
+                사회공헌 실무자 · CSR 사업 운영·거래처 관리·정산 3년<br>
+                사회적기업 석사 · 사회복지사 1급 · 게임 문화 10년+ 유저
+            </div>
+            <div class="hd-tags">
+                <span class="hd-tag">CSR 실무 3년</span>
+                <span class="hd-tag">예산 3.6억 집행</span>
+                <span class="hd-tag">외주 8개사 정산</span>
+                <span class="hd-tag">ERP 도입 PM</span>
+                <span class="hd-tag">🎮 LoL·TFT 10년+</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="body">
+
+        <!-- SIDEBAR -->
+        <aside class="sb">
+
+            <div class="sb-section">
+                <h3>연락처</h3>
+                <div class="sb-row"><span class="ico">📞</span><span>010-4052-0834</span></div>
+                <div class="sb-row"><span class="ico">📧</span><span>ssujklim@gmail.com</span></div>
+                <div class="sb-row"><span class="ico">🏠</span><span>경기도 광명시</span></div>
+                <div class="sb-row"><span class="ico">🎂</span><span>1992.01.04 (만 34세)</span></div>
+                <div class="sb-row"><span class="ico">🔗</span><span style="font-size:9px">iamsloth.github.io/portfolio/netmarble-csr</span></div>
+            </div>
+
+            <div class="sb-section">
+                <h3>핵심 스킬</h3>
+                <div class="tags">
+                    <span class="tag hi">CSR 사업 운영</span>
+                    <span class="tag hi">예산 집행·정산</span>
+                    <span class="tag hi">거래처 관리</span>
+                    <span class="tag hi">행사 현장 운영</span>
+                    <span class="tag">ERP (Nexacro)</span>
+                    <span class="tag">Excel 고급</span>
+                    <span class="tag">AI 도구 활용</span>
+                    <span class="tag gm">🎮 LoL · TFT</span>
+                </div>
+            </div>
+
+            <div class="sb-section">
+                <h3>자격 · 면허</h3>
+                <div class="cert-wrap">
+                    <div class="cert">
+                        <strong>사회복지사 1급</strong>
+                        <span>보건복지부 발급 · 2021.02</span>
+                    </div>
+                    <div class="cert">
+                        <strong>1종 대형 운전면허</strong>
+                        <span>12년 무사고</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sb-section">
+                <h3>학력</h3>
+                <div class="edu-row">
+                    <div class="en">숭실대 사회복지대학원 (석사)</div>
+                    <div class="ed">사회적기업 전공 · GPA 4.2/4.5 · 2020.02</div>
+                </div>
+                <div class="edu-row">
+                    <div class="en">숭실대 공과대학 (학사)</div>
+                    <div class="ed">전기공학부 · 경제학 복수전공 · 2017.02</div>
+                </div>
+                <div class="edu-row">
+                    <div class="en">한국폴리텍 광명융합기술교육원</div>
+                    <div class="ed">AR 시스템제어 수료 · 2022.12</div>
+                </div>
+                <div class="edu-row">
+                    <div class="en" style="color:var(--y)">🏆 메타버스 콘텐츠 캠프 대상</div>
+                    <div class="ed">과학기술정보통신부 주최 · 2022.09</div>
+                </div>
+            </div>
+
+            <div class="sb-section">
+                <h3>병역</h3>
+                <div class="sb-row"><span class="ico">✈️</span><span>공군 병장 만기제대<br><span style="font-size:9.5px;color:rgba(255,255,255,.55)">방공포정비부대 · 2010.07~2012.08</span></span></div>
+            </div>
+
+            <div class="sb-section">
+                <h3>게임 문화</h3>
+                <div class="game-box">
+                    <div class="gc">LoL · TFT 10년+ 현역 유저</div>
+                    미드 라인 주포지션, 시즌별 메타 분석 습관<br>
+                    게임 × 사회공헌 접점 기획에 강점
+                </div>
+            </div>
+
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="main">
+
+            <section>
+                <div class="sec-title"><h2>지원 직무 적합성</h2></div>
+                <div class="fit-box">
+                    • <strong>CSR 유관기관 실무 3년</strong> — KDB시니어브리지 사회공헌아카데미 운영법인에서 사업 운영·예산 집행·거래처 관리 직접 수행<br>
+                    • <strong>거래처 관리·정산 전문</strong> — 외주 8개사 계약·정산 총괄, 3.6억 예산 집행률 88.5% 통제, ERP 도입 PM<br>
+                    • <strong>게임 문화 네이티브</strong> — LoL·TFT 10년+ 현역, 메타버스 콘텐츠 기획 대상 수상
+                </div>
+            </section>
+
+            <section>
+                <div class="sec-title"><h2>경력 사항</h2></div>
+                <div class="tl">
+
+                    <div class="ci">
+                        <div class="ci-hd">
+                            <span class="ci-co">(사)함께만드는세상</span>
+                            <span class="ci-pd">2023.01 ~ 2026.02 · 3년 1개월</span>
+                        </div>
+                        <div class="ci-ro">경영지원부 인프라지원팀 / 총무·IT지원 대리</div>
+                        <div class="ci-dc">
+                            <strong>사업 운영:</strong> KDB시니어브리지 사회공헌아카데미 운영 실무 — 교육생 모집·접수·선발 보조, 연간 사업 결산 처리<br>
+                            <strong>예산·정산:</strong> 인프라 예산 3.6억 편성·집행·통제(집행률 88.5%). 외주업체 8개사 계약·정산 총괄<br>
+                            <strong>ERP 도입:</strong> 커스텀 ERP(Nexacro/Tibero) 구축 PM — 요구사항 정의·프로세스 설계·검수<br>
+                            <strong>현장 관리:</strong> 교육 행사 인프라 세팅, IT 환경 점검, 소방안전관리자 법정점검
+                        </div>
+                    </div>
+
+                    <div class="ci">
+                        <div class="ci-hd">
+                            <span class="ci-co">(주)맨지온</span>
+                            <span class="ci-pd">2020.03 ~ 2021.11 · 1년 8개월</span>
+                        </div>
+                        <div class="ci-ro">개발부 / 임베디드 시스템 개발·QA 대리</div>
+                        <div class="ci-dc">
+                            ESP32 기반 IoT 시스템 개발, Blynk 연동 원격 모니터링 대시보드 구축<br>
+                            시설 관제 데이터 로그 분석·장애 원인 규명, UI/UX QA 테스트 수행
+                        </div>
+                    </div>
+
+                    <div class="ci">
+                        <div class="ci-hd">
+                            <span class="ci-co">(주)엣지크로스</span>
+                            <span class="ci-pd">2016.05 ~ 2018.02 · 1년 9개월</span>
+                        </div>
+                        <div class="ci-ro">기술연구소 / H/W 개발·자재관리 주임</div>
+                        <div class="ci-dc">
+                            회로설계 → PCB → 시제품 → 테스트 풀사이클, BOM 자재 관리 체계화<br>
+                            외주 협력사 납기 조율 (납기 준수율 100%), 생산 일정 관리
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="ft">임종권 · 넷마블문화재단 사회공헌 담당자 지원</footer>
+
+</div>
+</body>
+</html>
