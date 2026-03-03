@@ -9,13 +9,14 @@
 |-------|-------|
 | date | 2026-03-03 |
 | agent | Claude Opus 4.6 |
-| work | 민트로켓·네오플 모두 SUBMITTED 상태 확정, AI_CONTEXT.md 동기화 |
-| commit | (pending) |
+| work | 상태 확정 + CLAUDE.md 분산화 + 커스텀 스킬 생성 |
+| commit | dc54d09 (상태 확정), (pending: 분산화) |
 
 ### 이번 세션 요약
-- **민트로켓 인사총무**: PREPARING → SUBMITTED 확정 (넥슨 채용시스템 제출 완료)
-- **네오플 예산관리직**: SUBMITTED 상태 유지 확인
-- AI_CONTEXT.md 상태 동기화
+- **민트로켓·네오플**: SUBMITTED 상태 확정 완료
+- **CLAUDE.md 분산화**: 377줄→266줄 (-30%). ANALYZE 가이드/면접 준비/프로필 동기화를 `.claude/rules/`로 분리 (조건부 로드 → 매 턴 토큰 절약)
+- **커스텀 스킬 2개 생성**: `/jd-analyze` (JD→strategy.md 자동생성, sonnet), `/coverletter-review` (opus 리뷰, 격리 실행)
+- `.claude/` 폴더는 `.gitignore` 대상 → 로컬 전용 설정
 
 ## Active Applications
 

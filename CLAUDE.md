@@ -134,33 +134,6 @@ Job-Application-Pipeline-Desktop/
 
 ---
 
-### 📊 ANALYZE 단계 상세 가이드
-
-**Step 1: JD 파싱**
-- 필수/우대 요건 분리
-- 핵심 키워드 추출 (기술스택, 연차, 도메인)
-
-**Step 2: profile.json ↔ JD 매칭**
-
-| profile.json 필드 | JD 매칭 대상 |
-|------------------|-------------|
-| `experience[].achievements` | 핵심 업무 요구사항 |
-| `skills.technical` | 기술스택/툴 요건 |
-| `skills.certifications` | 자격 요건 |
-| `education` | 학력/전공 요건 |
-
-**Step 3: 매칭도 평가**
-- ⭐⭐⭐: 직접 경험 있음 (증빙 가능)
-- ⭐⭐: 유사 경험 있음 (스토리텔링 필요)
-- ⭐: 간접 경험만 (약점 방어 필요)
-- ✕: 경험 없음 (치명적 갭)
-
-**Step 4: Go/No-Go 판단**
-- ✕ 3개 이상 → No-Go 권고 (User 최종 결정)
-- ⭐⭐⭐ 핵심 요건 충족 → Go
-
----
-
 ### 🤖 모델 라우팅 (Sub-agent)
 
 Task tool로 서브에이전트 실행 시, 작업 난이도에 따라 모델을 동적 선택한다.
@@ -219,40 +192,6 @@ Task tool로 서브에이전트 실행 시, 작업 난이도에 따라 모델을
 
 ---
 
-### 📋 템플릿 레지스트리
-
-> **제출 완료 문서 = 다음 지원의 베이스**
-
-| 문서 유형 | 참조 소스 | 적합 포지션 |
-|----------|----------|------------|
-| **strategy.md 예시** | `applications/01_seoul_heroes/accounting/seoul_heroes_accounting_strategy.md` | 모든 지원 |
-| 통합 이력서+자소서 (HTML) | `applications/01_seoul_heroes/accounting/final/application_260127.html` | 회계/총무/운영직 |
-| 포트폴리오 (HTML) | `applications/04_smilegate/hope_studio_csr_platform_pm/final/portfolio_260131.html` | 기획/PM직 |
-| **QA/테스트 전략 참조** | `applications/04_smilegate/crossfire_test_engineer/crossfire_test_engineer_strategy.md` | QA/Test Engineer |
-| 범용 이력서 템플릿 | `templates/resumes/standard_v1.html` | 기본 베이스 |
-
-**strategy.md 필수 구조:**
-```yaml
----
-company: {회사명}
-position: {포지션명}
-status: 📋 DISCOVERED
-discovered: YYYY-MM-DD
-last_updated: YYYY-MM-DD
----
-# 1. 채용공고 분석 (JD Analysis)
-# 2. 매칭 분석 (Fit Analysis)
-# 3. 지원 판단 (Go/No-Go)
-# 4. 지원 컨셉 (Positioning)
-# 5. 제출 이력 (Submission Log)
-# 6. 진행 상황 (Timeline)
-# 7. 면접 준비 (Interview Prep)  ← DOC_PASSED 시 추가
-```
-
-**참조 원칙**: 유사 포지션의 `final/` 먼저 확인 → 없으면 `templates/`
-
----
-
 ### 🏷️ 상태 코드
 
 | 코드 | 이모지 | 설명 |
@@ -269,64 +208,15 @@ last_updated: YYYY-MM-DD
 | REJECTED | ❌ | 불합격 |
 | ARCHIVED | 🗄️ | 회고 완료 |
 
-### 📞 면접 준비 워크플로우 (DOC_PASSED 이후)
+### 📂 분산 규칙 (.claude/rules/)
 
-**트리거**: status가 `📬 DOC_PASSED`로 변경 시
+> 아래 가이드는 `.claude/rules/`에 분리됨 — 관련 파일 작업 시 자동 로드.
 
-**Step 1: 면접 준비 문서 생성**
-- 위치: `drafts/interview_prep_v1.md`
-- 필수 구조:
-  ```
-  # 면접 방어 전략
-  ## 1. 🛡️ 약점 방어 (Defense Logic)
-  - 예상 약점 리스트 (경력 공백, 경험 부족, 직무 전환 등)
-  - 각 약점에 대한 방어 로직 (인정 → 전환 → 근거)
-
-  ## 2. ⚔️ 필살기 (Attack Logic)
-  - 핵심 경험 에피소드 2~3개 (STAR 기법)
-  - "Why Me?" 차별점 (경쟁자 대비)
-  - 면접관 주도권 가져오는 역질문
-
-  ## 3. 💊 긴급 처방 (윽엑 방지)
-  - 모르는 질문 대응 템플릿 ("잠시만요, 정리해서...")
-  - 예상 질문 10~20개 + 핵심 답변 키워드
-  ```
-
-**Step 2: 모의 면접 (선택)**
-- 모델: opus (고난도 판단)
-- 방식: Claude가 면접관 역할 수행
-- User 요청 시 실행 (자동 트리거 X)
-
-**Step 3: strategy.md #7 기록**
-- 면접 일정/형식 (1차 실무, 2차 임원 등)
-- 핵심 대비 포인트 요약 (1~3줄)
-- 모의 면접 결과 (실행한 경우)
-
-**Step 4: 최종 점검 (면접 D-1)**
-- 면접 당일 확인용 1페이지 요약 생성
-
----
-
-### 🧠 프로필 실시간 동기화 (Profile Live Sync)
-
-> `content/profile.json`은 지원자의 **Single Source of Truth**이다. Claude는 수석비서로서 지원자를 누구보다 정확히 파악해야 한다.
-
-**profile.json 구조:**
-```json
-{
-  "meta": { "version", "last_updated" },
-  "personal_info": { "name_ko", "email", "phone", "address", "birthdate" },
-  "education": [{ "school", "major", "degree", "date" }],
-  "experience": [{ "company", "department", "role", "period", "achievements" }],
-  "skills": { "technical", "certifications", "languages" }
-}
-```
-
-**원칙**
-- 대화 중 새로운 경력·스킬·자격·개인 정보가 확인되면 **즉시** `profile.json`에 반영
-- 기존 정보와 충돌 시 User 확인 후 업데이트
-- 업데이트 시 `meta.last_updated` 날짜도 갱신
-- 반영 후 User에게 변경 사항 간략 보고
+| 규칙 파일 | 내용 | 로드 조건 |
+|----------|------|----------|
+| `analyze-guide.md` | ANALYZE 상세 가이드 + 템플릿 레지스트리 | `applications/**/*strategy*.md` |
+| `interview-prep.md` | 면접 준비 워크플로우 | `applications/**/drafts/interview_prep*.md` |
+| `profile-sync.md` | profile.json 동기화 규칙 | `content/profile.json` |
 
 ---
 
