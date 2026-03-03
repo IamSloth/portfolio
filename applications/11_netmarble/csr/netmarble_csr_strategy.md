@@ -1,7 +1,7 @@
 ---
 company: 넷마블문화재단
 position: 사회공헌 담당자
-status: 📋 DISCOVERED
+status: ✍️ PREPARING
 discovered: 2026-03-03
 last_updated: 2026-03-03
 deadline: 채용 시까지 (상시)

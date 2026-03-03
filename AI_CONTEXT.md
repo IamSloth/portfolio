@@ -8,15 +8,13 @@
 | Field | Value |
 |-------|-------|
 | date | 2026-03-03 |
-| agent | Claude Opus 4.6 |
-| work | 상태 확정 + CLAUDE.md 분산화 + 커스텀 스킬 생성 |
-| commit | dc54d09 (상태 확정), (pending: 분산화) |
+| agent | Antigravity |
+| work | 넷마블문화재단 CSR 서류(이력서/자소서) 드래프트 작성 |
+| commit | pending |
 
 ### 이번 세션 요약
-- **민트로켓·네오플**: SUBMITTED 상태 확정 완료
-- **CLAUDE.md 분산화**: 377줄→266줄 (-30%). ANALYZE 가이드/면접 준비/프로필 동기화를 `.claude/rules/`로 분리 (조건부 로드 → 매 턴 토큰 절약)
-- **커스텀 스킬 2개 생성**: `/jd-analyze` (JD→strategy.md 자동생성, sonnet), `/coverletter-review` (opus 리뷰, 격리 실행)
-- `.claude/` 폴더는 `.gitignore` 대상 → 로컬 전용 설정
+- **넷마블문화재단**: 이력서 및 자소서 초안 `drafts/` 폴더에 작성 완료. JD 핵심역량 키워드 직접 반영 구조화.
+- **포트폴리오 참고**: 스마일게이트, SFEC, 코오롱 서류 참고하여 작성 방향성 정렬.
 
 ## Active Applications
 
@@ -30,7 +28,7 @@
 | 06b | SK E&S (추정) | CSR Planning | SUBMITTED | 이메일 제출 완료 (2026-02-12) | `06_sk_energy/csr_planning/` |
 | 05 | SFEC | CSR Ops | SUBMITTED | Awaiting result | `05_sfec/csr_ops/` |
 | 04 | Smilegate | Hope Studio PM | SUBMITTED | Awaiting result | `04_smilegate/hope_studio_csr_platform_pm/` |
-| 11 | Netmarble Foundation | CSR | **DISCOVERED** | JD 분석 완료. 서류 준비 필요. 정규직. 넷마블 채용홈페이지 온라인 지원 | `11_netmarble/csr/` |
+| 11 | Netmarble Foundation | CSR | **PREPARING** | 이력서 및 자소서 드래프트 작성 완료. 리뷰 대기. | `11_netmarble/csr/` |
 | 03 | 11st | General Affairs | ON_HOLD | Paused | `03_11st/general_affairs/` |
 
 ### Closed Applications
