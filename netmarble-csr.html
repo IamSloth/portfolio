@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>임종권 — 넷마블문화재단 사회공헌 담당자 지원</title>
+<meta name="description" content="사회공헌 실무 3년 × 게임 문화 네이티브 — 넷마블문화재단 CSR 담당자 지원">
+<meta property="og:title" content="임종권 | 넷마블문화재단 사회공헌 담당자 지원">
+<meta property="og:description" content="CSR 사업 기획·운영 3년 + 예산 3.6억 집행 + 게임 문화 10년+">
+<meta property="og:image" content="assets/profile.png">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+:root {
+    --yellow:    #FFD200;
+    --yellow-lt: #FFECB3;
+    --brown:     #5C3A1E;
+    --brown-dk:  #3E2723;
+    --cream:     #FFF8E1;
+    --white:     #ffffff;
+    --text:      #3E2723;
+    --gray:      #6D5D4B;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Pretendard', -apple-system, sans-serif;
+    background: var(--brown-dk);
+    color: var(--text);
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.6;
+}
+
+/* ─── HERO ─── */
+.hero {
+    background: linear-gradient(135deg, var(--brown) 0%, var(--brown-dk) 100%);
+    padding: 60px 20px 50px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: radial-gradient(circle at 30% 70%, rgba(255,210,0,0.08) 0%, transparent 50%),
+                radial-gradient(circle at 70% 30%, rgba(255,236,179,0.06) 0%, transparent 50%);
+    animation: drift 20s ease-in-out infinite;
+}
+@keyframes drift {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(-3%, 2%); }
+}
+
+.hero-inner {
+    position: relative;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.hero-badge {
+    display: inline-block;
+    background: rgba(255,210,0,0.15);
+    border: 1px solid rgba(255,210,0,0.3);
+    color: var(--yellow);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 5px 14px;
+    border-radius: 20px;
+    margin-bottom: 18px;
+    letter-spacing: 0.5px;
+}
+
+.hero-photo {
+    width: 110px;
+    height: 140px;
+    object-fit: cover;
+    border: 3px solid var(--yellow);
+    border-radius: 8px;
+    margin-bottom: 16px;
+}
+
+.hero h1 {
+    color: var(--white);
+    font-size: 32px;
+    font-weight: 800;
+    letter-spacing: 4px;
+    margin-bottom: 10px;
+}
+
+.hero-tagline {
+    color: var(--yellow);
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 18px;
+    line-height: 1.5;
+}
+
+.hero-contact {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    font-size: 13px;
+    color: rgba(255,255,255,0.7);
+}
+.hero-contact a {
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+.hero-contact a:hover { color: var(--yellow); }
+
+/* ─── CONTAINER ─── */
+.container {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ─── SECTION ─── */
+section {
+    padding: 50px 0;
+}
+section:nth-child(even) { background: var(--white); }
+section:nth-child(odd) { background: var(--cream); }
+
+.section-title {
+    text-align: center;
+    margin-bottom: 32px;
+}
+.section-title h2 {
+    color: var(--brown);
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: -0.3px;
+    margin-bottom: 6px;
+}
+.section-title p {
+    color: var(--gray);
+    font-size: 13px;
+}
+
+/* ─── JD MATCH TABLE ─── */
+.match-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+}
+.match-table th {
+    background: var(--brown);
+    color: var(--white);
+    padding: 10px 14px;
+    text-align: left;
+    font-weight: 700;
+    font-size: 12.5px;
+}
+.match-table td {
+    padding: 11px 14px;
+    border-bottom: 1px solid #E8E0D4;
+    vertical-align: top;
+}
+.match-table tr:hover { background: var(--cream); }
+.match-table .status {
+    text-align: center;
+    font-size: 16px;
+    min-width: 36px;
+}
+
+/* ─── STAT CARDS ─── */
+.stat-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 28px;
+}
+.stat-card {
+    background: linear-gradient(135deg, var(--brown) 0%, var(--brown-dk) 100%);
+    border-radius: 12px;
+    padding: 22px 16px;
+    text-align: center;
+}
+.stat-card .num {
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--yellow);
+    line-height: 1;
+    margin-bottom: 6px;
+}
+.stat-card .label {
+    font-size: 12px;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.4;
+}
+
+/* ─── HIGHLIGHT CARDS ─── */
+.highlight-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+.highlight-card {
+    background: var(--white);
+    border: 1px solid #E8E0D4;
+    border-radius: 10px;
+    padding: 20px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.highlight-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(62,39,35,0.1);
+}
+.highlight-card h3 {
+    color: var(--brown);
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.highlight-card h3 .icon {
+    width: 28px;
+    height: 28px;
+    background: var(--cream);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+}
+.highlight-card p {
+    font-size: 13px;
+    color: var(--gray);
+    line-height: 1.65;
+}
+.highlight-card strong { color: var(--brown); }
+
+/* ─── CSR DNA SECTION ─── */
+.csr-section {
+    background: var(--white) !important;
+}
+.csr-timeline {
+    position: relative;
+    padding-left: 24px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+.csr-timeline::before {
+    content: '';
+    position: absolute;
+    left: 6px; top: 0; bottom: 0;
+    width: 2px;
+    background: var(--yellow);
+}
+.csr-item {
+    position: relative;
+    margin-bottom: 24px;
+}
+.csr-item::before {
+    content: '';
+    position: absolute;
+    left: -22px; top: 4px;
+    width: 12px; height: 12px;
+    background: var(--brown);
+    border: 2px solid var(--yellow);
+    border-radius: 50%;
+}
+.csr-item h3 {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--brown);
+    margin-bottom: 4px;
+}
+.csr-item .period {
+    font-size: 11.5px;
+    color: var(--gray);
+    margin-bottom: 6px;
+}
+.csr-item p {
+    font-size: 13px;
+    color: var(--gray);
+    line-height: 1.65;
+}
+
+/* ─── GAME SECTION ─── */
+.game-section {
+    background: linear-gradient(135deg, var(--brown) 0%, var(--brown-dk) 100%) !important;
+    color: var(--white);
+}
+.game-section .section-title h2 { color: var(--white); }
+.game-section .section-title p { color: var(--yellow); }
+
+.game-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
+}
+.game-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,210,0,0.2);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+}
+.game-card .emoji { font-size: 28px; margin-bottom: 8px; }
+.game-card h3 {
+    color: var(--yellow);
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+.game-card p {
+    color: rgba(255,255,255,0.65);
+    font-size: 12.5px;
+}
+
+.game-quote {
+    background: rgba(255,210,0,0.1);
+    border: 1px solid rgba(255,210,0,0.2);
+    border-radius: 10px;
+    padding: 20px 24px;
+    text-align: center;
+    font-size: 15px;
+    color: var(--white);
+    line-height: 1.7;
+    font-weight: 500;
+}
+.game-quote .accent { color: var(--yellow); font-weight: 700; }
+
+/* ─── FOOTER ─── */
+footer {
+    background: var(--brown-dk);
+    padding: 30px 20px;
+    text-align: center;
+}
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin-bottom: 14px;
+}
+.footer-links a {
+    color: var(--yellow);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+.footer-links a:hover { color: var(--white); }
+footer .copy {
+    color: rgba(255,255,255,0.35);
+    font-size: 11px;
+}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 600px) {
+    .hero h1 { font-size: 24px; letter-spacing: 2px; }
+    .stat-row { grid-template-columns: 1fr; gap: 10px; }
+    .highlight-grid { grid-template-columns: 1fr; }
+    .game-grid { grid-template-columns: 1fr; }
+    .match-table { font-size: 12px; }
+    .match-table th, .match-table td { padding: 8px 10px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ HERO ═══ -->
+<header class="hero">
+    <div class="hero-inner">
+        <div class="hero-badge">넷마블문화재단 사회공헌 담당자 지원</div>
+        <img src="assets/profile.png" alt="프로필 사진" class="hero-photo">
+        <h1>임 종 권</h1>
+        <p class="hero-tagline">
+            사회공헌 실무 3년 × 게임 문화 네이티브<br>
+            CSR 사업 기획·운영 · 거래처 관리·정산 · 행사 현장 운영
+        </p>
+        <div class="hero-contact">
+            <a href="mailto:ssujklim@gmail.com">ssujklim@gmail.com</a>
+            <span>010-4052-0834</span>
+            <span>경기도 광명시</span>
+        </div>
+    </div>
+</header>
+
+<!-- ═══ JD MATCH ═══ -->
+<section>
+    <div class="container">
+        <div class="section-title">
+            <h2>넷마블문화재단이 필요한 것 = 제가 해온 것</h2>
+            <p>JD 주요 업무 ↔ 실무 경험 1:1 매칭</p>
+        </div>
+        <table class="match-table">
+            <thead>
+                <tr>
+                    <th>넷마블문화재단 JD</th>
+                    <th>임종권의 경험</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>CSR 주요 사업 기획·운영</strong></td>
+                    <td>KDB시니어브리지 사회공헌아카데미 운영법인 3년 근무. 교육생 모집→선발→운영→결산 사업 사이클 전체 실무 담당</td>
+                    <td class="status">✅</td>
+                </tr>
+                <tr>
+                    <td><strong>행사 현장 관리·운영</strong></td>
+                    <td>교육 행사 시 현장 인프라 세팅, IT 환경 점검, 시니어/취약계층 대상 디지털 기기 지원. 1종 대형 면허 보유</td>
+                    <td class="status">✅</td>
+                </tr>
+                <tr>
+                    <td><strong>거래처 관리 및 행정</strong><br>결과보고, 정산 등</td>
+                    <td>외주업체 8개사 계약·대금 정산·재계약 협상 총괄. 인프라 예산 3.6억 편성·집행·통제 (집행률 88.5%)</td>
+                    <td class="status">✅</td>
+                </tr>
+                <tr>
+                    <td><strong>대외 협력·홍보 콘텐츠</strong></td>
+                    <td>직접 경험은 약하나, AI 도구(Claude/ChatGPT) 활용 콘텐츠 제작 능력 + 빠른 학습 의지</td>
+                    <td class="status">🔄</td>
+                </tr>
+            </tbody>
+        </table>
+        <p style="text-align:right; font-size:11px; color:var(--gray); margin-top:8px;">
+            ✅ 직접 경험 &nbsp; 🔄 인접 경험 (빠른 적용 가능)
+        </p>
+
+        <!-- STAT CARDS -->
+        <div class="stat-row">
+            <div class="stat-card">
+                <div class="num">3년</div>
+                <div class="label">사회공헌 유관기관<br>실무 경력</div>
+            </div>
+            <div class="stat-card">
+                <div class="num">3.6억</div>
+                <div class="label">인프라 예산<br>편성·집행·통제</div>
+            </div>
+            <div class="stat-card">
+                <div class="num">8개사</div>
+                <div class="label">외주업체 계약·정산<br>단독 총괄</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ CAREER HIGHLIGHTS ═══ -->
+<section>
+    <div class="container">
+        <div class="section-title">
+            <h2>핵심 경력 하이라이트</h2>
+            <p>(사)함께만드는세상 · 경영지원부 인프라지원팀 대리 · 2023.01~2026.02</p>
+        </div>
+        <div class="highlight-grid">
+            <div class="highlight-card">
+                <h3><span class="icon">📋</span> CSR 사업 운영</h3>
+                <p>KDB시니어브리지 사회공헌아카데미 운영법인에서 <strong>교육생 모집·접수·선발 보조</strong>부터 <strong>사업 결산</strong>까지 비영리 사업 운영 풀사이클 실무 담당.</p>
+            </div>
+            <div class="highlight-card">
+                <h3><span class="icon">💰</span> 예산·정산 전문</h3>
+                <p>연간 <strong>3.6억 원 예산 편성·집행·통제</strong> (집행률 88.5%). 정산 프로세스 <strong>엑셀 템플릿화</strong>로 결과보고서 작성 시간 30% 단축.</p>
+            </div>
+            <div class="highlight-card">
+                <h3><span class="icon">🤝</span> 거래처 관리</h3>
+                <p>소방·승강기·전기·방역·네트워크 등 <strong>8개 외주업체</strong> 계약 체결, 대금 정산, 재계약 협상 총괄. 연 <strong>500만 원 비용 절감</strong>.</p>
+            </div>
+            <div class="highlight-card">
+                <h3><span class="icon">🔧</span> ERP 도입 PM</h3>
+                <p>커스텀 ERP(Nexacro/Tibero) <strong>도입 프로젝트 실무 전담</strong>. 요구사항 정의→프로세스 설계→계정과목 표준화→검수 풀사이클.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ CSR DNA ═══ -->
+<section class="csr-section">
+    <div class="container">
+        <div class="section-title">
+            <h2>사회공헌 DNA</h2>
+            <p>이론(석사) + 자격(사회복지사 1급) + 현장(3년) = CSR 실무 역량</p>
+        </div>
+        <div class="csr-timeline">
+            <div class="csr-item">
+                <h3>숭실대 사회복지대학원 석사</h3>
+                <div class="period">사회적기업 전공 · 2018.03~2020.02 · GPA 4.2/4.5</div>
+                <p>비영리 사업 기획, 사회적 가치 측정, CSR 이론·사례 연구. 사회공헌 사업의 <strong>구조와 논리</strong>를 학술적으로 습득.</p>
+            </div>
+            <div class="csr-item">
+                <h3>사회복지사 1급 취득</h3>
+                <div class="period">보건복지부 · 2021.02</div>
+                <p>사회공헌 분야 <strong>공인 전문 자격</strong>. 사회복지 제도와 정책에 대한 체계적 이해 입증.</p>
+            </div>
+            <div class="csr-item">
+                <h3>(사)함께만드는세상 3년 실무</h3>
+                <div class="period">KDB시니어브리지 사회공헌아카데미 운영 · 2023.01~2026.02</div>
+                <p>KDB산업은행 산하 사회공헌 사업 운영 기관에서 <strong>사업 운영·예산 집행·거래처 관리·현장 지원</strong> 전 과정 실무 경험.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ GAME CONNECTION ═══ -->
+<section class="game-section">
+    <div class="container">
+        <div class="section-title">
+            <h2>게임 문화를 이해하는 CSR 담당자</h2>
+            <p>우대사항: 게임 산업·문화에 대한 깊은 이해와 지식</p>
+        </div>
+        <div class="game-grid">
+            <div class="game-card">
+                <div class="emoji">⚔️</div>
+                <h3>League of Legends</h3>
+                <p>시즌 2~6 플래티넘<br>10년+ 현역 플레이어</p>
+            </div>
+            <div class="game-card">
+                <div class="emoji">♟️</div>
+                <h3>Teamfight Tactics</h3>
+                <p>매 시즌 플래티넘<br>매일 1시간+ 플레이</p>
+            </div>
+            <div class="game-card">
+                <div class="emoji">🏆</div>
+                <h3>메타버스 콘텐츠 대상</h3>
+                <p>과기부 주최 캠프<br>AR/Unity 기반 기획</p>
+            </div>
+            <div class="game-card">
+                <div class="emoji">🎮</div>
+                <h3>게임 문화 콘텐츠</h3>
+                <p>문화 트렌드 이해<br>CSR 캠페인 연결 가능</p>
+            </div>
+        </div>
+        <div class="game-quote">
+            <p>
+                게임이 만들어내는 소통과 성장의 가치를 직접 경험한 사람으로서,<br>
+                넷마블문화재단의 사회공헌 사업에<br>
+                <span class="accent">진정성 있는 기획과 현장 운영</span>을 더하겠습니다.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+    <div class="footer-links">
+        <a href="index.html">메인 포트폴리오</a>
+        <a href="https://github.com/IamSloth" target="_blank" rel="noopener">GitHub</a>
+        <a href="mailto:ssujklim@gmail.com">이메일</a>
+    </div>
+    <p class="copy">&copy; 2026 임종권 · 넷마블문화재단 사회공헌 담당자 지원용 포트폴리오</p>
+</footer>
+
+</body>
+</html>
