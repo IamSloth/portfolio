@@ -30,6 +30,7 @@
 | 06b | SK E&S (추정) | CSR Planning | SUBMITTED | 이메일 제출 완료 (2026-02-12) | `06_sk_energy/csr_planning/` |
 | 05 | SFEC | CSR Ops | SUBMITTED | Awaiting result | `05_sfec/csr_ops/` |
 | 04 | Smilegate | Hope Studio PM | SUBMITTED | Awaiting result | `04_smilegate/hope_studio_csr_platform_pm/` |
+| 11 | Netmarble Foundation | CSR | **DISCOVERED** | JD 분석 완료. 서류 준비 필요. 정규직. 넷마블 채용홈페이지 온라인 지원 | `11_netmarble/csr/` |
 | 03 | 11st | General Affairs | ON_HOLD | Paused | `03_11st/general_affairs/` |
 
 ### Closed Applications
@@ -58,6 +59,6 @@
 - **Filenames**: English snake_case only. No Korean filenames (except original form templates and final 제출본).
 - **Scripts**: Place inside the relevant application's `scripts/` subfolder. Never in project root.
 - **Commits**: Always include `Co-Authored-By: {Model Name} <noreply@anthropic.com>` trailer.
-- **Application folders**: Numbered by discovery date: `{NN}_{company}/`. Next new company = `10_`.
+- **Application folders**: Numbered by discovery date: `{NN}_{company}/`. Next new company = `12_`.
 - **Profile sync**: If you discover new career/skill/cert info during work, update `profile.json` immediately.
 - **Session end**: Update this file → commit → push. Keep entries concise (token budget matters).
