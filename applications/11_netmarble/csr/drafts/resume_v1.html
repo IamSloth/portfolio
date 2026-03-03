@@ -155,6 +155,31 @@ body {
 .ci-dc { font-size:10px; color:#3a2a1a; line-height:1.62; }
 .ci-dc strong { color:var(--b); }
 
+/* ── STAT CARDS ── */
+.stat-grid {
+    display:grid; grid-template-columns:repeat(4,1fr); gap:8px;
+}
+.stat-card {
+    background:linear-gradient(135deg,var(--b),var(--bd));
+    border-radius:7px; padding:10px 8px; text-align:center;
+}
+.stat-num {
+    color:var(--y); font-size:22px; font-weight:800;
+    letter-spacing:-0.5px; line-height:1.1; display:block;
+}
+.stat-unit { color:var(--yl); font-size:11px; font-weight:700; }
+.stat-desc { color:rgba(255,255,255,.75); font-size:9.5px; margin-top:4px; line-height:1.4; display:block; }
+
+/* ── WHY BOX ── */
+.why-box {
+    background:linear-gradient(90deg,var(--cr),var(--w));
+    border-left:3px solid var(--y);
+    border-radius:0 6px 6px 0;
+    padding:10px 14px;
+    font-size:10.5px; line-height:1.82; color:var(--tx);
+}
+.why-box strong { color:var(--b); }
+
 /* ── FOOTER ── */
 .ft {
     background:var(--bd); padding:5px 0; text-align:center;
@@ -181,7 +206,7 @@ body {
                 <span class="hd-tag">예산 3.6억 집행</span>
                 <span class="hd-tag">외주 8개사 정산</span>
                 <span class="hd-tag">ERP 도입 PM</span>
-                <span class="hd-tag">🎮 LoL·TFT 10년+</span>
+                <span class="hd-tag">🎮 게임문화 10년+</span>
             </div>
         </div>
     </header>
@@ -210,7 +235,7 @@ body {
                     <span class="tag">ERP (Nexacro)</span>
                     <span class="tag">Excel 고급</span>
                     <span class="tag">AI 도구 활용</span>
-                    <span class="tag gm">🎮 LoL · TFT</span>
+                    <span class="tag gm">🎮 게임문화 이해</span>
                 </div>
             </div>
 
@@ -256,8 +281,9 @@ body {
             <div class="sb-section">
                 <h3>게임 문화</h3>
                 <div class="game-box">
-                    <div class="gc">LoL · TFT 10년+ 현역 유저</div>
-                    미드 라인 주포지션, 시즌별 메타 분석 습관<br>
+                    <div class="gc">장르 불문 10년+ 코어 게이머</div>
+                    게임 커뮤니티 문화·메타·트렌드 이해<br>
+                    Unity 3D/AR 기반 콘텐츠 기획 대상 수상<br>
                     게임 × 사회공헌 접점 기획에 강점
                 </div>
             </div>
@@ -272,7 +298,7 @@ body {
                 <div class="fit-box">
                     • <strong>CSR 유관기관 실무 3년</strong> — KDB시니어브리지 사회공헌아카데미 운영법인에서 사업 운영·예산 집행·거래처 관리 직접 수행<br>
                     • <strong>거래처 관리·정산 전문</strong> — 외주 8개사 계약·정산 총괄, 3.6억 예산 집행률 88.5% 통제, ERP 도입 PM<br>
-                    • <strong>게임 문화 네이티브</strong> — LoL·TFT 10년+ 현역, 메타버스 콘텐츠 기획 대상 수상
+                    • <strong>게임 문화 네이티브</strong> — 장르 불문 10년+ 코어 게이머, 메타버스 콘텐츠 기획 대상 수상 (Unity 3D/AR)
                 </div>
             </section>
 
@@ -318,6 +344,37 @@ body {
                         </div>
                     </div>
 
+                </div>
+            </section>
+
+            <!-- STAT CARDS -->
+            <section>
+                <div class="sec-title"><h2>주요 성과</h2></div>
+                <div class="stat-grid">
+                    <div class="stat-card">
+                        <span class="stat-num">3.6<span class="stat-unit">억</span></span>
+                        <span class="stat-desc">연간 인프라 예산<br>편성·집행·통제</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-num">88.5<span class="stat-unit">%</span></span>
+                        <span class="stat-desc">예산 집행률<br>(목표 대비 효율)</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-num">8<span class="stat-unit">개사</span></span>
+                        <span class="stat-desc">외주 협력사<br>계약·정산 총괄</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-num">30<span class="stat-unit">%</span></span>
+                        <span class="stat-desc">유지보수 비용<br>절감 달성</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- WHY 넷마블문화재단 -->
+            <section>
+                <div class="sec-title"><h2>넷마블문화재단을 선택한 이유</h2></div>
+                <div class="why-box">
+                    넷마블문화재단의 <strong>게임아카데미·견학 프로그램</strong>은 게임을 긍정적 사회공헌 어젠다로 전환하는 시도입니다. 장르 불문 10년+ 코어 게이머이자 CSR 사업 실무자로서, 게임 커뮤니티의 언어와 문화를 이해하면서 동시에 사업 기획·예산·거래처 관리를 수행한 경험이 재단의 업무와 <strong>정확히 맞닿아</strong> 있습니다. 다변화하는 게임 문화를 사회공헌으로 연결하는 재단의 방향에 함께하고 싶습니다.
                 </div>
             </section>
 
