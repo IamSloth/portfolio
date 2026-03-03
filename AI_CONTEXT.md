@@ -8,13 +8,14 @@
 | Field | Value |
 |-------|-------|
 | date | 2026-03-03 |
-| agent | Antigravity |
-| work | 넷마블문화재단 CSR 서류(이력서/자소서) 드래프트 작성 |
-| commit | pending |
+| agent | Claude Sonnet 4.6 |
+| work | 넷마블 CSR 이력서 사이드바 레이아웃 완성 + 랜딩페이지 동기화 / 우아한형제들 로보틱스운영 지원 아카이빙 |
+| commit | latest |
 
 ### 이번 세션 요약
-- **넷마블문화재단**: 이력서 및 자소서 초안 `drafts/` 폴더에 작성 완료. JD 핵심역량 키워드 직접 반영 구조화.
-- **포트폴리오 참고**: 스마일게이트, SFEC, 코오롱 서류 참고하여 작성 방향성 정렬.
+- **넷마블문화재단 CSR**: 이력서 사이드바 레이아웃(v1) 완성. LoL/TFT 제거, 성과카드 4개(3.6억/88.5%/8개사/30%) + Why박스 추가. 제출 완료.
+- **포트폴리오 랜딩(netmarble-csr.html)**: 이력서와 일치하도록 게임섹션·스탯카드 동기화. GitHub Pages 배포 완료.
+- **우아한형제들 배달로봇**: `12_woowa/robotics_ops/` 생성. JD+자소서 아카이빙. 이미 제출 완료 상태.
 
 ## Active Applications
 
@@ -28,7 +29,8 @@
 | 06b | SK E&S (추정) | CSR Planning | SUBMITTED | 이메일 제출 완료 (2026-02-12) | `06_sk_energy/csr_planning/` |
 | 05 | SFEC | CSR Ops | SUBMITTED | Awaiting result | `05_sfec/csr_ops/` |
 | 04 | Smilegate | Hope Studio PM | SUBMITTED | Awaiting result | `04_smilegate/hope_studio_csr_platform_pm/` |
-| 11 | Netmarble Foundation | CSR | **PREPARING** | 이력서 및 자소서 드래프트 작성 완료. 리뷰 대기. | `11_netmarble/csr/` |
+| 11 | Netmarble Foundation | CSR | **SUBMITTED** | 사이드바 이력서+자소서 제출 완료 (2026-03-03). 결과 대기 | `11_netmarble/csr/` |
+| 12 | 우아한형제들 (Woowa) | Robotics Ops | **SUBMITTED** | 온라인 지원 완료 (2026-03-03). 12개월 계약직. 결과 대기 | `12_woowa/robotics_ops/` |
 | 03 | 11st | General Affairs | ON_HOLD | Paused | `03_11st/general_affairs/` |
 
 ### Closed Applications
@@ -57,6 +59,6 @@
 - **Filenames**: English snake_case only. No Korean filenames (except original form templates and final 제출본).
 - **Scripts**: Place inside the relevant application's `scripts/` subfolder. Never in project root.
 - **Commits**: Always include `Co-Authored-By: {Model Name} <noreply@anthropic.com>` trailer.
-- **Application folders**: Numbered by discovery date: `{NN}_{company}/`. Next new company = `12_`.
+- **Application folders**: Numbered by discovery date: `{NN}_{company}/`. Next new company = `13_`.
 - **Profile sync**: If you discover new career/skill/cert info during work, update `profile.json` immediately.
 - **Session end**: Update this file → commit → push. Keep entries concise (token budget matters).
