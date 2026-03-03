@@ -1,7 +1,7 @@
 ---
 company: 민트로켓
 position: 인사총무 담당자
-status: ✍️ PREPARING
+status: 📤 SUBMITTED
 discovered: 2026-03-02
 last_updated: 2026-03-02
 deadline: 수시채용 (조기마감 가능 — 조속 제출 권장)
@@ -84,7 +84,7 @@ deadline: 수시채용 (조기마감 가능 — 조속 제출 권장)
 |------|------|------|------|
 | 2025.04.15 | — | 사람인 | 1차: 서류 탈락 (전형종료) |
 | 2026.01.15 | — | 사람인 | 2차: 서류 탈락 (전형종료) |
-| 2026.03.02 이후 | application_260302.pdf | 사람인 | 3차: HR 프레이밍 완전 교체 |
+| 2026.03.02 | application PDF + coverletter + mintrocket.html | 넥슨 채용시스템 | 3차: HR 프레이밍 완성본 제출 |
 
 ## 6. 진행 상황 (Timeline)
 
@@ -94,6 +94,7 @@ deadline: 수시채용 (조기마감 가능 — 조속 제출 권장)
 | 2026.01.15 | ❌ REJECTED | 2차 서류 탈락 |
 | 2026-03-02 | 📋 DISCOVERED | 3차 공고 발견, 전략 수립 시작 |
 | 2026-03-02 | ✍️ PREPARING | 폴더 생성, JD 저장, 전략 수립 |
+| 2026-03-02 | 📤 SUBMITTED | 넥슨 채용시스템 제출 완료 (실수 1회 + 완성본 1회) |
 
 ## 7. 면접 준비 (Interview Prep)
 
