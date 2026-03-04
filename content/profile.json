@@ -1,10 +1,11 @@
 {
     "meta": {
         "version": "1.4",
-        "last_updated": "2026-03-02"
+        "last_updated": "2026-03-04"
     },
     "personal_info": {
         "name_ko": "임종권",
+        "name_hanja": "林 鐘 權",
         "name_en": "Lim Jong Kwon",
         "email": "ssujklim@gmail.com",
         "phone": "010-4052-0834",
