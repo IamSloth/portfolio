@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>임종권 - 성공회대학교 학생복지처 지원</title>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+    :root {
+        --primary: #1B365D;
+        --border: #333333;
+        --border-light: #999999;
+        --bg-header: #F0F0F0;
+        --text: #111111;
+        --text-sub: #555555;
+        --white: #ffffff;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+        font-family: 'Pretendard', -apple-system, sans-serif;
+        background: #666;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        color: var(--text);
+        -webkit-font-smoothing: antialiased;
+    }
+
+    .page {
+        width: 210mm;
+        min-height: 297mm;
+        background: var(--white);
+        box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+        padding: 12mm 18mm;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+    }
+
+    @page { size: A4; margin: 0; }
+
+    @media print {
+        body { background: none; padding: 0; }
+        .page {
+            box-shadow: none;
+            page-break-after: always;
+            page-break-inside: avoid;
+            margin: 0;
+            height: 297mm;
+            overflow: hidden;
+        }
+        .page:last-child { page-break-after: auto; }
+        .no-print { display: none !important; }
+    }
+
+    .print-btn {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background: var(--primary);
+        color: var(--white);
+        border: none;
+        padding: 14px 28px;
+        border-radius: 4px;
+        font-size: 15px;
+        font-weight: 700;
+        cursor: pointer;
+        z-index: 1000;
+    }
+    .print-btn:hover { opacity: 0.85; }
+
+    h1.doc-title {
+        text-align: center;
+        font-size: 24px;
+        font-weight: 800;
+        letter-spacing: 8px;
+        color: var(--text);
+        margin-bottom: 6px;
+    }
+
+    .doc-subtitle {
+        text-align: center;
+        font-size: 13px;
+        color: var(--text-sub);
+        margin-bottom: 10px;
+    }
+
+    .section-label {
+        font-size: 14px;
+        font-weight: 700;
+        color: var(--primary);
+        margin: 10px 0 5px 0;
+        padding-bottom: 4px;
+        border-bottom: 2px solid var(--primary);
+        display: inline-block;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 6px;
+        font-size: 12px;
+    }
+
+    table, th, td {
+        border: 1px solid var(--border);
+    }
+
+    th {
+        background: var(--bg-header);
+        font-weight: 700;
+        padding: 5px 8px;
+        text-align: center;
+        font-size: 11.5px;
+        color: var(--text);
+        white-space: nowrap;
+    }
+
+    td {
+        padding: 5px 8px;
+        line-height: 1.6;
+        vertical-align: middle;
+    }
+
+    .td-label {
+        background: var(--bg-header);
+        font-weight: 600;
+        text-align: center;
+        width: 90px;
+        white-space: nowrap;
+    }
+
+    .photo-cell {
+        width: 110px;
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    .photo-cell img {
+        width: 100px;
+        height: 115px;
+        object-fit: cover;
+    }
+
+    .fit-summary {
+        background: #FAFAFA;
+        border: 1px solid var(--border-light);
+        padding: 8px 12px;
+        font-size: 12.5px;
+        line-height: 1.6;
+        margin-top: 4px;
+    }
+
+    .fit-summary strong {
+        color: var(--primary);
+    }
+
+    .skill-inline {
+        font-size: 12px;
+        line-height: 1.8;
+        color: var(--text);
+    }
+
+    .skill-inline span {
+        display: inline-block;
+        background: var(--bg-header);
+        border: 1px solid #ddd;
+        padding: 2px 8px;
+        margin: 2px 3px 2px 0;
+        font-size: 11px;
+    }
+
+    .skill-inline .hl {
+        background: var(--primary);
+        color: var(--white);
+        border-color: var(--primary);
+        font-weight: 600;
+    }
+
+    .cover-section {
+        margin-bottom: 28px;
+    }
+
+    .cover-section p {
+        font-size: 13px;
+        line-height: 2.0;
+        text-align: justify;
+        word-break: keep-all;
+        text-indent: 1em;
+    }
+
+    .cover-section p + p {
+        margin-top: 10px;
+    }
+
+    .cover-highlight {
+        background: #FAFAFA;
+        border: 1px solid var(--border-light);
+        border-left: 3px solid var(--primary);
+        padding: 10px 14px;
+        font-size: 12px;
+        line-height: 1.7;
+        margin-top: 12px;
+        color: var(--text);
+    }
+
+    .cover-highlight strong {
+        color: var(--primary);
+    }
+
+    .page-num {
+        text-align: center;
+        font-size: 10px;
+        color: var(--text-sub);
+        margin-top: auto;
+        padding-top: 10px;
+    }
+</style>
+</head>
+<body>
+    <button class="print-btn no-print" onclick="window.print()">PDF 저장 / 인쇄</button>
+
+    <!-- ========== PAGE 1: 이력서 ========== -->
+    <div class="page">
+        <h1 class="doc-title">이  력  서</h1>
+        <div class="doc-subtitle">성공회대학교 학생복지처 일반직 지원</div>
+
+        <!-- 인적사항 -->
+        <div class="section-label">인적사항</div>
+        <table>
+            <tr>
+                <td class="td-label">성 명</td>
+                <td style="width:160px; font-weight:700; font-size:15px;">임 종 권</td>
+                <td class="td-label">생년월일</td>
+                <td>1992. 01. 04 (만 34세)</td>
+                <td class="photo-cell" rowspan="3">
+                    <img src="../../../../common/photos/profile.png" alt="증명사진">
+                </td>
+            </tr>
+            <tr>
+                <td class="td-label">주 소</td>
+                <td colspan="3">경기도 광명시 도덕로 79, 1405호</td>
+            </tr>
+            <tr>
+                <td class="td-label">연락처</td>
+                <td>010-4052-0834</td>
+                <td class="td-label">이메일</td>
+                <td>ssujklim@gmail.com</td>
+            </tr>
+        </table>
+
+        <!-- 학력사항 -->
+        <div class="section-label">학력사항</div>
+        <table>
+            <tr>
+                <th style="width:100px;">기 간</th>
+                <th>학교명</th>
+                <th>전공/학위</th>
+                <th style="width:60px;">비 고</th>
+            </tr>
+            <tr>
+                <td style="text-align:center;">2018.03 ~ 2020.02</td>
+                <td>숭실대학교 사회복지대학원</td>
+                <td><strong>사회적기업 전공</strong> (석사, GPA 4.2/4.5) — 조교 근무</td>
+                <td style="text-align:center;">졸업</td>
+            </tr>
+            <tr>
+                <td style="text-align:center;">2010.03 ~ 2017.02</td>
+                <td>숭실대학교 공과대학</td>
+                <td>전기공학부 / 경제학 복수전공 (학사) — 근로학생</td>
+                <td style="text-align:center;">졸업</td>
+            </tr>
+        </table>
+
+        <!-- 병역사항 -->
+        <div class="section-label">병역사항</div>
+        <table>
+            <tr>
+                <th style="width:100px;">복무기간</th>
+                <th>군별</th>
+                <th>계급</th>
+                <th>병역구분</th>
+            </tr>
+            <tr>
+                <td style="text-align:center;">2010.07 ~ 2012.08</td>
+                <td style="text-align:center;">공군</td>
+                <td style="text-align:center;">병장</td>
+                <td style="text-align:center;">만기제대</td>
+            </tr>
+        </table>
+
+        <!-- 경력사항 -->
+        <div class="section-label">경력사항</div>
+        <table>
+            <tr>
+                <th style="width:135px;">기 간</th>
+                <th style="width:100px;">회사명</th>
+                <th style="width:85px;">직위</th>
+                <th>주요 업무</th>
+            </tr>
+            <tr>
+                <td style="text-align:center; white-space:nowrap;">2023.01 ~ 2026.01<br>(3년)</td>
+                <td style="text-align:center;">함께만드는세상<br>인프라지원팀</td>
+                <td style="text-align:center; white-space:nowrap;">대리 (총무·IT)</td>
+                <td style="font-size:11px; line-height:1.65;">
+                    • 인프라 예산 3.6억 집행·통제 — 지출 증빙·정산보고서 작성<br>
+                    • 외주업체 8개 계약·관리·정산, 행정 문서 수발신<br>
+                    • 커스텀 ERP 도입 PM — 계정과목 표준화·검수<br>
+                    • 비품·자산 관리, 행사 운영 지원, 소방안전관리자 겸임
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align:center; white-space:nowrap;">2020.03 ~ 2021.11<br>(1년 8개월)</td>
+                <td style="text-align:center;">맨지온<br>개발부</td>
+                <td style="text-align:center; white-space:nowrap;">대리 (IoT/QA)</td>
+                <td style="font-size:11px; line-height:1.65;">
+                    • 시설 관제 데이터 정리·분석, 이슈 보고서 작성<br>
+                    • QA 테스트 시나리오 문서화 및 품질 보증 활동
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align:center; white-space:nowrap;">2016.05 ~ 2018.02<br>(1년 9개월)</td>
+                <td style="text-align:center;">엣지크로스<br>기술연구소</td>
+                <td style="text-align:center; white-space:nowrap;">주임 (H/W개발)</td>
+                <td style="font-size:11px; line-height:1.65;">
+                    • BOM 기반 자재 원가 관리, 부품 수급·납기 일정 조율<br>
+                    • 회로 설계·PCB 레이아웃·시제품 제작·테스트
+                </td>
+            </tr>
+        </table>
+
+        <!-- 자격/면허 -->
+        <div class="section-label">자격 · 면허</div>
+        <div class="skill-inline">
+            <span class="hl">사회복지사 1급 (2021.02)</span>
+            <span class="hl">Excel (VBA/Pivot/Power Query)</span>
+            <span class="hl">한글(HWP)</span>
+            <span class="hl">ERP 운용</span>
+            <span>SQL (데이터 추출)</span>
+            <span>1종 대형 운전면허 (2019.02)</span>
+            <span>AI Tools (Claude/ChatGPT)</span>
+        </div>
+
+        <!-- 지원직무 적합성 -->
+        <div class="section-label">지원직무 적합성</div>
+        <div class="fit-summary">
+            • <strong>3년차 총무·행정 실무자</strong> — 예산 집행, 문서 수발신, 계약·정산, 행사 운영 등 일반 행정 전반 경험<br>
+            • <strong>재무 경험</strong>: 예산 3.6억 집행·통제, ERP 회계 모듈 계정과목 표준화, 지출 증빙·정산보고서 작성<br>
+            • <strong>대학 행정 경험</strong>: 학부 근로학생 + 대학원 조교 — 학사행정 환경 이해<br>
+            • <strong>사회복지 석사 + 사회복지사 1급</strong> → 학생복지 직무와 자연스러운 연결
+        </div>
+
+        <div class="page-num">- 1 -</div>
+    </div>
+
+    <!-- ========== PAGE 2: 자기소개서 ========== -->
+    <div class="page">
+        <h1 class="doc-title">자 기 소 개 서</h1>
+        <div class="doc-subtitle">성공회대학교 학생복지처 일반직 지원</div>
+
+        <div class="cover-section">
+            <div class="section-label">1. 지원동기</div>
+            <p>숭실대학교에서 학부와 대학원을 합쳐 9년을 보내며, 학부 시절 근로학생으로, 대학원에서는 조교로 대학 행정의 현장을 가까이 경험했습니다. 등록금 납부 안내, 장학금 서류 정리, 수강 관련 문의 응대 등 학생과 행정 사이에서 소통하는 역할을 자연스럽게 해왔습니다.</p>
+            <p>졸업 후에는 비영리 법인에서 3년간 총무·행정 업무를 담당하며 예산 집행, 문서 관리, 계약·정산 등 조직 운영의 실무를 쌓았습니다. 사회복지학 석사 과정에서 배운 복지 관점과 현장 행정 경험을 결합하여, 학생복지처에서 학생들에게 실질적으로 도움이 되는 행정을 하고 싶어 지원하게 되었습니다.</p>
+        </div>
+
+        <div class="cover-section">
+            <div class="section-label">2. 직무역량</div>
+            <p>함께만드는세상에서 인프라 예산 약 3.6억 원의 집행을 담당하며 지출 증빙 관리와 정산보고서 작성을 일상적으로 수행했습니다. 커스텀 ERP 도입 프로젝트의 PM을 맡아 회계 모듈의 계정과목을 표준화하고 검수하는 업무도 경험했습니다. 이러한 재무·회계 관련 실무 경험은 학생복지처의 예산 관리 및 행정 업무에 바로 활용할 수 있습니다.</p>
+            <p>엑셀(VBA/피벗), 한글(HWP), ERP 등 사무 도구에 능숙하며, 외주업체 8곳과의 계약·정산·일정 조율을 통해 다양한 이해관계자와 협업하는 능력을 길렀습니다. 대학의 여러 부서, 학생, 외부 기관과 소통해야 하는 학생복지처 업무에 적합한 역량입니다.</p>
+            <div class="cover-highlight">
+                🔑 <strong>예산 3.6억 집행·정산</strong> &nbsp;|&nbsp; <strong>ERP 도입 PM</strong> &nbsp;|&nbsp; <strong>사회복지 석사 + 1급</strong> &nbsp;|&nbsp; 근로학생·조교 경험 &nbsp;|&nbsp; Excel/HWP/ERP
+            </div>
+        </div>
+
+        <div class="cover-section">
+            <div class="section-label">3. 입사 후 포부</div>
+            <p>학생복지처는 학생들의 학교생활과 가장 가까운 곳입니다. 입사 후에는 학사행정 시스템과 교내 복지 제도를 빠르게 파악하여, 학생들의 문의에 정확하고 친절하게 응대할 수 있는 담당자가 되겠습니다.</p>
+            <p>사회복지학을 공부하며 배운 '이용자 중심' 관점을 행정 업무에 적용하고 싶습니다. 서류 하나, 안내 한 줄이 학생에게는 큰 차이가 됩니다. 꼼꼼한 행정 처리로 학생들이 학업에만 집중할 수 있는 환경을 만드는 데 기여하겠습니다.</p>
+        </div>
+
+        <div class="page-num">- 2 -</div>
+    </div>
+
+</body>
+</html>

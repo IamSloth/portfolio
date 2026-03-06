@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>임종권 - 이크래더블 기술신용평가 보고서 작성 지원</title>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+    :root {
+        --primary: #1A3C8B;
+        --border: #333333;
+        --border-light: #999999;
+        --bg-header: #F0F0F0;
+        --text: #111111;
+        --text-sub: #555555;
+        --white: #ffffff;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+        font-family: 'Pretendard', -apple-system, sans-serif;
+        background: #666;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        color: var(--text);
+        -webkit-font-smoothing: antialiased;
+    }
+
+    .page {
+        width: 210mm;
+        min-height: 297mm;
+        background: var(--white);
+        box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+        padding: 12mm 18mm;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+    }
+
+    @page { size: A4; margin: 0; }
+
+    @media print {
+        body { background: none; padding: 0; }
+        .page {
+            box-shadow: none;
+            page-break-after: always;
+            page-break-inside: avoid;
+            margin: 0;
+            height: 297mm;
+            overflow: hidden;
+        }
+        .page:last-child { page-break-after: auto; }
+        .no-print { display: none !important; }
+    }
+
+    .print-btn {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background: var(--primary);
+        color: var(--white);
+        border: none;
+        padding: 14px 28px;
+        border-radius: 4px;
+        font-size: 15px;
+        font-weight: 700;
+        cursor: pointer;
+        z-index: 1000;
+    }
+    .print-btn:hover { opacity: 0.85; }
+
+    h1.doc-title {
+        text-align: center;
+        font-size: 24px;
+        font-weight: 800;
+        letter-spacing: 8px;
+        color: var(--text);
+        margin-bottom: 6px;
+    }
+
+    .doc-subtitle {
+        text-align: center;
+        font-size: 13px;
+        color: var(--text-sub);
+        margin-bottom: 10px;
+    }
+
+    .section-label {
+        font-size: 14px;
+        font-weight: 700;
+        color: var(--primary);
+        margin: 10px 0 5px 0;
+        padding-bottom: 4px;
+        border-bottom: 2px solid var(--primary);
+        display: inline-block;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 6px;
+        font-size: 12px;
+    }
+
+    table, th, td {
+        border: 1px solid var(--border);
+    }
+
+    th {
+        background: var(--bg-header);
+        font-weight: 700;
+        padding: 5px 8px;
+        text-align: center;
+        font-size: 11.5px;
+        color: var(--text);
+        white-space: nowrap;
+    }
+
+    td {
+        padding: 5px 8px;
+        line-height: 1.6;
+        vertical-align: middle;
+    }
+
+    .td-label {
+        background: var(--bg-header);
+        font-weight: 600;
+        text-align: center;
+        width: 90px;
+        white-space: nowrap;
+    }
+
+    .photo-cell {
+        width: 110px;
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    .photo-cell img {
+        width: 100px;
+        height: 115px;
+        object-fit: cover;
+    }
+
+    .fit-summary {
+        background: #FAFAFA;
+        border: 1px solid var(--border-light);
+        padding: 8px 12px;
+        font-size: 12.5px;
+        line-height: 1.6;
+        margin-top: 4px;
+    }
+
+    .fit-summary strong {
+        color: var(--primary);
+    }
+
+    .skill-inline {
+        font-size: 12px;
+        line-height: 1.8;
+        color: var(--text);
+    }
+
+    .skill-inline span {
+        display: inline-block;
+        background: var(--bg-header);
+        border: 1px solid #ddd;
+        padding: 2px 8px;
+        margin: 2px 3px 2px 0;
+        font-size: 11px;
+    }
+
+    .skill-inline .hl {
+        background: var(--primary);
+        color: var(--white);
+        border-color: var(--primary);
+        font-weight: 600;
+    }
+
+    .cover-section {
+        margin-bottom: 28px;
+    }
+
+    .cover-section p {
+        font-size: 13px;
+        line-height: 2.0;
+        text-align: justify;
+        word-break: keep-all;
+        text-indent: 1em;
+    }
+
+    .cover-section p + p {
+        margin-top: 10px;
+    }
+
+    .cover-highlight {
+        background: #FAFAFA;
+        border: 1px solid var(--border-light);
+        border-left: 3px solid var(--primary);
+        padding: 10px 14px;
+        font-size: 12px;
+        line-height: 1.7;
+        margin-top: 12px;
+        color: var(--text);
+    }
+
+    .cover-highlight strong {
+        color: var(--primary);
+    }
+
+    .page-num {
+        text-align: center;
+        font-size: 10px;
+        color: var(--text-sub);
+        margin-top: auto;
+        padding-top: 10px;
+    }
+</style>
+</head>
+<body>
+    <button class="print-btn no-print" onclick="window.print()">PDF 저장 / 인쇄</button>
+
+    <!-- ========== PAGE 1: 이력서 ========== -->
+    <div class="page">
+        <h1 class="doc-title">이  력  서</h1>
+        <div class="doc-subtitle">기술신용평가(TCB) 보고서 작성 지원</div>
+
+        <!-- 인적사항 -->
+        <div class="section-label">인적사항</div>
+        <table>
+            <tr>
+                <td class="td-label">성 명</td>
+                <td style="width:160px; font-weight:700; font-size:15px;">임 종 권</td>
+                <td class="td-label">생년월일</td>
+                <td>1992. 01. 04 (만 34세)</td>
+                <td class="photo-cell" rowspan="3">
+                    <img src="../../../../common/photos/profile.png" alt="증명사진">
+                </td>
+            </tr>
+            <tr>
+                <td class="td-label">주 소</td>
+                <td colspan="3">경기도 광명시 도덕로 79, 1405호</td>
+            </tr>
+            <tr>
+                <td class="td-label">연락처</td>
+                <td>010-4052-0834</td>
+                <td class="td-label">이메일</td>
+                <td>ssujklim@gmail.com</td>
+            </tr>
+        </table>
+
+        <!-- 학력사항 -->
+        <div class="section-label">학력사항</div>
+        <table>
+            <tr>
+                <th style="width:100px;">기 간</th>
+                <th>학교명</th>
+                <th>전공/학위</th>
+                <th style="width:60px;">비 고</th>
+            </tr>
+            <tr>
+                <td style="text-align:center;">2018.03 ~ 2020.02</td>
+                <td>숭실대학교 사회복지대학원</td>
+                <td>사회적기업 전공 (석사, GPA 4.2/4.5)</td>
+                <td style="text-align:center;">졸업</td>
+            </tr>
+            <tr>
+                <td style="text-align:center;">2010.03 ~ 2017.02</td>
+                <td>숭실대학교 공과대학</td>
+                <td><strong>전기공학부</strong> / 경제학 복수전공 (학사)</td>
+                <td style="text-align:center;">졸업</td>
+            </tr>
+        </table>
+
+        <!-- 병역사항 -->
+        <div class="section-label">병역사항</div>
+        <table>
+            <tr>
+                <th style="width:100px;">복무기간</th>
+                <th>군별</th>
+                <th>계급</th>
+                <th>병역구분</th>
+            </tr>
+            <tr>
+                <td style="text-align:center;">2010.07 ~ 2012.08</td>
+                <td style="text-align:center;">공군</td>
+                <td style="text-align:center;">병장</td>
+                <td style="text-align:center;">만기제대</td>
+            </tr>
+        </table>
+
+        <!-- 경력사항 -->
+        <div class="section-label">경력사항</div>
+        <table>
+            <tr>
+                <th style="width:135px;">기 간</th>
+                <th style="width:100px;">회사명</th>
+                <th style="width:85px;">직위</th>
+                <th>주요 업무</th>
+            </tr>
+            <tr>
+                <td style="text-align:center; white-space:nowrap;">2023.01 ~ 2026.01<br>(3년)</td>
+                <td style="text-align:center;">함께만드는세상<br>인프라지원팀</td>
+                <td style="text-align:center; white-space:nowrap;">대리 (총무·IT)</td>
+                <td style="font-size:11px; line-height:1.65;">
+                    • 인프라 예산 3.6억 집행·통제 — 비용 분석 및 정산보고서 작성<br>
+                    • 커스텀 ERP 도입 PM — 기술 요구사항 정의·비용/효과 분석·검수<br>
+                    • 외주업체 8개 기술력·가격 비교 평가 후 계약·정산 총괄<br>
+                    • IT 자산 현황 분석 및 투자 효율성 보고
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align:center; white-space:nowrap;">2020.03 ~ 2021.11<br>(1년 8개월)</td>
+                <td style="text-align:center;">맨지온<br>개발부</td>
+                <td style="text-align:center; white-space:nowrap;">대리 (IoT/QA)</td>
+                <td style="font-size:11px; line-height:1.65;">
+                    • ESP32 기반 IoT 프로토타입 개발 — 기술 실현 가능성 검증<br>
+                    • 시설 관제 데이터 분석, 기술 이슈 보고서 작성
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align:center; white-space:nowrap;">2016.05 ~ 2018.02<br>(1년 9개월)</td>
+                <td style="text-align:center;">엣지크로스<br>기술연구소</td>
+                <td style="text-align:center; white-space:nowrap;">주임 (H/W개발)</td>
+                <td style="font-size:11px; line-height:1.65;">
+                    • 회로 설계 → PCB 레이아웃 → 시제품 제작 → 테스트 풀사이클<br>
+                    • BOM 기반 자재 원가 분석, 부품 수급·납기 일정 관리
+                </td>
+            </tr>
+        </table>
+
+        <!-- 자격/면허 -->
+        <div class="section-label">자격 · 보유 역량</div>
+        <div class="skill-inline">
+            <span class="hl">전기공학 학사</span>
+            <span class="hl">경제학 복수전공</span>
+            <span class="hl">Excel (VBA/Pivot/Power Query)</span>
+            <span>SQL (데이터 추출·분석)</span>
+            <span>한글(HWP)</span>
+            <span>ERP 운용</span>
+            <span>사회복지사 1급 (2021.02)</span>
+            <span>1종 대형 운전면허 (2019.02)</span>
+            <span>AI Tools (Claude/ChatGPT)</span>
+        </div>
+
+        <!-- 지원직무 적합성 -->
+        <div class="section-label">지원직무 적합성</div>
+        <div class="fit-summary">
+            • <strong>전기공학(기술) + 경제학(가치평가) 복수전공</strong> — 기술의 경제적 가치를 분석하는 TCB 업무에 최적 조합<br>
+            • <strong>HW 개발 풀사이클 경험</strong> (회로설계→PCB→시제품→테스트) — 기술 실현 가능성을 현실적으로 판단 가능<br>
+            • <strong>ERP 도입 PM + 외주 기술력 비교 평가</strong> — 기술 도입의 비용/효과 분석 및 보고서 작성 경험<br>
+            • 엑셀(VBA/Pivot), SQL, 한글 능숙 → <strong>데이터 분석 기반 보고서 작성 즉시 투입 가능</strong>
+        </div>
+
+        <div class="page-num">- 1 -</div>
+    </div>
+
+    <!-- ========== PAGE 2: 자기소개서 ========== -->
+    <div class="page">
+        <h1 class="doc-title">자 기 소 개 서</h1>
+        <div class="doc-subtitle">기술신용평가(TCB) 보고서 작성 지원</div>
+
+        <div class="cover-section">
+            <div class="section-label">1. 지원동기</div>
+            <p>숭실대학교에서 전기공학을 전공하고 경제학을 복수전공하면서, 기술이 가진 본질적 가치와 그것이 시장에서 어떻게 평가되는지에 대해 양쪽 시각을 갖게 되었습니다. 졸업 후에는 하드웨어 개발, IoT 시스템 구축, ERP 도입 등 다양한 기술 현장에서 일하며 '기술이 실제로 돈이 되려면 무엇이 필요한지'를 몸으로 배웠습니다.</p>
+            <p>기술신용평가는 기업이 보유한 기술의 경제적 가치를 체계적으로 분석하고 등급화하는 작업입니다. 기술을 직접 만져본 사람이 쓰는 평가 보고서는 다를 수밖에 없다고 생각합니다. 이공계 배경과 현장 경험을 TCB 보고서 작성에 녹여내고 싶어 지원하게 되었습니다.</p>
+        </div>
+
+        <div class="cover-section">
+            <div class="section-label">2. 직무역량</div>
+            <p>엣지크로스 기술연구소에서 회로 설계부터 PCB 레이아웃, 시제품 납땜·조립, 테스트까지 하드웨어 개발의 전 과정을 수행했습니다. BOM(자재 명세서)을 기반으로 부품 원가를 분석하고, 양산 가능성과 수급 리스크를 판단하는 업무도 병행했습니다. 기술의 완성도와 상용화 가능성을 동시에 보는 눈을 기른 경험입니다.</p>
+            <p>함께만드는세상에서는 커스텀 ERP 도입 프로젝트의 PM을 맡아, 기술 요구사항 정의부터 비용/효과 분석, 최종 검수까지 주도했습니다. 또한 외주업체 8곳의 기술력과 가격을 비교 평가하여 계약을 체결한 경험이 있습니다. 이러한 경험은 기업의 기술 자산을 객관적으로 평가하고 보고서로 정리하는 TCB 업무의 기반이 됩니다.</p>
+            <p>보고서 작성 도구로는 엑셀(VBA/피벗/Power Query), SQL, 한글(HWP)을 능숙하게 활용하며, 데이터를 수집·정리·분석하여 구조화된 문서로 산출하는 데 익숙합니다.</p>
+            <div class="cover-highlight">
+                🔑 <strong>전기공학+경제학 복수전공</strong> &nbsp;|&nbsp; <strong>HW 개발 풀사이클</strong> &nbsp;|&nbsp; <strong>ERP 도입 PM (비용/효과 분석)</strong> &nbsp;|&nbsp; <strong>외주 기술력 비교 평가</strong> &nbsp;|&nbsp; Excel/SQL/HWP
+            </div>
+        </div>
+
+        <div class="cover-section">
+            <div class="section-label">3. 입사 후 포부</div>
+            <p>입사 초기에는 TCB 보고서의 구조와 평가 기준을 빠르게 습득하는 데 집중하겠습니다. 이공계 전공 지식과 현장 경험을 바탕으로, 기술의 실현 가능성과 경제적 가치를 균형 있게 판단할 수 있는 평가자로 성장하고 싶습니다.</p>
+            <p>특히 전기·전자, IoT, 제조 분야의 기술 평가에서는 직접 개발과 운영을 경험한 만큼 더 깊이 있는 분석이 가능할 것이라 생각합니다. 정확하고 신뢰할 수 있는 보고서를 작성하여 이크래더블의 평가 품질에 기여하겠습니다.</p>
+        </div>
+
+        <div class="page-num">- 2 -</div>
+    </div>
+
+</body>
+</html>

@@ -25,6 +25,9 @@
 | 12 | 우아한형제들 (Woowa) | Robotics Ops | **SUBMITTED** | 온라인 지원 완료 (2026-03-03). 12개월 계약직. 결과 대기 | `12_woowa/robotics_ops/` |
 | 13 | 동양미래대학교 | 일학습병행사업 관리 및 운영 | **SUBMITTED** | 이메일 제출 완료 (2026-03-03). 면접 2026-03-06 예정. 결과 대기 | `13_dongyang/general_admin/` |
 | 14 | 함께하는사랑밭 | 행정·회계 및 사업관리 | **SUBMITTED** | 이메일 제출 완료 (2026-03-04). hwp 자사양식. 결과 대기 | `14_withgo/csr_admin/` |
+| 15 | 신한투자증권 (에이젝코리아 파견) | 사무보조 (Back Office) | **SUBMITTED** | 사람인 온라인 제출 완료 (2026-03-05). 결과 대기 | `15_shinhan_invest/office_assistant/` |
+| 16 | 이크래더블 (아이위더스 파견) | TCB 보고서 작성 | **SUBMITTED** | 사람인 온라인 제출 완료 (2026-03-05). 결과 대기 | `16_ecredible/tcb_report/` |
+| 17 | 성공회대학교 | 학생복지처 일반직 | **SUBMITTED** | 사람인 온라인 제출 완료 (2026-03-05). 결과 대기 | `17_sungkonghoe/student_welfare/` |
 | 03 | 11st | General Affairs | ON_HOLD | 지원 안 함 (보류 유지) | `03_11st/general_affairs/` |
 
 ### Closed Applications
@@ -57,6 +60,6 @@
 - **Filenames**: English snake_case only. No Korean filenames (except original form templates and final 제출본).
 - **Scripts**: Place inside the relevant application's `scripts/` subfolder. Never in project root.
 - **Commits**: Always include `Co-Authored-By: {Model Name} <noreply@anthropic.com>` trailer.
-- **Application folders**: Numbered by discovery date: `{NN}_{company}/`. Next new company = `15_`.
+- **Application folders**: Numbered by discovery date: `{NN}_{company}/`. Next new company = `18_`.
 - **Profile sync**: If you discover new career/skill/cert info during work, update `profile.json` immediately.
 - **Session end**: Update this file → commit → push. Keep entries concise (token budget matters).
