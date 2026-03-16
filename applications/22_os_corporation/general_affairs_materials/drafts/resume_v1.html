@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>임종권 이력서 — 오스 주식회사</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;800&display=swap');
+
+        @page { size: A4; margin: 0; }
+        * { box-sizing: border-box; }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            margin: 0; padding: 0;
+            background: #fff; color: #1a1a1a;
+            -webkit-print-color-adjust: exact;
+            word-break: keep-all;
+        }
+
+        /* Os Corporation brand: deep navy + clean white */
+        :root {
+            --os-navy: #1B3A5C;
+            --os-accent: #2E6B9E;
+            --os-light: #E8F0F8;
+            --os-border: #C5D6E8;
+        }
+
+        .page {
+            width: 210mm;
+            height: 296mm;
+            margin: 0 auto;
+            display: flex;
+            overflow: hidden;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 68mm;
+            background: var(--os-navy);
+            color: #fff;
+            padding: 22px 16px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .profile-img {
+            width: 100px; height: 130px;
+            margin: 0 auto 18px;
+            border: 2px solid rgba(255,255,255,0.3);
+            background: #fff;
+            padding: 3px;
+        }
+        .profile-img img { width: 100%; height: 100%; object-fit: cover; }
+
+        .sidebar-name {
+            font-size: 20px; font-weight: 800;
+            text-align: center; margin-bottom: 2px;
+            letter-spacing: 4px;
+        }
+        .sidebar-target {
+            font-size: 10px; text-align: center;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 18px; letter-spacing: 1px;
+        }
+
+        .contact-block { margin-bottom: 22px; }
+        .contact-item {
+            font-size: 10.5px; margin-bottom: 5px;
+            display: flex; align-items: flex-start; gap: 6px;
+            color: rgba(255,255,255,0.9); line-height: 1.4;
+        }
+        .contact-icon { width: 14px; flex-shrink: 0; font-weight: 700; color: rgba(255,255,255,0.5); font-size: 9px; padding-top: 1px; }
+
+        .side-section { margin-bottom: 18px; }
+        .side-title {
+            font-size: 10px; font-weight: 700;
+            letter-spacing: 2px; text-transform: uppercase;
+            border-bottom: 1px solid rgba(255,255,255,0.25);
+            padding-bottom: 5px; margin-bottom: 10px;
+            color: rgba(255,255,255,0.6);
+        }
+        .side-item {
+            font-size: 10.5px; margin-bottom: 8px;
+            padding-left: 8px; position: relative; line-height: 1.4;
+        }
+        .side-item::before {
+            content: '▸'; position: absolute; left: 0; top: 0;
+            color: var(--os-accent); font-size: 8px;
+        }
+        .side-school { font-weight: 700; display: block; }
+        .side-detail { color: rgba(255,255,255,0.6); font-size: 9.5px; }
+
+        .skill-tags { display: flex; flex-wrap: wrap; gap: 4px; }
+        .skill-tag {
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.2);
+            font-size: 9.5px; padding: 2px 7px;
+            color: rgba(255,255,255,0.9);
+        }
+
+        /* Main Content */
+        .main {
+            flex: 1;
+            padding: 22px 24px 18px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .main-header {
+            border-bottom: 3px solid var(--os-navy);
+            padding-bottom: 10px; margin-bottom: 16px;
+        }
+        .main-name {
+            font-size: 26px; font-weight: 800;
+            color: var(--os-navy); letter-spacing: -1px;
+        }
+        .main-role {
+            font-size: 12px; color: #666;
+            margin-top: 2px; letter-spacing: 0.5px;
+        }
+
+        /* Summary / Motivation */
+        .summary-box {
+            background: var(--os-light);
+            border-left: 3px solid var(--os-navy);
+            padding: 12px 14px;
+            font-size: 11px; line-height: 1.55;
+            color: #333; margin-bottom: 16px;
+        }
+        .summary-box strong { color: var(--os-navy); }
+
+        .section { margin-bottom: 4px; }
+        .grow { flex: 1; }
+        .section-title {
+            font-size: 11px; font-weight: 700; color: var(--os-navy);
+            letter-spacing: 1.5px; text-transform: uppercase;
+            border-bottom: 1px solid var(--os-border);
+            padding-bottom: 5px; margin-bottom: 10px;
+        }
+
+        /* Experience */
+        .exp-item {
+            display: flex; gap: 12px;
+            padding-bottom: 10px; margin-bottom: 8px;
+            border-bottom: 1px solid #eee;
+        }
+        .exp-item:last-child { border-bottom: none; margin-bottom: 0; }
+        .exp-left { width: 88px; flex-shrink: 0; }
+        .exp-period { font-size: 10px; color: #888; font-weight: 500; line-height: 1.4; }
+        .exp-duration {
+            display: inline-block; margin-top: 3px; font-size: 9px;
+            background: var(--os-light); color: var(--os-navy);
+            padding: 1px 5px; font-weight: 600;
+        }
+        .exp-right { flex: 1; }
+        .exp-company { font-size: 13px; font-weight: 700; color: #000; margin-bottom: 1px; }
+        .exp-role { font-size: 10.5px; color: var(--os-navy); font-weight: 600; margin-bottom: 6px; }
+        .exp-list { list-style: none; margin: 0; padding: 0; }
+        .exp-list li {
+            font-size: 10.5px; color: #444; padding-left: 9px;
+            position: relative; margin-bottom: 3px; line-height: 1.45;
+        }
+        .exp-list li::before {
+            content: '▸'; position: absolute; left: 0;
+            color: var(--os-navy); font-size: 8px; top: 2px;
+        }
+        strong { color: #1a1a1a; font-weight: 600; }
+
+        /* Bottom */
+        .bottom-section { margin-top: auto; padding-top: 6px; }
+        .cert-row { display: flex; gap: 16px; }
+        .cert-item {
+            font-size: 10.5px; padding-left: 9px;
+            position: relative; line-height: 1.4;
+        }
+        .cert-item::before {
+            content: '▸'; position: absolute; left: 0;
+            color: var(--os-navy); font-size: 8px; top: 2px;
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="profile-img">
+            <img src="../../../../common/photos/profile.png" alt="임종권">
+        </div>
+        <div class="sidebar-name">임 종 권</div>
+        <div class="sidebar-target">총무 · 자재관리 지원</div>
+
+        <div class="contact-block">
+            <div class="contact-item">
+                <span class="contact-icon">TEL</span>
+                <span>010-4052-0834</span>
+            </div>
+            <div class="contact-item">
+                <span class="contact-icon">MAIL</span>
+                <span>ssujklim@gmail.com</span>
+            </div>
+            <div class="contact-item">
+                <span class="contact-icon">ADDR</span>
+                <span>경기도 광명시 도덕로 79</span>
+            </div>
+            <div class="contact-item">
+                <span class="contact-icon">BIRTH</span>
+                <span>1992.01.04</span>
+            </div>
+        </div>
+
+        <div class="side-section">
+            <div class="side-title">Education</div>
+            <div class="side-item">
+                <span class="side-school">숭실대학교 사회복지대학원</span>
+                <span class="side-detail">사회적기업전공 석사 · 4.3/4.5 · 2020</span>
+            </div>
+            <div class="side-item">
+                <span class="side-school">숭실대학교 공과대학</span>
+                <span class="side-detail">전기공학부 학사 (경제학 복수전공) · 2017</span>
+            </div>
+            <div class="side-item">
+                <span class="side-school">한국폴리텍 광명융합기술교육원</span>
+                <span class="side-detail">AR 시스템제어 수료 · 2022</span>
+            </div>
+        </div>
+
+        <div class="side-section">
+            <div class="side-title">Certifications</div>
+            <div class="side-item">
+                <span class="side-school">사회복지사 1급</span>
+                <span class="side-detail">보건복지부 (2021)</span>
+            </div>
+            <div class="side-item">
+                <span class="side-school">1종 대형 운전면허</span>
+                <span class="side-detail">경찰청 (12년 무사고)</span>
+            </div>
+        </div>
+
+        <div class="side-section">
+            <div class="side-title">Skills</div>
+            <div class="skill-tags">
+                <span class="skill-tag">MS Office</span>
+                <span class="skill-tag">ERP (High-Q)</span>
+                <span class="skill-tag">SQL</span>
+                <span class="skill-tag">HW 설계/납땜</span>
+                <span class="skill-tag">PCB Layout</span>
+                <span class="skill-tag">BOM 관리</span>
+                <span class="skill-tag">네트워크</span>
+                <span class="skill-tag">Notion/Slack</span>
+            </div>
+        </div>
+
+        <div class="side-section">
+            <div class="side-title">Military</div>
+            <div class="side-item">
+                <span class="side-school">공군 병장 만기제대</span>
+                <span class="side-detail">2010.07 ~ 2012.08</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main">
+        <div class="main-header">
+            <div class="main-name">임 종 권</div>
+            <div class="main-role">총무 3년 · 자재관리(BOM) · HW 개발 출신 — 반도체 장비 제조 현장을 이해하는 관리자</div>
+        </div>
+
+        <div class="summary-box">
+            <strong>지원 동기</strong><br>
+            숭실대학교 전기공학부를 졸업하고 HW 개발(회로 설계·PCB·시제품 제작)에서 커리어를 시작했습니다. 이후 3년간 총무·IT 인프라 운영을 담당하며, 외주업체 관리·예산 집행·자산 수명 주기 관리까지 폭넓은 관리 역량을 쌓았습니다. <strong>오스 주식회사의 총무·자재관리 포지션</strong>은 제가 보유한 두 가지 축 — 제조업 현장의 HW 이해도와 체계적인 총무 운영 경험 — 이 만나는 자리라고 생각하여 지원합니다.
+        </div>
+
+        <!-- Experience -->
+        <div class="section grow">
+            <div class="section-title">Work Experience</div>
+
+            <div class="exp-item">
+                <div class="exp-left">
+                    <div class="exp-period">2023.01 ~<br>2026.02</div>
+                    <span class="exp-duration">3년 1개월</span>
+                </div>
+                <div class="exp-right">
+                    <div class="exp-company">(사)함께만드는세상</div>
+                    <div class="exp-role">경영지원부 인프라지원팀 · 총무·IT지원 대리</div>
+                    <ul class="exp-list">
+                        <li><strong>총무 운영:</strong> 소방·승강기·전기·방역 등 외주업체 8개 계약·정산·증빙 총괄, 법정 점검 일정 관리</li>
+                        <li><strong>예산 관리:</strong> 인프라 예산 약 3.6억 원 직접 집행·통제 (집행률 88.5%), 재계약 협상으로 연 500만 원 절감</li>
+                        <li><strong>ERP 도입:</strong> 커스텀 ERP 구축 실무 전담 — 요구사항 정의·계정과목 표준화·데이터 검수 풀사이클</li>
+                        <li><strong>IT 자산:</strong> HW/SW 수명 주기 관리, 네트워크/PC 1차 트러블슈팅 내재화 (유지보수비 30% 절감)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="exp-item">
+                <div class="exp-left">
+                    <div class="exp-period">2016.05 ~<br>2018.02</div>
+                    <span class="exp-duration">1년 9개월</span>
+                </div>
+                <div class="exp-right">
+                    <div class="exp-company">(주)엣지크로스</div>
+                    <div class="exp-role">기술연구소 · H/W 개발 및 자재관리 주임</div>
+                    <ul class="exp-list">
+                        <li><strong>HW 개발:</strong> 회로 설계 → PCB 레이아웃 → 시제품 제작(납땜·실장) → 테스트/검증 풀사이클</li>
+                        <li><strong>자재/BOM 관리:</strong> 자재 명세서(BOM) 관리 체계화, 부품 발주·입출고·재고 추적, 납기 준수율 100%</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="exp-item">
+                <div class="exp-left">
+                    <div class="exp-period">2020.03 ~<br>2021.11</div>
+                    <span class="exp-duration">1년 9개월</span>
+                </div>
+                <div class="exp-right">
+                    <div class="exp-company">(주)맨지온</div>
+                    <div class="exp-role">전자개발부 · 임베디드 개발 및 QA 대리</div>
+                    <ul class="exp-list">
+                        <li><strong>QA:</strong> 사용자 관점 UI/UX 테스트 시나리오 설계, 품질 보증 활동 주도</li>
+                        <li><strong>로그 분석:</strong> 시설 관제 데이터 로그 분석으로 통신 장애 원인 규명 및 해결</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="bottom-section">
+            <div class="section-title">Awards</div>
+            <div class="cert-item">
+                <strong>메타버스 콘텐츠 리크루팅 캠프 대상</strong>
+                <span style="color:#888; font-size:10px;"> · 과학기술정보통신부 (2022)</span>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

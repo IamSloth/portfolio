@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>임종권 이력서 — 데스코 AX TEAM</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;800&display=swap');
+
+        @page { size: A4; margin: 0; }
+        * { box-sizing: border-box; }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            margin: 0; padding: 0;
+            background: #fff; color: #1a1a1a;
+            -webkit-print-color-adjust: exact;
+            word-break: keep-all;
+        }
+
+        :root {
+            --desco-teal: #00B894;
+            --desco-dark: #0D1B2A;
+            --desco-mid: #1B2D45;
+            --desco-light: #E8FBF5;
+            --desco-border: #B8E6D8;
+        }
+
+        .page {
+            width: 210mm;
+            height: 296mm;
+            margin: 0 auto;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        /* Top Banner */
+        .top-banner {
+            background: var(--desco-dark);
+            color: #fff;
+            padding: 18px 24px 14px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+        .banner-left {}
+        .banner-name {
+            font-size: 26px; font-weight: 800; letter-spacing: -1px;
+        }
+        .banner-role {
+            font-size: 11.5px; color: var(--desco-teal);
+            font-weight: 600; margin-top: 2px;
+        }
+        .banner-right {
+            text-align: right;
+            font-size: 9.5px; color: rgba(255,255,255,0.6);
+            line-height: 1.6;
+        }
+        .banner-right strong { color: rgba(255,255,255,0.9); }
+        .banner-right a { color: var(--desco-teal); text-decoration: none; font-weight: 600; }
+
+        /* Body */
+        .body-content {
+            flex: 1;
+            padding: 18px 24px 14px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Objective */
+        .objective {
+            background: var(--desco-light);
+            border-left: 3px solid var(--desco-teal);
+            padding: 11px 14px;
+            font-size: 11px; line-height: 1.55;
+            color: #333; margin-bottom: 16px;
+        }
+        .objective strong { color: var(--desco-dark); }
+
+        .section { margin-bottom: 10px; }
+        .grow { flex: 1; }
+        .section-title {
+            font-size: 10.5px; font-weight: 700; color: var(--desco-dark);
+            letter-spacing: 1.5px; text-transform: uppercase;
+            border-bottom: 2px solid var(--desco-teal);
+            padding-bottom: 4px; margin-bottom: 10px;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .section-subtitle {
+            font-size: 8.5px; color: #999; font-weight: 400;
+            letter-spacing: 0; text-transform: none;
+        }
+
+        /* Problem-Solution Cards */
+        .ps-grid {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 8px; margin-bottom: 4px;
+        }
+        .ps-card {
+            border: 1px solid var(--desco-border);
+            background: var(--desco-light);
+            padding: 10px 12px;
+        }
+        .ps-label {
+            font-size: 8.5px; font-weight: 700;
+            color: var(--desco-teal); letter-spacing: 1px;
+            margin-bottom: 3px;
+        }
+        .ps-title {
+            font-size: 11.5px; font-weight: 700;
+            color: var(--desco-dark); margin-bottom: 2px;
+        }
+        .ps-desc {
+            font-size: 9.5px; color: #555; line-height: 1.4;
+        }
+        .ps-result {
+            font-size: 9px; color: var(--desco-dark);
+            font-weight: 600; margin-top: 3px;
+        }
+
+        /* AI Toolkit (with context) */
+        .toolkit-grid {
+            display: grid; grid-template-columns: 1fr 1fr 1fr;
+            gap: 6px; margin-bottom: 4px;
+        }
+        .toolkit-item {
+            background: var(--desco-dark); padding: 8px 10px;
+        }
+        .toolkit-name {
+            font-size: 10px; font-weight: 700; color: var(--desco-teal);
+            margin-bottom: 1px;
+        }
+        .toolkit-context {
+            font-size: 8.5px; color: rgba(255,255,255,0.6); line-height: 1.35;
+        }
+
+        /* Experience */
+        .exp-item {
+            display: flex; gap: 12px;
+            padding-bottom: 10px; margin-bottom: 8px;
+            border-bottom: 1px solid #eee;
+        }
+        .exp-item:last-child { border-bottom: none; margin-bottom: 0; }
+        .exp-left { width: 82px; flex-shrink: 0; }
+        .exp-period { font-size: 9.5px; color: #888; font-weight: 500; line-height: 1.4; }
+        .exp-duration {
+            display: inline-block; margin-top: 2px; font-size: 8.5px;
+            background: var(--desco-light); color: var(--desco-dark);
+            padding: 1px 5px; font-weight: 600;
+        }
+        .exp-right { flex: 1; }
+        .exp-company { font-size: 12px; font-weight: 700; color: #000; margin-bottom: 1px; }
+        .exp-role { font-size: 9.5px; color: var(--desco-dark); font-weight: 600; margin-bottom: 4px; }
+        .exp-list { list-style: none; margin: 0; padding: 0; }
+        .exp-list li {
+            font-size: 10.5px; color: #444; padding-left: 9px;
+            position: relative; margin-bottom: 3px; line-height: 1.45;
+        }
+        .exp-list li::before {
+            content: '▸'; position: absolute; left: 0;
+            color: var(--desco-teal); font-size: 8px; top: 2px;
+        }
+        strong { color: #1a1a1a; font-weight: 600; }
+
+        /* Bottom Grid */
+        .bottom-grid {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 16px; margin-top: auto; padding-top: 10px;
+        }
+        .edu-item {
+            font-size: 10px; margin-bottom: 4px;
+            padding-left: 9px; position: relative;
+        }
+        .edu-item::before {
+            content: '▸'; position: absolute; left: 0;
+            color: var(--desco-teal); font-size: 8px; top: 2px;
+        }
+        .edu-school { font-weight: 700; color: #1a1a1a; }
+        .edu-detail { color: #888; font-size: 9px; }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- Top Banner -->
+    <div class="top-banner">
+        <div class="banner-left">
+            <div class="banner-name">임 종 권</div>
+            <div class="banner-role">경영지원 · AX TEAM 지원 — 데이터를 구조화하고 AI로 프로세스를 재설계하는 실무자</div>
+        </div>
+        <div class="banner-right">
+            <strong>010-4052-0834</strong><br>
+            ssujklim@gmail.com<br>
+            경기도 광명시 거주 · 1992.01.04<br>
+            <a href="https://iamsloth.github.io/portfolio/">Portfolio ↗</a>
+        </div>
+    </div>
+
+    <div class="body-content">
+
+        <!-- Objective -->
+        <div class="objective">
+            <strong>Why AX TEAM —</strong>
+            3년간 경영지원 실무(예산·정산·ERP)를 담당하며, 반복되는 집계·보고 업무에서 "이걸 자동화할 수 없을까?"를 끊임없이 고민해왔습니다. ERP 도입으로 수작업을 줄인 경험 위에, 지금은 Claude와 Python으로 실제 업무 자동화를 수행하고 있습니다. 데스코의 해외 영업·경영 데이터가 이미 축적되어 있고, AX팀이 이를 AI로 자동화하는 단계에 있다는 점에서 — <strong>제가 지금 하고 있는 일의 연장선</strong>이라고 판단했습니다.
+        </div>
+
+        <!-- Problem Solving Portfolio -->
+        <div class="section">
+            <div class="section-title">
+                Problem Solving Portfolio
+                <span class="section-subtitle">문제를 발견하고, 끝까지 결과물로 만든 경험</span>
+            </div>
+            <div class="ps-grid">
+                <div class="ps-card">
+                    <div class="ps-label">PROBLEM 01</div>
+                    <div class="ps-title">수작업 예산 관리 → ERP 디지털 전환</div>
+                    <div class="ps-desc">엑셀 기반 200개 예산 항목을 ERP 계정 체계로 재설계. 요구사항 정의→표준화→SQL 데이터 검수→기능 검수 단독 수행.</div>
+                    <div class="ps-result">→ 분기 결산 소요시간 5일→2일 단축</div>
+                </div>
+                <div class="ps-card">
+                    <div class="ps-label">PROBLEM 02</div>
+                    <div class="ps-title">외주 유지보수비 과다 → 내재화</div>
+                    <div class="ps-desc">네트워크/PC 장애의 반복 패턴을 분석하고 대응 매뉴얼 정리. 1차 트러블슈팅을 직접 수행하는 체계 구축.</div>
+                    <div class="ps-result">→ 연간 유지보수 비용 30% 절감</div>
+                </div>
+                <div class="ps-card">
+                    <div class="ps-label">PROBLEM 03</div>
+                    <div class="ps-title">반복 문서 작업 → Claude+Python 자동화</div>
+                    <div class="ps-desc">개인 프로젝트로 Claude API + Python을 활용한 문서 생성·이메일 발송·데이터 파이프라인 자동화 시스템을 직접 구축·운영 중.</div>
+                    <div class="ps-result">→ AI 에이전트 활용 자동화를 직접 설계·구현한 경험</div>
+                </div>
+                <div class="ps-card">
+                    <div class="ps-label">PROBLEM 04</div>
+                    <div class="ps-title">통신 장애 원인 불명 → 데이터 분석 해결</div>
+                    <div class="ps-desc">IoT 관제 시스템의 장애 로그를 구조화하여 시간대별 패턴 분석. 원인을 데이터로 규명하고 해결 프로세스 확립.</div>
+                    <div class="ps-result">→ 데이터 기반 의사결정 체계 구축</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- AI & Data Toolkit (with context) -->
+        <div class="section">
+            <div class="section-title">AI & Data Toolkit</div>
+            <div class="toolkit-grid">
+                <div class="toolkit-item">
+                    <div class="toolkit-name">Claude / ChatGPT</div>
+                    <div class="toolkit-context">문서 자동화, 데이터 분석 보조, 코드 생성에 일상 활용</div>
+                </div>
+                <div class="toolkit-item">
+                    <div class="toolkit-name">Python</div>
+                    <div class="toolkit-context">데이터 처리 스크립트, XML 파싱, 이메일 자동화 구축</div>
+                </div>
+                <div class="toolkit-item">
+                    <div class="toolkit-name">SQL (Tibero DB)</div>
+                    <div class="toolkit-context">ERP 데이터 추출·정합성 검증, 쿼리 기반 리포팅</div>
+                </div>
+                <div class="toolkit-item">
+                    <div class="toolkit-name">Excel (VBA/Pivot)</div>
+                    <div class="toolkit-context">예산 집행 관리, 정산 자동화, 데이터 분석</div>
+                </div>
+                <div class="toolkit-item">
+                    <div class="toolkit-name">ERP (High-Q)</div>
+                    <div class="toolkit-context">도입 PM + 시스템 관리자 운영</div>
+                </div>
+                <div class="toolkit-item">
+                    <div class="toolkit-name">Notion / Slack</div>
+                    <div class="toolkit-context">프로젝트 관리, 업무 구조화</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Experience -->
+        <div class="section grow">
+            <div class="section-title">Work Experience</div>
+
+            <div class="exp-item">
+                <div class="exp-left">
+                    <div class="exp-period">2023.01 ~<br>2026.02</div>
+                    <span class="exp-duration">3년 1개월</span>
+                </div>
+                <div class="exp-right">
+                    <div class="exp-company">사회연대은행 (사단법인 함께만드는세상)</div>
+                    <div class="exp-role">경영지원부 · IT인프라 운영 및 ERP 구축 담당</div>
+                    <ul class="exp-list">
+                        <li><strong>ERP PM:</strong> 커스텀 ERP(Tibero/Nexacro) 도입 — 요구사항 정의·계정과목 표준화·SQL 데이터 검수·기능 검수 풀사이클 단독 수행</li>
+                        <li><strong>데이터 관리:</strong> 예산 3.6억 집행·통제(집행률 88.5%), 8개 외주업체 정산·증빙 총괄</li>
+                        <li><strong>프로세스 개선:</strong> IT 트러블슈팅 내재화(비용 30%↓), 재계약 협상(연 500만 원↓)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="exp-item">
+                <div class="exp-left">
+                    <div class="exp-period">2020.03 ~<br>2021.11</div>
+                    <span class="exp-duration">1년 9개월</span>
+                </div>
+                <div class="exp-right">
+                    <div class="exp-company">(주)맨지온</div>
+                    <div class="exp-role">전자개발부 · 데이터 분석 및 QA</div>
+                    <ul class="exp-list">
+                        <li><strong>데이터 분석:</strong> IoT 관제 로그 구조화·시계열 패턴 분석 → 통신 장애 원인 규명 및 해결</li>
+                        <li><strong>QA:</strong> 사용자 관점 테스트 시나리오 설계, 결함 발견·보고 체계화</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="exp-item">
+                <div class="exp-left">
+                    <div class="exp-period">2016.05 ~<br>2018.02</div>
+                    <span class="exp-duration">1년 9개월</span>
+                </div>
+                <div class="exp-right">
+                    <div class="exp-company">(주)엣지크로스</div>
+                    <div class="exp-role">기술연구소 · 프로세스 관리 및 BOM 체계화</div>
+                    <ul class="exp-list">
+                        <li>자재 명세서(BOM) 관리 체계 구축, 생산 일정 조율·납기 100% 달성. HW 설계→시제품 풀사이클 수행</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom: Education + Global -->
+        <div class="bottom-grid">
+            <div class="section">
+                <div class="section-title">Education</div>
+                <div class="edu-item">
+                    <span class="edu-school">숭실대학교 사회복지대학원</span><br>
+                    <span class="edu-detail">사회적기업전공 석사 · 4.3/4.5 · 2020</span>
+                </div>
+                <div class="edu-item">
+                    <span class="edu-school">숭실대학교 공과대학</span><br>
+                    <span class="edu-detail">전기공학부 (경제학 복수전공) · 2017</span>
+                </div>
+                <div class="edu-item">
+                    <span class="edu-school">한국폴리텍 광명융합기술교육원</span><br>
+                    <span class="edu-detail">AR 시스템제어 / Unity 개발 수료 · 2022</span>
+                </div>
+            </div>
+            <div class="section">
+                <div class="section-title">Global & Additional</div>
+                <div class="edu-item">
+                    <span class="edu-school">경제학 복수전공</span>
+                    <span class="edu-detail"> · 시장·경영 데이터 분석의 이론적 기반</span>
+                </div>
+                <div class="edu-item">
+                    <span class="edu-school">영문 데이터 리딩</span>
+                    <span class="edu-detail"> · 해외 시장 리서치·영문 보고서 독해 가능</span>
+                </div>
+                <div class="edu-item">
+                    <span class="edu-school">메타버스 콘텐츠 캠프 대상</span>
+                    <span class="edu-detail"> · 과학기술정보통신부 (2022)</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>

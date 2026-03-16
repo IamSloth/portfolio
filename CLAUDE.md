@@ -165,9 +165,12 @@ Task tool로 서브에이전트 실행 시, 작업 난이도에 따라 모델을
 |------|------|------|
 | `artifacts/` | `{type}_{desc}.{ext}` | `evidence_scoreboard.png`, `jd_260115.pdf` |
 | `drafts/` | `{doctype}_v{n}.{ext}` | `resume_v1.pdf` |
-| `final/` | `{doctype}_{YYMMDD}.{ext}` | `application_260127.pdf` |
+| `final/` | `{doctype}_{YYMMDD}.{ext}` (관리용) | `application_260127.html` |
+| `final/` (제출용) | `{이름}_지원서_{회사명}.pdf` **(한국어)** | `임종권_지원서_데스코.pdf` |
 
 **Document Types**: `resume`, `coverletter`, `essay`, `application`, `portfolio`, `interview_prep`
+
+> **제출용 PDF 파일명**: 채용담당자가 받는 파일이므로 **한국어**로 `{이름}_지원서_{회사명}.pdf` 형식. 관리용 HTML은 기존 영문 규칙 유지.
 
 **Company 폴더 넘버링**
 - 채용공고 발견 날짜순으로 `{NN}_{company}` 형식 (01부터 시작)

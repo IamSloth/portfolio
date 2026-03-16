@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>임종권 — 콘솔 게임 QA 지원</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;800&display=swap');
+
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #fff;
+            color: #222;
+            -webkit-print-color-adjust: exact;
+            word-break: keep-all;
+        }
+
+        .page {
+            width: 210mm;
+            height: 296mm;
+            margin: 0 auto;
+            display: flex;
+            border-top: 5px solid #1a1a2e;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 32%;
+            background: #f4f6f8;
+            border-right: 1px solid #ddd;
+            padding: 28px 18px;
+            display: flex;
+            flex-direction: column;
+            box-sizing: border-box;
+        }
+
+        .profile-img {
+            width: 125px;
+            height: 163px;
+            margin: 0 auto 20px;
+            border: 1px solid #ccc;
+            background: #fff;
+            padding: 3px;
+        }
+        .profile-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .contact-info { font-size: 11.5px; margin-bottom: 24px; line-height: 1.6; }
+        .contact-item { display: flex; align-items: flex-start; margin-bottom: 5px; color: #444; }
+        .contact-label { font-weight: 700; width: 42px; color: #1a1a2e; flex-shrink: 0; }
+
+        .side-section { margin-bottom: 22px; }
+        .side-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: #000;
+            border-bottom: 2px solid #1a1a2e;
+            padding-bottom: 4px;
+            margin-bottom: 10px;
+        }
+
+        .side-list-item {
+            font-size: 11.5px;
+            margin-bottom: 8px;
+            padding-left: 10px;
+            position: relative;
+            line-height: 1.4;
+        }
+        .side-list-item::before {
+            content: '■';
+            position: absolute;
+            left: 0;
+            top: 3px;
+            font-size: 5px;
+            color: #1a1a2e;
+        }
+
+        .school-name { font-weight: 700; display: block; color: #333; margin-bottom: 1px; }
+        .school-major { color: #555; font-size: 11px; }
+
+        .skill-box {
+            border: 1px solid #ccc;
+            background: #fff;
+            padding: 7px 8px;
+            font-size: 11px;
+            line-height: 1.7;
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            padding: 28px 30px;
+            box-sizing: border-box;
+        }
+
+        .header-name {
+            font-size: 26px;
+            font-weight: 800;
+            color: #000;
+            margin-bottom: 5px;
+            letter-spacing: -1px;
+        }
+        .header-role {
+            font-size: 13px;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 18px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .summary-box {
+            border-left: 3px solid #1a1a2e;
+            background: #fafbfc;
+            padding: 12px 14px;
+            font-size: 11.5px;
+            line-height: 1.65;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .main-section-title {
+            font-size: 14.5px;
+            font-weight: 700;
+            color: #000;
+            border-bottom: 2px solid #000;
+            padding-bottom: 5px;
+            margin-bottom: 12px;
+            margin-top: 2px;
+        }
+
+        /* Game Profile Section */
+        .game-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px 14px;
+            margin-bottom: 18px;
+        }
+        .game-item {
+            font-size: 11.5px;
+            padding: 5px 0;
+            padding-left: 10px;
+            position: relative;
+            line-height: 1.4;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .game-item::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: #1a1a2e;
+            font-size: 10px;
+        }
+        .game-title { font-weight: 700; color: #000; }
+        .game-note { color: #666; font-size: 10.5px; }
+
+        /* Experience Table */
+        .exp-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 16px;
+        }
+        .exp-row { border-bottom: 1px solid #eee; }
+        .exp-date-col {
+            width: 85px;
+            font-size: 10.5px;
+            color: #666;
+            vertical-align: top;
+            padding: 7px 0;
+            font-weight: 500;
+        }
+        .exp-content-col {
+            padding: 7px 0 7px 10px;
+            vertical-align: top;
+        }
+        .company-name { font-size: 13px; font-weight: 700; color: #000; }
+        .role-name { font-size: 11px; color: #555; font-weight: 600; margin-left: 4px; }
+
+        .exp-desc-list {
+            margin: 4px 0 0 0;
+            padding-left: 0;
+            list-style: none;
+        }
+        .exp-desc-item {
+            font-size: 11.5px;
+            margin-bottom: 3px;
+            padding-left: 8px;
+            position: relative;
+            line-height: 1.45;
+            color: #444;
+        }
+        .exp-desc-item::before {
+            content: '-';
+            position: absolute;
+            left: 0;
+        }
+        .highlight { font-weight: 600; color: #000; }
+
+        .military-info {
+            font-size: 11px;
+            color: #666;
+            margin-top: 4px;
+            padding: 6px 0;
+            border-top: 1px solid #eee;
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="profile-img">
+                <img src="../../../../common/photos/profile.png" alt="임종권">
+            </div>
+
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span class="contact-label">생년월</span>
+                    <span>1992.01.04 (만 34세)</span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-label">주 소</span>
+                    <span>경기도 광명시 도덕로 79</span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-label">연락처</span>
+                    <span>010-4052-0834</span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-label">이메일</span>
+                    <span>ssujklim@gmail.com</span>
+                </div>
+            </div>
+
+            <div class="side-section">
+                <div class="side-title">학 력</div>
+                <div class="side-list-item">
+                    <span class="school-name">숭실대학교 대학원</span>
+                    <span class="school-major">사회적기업전공 석사 (2020.02)</span>
+                </div>
+                <div class="side-list-item">
+                    <span class="school-name">숭실대학교 공과대학</span>
+                    <span class="school-major">전기공학부 학사 (2017.02)</span>
+                </div>
+                <div class="side-list-item">
+                    <span class="school-name">한국폴리텍 광명융합기술교육원</span>
+                    <span class="school-major">AR 시스템제어 / Unity 개발<br>수료 (2022.12)</span>
+                </div>
+            </div>
+
+            <div class="side-section">
+                <div class="side-title">자격 및 면허</div>
+                <div class="side-list-item">
+                    <span class="school-name">사회복지사 1급</span>
+                    <span class="school-major">보건복지부 (2021)</span>
+                </div>
+                <div class="side-list-item">
+                    <span class="school-name">1종 대형 운전면허</span>
+                    <span class="school-major">12년 무사고</span>
+                </div>
+            </div>
+
+            <div class="side-section">
+                <div class="side-title">관련 기술</div>
+                <div class="skill-box">
+                    <strong>QA:</strong> 테스트 시나리오 설계,<br>
+                    &nbsp;&nbsp;UI/UX 사용성 테스트,<br>
+                    &nbsp;&nbsp;버그 재현 및 리포팅<br>
+                    <strong>Tech:</strong> Unity 3D/C#,<br>
+                    &nbsp;&nbsp;HW/SW 트러블슈팅,<br>
+                    &nbsp;&nbsp;ESP32/IoT 개발<br>
+                    <strong>Tool:</strong> Excel, Notion, Slack
+                </div>
+            </div>
+
+            <div class="side-section">
+                <div class="side-title">병역</div>
+                <div class="side-list-item" style="font-size: 11px;">
+                    공군 병장 만기제대<br>
+                    <span style="color:#666;">(2010.07 ~ 2012.08)</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="header-name">임 종 권</div>
+            <div class="header-role">콘솔 게임 QA 지원 — 게임을 느끼고, 분석하는 테스터</div>
+
+            <div class="summary-box">
+                게임을 매일 플레이하는 일상 게이머이자, IoT 스타트업에서 <strong>QA를 직접 설계하고 주도한 경험</strong>이 있습니다.
+                유저로서 조작감과 체감에 민감하게 반응하고, QA 전문가로서 그 감각을 <strong>구조화된 테스트 시나리오</strong>로 옮길 수 있습니다.
+                임베디드/IT 기술 배경을 바탕으로 버그의 원인을 추론하고, 개발팀과 기술적으로 소통할 수 있는 테스터입니다.
+            </div>
+
+            <!-- Section 1: Gaming Profile -->
+            <div class="main-section-title">🎮 게임 프로필 (Gaming Profile)</div>
+            <div class="game-grid">
+                <div class="game-item">
+                    <span class="game-title">GTA 5</span><br>
+                    <span class="game-note">오픈월드 · 장시간 플레이</span>
+                </div>
+                <div class="game-item">
+                    <span class="game-title">MONSTER HUNTER RISE</span><br>
+                    <span class="game-note">액션 헌팅 · Steam</span>
+                </div>
+                <div class="game-item">
+                    <span class="game-title">산나비</span><br>
+                    <span class="game-note">2D 액션 · 2026 클리어</span>
+                </div>
+                <div class="game-item">
+                    <span class="game-title">리그 오브 레전드</span><br>
+                    <span class="game-note">10년+ · 골드~플래티넘</span>
+                </div>
+                <div class="game-item">
+                    <span class="game-title">TFT (전략적 팀 전투)</span><br>
+                    <span class="game-note">매일 1시간+ · 플래티넘</span>
+                </div>
+                <div class="game-item">
+                    <span class="game-title">PUBG</span><br>
+                    <span class="game-note">배틀로얄 · Steam</span>
+                </div>
+                <div class="game-item">
+                    <span class="game-title">It Takes Two</span><br>
+                    <span class="game-note">코옵 액션 어드벤처</span>
+                </div>
+                <div class="game-item">
+                    <span class="game-title">Split Fiction</span><br>
+                    <span class="game-note">코옵 액션 · Steam</span>
+                </div>
+            </div>
+
+            <!-- Section 2: QA Experience -->
+            <div class="main-section-title">🔍 QA 경력 (Quality Assurance)</div>
+            <table class="exp-table">
+                <tr class="exp-row">
+                    <td class="exp-date-col">
+                        2020.03 ~<br>2021.11
+                    </td>
+                    <td class="exp-content-col">
+                        <span class="company-name">(주)맨지온</span>
+                        <span class="role-name">임베디드 시스템 개발 및 QA</span>
+                        <ul class="exp-desc-list">
+                            <li class="exp-desc-item"><span class="highlight">테스트 시나리오 설계:</span> 사용자 관점의 UI/UX 테스트 시나리오를 직접 설계하고, 품질 보증 활동 주도</li>
+                            <li class="exp-desc-item"><span class="highlight">버그 원인 분석:</span> 시설 관제 데이터 로그 분석을 통해 통신 장애 원인 규명 및 해결 프로세스 확립</li>
+                            <li class="exp-desc-item"><span class="highlight">프로토타입 QA:</span> ESP32 기반 해수담수화 시스템 프로토타입의 기능 검증 및 안정성 테스트 수행</li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+
+            <!-- Section 3: Other Experience -->
+            <div class="main-section-title">💼 기타 경력</div>
+            <table class="exp-table">
+                <tr class="exp-row">
+                    <td class="exp-date-col">
+                        2023.01 ~<br>2026.02
+                    </td>
+                    <td class="exp-content-col">
+                        <span class="company-name">(사)함께만드는세상</span>
+                        <span class="role-name">IT인프라 지원 (대리)</span>
+                        <ul class="exp-desc-list">
+                            <li class="exp-desc-item">PC·네트워크 장애 1차 트러블슈팅 직접 수행, IT 자산(HW/SW) 수명 주기 관리</li>
+                            <li class="exp-desc-item">커스텀 ERP 도입 프로젝트 실무 전담 — 개발사와 직접 소통하며 요구사항 정의·검수</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr class="exp-row">
+                    <td class="exp-date-col">
+                        2016.05 ~<br>2018.02
+                    </td>
+                    <td class="exp-content-col">
+                        <span class="company-name">(주)엣지크로스</span>
+                        <span class="role-name">H/W 개발 (주임)</span>
+                        <ul class="exp-desc-list">
+                            <li class="exp-desc-item">회로 설계 → PCB 레이아웃 → 시제품 제작 → 테스트/검증 풀사이클 수행</li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+
+            <!-- Unity/Game Dev Experience -->
+            <div class="military-info">
+                <strong>게임 개발 교육:</strong> 한국폴리텍 Unity 과정 수료 (2022) · 메타버스 콘텐츠 리크루팅 캠프 <strong>대상</strong> (과학기술정보통신부, 2022)
+            </div>
+        </div>
+    </div>
+</body>
+</html>

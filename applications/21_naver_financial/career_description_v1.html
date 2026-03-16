@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>임종권 경력기술서</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;800&display=swap');
+
+        @page { size: A4; margin: 0; }
+        * { box-sizing: border-box; }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            margin: 0; padding: 0;
+            background: #fff; color: #1a1a1a;
+            -webkit-print-color-adjust: exact;
+            word-break: keep-all;
+        }
+
+        .page {
+            width: 210mm;
+            height: 296mm;
+            margin: 0 auto;
+            padding: 18mm 18mm 14mm;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        /* Header */
+        .doc-header {
+            border-bottom: 3px solid #0d2137;
+            padding-bottom: 14px;
+            margin-bottom: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+        .doc-name { font-size: 30px; font-weight: 800; color: #0d2137; letter-spacing: -1px; }
+        .doc-label { font-size: 14px; font-weight: 500; color: #666; letter-spacing: 3px; }
+
+        /* Sections grow to fill space */
+        .section { margin-bottom: 0; }
+        .grow { flex: 1; }
+        .section-title {
+            font-size: 11.5px; font-weight: 700; color: #0d2137;
+            letter-spacing: 1.5px; text-transform: uppercase;
+            border-bottom: 1px solid #dde3ea;
+            padding-bottom: 6px; margin-bottom: 12px;
+        }
+
+        /* Competency chips */
+        .comp-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 8px; margin-bottom: 8px;
+        }
+        .comp-item {
+            background: #f0f4f8; border-left: 3px solid #0d2137;
+            padding: 8px 10px; font-size: 11px; line-height: 1.4;
+        }
+        .comp-title { font-weight: 700; color: #0d2137; display: block; margin-bottom: 2px; }
+        .comp-desc { color: #555; font-size: 10.5px; }
+
+        /* Experience */
+        .exp-item {
+            display: flex; gap: 14px;
+            padding-bottom: 14px; margin-bottom: 12px;
+            border-bottom: 1px solid #eee;
+        }
+        .exp-item:last-child { border-bottom: none; margin-bottom: 0; }
+        .exp-left { width: 100px; flex-shrink: 0; }
+        .exp-period { font-size: 10.5px; color: #888; font-weight: 500; line-height: 1.4; }
+        .exp-duration {
+            display: inline-block; margin-top: 4px; font-size: 10px;
+            background: #e8edf2; color: #0d2137; padding: 2px 6px; font-weight: 600;
+        }
+        .exp-right { flex: 1; }
+        .exp-company { font-size: 14px; font-weight: 700; color: #000; margin-bottom: 2px; }
+        .exp-role { font-size: 11.5px; color: #0d2137; font-weight: 600; margin-bottom: 8px; }
+        .exp-list { list-style: none; margin: 0; padding: 0; }
+        .exp-list li {
+            font-size: 11.5px; color: #444; padding-left: 10px;
+            position: relative; margin-bottom: 4px; line-height: 1.5;
+        }
+        .exp-list li::before {
+            content: '▸'; position: absolute; left: 0;
+            color: #0d2137; font-size: 9px; top: 3px;
+        }
+        strong { color: #1a1a1a; font-weight: 600; }
+
+        /* Project Box */
+        .project-box {
+            border: 1px solid #c5d4e3; background: #f8fafc;
+            padding: 12px 14px;
+        }
+        .project-header {
+            display: flex; justify-content: space-between; align-items: center;
+            margin-bottom: 8px; padding-bottom: 6px; border-bottom: 1px solid #dde3ea;
+        }
+        .project-title { font-size: 13px; font-weight: 700; color: #0d2137; }
+        .project-period { font-size: 10.5px; color: #888; }
+        .project-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5px 16px; }
+        .project-item {
+            font-size: 11px; color: #444; padding-left: 9px;
+            position: relative; line-height: 1.45;
+        }
+        .project-item::before { content: '·'; position: absolute; left: 0; font-weight: 700; color: #0d2137; }
+
+        /* Bottom row */
+        .bottom-row {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 20px; margin-top: auto; padding-top: 8px;
+        }
+        .edu-item {
+            font-size: 11.5px; margin-bottom: 7px;
+            padding-left: 10px; position: relative;
+        }
+        .edu-item::before {
+            content: '▸'; position: absolute; left: 0;
+            color: #0d2137; font-size: 9px; top: 3px;
+        }
+        .edu-school { font-weight: 700; color: #1a1a1a; }
+        .edu-detail { color: #666; font-size: 10.5px; }
+        .skill-row { display: flex; flex-wrap: wrap; gap: 5px; }
+        .skill-tag {
+            background: #e8edf2; color: #0d2137;
+            font-size: 10.5px; font-weight: 600; padding: 3px 8px;
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <div class="doc-header">
+        <div class="doc-name">임 종 권</div>
+        <div class="doc-label">경력기술서</div>
+    </div>
+
+    <!-- 핵심 역량 -->
+    <div class="section">
+        <div class="section-title">Core Competencies</div>
+        <div class="comp-grid">
+            <div class="comp-item">
+                <span class="comp-title">법정 문서 관리</span>
+                <span class="comp-desc">위수탁 계약·법정점검 서류 처리 3년, 행정기관 제출까지 전 과정 수행</span>
+            </div>
+            <div class="comp-item">
+                <span class="comp-title">데이터 검수 / ERP</span>
+                <span class="comp-desc">ERP 데이터 정합성 검증·기능 검수, SQL 활용 데이터 추출·분석</span>
+            </div>
+            <div class="comp-item">
+                <span class="comp-title">운영 &amp; 정산 관리</span>
+                <span class="comp-desc">예산 3.6억 집행 통제, 외주 8개사 계약·정산 총괄, 비용 절감 협상</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 경력 (flex-grow로 중앙 영역 확장) -->
+    <div class="section grow">
+        <div class="section-title">Work Experience</div>
+
+        <div class="exp-item">
+            <div class="exp-left">
+                <div class="exp-period">2023.01 ~<br>2026.02</div>
+                <span class="exp-duration">3년 1개월</span>
+            </div>
+            <div class="exp-right">
+                <div class="exp-company">(사)함께만드는세상</div>
+                <div class="exp-role">경영지원부 인프라지원팀 · 총무·IT지원 대리</div>
+                <ul class="exp-list">
+                    <li><strong>위수탁 관리:</strong> 소방·승강기·전기·방역·복합기 등 외주업체 8개 계약 체결, 법정 점검 일정 관리, 문서 수령 및 행정기관 제출 총괄</li>
+                    <li><strong>예산 집행:</strong> 인프라 예산 약 3.6억 원 직접 집행·통제 (집행률 88.5%), 재계약 협상으로 연 약 500만 원 절감</li>
+                    <li><strong>ERP 도입 PM:</strong> 커스텀 ERP 구축 실무 전담 — 요구사항 정의·계정과목 표준화·데이터 검수·기능 검수 풀사이클</li>
+                    <li><strong>IT 자산 관리:</strong> HW/SW 수명 주기 관리, 네트워크/PC 1차 트러블슈팅 내재화 (유지보수비 30% 절감)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="exp-item">
+            <div class="exp-left">
+                <div class="exp-period">2020.03 ~<br>2021.11</div>
+                <span class="exp-duration">1년 9개월</span>
+            </div>
+            <div class="exp-right">
+                <div class="exp-company">(주)맨지온</div>
+                <div class="exp-role">전자개발부 · 임베디드 개발 및 QA 대리</div>
+                <ul class="exp-list">
+                    <li><strong>QA 리더십:</strong> 사용자 관점의 UI/UX 테스트 시나리오 설계 및 품질 보증 활동 주도</li>
+                    <li><strong>로그 분석:</strong> 시설 관제 데이터 로그 분석을 통해 통신 장애 원인 규명 및 해결 프로세스 확립</li>
+                    <li><strong>프로토타입 개발:</strong> ESP32 기반 IoT 시스템 개발, Blynk 연동 원격 모니터링 대시보드 구축</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="exp-item">
+            <div class="exp-left">
+                <div class="exp-period">2016.05 ~<br>2018.02</div>
+                <span class="exp-duration">1년 9개월</span>
+            </div>
+            <div class="exp-right">
+                <div class="exp-company">(주)엣지크로스</div>
+                <div class="exp-role">기술연구소 · H/W 개발 주임</div>
+                <ul class="exp-list">
+                    <li>회로 설계 → PCB 레이아웃 → 시제품 제작 → 테스트/검증 풀사이클, BOM 관리 및 납기 100% 달성</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- 주요 프로젝트 -->
+    <div class="section">
+        <div class="section-title">Key Project</div>
+        <div class="project-box">
+            <div class="project-header">
+                <span class="project-title">커스텀 ERP 고도화 프로젝트</span>
+                <span class="project-period">2023.07 ~ 2024.12 · Tibero DB / Nexacro UI</span>
+            </div>
+            <div class="project-grid">
+                <div class="project-item">업무 프로세스 분석 및 요구사항 정의 (예산·회계·총무 부서)</div>
+                <div class="project-item">계정과목 표준화 — 엑셀 기반 200여 항목 ERP 체계 전환</div>
+                <div class="project-item">데이터 마이그레이션 검수 — 항목별 정합성 대조·검증</div>
+                <div class="project-item">기능 검수 — 테스트 시나리오 작성, 결함 발견·보고</div>
+                <div class="project-item">개발사 직접 소통 및 일정 관리 (실무 담당 단독 수행)</div>
+                <div class="project-item">완료 후 시스템 관리자로 운영·유지보수 지속 담당</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 학력 + 기술 (하단 고정) -->
+    <div class="bottom-row">
+        <div class="section">
+            <div class="section-title">Education</div>
+            <div class="edu-item">
+                <span class="edu-school">숭실대학교 사회복지대학원</span><br>
+                <span class="edu-detail">사회적기업전공 석사 · GPA 4.3/4.5 · 2020.02</span>
+            </div>
+            <div class="edu-item">
+                <span class="edu-school">숭실대학교 공과대학</span><br>
+                <span class="edu-detail">전기공학부 학사 (경제학부 복수전공) · 2017.02</span>
+            </div>
+            <div class="edu-item">
+                <span class="edu-school">한국폴리텍 광명융합기술교육원</span><br>
+                <span class="edu-detail">AR 시스템제어 / Unity 개발 수료 · 2022.12</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Skills &amp; Certifications</div>
+            <div style="margin-bottom:10px;">
+                <div class="skill-row">
+                    <span class="skill-tag">MS Office (Excel / Word)</span>
+                    <span class="skill-tag">SQL (데이터 추출·분석)</span>
+                    <span class="skill-tag">Adobe PDF</span>
+                    <span class="skill-tag">ERP 운영 (High-Q)</span>
+                    <span class="skill-tag">HW/Network 트러블슈팅</span>
+                    <span class="skill-tag">Notion / Slack</span>
+                    <span class="skill-tag">Unity 3D / C#</span>
+                </div>
+            </div>
+            <div class="edu-item">
+                <span class="edu-school">사회복지사 1급</span>
+                <span class="edu-detail"> · 보건복지부 (2021)</span>
+            </div>
+            <div class="edu-item">
+                <span class="edu-school">1종 대형 운전면허</span>
+                <span class="edu-detail"> · 경찰청 (12년 무사고)</span>
+            </div>
+            <div class="edu-item">
+                <span class="edu-school">메타버스 콘텐츠 리크루팅 캠프 대상</span>
+                <span class="edu-detail"> · 과학기술정보통신부 (2022)</span>
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
