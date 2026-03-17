@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>임종권 지원서 — NCsoft 3D스캔 어시스턴트</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;800&display=swap');
+
+        @page { size: A4; margin: 0; }
+        * { box-sizing: border-box; }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            margin: 0; padding: 0;
+            background: #fff; color: #1a1a1a;
+            -webkit-print-color-adjust: exact;
+            word-break: keep-all;
+        }
+
+        :root {
+            --nc-purple: #00365e;
+            --nc-dark: #001A2E;
+            --nc-mid: #004e8e;
+            --nc-light: #E8F0F8;
+            --nc-accent: #0078D4;
+            --nc-border: #B0C9E0;
+        }
+
+        /* =========================================
+           SHARED
+           ========================================= */
+
+        .page {
+            width: 210mm;
+            height: 296mm;
+            margin: 0 auto;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        .page-1 { page-break-after: always; }
+
+        strong { color: #1a1a1a; font-weight: 600; }
+
+        /* =========================================
+           PAGE 1 — RESUME
+           ========================================= */
+
+        .top-banner {
+            background: var(--nc-dark);
+            color: #fff;
+            padding: 20px 26px 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+        .banner-name {
+            font-size: 26px; font-weight: 800; letter-spacing: -1px;
+        }
+        .banner-role {
+            font-size: 11px; color: var(--nc-accent);
+            font-weight: 600; margin-top: 2px;
+        }
+        .banner-right {
+            text-align: right;
+            font-size: 9.5px; color: rgba(255,255,255,0.6);
+            line-height: 1.6;
+        }
+        .banner-right strong { color: rgba(255,255,255,0.9); }
+
+        .body-content {
+            flex: 1;
+            padding: 20px 26px 16px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .objective {
+            background: var(--nc-light);
+            border-left: 3px solid var(--nc-purple);
+            padding: 12px 16px;
+            font-size: 11px; line-height: 1.6;
+            color: #333; margin-bottom: 16px;
+        }
+        .objective strong { color: var(--nc-dark); }
+
+        .r-section { margin-bottom: 12px; }
+        .grow { flex: 1; }
+        .r-section-title {
+            font-size: 10.5px; font-weight: 700; color: var(--nc-dark);
+            letter-spacing: 1.5px; text-transform: uppercase;
+            border-bottom: 2px solid var(--nc-purple);
+            padding-bottom: 4px; margin-bottom: 10px;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .r-section-subtitle {
+            font-size: 8.5px; color: #999; font-weight: 400;
+            letter-spacing: 0; text-transform: none;
+        }
+
+        .ps-grid {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 8px; margin-bottom: 4px;
+        }
+        .ps-card {
+            border: 1px solid var(--nc-border);
+            background: var(--nc-light);
+            padding: 10px 12px;
+        }
+        .ps-card-label {
+            font-size: 8.5px; font-weight: 700;
+            color: var(--nc-purple); letter-spacing: 1px;
+            margin-bottom: 3px;
+        }
+        .ps-card-title {
+            font-size: 11.5px; font-weight: 700;
+            color: var(--nc-dark); margin-bottom: 2px;
+        }
+        .ps-card-desc {
+            font-size: 9.5px; color: #555; line-height: 1.4;
+        }
+        .ps-card-result {
+            font-size: 9px; color: var(--nc-dark);
+            font-weight: 600; margin-top: 3px;
+        }
+
+        .toolkit-grid {
+            display: grid; grid-template-columns: 1fr 1fr 1fr;
+            gap: 6px; margin-bottom: 4px;
+        }
+        .toolkit-item {
+            background: var(--nc-dark); padding: 8px 10px;
+        }
+        .toolkit-name {
+            font-size: 10px; font-weight: 700; color: var(--nc-accent);
+            margin-bottom: 1px;
+        }
+        .toolkit-context {
+            font-size: 8.5px; color: rgba(255,255,255,0.6); line-height: 1.35;
+        }
+
+        .exp-item {
+            display: flex; gap: 12px;
+            padding-bottom: 10px; margin-bottom: 8px;
+            border-bottom: 1px solid #eee;
+        }
+        .exp-item:last-child { border-bottom: none; margin-bottom: 0; }
+        .exp-left { width: 82px; flex-shrink: 0; }
+        .exp-period { font-size: 9.5px; color: #888; font-weight: 500; line-height: 1.4; }
+        .exp-duration {
+            display: inline-block; margin-top: 2px; font-size: 8.5px;
+            background: var(--nc-light); color: var(--nc-dark);
+            padding: 1px 5px; font-weight: 600;
+        }
+        .exp-right { flex: 1; }
+        .exp-company { font-size: 12px; font-weight: 700; color: #000; margin-bottom: 1px; }
+        .exp-role { font-size: 9.5px; color: var(--nc-dark); font-weight: 600; margin-bottom: 4px; }
+        .exp-list { list-style: none; margin: 0; padding: 0; }
+        .exp-list li {
+            font-size: 10.5px; color: #444; padding-left: 9px;
+            position: relative; margin-bottom: 3px; line-height: 1.45;
+        }
+        .exp-list li::before {
+            content: '▸'; position: absolute; left: 0;
+            color: var(--nc-purple); font-size: 8px; top: 2px;
+        }
+
+        .bottom-grid {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 16px; margin-top: auto; padding-top: 10px;
+        }
+        .edu-item {
+            font-size: 10px; margin-bottom: 4px;
+            padding-left: 9px; position: relative;
+        }
+        .edu-item::before {
+            content: '▸'; position: absolute; left: 0;
+            color: var(--nc-purple); font-size: 8px; top: 2px;
+        }
+        .edu-school { font-weight: 700; color: #1a1a1a; }
+        .edu-detail { color: #888; font-size: 9px; }
+
+        .bottom-grid .r-section-title {
+            font-size: 10px;
+        }
+
+        /* =========================================
+           PAGE 2 — COVER LETTER
+           ========================================= */
+
+        .cl-header {
+            background: var(--nc-dark);
+            color: #fff;
+            padding: 22px 34px 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+        .cl-header-title {
+            font-size: 10px; font-weight: 600;
+            color: var(--nc-accent);
+            letter-spacing: 2px; text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+        .cl-header-name {
+            font-size: 26px; font-weight: 800;
+            letter-spacing: 2px;
+        }
+        .cl-header-right {
+            text-align: right;
+            font-size: 10px; color: rgba(255,255,255,0.6);
+            line-height: 1.6;
+        }
+        .cl-header-right strong { color: var(--nc-accent); }
+
+        .cl-body {
+            flex: 1;
+            padding: 28px 36px 24px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cl-objective {
+            background: var(--nc-light);
+            border-left: 3px solid var(--nc-purple);
+            padding: 16px 20px;
+            margin-bottom: 24px;
+            font-size: 12px;
+            line-height: 1.75;
+            color: #333;
+        }
+        .cl-objective strong { color: var(--nc-dark); font-weight: 600; }
+
+        .cl-ps-section {
+            margin-bottom: 18px;
+            padding: 16px 20px;
+            border: 1px solid var(--nc-border);
+            border-radius: 2px;
+        }
+        .cl-ps-section:nth-child(even) {
+            background: #f0f6fb;
+        }
+        .cl-ps-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--nc-purple);
+        }
+        .cl-ps-number {
+            background: var(--nc-dark);
+            color: var(--nc-accent);
+            font-size: 10px; font-weight: 800;
+            width: 26px; height: 26px;
+            display: flex; align-items: center; justify-content: center;
+            letter-spacing: 1px;
+            flex-shrink: 0;
+        }
+        .cl-ps-title {
+            font-size: 13.5px; font-weight: 700;
+            color: var(--nc-dark);
+        }
+
+        .cl-ps-para {
+            margin: 0 0 6px;
+            font-size: 11.5px;
+            line-height: 1.7;
+            color: #444;
+        }
+        .cl-ps-tag {
+            display: inline;
+            color: var(--nc-dark);
+            font-weight: 700;
+            font-size: 10.5px;
+            margin-right: 4px;
+        }
+        .cl-ps-para strong { color: var(--nc-dark); font-weight: 600; }
+
+        .cl-ps-note {
+            margin-top: 8px;
+            padding-left: 12px;
+            border-left: 2px solid var(--nc-purple);
+            font-size: 10.5px;
+            font-style: italic;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .cl-closing {
+            margin-top: auto;
+            padding-top: 12px;
+        }
+        .cl-closing-box {
+            background: var(--nc-light);
+            border: 1px solid var(--nc-border);
+            padding: 16px 20px;
+            font-size: 12px;
+            line-height: 1.75;
+            color: #333;
+        }
+        .cl-closing-box strong { color: var(--nc-dark); font-weight: 600; }
+
+        .cl-footer {
+            margin-top: 14px;
+            background: var(--nc-dark);
+            padding: 9px 16px;
+            font-size: 10px;
+            color: rgba(255,255,255,0.5);
+            text-align: center;
+            letter-spacing: 0.3px;
+        }
+        .cl-footer strong { color: var(--nc-accent); }
+    </style>
+</head>
+<body>
+
+<!-- =============================================
+     PAGE 1: RESUME
+     ============================================= -->
+<div class="page page-1">
+
+    <div class="top-banner">
+        <div class="banner-left">
+            <div class="banner-name">임 종 권</div>
+            <div class="banner-role">NCsoft · 3D스캔 어시스턴트 지원</div>
+        </div>
+        <div class="banner-right">
+            ssujklim@gmail.com<br>
+            1992.01.04
+        </div>
+    </div>
+
+    <div class="body-content">
+
+        <div class="objective">
+            <strong>Why 3D Scan —</strong>
+            2022년 메타버스 콘텐츠 캠프 대상 수상과 AR 시스템제어 과정 수료를 통해 3D 디지털 콘텐츠 파이프라인의 기초를 다졌습니다. H/W 개발에서 체득한 정밀 작업 역량과 프로세스 준수 습관을 3D 스캔 촬영·보정 업무에 즉시 적용할 수 있습니다.
+        </div>
+
+        <div class="r-section">
+            <div class="r-section-title">
+                Core Competencies
+                <span class="r-section-subtitle">3D스캔 어시스턴트에 직결되는 핵심 역량</span>
+            </div>
+            <div class="ps-grid">
+                <div class="ps-card">
+                    <div class="ps-card-label">STRENGTH 01</div>
+                    <div class="ps-card-title">H/W 풀사이클 — 정밀 작업 역량</div>
+                    <div class="ps-card-desc">회로 설계→PCB 레이아웃→시제품 제작(납땜·실장)→테스트·검증 풀사이클 수행. 세밀한 작업 역량 체득.</div>
+                    <div class="ps-card-result">→ 3D 스캔 데이터 제작에 필요한 정밀 작업·프로세스 준수 역량</div>
+                </div>
+                <div class="ps-card">
+                    <div class="ps-card-label">STRENGTH 02</div>
+                    <div class="ps-card-title">AR/3D 기초 + 메타버스 대상</div>
+                    <div class="ps-card-desc">한국폴리텍 증강현실(AR) 시스템제어 수료. Unity 3D/C# 기초. 2022 메타버스 콘텐츠 캠프 대상(과기정통부).</div>
+                    <div class="ps-card-result">→ 3D 파이프라인 기초 이해 + 디지털 콘텐츠 관심 증명</div>
+                </div>
+                <div class="ps-card">
+                    <div class="ps-card-label">STRENGTH 03</div>
+                    <div class="ps-card-title">Fast Learner — 1주 시스템 마스터</div>
+                    <div class="ps-card-desc">완전히 새로운 ERP 시스템(Tibero DB/Nexacro)을 1주 만에 습득하여 운영 수준으로 활용. 빠른 학습 속도.</div>
+                    <div class="ps-card-result">→ 사진 보정 툴·3D 스캔 소프트웨어 교육 기간 내 신속 습득</div>
+                </div>
+                <div class="ps-card">
+                    <div class="ps-card-label">STRENGTH 04</div>
+                    <div class="ps-card-title">멀티태스킹 적극성 — 총무 3년</div>
+                    <div class="ps-card-desc">8개 외주업체 관리, 전부서 요청 처리, IT자산·시설 관리를 동시 수행. 적극적이고 책임감 있는 업무 태도.</div>
+                    <div class="ps-card-result">→ JD 필수 "업무 적극성·책임감" 직접 충족</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="r-section">
+            <div class="r-section-title">Practical Toolkit</div>
+            <div class="toolkit-grid">
+                <div class="toolkit-item">
+                    <div class="toolkit-name">Unity 3D/C#</div>
+                    <div class="toolkit-context">AR 시스템 + 메타버스 캠프 기초</div>
+                </div>
+                <div class="toolkit-item">
+                    <div class="toolkit-name">PCB/회로 설계</div>
+                    <div class="toolkit-context">Altium, 시제품 납땜·실장</div>
+                </div>
+                <div class="toolkit-item">
+                    <div class="toolkit-name">IoT/임베디드</div>
+                    <div class="toolkit-context">ESP32, 센서 데이터 시각화</div>
+                </div>
+                <div class="toolkit-item">
+                    <div class="toolkit-name">Excel/SQL</div>
+                    <div class="toolkit-context">데이터 분석, ERP 운영</div>
+                </div>
+                <div class="toolkit-item">
+                    <div class="toolkit-name">Notion/Slack</div>
+                    <div class="toolkit-context">협업 커뮤니케이션</div>
+                </div>
+                <div class="toolkit-item">
+                    <div class="toolkit-name">AI Tools</div>
+                    <div class="toolkit-context">Claude/ChatGPT 업무 활용</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="r-section grow">
+            <div class="r-section-title">Work Experience</div>
+
+            <div class="exp-item">
+                <div class="exp-left">
+                    <div class="exp-period">2023.01 ~<br>2026.02</div>
+                    <span class="exp-duration">3년 1개월</span>
+                </div>
+                <div class="exp-right">
+                    <div class="exp-company">(사)함께만드는세상</div>
+                    <div class="exp-role">경영지원부 · 총무·IT인프라 운영 (대리)</div>
+                    <ul class="exp-list">
+                        <li><strong>IT자산 관리:</strong> PC·전산장비 수명주기 관리, 유휴 장비 재배치로 중복 투자 방지</li>
+                        <li><strong>ERP 도입:</strong> 커스텀 ERP 단독 수행 — 1주 만에 새 시스템 마스터</li>
+                        <li><strong>외주 관리:</strong> 8개 업체 계약·관리·정산 총괄. 멀티태스킹 역량 증명</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="exp-item">
+                <div class="exp-left">
+                    <div class="exp-period">2020.03 ~<br>2021.11</div>
+                    <span class="exp-duration">1년 9개월</span>
+                </div>
+                <div class="exp-right">
+                    <div class="exp-company">(주)맨지온</div>
+                    <div class="exp-role">개발부 · 임베디드 시스템 개발 및 QA (대리)</div>
+                    <ul class="exp-list">
+                        <li><strong>IoT 개발:</strong> ESP32 기반 프로토타입 개발, Blynk 앱 연동 센서 데이터 시각화</li>
+                        <li><strong>품질 관리:</strong> 사용자 관점 UI/UX 테스트 시나리오 설계 및 QA 주도</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="exp-item">
+                <div class="exp-left">
+                    <div class="exp-period">2016.05 ~<br>2018.02</div>
+                    <span class="exp-duration">1년 9개월</span>
+                </div>
+                <div class="exp-right">
+                    <div class="exp-company">(주)엣지크로스</div>
+                    <div class="exp-role">기술연구소 · H/W 개발 및 자재관리 (주임)</div>
+                    <ul class="exp-list">
+                        <li><strong>H/W 풀사이클:</strong> 회로 설계→PCB→시제품 제작(납땜·실장)→테스트·검증</li>
+                        <li><strong>BOM 관리:</strong> 자재 명세서 체계화, 납기 준수율 100%</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="bottom-grid">
+            <div>
+                <div class="r-section-title">Education</div>
+                <div class="edu-item">
+                    <span class="edu-school">숭실대학교 사회복지대학원</span><br>
+                    <span class="edu-detail">사회적기업전공 석사 · 4.3/4.5 · 2020</span>
+                </div>
+                <div class="edu-item">
+                    <span class="edu-school">숭실대학교 공과대학</span><br>
+                    <span class="edu-detail">전기공학부 (경제학 복수전공) · 2017</span>
+                </div>
+                <div class="edu-item">
+                    <span class="edu-school">한국폴리텍 광명융합기술교육원</span><br>
+                    <span class="edu-detail">증강현실(AR) 시스템제어 수료 · 2022</span>
+                </div>
+            </div>
+            <div>
+                <div class="r-section-title">Certifications</div>
+                <div class="edu-item">
+                    <span class="edu-school">사회복지사 1급</span>
+                    <span class="edu-detail"> · 보건복지부 · 2021</span>
+                </div>
+                <div class="edu-item">
+                    <span class="edu-school">1종 대형 운전면허</span>
+                    <span class="edu-detail"> · 12년 무사고 · 2019</span>
+                </div>
+                <div class="edu-item">
+                    <span class="edu-school">메타버스 콘텐츠 캠프 대상</span>
+                    <span class="edu-detail"> · 과학기술정보통신부 · 2022</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- =============================================
+     PAGE 2: COVER LETTER
+     ============================================= -->
+<div class="page">
+
+    <div class="cl-header">
+        <div>
+            <div class="cl-header-title">Cover Letter</div>
+            <div class="cl-header-name">임 종 권</div>
+        </div>
+        <div class="cl-header-right">
+            <strong>NCsoft 3D스캔 어시스턴트</strong><br>
+            3D Character Art팀 지원
+        </div>
+    </div>
+
+    <div class="cl-body">
+
+        <div class="cl-objective">
+            2022년 메타버스 콘텐츠 캠프에서 대상을 수상한 이후, 3D 디지털 콘텐츠 제작에 대한 관심을 꾸준히 키워왔습니다. 같은 해 증강현실(AR) 시스템제어 과정을 수료하며 3D 파이프라인의 기초를 다졌고, 이번 3D스캔 어시스턴트 공고를 보며 그동안의 관심과 기초 역량을 실무로 연결할 기회라고 확신했습니다.
+        </div>
+
+        <div class="cl-ps-section">
+            <div class="cl-ps-header">
+                <div class="cl-ps-number">01</div>
+                <div class="cl-ps-title">H/W 풀사이클 경험 → 정밀 작업 즉전력</div>
+            </div>
+            <p class="cl-ps-para">
+                <strong class="cl-ps-tag">[역량]</strong>
+                첫 직장인 엣지크로스 기술연구소에서 회로 설계부터 PCB 레이아웃, 시제품 제작(납땜·실장), 테스트·검증까지 풀사이클로 수행했습니다. 0.1mm 단위의 부품 실장과 현미경 검사를 일상적으로 수행하며 정밀 작업 역량을 체득했습니다.
+            </p>
+            <p class="cl-ps-para">
+                <strong class="cl-ps-tag">[적용]</strong>
+                3D 스캔 촬영의 정확한 색감 보정과 데이터 제작은 이러한 정밀 작업 역량이 직접적으로 적용되는 영역입니다. 프로세스를 정확히 따르고, 세밀한 차이를 인지하는 능력은 H/W 개발에서 충분히 훈련되었습니다.
+            </p>
+            <div class="cl-ps-note">H/W 개발에서 PCB 납땜 정밀도와 3D 스캔 색감 보정 정밀도는 다른 분야지만, '미세한 차이를 놓치지 않는 집중력'이라는 본질은 같습니다.</div>
+        </div>
+
+        <div class="cl-ps-section">
+            <div class="cl-ps-header">
+                <div class="cl-ps-number">02</div>
+                <div class="cl-ps-title">Fast Learner — 교육 기간 내 신속 습득 가능</div>
+            </div>
+            <p class="cl-ps-para">
+                <strong class="cl-ps-tag">[역량]</strong>
+                가장 최근 직장에서 완전히 새로운 시스템인 커스텀 ERP(Tibero DB/Nexacro 기반)를 1주 만에 운영 수준으로 습득했습니다. 요구사항 정의부터 계정과목 200개 표준화, 데이터 마이그레이션 검수까지 단독으로 수행했습니다.
+            </p>
+            <p class="cl-ps-para">
+                <strong class="cl-ps-tag">[적용]</strong>
+                공고에 "업무 수행 전 교육이 진행될 예정"이라고 명시되어 있습니다. 새로운 도구와 프로세스를 빠르게 흡수하는 능력은 제가 가장 자신 있는 영역입니다. 사진 보정 툴과 3D 스캔 소프트웨어를 교육 기간 내에 확실히 익혀, 팀에 빠르게 기여하겠습니다.
+            </p>
+            <div class="cl-ps-note">시스템을 '사용'하는 것을 넘어 '구축'해본 사람의 학습 속도는 다릅니다. 구조를 이해하고 원리를 파악하는 방식으로 접근합니다.</div>
+        </div>
+
+        <div class="cl-ps-section">
+            <div class="cl-ps-header">
+                <div class="cl-ps-number">03</div>
+                <div class="cl-ps-title">3D/디지털 콘텐츠에 대한 진정한 관심</div>
+            </div>
+            <p class="cl-ps-para">
+                <strong class="cl-ps-tag">[역량]</strong>
+                2022년 과학기술정보통신부 주관 메타버스 콘텐츠 리크루팅 캠프에서 대상을 수상했습니다. 같은 해 한국폴리텍에서 증강현실(AR) 시스템제어 과정을 수료하며 Unity 3D/C#의 기초를 다졌습니다. 이후에도 웹 기반 포트폴리오를 직접 HTML/CSS/JS로 개발하는 등, 디지털 콘텐츠 제작에 대한 관심을 실천으로 이어가고 있습니다.
+            </p>
+            <p class="cl-ps-para">
+                <strong class="cl-ps-tag">[적용]</strong>
+                3D스캔 어시스턴트는 단순 반복이 아니라, 3D 캐릭터 아트의 파이프라인을 이해하고 있어야 효율적으로 업무를 수행할 수 있습니다. 3D/디지털 콘텐츠에 대한 기초 이해와 진정한 관심이 있기에, 단순 보조를 넘어 능동적으로 기여할 수 있습니다.
+            </p>
+            <div class="cl-ps-note">관심이 있는 사람과 없는 사람의 차이는 교육 흡수 속도와 업무 몰입도에서 드러납니다.</div>
+        </div>
+
+        <div class="cl-closing">
+            <div class="cl-closing-box">
+                <strong>정밀 작업 역량, 빠른 학습 속도, 그리고 3D 콘텐츠에 대한 진정한 관심</strong> — 이 세 가지를 가지고 3D 캐릭터 아트팀의 스캔 파이프라인에 기여하겠습니다. 교육을 통해 기술을 빠르게 익히고, 적극적인 자세로 팀의 효율적인 리소스 생산을 지원하는 어시스턴트가 되겠습니다.
+            </div>
+        </div>
+
+        <div class="cl-footer">
+            임종권 · ssujklim@gmail.com
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>
