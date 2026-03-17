@@ -1,8 +1,9 @@
 ---
 company: NCsoft (엔씨소프트)
 position: 3D스캔 어시스턴트 (3D Scan Assistant)
-status: 📋 DISCOVERED
+status: 📤 SUBMITTED
 discovered: 2026-03-17
+submitted: 2026-03-17
 last_updated: 2026-03-17
 ---
 
@@ -78,7 +79,7 @@ last_updated: 2026-03-17
 
 | 일자 | 채널 | 상태 | 비고 |
 |------|------|------|------|
-| — | NC 채용시스템 | 미제출 | 기존 데이터 재활용. 포트폴리오: ncsoft-3d.html |
+| 2026-03-17 | NC 채용시스템 | 제출완료 | 기존 데이터 재활용. 포트폴리오: ncsoft-3d.html |
 
 ---
 
