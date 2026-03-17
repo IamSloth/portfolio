@@ -36,6 +36,10 @@
 | 22 | 오스 주식회사 | 총무/자재관리 | **📋 DISCOVERED** | JD 분석 완료. 근무지 미확인. 상시채용 | `22_os_corporation/general_affairs_materials/` |
 | 23 | 데스코 (DESCO) | 경영지원/AX TEAM | **📋 DISCOVERED** | JD 분석 완료. **광명 근무**. 6개월 계약(정규직 전환 가능). 상시채용 | `23_desco/ax_team/` |
 | 24 | 엔씨소프트 (NCsoft) | 사내 복지시설 운영 (Workplace Motivation) | **📤 SUBMITTED** | 서류 제출 완료. 전용 포트폴리오 페이지 배포. 마감 5/12 | `24_ncsoft/workplace_motivation/` |
+| 24 | 엔씨소프트 (NCsoft) | 3D스캔 어시스턴트 | **📋 DISCOVERED** | Weak Go — 로또 지원. 마감 4/3 | `24_ncsoft/3d_scan_assistant/` |
+| 24 | 엔씨소프트 (NCsoft) | 서비스 기획/운영 어시스턴트 | **📋 DISCOVERED** | **STRONG GO** — AI+QA+기획 직결. ⚠️ 마감 3/25 (D-8) | `24_ncsoft/service_planning_assistant/` |
+| 24 | 엔씨소프트 (NCsoft) | HR 사무지원 | **📋 DISCOVERED** | **STRONG GO** — Excel고급+총무=HR인접. 마감 3/29 | `24_ncsoft/hr_admin_support/` |
+| 25 | 캐논코리아 (Canon Korea) | 영업지원 (Sales Support) | **📋 DISCOVERED** | 계약직 1년, 강남 본사. ERP/데이터/부서조율 ⭐⭐⭐ 매칭. 마감일 확인 필요 | `25_canon_korea/sales_support/` |
 | 03 | 11st | General Affairs | **⏸️ ON_HOLD** | 지원 안 함 (보류 유지) | `03_11st/general_affairs/` |
 
 ### Closed Applications
