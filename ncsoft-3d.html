@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>임종권 × NCsoft 3D스캔 어시스턴트</title>
+    <meta name="description" content="임종권 — NCsoft 3D스캔 어시스턴트 지원 포트폴리오">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=Noto+Serif+KR:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --nc-navy: #00365e;
+            --nc-blue: #004e8e;
+            --nc-sky: #0078D4;
+            --nc-dark: #0B1820;
+            --nc-surface: #0F2233;
+            --nc-card: #132C42;
+            --nc-text: #D8E0E8;
+            --nc-muted: #6E8DA8;
+            --nc-glow: rgba(0, 120, 212, 0.2);
+            --nc-gradient: linear-gradient(135deg, #00365e, #0078D4);
+            --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+            --ease-in-out: cubic-bezier(0.76, 0, 0.24, 1);
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background: var(--nc-dark);
+            color: var(--nc-text);
+            line-height: 1.7;
+            overflow-x: hidden;
+            word-break: keep-all;
+        }
+
+        .container { max-width: 960px; margin: 0 auto; padding: 0 28px; }
+
+        /* ============================
+           NAV — Glassmorphism
+           ============================ */
+        .nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            background: rgba(11, 24, 32, 0.8);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-bottom: 1px solid rgba(0, 120, 212, 0.06);
+            padding: 16px 28px;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .nav-brand {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700; font-size: 18px; color: #fff;
+            text-decoration: none;
+        }
+        .nav-brand span { color: var(--nc-sky); }
+        .nav-back {
+            font-size: 13px; color: var(--nc-muted);
+            text-decoration: none; transition: color 0.3s;
+        }
+        .nav-back:hover { color: var(--nc-sky); }
+
+        /* ============================
+           HERO — Kinetic Type
+           ============================ */
+        .hero {
+            min-height: 100vh;
+            display: flex; align-items: center; justify-content: center;
+            text-align: center;
+            padding: 120px 28px 60px;
+            position: relative;
+            overflow: hidden;
+        }
+        /* Animated gradient orb */
+        .hero-orb {
+            position: absolute;
+            width: 700px; height: 700px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(0,120,212,0.12) 0%, transparent 65%);
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            animation: orbDrift 12s ease-in-out infinite;
+            pointer-events: none;
+        }
+        @keyframes orbDrift {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); }
+            33% { transform: translate(-48%, -52%) scale(1.05); }
+            66% { transform: translate(-52%, -48%) scale(0.97); }
+        }
+        .hero-content { position: relative; z-index: 1; }
+        .hero-label {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 13px; letter-spacing: 4px; text-transform: uppercase;
+            color: var(--nc-sky); margin-bottom: 20px; font-weight: 600;
+            opacity: 0; animation: fadeIn 0.8s 0.2s ease forwards;
+        }
+        .hero-title {
+            font-size: clamp(40px, 8vw, 72px);
+            font-weight: 900; letter-spacing: -0.04em;
+            line-height: 1.05; margin-bottom: 24px;
+        }
+        .hero-title .word {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(40px);
+            animation: wordUp 0.8s var(--ease-out) forwards;
+        }
+        .hero-title .word:nth-child(1) { animation-delay: 0.3s; }
+        .hero-title .word:nth-child(2) { animation-delay: 0.5s; color: var(--nc-sky); }
+        .hero-title .line2 .word:nth-child(1) { animation-delay: 0.7s; }
+        .hero-subtitle {
+            color: var(--nc-muted) !important;
+            font-size: 0.5em;
+            font-weight: 400;
+            letter-spacing: 0.02em;
+        }
+
+        @keyframes wordUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        .hero-sub {
+            font-size: 17px; color: var(--nc-muted);
+            max-width: 560px; margin: 0 auto 40px; line-height: 1.9;
+            opacity: 0; animation: fadeIn 0.8s 0.9s ease forwards;
+        }
+        .hero-scroll {
+            opacity: 0; animation: fadeIn 0.8s 1.2s ease forwards;
+        }
+        .hero-scroll span {
+            display: inline-block;
+            font-size: 24px; color: var(--nc-sky);
+            animation: bounce 2s ease-in-out infinite;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(10px); }
+        }
+
+        /* ============================
+           MARQUEE — rAF + Lerp driven
+           ============================ */
+        .marquee-section {
+            padding: 5vh 0;
+            overflow: hidden;
+            position: relative;
+            background: #080F16;
+        }
+        .marquee-row {
+            overflow: hidden;
+            white-space: nowrap;
+            padding: 0.6vh 0;
+            cursor: default;
+            user-select: none;
+            mask-image: linear-gradient(90deg, transparent 0%, #000 6%, #000 94%, transparent 100%);
+            -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 6%, #000 94%, transparent 100%);
+        }
+        .marquee-track {
+            display: inline-flex;
+            align-items: baseline;
+            gap: 4.5vw;
+            will-change: transform;
+        }
+        .marquee-item {
+            display: inline-flex;
+            align-items: baseline;
+            gap: 1vw;
+            flex-shrink: 0;
+        }
+        /* Row 1: outline — large, tight, uppercase */
+        .marquee-row[data-direction="left"] .m-word {
+            font-family: 'Space Grotesk', 'Noto Sans KR', sans-serif;
+            font-size: clamp(2.8rem, 6.5vw, 7rem);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            line-height: 1.05;
+            text-transform: uppercase;
+            color: transparent;
+            -webkit-text-stroke: 1px rgba(0,120,212,0.45);
+            transition: color 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+                        -webkit-text-stroke-color 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+            white-space: nowrap;
+        }
+        .marquee-row[data-direction="left"] .m-word:hover {
+            color: var(--nc-sky);
+            -webkit-text-stroke-color: transparent;
+        }
+        .marquee-row[data-direction="left"] .m-sub {
+            font-family: 'Noto Serif KR', Georgia, serif;
+            font-size: clamp(1.2rem, 2.8vw, 2.8rem);
+            font-weight: 300;
+            font-style: italic;
+            letter-spacing: 0.01em;
+            color: rgba(0,120,212,0.35);
+            white-space: nowrap;
+        }
+        /* Row 2: filled — smaller, gradient */
+        .marquee-row[data-direction="right"] .m-word {
+            font-family: 'Space Grotesk', 'Noto Sans KR', sans-serif;
+            font-size: clamp(1.8rem, 4vw, 4.2rem);
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            white-space: nowrap;
+            background: linear-gradient(90deg, rgba(0,120,212,0.7), rgba(0,180,216,0.5));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            transition: opacity 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .marquee-row[data-direction="right"] .m-word:hover {
+            opacity: 0.5;
+        }
+        .marquee-row[data-direction="right"] .m-sub {
+            font-family: Georgia, serif;
+            font-size: clamp(1rem, 2vw, 2rem);
+            font-weight: 300;
+            font-style: italic;
+            -webkit-text-fill-color: rgba(0,180,216,0.25);
+            white-space: nowrap;
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .marquee-track { transform: none !important; }
+        }
+
+        /* ============================
+           SECTIONS
+           ============================ */
+        section { padding: 100px 0; }
+        section + section { border-top: 1px solid rgba(0,120,212,0.06); }
+        .section-label {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+            color: var(--nc-sky); margin-bottom: 10px; font-weight: 600;
+            opacity: 0.8;
+        }
+        .section-title {
+            font-size: clamp(26px, 4vw, 36px); font-weight: 800;
+            margin-bottom: 48px; letter-spacing: -0.03em;
+        }
+
+        /* ============================
+           STATS — Counter Animation
+           ============================ */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        .stat-card {
+            background: var(--nc-card);
+            border: 1px solid rgba(0,120,212,0.08);
+            border-radius: 8px;
+            padding: 36px 20px;
+            text-align: center;
+            transition: transform 0.5s var(--ease-out), border-color 0.5s, box-shadow 0.5s;
+        }
+        .stat-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(0,120,212,0.25);
+            box-shadow: 0 16px 48px rgba(0,120,212,0.1);
+        }
+        .stat-number {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 40px; font-weight: 700;
+            background: var(--nc-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 8px;
+        }
+        .stat-label {
+            font-size: 13px; color: var(--nc-muted);
+            line-height: 1.5;
+        }
+
+        /* ============================
+           PROJECTS
+           ============================ */
+        .project {
+            background: var(--nc-card);
+            border: 1px solid rgba(0,120,212,0.07);
+            border-radius: 8px;
+            padding: 40px;
+            margin-bottom: 28px;
+            transition: border-color 0.5s var(--ease-out), box-shadow 0.5s var(--ease-out);
+        }
+        .project:hover {
+            border-color: rgba(0,120,212,0.2);
+            box-shadow: 0 12px 40px rgba(0,120,212,0.06);
+        }
+        .project-header {
+            display: flex; justify-content: space-between;
+            align-items: flex-start; margin-bottom: 24px;
+            flex-wrap: wrap; gap: 12px;
+        }
+        .project-num {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 11px; letter-spacing: 3px;
+            color: var(--nc-sky); font-weight: 700;
+            margin-bottom: 6px;
+        }
+        .project-title {
+            font-size: 22px; font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+        .project-period {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 12px; color: var(--nc-muted);
+            white-space: nowrap;
+        }
+        .project-body {
+            font-size: 15px; color: rgba(226,234,244,0.8);
+            line-height: 1.85; margin-bottom: 24px;
+        }
+        .highlight { color: #fff; font-weight: 700; }
+        .accent { color: var(--nc-sky); }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 28px;
+            border-left: 2px solid rgba(0,120,212,0.2);
+            margin-bottom: 24px;
+        }
+        .timeline-item {
+            position: relative;
+            padding-bottom: 22px;
+        }
+        .timeline-item:last-child { padding-bottom: 0; }
+        .timeline-item::before {
+            content: '';
+            position: absolute; left: -33px; top: 6px;
+            width: 12px; height: 12px;
+            background: var(--nc-sky);
+            border-radius: 50%;
+            border: 3px solid var(--nc-dark);
+        }
+        .timeline-phase {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 12px; color: var(--nc-sky);
+            font-weight: 700; margin-bottom: 4px;
+            letter-spacing: 0.5px;
+        }
+        .timeline-desc {
+            font-size: 14px; color: rgba(226,234,244,0.7);
+            line-height: 1.7;
+        }
+
+        /* Before / After */
+        .ba-grid {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+        .ba-card {
+            padding: 22px;
+            border-radius: 6px;
+            font-size: 13px;
+            line-height: 1.7;
+        }
+        .ba-before {
+            background: rgba(239, 68, 68, 0.06);
+            border: 1px solid rgba(239, 68, 68, 0.15);
+            color: rgba(226,234,244,0.7);
+        }
+        .ba-after {
+            background: rgba(0, 120, 212, 0.08);
+            border: 1px solid rgba(0, 120, 212, 0.2);
+            color: rgba(226,234,244,0.85);
+        }
+        .ba-label {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 11px; font-weight: 700;
+            letter-spacing: 2px; margin-bottom: 10px;
+        }
+        .ba-before .ba-label { color: #EF4444; }
+        .ba-after .ba-label { color: var(--nc-sky); }
+
+        .result-tag {
+            display: inline-block;
+            padding: 6px 16px;
+            background: var(--nc-gradient);
+            color: #fff; font-size: 12px; font-weight: 600;
+            border-radius: 4px; margin-top: 16px;
+            letter-spacing: 0.3px;
+        }
+
+        /* ============================
+           WHY NC
+           ============================ */
+        .why-grid {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .why-card {
+            background: var(--nc-card);
+            border: 1px solid rgba(0,120,212,0.07);
+            border-radius: 8px;
+            padding: 32px;
+            transition: transform 0.5s var(--ease-out), border-color 0.5s;
+        }
+        .why-card:hover {
+            transform: translateY(-3px);
+            border-color: rgba(0,120,212,0.2);
+        }
+        .why-icon { font-size: 28px; margin-bottom: 14px; opacity: 0.85; }
+        .why-card h3 {
+            font-size: 16px; font-weight: 600;
+            margin-bottom: 10px; color: #fff;
+        }
+        .why-card p {
+            font-size: 14px; color: var(--nc-muted);
+            line-height: 1.75;
+        }
+
+        /* ============================
+           CONTACT
+           ============================ */
+        .contact-section {
+            text-align: center;
+            padding: 80px 0 100px;
+        }
+        .contact-info {
+            font-size: 15px; color: var(--nc-muted);
+            margin-top: 24px; line-height: 2.2;
+        }
+        .contact-info a {
+            color: var(--nc-sky);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .contact-info a:hover { color: #fff; }
+
+        /* ============================
+           FOOTER
+           ============================ */
+        footer {
+            text-align: center;
+            padding: 28px;
+            font-size: 12px;
+            color: rgba(123,154,184,0.5);
+            border-top: 1px solid rgba(0,120,212,0.04);
+        }
+
+        /* ============================
+           SCROLL REVEAL
+           ============================ */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s var(--ease-out),
+                        transform 0.8s var(--ease-out);
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+
+        /* ============================
+           RESPONSIVE
+           ============================ */
+        @media (max-width: 768px) {
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .ba-grid, .why-grid { grid-template-columns: 1fr; }
+            .project { padding: 28px 22px; }
+            .section-title { font-size: 26px; }
+            .hero-title { letter-spacing: -1px; }
+            .marquee-row[data-direction="left"] .m-word { font-size: 2rem; }
+            .marquee-row[data-direction="right"] .m-word { font-size: 1.4rem; }
+            .marquee-track { gap: 6vw; }
+        }
+        @media (max-width: 480px) {
+            .stats-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+            .stat-card { padding: 24px 16px; }
+            .stat-number { font-size: 32px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav class="nav">
+    <a href="index.html" class="nav-brand">JK<span>.</span></a>
+    <a href="index.html" class="nav-back">&larr; Main Portfolio</a>
+</nav>
+
+<!-- Hero -->
+<div class="hero">
+    <div class="hero-orb"></div>
+    <div class="hero-content">
+        <div class="hero-label">NCsoft &middot; 3D Character Art</div>
+        <h1 class="hero-title">
+            <span class="word">임종권</span>
+            <span class="word">&times; NC</span>
+            <br>
+            <span class="line2"><span class="word hero-subtitle">3D스캔 어시스턴트</span></span>
+        </h1>
+        <p class="hero-sub">
+            Fast Learner &middot; 정밀 작업 경험 &middot; 3D/AR 기초
+        </p>
+        <div class="hero-scroll"><span>&darr;</span></div>
+    </div>
+</div>
+
+<!-- Marquee Band -->
+<div class="marquee-section">
+    <!-- Row 1: outline, left ←←← -->
+    <div class="marquee-row" data-marquee data-direction="left" data-speed="0.8">
+        <div class="marquee-track" data-marquee-track>
+            <span class="marquee-item"><span class="m-word">Unity 3D</span></span>
+            <span class="marquee-item"><span class="m-word">AR 시스템</span></span>
+            <span class="marquee-item"><span class="m-word">메타버스 대상</span></span>
+            <span class="marquee-item"><span class="m-word">Fast Learner</span></span>
+            <span class="marquee-item"><span class="m-word">HW 프로토타입</span></span>
+            <span class="marquee-item"><span class="m-word">정밀작업</span></span>
+            <!-- duplicate -->
+            <span class="marquee-item" aria-hidden="true"><span class="m-word">Unity 3D</span></span>
+            <span class="marquee-item" aria-hidden="true"><span class="m-word">AR 시스템</span></span>
+            <span class="marquee-item" aria-hidden="true"><span class="m-word">메타버스 대상</span></span>
+            <span class="marquee-item" aria-hidden="true"><span class="m-word">Fast Learner</span></span>
+            <span class="marquee-item" aria-hidden="true"><span class="m-word">HW 프로토타입</span></span>
+            <span class="marquee-item" aria-hidden="true"><span class="m-word">정밀작업</span></span>
+        </div>
+    </div>
+    <!-- Row 2: filled, right →→→ -->
+    <div class="marquee-row" data-marquee data-direction="right" data-speed="0.5">
+        <div class="marquee-track" data-marquee-track>
+            <span class="marquee-item"><span class="m-word">PCB 설계·납땜</span></span>
+            <span class="marquee-item"><span class="m-word">IoT 센서</span></span>
+            <span class="marquee-item"><span class="m-word">ESP32</span></span>
+            <span class="marquee-item"><span class="m-word">과기정통부 수상</span></span>
+            <span class="marquee-item"><span class="m-word">ERP 1주 마스터</span></span>
+            <span class="marquee-item"><span class="m-word">적극성</span></span>
+            <!-- duplicate -->
+            <span class="marquee-item" aria-hidden="true"><span class="m-word">PCB 설계·납땜</span></span>
+            <span class="marquee-item" aria-hidden="true"><span class="m-word">IoT 센서</span></span>
+            <span class="marquee-item" aria-hidden="true"><span class="m-word">ESP32</span></span>
+            <span class="marquee-item" aria-hidden="true"><span class="m-word">과기정통부 수상</span></span>
+            <span class="marquee-item" aria-hidden="true"><span class="m-word">ERP 1주 마스터</span></span>
+            <span class="marquee-item" aria-hidden="true"><span class="m-word">적극성</span></span>
+        </div>
+    </div>
+</div>
+
+<!-- Stats -->
+<section id="stats">
+    <div class="container">
+        <div class="section-label reveal">Key Metrics</div>
+        <h2 class="section-title reveal">숫자로 보는 역량</h2>
+        <div class="stats-grid">
+            <div class="stat-card reveal reveal-delay-1">
+                <div class="stat-number" data-target="1" data-suffix="대상">0</div>
+                <div class="stat-label">메타버스 콘텐츠 캠프<br>(과기정통부)</div>
+            </div>
+            <div class="stat-card reveal reveal-delay-2">
+                <div class="stat-number" data-target="100" data-suffix="%">0</div>
+                <div class="stat-label">납기 준수율<br>정밀 HW 작업</div>
+            </div>
+            <div class="stat-card reveal reveal-delay-3">
+                <div class="stat-number" data-target="1" data-suffix="주">0</div>
+                <div class="stat-label">ERP 시스템 습득<br>학습력 증명</div>
+            </div>
+            <div class="stat-card reveal">
+                <div class="stat-number" data-target="3" data-suffix="개">0</div>
+                <div class="stat-label">도메인 전환 성공<br>HW→임베디드→IT총무</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Projects -->
+<section>
+    <div class="container">
+        <div class="section-label reveal">Project Deep-Dive</div>
+        <h2 class="section-title reveal">프로젝트 상세</h2>
+
+        <!-- Project 1 -->
+        <div class="project reveal">
+            <div class="project-header">
+                <div>
+                    <div class="project-num">PROJECT 01</div>
+                    <div class="project-title">메타버스 콘텐츠 캠프 — 3D/디지털 콘텐츠 관심 증명</div>
+                </div>
+                <div class="project-period">2022</div>
+            </div>
+            <div class="project-body">
+                과학기술정보통신부 주관 메타버스 콘텐츠 캠프에서 <span class="highlight">대상 수상</span>.
+                Unity 3D / C# 기초 학습과 폴리텍대학 AR 시스템 과정 수료를 통해
+                3D·디지털 콘텐츠에 대한 <span class="accent">진성 관심</span>을 증명한 경험입니다.
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-phase">메타버스 콘텐츠 캠프 — 대상</div>
+                    <div class="timeline-desc">과기정통부 주관 캠프 참가. 3D 콘텐츠 기획·제작 과제 수행. 최고상(대상) 수상 — 3D/메타버스 영역에 대한 실질적 관심과 빠른 적응력 입증.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-phase">폴리텍대학 AR 시스템 수료</div>
+                    <div class="timeline-desc">AR 시스템 구성 및 콘텐츠 제작 교육 수료. 증강현실 파이프라인 기초 이해.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-phase">Unity 3D / C# 기초 학습</div>
+                    <div class="timeline-desc">게임 엔진 기초 습득. 3D 오브젝트 조작, 씬 구성, 스크립팅 기초 경험.</div>
+                </div>
+            </div>
+            <div class="ba-grid">
+                <div class="ba-card ba-before">
+                    <div class="ba-label">BACKGROUND</div>
+                    게이머 + HW 개발자 출신<br>
+                    3D/디지털 콘텐츠에 자발적 관심<br>
+                    비전공자로서의 진입
+                </div>
+                <div class="ba-card ba-after">
+                    <div class="ba-label">RESULT</div>
+                    과기정통부 주관 캠프 대상<br>
+                    AR 시스템 과정 수료<br>
+                    Unity 3D 기초 실습 경험
+                </div>
+            </div>
+            <span class="result-tag">과기정통부 메타버스 캠프 대상</span>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project reveal">
+            <div class="project-header">
+                <div>
+                    <div class="project-num">PROJECT 02</div>
+                    <div class="project-title">HW 프로토타입 제작 — 정밀 작업 역량</div>
+                </div>
+                <div class="project-period">2020 &rarr; 2022</div>
+            </div>
+            <div class="project-body">
+                엣지크로스에서 <span class="highlight">PCB 레이아웃 설계 → 납땜 → 조립 → 테스트</span>까지 HW 프로토타입 제작 전 과정을 수행.
+                정밀 작업, 색상·형상 정확도, 손작업 완성도 — 3D 스캔 스튜디오에서 요구되는 꼼꼼함과 직결되는 역량입니다.
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-phase">PCB 설계 — 회로 레이아웃</div>
+                    <div class="timeline-desc">KiCad 활용 PCB 레이아웃 설계. 소자 배치, 배선, 그라운드 플레인 처리. 밀리미터 단위 정밀도 요구.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-phase">납땜 · 조립 — 정밀 손작업</div>
+                    <div class="timeline-desc">SMD 소자 납땜, 스루홀 부품 조립. 불량 없는 납기 준수 100% 달성. 색상·형상 검사 기준 내재화.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-phase">테스트 · 디버깅</div>
+                    <div class="timeline-desc">멀티미터·오실로스코프 계측. 신호 이상 포인트 추적 및 수정. 반복 검증 사이클.</div>
+                </div>
+            </div>
+            <div class="ba-grid">
+                <div class="ba-card ba-before">
+                    <div class="ba-label">HW 스킬셋</div>
+                    PCB 설계·납땜·조립·테스트<br>
+                    ESP32 임베디드 개발<br>
+                    IoT 센서 시스템 구축
+                </div>
+                <div class="ba-card ba-after">
+                    <div class="ba-label">3D 스캔 적용점</div>
+                    정밀 작업 DNA → 스캔 보정·색보정<br>
+                    형상 정확도 집착 → 데이터 품질 관리<br>
+                    반복 검증 습관 → QC 사이클 적응
+                </div>
+            </div>
+            <span class="result-tag">납기 준수율 100% — 정밀 HW 작업</span>
+        </div>
+
+    </div>
+</section>
+
+<!-- Why NCsoft -->
+<section>
+    <div class="container">
+        <div class="section-label reveal">Why NCsoft</div>
+        <h2 class="section-title reveal">왜 엔씨소프트인가</h2>
+        <div class="why-grid">
+            <div class="why-card reveal reveal-delay-1">
+                <div class="why-icon">&#127918;</div>
+                <h3>게이머로서의 NC</h3>
+                <p>리니지부터 블소까지, NC 게임과 함께 성장한 세대입니다. 내가 즐겨온 캐릭터들이 3D 스캔으로 탄생한다는 사실 — 그 제작 공정에 직접 참여하고 싶습니다.</p>
+            </div>
+            <div class="why-card reveal reveal-delay-2">
+                <div class="why-icon">&#128208;</div>
+                <h3>정밀 작업 DNA</h3>
+                <p>PCB 납땜과 3D 스캔 보정은 공통점이 있습니다. 밀리미터 단위 정확도, 색상·형상 검사 기준, 반복 검증 사이클 — HW 개발에서 체득한 정밀성을 그대로 적용합니다.</p>
+            </div>
+            <div class="why-card reveal reveal-delay-3">
+                <div class="why-icon">&#128640;</div>
+                <h3>Fast Learner</h3>
+                <p>HW → 임베디드 → IT총무, 3개 도메인 전환 성공. ERP 1주 마스터. 교육 진행 예정인 포지션에서 빠른 습득력은 가장 확실한 자산입니다.</p>
+            </div>
+            <div class="why-card reveal">
+                <div class="why-icon">&#127912;</div>
+                <h3>3D/디지털 진성 관심</h3>
+                <p>AR 수료 + 메타버스 대상 + Unity 경험 — 스펙을 위한 공부가 아닌, 자발적 관심에서 비롯된 이력입니다. 3D 스캔 스튜디오는 이 관심이 실무로 이어지는 공간입니다.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact -->
+<div class="contact-section">
+    <div class="container">
+        <div class="section-label reveal">Contact</div>
+        <h2 class="section-title reveal" style="margin-bottom: 20px;">연락처</h2>
+        <div class="contact-info reveal">
+            <a href="mailto:ssujklim@gmail.com">ssujklim@gmail.com</a>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer>
+    &copy; 2026 임종권 &middot; NCsoft 3D스캔 어시스턴트 지원을 위해 제작
+</footer>
+
+<!-- Scripts -->
+<script>
+    // Scroll Reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    reveals.forEach(el => revealObserver.observe(el));
+
+    // Counter Animation
+    const counters = document.querySelectorAll('.stat-number[data-target]');
+    const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            const el = entry.target;
+            if (el.dataset.animated) return;
+            el.dataset.animated = 'true';
+
+            const target = parseFloat(el.dataset.target);
+            const suffix = el.dataset.suffix || '';
+            const hasDecimal = el.dataset.decimal;
+            const duration = 2000;
+            const startTime = performance.now();
+
+            function easeOut(t) { return 1 - Math.pow(1 - t, 3); }
+
+            function update(now) {
+                const elapsed = now - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                const value = target * easeOut(progress);
+
+                if (hasDecimal) {
+                    el.textContent = value.toFixed(1) + suffix;
+                } else if (target >= 10000) {
+                    el.textContent = (value / 10000).toFixed(1) + '억' + suffix.replace('만원', '');
+                } else {
+                    el.textContent = Math.floor(value) + suffix;
+                }
+
+                if (progress < 1) requestAnimationFrame(update);
+            }
+            requestAnimationFrame(update);
+        });
+    }, { threshold: 0.5 });
+    counters.forEach(el => counterObserver.observe(el));
+
+    // ========================================
+    // MARQUEE ENGINE — rAF + Lerp (no CSS anim)
+    // ========================================
+    class MarqueeEngine {
+        constructor(el) {
+            this.row = el;
+            this.track = el.querySelector('[data-marquee-track]');
+            this.items = [...el.querySelectorAll('.marquee-item')];
+            this.dir = el.dataset.direction === 'right' ? 1 : -1;
+            this.baseSpeed = parseFloat(el.dataset.speed) || 0.8;
+
+            this.x = 0;
+            this.speed = { current: this.baseSpeed, target: this.baseSpeed };
+            this.skew = { current: 0, target: 0 };
+            this.scrollV = 0;
+            this.hovered = false;
+            this.halfWidth = 0;
+
+            this.LERP_SPEED = 0.06;
+            this.LERP_SKEW = 0.04;
+            this.DECAY = 0.93;
+
+            this._bind();
+            this._measure();
+            this._tick();
+        }
+
+        _bind() {
+            window.addEventListener('wheel', e => { this.scrollV = e.deltaY; }, { passive: true });
+            this.row.addEventListener('pointerenter', () => { this.hovered = true; });
+            this.row.addEventListener('pointerleave', () => { this.hovered = false; });
+            new ResizeObserver(() => this._measure()).observe(this.row);
+        }
+
+        _measure() {
+            const half = Math.floor(this.items.length / 2);
+            this.halfWidth = 0;
+            for (let i = 0; i < half; i++) {
+                this.halfWidth += this.items[i].offsetWidth;
+            }
+            // account for gap
+            const gap = parseFloat(getComputedStyle(this.track).gap) || 0;
+            this.halfWidth += gap * half;
+        }
+
+        _tick() {
+            // velocity boost
+            const vf = Math.min(Math.abs(this.scrollV) * 0.003, 4);
+            this.speed.target = this.hovered ? 0 : this.baseSpeed + vf;
+            this.speed.current += (this.speed.target - this.speed.current) * this.LERP_SPEED;
+
+            // skew from velocity
+            this.skew.target = Math.sign(this.scrollV) * Math.min(Math.abs(this.scrollV) * 0.03, 10);
+            this.skew.current += (this.skew.target - this.skew.current) * this.LERP_SKEW;
+
+            // position
+            this.x += this.speed.current * this.dir;
+
+            // wrap
+            if (this.dir === -1 && Math.abs(this.x) >= this.halfWidth) this.x += this.halfWidth;
+            if (this.dir === 1 && this.x >= this.halfWidth) this.x -= this.halfWidth;
+
+            this.track.style.transform =
+                `translate3d(${this.x}px, 0, 0) skewX(${this.skew.current}deg)`;
+
+            this.scrollV *= this.DECAY;
+            requestAnimationFrame(() => this._tick());
+        }
+    }
+
+    // Reduced motion check
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        document.querySelectorAll('[data-marquee]').forEach(el => new MarqueeEngine(el));
+    }
+</script>
+
+</body>
+</html>
