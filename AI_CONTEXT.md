@@ -7,15 +7,15 @@
 
 | Field | Value |
 |-------|-------|
-| date | 2026-03-13 |
+| date | 2026-03-17 |
 | agent | Claude Opus 4.6 |
-| work | 프로젝트 대청소: 구버전 drafts/임시파일/빈폴더/디버그 스크립트 정리 + AI_CONTEXT 전면 갱신. 네오플·이크래더블 면접 완료 기록. |
+| work | NCsoft(#24) 지원 서류 풀세트 완성: strategy.md + form_data + application_v1.html(네이비) + ncsoft.html 전용 포트폴리오(rAF marquee, Awwwards급 리디자인) |
 | commit | latest |
 
 ### 이번 세션 요약
-- **네오플 (09)**: 1차면접 복기 → `drafts/interview_debrief.md` 생성. strategy.md에 면접 Q&A 요약 추가.
-- **이크래더블 (16)**: 1차면접 (5분, 대면) 완료 기록. strategy.md 업데이트.
-- **프로젝트 대청소**: 종료 지원(01-08) 구버전 drafts 삭제, smilegate 빈 폴더 제거, 디버그 스크립트 정리, 활성 지원(09-19) 임시파일 정리.
+- **NCsoft (24)**: JD 분석→strategy.md 생성, 채용시스템 입력용 form_data.md, 2페이지 A4 지원서(application_v1.html), NC 전용 포트폴리오(docs/ncsoft.html) 제작.
+- **ncsoft.html**: 3차 리디자인 — CSS animation→JS rAF+Lerp 물리엔진(scroll velocity→가속+skew, hover→lerp 감속), outline/gradient 비대칭 타이포, Awwwards급 easing·색온도·border-radius 전면 교체.
+- **application_v1.html**: CSS 변수 퍼플→네이비(#00365e) 교체. 개인정보(전화번호/주소) 제거.
 
 ## Active Applications
 
@@ -35,6 +35,7 @@
 | 21b | 네이버파이낸셜 | 정보보호 업무 운영 지원 | **📤 SUBMITTED** | 네이버 채용시스템 제출 완료 (2026-03-16). 결과 대기 | `21_naver_financial/privacy_protection_support/` |
 | 22 | 오스 주식회사 | 총무/자재관리 | **📋 DISCOVERED** | JD 분석 완료. 근무지 미확인. 상시채용 | `22_os_corporation/general_affairs_materials/` |
 | 23 | 데스코 (DESCO) | 경영지원/AX TEAM | **📋 DISCOVERED** | JD 분석 완료. **광명 근무**. 6개월 계약(정규직 전환 가능). 상시채용 | `23_desco/ax_team/` |
+| 24 | 엔씨소프트 (NCsoft) | 사내 복지시설 운영 (Workplace Motivation) | **📤 SUBMITTED** | 서류 제출 완료. 전용 포트폴리오 페이지 배포. 마감 5/12 | `24_ncsoft/workplace_motivation/` |
 | 03 | 11st | General Affairs | **⏸️ ON_HOLD** | 지원 안 함 (보류 유지) | `03_11st/general_affairs/` |
 
 ### Closed Applications
@@ -69,6 +70,6 @@
 - **Filenames**: English snake_case only. No Korean filenames (except original form templates and final 제출본).
 - **Scripts**: Place inside the relevant application's `scripts/` subfolder. Never in project root.
 - **Commits**: Always include `Co-Authored-By: {Model Name} <noreply@anthropic.com>` trailer.
-- **Application folders**: Numbered by discovery date: `{NN}_{company}/`. Next new company = `24_`.
+- **Application folders**: Numbered by discovery date: `{NN}_{company}/`. Next new company = `25_`.
 - **Profile sync**: If you discover new career/skill/cert info during work, update `profile.json` immediately.
 - **Session end**: Update this file → commit → push. Keep entries concise (token budget matters).
