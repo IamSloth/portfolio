@@ -6,7 +6,7 @@
     <title>임종권 × NCsoft 3D스캔 어시스턴트</title>
     <meta name="description" content="임종권 — NCsoft 3D스캔 어시스턴트 지원 포트폴리오">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=Noto+Serif+KR:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=Noto+Serif+KR:wght@300;400;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -143,27 +143,58 @@
         }
 
         /* ============================
-           MARQUEE — rAF + Lerp driven
+           CORPORATE FLEX LED TICKER
            ============================ */
         .marquee-section {
-            padding: 5vh 0;
+            padding: 4vh 0;
             overflow: hidden;
             position: relative;
-            background: #040C0A;
+            background: #020403;
+        }
+        /* LED dot-matrix overlay (subtle) */
+        .marquee-section::before {
+            content: '';
+            position: absolute; inset: 0; z-index: 2;
+            background:
+                repeating-linear-gradient(
+                    0deg, transparent 0px, transparent 1px,
+                    rgba(0,0,0,0.06) 1px, rgba(0,0,0,0.06) 2px
+                ),
+                repeating-linear-gradient(
+                    90deg, transparent 0px, transparent 1px,
+                    rgba(0,0,0,0.06) 1px, rgba(0,0,0,0.06) 2px
+                );
+            pointer-events: none;
+        }
+        /* Top/bottom LED panel frame lines */
+        .marquee-section::after {
+            content: '';
+            position: absolute; top: 0; left: 0; right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(94,234,212,0.35), transparent);
+            box-shadow: 0 0 8px rgba(94,234,212,0.15);
+        }
+        .marquee-bottom-line {
+            position: absolute; bottom: 0; left: 0; right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(94,234,212,0.35), transparent);
+            box-shadow: 0 0 8px rgba(94,234,212,0.15);
         }
         .marquee-row {
             overflow: hidden;
             white-space: nowrap;
-            padding: 0.6vh 0;
+            padding: 1vh 0;
             cursor: default;
             user-select: none;
-            mask-image: linear-gradient(90deg, transparent 0%, #000 6%, #000 94%, transparent 100%);
-            -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 6%, #000 94%, transparent 100%);
+            mask-image: linear-gradient(90deg, transparent 0%, #000 4%, #000 96%, transparent 100%);
+            -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 4%, #000 96%, transparent 100%);
+            position: relative;
+            z-index: 1;
         }
         .marquee-track {
             display: inline-flex;
             align-items: baseline;
-            gap: 4.5vw;
+            gap: 4vw;
             will-change: transform;
         }
         .marquee-item {
@@ -172,56 +203,75 @@
             gap: 1vw;
             flex-shrink: 0;
         }
-        /* Row 1: outline — large, tight, uppercase */
+        /* Separator dots between items */
+        .marquee-item + .marquee-item::before {
+            content: '·';
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.2em;
+            color: rgba(94,234,212,0.25);
+            text-shadow: 0 0 3px rgba(94,234,212,0.15);
+            margin-right: 1vw;
+        }
+        /* Row 1: LED primary — high-brightness stadium fascia (POSITIVE) */
         .marquee-row[data-direction="left"] .m-word {
-            font-family: 'Space Grotesk', 'Noto Sans KR', sans-serif;
-            font-size: clamp(2.8rem, 6.5vw, 7rem);
+            font-family: 'JetBrains Mono', 'Space Grotesk', monospace;
+            font-size: clamp(2.2rem, 5.5vw, 5.5rem);
             font-weight: 700;
-            letter-spacing: -0.03em;
+            letter-spacing: -0.02em;
             line-height: 1.05;
             text-transform: uppercase;
-            color: transparent;
-            -webkit-text-stroke: 1px rgba(20,184,166,0.45);
-            transition: color 0.5s cubic-bezier(0.22, 1, 0.36, 1),
-                        -webkit-text-stroke-color 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+            color: #5EEAD4;
+            text-shadow:
+                0 0 4px rgba(94,234,212,0.8),
+                0 0 12px rgba(20,184,166,0.35);
+            transition: color 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+                        text-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1);
             white-space: nowrap;
         }
         .marquee-row[data-direction="left"] .m-word:hover {
-            color: var(--nc-sky);
-            -webkit-text-stroke-color: transparent;
+            color: #99F6E4;
+            text-shadow:
+                0 0 6px rgba(153,246,228,0.9),
+                0 0 16px rgba(94,234,212,0.3);
         }
         .marquee-row[data-direction="left"] .m-sub {
-            font-family: 'Noto Serif KR', Georgia, serif;
-            font-size: clamp(1.2rem, 2.8vw, 2.8rem);
-            font-weight: 300;
-            font-style: italic;
-            letter-spacing: 0.01em;
-            color: rgba(20,184,166,0.35);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: clamp(1rem, 2.2vw, 2.2rem);
+            font-weight: 400;
+            letter-spacing: 0.05em;
+            color: rgba(94,234,212,0.3);
+            text-shadow: 0 0 4px rgba(20,184,166,0.2);
             white-space: nowrap;
         }
-        /* Row 2: filled — smaller, gradient */
+        /* Row 2: NEGATIVE / KNOCKOUT — dark text on bright teal strip */
+        .marquee-row[data-direction="right"] {
+            background: #5EEAD4;
+        }
         .marquee-row[data-direction="right"] .m-word {
-            font-family: 'Space Grotesk', 'Noto Sans KR', sans-serif;
-            font-size: clamp(1.8rem, 4vw, 4.2rem);
-            font-weight: 500;
-            letter-spacing: -0.02em;
+            font-family: 'JetBrains Mono', 'Space Grotesk', monospace;
+            font-size: clamp(1.4rem, 3.2vw, 3.2rem);
+            font-weight: 700;
+            letter-spacing: 0.01em;
             line-height: 1.1;
             white-space: nowrap;
-            background: linear-gradient(90deg, rgba(20,184,166,0.7), rgba(45,212,191,0.5));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            transition: opacity 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+            color: #0f1d1b;
+            text-shadow: none;
+            transition: color 0.4s cubic-bezier(0.22, 1, 0.36, 1);
         }
         .marquee-row[data-direction="right"] .m-word:hover {
-            opacity: 0.5;
+            color: #1a302c;
         }
         .marquee-row[data-direction="right"] .m-sub {
-            font-family: Georgia, serif;
-            font-size: clamp(1rem, 2vw, 2rem);
-            font-weight: 300;
-            font-style: italic;
-            -webkit-text-fill-color: rgba(45,212,191,0.25);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: clamp(0.9rem, 1.8vw, 1.8rem);
+            font-weight: 400;
+            color: rgba(15,29,27,0.55);
+            text-shadow: none;
             white-space: nowrap;
+        }
+        .marquee-row[data-direction="right"] .marquee-item + .marquee-item::before {
+            color: rgba(15,29,27,0.35);
+            text-shadow: none;
         }
         @media (prefers-reduced-motion: reduce) {
             .marquee-track { transform: none !important; }
@@ -472,9 +522,9 @@
             .project { padding: 28px 22px; }
             .section-title { font-size: 26px; }
             .hero-title { letter-spacing: -1px; }
-            .marquee-row[data-direction="left"] .m-word { font-size: 2rem; }
-            .marquee-row[data-direction="right"] .m-word { font-size: 1.4rem; }
-            .marquee-track { gap: 6vw; }
+            .marquee-row[data-direction="left"] .m-word { font-size: 1.6rem; }
+            .marquee-row[data-direction="right"] .m-word { font-size: 1.1rem; }
+            .marquee-track { gap: 5vw; }
         }
         @media (max-width: 480px) {
             .stats-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
@@ -509,10 +559,11 @@
     </div>
 </div>
 
-<!-- Marquee Band -->
+<!-- LED Ticker -->
 <div class="marquee-section">
+    <div class="marquee-bottom-line"></div>
     <!-- Row 1: outline, left ←←← -->
-    <div class="marquee-row" data-marquee data-direction="left" data-speed="0.8">
+    <div class="marquee-row" data-marquee data-direction="left" data-speed="0.4">
         <div class="marquee-track" data-marquee-track>
             <span class="marquee-item"><span class="m-word">Unity 3D</span></span>
             <span class="marquee-item"><span class="m-word">AR 시스템</span></span>
@@ -530,7 +581,7 @@
         </div>
     </div>
     <!-- Row 2: filled, right →→→ -->
-    <div class="marquee-row" data-marquee data-direction="right" data-speed="0.5">
+    <div class="marquee-row" data-marquee data-direction="right" data-speed="0.25">
         <div class="marquee-track" data-marquee-track>
             <span class="marquee-item"><span class="m-word">PCB 설계·납땜</span></span>
             <span class="marquee-item"><span class="m-word">IoT 센서</span></span>
@@ -787,9 +838,9 @@
             this.hovered = false;
             this.halfWidth = 0;
 
-            this.LERP_SPEED = 0.06;
-            this.LERP_SKEW = 0.04;
-            this.DECAY = 0.93;
+            this.LERP_SPEED = 0.035;
+            this.LERP_SKEW = 0.025;
+            this.DECAY = 0.96;
 
             this._bind();
             this._measure();
@@ -816,12 +867,12 @@
 
         _tick() {
             // velocity boost
-            const vf = Math.min(Math.abs(this.scrollV) * 0.003, 4);
+            const vf = Math.min(Math.abs(this.scrollV) * 0.002, 2.5);
             this.speed.target = this.hovered ? 0 : this.baseSpeed + vf;
             this.speed.current += (this.speed.target - this.speed.current) * this.LERP_SPEED;
 
             // skew from velocity
-            this.skew.target = Math.sign(this.scrollV) * Math.min(Math.abs(this.scrollV) * 0.03, 10);
+            this.skew.target = Math.sign(this.scrollV) * Math.min(Math.abs(this.scrollV) * 0.015, 5);
             this.skew.current += (this.skew.target - this.skew.current) * this.LERP_SKEW;
 
             // position
