@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<title>임종권 — 국민은행 철산 사무지원</title>
+<title>임종권 — KB국민은행 철산 사무지원</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;800&display=swap');
   @page { size: A4; margin: 0; }
@@ -12,160 +12,164 @@
     -webkit-print-color-adjust:exact; print-color-adjust:exact; word-break:keep-all; }
   @media print { body { background:#fff; padding:0; gap:0; } }
 
-  :root { --accent:#1A3C8B; --accent-light:#eef2fb; --dark:#111; }
+  /* ── KB국민은행 Brand: Yellow #FFB600 + Brown #2C1900 ── */
+  :root {
+    --acc: #FFB600;        /* KB 시그니처 옐로우 */
+    --acc-dark: #2C1900;   /* KB 브라운 (텍스트 강조) */
+    --acc-bg: #FFF8E0;     /* 워밍 옐로우 배경 */
+    --border: #E8C000;     /* 테두리용 진한 옐로우 */
+  }
 
-  /* ─── PAGE ─── */
   .page {
-    width:210mm; height:296mm;
-    background:#fff;
+    width:210mm; height:296mm; background:#fff;
     box-shadow:0 2px 14px rgba(0,0,0,.3);
-    overflow:hidden;
-    position:relative;
-    display:flex;
+    overflow:hidden; display:flex;
+    border-top:6px solid var(--acc);
   }
   @media print { .page { box-shadow:none; page-break-after:always; } }
   @media print { .page:last-child { page-break-after:auto; } }
 
-  /* ─── PAGE 1: SIDEBAR ─── */
+  /* SIDEBAR */
   .sidebar {
-    width:31%; background:#f4f6f8;
-    border-right:1px solid #ddd;
-    padding:22px 16px;
-    display:flex; flex-direction:column;
-    flex-shrink:0;
+    width:31%; background:#FFF8E0;
+    border-right:1px solid #EDD97A;
+    padding:22px 16px; display:flex; flex-direction:column; flex-shrink:0;
   }
   .profile-img {
-    width:110px; height:143px;
-    margin:0 auto 16px;
-    border:2px solid var(--accent);
-    padding:2px; background:#fff;
+    width:110px; height:143px; margin:0 auto 16px;
+    border:2px solid var(--acc-dark); padding:2px; background:#fff;
   }
   .profile-img img { width:100%; height:100%; object-fit:cover; }
 
-  .contact-block { font-size:10.5px; margin-bottom:18px; line-height:1.6; }
+  .contact-block { font-size:10.5px; margin-bottom:18px; line-height:1.65; }
   .contact-item { display:flex; align-items:flex-start; margin-bottom:4px; color:#444; }
-  .contact-lbl { font-weight:700; width:38px; color:var(--accent); flex-shrink:0; }
+  .contact-lbl { font-weight:700; width:38px; color:var(--acc-dark); flex-shrink:0; }
 
   .side-sec { margin-bottom:16px; }
   .side-ttl {
-    font-size:12.5px; font-weight:700; color:var(--dark);
-    border-bottom:2px solid var(--accent); padding-bottom:3px; margin-bottom:8px;
+    font-size:11px; font-weight:700; color:var(--acc-dark); letter-spacing:.5px;
+    text-transform:uppercase;
+    border-bottom:2px solid var(--acc); padding-bottom:3px; margin-bottom:9px;
   }
-  .side-item {
-    font-size:10.5px; margin-bottom:7px; padding-left:10px;
-    position:relative; line-height:1.4;
-  }
-  .side-item::before { content:'■'; position:absolute; left:0; top:4px; font-size:5px; color:var(--accent); }
-  .side-item strong { display:block; color:#333; margin-bottom:1px; }
+  .side-item { font-size:10.5px; margin-bottom:8px; padding-left:10px; position:relative; line-height:1.45; }
+  .side-item::before { content:'▪'; position:absolute; left:0; top:1px; font-size:7px; color:var(--acc-dark); }
+  .side-item strong { display:block; color:#1A1A1A; margin-bottom:1px; font-weight:700; }
   .side-item span { color:#666; font-size:10px; }
 
-  .skill-box {
-    border:1px solid #ccc; background:#fff;
-    padding:7px 8px; font-size:10.5px; line-height:1.75;
-  }
-  .skill-box b { color:var(--accent); }
+  .skill-box { border:1px solid var(--border); background:#fff; padding:8px 9px; font-size:10.5px; line-height:1.8; }
+  .skill-box b { color:var(--acc-dark); font-weight:700; }
 
-  /* ─── PAGE 1: MAIN ─── */
-  .main {
-    flex:1; padding:22px 26px;
-    display:flex; flex-direction:column;
-  }
-  .hd-name { font-size:24px; font-weight:800; letter-spacing:-0.5px; margin-bottom:3px; }
-  .hd-role {
-    font-size:11.5px; font-weight:700; color:var(--accent);
-    margin-bottom:14px; padding-bottom:8px; border-bottom:1px solid #eee;
-  }
+  /* MAIN */
+  .main { flex:1; padding:24px 26px; display:flex; flex-direction:column; }
+  .hd-name { font-size:24px; font-weight:800; letter-spacing:-0.5px; margin-bottom:3px; color:#000; }
+  .hd-role { font-size:10.5px; font-weight:700; color:#666; margin-bottom:14px; padding-bottom:8px; border-bottom:2px solid var(--acc); }
+
   .summary {
-    border-left:3px solid var(--accent); background:var(--accent-light);
-    padding:10px 12px; font-size:11px; line-height:1.65; margin-bottom:18px; color:#333;
+    border-left:3px solid var(--acc-dark); background:var(--acc-bg);
+    padding:10px 12px; font-size:11px; line-height:1.7; margin-bottom:14px; color:#333;
   }
+
+  /* KPI */
+  .kpi-grid { display:grid; grid-template-columns:1fr 1fr; gap:7px; margin-bottom:14px; }
+  .kpi-card { background:var(--acc-bg); border-left:3px solid var(--acc-dark); padding:8px 10px; }
+  .kpi-card.yl { border-left-color:var(--acc); background:var(--acc); }
+  .kpi-card.yl .kpi-num { color:var(--acc-dark); }
+  .kpi-card.yl .kpi-unit { color:var(--acc-dark); }
+  .kpi-card.yl .kpi-desc { color:#4a3000; }
+  .kpi-num { font-size:17px; font-weight:800; color:var(--acc-dark); line-height:1; }
+  .kpi-unit { font-size:10px; font-weight:600; color:var(--acc-dark); }
+  .kpi-desc { font-size:9.5px; color:#666; margin-top:3px; line-height:1.4; }
+
   .sec-ttl {
-    font-size:13px; font-weight:700; color:var(--dark);
-    border-bottom:2px solid var(--dark); padding-bottom:4px; margin-bottom:10px;
+    font-size:11px; font-weight:700; color:var(--acc-dark); letter-spacing:.5px;
+    text-transform:uppercase; border-bottom:2px solid var(--acc);
+    padding-bottom:4px; margin-bottom:10px;
   }
 
-  /* 경력 타임라인 */
-  .exp { display:flex; border-bottom:1px solid #eee; padding:8px 0; gap:10px; }
-  .exp-date { width:80px; font-size:10px; color:#777; flex-shrink:0; line-height:1.5; padding-top:2px; }
+  /* EXP */
+  .exp { display:flex; border-bottom:1px solid #EDD97A; padding:9px 0; gap:10px; }
+  .exp-date { width:76px; font-size:10px; color:#888; flex-shrink:0; line-height:1.5; padding-top:2px; }
   .exp-body { flex:1; }
-  .exp-company { font-size:12.5px; font-weight:700; }
-  .exp-role { font-size:10.5px; color:#666; font-weight:600; margin-left:4px; }
-  .exp-photo { width:88px; flex-shrink:0; }
-  .exp-photo img { width:100%; border:1px solid #ddd; display:block; }
-  .exp-photo .caption { font-size:8.5px; color:#999; text-align:center; margin-top:2px; }
-  ul.bd { list-style:none; padding:0; margin:4px 0 0; }
-  ul.bd li { font-size:11px; padding-left:8px; position:relative; margin-bottom:3px; line-height:1.45; color:#444; }
+  .exp-co { font-size:12px; font-weight:700; color:#000; }
+  .exp-role { font-size:10px; color:#888; font-weight:500; display:block; margin-top:1px; }
+  .exp-photo { width:84px; flex-shrink:0; }
+  .exp-photo img { width:100%; border:1px solid #EDD97A; display:block; }
+  .exp-photo .cap { font-size:8px; color:#aaa; text-align:center; margin-top:2px; }
+  ul.bd { list-style:none; margin:5px 0 0; }
+  ul.bd li { font-size:11px; padding-left:8px; position:relative; margin-bottom:4px; line-height:1.5; color:#444; }
   ul.bd li::before { content:'-'; position:absolute; left:0; }
-  ul.bd li b { font-weight:700; color:var(--dark); }
+  ul.bd li b { font-weight:700; color:#1A1A1A; }
 
-  /* ─── PAGE 2: 자기소개서 ─── */
+  /* ── PAGE 2 ── */
   .page2 { flex-direction:column; }
-  .cl-header {
-    background:var(--accent); color:#fff;
-    padding:18px 28px;
-    display:flex; align-items:center; justify-content:space-between;
-    flex-shrink:0;
+  .cl-hd {
+    background:var(--acc-dark); color:#fff;
+    padding:16px 28px; display:flex; align-items:center; justify-content:space-between; flex-shrink:0;
   }
-  .cl-header .cl-name { font-size:20px; font-weight:800; letter-spacing:-0.5px; }
-  .cl-header .cl-pos { font-size:11px; opacity:.85; margin-top:3px; }
-  .cl-header .cl-contact { font-size:10.5px; text-align:right; line-height:1.7; opacity:.9; }
-  .cl-body { flex:1; padding:24px 28px; display:flex; flex-direction:column; }
-  .cl-sec { margin-bottom:20px; }
-  .cl-sec-ttl {
-    font-size:13px; font-weight:700; color:var(--accent);
-    padding-bottom:5px; border-bottom:2px solid var(--accent); margin-bottom:10px;
-  }
-  .cl-text { font-size:11.5px; line-height:1.85; color:#222; text-align:justify; }
-  .cl-text + .cl-text { margin-top:8px; }
-  .cl-sign {
-    margin-top:auto; padding-top:16px;
-    border-top:1px solid #eee;
-    display:flex; justify-content:flex-end; align-items:center; gap:16px;
-    font-size:11px; color:#555;
-  }
-  .cl-sign .date { color:#888; }
+  .cl-hd .cl-name { font-size:20px; font-weight:800; letter-spacing:-0.5px; }
+  .cl-hd .cl-pos { font-size:10.5px; opacity:.8; margin-top:3px; }
+  .cl-hd .cl-ct { font-size:10px; text-align:right; line-height:1.8; opacity:.85; }
+  /* KB 옐로우 accent strip */
+  .cl-hd::after { content:''; display:block; position:absolute; top:0; left:0; width:100%; height:4px; background:var(--acc); }
+  .cl-hd { position:relative; }
 
-  .print-btn {
-    position:fixed; bottom:28px; right:28px;
-    background:var(--accent); color:#fff;
-    border:none; padding:12px 26px; font-size:14px; font-weight:700;
-    border-radius:4px; cursor:pointer; z-index:999;
+  .cl-body {
+    flex:1; padding:26px 30px;
+    display:flex; flex-direction:column; justify-content:space-between;
   }
+  .cl-sec { margin-bottom:0; }
+  .cl-sec-ttl {
+    font-size:11px; font-weight:700; color:var(--acc-dark); letter-spacing:.5px;
+    text-transform:uppercase; padding-bottom:5px;
+    border-bottom:2px solid var(--acc); margin-bottom:10px;
+  }
+  .cl-p { font-size:11.5px; line-height:1.95; color:#222; text-align:justify; }
+  .cl-p + .cl-p { margin-top:7px; }
+
+  .cl-sign {
+    padding-top:14px; border-top:2px solid var(--acc);
+    display:flex; justify-content:flex-end; align-items:center; gap:14px;
+    font-size:11px; color:#666;
+  }
+
+  .print-btn { position:fixed; bottom:24px; right:24px; background:var(--acc-dark); color:#fff; border:none; padding:11px 24px; font-size:13px; font-weight:700; border-radius:2px; cursor:pointer; letter-spacing:.5px; }
   @media print { .print-btn { display:none; } }
 </style>
 </head>
 <body>
 
-<!-- ══════════════════ PAGE 1: 이력서 + 경력기술서 ══════════════════ -->
-<div class="page" style="border-top:5px solid var(--accent);">
-
-  <!-- Sidebar -->
+<!-- ══ PAGE 1 ══ -->
+<div class="page">
   <div class="sidebar">
-    <div class="profile-img">
-      <img src="../../../../common/photos/profile.png" alt="임종권">
-    </div>
+    <div class="profile-img"><img src="../../../../common/photos/profile.png" alt="임종권"></div>
 
     <div class="contact-block">
       <div class="contact-item"><span class="contact-lbl">생년월</span><span>1992.01.04</span></div>
-      <div class="contact-item"><span class="contact-lbl">주 소</span><span>경기 광명시 도덕로 79<br><span style="font-size:9.5px;color:#888">(철산역 5분 거리)</span></span></div>
+      <div class="contact-item"><span class="contact-lbl">주 소</span>
+        <span>경기 광명시 도덕로 79<br><span style="font-size:9.5px;color:#999">철산역 버스 10분</span></span>
+      </div>
       <div class="contact-item"><span class="contact-lbl">연락처</span><span>010-4052-0834</span></div>
       <div class="contact-item"><span class="contact-lbl">이메일</span><span>ssujklim@gmail.com</span></div>
     </div>
 
     <div class="side-sec">
-      <div class="side-ttl">학 력</div>
+      <div class="side-ttl">Education</div>
       <div class="side-item">
         <strong>숭실대학교 대학원</strong>
-        <span>사회적기업전공 석사 (2020.02)<br>GPA 4.3/4.5</span>
+        <span>사회적기업전공 석사 (2020.02) · GPA 4.3/4.5</span>
       </div>
       <div class="side-item">
         <strong>숭실대학교 공과대학</strong>
-        <span>전기공학부 / 경제학 복수전공<br>학사 (2017.02)</span>
+        <span>전기공학부 / 경제학 복수전공 · 학사 (2017.02)</span>
+      </div>
+      <div class="side-item">
+        <strong>한국폴리텍 광명융합기술교육원</strong>
+        <span>AR 시스템제어 / Unity · 수료 (2022.12)</span>
       </div>
     </div>
 
     <div class="side-sec">
-      <div class="side-ttl">자격 및 면허</div>
+      <div class="side-ttl">Certifications</div>
       <div class="side-item">
         <strong>사회복지사 1급</strong>
         <span>보건복지부 (2021.02)</span>
@@ -177,7 +181,7 @@
     </div>
 
     <div class="side-sec">
-      <div class="side-ttl">수상</div>
+      <div class="side-ttl">Award</div>
       <div class="side-item">
         <strong>메타버스 리크루팅 캠프 대상</strong>
         <span>과학기술정보통신부 (2022)</span>
@@ -185,145 +189,150 @@
     </div>
 
     <div class="side-sec">
-      <div class="side-ttl">주요 스킬</div>
+      <div class="side-ttl">Skills</div>
       <div class="skill-box">
-        <b>OA:</b> Excel 고급·한글·Word<br>
-        <b>Data:</b> Pivot·VBA·Power Query<br>
-        <b>DB:</b> SQL (Tibero DB)<br>
-        <b>ERP:</b> High-Q (데이터 입력·관리)<br>
-        <b>기타:</b> Notion, 문서 스캔·관리
+        <b>OA&nbsp;&nbsp;&nbsp;&nbsp;</b> Excel 고급 · 한글 · Word<br>
+        <b>Data&nbsp;&nbsp;</b> Pivot · VBA · Power Query<br>
+        <b>ERP&nbsp;&nbsp;&nbsp;</b> High-Q (데이터 입력·관리)<br>
+        <b>DB&nbsp;&nbsp;&nbsp;&nbsp;</b> SQL (Tibero DB)<br>
+        <b>기타&nbsp;&nbsp;</b> Notion · 문서 스캔·관리
       </div>
     </div>
 
-    <div class="side-sec">
-      <div class="side-ttl">병역</div>
-      <div class="side-item" style="font-size:10.5px;">
+    <div class="side-sec" style="margin-bottom:0;">
+      <div class="side-ttl">Military</div>
+      <div class="side-item" style="margin-bottom:0;">
         <strong>공군 병장 만기제대</strong>
-        <span>2010.07 ~ 2012.08</span>
+        <span>2010.07 ~ 2012.08 · 가평 방공포정비부대</span>
       </div>
     </div>
   </div>
 
-  <!-- Main Content -->
   <div class="main">
     <div class="hd-name">임 종 권</div>
-    <div class="hd-role">KB국민은행 철산 사무지원 | 파견: 주식회사 휴머니아</div>
+    <div class="hd-role">KB국민은행 철산 사무지원&nbsp;&nbsp;|&nbsp;&nbsp;파견: 주식회사 휴머니아</div>
 
     <div class="summary">
-      근무지에서 <strong>도보 5분 거리(광명시 거주)</strong>로 즉시 출근 가능합니다.
-      금융기관 여신 ERP를 직접 운용한 경험과 Excel 고급 활용 능력으로
-      <strong>법원 문서 전산입력·엑셀 자료 관리·문서 스캔</strong> 업무에 즉시 기여할 수 있습니다.
+      <strong>근무지 버스 10분 거리(광명시 거주)</strong>로 즉시 출근 가능합니다. 금융기관 여신 ERP를 3년간 직접 운용하며 문서 작성·데이터 입력·사무행정 전반을 담당했습니다.
+      <strong>법원 문서 전산입력·엑셀 자료 관리·문서 스캔</strong> 업무에 즉시 투입 가능한 경력자입니다.
     </div>
 
-    <div class="sec-ttl">경력기술서</div>
+    <div class="kpi-grid">
+      <div class="kpi-card yl">
+        <span class="kpi-num">3<span class="kpi-unit"> 년 2개월</span></span>
+        <div class="kpi-desc">종합 사무행정 경력<br>문서작성·데이터입력·외주관리</div>
+      </div>
+      <div class="kpi-card">
+        <span class="kpi-num">8<span class="kpi-unit"> 개사</span></span>
+        <div class="kpi-desc">외주업체 계약·정산 관리<br>마감 기한 내 100% 제출</div>
+      </div>
+      <div class="kpi-card">
+        <span class="kpi-num">3.6<span class="kpi-unit"> 억원</span></span>
+        <div class="kpi-desc">연간 예산 집행 관리<br>Excel 원단위 정합성 유지</div>
+      </div>
+      <div class="kpi-card yl">
+        <span class="kpi-num">10<span class="kpi-unit"> 분</span></span>
+        <div class="kpi-desc">근무지까지 버스 거리<br>광명시 도덕로 79 거주</div>
+      </div>
+    </div>
 
-    <!-- 함께만드는세상 -->
+    <div class="sec-ttl">Career Description</div>
+
     <div class="exp">
-      <div class="exp-date">2023.01<br>~ 2026.02<br><span style="font-size:9px;color:#aaa">(3년 2개월)</span></div>
+      <div class="exp-date">2023.01<br>~ 2026.02<br><span style="font-size:9px;color:#bbb">3년 2개월</span></div>
       <div class="exp-body">
-        <span class="exp-company">(사)함께만드는세상 (사회연대은행)</span>
+        <span class="exp-co">(사)함께만드는세상 (사회연대은행)</span>
         <span class="exp-role">경영지원부 인프라지원팀 · 대리</span>
         <ul class="bd">
-          <li><b>[문서 작성·관리]</b> 법정 안전점검 보고서, 예산 집행 실적 보고서, 외주업체 계약서 등 대내외 문서 정기 작성 및 관리. 한글·Word·Excel 일상적 활용</li>
-          <li><b>[데이터 입력·정리]</b> ERP(High-Q) 도입 시 여신·채무·채권 관련 계정 데이터 대량 입력·검증. 인프라 예산 3.6억 원 Excel로 원 단위까지 정합성 관리</li>
-          <li><b>[사무 행정 총괄]</b> 외주업체 8개사 계약·정산, 우편물 수발신, 소모품 발주·관리, IT 자산 대장 유지보수</li>
+          <li><b>[문서 작성·관리]</b> 법정 안전점검 보고서, 예산 집행 실적 보고서, 외주업체 계약서 등 대내외 문서 정기 작성·관리. 한글·Word·Excel 일상 활용, 마감 기한 100% 준수</li>
+          <li><b>[데이터 입력·검증]</b> 사회연대은행 ERP(High-Q) 도입 시 여신·채무·채권 계정 데이터 수천 건 입력·정합성 검증. 예산 3.6억 원 Excel 원 단위까지 관리</li>
+          <li><b>[사무 행정]</b> 외주업체 8개사 계약·정산·우편 수발신·소모품 발주·IT 자산 대장 유지보수 등 사무 행정 총괄</li>
+          <li><b>[ERP 운영]</b> 커스텀 ERP 도입 실무 전담 — 개발사 요구사항 정의·검수, VBA로 반복 보고 자동화 구축</li>
         </ul>
       </div>
       <div class="exp-photo">
-        <img src="../../../../common/photos/photo_erp_highq.png" alt="ERP High-Q">
-        <div class="caption">ERP 데이터 입력·관리</div>
+        <img src="../../../../common/photos/photo_erp_highq.png" alt="ERP">
+        <div class="cap">ERP 데이터 입력·관리</div>
       </div>
     </div>
 
-    <!-- 맨지온 -->
     <div class="exp">
-      <div class="exp-date">2020.03<br>~ 2021.11<br><span style="font-size:9px;color:#aaa">(1년 9개월)</span></div>
+      <div class="exp-date">2020.03<br>~ 2021.11<br><span style="font-size:9px;color:#bbb">1년 9개월</span></div>
       <div class="exp-body">
-        <span class="exp-company">(주)맨지온</span>
+        <span class="exp-co">(주)맨지온</span>
         <span class="exp-role">개발부 · 임베디드 개발 및 QA · 대리</span>
         <ul class="bd">
-          <li>시설 관제 데이터 로그 분석 및 테스트 시나리오 문서 작성</li>
-          <li>IoT 모니터링 대시보드 구축 및 운영 데이터 시각화</li>
+          <li>시설 관제 시스템 데이터 로그 분석 및 테스트 시나리오·결함 보고서 문서 작성</li>
+          <li>IoT 시스템 기능 검증 수행, 결과 데이터 Excel 정리·집계 및 보고</li>
+          <li>개발·운영 관련 사내 기술 문서 작성 및 공유 체계 관리</li>
         </ul>
+      </div>
+      <div class="exp-photo">
+        <img src="../../../../common/photos/photo_blynk_data.jpg" alt="IoT 모니터링">
+        <div class="cap">IoT 데이터 모니터링</div>
       </div>
     </div>
 
-    <!-- 엣지크로스 -->
-    <div class="exp">
-      <div class="exp-date">2016.05<br>~ 2018.02<br><span style="font-size:9px;color:#aaa">(1년 9개월)</span></div>
+    <div class="exp" style="border-bottom:none;">
+      <div class="exp-date">2016.05<br>~ 2018.02<br><span style="font-size:9px;color:#bbb">1년 9개월</span></div>
       <div class="exp-body">
-        <span class="exp-company">(주)엣지크로스</span>
+        <span class="exp-co">(주)엣지크로스</span>
         <span class="exp-role">기술연구소 · HW 개발 및 자재관리 · 주임</span>
         <ul class="bd">
-          <li>자재 BOM 관리 및 납기 일정 조율, 연구 행정 지원 업무 수행</li>
+          <li>자재 BOM 관리 체계화, 납기 일정 조율, 연구 행정 지원 업무 수행</li>
+          <li>회로 설계부터 시제품 검증까지 단계별 기술 문서 작성 및 관리</li>
+          <li>외부 기관·협력업체 공문 작성 및 대응, 일정·물량 현황 Excel 관리</li>
         </ul>
       </div>
+      <div class="exp-photo">
+        <img src="../../../../common/photos/photo_relay_board.jpg" alt="릴레이 보드">
+        <div class="cap">회로 설계 및 제작</div>
+      </div>
     </div>
-
-  </div><!-- /main -->
+  </div>
 </div>
 
 
-<!-- ══════════════════ PAGE 2: 자기소개서 ══════════════════ -->
-<div class="page page2" style="border-top:5px solid var(--accent);">
-
-  <div class="cl-header">
+<!-- ══ PAGE 2: 자기소개서 ══ -->
+<div class="page page2" style="border-top:6px solid var(--acc);">
+  <div class="cl-hd">
     <div>
       <div class="cl-name">임 종 권</div>
       <div class="cl-pos">KB국민은행 철산 사무지원 지원서</div>
     </div>
-    <div class="cl-contact">
-      010-4052-0834<br>
-      ssujklim@gmail.com<br>
-      경기도 광명시 도덕로 79
-    </div>
+    <div class="cl-ct">010-4052-0834 · ssujklim@gmail.com<br>경기도 광명시 도덕로 79</div>
   </div>
 
   <div class="cl-body">
 
     <div class="cl-sec">
-      <div class="cl-sec-ttl">지원동기 및 입사 후 포부</div>
-      <p class="cl-text">
-        저는 경기도 광명시에 거주하며 국민은행 철산 빌딩 근무지와 매우 가까운 거리에 있습니다. 장거리 출퇴근 없이 업무에 온전히 집중할 수 있는 환경을 원하여 지원하였습니다.
-      </p>
-      <p class="cl-text">
-        전 직장 (사)함께만드는세상은 저신용·취약계층을 대상으로 소액 대출(여신)을 제공하는 <strong>사회연대은행</strong>의 운영 법인입니다. 3년 2개월간 경영지원부에서 사무 행정을 담당하면서, ERP(High-Q) 도입 프로젝트를 통해 여신·채무·채권·약정·이자 관련 회계 프로세스를 직접 설계하고 데이터를 입력·관리한 경험이 있습니다. 금융기관 특유의 문서 체계와 데이터 입력 정확도 요구에 익숙하며, 한글·엑셀·워드를 일상적으로 활용합니다.
-      </p>
-      <p class="cl-text">
-        입사 후에는 빠른 적응을 통해 팀의 사무 흐름에 즉시 기여하고, 법원 문서 전산입력·엑셀 자료 관리·문서 스캔 업무를 정확하고 꼼꼼하게 수행하겠습니다.
-      </p>
+      <div class="cl-sec-ttl">지원동기 및 포부</div>
+      <p class="cl-p">경기도 광명시에 거주하며 근무지인 KB국민은행 철산 빌딩과 버스로 10분 거리에 있습니다. 장거리 출퇴근 없이 업무에 온전히 집중할 수 있는 환경을 원하여 지원하게 되었습니다.</p>
+      <p class="cl-p">전 직장 (사)함께만드는세상은 저신용·취약계층 소액 대출(여신)을 제공하는 <strong>사회연대은행</strong>의 운영 법인입니다. 3년 2개월간 경영지원부에서 사무 행정을 담당하면서, ERP(High-Q) 도입 프로젝트를 통해 여신·채무·채권 관련 회계 프로세스를 직접 설계하고 데이터를 입력·관리한 경험이 있습니다. 금융기관 특유의 문서 체계와 데이터 입력 정확도 요구에 익숙하며, 한글·엑셀·워드를 일상적으로 활용합니다.</p>
+      <p class="cl-p">입사 후에는 빠른 적응을 통해 팀의 사무 흐름에 즉시 기여하고, 법원 문서 전산입력·엑셀 자료 관리·문서 스캔 업무를 정확하고 꼼꼼하게 수행하겠습니다. 나아가 반복 업무에서 오류를 줄이는 체계를 제안하며 팀 전반의 업무 효율에 기여하고 싶습니다.</p>
     </div>
 
     <div class="cl-sec">
-      <div class="cl-sec-ttl">성격 및 장단점</div>
-      <p class="cl-text">
-        꼼꼼함과 성실함을 강점으로 합니다. 예산 집행 내역을 원 단위까지 정리하거나 수천 건의 데이터를 검증하는 반복 업무를 끝까지 완수하는 데 익숙합니다. 금융기관 문서는 한 글자 오류도 허용되지 않는다는 것을 현장에서 체득했기 때문에, 정확도를 최우선으로 두는 업무 습관이 형성되어 있습니다.
-      </p>
-      <p class="cl-text">
-        단점으로는 낯선 업무 초기에 확인 과정이 많아 속도가 다소 느릴 수 있으나, 체크리스트 선(先) 작성 습관으로 보완하고 있습니다. 새로운 업무 착수 시 먼저 전체 흐름을 파악하고 단계별 점검 기준을 설정한 뒤 시작하는 방식으로 효율을 높이고 있습니다.
-      </p>
+      <div class="cl-sec-ttl">장단점</div>
+      <p class="cl-p">꼼꼼함과 성실함을 강점으로 합니다. 예산 집행 내역을 원 단위까지 정리하거나 수천 건의 데이터를 검증하는 반복 업무를 끝까지 완수하는 데 익숙합니다. 금융기관 문서는 한 글자 오류도 허용되지 않는다는 것을 현장에서 체득했기 때문에, 정확도를 최우선으로 두는 업무 습관이 자연스럽게 형성되어 있습니다. 특히 마감이 있는 정기 보고서나 정산 자료는 기한 하루 전에 완성해두는 것을 원칙으로 해왔습니다.</p>
+      <p class="cl-p">단점으로는 낯선 업무 초기에 확인 과정이 많아 속도가 다소 느릴 수 있으나, 체크리스트 선(先) 작성 습관으로 보완하고 있습니다. 새로운 업무 착수 시 전체 흐름을 먼저 파악하고 단계별 점검 기준을 설정한 뒤 시작하는 방식으로 초기 적응 속도를 높이고 있습니다.</p>
     </div>
 
     <div class="cl-sec">
-      <div class="cl-sec-ttl">직무 관련 강점</div>
-      <p class="cl-text">
-        <strong>문서 작성·관리:</strong> 법정 안전점검 보고서, 예산 집행 실적 보고서, 외주업체 계약서 등 다양한 공문서를 정기적으로 작성·관리하였습니다. 한글(HWP)·Word·Excel을 능숙하게 활용하며, 마감 기한 내 정확한 문서 제공을 원칙으로 합니다.
-      </p>
-      <p class="cl-text">
-        <strong>데이터 입력 정확도:</strong> ERP 도입 시 수천 건의 여신·채무 데이터를 직접 입력·검증하였습니다. 반복적인 전산 입력 업무에서도 집중력을 유지하여 오류율을 최소화하는 것을 강점으로 합니다.
-      </p>
+      <div class="cl-sec-ttl">직무역량</div>
+      <p class="cl-p"><strong>문서 작성·관리:</strong>&nbsp; 법정 안전점검 보고서, 예산 집행 실적 보고서, 외주업체 계약서 등 다양한 공문서를 정기적으로 작성·관리하였습니다. 한글(HWP)·Word·Excel을 능숙하게 활용하며, 마감 기한 내 정확한 문서 제공을 원칙으로 합니다. 문서 수발신·스캔·파일링 체계도 직접 구축하고 운영한 경험이 있습니다.</p>
+      <p class="cl-p"><strong>데이터 입력 정확도:</strong>&nbsp; ERP 도입 시 수천 건의 여신·채무 데이터를 직접 입력·검증하였습니다. 반복적인 전산 입력 업무에서도 집중력을 유지하여 오류율을 최소화하는 것을 강점으로 합니다. 금융기관의 정확성 요구 수준에 부합하는 업무 방식을 갖추고 있으며, VBA를 활용한 자동화로 인적 오류 자체를 줄이는 방법도 실무에서 적용해왔습니다.</p>
     </div>
 
     <div class="cl-sign">
-      <span class="date">2026년 3월 23일</span>
+      <span style="color:#aaa; font-size:10.5px;">2026년 3월 23일</span>
       <span>지원자</span>
-      <img src="../../../../common/photos/signature.png" style="height:32px;vertical-align:middle;">
+      <img src="../../../../common/photos/signature.png" style="height:30px;vertical-align:middle;">
       <span style="font-weight:700;">임 종 권</span>
     </div>
-
-  </div><!-- /cl-body -->
+  </div>
 </div>
 
-<button class="print-btn" onclick="window.print()">🖨 PDF 저장</button>
+<button class="print-btn" onclick="window.print()">PRINT / PDF</button>
 </body>
 </html>

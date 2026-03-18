@@ -48,8 +48,8 @@
 | 26 | 빗썸나눔 (Bithumb Nanum) | CSR 활동 지원 | **📤 SUBMITTED** | 나인하이어 제출 완료 (2026-03-18). 계약직 6개월. 상시채용 | `26_bithumb_nanum/csr_activity_support/` |
 | 27 | 카카오 (Kakao) | AI 데이터 라벨링 어시스턴트 | **📤 SUBMITTED** | 카카오 채용사이트 제출 완료 (2026-03-18). 계약직. 상시채용 | `27_kakao/ai_data_labeling_assistant/` |
 | 28 | 시프트업 (SHIFT UP) | 인사 담당자 (기업부설연구소 관리) | **📤 SUBMITTED** | 채용페이지 제출 완료 (2026-03-18). 계약직 1년. 상시채용 | `28_shift_up/hr_research_lab/` |
-| 29 | 현대카드·현대커머셜 (씨아이템프러리) | 법인사업1팀 데이터 관리 | **✍️ PREPARING** | 사람인 제출. 마감 **2026-03-24**. resume_v2.html + application_form_v1.html 완성. 경력증명서·학력증명서 별도 필요 | `29_hyundai_card/corporate_biz_data/` |
-| 30 | KB국민은행 철산 (휴머니아) | 사무지원 | **✍️ PREPARING** | 이메일 제출: baeilsuk@naver.com / 제목: 국민은행 철산 사무지원_임종권. resume_v2.html 완성 | `30_kookmin_bank/cheolsan_admin_support/` |
+| 29 | 현대카드·현대커머셜 (씨아이템프러리) | 법인사업1팀 데이터 관리 | **📤 SUBMITTED** | 사람인 제출 완료 (2026-03-18). 파견 계약직. 결과 대기 | `29_hyundai_card/corporate_biz_data/` |
+| 30 | KB국민은행 철산 (휴머니아) | 사무지원 | **📤 SUBMITTED** | 이메일 제출 완료 (2026-03-18) → baeilsuk@naver.com. 결과 대기 | `30_kookmin_bank/cheolsan_admin_support/` |
 | 03 | 11st | General Affairs | **⏸️ ON_HOLD** | 지원 안 함 (보류 유지) | `03_11st/general_affairs/` |
 
 ### Closed Applications

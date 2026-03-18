@@ -1,7 +1,7 @@
 ---
 company: 현대카드 | 현대커머셜 (파견: 씨아이템프러리)
 position: 법인사업1팀 직무 계약직 (데이터 관리)
-status: ✍️ PREPARING
+status: 📤 SUBMITTED
 discovered: 2026-03-23
 last_updated: 2026-03-23
 deadline: 2026-03-24
