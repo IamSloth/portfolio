@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>현대카드 법인사업1팀 — 자기소개서</title>
+<style>
+  body { font-family: 'Noto Sans KR', sans-serif; max-width: 860px; margin: 40px auto; padding: 0 20px; background: #f5f5f5; color: #222; }
+  h1 { font-size: 18px; border-bottom: 3px solid #0066cc; padding-bottom: 10px; margin-bottom: 6px; }
+  .meta { font-size: 12px; color: #666; margin-bottom: 30px; }
+  .meta span { margin-right: 16px; }
+  .field { background: #fff; border: 1px solid #ddd; border-radius: 6px; padding: 18px 20px; margin-bottom: 20px; }
+  .field-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+  .field-title { font-size: 13px; font-weight: 700; color: #0066cc; }
+  .char-count { font-size: 11px; color: #999; }
+  .copy-btn { background: #0066cc; color: #fff; border: none; padding: 5px 14px; border-radius: 4px; cursor: pointer; font-size: 12px; }
+  .copy-btn:hover { background: #004ea8; }
+  .copy-btn.done { background: #28a745; }
+  textarea { width: 100%; border: 1px solid #e0e0e0; border-radius: 4px; padding: 12px; font-size: 13px; line-height: 1.75; resize: vertical; font-family: inherit; box-sizing: border-box; color: #333; }
+  .note { background: #fff8e1; border-left: 4px solid #ffc107; padding: 12px 16px; margin-bottom: 20px; font-size: 12px; line-height: 1.7; border-radius: 0 4px 4px 0; }
+  .note strong { color: #e65100; }
+  .divider { border: none; border-top: 2px dashed #e0e0e0; margin: 32px 0; }
+</style>
+</head>
+<body>
+
+<h1>현대카드 | 현대커머셜 — 법인사업1팀 자기소개서</h1>
+<div class="meta">
+  <span>파견사: (주)씨아이템프러리</span>
+  <span>마감: 2026-03-24</span>
+  <span>제출: 사람인</span>
+  <span>임종권 · ssujklim@gmail.com · 010-4052-0834</span>
+</div>
+
+<div class="note">
+  ⚠️ <strong>제출 서류 별도 준비 필요</strong><br>
+  · 경력증명서 (최근 2년 이내): 함께만드는세상 HR팀에 요청 (2023.01~2026.02)<br>
+  · 학력증명서: 숭실대학교 대학원 — 인터넷 발급 또는 방문 발급<br>
+  · 위 두 서류는 사람인 첨부 파일로 업로드 필요
+</div>
+
+<!-- 1. 자기소개 -->
+<div class="field">
+  <div class="field-header">
+    <span class="field-title">① 자기소개 (성격 / 장단점)</span>
+    <div style="display:flex;gap:8px;align-items:center;">
+      <span class="char-count" id="cnt1">0자</span>
+      <button class="copy-btn" onclick="copyField('f1','b1')" id="b1">복사</button>
+    </div>
+  </div>
+  <textarea id="f1" rows="8" oninput="countChars('f1','cnt1')">'꼼꼼함'을 직업적 습관으로 갖고 있습니다. ERP 마이그레이션 과정에서 수천 건의 레코드를 직접 검수하거나, 예산 집행 내역을 원 단위까지 맞추는 작업을 자연스럽게 수행하는 편입니다. 데이터의 정확성이 후속 의사결정에 직결된다는 점을 현장에서 체득했기 때문입니다.
+
+단점으로는 처음 접하는 업무에서 확인 절차를 여러 번 반복하다 보니 초기 속도가 다소 느릴 수 있습니다. 이를 보완하기 위해 신규 업무 착수 시 먼저 체크리스트를 작성하고 우선순위를 정한 뒤 시작하는 방식으로 효율을 높이고 있습니다.</textarea>
+</div>
+
+<!-- 2. 지원동기 -->
+<div class="field">
+  <div class="field-header">
+    <span class="field-title">② 지원동기</span>
+    <div style="display:flex;gap:8px;align-items:center;">
+      <span class="char-count" id="cnt2">0자</span>
+      <button class="copy-btn" onclick="copyField('f2','b2')" id="b2">복사</button>
+    </div>
+  </div>
+  <textarea id="f2" rows="9" oninput="countChars('f2','cnt2')">법인사업팀의 핵심 업무인 실적 DATA 추출과 보고서 산출에 제 강점이 정확히 맞습니다.
+
+전 직장 (사)함께만드는세상은 저신용 취약계층 소액대출(여신)을 운영하는 <사회연대은행>의 법인입니다. 경영지원부에서 3년간 인프라 예산 약 3.6억 원을 Excel(Pivot/Power Query/VBA)로 관리하고, ERP(High-Q, Tibero DB) 도입 시 여신·채무·채권·약정·이자 관련 회계계정 체계를 직접 설계하며 SQL로 대량 데이터를 추출·정합성 검증했습니다.
+
+현대카드 법인사업1팀의 여신협회 사용내역 전송·취급액 실적 산출 업무는 여신 도메인에 대한 이해가 필요한 업무입니다. 금융기관 ERP에서 여신 프로세스를 직접 다뤄본 경험으로 빠르게 적응하여 즉시 기여하겠습니다.</textarea>
+</div>
+
+<!-- 3. 직무 역량 및 경험 -->
+<div class="field">
+  <div class="field-header">
+    <span class="field-title">③ 직무 관련 경험 및 역량</span>
+    <div style="display:flex;gap:8px;align-items:center;">
+      <span class="char-count" id="cnt3">0자</span>
+      <button class="copy-btn" onclick="copyField('f3','b3')" id="b3">복사</button>
+    </div>
+  </div>
+  <textarea id="f3" rows="13" oninput="countChars('f3','cnt3')">[Excel 고급 활용]
+함께만드는세상 재직 시 월별 예산 집행 현황, 분기별 외주업체 정산 자료, 연간 IT 자산 현황 등 다양한 보고 자료를 Power Query로 데이터 정제 후 Pivot 테이블로 시각화하여 제공했습니다. 반복 추출 작업은 VBA 매크로로 자동화하여 오류를 최소화하고 담당자 부재 시에도 일관된 결과물이 나오도록 체계를 구축했습니다.
+
+[SQL / 여신 데이터 추출]
+사회연대은행(함께만드는세상) ERP(High-Q, Tibero DB) 도입 시 여신·채무·채권·약정·이자 관련 계정과목을 표준화하고, 기존 엑셀 데이터를 DB로 마이그레이션하는 전 과정에서 SELECT·INSERT·UPDATE 쿼리를 직접 작성하였습니다. 금융기관의 여신 업무 프로세스와 데이터 구조에 대한 이해를 현장에서 체득했습니다.
+
+[보고서 작성 및 자료 산출]
+외주업체 8개사 계약·정산 자료, 법정 안전점검 보고서, 예산 집행 실적 보고서 등 대내외 문서를 정기적으로 작성·관리하였습니다. 유관부서 요청에 따른 수시 자료 산출 업무에 익숙하며, 마감 기한 내 정확한 자료 제공을 원칙으로 합니다.</textarea>
+</div>
+
+<!-- 4. 입사 후 포부 -->
+<div class="field">
+  <div class="field-header">
+    <span class="field-title">④ 입사 후 포부</span>
+    <div style="display:flex;gap:8px;align-items:center;">
+      <span class="char-count" id="cnt4">0자</span>
+      <button class="copy-btn" onclick="copyField('f4','b4')" id="b4">복사</button>
+    </div>
+  </div>
+  <textarea id="f4" rows="7" oninput="countChars('f4','cnt4')">입사 초기에는 법인사업팀의 데이터 흐름과 보고 체계를 빠르게 익히는 데 집중하겠습니다. 기존 업무 중 반복성이 높은 DATA 추출·정리 작업을 파악하여 Excel VBA 기반 자동화 방안을 제안하고, 팀의 보고 업무 부담을 실질적으로 줄이는 데 기여하고 싶습니다.
+
+정확하고 신속하게 데이터를 다루는 실무자로서 팀에 안정감을 드리겠습니다.</textarea>
+</div>
+
+<hr class="divider">
+
+<div class="note" style="background:#e8f5e9;border-color:#4caf50;">
+  ✅ <strong>사람인 지원 체크리스트</strong><br>
+  □ 위 자소서 내용 사람인 폼에 붙여넣기<br>
+  □ 경력증명서 PDF 첨부 (함께만드는세상 발급)<br>
+  □ 학력증명서 PDF 첨부 (숭실대 대학원 발급)<br>
+  □ 이력서 기본 정보 입력 (생년월일·연락처·주소 등)<br>
+  □ 제출 전 맞춤법 최종 확인
+</div>
+
+<script>
+function countChars(id, cntId) {
+  const len = document.getElementById(id).value.replace(/\n/g,'').length;
+  document.getElementById(cntId).textContent = len + '자';
+}
+function copyField(id, btnId) {
+  const text = document.getElementById(id).value;
+  navigator.clipboard.writeText(text).then(() => {
+    const btn = document.getElementById(btnId);
+    btn.textContent = '✓ 복사됨'; btn.classList.add('done');
+    setTimeout(() => { btn.textContent = '복사'; btn.classList.remove('done'); }, 2000);
+  });
+}
+// 초기 글자수 계산
+['f1','f2','f3','f4'].forEach((id,i)=>countChars(id,'cnt'+(i+1)));
+</script>
+</body>
+</html>

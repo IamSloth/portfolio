@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>임종권 — 현대카드 법인사업1팀 지원서</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;800&display=swap');
+  @page { size: A4; margin: 0; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Noto Sans KR',sans-serif; background:#888; padding:24px;
+    display:flex; flex-direction:column; align-items:center; gap:20px;
+    -webkit-print-color-adjust:exact; print-color-adjust:exact; word-break:keep-all; }
+  @media print { body { background:#fff; padding:0; gap:0; } }
+
+  :root { --accent:#0046BE; --accent-light:#e8f0fb; --dark:#111; }
+
+  /* ─── PAGE ─── */
+  .page {
+    width:210mm; height:296mm;
+    background:#fff;
+    box-shadow:0 2px 14px rgba(0,0,0,.3);
+    overflow:hidden;
+    position:relative;
+    display:flex;
+  }
+  @media print { .page { box-shadow:none; page-break-after:always; } }
+  @media print { .page:last-child { page-break-after:auto; } }
+
+  /* ─── PAGE 1: SIDEBAR ─── */
+  .sidebar {
+    width:31%; background:#f4f6f8;
+    border-right:1px solid #ddd;
+    padding:22px 16px;
+    display:flex; flex-direction:column;
+    flex-shrink:0;
+  }
+  .profile-img {
+    width:110px; height:143px;
+    margin:0 auto 16px;
+    border:2px solid var(--accent);
+    padding:2px; background:#fff;
+  }
+  .profile-img img { width:100%; height:100%; object-fit:cover; }
+
+  .contact-block { font-size:10.5px; margin-bottom:18px; line-height:1.6; }
+  .contact-item { display:flex; align-items:flex-start; margin-bottom:4px; color:#444; }
+  .contact-lbl { font-weight:700; width:38px; color:var(--accent); flex-shrink:0; }
+
+  .side-sec { margin-bottom:16px; }
+  .side-ttl {
+    font-size:12.5px; font-weight:700; color:var(--dark);
+    border-bottom:2px solid var(--accent); padding-bottom:3px; margin-bottom:8px;
+  }
+  .side-item {
+    font-size:10.5px; margin-bottom:7px; padding-left:10px;
+    position:relative; line-height:1.4;
+  }
+  .side-item::before { content:'■'; position:absolute; left:0; top:4px; font-size:5px; color:var(--accent); }
+  .side-item strong { display:block; color:#333; margin-bottom:1px; }
+  .side-item span { color:#666; font-size:10px; }
+
+  .skill-box {
+    border:1px solid #ccc; background:#fff;
+    padding:7px 8px; font-size:10.5px; line-height:1.75;
+  }
+  .skill-box b { color:var(--accent); }
+
+  /* ─── PAGE 1: MAIN ─── */
+  .main {
+    flex:1; padding:22px 26px;
+    display:flex; flex-direction:column;
+  }
+  .hd-name { font-size:24px; font-weight:800; letter-spacing:-0.5px; margin-bottom:3px; }
+  .hd-role {
+    font-size:11.5px; font-weight:700; color:var(--accent);
+    margin-bottom:14px; padding-bottom:8px; border-bottom:1px solid #eee;
+  }
+  .summary {
+    border-left:3px solid var(--accent); background:var(--accent-light);
+    padding:10px 12px; font-size:11px; line-height:1.65; margin-bottom:18px; color:#333;
+  }
+  .sec-ttl {
+    font-size:13px; font-weight:700; color:var(--dark);
+    border-bottom:2px solid var(--dark); padding-bottom:4px; margin-bottom:10px;
+  }
+
+  /* 경력 타임라인 */
+  .exp { display:flex; border-bottom:1px solid #eee; padding:8px 0; gap:10px; }
+  .exp-date { width:80px; font-size:10px; color:#777; flex-shrink:0; line-height:1.5; padding-top:2px; }
+  .exp-body { flex:1; }
+  .exp-company { font-size:12.5px; font-weight:700; }
+  .exp-role { font-size:10.5px; color:#666; font-weight:600; margin-left:4px; }
+  .exp-photo { width:88px; flex-shrink:0; }
+  .exp-photo img { width:100%; border:1px solid #ddd; display:block; }
+  .exp-photo .caption { font-size:8.5px; color:#999; text-align:center; margin-top:2px; }
+  ul.bd { list-style:none; padding:0; margin:4px 0 0; }
+  ul.bd li { font-size:11px; padding-left:8px; position:relative; margin-bottom:3px; line-height:1.45; color:#444; }
+  ul.bd li::before { content:'-'; position:absolute; left:0; }
+  ul.bd li b { font-weight:700; color:var(--dark); }
+
+  /* ─── PAGE 2: COVER LETTER ─── */
+  .page2 { flex-direction:column; }
+  .cl-header {
+    background:var(--accent); color:#fff;
+    padding:18px 28px;
+    display:flex; align-items:center; justify-content:space-between;
+    flex-shrink:0;
+  }
+  .cl-header .cl-name { font-size:20px; font-weight:800; letter-spacing:-0.5px; }
+  .cl-header .cl-pos { font-size:11px; opacity:.85; margin-top:3px; }
+  .cl-header .cl-contact { font-size:10.5px; text-align:right; line-height:1.7; opacity:.9; }
+  .cl-body { flex:1; padding:24px 28px; display:flex; flex-direction:column; }
+  .cl-sec { margin-bottom:20px; }
+  .cl-sec-ttl {
+    font-size:13px; font-weight:700; color:var(--accent);
+    padding-bottom:5px; border-bottom:2px solid var(--accent); margin-bottom:10px;
+  }
+  .cl-text { font-size:11.5px; line-height:1.85; color:#222; text-align:justify; }
+  .cl-text + .cl-text { margin-top:8px; }
+  .cl-sign {
+    margin-top:auto; padding-top:16px;
+    border-top:1px solid #eee;
+    display:flex; justify-content:flex-end; align-items:center; gap:16px;
+    font-size:11px; color:#555;
+  }
+  .cl-sign .date { color:#888; }
+
+  .print-btn {
+    position:fixed; bottom:28px; right:28px;
+    background:var(--accent); color:#fff;
+    border:none; padding:12px 26px; font-size:14px; font-weight:700;
+    border-radius:4px; cursor:pointer; z-index:999;
+  }
+  @media print { .print-btn { display:none; } }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════ PAGE 1: 이력서 + 경력기술서 ══════════════════ -->
+<div class="page" style="border-top:5px solid var(--accent);">
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <div class="profile-img">
+      <img src="../../../../common/photos/profile.png" alt="임종권">
+    </div>
+
+    <div class="contact-block">
+      <div class="contact-item"><span class="contact-lbl">생년월</span><span>1992.01.04</span></div>
+      <div class="contact-item"><span class="contact-lbl">주 소</span><span>경기 광명시 도덕로 79</span></div>
+      <div class="contact-item"><span class="contact-lbl">연락처</span><span>010-4052-0834</span></div>
+      <div class="contact-item"><span class="contact-lbl">이메일</span><span>ssujklim@gmail.com</span></div>
+    </div>
+
+    <div class="side-sec">
+      <div class="side-ttl">학 력</div>
+      <div class="side-item">
+        <strong>숭실대학교 대학원</strong>
+        <span>사회적기업전공 석사 (2020.02)<br>GPA 4.3/4.5</span>
+      </div>
+      <div class="side-item">
+        <strong>숭실대학교 공과대학</strong>
+        <span>전기공학부 / 경제학 복수전공<br>학사 (2017.02)</span>
+      </div>
+    </div>
+
+    <div class="side-sec">
+      <div class="side-ttl">자격 및 면허</div>
+      <div class="side-item">
+        <strong>사회복지사 1급</strong>
+        <span>보건복지부 (2021.02)</span>
+      </div>
+      <div class="side-item">
+        <strong>1종 대형 운전면허</strong>
+        <span>12년 무사고</span>
+      </div>
+    </div>
+
+    <div class="side-sec">
+      <div class="side-ttl">수상</div>
+      <div class="side-item">
+        <strong>메타버스 리크루팅 캠프 대상</strong>
+        <span>과학기술정보통신부 (2022)</span>
+      </div>
+    </div>
+
+    <div class="side-sec">
+      <div class="side-ttl">주요 스킬</div>
+      <div class="skill-box">
+        <b>Data:</b> Excel Pivot·VBA·Power Query<br>
+        <b>DB:</b> SQL (Tibero DB)<br>
+        <b>Report:</b> 예산실적·외주정산·ERP보고서<br>
+        <b>Tool:</b> 한글·Word·Notion<br>
+        <b>ERP:</b> High-Q (여신 프로세스 설계)
+      </div>
+    </div>
+
+    <div class="side-sec">
+      <div class="side-ttl">병역</div>
+      <div class="side-item" style="font-size:10.5px;">
+        <strong>공군 병장 만기제대</strong>
+        <span>2010.07 ~ 2012.08</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main">
+    <div class="hd-name">임 종 권</div>
+    <div class="hd-role">현대카드·현대커머셜 법인사업1팀 — 데이터 관리 지원 | 파견: (주)씨아이템프러리</div>
+
+    <div class="summary">
+      금융기관 ERP에서 여신·채무·채권·약정·이자 프로세스를 직접 설계하고 SQL로 대량 데이터를 추출·검증한 경험이 있습니다.
+      <strong>Excel(Pivot/VBA/Power Query) 고급 활용 + SQL</strong>로 실적 DATA 추출과 보고서 산출에 즉시 투입 가능한 실무자입니다.
+    </div>
+
+    <div class="sec-ttl">경력기술서</div>
+
+    <!-- 함께만드는세상 -->
+    <div class="exp">
+      <div class="exp-date">2023.01<br>~ 2026.02<br><span style="font-size:9px;color:#aaa">(3년 2개월)</span></div>
+      <div class="exp-body">
+        <span class="exp-company">(사)함께만드는세상 (사회연대은행)</span>
+        <span class="exp-role">경영지원부 인프라지원팀 · 대리</span>
+        <ul class="bd">
+          <li><b>[ERP 여신 데이터]</b> High-Q ERP 도입 시 여신·채무·채권·약정·이자 회계계정 체계 직접 설계, Tibero DB에 SELECT·INSERT·UPDATE 쿼리로 수천 건 마이그레이션 및 정합성 검증</li>
+          <li><b>[Excel 보고서 자동화]</b> 인프라 예산 3.6억 원 집행 현황을 Power Query 정제 + Pivot 시각화로 매월 산출. 반복 추출 작업 VBA 매크로 자동화 → 오류 zero, 담당자 부재 시에도 일관된 결과물</li>
+          <li><b>[정산자료 산출]</b> 외주업체 8개사 월별·분기별 계약·정산 자료 마감 기한 내 100% 제출, 법정 보고서 정기 작성</li>
+        </ul>
+      </div>
+      <div class="exp-photo">
+        <img src="../../../../common/photos/photo_erp_highq.png" alt="ERP High-Q">
+        <div class="caption">ERP High-Q 도입 화면</div>
+      </div>
+    </div>
+
+    <!-- 맨지온 -->
+    <div class="exp">
+      <div class="exp-date">2020.03<br>~ 2021.11<br><span style="font-size:9px;color:#aaa">(1년 9개월)</span></div>
+      <div class="exp-body">
+        <span class="exp-company">(주)맨지온</span>
+        <span class="exp-role">개발부 · 임베디드 개발 및 QA · 대리</span>
+        <ul class="bd">
+          <li><b>[데이터 로그 분석]</b> 시설 관제 시스템 통신 장애 원인을 데이터 로그 분석으로 규명·해결</li>
+          <li><b>[IoT 모니터링]</b> Blynk 앱 연동 센서 데이터 실시간 수집·시각화 대시보드 구축</li>
+        </ul>
+      </div>
+      <div class="exp-photo">
+        <img src="../../../../common/photos/photo_blynk_data.jpg" alt="Blynk 데이터">
+        <div class="caption">IoT 모니터링 대시보드</div>
+      </div>
+    </div>
+
+    <!-- 엣지크로스 -->
+    <div class="exp">
+      <div class="exp-date">2016.05<br>~ 2018.02<br><span style="font-size:9px;color:#aaa">(1년 9개월)</span></div>
+      <div class="exp-body">
+        <span class="exp-company">(주)엣지크로스</span>
+        <span class="exp-role">기술연구소 · HW 개발 및 자재관리 · 주임</span>
+        <ul class="bd">
+          <li>자재 BOM 관리 체계화 및 생산 일정 조율로 납기 준수율 100% 달성</li>
+          <li>회로 설계 → PCB → 시제품 제작·검증 풀사이클 수행</li>
+        </ul>
+      </div>
+    </div>
+
+  </div><!-- /main -->
+</div>
+
+
+<!-- ══════════════════ PAGE 2: 자기소개서 ══════════════════ -->
+<div class="page page2" style="border-top:5px solid var(--accent);">
+
+  <div class="cl-header">
+    <div>
+      <div class="cl-name">임 종 권</div>
+      <div class="cl-pos">현대카드·현대커머셜 법인사업1팀 데이터 관리 지원</div>
+    </div>
+    <div class="cl-contact">
+      010-4052-0834<br>
+      ssujklim@gmail.com<br>
+      경기도 광명시 도덕로 79
+    </div>
+  </div>
+
+  <div class="cl-body">
+
+    <div class="cl-sec">
+      <div class="cl-sec-ttl">① 자기소개 — 성격 및 장단점</div>
+      <p class="cl-text">
+        '꼼꼼함'을 직업적 습관으로 갖고 있습니다. ERP 마이그레이션 과정에서 수천 건의 레코드를 직접 검수하거나, 예산 집행 내역을 원 단위까지 맞추는 작업을 자연스럽게 수행하는 편입니다. 데이터의 정확성이 후속 의사결정에 직결된다는 점을 현장에서 체득했기 때문입니다.
+      </p>
+      <p class="cl-text">
+        단점으로는 처음 접하는 업무에서 확인 절차를 여러 번 반복하다 보니 초기 속도가 다소 느릴 수 있습니다. 이를 보완하기 위해 신규 업무 착수 시 먼저 체크리스트를 작성하고 우선순위를 정한 뒤 시작하는 방식으로 효율을 높이고 있습니다.
+      </p>
+    </div>
+
+    <div class="cl-sec">
+      <div class="cl-sec-ttl">② 지원동기</div>
+      <p class="cl-text">
+        법인사업팀의 핵심 업무인 실적 DATA 추출과 보고서 산출에 제 강점이 정확히 맞습니다.
+      </p>
+      <p class="cl-text">
+        전 직장 (사)함께만드는세상은 저신용 취약계층 소액대출(여신)을 운영하는 <strong>사회연대은행</strong>의 법인입니다. 경영지원부에서 3년간 인프라 예산 약 3.6억 원을 Excel(Pivot/Power Query/VBA)로 관리하고, ERP(High-Q, Tibero DB) 도입 시 여신·채무·채권·약정·이자 관련 회계계정 체계를 직접 설계하며 SQL로 대량 데이터를 추출·정합성 검증했습니다.
+      </p>
+      <p class="cl-text">
+        현대카드 법인사업1팀의 여신협회 사용내역 전송·취급액 실적 산출 업무는 여신 도메인에 대한 이해가 필요한 업무입니다. 금융기관 ERP에서 여신 프로세스를 직접 다뤄본 경험으로 빠르게 적응하여 즉시 기여하겠습니다.
+      </p>
+    </div>
+
+    <div class="cl-sec">
+      <div class="cl-sec-ttl">③ 직무 관련 경험 및 역량</div>
+      <p class="cl-text">
+        <strong>[Excel 고급 활용]</strong> 함께만드는세상 재직 시 월별 예산 집행 현황, 분기별 외주업체 정산 자료, 연간 IT 자산 현황 등 다양한 보고 자료를 Power Query로 데이터 정제 후 Pivot 테이블로 시각화하여 제공했습니다. 반복 추출 작업은 VBA 매크로로 자동화하여 오류를 최소화하고 담당자 부재 시에도 일관된 결과물이 나오도록 체계를 구축했습니다.
+      </p>
+      <p class="cl-text">
+        <strong>[SQL / 여신 데이터 추출]</strong> 사회연대은행 ERP(High-Q, Tibero DB) 도입 시 여신·채무·채권·약정·이자 관련 계정과목을 표준화하고, 기존 엑셀 데이터를 DB로 마이그레이션하는 전 과정에서 SELECT·INSERT·UPDATE 쿼리를 직접 작성하였습니다. 금융기관의 여신 업무 프로세스와 데이터 구조에 대한 이해를 현장에서 체득했습니다.
+      </p>
+    </div>
+
+    <div class="cl-sec">
+      <div class="cl-sec-ttl">④ 입사 후 포부</div>
+      <p class="cl-text">
+        입사 초기에는 법인사업팀의 데이터 흐름과 보고 체계를 빠르게 익히는 데 집중하겠습니다. 기존 업무 중 반복성이 높은 DATA 추출·정리 작업을 파악하여 Excel VBA 기반 자동화 방안을 제안하고, 팀의 보고 업무 부담을 실질적으로 줄이는 데 기여하고 싶습니다.
+      </p>
+      <p class="cl-text">
+        정확하고 신속하게 데이터를 다루는 실무자로서 팀에 안정감을 드리겠습니다.
+      </p>
+    </div>
+
+    <div class="cl-sign">
+      <span class="date">2026년 3월 23일</span>
+      <span>지원자</span>
+      <img src="../../../../common/photos/signature.png" style="height:32px;vertical-align:middle;">
+      <span style="font-weight:700;">임 종 권</span>
+    </div>
+
+  </div><!-- /cl-body -->
+</div>
+
+<button class="print-btn" onclick="window.print()">🖨 PDF 저장</button>
+</body>
+</html>

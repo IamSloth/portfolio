@@ -7,18 +7,21 @@
 
 | Field | Value |
 |-------|-------|
-| date | 2026-03-18 |
+| date | 2026-03-23 |
 | agent | Claude Sonnet 4.6 |
-| work | 시프트업#28 전체 서류 완성 + NIKKE 웹 포트폴리오 완성 + 제출 |
+| work | #29 현대카드 + #30 KB국민은행 신규 지원 서류 작성 |
 | commit | latest |
 
 ### 이번 세션 요약
-- **시프트업 #28**: 이력서(resume_v4.html) + A4 포트폴리오(portfolio_v3.html) + 웹 포트폴리오(shift-up-hr-research-lab.html) 완성
-  - 웹 포트폴리오: NIKKE(승리의 여신) 테마 풀리디자인 — Orbitron폰트, 금색 팔레트(#C8A96E), chamfer 코너, HUD라인, 스캔라인
-  - 웹 포트폴리오 Key Projects: 실제 프로젝트 사진 배경 이미지로 적용
-  - PDF 2종 final/ 폴더 저장: 이력서+경력기술서(586KB), 포트폴리오(1.2MB)
-  - 유저 직접 제출 완료 (2026-03-18)
-- **이전 세션**: 카카오#27 + 메인 포트폴리오 오버홀 + 넷마블#11 탈락
+- **#29 현대카드 법인사업1팀 (데이터 관리)**: 파견-(주)씨아이템프러리, 사람인 제출, 마감 2026-03-24
+  - 2페이지 이력서/자기소개서 (인덕원 스타일 v2): resume_v2.html (ERP 여신 데이터·SQL·Excel 강조)
+  - 사람인 자소서 복사 폼: application_form_v1.html
+  - 경력증명서(함께만드는세상)·학력증명서(숭실대) 별도 준비 필요
+- **#30 KB국민은행 철산 사무지원**: 파견-주식회사 휴머니아, 이메일 제출 baeilsuk@naver.com
+  - 2페이지 이력서/자기소개서 (인덕원 스타일 v2): resume_v2.html (사무행정·문서관리·금융 ERP 강조)
+  - 제목: "국민은행 철산 사무지원_임종권"
+- **profile.json**: (사)함께만드는세상 = 사회연대은행 동일 법인 확인, 여신·채무·채권·약정·이자 ERP 내용 추가
+- **이전 세션(3/18)**: 시프트업#28 전체 서류 완성 + NIKKE 웹 포트폴리오 완성 + 제출
 
 ## Active Applications
 
@@ -45,6 +48,8 @@
 | 26 | 빗썸나눔 (Bithumb Nanum) | CSR 활동 지원 | **📤 SUBMITTED** | 나인하이어 제출 완료 (2026-03-18). 계약직 6개월. 상시채용 | `26_bithumb_nanum/csr_activity_support/` |
 | 27 | 카카오 (Kakao) | AI 데이터 라벨링 어시스턴트 | **📤 SUBMITTED** | 카카오 채용사이트 제출 완료 (2026-03-18). 계약직. 상시채용 | `27_kakao/ai_data_labeling_assistant/` |
 | 28 | 시프트업 (SHIFT UP) | 인사 담당자 (기업부설연구소 관리) | **📤 SUBMITTED** | 채용페이지 제출 완료 (2026-03-18). 계약직 1년. 상시채용 | `28_shift_up/hr_research_lab/` |
+| 29 | 현대카드·현대커머셜 (씨아이템프러리) | 법인사업1팀 데이터 관리 | **✍️ PREPARING** | 사람인 제출. 마감 **2026-03-24**. resume_v2.html + application_form_v1.html 완성. 경력증명서·학력증명서 별도 필요 | `29_hyundai_card/corporate_biz_data/` |
+| 30 | KB국민은행 철산 (휴머니아) | 사무지원 | **✍️ PREPARING** | 이메일 제출: baeilsuk@naver.com / 제목: 국민은행 철산 사무지원_임종권. resume_v2.html 완성 | `30_kookmin_bank/cheolsan_admin_support/` |
 | 03 | 11st | General Affairs | **⏸️ ON_HOLD** | 지원 안 함 (보류 유지) | `03_11st/general_affairs/` |
 
 ### Closed Applications
@@ -80,6 +85,6 @@
 - **Filenames**: English snake_case only. No Korean filenames (except original form templates and final 제출본).
 - **Scripts**: Place inside the relevant application's `scripts/` subfolder. Never in project root.
 - **Commits**: Always include `Co-Authored-By: {Model Name} <noreply@anthropic.com>` trailer.
-- **Application folders**: Numbered by discovery date: `{NN}_{company}/`. Next new company = `29_`.
+- **Application folders**: Numbered by discovery date: `{NN}_{company}/`. Next new company = `31_`.
 - **Profile sync**: If you discover new career/skill/cert info during work, update `profile.json` immediately.
 - **Session end**: Update this file → commit → push. Keep entries concise (token budget matters).

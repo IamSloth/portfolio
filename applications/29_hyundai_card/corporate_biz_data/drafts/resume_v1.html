@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>입사지원서 — 임종권 · 현대카드 법인사업1팀</title>
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: '맑은 고딕', 'Malgun Gothic', sans-serif;
+    background: #777;
+    padding: 24px;
+    display: flex; flex-direction: column; align-items: center; gap: 20px;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+  @media print { body { background:#fff; padding:0; } }
+
+  .page {
+    width: 210mm; min-height: 297mm;
+    background: #fff;
+    box-shadow: 0 2px 14px rgba(0,0,0,.3);
+    padding: 9mm 14mm 7mm;
+    position: relative;
+    display: flex; flex-direction: column;
+  }
+  @media print {
+    .page { box-shadow:none; padding:8mm 13mm 6mm; height:297mm; overflow:hidden; }
+  }
+
+  /* ── 제목 ── */
+  .doc-title {
+    text-align: center;
+    font-size: 22px; font-weight: 800;
+    letter-spacing: 10px;
+    padding-bottom: 8px;
+    border-bottom: 2.5px solid #111;
+    margin-bottom: 10px;
+  }
+  .doc-sub {
+    text-align: right; font-size: 10px; color: #555;
+    margin-bottom: 8px;
+  }
+
+  /* ── 공통 테이블 ── */
+  table { width: 100%; border-collapse: collapse; margin-bottom: 5px; }
+  th, td {
+    border: 1px solid #555;
+    padding: 4px 7px;
+    font-size: 10.5px; vertical-align: middle;
+    line-height: 1.45;
+  }
+  th {
+    background: #f0f0f0; font-weight: 700;
+    text-align: center; white-space: nowrap;
+    width: 72px;
+  }
+  td { color: #111; }
+  .sec-title {
+    font-size: 11px; font-weight: 800;
+    background: #003087; color: #fff;
+    padding: 3px 10px;
+    margin: 7px 0 3px;
+    letter-spacing: 1px;
+  }
+
+  /* ── 인적사항 + 사진 ── */
+  .info-wrap { display: flex; gap: 0; margin-bottom: 5px; }
+  .info-table { flex: 1; border-collapse: collapse; }
+  .info-table th, .info-table td { border: 1px solid #555; padding: 4px 7px; font-size: 10.5px; vertical-align: middle; }
+  .info-table th { background: #f0f0f0; font-weight: 700; text-align: center; white-space: nowrap; width: 72px; }
+  .photo-box {
+    width: 80px; flex-shrink: 0;
+    border: 1px solid #555; border-left: none;
+    overflow: hidden;
+  }
+  .photo-box img { width:100%; height:100%; object-fit:cover; }
+
+  /* ── 학력/경력 헤더 ── */
+  .head-row th { background: #e8e8e8; text-align: center; font-size: 10px; }
+
+  /* ── 자기소개 ── */
+  .intro-box {
+    border: 1px solid #555;
+    padding: 8px 10px;
+    font-size: 10.5px; line-height: 1.65; color: #111;
+  }
+  .intro-box .q { font-weight: 800; margin-top: 6px; margin-bottom: 2px; color: #003087; }
+  .intro-box .q:first-child { margin-top: 0; }
+
+  /* ── 서명 ── */
+  .sign-area {
+    margin-top: 8px;
+    text-align: center;
+    font-size: 11px; line-height: 1.7; color: #333;
+  }
+
+  .print-btn {
+    position: fixed; bottom: 28px; right: 28px;
+    background: #003087; color: #fff;
+    border: none; padding: 12px 26px;
+    font-size: 14px; font-weight: 700;
+    border-radius: 4px; cursor: pointer;
+    z-index: 999;
+  }
+  @media print { .print-btn { display: none; } }
+</style>
+</head>
+<body>
+
+<div class="page">
+  <div class="doc-title">입 사 지 원 서</div>
+  <div class="doc-sub">지원분야 : 현대카드·현대커머셜 법인사업1팀 (데이터 관리) &nbsp;|&nbsp; 파견: (주)씨아이템프러리</div>
+
+  <!-- 인적사항 -->
+  <div class="sec-title">■ 인적사항</div>
+  <div class="info-wrap">
+    <table class="info-table">
+      <tr>
+        <th>성 명</th>
+        <td><strong>임 종 권</strong> (林 鐘 權)</td>
+        <th>생년월일</th>
+        <td>1992년 01월 04일</td>
+      </tr>
+      <tr>
+        <th>연락처</th>
+        <td>010-4052-0834</td>
+        <th>이메일</th>
+        <td>ssujklim@gmail.com</td>
+      </tr>
+      <tr>
+        <th>주 소</th>
+        <td colspan="3">경기도 광명시 도덕로 79 (광명동, 상우1차아파트) 1405호</td>
+      </tr>
+      <tr>
+        <th>병 역</th>
+        <td>공군 병장 만기제대 (2010.07 ~ 2012.08)</td>
+        <th>보훈여부</th>
+        <td>해당없음</td>
+      </tr>
+    </table>
+    <div class="photo-box">
+      <img src="../../../../common/photos/profile.png" alt="증명사진">
+    </div>
+  </div>
+
+  <!-- 학력 -->
+  <div class="sec-title">■ 학력사항</div>
+  <table>
+    <tr class="head-row">
+      <th style="width:22%">학교명</th>
+      <th style="width:22%">전공 / 학과</th>
+      <th style="width:8%">학위</th>
+      <th style="width:22%">재학기간</th>
+      <th style="width:10%">졸업구분</th>
+      <th>비고</th>
+    </tr>
+    <tr>
+      <td>숭실대학교 사회복지대학원</td>
+      <td>사회적기업전공</td>
+      <td style="text-align:center">석사</td>
+      <td style="text-align:center">2018.03 ~ 2020.02</td>
+      <td style="text-align:center">졸업</td>
+      <td>GPA 4.3/4.5</td>
+    </tr>
+    <tr>
+      <td>숭실대학교 공과대학</td>
+      <td>전기공학부 / 경제학 복수전공</td>
+      <td style="text-align:center">학사</td>
+      <td style="text-align:center">2010.03 ~ 2017.02</td>
+      <td style="text-align:center">졸업</td>
+      <td></td>
+    </tr>
+  </table>
+
+  <!-- 경력 -->
+  <div class="sec-title">■ 경력사항</div>
+  <table>
+    <tr class="head-row">
+      <th style="width:22%">회사명</th>
+      <th style="width:16%">부서/직책</th>
+      <th style="width:20%">근무기간</th>
+      <th style="width:10%">고용형태</th>
+      <th>주요 담당업무</th>
+    </tr>
+    <tr>
+      <td>(사)함께만드는세상<br><span style="font-size:9px;color:#555">경영지원부 인프라지원팀</span></td>
+      <td style="text-align:center">총무·IT지원<br>(대리)</td>
+      <td style="text-align:center">2023.01 ~ 2026.02<br>(3년 2개월)</td>
+      <td style="text-align:center">정규직</td>
+      <td>인프라 예산(3.6억) 집행·관리, ERP 도입(Tibero DB) 여신 데이터 설계·추출, Excel Pivot/VBA/PQ 보고서 산출, 외주업체 8개사 계약·정산</td>
+    </tr>
+    <tr>
+      <td>(주)맨지온<br><span style="font-size:9px;color:#555">개발부</span></td>
+      <td style="text-align:center">임베디드개발·QA<br>(대리)</td>
+      <td style="text-align:center">2020.03 ~ 2021.11<br>(1년 9개월)</td>
+      <td style="text-align:center">정규직</td>
+      <td>IoT 시스템 개발, QA 시나리오 설계, 데이터 로그 분석</td>
+    </tr>
+    <tr>
+      <td>(주)엣지크로스<br><span style="font-size:9px;color:#555">기술연구소</span></td>
+      <td style="text-align:center">HW개발·자재관리<br>(주임)</td>
+      <td style="text-align:center">2016.05 ~ 2018.02<br>(1년 9개월)</td>
+      <td style="text-align:center">정규직</td>
+      <td>회로설계, 자재 BOM 관리, 시제품 제작·검증, 연구 행정 지원</td>
+    </tr>
+  </table>
+
+  <!-- 자격·기술 -->
+  <div class="sec-title">■ 자격증 및 기술</div>
+  <table>
+    <tr>
+      <th>자격증</th>
+      <td>사회복지사 1급 (보건복지부, 2021.02) &nbsp;·&nbsp; 1종 대형 운전면허 (2019, 12년 무사고)</td>
+    </tr>
+    <tr>
+      <th>수상</th>
+      <td>2022 메타버스 콘텐츠 리크루팅 캠프 대상 (과학기술정보통신부)</td>
+    </tr>
+    <tr>
+      <th>OA / DB</th>
+      <td>Excel (Pivot·VBA·Power Query 고급), 한글(HWP), MS Word &nbsp;·&nbsp; SQL (Tibero DB — SELECT·INSERT·UPDATE·대량 마이그레이션)</td>
+    </tr>
+  </table>
+
+  <!-- 자기소개 -->
+  <div class="sec-title">■ 자기소개서</div>
+  <div class="intro-box">
+    <div class="q">▶ 지원동기</div>
+    법인사업팀의 핵심 업무인 실적 DATA 추출과 보고서 산출에 저의 강점이 직결됩니다. 전 직장 (사)함께만드는세상은 저신용 취약계층 소액대출(여신)을 운영하는 <strong>사회연대은행</strong>의 법인으로, 경영지원부에서 인프라 예산 약 3.6억 원을 Excel(Pivot/Power Query/VBA)로 관리하고, ERP(High-Q, Tibero DB) 도입 시 여신·채무·채권·약정·이자 관련 회계계정 체계를 직접 설계하며 SQL로 대량 데이터를 추출·정합성 검증했습니다.<br>
+    현대카드 법인사업1팀의 여신협회 사용내역 전송·취급액 실적 산출 업무는 여신 도메인 이해가 필요한 업무입니다. 금융기관 ERP에서 여신 프로세스를 직접 다뤄본 경험으로 빠르게 적응하여 즉시 기여하겠습니다.
+
+    <div class="q">▶ 직무 역량</div>
+    반복 추출 작업은 VBA 매크로로 자동화하여 오류를 최소화하고, SQL(Tibero DB)로 수천 건 레코드의 정합성을 검증한 경험이 있습니다. 외주업체 8개사 계약·정산 자료, 예산 집행 실적 보고서 등 대내외 문서를 마감 기한 내 정확하게 산출하는 것을 원칙으로 합니다.
+
+    <div class="q">▶ 입사 후 포부</div>
+    법인사업팀의 데이터 흐름과 보고 체계를 빠르게 익히는 데 집중하고, 반복성 높은 DATA 추출·정리 작업을 파악하여 Excel VBA 기반 자동화 방안을 제안하겠습니다. 정확하고 신속하게 데이터를 다루는 실무자로서 팀에 안정감을 드리겠습니다.
+  </div>
+
+  <!-- 서명 -->
+  <div class="sign-area">
+    <p>위 기재 사항은 사실과 다름이 없음을 확인합니다.</p>
+    <p style="margin-top:8px;">2026년 &nbsp;3&nbsp;월 &nbsp;23&nbsp;일</p>
+    <p style="margin-top:6px;">
+      지원자 : <img src="../../../../common/photos/signature.png" style="height:30px;vertical-align:middle;margin:0 6px;"> 임종권
+    </p>
+  </div>
+</div>
+
+<button class="print-btn" onclick="window.print()">🖨 PDF 저장</button>
+
+</body>
+</html>
