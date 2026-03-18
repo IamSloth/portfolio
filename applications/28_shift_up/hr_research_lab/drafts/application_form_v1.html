@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>시프트업 — 인사 담당자(기업부설연구소 관리) 지원서 폼 콘텐츠</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Noto Sans KR',sans-serif;background:#0a0a0a;color:#d4d4d4;padding:24px;max-width:800px;margin:0 auto}
+h1{font-family:'Space Grotesk',sans-serif;font-size:1.4rem;color:#f0f0f0;margin-bottom:8px;letter-spacing:-0.03em}
+h2{font-size:1rem;color:#888;margin-bottom:20px;font-weight:400}
+.field{background:#131313;border:1px solid #252525;border-radius:8px;padding:16px;margin-bottom:12px;position:relative}
+.field-label{font-size:.75rem;color:#666;text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px}
+.field-value{font-size:.95rem;color:#d4d4d4;line-height:1.6;white-space:pre-wrap}
+.copy-btn{position:absolute;top:12px;right:12px;background:#1a1a1a;border:1px solid #333;color:#888;padding:4px 10px;border-radius:4px;cursor:pointer;font-size:.75rem;transition:all .2s}
+.copy-btn:hover{background:#252525;color:#f0f0f0}
+.copy-btn.copied{background:#00D4AA;color:#0a0a0a;border-color:#00D4AA}
+.divider{border:none;border-top:1px solid #1a1a1a;margin:24px 0}
+.note{font-size:.8rem;color:#555;margin-top:6px;font-style:italic}
+.section-title{font-size:1.1rem;color:#00D4AA;margin:28px 0 12px;font-family:'Space Grotesk',sans-serif;letter-spacing:-0.02em}
+</style>
+</head>
+<body>
+
+<h1>시프트업 — 인사 담당자(기업부설연구소 관리)</h1>
+<h2>지원서 폼 콘텐츠 (복사용)</h2>
+
+<div class="section-title">기본 정보</div>
+
+<div class="field">
+  <div class="field-label">이름</div>
+  <div class="field-value" id="f-name">임종권</div>
+  <button class="copy-btn" onclick="copyField('f-name',this)">복사</button>
+</div>
+
+<div class="field">
+  <div class="field-label">이메일</div>
+  <div class="field-value" id="f-email">ssujklim@gmail.com</div>
+  <button class="copy-btn" onclick="copyField('f-email',this)">복사</button>
+</div>
+
+<div class="field">
+  <div class="field-label">전화번호</div>
+  <div class="field-value" id="f-phone">01040520834</div>
+  <button class="copy-btn" onclick="copyField('f-phone',this)">복사</button>
+</div>
+
+<hr class="divider">
+<div class="section-title">사전 질문</div>
+
+<div class="field">
+  <div class="field-label">지원 경로</div>
+  <div class="field-value" id="f-source">홈페이지</div>
+  <button class="copy-btn" onclick="copyField('f-source',this)">복사</button>
+</div>
+
+<div class="field">
+  <div class="field-label">생년월일</div>
+  <div class="field-value" id="f-birth">1992-01-04</div>
+  <button class="copy-btn" onclick="copyField('f-birth',this)">복사</button>
+</div>
+
+<div class="field">
+  <div class="field-label">주소</div>
+  <div class="field-value" id="f-address">경기도 광명시 도덕로 79</div>
+  <button class="copy-btn" onclick="copyField('f-address',this)">복사</button>
+</div>
+
+<div class="field">
+  <div class="field-label">포트폴리오 URL</div>
+  <div class="field-value" id="f-portfolio">https://iamsloth.github.io/portfolio/</div>
+  <button class="copy-btn" onclick="copyField('f-portfolio',this)">복사</button>
+</div>
+
+<hr class="divider">
+<div class="section-title">첨부 파일 체크리스트</div>
+
+<div class="field">
+  <div class="field-label">이력서 및 경력기술서 (필수)</div>
+  <div class="field-value">📄 resume_v1.html → PDF 변환 후 첨부
+파일명: 임종권_이력서_시프트업.pdf</div>
+</div>
+
+<div class="field">
+  <div class="field-label">포트폴리오 (선택)</div>
+  <div class="field-value">📄 portfolio_v1.html → PDF 변환 후 첨부
+파일명: 임종권_포트폴리오_시프트업.pdf
++ 웹 포트폴리오 URL 기입</div>
+</div>
+
+<div class="field">
+  <div class="field-label">기타 서류 (선택)</div>
+  <div class="field-value">필요 시 자격증 사본 등 첨부</div>
+</div>
+
+<script>
+function copyField(id,btn){
+  const t=document.getElementById(id).innerText;
+  navigator.clipboard.writeText(t).then(()=>{
+    btn.textContent='복사됨';btn.classList.add('copied');
+    setTimeout(()=>{btn.textContent='복사';btn.classList.remove('copied')},1500);
+  });
+}
+</script>
+</body>
+</html>

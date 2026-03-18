@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>임종권 — 프로젝트 포트폴리오 · SHIFT UP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  :root {
+    --acc: #00C853;
+    --acc-dark: #00963E;
+    --dark: #1A1A1A;
+    --gray: #444;
+    --gray-light: #888;
+    --light: #F4F6F4;
+    --white: #FFF;
+    --border: #E2E2E2;
+  }
+
+  body {
+    font-family: 'Noto Sans KR', -apple-system, sans-serif;
+    color: var(--gray);
+    background: #ccc;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .page {
+    width:210mm; height:296mm;
+    margin:0 auto; background:var(--white);
+    overflow:hidden; display:flex; flex-direction:column;
+  }
+  @media screen { .page { box-shadow:0 6px 40px rgba(0,0,0,.18); margin:24px auto; } }
+  @media print  { body { background:#fff; } .page { margin:0; box-shadow:none; } }
+
+  /* ───── HERO ───── */
+  .hero {
+    background:var(--dark); padding:20px 16mm 15px;
+    display:flex; justify-content:space-between; align-items:flex-end;
+    position:relative; overflow:hidden; flex-shrink:0;
+  }
+  .hero::before {
+    content:''; position:absolute; inset:0;
+    background:radial-gradient(ellipse 55% 90% at 80% 20%, rgba(0,200,83,.07), transparent);
+    pointer-events:none;
+  }
+  .hero::after {
+    content:''; position:absolute; bottom:0; left:0; right:0; height:2px;
+    background:linear-gradient(90deg, transparent 4%, var(--acc) 25%, var(--acc) 75%, transparent 96%);
+    opacity:.75;
+  }
+  .hero-left { position:relative; z-index:1; }
+  .hero-left h1 {
+    font-family:'Space Grotesk',sans-serif;
+    font-size:25px; font-weight:700; color:#fff;
+    letter-spacing:-0.03em; line-height:1;
+  }
+  .hero-left h1 span { color:#00C853; }
+  .hero-tag { margin-top:5px; font-size:10px; color:#00C853; font-weight:500; }
+  .hero-right {
+    position:relative; z-index:1;
+    text-align:right; font-size:9px; color:#aaa; line-height:1.75;
+  }
+  .hero-right a { color:#00C853; text-decoration:none; }
+
+  /* ───── MAIN ───── */
+  .main { flex:1; padding:0 16mm; display:flex; flex-direction:column; overflow:hidden; }
+
+  /* ───── STATS STRIP ───── */
+  .stats-strip {
+    display:flex; justify-content:space-around;
+    background:var(--dark); border-radius:7px; padding:10px 8px;
+    margin-bottom:9px;
+  }
+  .stat { text-align:center; flex:1; }
+  .stat + .stat { border-left:1px solid #2e2e2e; }
+  .stat-num {
+    font-family:'Space Grotesk',sans-serif;
+    font-size:18px; font-weight:700; color:var(--acc);
+    letter-spacing:-0.03em; line-height:1;
+  }
+  .stat-label { font-size:8.5px; color:#888; margin-top:3px; }
+
+  /* ───── WHY ME GRID ───── */
+  .why-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:6px; margin-bottom:11px; }
+  .why-card {
+    background:var(--light); border-radius:5px;
+    padding:9px 10px; border-left:3px solid var(--acc);
+  }
+  .why-icon { font-size:13px; display:block; margin-bottom:3px; }
+  .why-title { font-size:10px; font-weight:700; color:var(--dark); margin-bottom:2px; }
+  .why-desc { font-size:9px; color:var(--gray); line-height:1.5; }
+  .why-desc strong { color:var(--acc-dark); font-weight:600; }
+
+  /* ───── SECTION TITLE ───── */
+  .sec-title {
+    font-family:'Space Grotesk',sans-serif;
+    font-size:11px; font-weight:700; color:var(--dark);
+    letter-spacing:-0.01em; margin-bottom:5px;
+    display:flex; align-items:center; gap:5px;
+  }
+  .sec-title::after { content:''; flex:1; height:1px; background:var(--border); }
+  .sec-num {
+    font-family:'JetBrains Mono',monospace;
+    font-size:9px; color:var(--acc-dark); font-weight:600;
+  }
+
+  /* ───── PROJECT ITEM ───── */
+  .proj-item {
+    padding-left:10px; border-left:2px solid var(--border);
+    margin-bottom:9px;
+  }
+  .proj-item.acc { border-left-color:var(--acc); }
+
+  /* 텍스트 + 썸네일 나란히 */
+  .proj-wrap { display:flex; gap:9px; align-items:flex-start; }
+  .proj-text { flex:1; min-width:0; }
+
+  .proj-head {
+    display:flex; justify-content:space-between; align-items:baseline; margin-bottom:1px;
+  }
+  .proj-co { font-size:11px; font-weight:700; color:var(--dark); }
+  .proj-period {
+    font-family:'JetBrains Mono',monospace; font-size:8.5px; color:#aaa; flex-shrink:0;
+  }
+  .proj-role { font-size:9.5px; color:var(--acc-dark); font-weight:600; margin-bottom:2px; }
+  .lab-badge {
+    display:inline-block;
+    font-family:'JetBrains Mono',monospace; font-size:8px; font-weight:700;
+    color:#fff; background:var(--acc); padding:1px 5px; border-radius:3px; margin-bottom:2px;
+  }
+  .proj-list { list-style:none; }
+  .proj-list li {
+    font-size:9.5px; line-height:1.58; padding-left:9px;
+    position:relative; margin-bottom:1px;
+  }
+  .proj-list li::before {
+    content:''; position:absolute; left:0; top:6px;
+    width:3.5px; height:3.5px; border-radius:50%; background:var(--acc);
+  }
+  .proj-list li strong { color:var(--dark); font-weight:600; }
+  .hi { font-family:'JetBrains Mono',monospace; color:var(--acc-dark); font-weight:600; }
+  .tag-row { display:flex; flex-wrap:wrap; gap:3px; margin-top:3px; }
+  .tag {
+    font-size:8px; padding:1.5px 5px; background:var(--light);
+    border-radius:3px; color:var(--gray); font-family:'JetBrains Mono',monospace;
+  }
+
+  /* ───── THUMBNAILS ───── */
+  .proj-thumb {
+    width:72px; height:72px; flex-shrink:0;
+    border-radius:5px; overflow:hidden;
+    border:1px solid var(--border);
+  }
+  .proj-thumb img { width:100%; height:100%; object-fit:cover; display:block; }
+
+  /* 04번 AI 파이프라인: 로고 2×2 그리드 */
+  .tech-thumb {
+    width:72px; height:72px; flex-shrink:0;
+    border-radius:5px; border:1px solid var(--border);
+    background:var(--light);
+    display:grid; grid-template-columns:1fr 1fr;
+    gap:2px; padding:6px;
+    align-items:center; justify-items:center;
+  }
+  .tech-thumb img {
+    width:26px; height:26px;
+    object-fit:contain; border-radius:4px;
+  }
+
+  /* ───── GAME MINI ───── */
+  .game-mini { display:grid; grid-template-columns:repeat(4,1fr); gap:5px; margin-bottom:9px; }
+  .gm-card {
+    background:var(--dark); border-radius:5px; padding:8px 6px; text-align:center;
+  }
+  .gm-emoji { font-size:17px; display:block; margin-bottom:2px; }
+  .gm-title { font-size:8.5px; font-weight:700; color:#fff; margin-bottom:1px; }
+  .gm-desc { font-size:8px; color:#888; line-height:1.4; }
+  .gm-tag {
+    font-family:'JetBrains Mono',monospace; font-size:7.5px;
+    color:var(--acc); margin-top:3px; display:block;
+  }
+
+  /* ───── CLOSING ───── */
+  .closing {
+    background:var(--dark); border-radius:6px;
+    padding:11px 18px; text-align:center;
+  }
+  .closing h3 {
+    font-family:'Space Grotesk',sans-serif;
+    font-size:13px; font-weight:700; color:#fff; margin-bottom:4px;
+  }
+  .closing h3 em { font-style:normal; color:var(--acc); }
+  .closing p { font-size:9px; color:#999; line-height:1.7; }
+  .closing p strong { color:#ddd; }
+
+  /* ───── FOOTER ───── */
+  .footer {
+    padding:6px 16mm; flex-shrink:0;
+    text-align:center; font-size:8px; color:var(--gray-light);
+    border-top:1px solid var(--border);
+  }
+
+  /* ───── EDITABLE SPACER ───── */
+  .sp {
+    font-size:3px; line-height:1; color:transparent;
+    caret-color:var(--acc); outline:none; cursor:text; flex-shrink:0;
+  }
+  .sp * { font-size:inherit; line-height:inherit; margin:0; padding:0; }
+  @media screen {
+    .sp { border:1px dashed rgba(0,200,83,.25); margin:0 48px; border-radius:3px; }
+    .sp:focus { background:rgba(0,200,83,.04); border-color:var(--acc); }
+  }
+  @media print { .sp { border:none; margin:0; } }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-left">
+      <h1>PROJECT <span>PORTFOLIO</span></h1>
+      <div class="hero-tag">SHIFT UP · 인사 담당자 (기업부설연구소 관리)</div>
+    </div>
+    <div class="hero-right">
+      임종권 · 1992.01.04<br>
+      ssujklim@gmail.com · 010-4052-0834<br>
+      <a href="https://iamsloth.github.io/portfolio/shift-up-hr-research-lab.html">iamsloth.github.io/portfolio</a>
+    </div>
+  </div>
+
+  <div class="main">
+
+    <div class="sp" contenteditable="true"><br></div>
+
+    <!-- STATS -->
+    <div class="stats-strip">
+      <div class="stat">
+        <div class="stat-num">1Y 9M</div>
+        <div class="stat-label">기업부설연구소 근무</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">3.6억</div>
+        <div class="stat-label">인프라 예산 직접 집행</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">8개사</div>
+        <div class="stat-label">외주 계약·관리 총괄</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">10Y+</div>
+        <div class="stat-label">게임 경력 (LoL 시즌2~)</div>
+      </div>
+    </div>
+
+    <!-- WHY ME -->
+    <div class="why-grid">
+      <div class="why-card">
+        <span class="why-icon">🔬</span>
+        <div class="why-title">기업부설연구소 내부 경험</div>
+        <div class="why-desc">(주)엣지크로스 기술연구소에서 <strong>HW 개발·BOM·자재·행정 풀사이클</strong> 직접 수행 — 연구소 운영 리듬 체화</div>
+      </div>
+      <div class="why-card">
+        <span class="why-icon">📋</span>
+        <div class="why-title">총무·행정 올라운더</div>
+        <div class="why-desc"><strong>3.6억 예산 집행</strong> · ERP 도입 풀사이클 단독 수행 · 외주 8개사 관리 · 비용 절감 연 500만 원</div>
+      </div>
+      <div class="why-card">
+        <span class="why-icon">🎮</span>
+        <div class="why-title">게이머 DNA</div>
+        <div class="why-desc">LoL 시즌2부터 <strong>10년+</strong> · 니케 플레이어 · 스텔라 블레이드 관심 — 게임이 일상인 사람</div>
+      </div>
+    </div>
+
+    <!-- 01 — AI 파이프라인 (2026~현재, 최신) -->
+    <div class="sec-title"><span class="sec-num">01</span> AI 에이전트 문서 파이프라인</div>
+    <div class="proj-item acc">
+      <div class="proj-wrap">
+        <div class="proj-text">
+          <div class="proj-head">
+            <span class="proj-co">개인 프로젝트</span>
+            <span class="proj-period">2026.01 — 현재</span>
+          </div>
+          <div class="proj-role">LLM 기반 채용 문서 자동화 시스템 구축</div>
+          <ul class="proj-list">
+            <li>200줄+ 시스템 프롬프트 설계 — AI 워크플로우 자동화 · 모델 라우팅 · 품질 기준 정의</li>
+            <li>500+ 평가-피드백 사이클 · 멀티 AI 에이전트 핸드오프 체계(AI_CONTEXT.md) 설계·운영</li>
+            <li>Python: .hwpx 자동화 · 이메일 발송 자동화 · Git 버전관리 체계 구축</li>
+            <li>Claude / ChatGPT / VS Code Antigravity 환경에서 매일 실무 운용 중 → 새 도구 즉시 적용 역량</li>
+          </ul>
+          <div class="tag-row">
+            <span class="tag">Claude</span><span class="tag">ChatGPT</span><span class="tag">Prompt Eng.</span><span class="tag">Python</span><span class="tag">Git</span><span class="tag">VS Code</span>
+          </div>
+        </div>
+        <div class="tech-thumb">
+          <img src="https://www.google.com/s2/favicons?domain=anthropic.com&sz=64" alt="Claude">
+          <img src="https://www.google.com/s2/favicons?domain=openai.com&sz=64" alt="ChatGPT">
+          <img src="https://www.google.com/s2/favicons?domain=code.visualstudio.com&sz=64" alt="VS Code">
+          <img src="../../../../docs/assets/projects/logo_antigravity.png" alt="Antigravity">
+        </div>
+      </div>
+    </div>
+
+    <!-- 02 — ERP 도입 (2023~2024) -->
+    <div class="sec-title"><span class="sec-num">02</span> 커스텀 ERP 도입 풀사이클</div>
+    <div class="proj-item acc">
+      <div class="proj-wrap">
+        <div class="proj-text">
+          <div class="proj-head">
+            <span class="proj-co">(사)함께만드는세상 — 경영지원부</span>
+            <span class="proj-period">2023.07 — 2024.12 · 1Y 6M</span>
+          </div>
+          <div class="proj-role">High-Q ERP 도입 프로젝트 — 실무 전담 (대리)</div>
+          <ul class="proj-list">
+            <li>인프라 예산 <span class="hi">약 3.6억 원</span> 직접 집행 (집행률 <span class="hi">88.5%</span>) · 외주업체 <span class="hi">8개사</span> 계약·관리·정산 총괄</li>
+            <li><strong>요구사항 정의 → 프로세스 설계 → 계정과목 표준화 → 데이터 마이그레이션(엑셀→Tibero) → 검수</strong></li>
+            <li>PC/네트워크 트러블슈팅 내재화 → 유지보수 비용 <span class="hi">30%</span> 절감 · IT자산 수명주기 관리</li>
+            <li>재계약 협상으로 연 <span class="hi">약 500만 원</span> 절감 · 법정 안전 점검 총괄 (소방·승강기·전기)</li>
+          </ul>
+          <div class="tag-row">
+            <span class="tag">ERP</span><span class="tag">Tibero DB</span><span class="tag">SQL</span><span class="tag">프로세스 설계</span><span class="tag">예산관리</span><span class="tag">마이그레이션</span>
+          </div>
+        </div>
+        <div class="proj-thumb">
+          <img src="../../../../docs/assets/projects/photo_erp_highq.png" alt="High-Q ERP 화면">
+        </div>
+      </div>
+    </div>
+
+    <!-- 03 — IoT (2020~2021) -->
+    <div class="sec-title"><span class="sec-num">03</span> IoT 원격 모니터링 시스템 개발 · QA</div>
+    <div class="proj-item">
+      <div class="proj-wrap">
+        <div class="proj-text">
+          <div class="proj-head">
+            <span class="proj-co">(주)맨지온 — 개발부</span>
+            <span class="proj-period">2020.03 — 2021.11 · 1Y 9M</span>
+          </div>
+          <div class="proj-role">임베디드 시스템 개발 · QA (대리)</div>
+          <ul class="proj-list">
+            <li>ESP32 기반 해수담수화 프로토타입 — 센서·밸브 제어, Blynk 원격 모니터링 대시보드 구현</li>
+            <li>통신 장애 로그 분석 → 간헐적 끊김 패턴 식별·해결 프로세스 확립</li>
+            <li>UI/UX 테스트 시나리오 설계 및 QA — 결함 재현·추적·보고 체계 수립</li>
+            <li>기술 문서 작성 · 현장 하드웨어 직접 점검 → 기술을 이해하는 관리자 역량 확립</li>
+          </ul>
+          <div class="tag-row">
+            <span class="tag">ESP32</span><span class="tag">C++</span><span class="tag">IoT</span><span class="tag">Blynk</span><span class="tag">QA</span><span class="tag">로그분석</span>
+          </div>
+        </div>
+        <div class="proj-thumb">
+          <img src="../../../../docs/assets/projects/photo_blynk_data.jpg" alt="Blynk 앱 모니터링">
+        </div>
+      </div>
+    </div>
+
+    <!-- 04 — 엣지크로스/연구소 (2016~2018) -->
+    <div class="sec-title"><span class="sec-num">04</span> 기업부설연구소 운영 지원</div>
+    <div class="proj-item">
+      <div class="proj-wrap">
+        <div class="proj-text">
+          <div class="proj-head">
+            <span class="proj-co">(주)엣지크로스 — 기술연구소</span>
+            <span class="proj-period">2016.05 — 2018.02 · 1Y 9M</span>
+          </div>
+          <div class="lab-badge">★ 기업부설연구소 직접 경험</div>
+          <div class="proj-role">H/W 개발 · 연구 자재·행정 관리 (주임)</div>
+          <ul class="proj-list">
+            <li><strong>회로설계 → PCB 레이아웃 → 시제품(납땜·실장) → 테스트·검증</strong> 풀사이클 직접 수행</li>
+            <li><strong>BOM 관리 체계 구축</strong> — 다품종 소량 부품 추적, 납기 준수율 <span class="hi">100%</span> 달성</li>
+            <li>자재 발주·수령·재고·예산 관리 · 비교견적 · 납기 추적 · 시제품 결과 문서화</li>
+            <li>연구원 행정 지원 · 생산 일정 조율 → 연구소 운영 프로세스를 내부에서 체화</li>
+          </ul>
+          <div class="tag-row">
+            <span class="tag">회로설계</span><span class="tag">BOM</span><span class="tag">자재관리</span><span class="tag">납기관리</span><span class="tag">시제품QA</span><span class="tag">연구소행정</span>
+          </div>
+        </div>
+        <div class="proj-thumb">
+          <img src="../../../../docs/assets/projects/photo_relay_board.jpg" alt="릴레이 보드 시제품">
+        </div>
+      </div>
+    </div>
+
+    <div class="sp" contenteditable="true"><br></div>
+
+    <!-- GAME CULTURE -->
+    <div class="sec-title"><span class="sec-num">05</span> Game Culture</div>
+    <div class="game-mini">
+      <div class="gm-card">
+        <span class="gm-emoji">⚔️</span>
+        <div class="gm-title">League of Legends</div>
+        <div class="gm-desc">시즌2부터 10년+</div>
+        <span class="gm-tag">Platinum</span>
+      </div>
+      <div class="gm-card">
+        <span class="gm-emoji">♟️</span>
+        <div class="gm-title">TFT</div>
+        <div class="gm-desc">매시즌 정규 플레이</div>
+        <span class="gm-tag">Active</span>
+      </div>
+      <div class="gm-card">
+        <span class="gm-emoji">🎯</span>
+        <div class="gm-title">승리의 여신: 니케</div>
+        <div class="gm-desc">플레이 · 복귀 준비 중</div>
+        <span class="gm-tag">SHIFT UP</span>
+      </div>
+      <div class="gm-card">
+        <span class="gm-emoji">🗡️</span>
+        <div class="gm-title">스텔라 블레이드</div>
+        <div class="gm-desc">SHIFT UP 관심 IP</div>
+        <span class="gm-tag">SHIFT UP</span>
+      </div>
+    </div>
+
+    <div class="sp" contenteditable="true"><br></div>
+
+    <!-- CLOSING -->
+    <div class="closing">
+      <h3><em>연구소</em>를 안에서 경험한 <em>관리자</em></h3>
+      <p>
+        기업부설연구소 <strong>현장 경험</strong> &nbsp;·&nbsp; 3.6억 원 예산 <strong>행정 실행력</strong> &nbsp;·&nbsp; 10년+ 게임 <strong>문화적 진정성</strong><br>
+        세 가지를 갖춘 사람이 시프트업의 연구소를 지원합니다.
+      </p>
+    </div>
+
+    <div class="sp" contenteditable="true"><br></div>
+
+  </div>
+
+  <div class="footer">
+    임종권 — SHIFT UP 인사 담당자(기업부설연구소 관리) 포트폴리오 &nbsp;|&nbsp; 공군 병장 만기제대(2010.07–2012.08) &nbsp;·&nbsp; 2026.03.18
+  </div>
+
+</div>
+</body>
+</html>

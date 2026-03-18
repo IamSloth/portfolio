@@ -8,13 +8,17 @@
 | Field | Value |
 |-------|-------|
 | date | 2026-03-18 |
-| agent | Claude Opus 4.6 |
-| work | 빗썸나눔(#26) CSR 지원 풀세트: strategy.md + 이력서/포트폴리오/커버레터(QR) + 웹포트폴리오(LED마키) + 제출완료 |
+| agent | Claude Sonnet 4.6 |
+| work | 시프트업#28 전체 서류 완성 + NIKKE 웹 포트폴리오 완성 + 제출 |
 | commit | latest |
 
 ### 이번 세션 요약
-- **빗썸나눔 (26)**: JD 분석→strategy.md, 빗썸 BI(#FF6C00) 적용 이력서·포트폴리오·커버레터(QR+URL) 3종 제작, 웹 포트폴리오(bithumb-nanum.html, LED 마키) 제작 후 나인하이어 제출 완료.
-- **두나무 2건**: JD 분석 → No-Go (경력 10년+/6~12년 요구, 유저 ~3년).
+- **시프트업 #28**: 이력서(resume_v4.html) + A4 포트폴리오(portfolio_v3.html) + 웹 포트폴리오(shift-up-hr-research-lab.html) 완성
+  - 웹 포트폴리오: NIKKE(승리의 여신) 테마 풀리디자인 — Orbitron폰트, 금색 팔레트(#C8A96E), chamfer 코너, HUD라인, 스캔라인
+  - 웹 포트폴리오 Key Projects: 실제 프로젝트 사진 배경 이미지로 적용
+  - PDF 2종 final/ 폴더 저장: 이력서+경력기술서(586KB), 포트폴리오(1.2MB)
+  - 유저 직접 제출 완료 (2026-03-18)
+- **이전 세션**: 카카오#27 + 메인 포트폴리오 오버홀 + 넷마블#11 탈락
 
 ## Active Applications
 
@@ -22,7 +26,6 @@
 |---|---------|----------|--------|---------------|---------------|
 | 09 | Neople (넥슨) | Budget Management | **📞 INTERVIEW** | 1차면접 3/10 완료, 결과 대기. **1순위** | `09_neople/budget_management/` |
 | 10 | Mintrocket (넥슨) | HR General Affairs | **📤 SUBMITTED** | 넥슨 채용시스템 제출 완료 (2026-03-02). 결과 대기 | `10_mintrocket/hr_general_affairs/` |
-| 11 | Netmarble Foundation | CSR | **📤 SUBMITTED** | 사이드바 이력서+자소서 제출 완료 (2026-03-03). 결과 대기 | `11_netmarble/csr/` |
 | 12 | 우아한형제들 (Woowa) | Robotics Ops | **📤 SUBMITTED** | 온라인 지원 완료 (2026-03-03). 12개월 계약직. 결과 대기 | `12_woowa/robotics_ops/` |
 | 14 | 함께하는사랑밭 | 행정·회계 및 사업관리 | **📤 SUBMITTED** | 이메일 제출 완료 (2026-03-04). 결과 대기 | `14_withgo/csr_admin/` |
 | 15 | 신한투자증권 (에이젝코리아 파견) | 사무보조 (Back Office) | **📤 SUBMITTED** | 사람인 온라인 제출 완료 (2026-03-05). 결과 대기 | `15_shinhan_invest/office_assistant/` |
@@ -35,11 +38,13 @@
 | 22 | 오스 주식회사 | 총무/자재관리 | **📋 DISCOVERED** | JD 분석 완료. 근무지 미확인. 상시채용 | `22_os_corporation/general_affairs_materials/` |
 | 23 | 데스코 (DESCO) | 경영지원/AX TEAM | **📋 DISCOVERED** | JD 분석 완료. **광명 근무**. 6개월 계약(정규직 전환 가능). 상시채용 | `23_desco/ax_team/` |
 | 24 | 엔씨소프트 (NCsoft) | 사내 복지시설 운영 (Workplace Motivation) | **📤 SUBMITTED** | 서류 제출 완료. 전용 포트폴리오 페이지 배포. 마감 5/12 | `24_ncsoft/workplace_motivation/` |
-| 24 | 엔씨소프트 (NCsoft) | 3D스캔 어시스턴트 | **📋 DISCOVERED** | Weak Go — 로또 지원. 마감 4/3 | `24_ncsoft/3d_scan_assistant/` |
-| 24 | 엔씨소프트 (NCsoft) | 서비스 기획/운영 어시스턴트 | **📋 DISCOVERED** | **STRONG GO** — AI+QA+기획 직결. ⚠️ 마감 3/25 (D-8) | `24_ncsoft/service_planning_assistant/` |
-| 24 | 엔씨소프트 (NCsoft) | HR 사무지원 | **📋 DISCOVERED** | **STRONG GO** — Excel고급+총무=HR인접. 마감 3/29 | `24_ncsoft/hr_admin_support/` |
+| 24 | 엔씨소프트 (NCsoft) | 3D스캔 어시스턴트 | **📤 SUBMITTED** | 제출 완료 (2026-03-17). 마감 4/3. 결과 대기 | `24_ncsoft/3d_scan_assistant/` |
+| 24 | 엔씨소프트 (NCsoft) | 서비스 기획/운영 어시스턴트 | **📤 SUBMITTED** | 제출 완료 (2026-03-17). 마감 3/25. 결과 대기 | `24_ncsoft/service_planning_assistant/` |
+| 24 | 엔씨소프트 (NCsoft) | HR 사무지원 | **📤 SUBMITTED** | 제출 완료 (2026-03-17). 마감 3/29. 결과 대기 | `24_ncsoft/hr_admin_support/` |
 | 25 | 캐논코리아 (Canon Korea) | 영업지원 (Sales Support) | **📋 DISCOVERED** | 계약직 1년, 강남 본사. ERP/데이터/부서조율 ⭐⭐⭐ 매칭. 마감일 확인 필요 | `25_canon_korea/sales_support/` |
 | 26 | 빗썸나눔 (Bithumb Nanum) | CSR 활동 지원 | **📤 SUBMITTED** | 나인하이어 제출 완료 (2026-03-18). 계약직 6개월. 상시채용 | `26_bithumb_nanum/csr_activity_support/` |
+| 27 | 카카오 (Kakao) | AI 데이터 라벨링 어시스턴트 | **📤 SUBMITTED** | 카카오 채용사이트 제출 완료 (2026-03-18). 계약직. 상시채용 | `27_kakao/ai_data_labeling_assistant/` |
+| 28 | 시프트업 (SHIFT UP) | 인사 담당자 (기업부설연구소 관리) | **📤 SUBMITTED** | 채용페이지 제출 완료 (2026-03-18). 계약직 1년. 상시채용 | `28_shift_up/hr_research_lab/` |
 | 03 | 11st | General Affairs | **⏸️ ON_HOLD** | 지원 안 함 (보류 유지) | `03_11st/general_affairs/` |
 
 ### Closed Applications
@@ -56,6 +61,7 @@
 | 07 | Kolon CSR | Energy Edu Ops | ❌ NO_RESPONSE | 사람인 제출 (2026-02-13). 무응답 |
 | 08 | 화영운수(주) | Bus Dispatch Admin | ❌ REJECTED | 2차 면접 불합격. 광명에서 먼 곳 배치 의도 확인됨 |
 | 13 | 동양미래대학교 | 일학습병행사업 관리 및 운영 | ❌ REJECTED | 면접 불합격 |
+| 11 | Netmarble Foundation | CSR | ❌ REJECTED | 서류전형 불합격 (2026-03-18) |
 | 16 | 이크래더블 (아이위더스 파견) | TCB 보고서 작성 | ❌ REJECTED | 1차면접 불합격. 5분 면접 + "다른 곳도 보고 있다" 발언 |
 
 ## Pending Decisions
@@ -74,6 +80,6 @@
 - **Filenames**: English snake_case only. No Korean filenames (except original form templates and final 제출본).
 - **Scripts**: Place inside the relevant application's `scripts/` subfolder. Never in project root.
 - **Commits**: Always include `Co-Authored-By: {Model Name} <noreply@anthropic.com>` trailer.
-- **Application folders**: Numbered by discovery date: `{NN}_{company}/`. Next new company = `27_`.
+- **Application folders**: Numbered by discovery date: `{NN}_{company}/`. Next new company = `29_`.
 - **Profile sync**: If you discover new career/skill/cert info during work, update `profile.json` immediately.
 - **Session end**: Update this file → commit → push. Keep entries concise (token budget matters).
