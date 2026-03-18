@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>임종권 — HR & Research Lab Admin · SHIFT UP</title>
+<meta name="description" content="시프트업 인사 담당자(기업부설연구소 관리) 지원 포트폴리오 — 임종권">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<style>
+/* ═══════════════════════════════════
+   NIKKE DESIGN SYSTEM
+═══════════════════════════════════ */
+:root {
+  --bg:       #09080D;
+  --surface:  #111019;
+  --surface2: #1A1826;
+  --surface3: #21202E;
+  --border:   rgba(200,169,110,.18);
+  --border-b: rgba(200,169,110,.45);
+  --acc:      #C8A96E;
+  --acc-b:    #E2C68A;
+  --acc-dim:  rgba(200,169,110,.08);
+  --acc-glow: rgba(200,169,110,.22);
+  --text:     #F0EDE8;
+  --text-dim: #8A8A9A;
+  --cyan:     #4FCFDF;
+  --red:      #C03030;
+  --ease:     cubic-bezier(.22,1,.36,1);
+}
+@page { margin: 0; }
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; font-size:16px; }
+body {
+  font-family:'Pretendard',-apple-system,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  overflow-x:hidden;
+  line-height:1.6;
+}
+a { color:var(--acc); text-decoration:none; }
+::selection { background:var(--acc); color:var(--bg); }
+
+/* ── UTILITIES ── */
+.chamfer    { clip-path:polygon(10px 0,100% 0,100% calc(100% - 10px),calc(100% - 10px) 100%,0 100%,0 10px); }
+.chamfer-lg { clip-path:polygon(18px 0,100% 0,100% calc(100% - 18px),calc(100% - 18px) 100%,0 100%,0 18px); }
+
+/* Corner decoration marks */
+.corner-deco { position:relative; }
+.corner-deco::before {
+  content:''; position:absolute; top:7px; left:7px;
+  width:13px; height:13px;
+  border-top:1.5px solid var(--acc); border-left:1.5px solid var(--acc);
+  opacity:.55; pointer-events:none; z-index:2;
+}
+.corner-deco::after {
+  content:''; position:absolute; bottom:7px; right:7px;
+  width:13px; height:13px;
+  border-bottom:1.5px solid var(--acc); border-right:1.5px solid var(--acc);
+  opacity:.55; pointer-events:none; z-index:2;
+}
+
+/* HUD separator line */
+.hud-line {
+  height:1px; margin:48px 0;
+  background:linear-gradient(90deg,transparent 0%,var(--acc) 30%,var(--acc) 70%,transparent 100%);
+  opacity:.35;
+}
+
+/* Scan line overlay */
+.scanlines { position:relative; isolation:isolate; }
+.scanlines::before {
+  content:''; position:absolute; inset:0;
+  background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,.11) 2px,rgba(0,0,0,.11) 3px);
+  pointer-events:none; z-index:1;
+}
+
+/* ── NAV ── */
+.nav {
+  position:fixed; top:0; left:0; right:0; z-index:100;
+  padding:14px 40px;
+  display:flex; justify-content:space-between; align-items:center;
+  background:rgba(9,8,13,.88); backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--border);
+  transition:padding .3s var(--ease);
+}
+.nav::after {
+  content:''; position:absolute; bottom:0; left:0; right:0; height:1px;
+  background:linear-gradient(90deg,transparent 5%,var(--acc) 30%,var(--acc) 70%,transparent 95%);
+  opacity:.4;
+}
+.nav-logo {
+  font-family:'Orbitron',monospace;
+  font-size:13px; font-weight:700; color:var(--text);
+  letter-spacing:.08em; text-transform:uppercase;
+}
+.nav-logo span { color:var(--acc); }
+.nav-links { display:flex; gap:28px; }
+.nav-links a {
+  font-family:'Orbitron',monospace; font-size:10px; font-weight:500;
+  color:var(--text-dim); letter-spacing:.1em; text-transform:uppercase;
+  transition:color .2s; position:relative;
+}
+.nav-links a::after {
+  content:''; position:absolute; bottom:-3px; left:0; right:0; height:1px;
+  background:var(--acc); transform:scaleX(0); transition:transform .2s var(--ease);
+}
+.nav-links a:hover { color:var(--acc); }
+.nav-links a:hover::after { transform:scaleX(1); }
+
+/* ── HERO ── */
+.hero {
+  min-height:100vh; display:flex; flex-direction:column;
+  justify-content:center; padding:140px 10vw 80px;
+  position:relative; overflow:hidden;
+}
+.hero-bg {
+  position:absolute; inset:0; z-index:0;
+  background:
+    radial-gradient(ellipse 55% 70% at 90% 10%, rgba(200,169,110,.12), transparent 60%),
+    radial-gradient(ellipse 40% 50% at 5% 90%, rgba(79,207,223,.05), transparent 55%),
+    var(--bg);
+}
+/* Scan lines on hero */
+.hero-bg::after {
+  content:''; position:absolute; inset:0;
+  background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,.09) 2px,rgba(0,0,0,.09) 3px);
+}
+/* Decorative grid lines */
+.hero-bg::before {
+  content:''; position:absolute; inset:0;
+  background-image:
+    linear-gradient(rgba(200,169,110,.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(200,169,110,.04) 1px, transparent 1px);
+  background-size:60px 60px;
+}
+.hero > * { position:relative; z-index:1; }
+
+.hero-badge {
+  display:inline-flex; align-items:center; gap:8px;
+  font-family:'Orbitron',monospace; font-size:10px; font-weight:600;
+  color:var(--acc); letter-spacing:.2em; text-transform:uppercase;
+  border:1px solid var(--border-b); padding:5px 14px;
+  background:rgba(200,169,110,.06); margin-bottom:24px;
+  clip-path:polygon(6px 0,100% 0,100% calc(100% - 6px),calc(100% - 6px) 100%,0 100%,0 6px);
+}
+.hero-badge::before { content:'◆'; font-size:7px; }
+
+.hero h1 {
+  font-family:'Orbitron',monospace;
+  font-size:clamp(28px,5vw,58px); font-weight:900;
+  color:var(--text); line-height:1.1; letter-spacing:-.02em; margin-bottom:20px;
+}
+.hero h1 em { font-style:normal; color:var(--acc); }
+.hero h1 .sub-line {
+  display:block; font-size:.6em; font-weight:600;
+  color:var(--text-dim); letter-spacing:.02em; margin-top:4px;
+}
+
+.hero-sub {
+  font-size:15px; color:var(--text-dim); max-width:560px;
+  line-height:1.75; margin-bottom:40px;
+}
+.hero-sub strong { color:var(--text); }
+
+/* HUD stat boxes */
+.hero-stats { display:flex; gap:12px; flex-wrap:wrap; }
+.hero-stat {
+  background:rgba(200,169,110,.06);
+  border:1px solid var(--border);
+  padding:12px 20px;
+  clip-path:polygon(8px 0,100% 0,100% calc(100% - 8px),calc(100% - 8px) 100%,0 100%,0 8px);
+  position:relative;
+  transition:border-color .2s, background .2s;
+}
+.hero-stat:hover { border-color:var(--border-b); background:rgba(200,169,110,.1); }
+.hero-stat .num {
+  font-family:'Orbitron',monospace; font-size:26px; font-weight:800;
+  color:var(--acc); letter-spacing:-.02em; line-height:1; display:block;
+}
+.hero-stat .lbl { font-size:10px; color:var(--text-dim); margin-top:4px; letter-spacing:.03em; }
+
+.scroll-hint {
+  position:absolute; bottom:32px; left:50%; transform:translateX(-50%);
+  font-family:'Orbitron',monospace; font-size:9px; letter-spacing:.15em;
+  color:var(--text-dim); text-transform:uppercase;
+  display:flex; flex-direction:column; align-items:center; gap:8px;
+  animation:float 2.2s ease-in-out infinite;
+}
+.scroll-hint::after {
+  content:''; width:1px; height:28px;
+  background:linear-gradient(var(--acc),transparent);
+}
+@keyframes float {
+  0%,100% { transform:translateX(-50%) translateY(0); }
+  50%      { transform:translateX(-50%) translateY(-7px); }
+}
+
+/* ── SECTION BASE ── */
+section { padding:88px 10vw; }
+.sec-eyebrow {
+  font-family:'Orbitron',monospace; font-size:10px; font-weight:600;
+  color:var(--acc); letter-spacing:.2em; text-transform:uppercase;
+  margin-bottom:8px;
+  display:flex; align-items:center; gap:10px;
+}
+.sec-eyebrow::before { content:'◆'; font-size:7px; }
+.sec-eyebrow::after {
+  content:''; flex:1; height:1px;
+  background:linear-gradient(90deg,var(--acc-glow),transparent);
+}
+.sec-heading {
+  font-family:'Orbitron',monospace;
+  font-size:clamp(22px,3vw,30px); font-weight:800;
+  color:var(--text); letter-spacing:-.02em; margin-bottom:44px;
+}
+.sec-heading span { color:var(--acc); }
+
+/* ── MARQUEE ── */
+.marquee-section { overflow:hidden; }
+.marquee-row {
+  overflow:hidden; white-space:nowrap; padding:10px 0;
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+}
+.marquee-row--dark { background:var(--bg); }
+.marquee-row--acc  { background:linear-gradient(135deg,#8B6A2E,#C8A96E); border-color:transparent; }
+.marquee-track { display:inline-flex; will-change:transform; cursor:default; }
+.marquee-item {
+  flex-shrink:0; padding:0 22px;
+  font-family:'Orbitron',monospace; font-size:clamp(15px,2.4vw,26px);
+  font-weight:700; letter-spacing:.05em; white-space:nowrap;
+  user-select:none; transition:opacity .2s;
+}
+.marquee-row--dark .marquee-item { color:var(--acc); opacity:.5; }
+.marquee-row--dark:hover .marquee-item { opacity:.2; }
+.marquee-row--dark .marquee-item:hover { opacity:1!important; }
+.marquee-row--acc .marquee-item { color:var(--bg); opacity:.45; }
+.marquee-row--acc:hover .marquee-item { opacity:.2; }
+.marquee-row--acc .marquee-item:hover { opacity:1!important; }
+.marquee-item .sep { margin:0 10px; font-size:.5em; vertical-align:middle; opacity:.4; }
+
+/* ── WHY ME ── */
+.why-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+.why-card {
+  background:var(--surface); border:1px solid var(--border);
+  padding:26px 22px; position:relative;
+  clip-path:polygon(12px 0,100% 0,100% calc(100% - 12px),calc(100% - 12px) 100%,0 100%,0 12px);
+  transition:border-color .3s var(--ease), background .3s;
+}
+.why-card::before {
+  content:''; position:absolute; top:6px; left:6px;
+  width:14px; height:14px;
+  border-top:1.5px solid var(--acc); border-left:1.5px solid var(--acc);
+  opacity:.5;
+}
+.why-card::after {
+  content:''; position:absolute; bottom:6px; right:6px;
+  width:14px; height:14px;
+  border-bottom:1.5px solid var(--acc); border-right:1.5px solid var(--acc);
+  opacity:.5;
+}
+.why-card:hover { border-color:var(--border-b); background:var(--surface2); }
+.why-card.featured { border-color:rgba(200,169,110,.4); background:var(--surface2); }
+.why-card .icon { font-size:30px; display:block; margin-bottom:14px; }
+.why-card h3 { font-family:'Orbitron',monospace; font-size:13px; font-weight:700; color:var(--text); margin-bottom:8px; letter-spacing:.02em; }
+.why-card p { font-size:13px; color:var(--text-dim); line-height:1.72; }
+.why-card p .hi { color:var(--acc); font-weight:600; }
+
+/* ── EXPERIENCE ── */
+.exp-list { display:flex; flex-direction:column; gap:18px; }
+.exp-card {
+  display:flex; gap:28px; padding:24px;
+  background:var(--surface); border:1px solid var(--border);
+  clip-path:polygon(14px 0,100% 0,100% calc(100% - 14px),calc(100% - 14px) 100%,0 100%,0 14px);
+  transition:border-color .3s var(--ease);
+}
+.exp-card:hover { border-color:var(--border-b); }
+.exp-card.featured {
+  border-left:3px solid var(--acc);
+  clip-path:polygon(0 0,100% 0,100% calc(100% - 14px),calc(100% - 14px) 100%,0 100%,0 0);
+  background:rgba(200,169,110,.04);
+}
+.exp-left { width:165px; flex-shrink:0; }
+.exp-left .co { font-family:'Orbitron',monospace; font-size:13px; font-weight:700; color:var(--text); letter-spacing:.02em; }
+.exp-left .dept { font-size:11px; color:var(--acc); margin-top:3px; }
+.exp-left .date {
+  font-family:'JetBrains Mono',monospace; font-size:10px;
+  color:var(--text-dim); margin-top:5px;
+}
+.exp-left .lab-badge {
+  display:inline-block; margin-top:7px;
+  font-family:'JetBrains Mono',monospace; font-size:9px; font-weight:600;
+  color:var(--acc); border:1px solid rgba(200,169,110,.35);
+  background:rgba(200,169,110,.08); padding:2px 8px;
+  clip-path:polygon(4px 0,100% 0,100% calc(100% - 4px),calc(100% - 4px) 100%,0 100%,0 4px);
+}
+.exp-right { flex:1; }
+.exp-right .role { font-size:12px; color:var(--acc); font-weight:600; margin-bottom:10px; letter-spacing:.02em; }
+.exp-right ul { list-style:none; }
+.exp-right li {
+  font-size:13px; color:var(--text-dim); line-height:1.7;
+  padding-left:16px; position:relative;
+}
+.exp-right li::before {
+  content:'◆'; position:absolute; left:0; top:5px;
+  font-size:6px; color:var(--acc); opacity:.7;
+}
+.exp-right li strong { color:var(--text); font-weight:600; }
+.exp-right li .num { font-family:'JetBrains Mono',monospace; color:var(--acc); font-weight:700; }
+.exp-tags { display:flex; flex-wrap:wrap; gap:5px; margin-top:12px; }
+.exp-tags .tag {
+  font-family:'JetBrains Mono',monospace; font-size:9px; font-weight:600;
+  color:var(--text-dim); background:var(--bg); border:1px solid var(--border);
+  padding:2px 8px;
+  clip-path:polygon(4px 0,100% 0,100% calc(100% - 4px),calc(100% - 4px) 100%,0 100%,0 4px);
+}
+
+/* ── PROJECTS ── */
+.proj-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:18px; }
+.proj-card {
+  background:var(--surface); border:1px solid var(--border);
+  clip-path:polygon(14px 0,100% 0,100% calc(100% - 14px),calc(100% - 14px) 100%,0 100%,0 14px);
+  overflow:hidden; transition:border-color .3s var(--ease), transform .3s var(--ease);
+  position:relative;
+}
+.proj-card::before {
+  content:''; position:absolute; top:6px; left:6px;
+  width:12px; height:12px;
+  border-top:1.5px solid var(--acc); border-left:1.5px solid var(--acc); opacity:.4;
+}
+.proj-card:hover { border-color:var(--border-b); transform:translateY(-3px); }
+.proj-top { padding:22px 22px 0; }
+.proj-card .badge {
+  display:inline-block; font-family:'Orbitron',monospace; font-size:9px; font-weight:700;
+  color:var(--acc); border:1px solid rgba(200,169,110,.35);
+  background:rgba(200,169,110,.07); padding:3px 10px; letter-spacing:.08em;
+  clip-path:polygon(4px 0,100% 0,100% calc(100% - 4px),calc(100% - 4px) 100%,0 100%,0 4px);
+  margin-bottom:10px;
+}
+.proj-card h3 { font-family:'Orbitron',monospace; font-size:15px; font-weight:800; color:var(--text); margin-bottom:5px; letter-spacing:-.01em; }
+.proj-card .meta { font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--text-dim); margin-bottom:14px; }
+.proj-card ul { list-style:none; padding:0 22px 16px; }
+.proj-card li {
+  font-size:13px; color:var(--text-dim); line-height:1.7;
+  padding-left:14px; position:relative;
+}
+.proj-card li::before {
+  content:'◆'; position:absolute; left:0; top:5px;
+  font-size:6px; color:var(--acc); opacity:.7;
+}
+.proj-bottom {
+  padding:12px 22px; border-top:1px solid var(--border);
+  display:flex; flex-wrap:wrap; gap:5px;
+  background:rgba(200,169,110,.03);
+}
+.proj-bottom .tag {
+  font-family:'JetBrains Mono',monospace; font-size:9px; font-weight:600;
+  color:var(--acc); border:1px solid rgba(200,169,110,.25);
+  background:rgba(200,169,110,.06); padding:2px 8px;
+  clip-path:polygon(4px 0,100% 0,100% calc(100% - 4px),calc(100% - 4px) 100%,0 100%,0 4px);
+}
+
+/* ── PROJECT IMAGE BG ── */
+.proj-card.img-bg {
+  background-size:cover; background-position:center;
+}
+.proj-card.img-bg::after {
+  content:''; position:absolute; inset:0;
+  background:linear-gradient(160deg, rgba(17,16,25,.94) 0%, rgba(17,16,25,.86) 100%);
+  pointer-events:none; z-index:0;
+  transition:opacity .35s var(--ease);
+}
+.proj-card.img-bg:hover::after { opacity:.78; }
+.proj-card.img-bg > * { position:relative; z-index:1; }
+/* Tech icon strip for AI card */
+.tech-icons { display:flex; gap:7px; align-items:center; margin-bottom:12px; }
+.tech-icons img {
+  width:22px; height:22px; object-fit:contain; border-radius:4px;
+  filter:grayscale(30%) brightness(.8);
+  transition:filter .25s var(--ease);
+}
+.proj-card:hover .tech-icons img { filter:grayscale(0%) brightness(1); }
+
+/* ── GAME CULTURE ── */
+.game-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-bottom:28px; }
+.game-card {
+  background:var(--surface); border:1px solid var(--border);
+  padding:22px 16px; text-align:center;
+  clip-path:polygon(10px 0,100% 0,100% calc(100% - 10px),calc(100% - 10px) 100%,0 100%,0 10px);
+  transition:border-color .3s var(--ease), transform .3s var(--ease);
+  position:relative;
+}
+.game-card:hover { border-color:var(--border-b); transform:translateY(-3px); }
+.game-card.shift-up {
+  border-color:rgba(200,169,110,.45);
+  background:linear-gradient(160deg,var(--surface2),rgba(200,169,110,.06));
+}
+.game-card .emoji { font-size:34px; display:block; margin-bottom:10px; }
+.game-card h4 { font-family:'Orbitron',monospace; font-size:12px; font-weight:700; color:var(--text); margin-bottom:5px; letter-spacing:.02em; }
+.game-card p { font-size:12px; color:var(--text-dim); line-height:1.5; }
+.game-card .tag {
+  font-family:'JetBrains Mono',monospace; font-size:9px; font-weight:700;
+  color:var(--acc); border:1px solid rgba(200,169,110,.35);
+  background:rgba(200,169,110,.08); padding:2px 9px;
+  margin-top:8px; display:inline-block;
+  clip-path:polygon(4px 0,100% 0,100% calc(100% - 4px),calc(100% - 4px) 100%,0 100%,0 4px);
+}
+.game-quote {
+  background:var(--surface); border:1px solid var(--border); border-left:3px solid var(--acc);
+  padding:22px 26px;
+  clip-path:polygon(0 0,100% 0,100% calc(100% - 12px),calc(100% - 12px) 100%,0 100%,0 0);
+}
+.game-quote p { font-size:14px; color:var(--text-dim); line-height:1.85; }
+.game-quote p strong { color:var(--acc); font-weight:600; }
+
+/* ── SKILLS ── */
+.skills-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+.skill-group {
+  background:var(--surface); border:1px solid var(--border); padding:22px;
+  clip-path:polygon(10px 0,100% 0,100% calc(100% - 10px),calc(100% - 10px) 100%,0 100%,0 10px);
+}
+.skill-group h3 {
+  font-family:'Orbitron',monospace; font-size:11px; font-weight:700;
+  color:var(--acc); margin-bottom:14px; letter-spacing:.05em; text-transform:uppercase;
+}
+.skill-tag {
+  display:inline-block; font-size:11px;
+  color:var(--text-dim); border:1px solid var(--border);
+  background:var(--bg); padding:4px 10px; margin:2px;
+  clip-path:polygon(4px 0,100% 0,100% calc(100% - 4px),calc(100% - 4px) 100%,0 100%,0 4px);
+  transition:border-color .2s;
+}
+.skill-tag:hover { border-color:var(--border-b); color:var(--text); }
+.skill-tag.hot { color:var(--acc); border-color:rgba(200,169,110,.3); }
+
+/* ── CONTACT ── */
+.contact {
+  text-align:center; padding:88px 10vw;
+  background:var(--surface);
+  position:relative;
+}
+.contact::before {
+  content:''; position:absolute; top:0; left:0; right:0; height:1px;
+  background:linear-gradient(90deg,transparent 10%,var(--acc) 40%,var(--acc) 60%,transparent 90%);
+  opacity:.35;
+}
+.contact::after {
+  content:''; position:absolute; bottom:0; left:0; right:0; height:1px;
+  background:linear-gradient(90deg,transparent 10%,var(--acc) 40%,var(--acc) 60%,transparent 90%);
+  opacity:.35;
+}
+.contact h2 {
+  font-family:'Orbitron',monospace; font-size:clamp(22px,3vw,32px);
+  font-weight:900; color:var(--text); letter-spacing:-.02em; margin-bottom:14px;
+}
+.contact h2 span { color:var(--acc); }
+.contact p { color:var(--text-dim); font-size:14px; margin-bottom:28px; max-width:520px; margin-inline:auto; }
+.contact-links { display:flex; justify-content:center; gap:14px; flex-wrap:wrap; }
+.contact-links a {
+  font-family:'Orbitron',monospace; font-size:11px; font-weight:600;
+  color:var(--acc); border:1px solid rgba(200,169,110,.4);
+  background:rgba(200,169,110,.07); padding:10px 22px; letter-spacing:.08em;
+  clip-path:polygon(8px 0,100% 0,100% calc(100% - 8px),calc(100% - 8px) 100%,0 100%,0 8px);
+  transition:background .2s, border-color .2s;
+}
+.contact-links a:hover { background:var(--acc); color:var(--bg); border-color:var(--acc); }
+
+/* ── FOOTER ── */
+.footer {
+  text-align:center; padding:20px; font-size:10px; color:var(--text-dim);
+  border-top:1px solid var(--border);
+  font-family:'JetBrains Mono',monospace; letter-spacing:.05em;
+}
+
+/* ── REVEAL ── */
+.reveal { opacity:0; transform:translateY(22px); transition:opacity .65s var(--ease),transform .65s var(--ease); }
+.reveal.visible { opacity:1; transform:translateY(0); }
+
+/* ── RESPONSIVE ── */
+@media(max-width:768px){
+  .hero { padding:110px 24px 60px; }
+  section { padding:60px 24px; }
+  .why-grid { grid-template-columns:1fr; }
+  .proj-grid { grid-template-columns:1fr; }
+  .exp-card { flex-direction:column; gap:10px; }
+  .exp-left { width:auto; }
+  .skills-grid { grid-template-columns:1fr; }
+  .game-grid { grid-template-columns:1fr 1fr; }
+  .hero-stats { flex-wrap:wrap; gap:8px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav-logo">LIM JONG<span>KWON</span></div>
+  <div class="nav-links">
+    <a href="#why">Why Me</a>
+    <a href="#experience">Career</a>
+    <a href="#projects">Projects</a>
+    <a href="#culture">NIKKE</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero scanlines">
+  <div class="hero-bg"></div>
+
+  <div class="hero-badge">SHIFT UP · 인사 담당자 (기업부설연구소 관리)</div>
+
+  <h1>
+    <em>연구소</em>를 안에서<br>경험한 <em>관리자</em>
+  </h1>
+
+  <p class="hero-sub">
+    기업부설연구소에서 HW 개발과 자재 관리를 수행하며 연구소 운영 구조를 체화했습니다.<br>
+    이후 총무·IT 인프라 <strong>3년 2개월</strong>의 행정 역량을 더해,<br>
+    연구 행정의 <strong>현장 감각</strong>과 <strong>관리 실행력</strong>을 동시에 갖춘 인재입니다.
+  </p>
+
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <span class="num">1Y 9M</span>
+      <span class="lbl">기업부설연구소 근무</span>
+    </div>
+    <div class="hero-stat">
+      <span class="num">3.6억</span>
+      <span class="lbl">인프라 예산 직접 집행</span>
+    </div>
+    <div class="hero-stat">
+      <span class="num">8개사</span>
+      <span class="lbl">외주 계약·관리 총괄</span>
+    </div>
+    <div class="hero-stat">
+      <span class="num">10Y+</span>
+      <span class="lbl">게임 경력 (LoL 시즌2~)</span>
+    </div>
+  </div>
+
+  <div class="scroll-hint">SCROLL</div>
+</div>
+
+<!-- MARQUEE -->
+<div class="marquee-section">
+  <div class="marquee-row marquee-row--dark">
+    <div class="marquee-track" id="mq1"></div>
+  </div>
+  <div class="marquee-row marquee-row--acc">
+    <div class="marquee-track" id="mq2"></div>
+  </div>
+</div>
+
+<!-- WHY ME -->
+<section id="why">
+  <div class="sec-eyebrow">01 &nbsp;—&nbsp; Why Me</div>
+  <div class="sec-heading">세 가지 <span>전략적 강점</span></div>
+
+  <div class="why-grid">
+    <div class="why-card featured reveal">
+      <span class="icon">🔬</span>
+      <h3>RESEARCH LAB 내부 경험</h3>
+      <p>
+        (주)엣지크로스 <span class="hi">기술연구소</span>에서 회로설계부터 시제품 검증까지 풀사이클 참여.
+        BOM 관리, 자재 발주, 납기 조율 — 연구 행정의 핵심 업무를 현장에서 직접 체화했습니다.
+      </p>
+    </div>
+    <div class="why-card reveal">
+      <span class="icon">📋</span>
+      <h3>총무·행정 올라운더</h3>
+      <p>
+        <span class="hi">3.6억 원 예산 집행</span>(집행률 88.5%), <span class="hi">외주 8개사</span> 계약·정산 총괄,
+        커스텀 ERP 도입 풀사이클 전담. 연구 과제의 예산·정산·계약 관리에 즉시 투입 가능합니다.
+      </p>
+    </div>
+    <div class="why-card reveal">
+      <span class="icon">🎮</span>
+      <h3>게이머 DNA</h3>
+      <p>
+        LoL 시즌2부터 <span class="hi">10년 이상</span> 플레이. 니케 플레이어(복귀 준비 중), 스텔라 블레이드 관심 유저.
+        게임산업에 대한 이해가 아닌, <span class="hi">게임 문화 자체가 일상</span>인 사람입니다.
+      </p>
+    </div>
+  </div>
+</section>
+
+<div class="hud-line" style="margin:0 10vw;"></div>
+
+<!-- EXPERIENCE -->
+<section id="experience" style="padding-top:0;">
+  <div class="sec-eyebrow">02 &nbsp;—&nbsp; Career</div>
+  <div class="sec-heading">Work <span>Experience</span></div>
+
+  <div class="exp-list">
+    <div class="exp-card featured reveal">
+      <div class="exp-left">
+        <div class="co">(주)엣지크로스</div>
+        <div class="dept">기술연구소</div>
+        <div class="date">2016.05 – 2018.02</div>
+        <div class="lab-badge">★ 기업부설연구소</div>
+      </div>
+      <div class="exp-right">
+        <div class="role">H/W 개발 · 자재관리 (주임)</div>
+        <ul>
+          <li><strong>회로 설계 → PCB → 시제품(납땜·실장) → 테스트·검증</strong> 풀사이클 직접 수행</li>
+          <li><strong>BOM 관리 체계화</strong> — 다품종 소량 부품 추적, 납기 준수율 <span class="num">100%</span></li>
+          <li>자재 발주·수령·재고 관리 / 비교견적 / 납기 추적 / 시제품 결과 문서화</li>
+          <li>연구원 행정 지원 · 생산 일정 조율 → 연구소 운영 프로세스 내부에서 체화</li>
+        </ul>
+        <div class="exp-tags">
+          <span class="tag">회로설계</span><span class="tag">BOM</span><span class="tag">자재관리</span><span class="tag">연구소행정</span><span class="tag">시제품검증</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-card reveal">
+      <div class="exp-left">
+        <div class="co">(주)맨지온</div>
+        <div class="dept">개발부</div>
+        <div class="date">2020.03 – 2021.11</div>
+      </div>
+      <div class="exp-right">
+        <div class="role">임베디드 시스템 개발 · QA (대리)</div>
+        <ul>
+          <li>ESP32 기반 해수담수화 프로토타입 — 센서·밸브 제어, Blynk 원격 대시보드 구현</li>
+          <li>통신 장애 로그 분석 → 간헐적 끊김 패턴 식별·해결</li>
+          <li>UI/UX 테스트 시나리오 설계 및 QA — 결함 재현·추적·보고 체계 수립</li>
+        </ul>
+        <div class="exp-tags">
+          <span class="tag">ESP32</span><span class="tag">IoT</span><span class="tag">QA</span><span class="tag">로그분석</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-card featured reveal">
+      <div class="exp-left">
+        <div class="co">(사)함께만드는세상</div>
+        <div class="dept">경영지원부</div>
+        <div class="date">2023.01 – 2026.02</div>
+      </div>
+      <div class="exp-right">
+        <div class="role">총무 · IT지원 담당 (대리)</div>
+        <ul>
+          <li>인프라 예산 <span class="num">약 3.6억 원</span> 직접 집행 (집행률 <span class="num">88.5%</span>)</li>
+          <li>외주업체 <span class="num">8개사</span> 계약·관리·정산 총괄 (소방·승강기·전기·방역 등)</li>
+          <li><strong>커스텀 ERP(High-Q) 도입</strong> 실무 전담 — 요구사항 → 데이터 마이그레이션 → 검수</li>
+          <li>사내 네트워크/PC 트러블슈팅 내재화 → 유지보수 비용 <span class="num">30%</span> 절감</li>
+        </ul>
+        <div class="exp-tags">
+          <span class="tag">예산집행</span><span class="tag">외주계약</span><span class="tag">ERP도입</span><span class="tag">IT자산관리</span><span class="tag">안전관리</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" style="background:var(--surface); position:relative;">
+  <div class="sec-eyebrow">03 &nbsp;—&nbsp; Projects</div>
+  <div class="sec-heading">Key <span>Projects</span></div>
+
+  <div class="proj-grid">
+    <div class="proj-card img-bg reveal" style="background-image:url('assets/projects/photo_erp_highq.png')">
+      <div class="proj-top">
+        <div class="badge">ERP · 프로세스 설계</div>
+        <h3>커스텀 ERP(High-Q) 도입</h3>
+        <div class="meta">2023.07 – 2024.12 · (사)함께만드는세상</div>
+      </div>
+      <ul>
+        <li>현업 요구사항 → 프로세스 설계 → 계정과목 표준화 → 검수 풀사이클</li>
+        <li>엑셀→Tibero DB 마이그레이션 / 대량 데이터 정합성 검증</li>
+        <li>예산 3.6억 원 체계적 관리 기반 구축</li>
+      </ul>
+      <div class="proj-bottom">
+        <span class="tag">ERP</span><span class="tag">Tibero DB</span><span class="tag">SQL</span><span class="tag">프로세스 설계</span>
+      </div>
+    </div>
+
+    <div class="proj-card reveal">
+      <div class="proj-top">
+        <div class="tech-icons">
+          <img src="https://www.google.com/s2/favicons?domain=anthropic.com&sz=64" alt="Claude" title="Claude">
+          <img src="https://www.google.com/s2/favicons?domain=openai.com&sz=64" alt="ChatGPT" title="ChatGPT">
+          <img src="https://www.google.com/s2/favicons?domain=code.visualstudio.com&sz=64" alt="VS Code" title="VS Code">
+          <img src="assets/projects/logo_antigravity.png" alt="Antigravity" title="Antigravity">
+        </div>
+        <div class="badge">AI · 문서 자동화</div>
+        <h3>AI 에이전트 문서 파이프라인</h3>
+        <div class="meta">2026.01 – 현재 · Personal Project</div>
+      </div>
+      <ul>
+        <li>LLM 시스템 프롬프트(200줄+) 설계 — 멀티 에이전트 워크플로우 자동화</li>
+        <li>Python: .hwpx 자동화, 데이터 추출·가공, 이메일 발송 자동화</li>
+        <li>Git 기반 버전관리 · 멀티 AI 핸드오프 체계 구축</li>
+      </ul>
+      <div class="proj-bottom">
+        <span class="tag">Claude</span><span class="tag">Python</span><span class="tag">Git</span><span class="tag">Prompt Eng.</span>
+      </div>
+    </div>
+
+    <div class="proj-card img-bg reveal" style="background-image:url('assets/projects/photo_relay_board.jpg')">
+      <div class="proj-top">
+        <div class="badge">HW · 연구소 행정</div>
+        <h3>PCB 설계 및 시제품 제작</h3>
+        <div class="meta">2016.05 – 2018.02 · (주)엣지크로스 기술연구소</div>
+      </div>
+      <ul>
+        <li>회로설계 → PCB 레이아웃 → 시제품(납땜·실장) → 테스트·검증</li>
+        <li>BOM 관리 체계화 — 납기 준수율 100%</li>
+        <li>연구원 협업 통한 연구소 운영 프로세스 내재화</li>
+      </ul>
+      <div class="proj-bottom">
+        <span class="tag">PCB Design</span><span class="tag">BOM</span><span class="tag">생산관리</span><span class="tag">연구소행정</span>
+      </div>
+    </div>
+
+    <div class="proj-card img-bg reveal" style="background-image:url('assets/projects/photo_blynk_data.jpg')">
+      <div class="proj-top">
+        <div class="badge">IoT · QA</div>
+        <h3>IoT 원격 모니터링 시스템</h3>
+        <div class="meta">2020.03 – 2021.11 · (주)맨지온</div>
+      </div>
+      <ul>
+        <li>ESP32 기반 해수담수화 프로토타입 / Blynk 실시간 모니터링 대시보드</li>
+        <li>통신 장애 로그 분석 → 원인 규명 및 해결</li>
+        <li>UI/UX 테스트 시나리오 설계 및 QA 수행</li>
+      </ul>
+      <div class="proj-bottom">
+        <span class="tag">ESP32</span><span class="tag">C++</span><span class="tag">Blynk</span><span class="tag">QA</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GAME CULTURE -->
+<section id="culture">
+  <div class="sec-eyebrow">04 &nbsp;—&nbsp; Culture Fit</div>
+  <div class="sec-heading">GODDESS OF <span>VICTORY</span></div>
+
+  <div class="game-grid">
+    <div class="game-card reveal">
+      <span class="emoji">⚔️</span>
+      <h4>League of Legends</h4>
+      <p>시즌2부터 10년+ 플레이</p>
+      <span class="tag">Platinum</span>
+    </div>
+    <div class="game-card reveal">
+      <span class="emoji">♟️</span>
+      <h4>TFT</h4>
+      <p>매시즌 정규 플레이어</p>
+      <span class="tag">Active</span>
+    </div>
+    <div class="game-card shift-up reveal">
+      <span class="emoji">🎯</span>
+      <h4>승리의 여신: 니케</h4>
+      <p>플레이 경험 · 복귀 준비 중</p>
+      <span class="tag">SHIFT UP ◆</span>
+    </div>
+    <div class="game-card shift-up reveal">
+      <span class="emoji">🗡️</span>
+      <h4>스텔라 블레이드</h4>
+      <p>SHIFT UP 관심 IP</p>
+      <span class="tag">SHIFT UP ◆</span>
+    </div>
+  </div>
+
+  <div class="game-quote reveal">
+    <p>
+      <strong>게임은 제 일상의 일부입니다.</strong><br>
+      퇴근 후 LoL 한 판, 니케 복귀를 준비하며 업데이트 체크, 게임 커뮤니티 트렌드 팔로우 —
+      "게임산업에 대한 이해"를 채용공고에서 처음 본 게 아니라, 이미 10년 넘게 실천하고 있는 생활입니다.
+      <strong>시프트업이 만든 게임을 즐기는 사람</strong>이, 시프트업을 지원하는 것은 자연스러운 선택입니다.
+    </p>
+  </div>
+</section>
+
+<div class="hud-line" style="margin:0 10vw;"></div>
+
+<!-- SKILLS -->
+<section id="skills" style="padding-top:0;">
+  <div class="sec-eyebrow">05 &nbsp;—&nbsp; Skills</div>
+  <div class="sec-heading">Technical <span>Stack</span></div>
+
+  <div class="skills-grid">
+    <div class="skill-group reveal">
+      <h3>행정 · 운영</h3>
+      <span class="skill-tag hot">ERP (High-Q)</span>
+      <span class="skill-tag hot">계약·정산 관리</span>
+      <span class="skill-tag">외주업체 관리</span>
+      <span class="skill-tag">예산 집행</span>
+      <span class="skill-tag">안전관리</span>
+      <span class="skill-tag">시설관리</span>
+    </div>
+    <div class="skill-group reveal">
+      <h3>데이터 · 기술</h3>
+      <span class="skill-tag hot">Excel (Pivot/VBA/PQ)</span>
+      <span class="skill-tag">SQL</span>
+      <span class="skill-tag">AI 도구 활용</span>
+      <span class="skill-tag">회로 설계</span>
+      <span class="skill-tag">ESP32 / IoT</span>
+      <span class="skill-tag">Python</span>
+    </div>
+    <div class="skill-group reveal">
+      <h3>자격 · 학력</h3>
+      <span class="skill-tag">사회복지사 1급</span>
+      <span class="skill-tag">1종 대형 면허</span>
+      <span class="skill-tag">메타버스 캠프 대상</span>
+      <span class="skill-tag">숭실대 석사 (GPA 4.3)</span>
+      <span class="skill-tag">전기공학 + 경제학</span>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<div class="contact" id="contact">
+  <h2>Together for <span>SHIFT UP</span></h2>
+  <p>기업부설연구소 경험 + 총무 행정력 + 게이머 진정성으로 시프트업에 기여하겠습니다.</p>
+  <div class="contact-links">
+    <a href="mailto:ssujklim@gmail.com">ssujklim@gmail.com</a>
+    <a href="tel:010-4052-0834">010-4052-0834</a>
+    <a href="https://iamsloth.github.io/portfolio/" target="_blank">Main Portfolio →</a>
+  </div>
+</div>
+
+<div class="footer">
+  LIM JONG KWON &nbsp;◆&nbsp; SHIFT UP 인사 담당자(기업부설연구소 관리) &nbsp;◆&nbsp; 2026
+</div>
+
+<script>
+// ── Scroll reveal
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); }});
+}, { threshold:.12 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+// ── Nav shrink
+window.addEventListener('scroll', () => {
+  const nav = document.getElementById('nav');
+  nav.style.padding = window.scrollY > 60 ? '9px 40px' : '14px 40px';
+});
+
+// ── MARQUEE: CASETiFY rAF + Lerp
+(() => {
+  const row1 = ['GODDESS OF VICTORY','SHIFT UP','RESEARCH LAB','BOM MANAGEMENT','ERP SYSTEM','GAME CULTURE','HR ADMIN','NIKKE'];
+  const row2 = ['기업부설연구소','연구 행정','자재 관리','예산 집행','외주 계약','IT 인프라','총무 행정','게이머'];
+
+  function build(words) {
+    return words.map(w => `<span class="marquee-item">${w}<span class="sep">◆</span></span>`).join('');
+  }
+  const t1 = document.getElementById('mq1');
+  const t2 = document.getElementById('mq2');
+  t1.innerHTML = build(row1).repeat(5);
+  t2.innerHTML = build(row2).repeat(5);
+
+  let x1=0, x2=0;
+  const s1=0.9, s2=0.7;
+  let sp1=s1, sp2=s2, tg1=s1, tg2=s2;
+  let skew1=0, skew2=0, scrollV=0, prevY=window.scrollY;
+
+  t1.parentElement.addEventListener('mouseenter', ()=>{ tg1=0.15; });
+  t1.parentElement.addEventListener('mouseleave', ()=>{ tg1=s1; });
+  t2.parentElement.addEventListener('mouseenter', ()=>{ tg2=0.12; });
+  t2.parentElement.addEventListener('mouseleave', ()=>{ tg2=s2; });
+  window.addEventListener('scroll', ()=>{ scrollV=Math.min(Math.abs(window.scrollY-prevY)*.1,4); prevY=window.scrollY; });
+
+  const lerp = (a,b,t) => a+(b-a)*t;
+  (function tick(){
+    sp1=lerp(sp1,tg1+scrollV,.06); sp2=lerp(sp2,tg2+scrollV,.06); scrollV*=.94;
+    x1-=sp1; x2+=sp2;
+    const w1=t1.scrollWidth/5, w2=t2.scrollWidth/5;
+    if(Math.abs(x1)>=w1) x1+=w1;
+    if(x2>=w2) x2-=w2;
+    skew1=lerp(skew1,-(sp1-s1)*.5,.08);
+    skew2=lerp(skew2,(sp2-s2)*.5,.08);
+    t1.style.transform=`translateX(${x1}px) skewX(${skew1}deg)`;
+    t2.style.transform=`translateX(${x2-w2}px) skewX(${skew2}deg)`;
+    requestAnimationFrame(tick);
+  })();
+})();
+</script>
+</body>
+</html>
