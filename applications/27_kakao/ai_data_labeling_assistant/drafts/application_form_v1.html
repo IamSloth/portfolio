@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>카카오 AI 데이터 라벨링 — 지원서 복사용</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Pretendard','Apple SD Gothic Neo',sans-serif; background:#1a1a1a; color:#e0e0e0; padding:24px; max-width:960px; margin:0 auto; }
+h1 { font-size:20px; color:#fee500; margin-bottom:4px; }
+.subtitle { font-size:12px; color:#888; margin-bottom:24px; }
+h2 { font-size:15px; color:#fee500; margin:28px 0 12px; padding-bottom:6px; border-bottom:1px solid #333; }
+h3 { font-size:13px; color:#aaa; margin:16px 0 8px; }
+
+.row { display:flex; align-items:flex-start; border-bottom:1px solid #2a2a2a; padding:6px 0; }
+.row:hover { background:#222; }
+.label { width:120px; flex-shrink:0; font-size:12px; color:#888; padding-top:4px; }
+.value { flex:1; font-size:13px; line-height:1.5; padding-right:8px; white-space:pre-wrap; word-break:break-all; }
+.copy-btn {
+  flex-shrink:0; border:none; background:#333; color:#ccc; font-size:11px;
+  padding:3px 8px; border-radius:4px; cursor:pointer; transition:all .15s;
+  align-self:flex-start; margin-top:2px;
+}
+.copy-btn:hover { background:#fee500; color:#000; }
+.copy-btn.copied { background:#4caf50; color:#fff; }
+
+.long-text { margin-top:8px; }
+.long-text-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:6px; }
+.long-text-header span { font-size:12px; color:#888; }
+.char-count { font-size:11px; color:#666; }
+.long-text-body {
+  background:#111; border:1px solid #333; border-radius:6px; padding:12px;
+  font-size:13px; line-height:1.7; white-space:pre-wrap; max-height:400px; overflow-y:auto;
+}
+
+.section-divider { height:1px; background:#333; margin:20px 0; }
+.toast {
+  position:fixed; bottom:24px; left:50%; transform:translateX(-50%);
+  background:#fee500; color:#000; padding:8px 20px; border-radius:20px;
+  font-size:13px; font-weight:600; opacity:0; transition:opacity .2s;
+  pointer-events:none; z-index:999;
+}
+.toast.show { opacity:1; }
+</style>
+</head>
+<body>
+
+<h1>카카오 AI 데이터 라벨링 어시스턴트</h1>
+<p class="subtitle">클릭하면 클립보드에 복사됩니다</p>
+
+<!-- ============ 경력사항 ============ -->
+<h2>1. 경력사항</h2>
+
+<h3>경력 1</h3>
+<div class="row"><span class="label">회사명</span><span class="value">(사)함께만드는세상</span><button class="copy-btn" onclick="cp(this)">복사</button></div>
+<div class="row"><span class="label">입사일</span><span class="value">2023-01-09</span><button class="copy-btn" onclick="cp(this)">복사</button></div>
+<div class="row"><span class="label">퇴사일</span><span class="value">2026-02-01</span><button class="copy-btn" onclick="cp(this)">복사</button></div>
+<div class="row"><span class="label">직원유형</span><span class="value">정규직</span><button class="copy-btn" onclick="cp(this)">복사</button></div>
+<div class="row"><span class="label">직급</span><span class="value">대리</span><button class="copy-btn" onclick="cp(this)">복사</button></div>
+<div class="row"><span class="label">담당업무</span><span class="value">①커스텀 ERP 도입 실무 전담 ②인프라 예산 3.6억 집행 관리 ③IT자산·외주 8개사 계약/정산 ④SQL 데이터 추출·분석</span><button class="copy-btn" onclick="cp(this)">복사</button></div>
+
+<h3>경력 2</h3>
+<div class="row"><span class="label">회사명</span><span class="value">(주)맨지온</span><button class="copy-btn" onclick="cp(this)">복사</button></div>
+<div class="row"><span class="label">입사일</span><span class="value">2020-03-01</span><button class="copy-btn" onclick="cp(this)">복사</button></div>
+<div class="row"><span class="label">퇴사일</span><span class="value">2021-11-20</span><button class="copy-btn" onclick="cp(this)">복사</button></div>
+<div class="row"><span class="label">직원유형</span><span class="value">정규직</span><button class="copy-btn" onclick="cp(this)">복사</button></div>
+<div class="row"><span class="label">직급</span><span class="value">대리</span><button class="copy-btn" onclick="cp(this)">복사</button></div>
+<div class="row"><span class="label">담당업무</span><span class="value">①ESP32 IoT 프로토타입 개발 ②센서 데이터 모니터링 시스템 구축 ③UI/UX QA 주도 ④데이터 로그 분석</span><button class="copy-btn" onclick="cp(this)">복사</button></div>
+
+<h3>경력 3</h3>
+<div class="row"><span class="label">회사명</span><span class="value">주식회사 엣지크로스</span><button class="copy-btn" onclick="cp(this)">복사</button></div>
+<div class="row"><span class="label">입사일</span><span class="value">2016-05-02</span><button class="copy-btn" onclick="cp(this)">복사</button></div>
+<div class="row"><span class="label">퇴사일</span><span class="value">2018-02-02</span><button class="copy-btn" onclick="cp(this)">복사</button></div>
+<div class="row"><span class="label">직원유형</span><span class="value">정규직</span><button class="copy-btn" onclick="cp(this)">복사</button></div>
+<div class="row"><span class="label">직급</span><span class="value">주임</span><button class="copy-btn" onclick="cp(this)">복사</button></div>
+<div class="row"><span class="label">담당업무</span><span class="value">①회로설계→PCB→시제품 제작·검증 풀사이클 ②자재 BOM 관리 체계화</span><button class="copy-btn" onclick="cp(this)">복사</button></div>
+
+<!-- ============ 프로젝트 ============ -->
+<h2>2. 프로젝트 수행이력</h2>
+
+<h3>프로젝트 1</h3>
+<div class="row"><span class="label">프로젝트명</span><span class="value">AI 에이전트 기반 문서 자동화 파이프라인 구축</span><button class="copy-btn" onclick="cp(this)">복사</button></div>
+<div class="row"><span class="label">시작일</span><span class="value">2026-01</span><button class="copy-btn" onclick="cp(this)">복사</button></div>
+<div class="row"><span class="label">종료일</span><span class="value">(진행 중)</span><button class="copy-btn" onclick="cp(this)">복사</button></div>
+<div class="row"><span class="label">프로젝트 유형</span><span class="value">개인 프로젝트</span><button class="copy-btn" onclick="cp(this)">복사</button></div>
+<div class="row"><span class="label">주사용기술</span><span class="value">프롬프트 엔지니어링, Claude/ChatGPT, Python, Git</span><button class="copy-btn" onclick="cp(this)">복사</button></div>
+
+<div class="long-text">
+  <div class="long-text-header">
+    <span>프로젝트 소개</span>
+    <span><span class="char-count" id="proj1-count"></span> <button class="copy-btn" onclick="cpLong('proj1')">전체 복사</button></span>
+  </div>
+  <div class="long-text-body" id="proj1">생성형 AI(Claude, ChatGPT)를 활용한 문서 자동화 파이프라인을 개인 프로젝트로 구축·운영하고 있습니다.
+
+[프로젝트 배경]
+채용공고 분석, 이력서/자기소개서/포트폴리오 작성 등 반복적이면서도 높은 품질이 요구되는 문서 작업을 효율화하기 위해, AI 에이전트 기반의 체계적인 워크플로우를 설계했습니다.
+
+[수행 역할]
+1. 시스템 프롬프트 설계: AI 에이전트가 일관된 품질의 결과물을 생성하도록 가이드라인·규칙·워크플로우를 정의한 200줄 이상의 시스템 프롬프트를 작성하고 지속적으로 최적화했습니다. 파일명 규칙, 상태 코드, 템플릿 레지스트리, 난이도별 AI 모델 라우팅 등 데이터 관리 체계도 설계했습니다.
+
+2. AI 출력물 품질 평가 및 피드백: AI가 생성한 문서를 "정확성-적합성-자연스러움" 3가지 기준으로 평가하고, 구체적인 개선 피드백을 반복 수행했습니다. 수백 회의 평가-피드백 사이클을 통해 AI 출력물의 품질을 좌우하는 핵심 요인(프롬프트 설계, 가이드라인 명확성, 맥락 제공)을 체득했습니다.
+
+3. 프롬프트 체인 설계: 채용공고 입력 → JD 분석 → 적합도 매칭 → 전략 수립 → 문서 생성까지 일관된 프로세스가 자동 실행되도록 멀티스텝 프롬프트를 구조화했습니다.
+
+4. LLM 활용 코드 실행: Python 스크립트를 AI와 협업하여 작성·실행하고, .hwpx(한컴) 문서 자동 채우기, base64 이미지 추출, 데이터 가공 등의 작업을 수행했습니다.
+
+[성과]
+- 27개 기업 지원 문서를 일관된 품질로 생성
+- 프롬프트 최적화를 통해 문서 작성 시간 대폭 단축 및 재작업률 감소
+
+이 프로젝트를 통해 AI 출력물의 품질을 좌우하는 핵심 원리—가이드라인 설계, 데이터 품질 관리, 체계적 평가—를 실전에서 체득했으며, 이는 AI 데이터 라벨링 업무의 본질과 직결됩니다.</div>
+</div>
+
+<h3>프로젝트 2</h3>
+<div class="row"><span class="label">프로젝트명</span><span class="value">커스텀 ERP(High-Q) 도입 및 프로세스 표준화</span><button class="copy-btn" onclick="cp(this)">복사</button></div>
+<div class="row"><span class="label">시작일</span><span class="value">2023-07</span><button class="copy-btn" onclick="cp(this)">복사</button></div>
+<div class="row"><span class="label">종료일</span><span class="value">2024-12</span><button class="copy-btn" onclick="cp(this)">복사</button></div>
+<div class="row"><span class="label">프로젝트 유형</span><span class="value">회사 프로젝트</span><button class="copy-btn" onclick="cp(this)">복사</button></div>
+<div class="row"><span class="label">소속회사명</span><span class="value">(사)함께만드는세상</span><button class="copy-btn" onclick="cp(this)">복사</button></div>
+<div class="row"><span class="label">주사용기술</span><span class="value">ERP(High-Q/Tibero DB/Nexacro), SQL, Excel</span><button class="copy-btn" onclick="cp(this)">복사</button></div>
+
+<div class="long-text">
+  <div class="long-text-header">
+    <span>프로젝트 소개</span>
+    <span><span class="char-count" id="proj2-count"></span> <button class="copy-btn" onclick="cpLong('proj2')">전체 복사</button></span>
+  </div>
+  <div class="long-text-body" id="proj2">비영리법인 (사)함께만드는세상에서 기존 더존 ERP를 법인 특성에 맞는 커스텀 ERP(High-Q)로 전환하는 프로젝트의 실무 전담자로 18개월간 참여했습니다.
+
+[프로젝트 배경]
+정부 보조금 사업을 운영하는 비영리법인 특성상, 범용 ERP로는 복잡한 예산 편성·집행·정산 프로세스를 처리하기 어려웠습니다. 법인 고유의 업무 흐름에 맞는 시스템 전환이 필요했습니다.
+
+[수행 역할]
+1. 요구사항 정의: 각 부서의 업무 프로세스를 분석하고, ERP에 반영할 기능 요구사항을 문서화. 현업 니즈를 기술 요건으로 변환하는 부서 간 소통 창구 역할 수행.
+
+2. 데이터 체계 설계: 계정과목 표준화, 예산/회계 프로세스 재설계. 기존 데이터를 새 체계에 맞게 분류·매핑.
+
+3. 데이터 품질 관리: 마이그레이션 데이터 정합성 검증, 오류 데이터 식별·수정. 대량의 기존 데이터를 꼼꼼하게 검토하며 누락·불일치 탐지.
+
+4. 검수 및 개선: 실사용 이슈를 체계적으로 기록하고, 개발사에 구체적인 개선 요청 전달.
+
+[성과]
+- 18개월간 프로젝트 안정적 완수
+- 계정과목 표준화로 예산 집행 투명성 향상
+- 인프라 예산 약 3.6억 원의 체계적 관리 기반 구축
+
+이 프로젝트에서 "대량의 데이터를 분류하고 기준을 수립하여 품질을 관리하는" 역량과, "현업의 요구사항을 명확한 가이드라인으로 변환하는" 역량을 쌓았습니다.</div>
+</div>
+
+<!-- ============ 자기소개 ============ -->
+<h2>3. 자기소개</h2>
+
+<div class="long-text">
+  <div class="long-text-header">
+    <span>자기소개 (2500자 이내)</span>
+    <span><span class="char-count" id="intro-count"></span> <button class="copy-btn" onclick="cpLong('intro')">전체 복사</button></span>
+  </div>
+  <div class="long-text-body" id="intro">지난 3개월간 매일 Claude와 ChatGPT를 활용해 업무를 수행했습니다. 채용공고 분석, 이력서 작성, 데이터 추출, 문서 자동화까지—AI가 할 수 있는 것과 할 수 없는 것의 경계를 직접 체감하며 일했습니다.
+
+같은 질문이라도 프롬프트를 어떻게 설계하느냐에 따라 출력 품질이 극적으로 달라졌고, AI가 생성한 결과물을 다양한 관점에서 평가하고 수정하는 과정을 수백 회 반복했습니다. 이 과정에서 "AI가 정확한 답을 내기 위해서는 양질의 데이터와 명확한 기준이 필수"라는 것을 깊이 체감했습니다. 카카오의 AI 검색 조직이 "수많은 사용자의 검색 여정 속에서 가장 정확하고 만족스러운 답을 제공"하기 위해 데이터의 품질을 관리하는 일—그것이 제가 하고 싶은 일입니다.
+
+[프롬프트 엔지니어링과 가이드라인 설계]
+
+AI를 단순히 사용하는 데 그치지 않았습니다. 200줄 이상의 시스템 프롬프트를 직접 설계하여, AI 에이전트가 채용공고 분석→적합도 평가→전략 수립→문서 생성까지 일관된 프로세스를 자동 수행하도록 구조화했습니다. 파일명 규칙, 상태 코드, 품질 기준, 난이도별 AI 모델 선택(라우팅) 등 세부 가이드라인을 정의하고 수백 회의 실험을 거쳐 최적화했습니다.
+
+이 과정에서 체득한 핵심 인사이트가 있습니다. 모호한 지시는 모호한 결과를, 구체적이고 구조화된 지시는 일관된 고품질 결과를 만든다는 것입니다. 예를 들어, "이력서를 써줘"라는 프롬프트와 "채용공고의 필수 키워드를 반영하고, 성과를 정량적으로 기술하며, 500자 이내로 작성해줘"라는 프롬프트의 결과물 차이는 극적입니다. 가이드라인의 명확성이 곧 데이터의 품질을 결정한다는 이 원칙은, 어노테이션 가이드라인 수립 업무에 그대로 적용할 수 있습니다.
+
+[QA 관점의 품질 평가 역량]
+
+(주)맨지온에서 임베디드 시스템의 QA를 담당하며, 사용자 관점의 테스트 시나리오를 설계하고 품질 보증 활동을 주도한 경험이 있습니다. "기술적으로 동작하는가"뿐 아니라 "사용자가 기대하는 결과를 제공하는가"를 기준으로 품질을 판단하는 시각을 갖추고 있습니다.
+
+이 QA 마인드를 AI 출력물 평가에도 적용하고 있습니다. AI가 생성한 결과가 사실에 기반하는지(정확성), 질문의 의도에 부합하는지(적합성), 표현이 자연스러운지(유창성)를 다각도로 평가할 수 있습니다. IoT 모니터링 시스템에서 센서 데이터의 이상치를 탐지하고 통신 장애를 분석한 경험도, 대량 데이터의 품질을 꼼꼼하게 검수하는 역량의 토대가 되었습니다.
+
+[데이터 관리와 프로세스 설계]
+
+(사)함께만드는세상에서 3년간 총무·IT 지원을 담당하며, 커스텀 ERP 도입 프로젝트에서 요구사항 정의→프로세스 설계→계정과목 표준화→데이터 검증→검수까지 풀사이클을 수행했습니다. 부서별 업무 프로세스를 분석하여 시스템 요구사항으로 변환하고, 마이그레이션 데이터의 정합성을 검증하는 과정에서 "대량의 데이터를 분류하고, 기준을 수립하여 품질을 관리하는" 역량을 쌓았습니다. 이는 AI 학습 데이터의 체계적 관리와 본질이 같습니다.
+
+[다양한 도메인 교차 경험과 코드 이해력]
+
+전기공학(HW개발)→임베디드(IoT/QA)→사회복지(대학원)→IT인프라(ERP/총무)→AI 활용까지, 다양한 분야를 거치며 새로운 도메인을 빠르게 학습하고 복잡한 정보를 체계적으로 정리하는 역량을 키워왔습니다. AI 검색 서비스가 다루는 데이터 역시 다양한 도메인에 걸쳐 있기에, 이 폭넓은 이해력이 데이터 품질 판단에 강점이 됩니다.
+
+또한 전기공학 전공과 임베디드 개발(ESP32/C++) 경험을 바탕으로 코드를 읽고 이해하는 데 어려움이 없으며, LLM과 협업하여 Python 스크립트를 작성·실행하며 문서 자동화, 데이터 가공 등의 작업을 일상적으로 수행하고 있습니다.
+
+카카오의 AI 검색 서비스에서 데이터의 품질이 곧 서비스의 품질이라는 믿음으로, 꼼꼼하고 책임감 있게 기여하겠습니다.</div>
+</div>
+
+<!-- ============ 포트폴리오 ============ -->
+<h2>4. 포트폴리오</h2>
+<div class="row"><span class="label">URL</span><span class="value">https://iamsloth.github.io/portfolio/</span><button class="copy-btn" onclick="cp(this)">복사</button></div>
+
+<!-- ============ 병역 ============ -->
+<h2>5. 병역정보</h2>
+<div class="row"><span class="label">병역구분</span><span class="value">군필</span><button class="copy-btn" onclick="cp(this)">복사</button></div>
+<div class="row"><span class="label">군별</span><span class="value">공군</span><button class="copy-btn" onclick="cp(this)">복사</button></div>
+<div class="row"><span class="label">계급</span><span class="value">병장</span><button class="copy-btn" onclick="cp(this)">복사</button></div>
+<div class="row"><span class="label">복무기간</span><span class="value">2010.07 ~ 2012.08</span><button class="copy-btn" onclick="cp(this)">복사</button></div>
+
+<!-- ============ 학력 ============ -->
+<h2>6. 학력정보</h2>
+
+<h3>학력 1 — 대학원(석사)</h3>
+<div class="row"><span class="label">학교명</span><span class="value">숭실대학교 사회복지대학원</span><button class="copy-btn" onclick="cp(this)">복사</button></div>
+<div class="row"><span class="label">전공</span><span class="value">사회적기업전공</span><button class="copy-btn" onclick="cp(this)">복사</button></div>
+<div class="row"><span class="label">평점/총점</span><span class="value">4.3 / 4.5</span><button class="copy-btn" onclick="cp(this)">복사</button></div>
+<div class="row"><span class="label">입학연월</span><span class="value">2018.03</span><button class="copy-btn" onclick="cp(this)">복사</button></div>
+<div class="row"><span class="label">졸업연월</span><span class="value">2020.02</span><button class="copy-btn" onclick="cp(this)">복사</button></div>
+<div class="row"><span class="label">졸업상태</span><span class="value">졸업</span><button class="copy-btn" onclick="cp(this)">복사</button></div>
+
+<h3>학력 2 — 대학교(4년)</h3>
+<div class="row"><span class="label">학교명</span><span class="value">숭실대학교</span><button class="copy-btn" onclick="cp(this)">복사</button></div>
+<div class="row"><span class="label">전공</span><span class="value">전기공학부 (경제학부 복수전공)</span><button class="copy-btn" onclick="cp(this)">복사</button></div>
+<div class="row"><span class="label">평점/총점</span><span class="value">3.0 / 4.5</span><button class="copy-btn" onclick="cp(this)">복사</button></div>
+<div class="row"><span class="label">입학연월</span><span class="value">2010.03</span><button class="copy-btn" onclick="cp(this)">복사</button></div>
+<div class="row"><span class="label">졸업연월</span><span class="value">2017.02</span><button class="copy-btn" onclick="cp(this)">복사</button></div>
+<div class="row"><span class="label">졸업상태</span><span class="value">졸업</span><button class="copy-btn" onclick="cp(this)">복사</button></div>
+
+<h3>학력 3 — 기타</h3>
+<div class="row"><span class="label">학교명</span><span class="value">한국폴리텍 광명융합기술교육원</span><button class="copy-btn" onclick="cp(this)">복사</button></div>
+<div class="row"><span class="label">전공</span><span class="value">증강현실(AR) 시스템제어</span><button class="copy-btn" onclick="cp(this)">복사</button></div>
+<div class="row"><span class="label">입학연월</span><span class="value">2022.03</span><button class="copy-btn" onclick="cp(this)">복사</button></div>
+<div class="row"><span class="label">졸업연월</span><span class="value">2022.12</span><button class="copy-btn" onclick="cp(this)">복사</button></div>
+<div class="row"><span class="label">졸업상태</span><span class="value">수료</span><button class="copy-btn" onclick="cp(this)">복사</button></div>
+
+<!-- ============ 자격/수상 ============ -->
+<h2>7. 자격/수상</h2>
+
+<h3>자격 1</h3>
+<div class="row"><span class="label">종류</span><span class="value">자격증</span><button class="copy-btn" onclick="cp(this)">복사</button></div>
+<div class="row"><span class="label">시험명</span><span class="value">사회복지사 1급</span><button class="copy-btn" onclick="cp(this)">복사</button></div>
+<div class="row"><span class="label">주최기관</span><span class="value">보건복지부</span><button class="copy-btn" onclick="cp(this)">복사</button></div>
+<div class="row"><span class="label">취득일</span><span class="value">2021.02.04</span><button class="copy-btn" onclick="cp(this)">복사</button></div>
+
+<h3>자격 2</h3>
+<div class="row"><span class="label">종류</span><span class="value">자격증</span><button class="copy-btn" onclick="cp(this)">복사</button></div>
+<div class="row"><span class="label">시험명</span><span class="value">1종 대형 운전면허</span><button class="copy-btn" onclick="cp(this)">복사</button></div>
+<div class="row"><span class="label">주최기관</span><span class="value">경찰청</span><button class="copy-btn" onclick="cp(this)">복사</button></div>
+<div class="row"><span class="label">취득일</span><span class="value">2019.02</span><button class="copy-btn" onclick="cp(this)">복사</button></div>
+
+<h3>수상 1</h3>
+<div class="row"><span class="label">종류</span><span class="value">수상</span><button class="copy-btn" onclick="cp(this)">복사</button></div>
+<div class="row"><span class="label">시험명</span><span class="value">메타버스 콘텐츠 리크루팅 캠프 대상</span><button class="copy-btn" onclick="cp(this)">복사</button></div>
+<div class="row"><span class="label">주최기관</span><span class="value">과학기술정보통신부</span><button class="copy-btn" onclick="cp(this)">복사</button></div>
+<div class="row"><span class="label">취득일</span><span class="value">2022.09</span><button class="copy-btn" onclick="cp(this)">복사</button></div>
+
+<!-- ============ 기타 ============ -->
+<h2>8. 기타</h2>
+<div class="row"><span class="label">상시 영입 동의</span><span class="value">동의</span><button class="copy-btn" onclick="cp(this)">복사</button></div>
+
+<div id="toast" class="toast">복사 완료!</div>
+
+<script>
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg || '복사 완료!';
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 1200);
+}
+
+function cp(btn) {
+  const val = btn.previousElementSibling.textContent.trim();
+  navigator.clipboard.writeText(val).then(() => {
+    btn.textContent = '완료';
+    btn.classList.add('copied');
+    showToast();
+    setTimeout(() => { btn.textContent = '복사'; btn.classList.remove('copied'); }, 1500);
+  });
+}
+
+function cpLong(id) {
+  const el = document.getElementById(id);
+  const text = el.textContent.trim();
+  navigator.clipboard.writeText(text).then(() => {
+    showToast(text.length + '자 복사 완료!');
+  });
+}
+
+// char counts
+function updateCounts() {
+  ['proj1','proj2','intro'].forEach(id => {
+    const el = document.getElementById(id);
+    const counter = document.getElementById(id + '-count');
+    if (el && counter) {
+      const len = el.textContent.trim().length;
+      const limit = id === 'intro' ? 2500 : 1500;
+      counter.textContent = len + '/' + limit + '자';
+      counter.style.color = len > limit ? '#ff4444' : '#666';
+    }
+  });
+}
+updateCounts();
+</script>
+
+</body>
+</html>

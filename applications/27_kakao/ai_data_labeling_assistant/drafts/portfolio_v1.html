@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>임종권 — AI Data Labeling Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  :root {
+    --kakao: #FEE500;
+    --kakao-dark: #E6CF00;
+    --dark: #1A1A1A;
+    --darker: #111;
+    --gray: #444;
+    --gray-light: #888;
+    --light: #F8F8F6;
+    --white: #FFF;
+    --border: #E0E0E0;
+  }
+
+  body {
+    font-family: 'Noto Sans KR', -apple-system, sans-serif;
+    color: var(--gray);
+    background: #ddd;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .page {
+    width: 210mm; height: 296mm;
+    margin: 0 auto;
+    background: var(--white);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  @media print {
+    body { background: #fff; }
+    .page { margin:0; box-shadow:none; page-break-after:always; }
+  }
+  @media screen {
+    .page { box-shadow: 0 4px 32px rgba(0,0,0,.15); margin: 20px auto; }
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--dark);
+    padding: 22px 16mm 18px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  .hero::before {
+    content:'';
+    position:absolute; inset:0;
+    background: radial-gradient(ellipse 60% 80% at 85% 30%, rgba(254,229,0,.06), transparent);
+    pointer-events:none;
+  }
+  .hero::after {
+    content:'';
+    position:absolute; bottom:0; left:0; right:0; height:2px;
+    background: linear-gradient(90deg, transparent 5%, var(--kakao) 30%, var(--kakao) 70%, transparent 95%);
+    opacity:.7;
+  }
+  .hero-left { position:relative; z-index:1; }
+  .hero-left h1 {
+    font-family:'Space Grotesk',sans-serif;
+    font-size:26px; font-weight:700; color:var(--white);
+    letter-spacing:-0.03em; line-height:1;
+  }
+  .hero-left h1 span { color:var(--kakao); }
+  .hero-tag {
+    margin-top:6px;
+    font-size:11px; color:var(--kakao); font-weight:500;
+    letter-spacing:0.02em;
+  }
+  .hero-right {
+    position:relative; z-index:1;
+    text-align:right; font-size:10px; color:#aaa; line-height:1.7;
+  }
+  .hero-right a { color:var(--kakao); text-decoration:none; }
+
+  /* ── MAIN ── */
+  .main {
+    flex:1;
+    padding: 14px 16mm 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ── INTRO ── */
+  .intro {
+    border-left: 3px solid var(--kakao);
+    padding: 10px 14px;
+    background: #FFFDF0;
+    margin-bottom: 14px;
+    font-size:10.5px; line-height:1.7; color:var(--gray);
+  }
+  .intro strong { color:var(--dark); font-weight:700; }
+
+  /* ── SECTION TITLE ── */
+  .sec-title {
+    font-family:'Space Grotesk',sans-serif;
+    font-size:12px; font-weight:700; color:var(--dark);
+    letter-spacing:-0.02em;
+    margin-bottom:8px;
+    display:flex; align-items:center; gap:6px;
+  }
+  .sec-title::after {
+    content:''; flex:1; height:1px; background:var(--border);
+  }
+  .sec-title .num {
+    font-family:'JetBrains Mono',monospace;
+    font-size:9px; color:var(--kakao-dark); font-weight:600;
+  }
+
+  /* ── PROJECT CARDS ── */
+  .projects { display:flex; gap:10px; margin-bottom:12px; }
+  .proj-card {
+    flex:1;
+    border:1px solid var(--border);
+    border-top:2px solid var(--kakao);
+    border-radius:0 0 6px 6px;
+    padding:10px 11px;
+    background:var(--white);
+  }
+  .proj-card h3 {
+    font-size:11px; font-weight:700; color:var(--dark); margin-bottom:2px;
+  }
+  .proj-meta {
+    font-size:8.5px; color:var(--gray-light); margin-bottom:6px;
+    font-family:'JetBrains Mono',monospace;
+  }
+  .proj-card ul {
+    list-style:none; padding:0;
+  }
+  .proj-card li {
+    font-size:9.5px; line-height:1.6; color:var(--gray);
+    padding-left:10px;
+    position:relative;
+  }
+  .proj-card li::before {
+    content:''; position:absolute; left:0; top:7px;
+    width:4px; height:4px; border-radius:50%;
+    background:var(--kakao);
+  }
+  .proj-result {
+    margin-top:6px; display:flex; flex-wrap:wrap; gap:4px;
+  }
+  .proj-result span {
+    font-family:'JetBrains Mono',monospace;
+    font-size:8px; font-weight:600;
+    background:var(--dark); color:var(--kakao);
+    padding:2px 6px; border-radius:3px;
+  }
+
+  /* ── AI SKILL FLOW ── */
+  .flow-section { margin-bottom:12px; }
+  .flow {
+    display:flex; align-items:stretch; gap:0;
+  }
+  .flow-step {
+    flex:1;
+    padding:8px 10px;
+    background:var(--light);
+    border:1px solid var(--border);
+    position:relative;
+    text-align:center;
+  }
+  .flow-step:first-child { border-radius:6px 0 0 6px; }
+  .flow-step:last-child { border-radius:0 6px 6px 0; }
+  .flow-step:not(:last-child)::after {
+    content:'→';
+    position:absolute; right:-9px; top:50%; transform:translateY(-50%);
+    font-size:12px; color:var(--kakao-dark); z-index:1; font-weight:700;
+  }
+  .flow-step .step-title {
+    font-size:9px; font-weight:700; color:var(--dark);
+    margin-bottom:2px;
+  }
+  .flow-step .step-desc {
+    font-size:8px; color:var(--gray-light); line-height:1.4;
+  }
+  .flow-step.active {
+    background:var(--dark); border-color:var(--dark);
+  }
+  .flow-step.active .step-title { color:var(--kakao); }
+  .flow-step.active .step-desc { color:#aaa; }
+
+  /* ── STATS ── */
+  .stats {
+    display:grid; grid-template-columns:repeat(4,1fr);
+    gap:8px; margin-bottom:14px;
+  }
+  .stat {
+    text-align:center;
+    padding:10px 4px;
+    background:var(--dark);
+    border-radius:6px;
+  }
+  .stat-num {
+    font-family:'Space Grotesk',sans-serif;
+    font-size:20px; font-weight:700; color:var(--kakao);
+    letter-spacing:-0.03em; line-height:1;
+  }
+  .stat-label {
+    font-size:8px; color:#aaa; margin-top:4px; line-height:1.3;
+  }
+
+  /* ── CAREER ── */
+  .career { margin-bottom:14px; }
+  .career-grid {
+    display:grid; grid-template-columns:repeat(3,1fr); gap:8px;
+  }
+  .career-item {
+    padding:10px 10px;
+    border:1px solid var(--border);
+    border-radius:6px;
+    border-left:2px solid var(--kakao);
+  }
+  .career-item .co {
+    font-size:10px; font-weight:700; color:var(--dark); margin-bottom:2px;
+  }
+  .career-item .period {
+    font-family:'JetBrains Mono',monospace;
+    font-size:8px; color:var(--gray-light); margin-bottom:4px;
+  }
+  .career-item .desc {
+    font-size:8.5px; color:var(--gray); line-height:1.6;
+  }
+
+  /* ── EDUCATION ── */
+  .edu-section { margin-bottom:14px; }
+  .edu-grid {
+    display:grid; grid-template-columns:repeat(2,1fr); gap:8px;
+  }
+  .edu-left {
+    display:flex; flex-direction:column; gap:6px;
+  }
+  .edu-item {
+    padding:8px 10px;
+    background:var(--light);
+    border-radius:6px;
+    border-left:2px solid var(--kakao);
+  }
+  .edu-item .school {
+    font-size:9.5px; font-weight:700; color:var(--dark);
+  }
+  .edu-item .detail {
+    font-size:8.5px; color:var(--gray); line-height:1.5;
+  }
+  .edu-item .detail em {
+    font-style:normal; color:var(--kakao-dark); font-weight:600;
+  }
+  .career-path {
+    padding:10px 12px;
+    background:var(--dark);
+    border-radius:6px;
+    display:flex; flex-direction:column; justify-content:center;
+  }
+  .career-path h4 {
+    font-size:9px; font-weight:700; color:var(--kakao);
+    margin-bottom:6px;
+    font-family:'JetBrains Mono',monospace;
+  }
+  .path-flow {
+    display:flex; flex-wrap:wrap; gap:4px; align-items:center;
+  }
+  .path-node {
+    font-size:8.5px; color:#ccc; background:#222;
+    padding:3px 7px; border-radius:4px;
+  }
+  .path-node.now {
+    background:var(--kakao); color:var(--dark); font-weight:700;
+  }
+  .path-arrow { font-size:10px; color:var(--kakao); }
+
+  /* ── SKILLS ── */
+  .skills-section { margin-bottom:14px; }
+  .skills-row {
+    display:flex; gap:8px; flex-wrap:wrap;
+  }
+  .skill-group {
+    flex:1; min-width:120px;
+    padding:8px 10px;
+    background:var(--light);
+    border-radius:6px;
+  }
+  .skill-group h4 {
+    font-size:8.5px; font-weight:700; color:var(--kakao-dark);
+    margin-bottom:4px; text-transform:uppercase;
+    font-family:'JetBrains Mono',monospace;
+  }
+  .skill-group .tags { display:flex; flex-wrap:wrap; gap:3px; }
+  .skill-group .tag {
+    font-size:8px; color:var(--gray);
+    background:var(--white); border:1px solid var(--border);
+    padding:2px 6px; border-radius:3px;
+  }
+
+  /* ── WHY KAKAO ── */
+  .why {
+    background:var(--dark);
+    border-radius:8px;
+    padding:12px 14px;
+    display:grid; grid-template-columns:repeat(3,1fr);
+    gap:10px;
+    margin-top:auto;
+    margin-bottom:0;
+  }
+  .why-item {}
+  .why-icon {
+    font-size:16px; margin-bottom:3px;
+  }
+  .why-title {
+    font-size:9.5px; font-weight:700; color:var(--kakao);
+    margin-bottom:2px;
+  }
+  .why-desc {
+    font-size:8.5px; color:#bbb; line-height:1.5;
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    padding:8px 16mm;
+    text-align:center;
+    font-size:8px; color:var(--gray-light);
+    border-top:1px solid var(--border);
+  }
+  .footer a { color:var(--kakao-dark); text-decoration:none; }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-left">
+      <h1>LIM JONG <span>KWON</span></h1>
+      <div class="hero-tag">AI Data Quality · Prompt Engineering · QA</div>
+    </div>
+    <div class="hero-right">
+      임종권 · 1992.01.04<br>
+      ssujklim@gmail.com · 010-4052-0834<br>
+      <a href="https://iamsloth.github.io/portfolio/">iamsloth.github.io/portfolio</a>
+    </div>
+  </div>
+
+  <div class="main">
+
+    <!-- INTRO -->
+    <div class="intro">
+      <strong>AI 서비스의 파워 유저에서, AI를 만드는 사람으로.</strong><br>
+      3개월간 매일 LLM(Claude/ChatGPT)을 활용하며 <strong>프롬프트 엔지니어링</strong>, <strong>AI 출력물 품질 평가</strong>,
+      <strong>가이드라인 설계</strong>를 실전에서 체득했습니다.
+      임베디드 QA 경험과 ERP 데이터 관리 역량을 결합하여,
+      카카오 AI 검색 서비스의 데이터 품질 향상에 기여하고자 합니다.
+    </div>
+
+    <!-- AI WORKFLOW -->
+    <div class="flow-section">
+      <div class="sec-title"><span class="num">01</span> AI Data Workflow — 실전 경험</div>
+      <div class="flow">
+        <div class="flow-step">
+          <div class="step-title">프롬프트 설계</div>
+          <div class="step-desc">200줄+ 시스템 프롬프트<br>워크플로우 구조화</div>
+        </div>
+        <div class="flow-step active">
+          <div class="step-title">AI 출력물 평가</div>
+          <div class="step-desc">정확성·적합성·유창성<br>수백 회 피드백 사이클</div>
+        </div>
+        <div class="flow-step">
+          <div class="step-title">가이드라인 수립</div>
+          <div class="step-desc">파일명 규칙·상태코드<br>품질 기준 정의</div>
+        </div>
+        <div class="flow-step">
+          <div class="step-title">코드 실행</div>
+          <div class="step-desc">LLM+Python 협업<br>데이터 가공·자동화</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROJECTS -->
+    <div class="sec-title"><span class="num">02</span> Key Projects</div>
+    <div class="projects">
+      <div class="proj-card">
+        <h3>AI 에이전트 문서 자동화 파이프라인</h3>
+        <div class="proj-meta">2026.01 – present · 개인 프로젝트</div>
+        <ul>
+          <li>시스템 프롬프트(CLAUDE.md) 설계 — AI 에이전트 워크플로우 자동화</li>
+          <li>AI 생성 문서 품질 평가·피드백 사이클 구축 (정확성-적합성-유창성)</li>
+          <li>멀티스텝 프롬프트 체인: JD분석→매칭→전략→문서 생성</li>
+          <li>Python 스크립트 AI 협업 작성 (.hwpx 자동화, 데이터 추출)</li>
+        </ul>
+        <div class="proj-result">
+          <span>27개 기업 문서 생성</span>
+          <span>프롬프트 200줄+</span>
+          <span>평가 500회+</span>
+        </div>
+      </div>
+      <div class="proj-card">
+        <h3>커스텀 ERP(High-Q) 도입</h3>
+        <div class="proj-meta">2023.07 – 2024.12 · (사)함께만드는세상</div>
+        <ul>
+          <li>요구사항 정의 → 프로세스 설계 → 계정과목 표준화 → 검수 풀사이클</li>
+          <li>마이그레이션 데이터 정합성 검증 — 대량 데이터 품질 관리</li>
+          <li>현업 니즈를 시스템 가이드라인으로 변환 (부서 간 소통 창구)</li>
+        </ul>
+        <div class="proj-result">
+          <span>18개월 완수</span>
+          <span>3.6억 예산 체계화</span>
+          <span>계정과목 표준화</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- STATS -->
+    <div class="sec-title"><span class="num">03</span> By the Numbers</div>
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-num">27</div>
+        <div class="stat-label">기업 지원 문서<br>일관된 품질 생성</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">500+</div>
+        <div class="stat-label">AI 출력물<br>평가-피드백 사이클</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">3.6억</div>
+        <div class="stat-label">인프라 예산<br>직접 집행·관리</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">8개</div>
+        <div class="stat-label">외주업체<br>계약·정산 총괄</div>
+      </div>
+    </div>
+
+    <!-- CAREER -->
+    <div class="career">
+      <div class="sec-title"><span class="num">04</span> Career Timeline</div>
+      <div class="career-grid">
+        <div class="career-item">
+          <div class="co">(사)함께만드는세상</div>
+          <div class="period">2023.01 – 2026.02 · 3년 1개월</div>
+          <div class="desc">총무·IT지원 (대리)<br>ERP 도입 전담, IT 인프라 예산 3.6억 관리, 외주 8개사 총괄, SQL 데이터 분석</div>
+        </div>
+        <div class="career-item">
+          <div class="co">(주)맨지온</div>
+          <div class="period">2020.03 – 2021.11 · 1년 9개월</div>
+          <div class="desc">임베디드 개발 & QA (대리)<br>ESP32 IoT 프로토타입, 센서 모니터링, UI/UX QA 주도, 데이터 로그 분석</div>
+        </div>
+        <div class="career-item">
+          <div class="co">주식회사 엣지크로스</div>
+          <div class="period">2016.05 – 2018.02 · 1년 10개월</div>
+          <div class="desc">H/W 개발 (주임)<br>회로설계→PCB→시제품 풀사이클, BOM 관리, 납기 준수율 100%</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- EDUCATION + CAREER PATH -->
+    <div class="edu-section">
+      <div class="sec-title"><span class="num">05</span> Education & Career Path</div>
+      <div class="edu-grid">
+        <div class="edu-left">
+          <div class="edu-item">
+            <div class="school">숭실대학교 사회복지대학원 · 석사</div>
+            <div class="detail">사회적기업전공 · <em>GPA 4.3/4.5</em> · 2018.03–2020.02</div>
+          </div>
+          <div class="edu-item">
+            <div class="school">숭실대학교 공과대학 · 학사</div>
+            <div class="detail">전기공학부 (경제학 복수전공) · 2010.03–2016.02</div>
+          </div>
+          <div class="edu-item">
+            <div class="school">한국폴리텍 · 수료</div>
+            <div class="detail">증강현실(AR) 시스템제어 · 2022.03–2022.12</div>
+          </div>
+        </div>
+        <div class="career-path">
+          <h4>CAREER PATH →</h4>
+          <div class="path-flow">
+            <span class="path-node">전기공학</span>
+            <span class="path-arrow">→</span>
+            <span class="path-node">HW 개발</span>
+            <span class="path-arrow">→</span>
+            <span class="path-node">임베디드/QA</span>
+            <span class="path-arrow">→</span>
+            <span class="path-node">사회복지 석사</span>
+            <span class="path-arrow">→</span>
+            <span class="path-node">IT인프라/ERP</span>
+            <span class="path-arrow">→</span>
+            <span class="path-node now">AI 데이터</span>
+          </div>
+          <div style="margin-top:8px;font-size:8.5px;color:#aaa;line-height:1.5">
+            다양한 도메인을 교차하며 <span style="color:var(--kakao)">새로운 분야를 빠르게 학습</span>하고
+            <span style="color:var(--kakao)">복잡한 정보를 체계적으로 정리</span>하는 역량을 키워왔습니다.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SKILLS -->
+    <div class="skills-section">
+      <div class="sec-title"><span class="num">06</span> Skills & Tools</div>
+      <div class="skills-row">
+        <div class="skill-group">
+          <h4>AI & Data</h4>
+          <div class="tags">
+            <span class="tag">Prompt Engineering</span>
+            <span class="tag">Claude / ChatGPT</span>
+            <span class="tag">AI 품질 평가</span>
+            <span class="tag">SQL</span>
+            <span class="tag">Excel VBA</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h4>Development</h4>
+          <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">C++ / ESP32</span>
+            <span class="tag">HTML/CSS</span>
+            <span class="tag">Git</span>
+            <span class="tag">Unity C#</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h4>Certifications</h4>
+          <div class="tags">
+            <span class="tag">사회복지사 1급</span>
+            <span class="tag">1종 대형 면허</span>
+            <span class="tag">메타버스 캠프 대상</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WHY KAKAO -->
+    <div class="why">
+      <div class="why-item">
+        <div class="why-icon">🔍</div>
+        <div class="why-title">AI 검색 품질의 핵심 = 데이터</div>
+        <div class="why-desc">AI 출력물을 매일 평가하며 "가이드라인의 명확성이 곧 데이터 품질"임을 체득. 어노테이션 기준 수립에 즉시 기여 가능.</div>
+      </div>
+      <div class="why-item">
+        <div class="why-icon">⚙️</div>
+        <div class="why-title">프롬프트 → 가이드라인 설계</div>
+        <div class="why-desc">200줄+ 시스템 프롬프트 설계 경험. 모호한 지시→모호한 결과, 구체적 기준→일관된 품질이라는 원칙을 실전에서 검증.</div>
+      </div>
+      <div class="why-item">
+        <div class="why-icon">🛡️</div>
+        <div class="why-title">QA 마인드 + 코드 리터러시</div>
+        <div class="why-desc">임베디드 QA(테스트 시나리오 설계) + Python/C++ 코드 이해력. 기술-품질 양면을 아우르는 데이터 검수 역량.</div>
+      </div>
+    </div>
+
+  </div><!-- /main -->
+
+  <!-- FOOTER -->
+  <div class="footer">
+    카카오 · AI 데이터 라벨링 어시스턴트 지원 &nbsp;|&nbsp;
+    ssujklim@gmail.com &nbsp;|&nbsp;
+    <a href="https://iamsloth.github.io/portfolio/">Portfolio</a>
+  </div>
+
+</div><!-- /page -->
+
+</body>
+</html>
