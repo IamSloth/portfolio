@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>임종권 — 인터랙티브 포트폴리오 안내</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --orange: #FF6C00;
+    --mint: #3CB4C3;
+    --dark: #1A1A1A;
+    --gray: #444444;
+    --light: #F5F5F5;
+    --white: #FFFFFF;
+  }
+
+  body {
+    font-family: 'Noto Sans KR', -apple-system, sans-serif;
+    color: var(--gray);
+    background: #eee;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .page {
+    width: 210mm;
+    height: 296mm;
+    margin: 0 auto;
+    background: var(--white);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  @media print {
+    body { background: #fff; }
+    .page { margin: 0; page-break-after: always; box-shadow: none; }
+  }
+  @media screen {
+    .page { box-shadow: 0 2px 24px rgba(0,0,0,0.12); margin: 20px auto; }
+  }
+
+  /* ── HERO (dark) ── */
+  .hero {
+    background: var(--dark);
+    padding: 28px 16mm 24px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      repeating-linear-gradient(0deg, transparent 0px, transparent 1px, rgba(0,0,0,0.06) 1px, rgba(0,0,0,0.06) 2px),
+      repeating-linear-gradient(90deg, transparent 0px, transparent 1px, rgba(0,0,0,0.06) 1px, rgba(0,0,0,0.06) 2px);
+    pointer-events: none;
+  }
+  .hero::after {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,108,0,0.5), transparent);
+    box-shadow: 0 0 8px rgba(255,108,0,0.3);
+  }
+  .hero-content { position: relative; z-index: 1; }
+  .hero-label {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 10px; letter-spacing: 4px; text-transform: uppercase;
+    color: var(--orange); margin-bottom: 10px; font-weight: 600;
+  }
+  .hero h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 36px; font-weight: 700;
+    color: #fff; letter-spacing: -0.03em;
+  }
+  .hero h1 .dot { color: var(--orange); }
+  .hero h1 .x { color: var(--orange); font-weight: 400; margin: 0 6px; }
+  .hero-sub {
+    font-size: 13px; color: rgba(255,255,255,0.55);
+    margin-top: 8px;
+  }
+
+  /* ── CONTENT ── */
+  .content {
+    padding: 20px 16mm;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ── INTRO ── */
+  .intro {
+    text-align: center;
+    font-size: 13px;
+    line-height: 2;
+    color: var(--gray);
+    margin-bottom: 24px;
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .intro strong { color: var(--dark); }
+
+  /* ── STRENGTH CARDS ── */
+  .strength-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 28px;
+  }
+  .strength-card {
+    text-align: center;
+    padding: 18px 12px;
+    background: var(--light);
+    border-radius: 8px;
+    border-top: 3px solid var(--orange);
+  }
+  .strength-icon { font-size: 28px; margin-bottom: 8px; }
+  .strength-title {
+    font-size: 13px; font-weight: 700;
+    color: var(--dark); margin-bottom: 4px;
+  }
+  .strength-desc {
+    font-size: 10.5px; color: var(--gray);
+    line-height: 1.5;
+  }
+
+  /* ── QR SECTION ── */
+  .qr-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 16px 0;
+  }
+  .qr-label {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 10px; font-weight: 700;
+    letter-spacing: 3px; text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 14px;
+  }
+  .qr-img {
+    width: 160px; height: 160px;
+    margin-bottom: 14px;
+  }
+  .qr-url {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--orange);
+    background: var(--light);
+    padding: 8px 20px;
+    border-radius: 6px;
+    letter-spacing: 0.02em;
+    margin-bottom: 10px;
+    word-break: break-all;
+  }
+  .qr-hint {
+    font-size: 11px;
+    color: #999;
+    line-height: 1.6;
+  }
+  .qr-hint strong { color: var(--dark); }
+
+  /* ── FOOTER TICKER ── */
+  .footer-strip {
+    background: var(--orange);
+    padding: 8px 16mm;
+    margin-top: auto;
+  }
+  .footer-strip-text {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px; font-weight: 700;
+    letter-spacing: 0.05em; text-transform: uppercase;
+    color: #1C1200; text-align: center;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="hero-content">
+      <div class="hero-label">Interactive Portfolio</div>
+      <h1>임종권<span class="dot">.</span> <span class="x">&times;</span> 빗썸나눔</h1>
+      <div class="hero-sub">사회공헌 활동 지원 담당자</div>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <!-- Intro -->
+    <div class="intro">
+      사회복지를 전공하고 <strong>사회복지사 1급</strong>을 취득한 뒤,<br>
+      <strong>사회공헌 기관에서 3년간</strong> 행정·운영·현장 지원을 담당했습니다.<br>
+      빗썸나눔의 <strong>'실천 중심 나눔'</strong>에 진심으로 공감하며,<br>
+      봉사활동 현장에 <strong>즉시 투입</strong>될 수 있는 준비가 되어 있습니다.
+    </div>
+
+    <!-- Strength Cards -->
+    <div class="strength-grid">
+      <div class="strength-card">
+        <div class="strength-icon">🏛️</div>
+        <div class="strength-title">사회복지 전문성</div>
+        <div class="strength-desc">사회복지사 1급<br>사회적기업 석사 (GPA 4.3)</div>
+      </div>
+      <div class="strength-card">
+        <div class="strength-icon">🚐</div>
+        <div class="strength-title">현장 기동력</div>
+        <div class="strength-desc">1종 대형면허<br>승합차 운전 · 12년 무사고</div>
+      </div>
+      <div class="strength-card">
+        <div class="strength-icon">📋</div>
+        <div class="strength-title">행정·운영 즉전력</div>
+        <div class="strength-desc">총무 3년 · 예산 3.6억<br>외주 8개사 · 문서 전담</div>
+      </div>
+    </div>
+
+    <!-- QR Section -->
+    <div class="qr-section">
+      <div class="qr-label">Interactive Portfolio — Scan or Click</div>
+      <img class="qr-img" src="data:image/png;base64,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" alt="QR Code — 인터랙티브 포트폴리오">
+      <div class="qr-url">iamsloth.github.io/portfolio/bithumb-nanum.html</div>
+      <div class="qr-hint">
+        <strong>QR코드를 스캔</strong>하시거나 <strong>URL을 클릭</strong>하시면<br>
+        애니메이션이 적용된 인터랙티브 포트폴리오를 확인하실 수 있습니다.
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer Ticker (Knockout) -->
+  <div class="footer-strip">
+    <div class="footer-strip-text">
+      임종권 &nbsp;·&nbsp; ssujklim@gmail.com &nbsp;·&nbsp; 010-4052-0834 &nbsp;·&nbsp; 빗썸나눔 사회공헌 활동 지원 담당자 지원
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

@@ -7,15 +7,14 @@
 
 | Field | Value |
 |-------|-------|
-| date | 2026-03-17 |
+| date | 2026-03-18 |
 | agent | Claude Opus 4.6 |
-| work | NCsoft(#24) 지원 서류 풀세트 완성: strategy.md + form_data + application_v1.html(네이비) + ncsoft.html 전용 포트폴리오(rAF marquee, Awwwards급 리디자인) |
+| work | 빗썸나눔(#26) CSR 지원 풀세트: strategy.md + 이력서/포트폴리오/커버레터(QR) + 웹포트폴리오(LED마키) + 제출완료 |
 | commit | latest |
 
 ### 이번 세션 요약
-- **NCsoft (24)**: JD 분석→strategy.md 생성, 채용시스템 입력용 form_data.md, 2페이지 A4 지원서(application_v1.html), NC 전용 포트폴리오(docs/ncsoft.html) 제작.
-- **ncsoft.html**: 3차 리디자인 — CSS animation→JS rAF+Lerp 물리엔진(scroll velocity→가속+skew, hover→lerp 감속), outline/gradient 비대칭 타이포, Awwwards급 easing·색온도·border-radius 전면 교체.
-- **application_v1.html**: CSS 변수 퍼플→네이비(#00365e) 교체. 개인정보(전화번호/주소) 제거.
+- **빗썸나눔 (26)**: JD 분석→strategy.md, 빗썸 BI(#FF6C00) 적용 이력서·포트폴리오·커버레터(QR+URL) 3종 제작, 웹 포트폴리오(bithumb-nanum.html, LED 마키) 제작 후 나인하이어 제출 완료.
+- **두나무 2건**: JD 분석 → No-Go (경력 10년+/6~12년 요구, 유저 ~3년).
 
 ## Active Applications
 
@@ -40,6 +39,7 @@
 | 24 | 엔씨소프트 (NCsoft) | 서비스 기획/운영 어시스턴트 | **📋 DISCOVERED** | **STRONG GO** — AI+QA+기획 직결. ⚠️ 마감 3/25 (D-8) | `24_ncsoft/service_planning_assistant/` |
 | 24 | 엔씨소프트 (NCsoft) | HR 사무지원 | **📋 DISCOVERED** | **STRONG GO** — Excel고급+총무=HR인접. 마감 3/29 | `24_ncsoft/hr_admin_support/` |
 | 25 | 캐논코리아 (Canon Korea) | 영업지원 (Sales Support) | **📋 DISCOVERED** | 계약직 1년, 강남 본사. ERP/데이터/부서조율 ⭐⭐⭐ 매칭. 마감일 확인 필요 | `25_canon_korea/sales_support/` |
+| 26 | 빗썸나눔 (Bithumb Nanum) | CSR 활동 지원 | **📤 SUBMITTED** | 나인하이어 제출 완료 (2026-03-18). 계약직 6개월. 상시채용 | `26_bithumb_nanum/csr_activity_support/` |
 | 03 | 11st | General Affairs | **⏸️ ON_HOLD** | 지원 안 함 (보류 유지) | `03_11st/general_affairs/` |
 
 ### Closed Applications
@@ -74,6 +74,6 @@
 - **Filenames**: English snake_case only. No Korean filenames (except original form templates and final 제출본).
 - **Scripts**: Place inside the relevant application's `scripts/` subfolder. Never in project root.
 - **Commits**: Always include `Co-Authored-By: {Model Name} <noreply@anthropic.com>` trailer.
-- **Application folders**: Numbered by discovery date: `{NN}_{company}/`. Next new company = `25_`.
+- **Application folders**: Numbered by discovery date: `{NN}_{company}/`. Next new company = `27_`.
 - **Profile sync**: If you discover new career/skill/cert info during work, update `profile.json` immediately.
 - **Session end**: Update this file → commit → push. Keep entries concise (token budget matters).

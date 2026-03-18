@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>임종권 — 포트폴리오</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --orange: #FF6C00;
+    --mint: #3CB4C3;
+    --dark: #1A1A1A;
+    --gray: #444444;
+    --light: #F5F5F5;
+    --white: #FFFFFF;
+    --border: #E5E5E5;
+  }
+
+  body {
+    font-family: 'Noto Sans KR', -apple-system, sans-serif;
+    color: var(--gray);
+    background: #eee;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .page {
+    width: 210mm;
+    height: 296mm;
+    margin: 0 auto;
+    background: var(--white);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  @media print {
+    body { background: #fff; }
+    .page { margin: 0; page-break-after: always; box-shadow: none; }
+  }
+  @media screen {
+    .page { box-shadow: 0 2px 24px rgba(0,0,0,0.12); margin: 20px auto; }
+  }
+
+  /* ── HERO HEADER (dark) ── */
+  .hero-header {
+    background: var(--dark);
+    padding: 20px 16mm 14px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-header::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      repeating-linear-gradient(0deg, transparent 0px, transparent 1px, rgba(0,0,0,0.06) 1px, rgba(0,0,0,0.06) 2px),
+      repeating-linear-gradient(90deg, transparent 0px, transparent 1px, rgba(0,0,0,0.06) 1px, rgba(0,0,0,0.06) 2px);
+    pointer-events: none;
+  }
+  .hero-header::after {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,108,0,0.5), transparent);
+    box-shadow: 0 0 8px rgba(255,108,0,0.3);
+  }
+  .hero-header h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 24px; font-weight: 700;
+    color: #fff; letter-spacing: -0.03em;
+    position: relative; z-index: 1;
+  }
+  .hero-header h1 .dot { color: var(--orange); }
+  .hero-header .tagline {
+    font-size: 12px; color: var(--orange); font-weight: 600;
+    margin-top: 4px;
+    position: relative; z-index: 1;
+  }
+  .hero-header .contact {
+    font-size: 10px; color: rgba(255,255,255,0.5); margin-top: 3px;
+    position: relative; z-index: 1;
+  }
+
+  /* ── CONTENT ── */
+  .content {
+    padding: 14px 16mm;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .section-label {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 9px; font-weight: 700;
+    letter-spacing: 2.5px; text-transform: uppercase;
+    color: var(--orange);
+    padding-bottom: 4px;
+    border-bottom: 1.5px solid var(--orange);
+    display: inline-block;
+    margin-bottom: 8px;
+  }
+
+  /* ── INTRO ── */
+  .intro {
+    background: var(--light);
+    border-radius: 6px;
+    padding: 12px 14px;
+    font-size: 11.5px;
+    line-height: 1.8;
+    border-left: 4px solid var(--orange);
+  }
+  .intro strong { color: var(--dark); }
+
+  /* ── PROJECT CARD ── */
+  .project-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 14px;
+  }
+  .project-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 6px;
+  }
+  .project-title {
+    font-size: 14px; font-weight: 700; color: var(--dark);
+  }
+  .project-period {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9.5px; color: #999;
+  }
+  .project-meta {
+    display: flex; gap: 8px; margin-bottom: 8px;
+  }
+  .project-meta span {
+    font-size: 9px; padding: 2px 7px;
+    background: var(--light); border-radius: 3px;
+    color: var(--gray); font-weight: 600;
+  }
+  .project-body {
+    font-size: 10.5px; line-height: 1.7;
+  }
+  .project-body ul { list-style: none; padding: 0; }
+  .project-body li {
+    padding-left: 12px; position: relative; margin-bottom: 2px;
+  }
+  .project-body li::before {
+    content: '▸'; position: absolute; left: 0;
+    color: var(--orange); font-size: 10px;
+  }
+  .project-body li strong { color: var(--dark); }
+  .result-tag {
+    display: inline-block;
+    padding: 3px 10px; margin-top: 8px;
+    background: var(--orange); color: #fff;
+    font-size: 9.5px; font-weight: 600;
+    border-radius: 3px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* ── WHY BITHUMB NANUM ── */
+  .why-section {
+    background: var(--dark);
+    border-radius: 6px;
+    padding: 14px 16px;
+  }
+  .why-section h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 11px; font-weight: 700;
+    color: var(--orange); margin-bottom: 8px;
+    letter-spacing: 1px; text-transform: uppercase;
+  }
+  .why-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+  }
+  .why-item { text-align: center; }
+  .why-icon { font-size: 20px; margin-bottom: 4px; }
+  .why-label {
+    font-size: 10.5px; font-weight: 700; color: #fff;
+    margin-bottom: 2px;
+  }
+  .why-desc {
+    font-size: 9px; color: rgba(255,255,255,0.6);
+    line-height: 1.4;
+  }
+
+  /* ── STATS BAR ── */
+  .stats-bar {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+  }
+  .stat-item {
+    text-align: center;
+    padding: 10px 6px;
+    background: var(--light);
+    border-radius: 6px;
+    border-top: 2px solid var(--orange);
+  }
+  .stat-num {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--orange);
+    line-height: 1;
+    margin-bottom: 3px;
+  }
+  .stat-label {
+    font-size: 9px;
+    color: var(--gray);
+    line-height: 1.3;
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    text-align: center;
+    font-size: 9px;
+    color: #bbb;
+    padding: 6px 16mm;
+    border-top: 1px solid #eee;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Hero Header -->
+  <div class="hero-header">
+    <h1>임종권<span class="dot">.</span> 포트폴리오</h1>
+    <div class="tagline">사회복지사 1급 · 사회공헌 기관 3년 · 현장형 즉전력</div>
+    <div class="contact">ssujklim@gmail.com · 010-4052-0834</div>
+  </div>
+
+  <div class="content">
+
+    <!-- Intro -->
+    <div class="intro">
+      사회복지를 전공하고 <strong>사회복지사 1급</strong>을 취득한 뒤, <strong>KDB시니어브리지아카데미</strong>를 운영하는 사회공헌 기관에서 3년간 총무·행정·운영을 담당했습니다.
+      외부 협력기관과의 소통, 현장 운영 지원, 문서 작성, 예산 집행까지 — 조직이 원활하게 돌아가기 위한 <strong>보이지 않는 실무</strong>를 도맡아 왔습니다.<br>
+      빗썸나눔의 <strong>'실천 중심 나눔'</strong>이라는 가치에 깊이 공감합니다. <strong>1종 대형 면허</strong>와 승합차 운전 경험, 전국 이동에 대한 거부감 없는 기동력까지 갖추고 있어, 봉사활동 현장 운영에 즉시 투입될 수 있습니다.
+    </div>
+
+    <!-- Project 1 -->
+    <div>
+      <div class="section-label">Key Projects</div>
+      <div class="project-card" style="margin-bottom: 10px;">
+        <div class="project-head">
+          <span class="project-title">사회공헌 기관 운영 지원</span>
+          <span class="project-period">2023.01 → 2026.02</span>
+        </div>
+        <div class="project-meta">
+          <span>목적: 시니어 교육·복지 사업 운영</span>
+          <span>규모: 50명+ 조직</span>
+          <span>역할: 총무/행정 전담</span>
+        </div>
+        <div class="project-body">
+          <ul>
+            <li><strong>협력기관 관리</strong>: 외주업체 8개사 계약·관리·정산 — 재계약 협상으로 비용 30% 절감</li>
+            <li><strong>예산 집행</strong>: 인프라 예산 약 3.6억 원 직접 집행 — 집행률 88.5%</li>
+            <li><strong>전사 허브</strong>: 전부서 요청 접수·조율 — 협력기관·파트너 일상 커뮤니케이션</li>
+            <li><strong>현장 지원</strong>: 시니어 교육 행사장 셋업, 물품 이동, 장비 점검 병행</li>
+            <li><strong>기여도</strong>: 인프라 운영 유일 실무 전담자 (기여도 100%)</li>
+          </ul>
+        </div>
+        <span class="result-tag">집행률 88.5% · 비용 30%↓ · 프로세스 100% 문서화</span>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="project-card">
+        <div class="project-head">
+          <span class="project-title">커스텀 ERP 도입 프로젝트</span>
+          <span class="project-period">2023.07 → 2024.12</span>
+        </div>
+        <div class="project-meta">
+          <span>목적: 예산/회계 디지털 전환</span>
+          <span>규모: 전사 적용</span>
+          <span>역할: 실무 전담 (단독)</span>
+        </div>
+        <div class="project-body">
+          <ul>
+            <li><strong>요구사항 정의</strong>: 현업 인터뷰 → 업무 프로세스 분석 → 기능 요구사항 문서화</li>
+            <li><strong>프로세스 설계</strong>: 계정과목 200개 표준화, 예산/회계 프로세스 재설계</li>
+            <li><strong>검수</strong>: 기능 테스트 → 수정 → 재검증 사이클 반복 → 안정화</li>
+            <li><strong>기여도</strong>: 요구사항 정의·설계·검수 전 과정 실무 전담 (기여도 100%)</li>
+          </ul>
+        </div>
+        <span class="result-tag">실무 전담 · 계정과목 200개 표준화 · 결산 2일↓</span>
+      </div>
+    </div>
+
+    <!-- Stats Bar -->
+    <div class="stats-bar">
+      <div class="stat-item">
+        <div class="stat-num">3.6억</div>
+        <div class="stat-label">예산 직접 집행</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">88.5%</div>
+        <div class="stat-label">집행률 달성</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">8개사</div>
+        <div class="stat-label">외부 협력기관</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">12년</div>
+        <div class="stat-label">무사고 운전</div>
+      </div>
+    </div>
+
+    <!-- Why Bithumb Nanum -->
+    <div class="why-section">
+      <h3>Why Bithumb Nanum — 빗썸나눔에 필요한 사람</h3>
+      <div class="why-grid">
+        <div class="why-item">
+          <div class="why-icon">🏛️</div>
+          <div class="why-label">사회복지 전문성</div>
+          <div class="why-desc">사회복지사 1급<br>사회적기업 석사</div>
+        </div>
+        <div class="why-item">
+          <div class="why-icon">🚐</div>
+          <div class="why-label">현장 기동력</div>
+          <div class="why-desc">1종 대형면허<br>승합차 운전 + 전국 이동</div>
+        </div>
+        <div class="why-item">
+          <div class="why-icon">📋</div>
+          <div class="why-label">행정·운영 즉전력</div>
+          <div class="why-desc">3년 총무 경험<br>문서·예산·외부기관 협업</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    임종권 · ssujklim@gmail.com · 010-4052-0834
+  </div>
+
+</div>
+</body>
+</html>
