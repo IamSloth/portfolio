@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>임종권 — 빗썸 경영관리 담당자 지원</title>
+<script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Space+Grotesk:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --acc:#1a1a1a;
+  --acc2:#3d3d3d;
+  --side:#1a1a1a;
+  --side-text:#f0f0f0;
+  --side-dim:rgba(240,240,240,.5);
+  --main:#fff;
+  --main-text:#1a1a1a;
+  --border:#e0e0e0;
+  --muted:#777;
+}
+html{font-size:13px}
+body{font-family:'Noto Sans KR',sans-serif;background:#eee;display:flex;flex-direction:column;align-items:center;gap:12px;padding:20px}
+@media print{body{background:none;padding:0;gap:0}}
+
+/* ── A4 PAGE ── */
+.page{width:210mm;min-height:296mm;background:#fff;display:flex;flex-direction:column;position:relative;overflow:hidden;page-break-after:always}
+@page{size:A4;margin:0}
+@media print{.page{box-shadow:none;page-break-after:always}}
+
+/* ── TOP STRIPE ── */
+.page-stripe{height:5px;background:var(--acc);flex-shrink:0}
+
+/* ── HEADER ── */
+.page-header{display:flex;justify-content:space-between;align-items:center;padding:12px 18px 10px;border-bottom:1px solid var(--border);flex-shrink:0}
+.hd-name{font-family:'Space Grotesk',sans-serif;font-size:1.6rem;font-weight:700;color:var(--acc);letter-spacing:-.04em}
+.hd-pos{font-size:0.95rem;color:var(--muted);margin-top:1px}
+.hd-contact{text-align:right;font-size:0.85rem;color:var(--muted);line-height:1.7}
+
+/* ── BODY ── */
+.page-body{display:flex;flex:1;overflow:hidden}
+
+/* ── SIDEBAR ── */
+.sidebar{width:56mm;background:var(--side);color:var(--side-text);padding:16px 14px;display:flex;flex-direction:column;gap:14px;flex-shrink:0}
+.sb-photo{width:100%;aspect-ratio:1;border-radius:4px;overflow:hidden;border:1px solid rgba(255,255,255,.1);margin-bottom:2px}
+.sb-photo img{width:100%;height:100%;object-fit:cover}
+.sb-sec{font-family:'JetBrains Mono',monospace;font-size:0.75rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(240,240,240,.4);margin-bottom:7px;padding-bottom:5px;border-bottom:1px solid rgba(255,255,255,.07)}
+.sb-row{display:flex;flex-direction:column;margin-bottom:6px}
+.sb-lbl{font-size:0.7rem;color:rgba(240,240,240,.45);margin-bottom:1px}
+.sb-val{font-size:0.88rem;color:var(--side-text);line-height:1.4}
+.sb-tag-wrap{display:flex;flex-wrap:wrap;gap:4px}
+.sb-tag{font-size:0.72rem;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);padding:3px 8px;border-radius:2px;color:var(--side-text)}
+.sb-tag.hl{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.2)}
+.edu-row{margin-bottom:8px}
+.edu-school{font-size:0.88rem;font-weight:500;color:var(--side-text);line-height:1.3}
+.edu-detail{font-size:0.78rem;color:rgba(240,240,240,.55);margin-top:1px}
+.cert-row{display:flex;align-items:center;gap:6px;margin-bottom:5px}
+.cert-dot{width:4px;height:4px;border-radius:50%;background:rgba(240,240,240,.4);flex-shrink:0}
+.cert-name{font-size:0.8rem;color:var(--side-text)}
+.cert-org{font-size:0.7rem;color:rgba(240,240,240,.45)}
+
+/* ── MAIN ── */
+.main{flex:1;padding:18px 20px;display:flex;flex-direction:column;gap:18px;justify-content:space-between;overflow:hidden}
+.ms-sec{font-family:'JetBrains Mono',monospace;font-size:0.82rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding-bottom:6px;border-bottom:1px solid var(--border);margin-bottom:10px}
+
+/* ── EXP ── */
+.exp-item{margin-bottom:14px}
+.exp-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:2px}
+.exp-co{font-size:1.0rem;font-weight:700;color:var(--acc)}
+.exp-period{font-size:0.78rem;color:var(--muted)}
+.exp-role{display:block;font-size:0.82rem;color:var(--muted);margin-top:2px;margin-bottom:6px}
+.exp-ul{list-style:none;display:flex;flex-direction:column;gap:3px}
+.exp-ul li{font-size:0.88rem;color:#333;line-height:1.55;padding-left:10px;position:relative}
+.exp-ul li::before{content:'—';position:absolute;left:0;color:var(--muted);font-size:0.7rem}
+
+/* ── KPI GRID ── */
+.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:4px}
+.kpi-card{border:1px solid var(--border);border-radius:3px;padding:14px 8px;text-align:center}
+.kpi-n{font-family:'Space Grotesk',sans-serif;font-size:1.6rem;font-weight:700;color:var(--acc);line-height:1}
+.kpi-l{font-size:0.75rem;color:var(--muted);margin-top:4px;line-height:1.3}
+
+/* ── AWARD ── */
+.award-row{display:flex;align-items:center;gap:8px;padding:6px 10px;border:1px solid var(--border);border-radius:3px}
+.award-icon{font-size:1rem}
+.award-name{font-size:0.88rem;font-weight:600;color:var(--acc)}
+.award-org{font-size:0.78rem;color:var(--muted)}
+
+/* ── COVER LETTER ── */
+.cl-body{flex:1;padding:20px 24px;display:flex;flex-direction:column;gap:24px}
+.cl-section{margin-bottom:0}
+.cl-hd{font-family:'JetBrains Mono',monospace;font-size:0.82rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;padding-bottom:6px;border-bottom:2px solid var(--acc)}
+.cl-text{font-size:0.92rem;color:#2a2a2a;line-height:2.0}
+</style>
+</head>
+<body>
+
+<!-- ════ PAGE 1: 이력서 ════ -->
+<div class="page">
+  <div class="page-stripe"></div>
+
+  <div class="page-header">
+    <div>
+      <div class="hd-name">임종권</div>
+      <div class="hd-pos">경영관리 담당자 지원 · Management Admin</div>
+    </div>
+    <div class="hd-contact">
+      ssujklim@gmail.com &nbsp;|&nbsp; 010-4052-0834<br>
+      경기도 광명시 (서울 접근 용이)
+    </div>
+  </div>
+
+  <div class="page-body">
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+
+      <!-- 사진 -->
+      <div class="sb-photo">
+        <img src="../../../../common/photos/profile.png" alt="프로필">
+      </div>
+
+      <!-- 개인정보 -->
+      <div>
+        <div class="sb-sec">Personal</div>
+        <div class="sb-row">
+          <span class="sb-lbl">생년월일</span>
+          <span class="sb-val">1992.01.04</span>
+        </div>
+        <div class="sb-row">
+          <span class="sb-lbl">병역</span>
+          <span class="sb-val">공군 병장 만기제대</span>
+        </div>
+      </div>
+
+      <!-- 학력 -->
+      <div>
+        <div class="sb-sec">Education</div>
+        <div class="edu-row">
+          <div class="edu-school">숭실대학교 사회복지대학원</div>
+          <div class="edu-detail">사회적기업전공 석사 · 2020.02<br>GPA 4.3/4.5</div>
+        </div>
+        <div class="edu-row">
+          <div class="edu-school">숭실대학교 공과대학</div>
+          <div class="edu-detail">전기공학 학사 · 2017.02<br>경제학부 복수전공</div>
+        </div>
+        <div class="edu-row">
+          <div class="edu-school">한국폴리텍 광명</div>
+          <div class="edu-detail">증강현실 시스템제어 수료 · 2022.12</div>
+        </div>
+      </div>
+
+      <!-- 자격증 -->
+      <div>
+        <div class="sb-sec">Certifications</div>
+        <div class="cert-row">
+          <div class="cert-dot"></div>
+          <div>
+            <div class="cert-name">사회복지사 1급</div>
+            <div class="cert-org">보건복지부 · 2021.02</div>
+          </div>
+        </div>
+        <div class="cert-row">
+          <div class="cert-dot"></div>
+          <div>
+            <div class="cert-name">1종 대형 운전면허</div>
+            <div class="cert-org">경찰청 · 2019.02</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 스킬 -->
+      <div>
+        <div class="sb-sec">Skills</div>
+        <div class="sb-tag-wrap">
+          <span class="sb-tag hl">ERP 구축</span>
+          <span class="sb-tag hl">Excel/VBA</span>
+          <span class="sb-tag hl">예산 관리</span>
+          <span class="sb-tag">SQL</span>
+          <span class="sb-tag">Power Query</span>
+          <span class="sb-tag">총무·행정</span>
+          <span class="sb-tag">AI Tools</span>
+          <span class="sb-tag">Notion</span>
+          <span class="sb-tag">한글(HWP)</span>
+          <span class="sb-tag">IT 인프라</span>
+          <span class="sb-tag">Google Workspace</span>
+        </div>
+      </div>
+
+    </div><!-- /sidebar -->
+
+    <!-- MAIN -->
+    <div class="main">
+
+      <!-- Professional Summary -->
+      <div style="background:#f7f7f7;border-left:3px solid var(--acc);padding:10px 14px;border-radius:0 3px 3px 0">
+        <p style="font-size:0.88rem;color:#2a2a2a;line-height:1.7;margin:0">사회적경제 기관 경영지원 <strong>3년</strong>. 인프라 예산 <strong>3.6억</strong> 단독 집행·통제, 커스텀 ERP 도입 전담(여신·채무·이자 <strong>회계계정 체계 설계</strong>), 외주업체 <strong>8개사</strong> 계약·정산 총괄. 재계약 협상·내재화로 연 유지보수 비용 <strong>30% 절감</strong>. 공학+경제학 복수전공 기반의 정량적 분석 역량.</p>
+      </div>
+
+      <!-- 경력 -->
+      <div>
+        <div class="ms-sec">Work Experience</div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <span class="exp-co">(사)함께만드는세상 (사회연대은행)</span>
+            <span class="exp-period">2023.01 ~ 2026.02 · 3년 2개월</span>
+          </div>
+          <span class="exp-role">경영지원부 인프라지원팀 · 총무·IT지원 (대리)</span>
+          <ul class="exp-ul">
+            <li>인프라 예산 <strong>3.6억</strong> 직접 편성·집행·통제 (집행률 88.5%, 월별 실적 분석 보고)</li>
+            <li>커스텀 ERP(High-Q/Tibero) 도입 실무 전담 — 여신·채무·이자 <strong>회계계정 체계 설계</strong> 및 데이터 마이그레이션</li>
+            <li>외주업체 <strong>8개사</strong> 계약·정산·SLA 관리 총괄 (연간 프로세스 표준화)</li>
+            <li>재계약 협상(복합기·전자계약·본인확인) → 연 약 <strong>500만 원 절감</strong></li>
+            <li>사내 IT 트러블슈팅 내재화 → 유지보수 비용 <strong>30% 절감</strong></li>
+            <li>IT 자산 수명주기 관리 프로세스 정립, 유휴장비 재배치로 중복 투자 방지</li>
+            <li>기안·품의·결의 등 전자결재 문서 작성 및 전결규정 운영</li>
+            <li>소방안전관리자 — 법정 안전점검·비상편성 담당</li>
+          </ul>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <span class="exp-co">(주)맨지온</span>
+            <span class="exp-period">2020.03 ~ 2021.11 · 1년 8개월</span>
+          </div>
+          <span class="exp-role">개발부 · 임베디드 시스템 개발 및 QA (대리)</span>
+          <ul class="exp-ul">
+            <li>ESP32 기반 IoT 프로토타입 — 센서 데이터 수집·분석 및 원격 모니터링 구축</li>
+            <li>데이터 로그 분석을 통한 시스템 장애 원인 규명 및 해결</li>
+          </ul>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <span class="exp-co">주식회사 엣지크로스</span>
+            <span class="exp-period">2016.05 ~ 2018.02 · 1년 9개월</span>
+          </div>
+          <span class="exp-role">기술연구소 · H/W 개발 및 자재 관리 (주임)</span>
+          <ul class="exp-ul">
+            <li>BOM 관리 체계화 및 생산 일정 조율 → 납기 준수율 100%</li>
+            <li>전자부품 입출고·재고 관리 및 협력사 자재 조달</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- KPI 그리드 -->
+      <div>
+        <div class="ms-sec">Key Performance</div>
+        <div class="kpi-grid">
+          <div class="kpi-card">
+            <div class="kpi-n">3.6억</div>
+            <div class="kpi-l">연간 예산<br>편성·집행</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-n">8개사</div>
+            <div class="kpi-l">외주업체<br>계약·정산</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-n">-30%</div>
+            <div class="kpi-l">유지보수<br>비용 절감</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-n">500만</div>
+            <div class="kpi-l">재계약 협상<br>절감/년</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 수상 -->
+      <div>
+        <div class="ms-sec">Award</div>
+        <div class="award-row">
+          <span class="award-icon">🏆</span>
+          <div>
+            <div class="award-name">2022 메타버스 콘텐츠 리크루팅 캠프 대상</div>
+            <div class="award-org">과학기술정보통신부 장관상 · 2022.09</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Core Competency -->
+      <div>
+        <div class="ms-sec">Core Competency</div>
+        <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:6px">
+          <div style="display:flex;align-items:baseline;gap:8px;padding:7px 10px;border:1px solid var(--border);border-radius:3px">
+            <span style="font-size:0.88rem;font-weight:700;color:var(--acc);white-space:nowrap">예산 관리</span>
+            <span style="font-size:0.78rem;color:var(--muted)">3.6억 편성·집행·실적 분석</span>
+          </div>
+          <div style="display:flex;align-items:baseline;gap:8px;padding:7px 10px;border:1px solid var(--border);border-radius:3px">
+            <span style="font-size:0.88rem;font-weight:700;color:var(--acc);white-space:nowrap">ERP 구축</span>
+            <span style="font-size:0.78rem;color:var(--muted)">회계계정 설계, DB 마이그레이션</span>
+          </div>
+          <div style="display:flex;align-items:baseline;gap:8px;padding:7px 10px;border:1px solid var(--border);border-radius:3px">
+            <span style="font-size:0.88rem;font-weight:700;color:var(--acc);white-space:nowrap">프로세스 개선</span>
+            <span style="font-size:0.78rem;color:var(--muted)">내재화·표준화로 비용 30% 절감</span>
+          </div>
+          <div style="display:flex;align-items:baseline;gap:8px;padding:7px 10px;border:1px solid var(--border);border-radius:3px">
+            <span style="font-size:0.88rem;font-weight:700;color:var(--acc);white-space:nowrap">데이터 분석</span>
+            <span style="font-size:0.78rem;color:var(--muted)">SQL·Excel VBA·Power Query</span>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /main -->
+  </div><!-- /page-body -->
+</div><!-- /page1 -->
+
+
+<!-- ════ PAGE 2: EXECUTIVE BRIEF (Whitepaper Style — Light) ════ -->
+<div class="page">
+  <div class="page-stripe"></div>
+
+  <!-- Header -->
+  <div class="page-header">
+    <div>
+      <div class="hd-name">임종권<span style="color:var(--muted)">.</span></div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--muted);letter-spacing:.12em;text-transform:uppercase;margin-top:1px">Executive Brief · Management Admin</div>
+    </div>
+    <div style="text-align:right">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--muted);letter-spacing:.08em;text-transform:uppercase">Bithumb · 경영관리 담당자</div>
+      <div style="font-size:0.78rem;color:var(--muted);margin-top:2px">ssujklim@gmail.com&ensp;|&ensp;010-4052-0834</div>
+    </div>
+  </div>
+
+  <div style="flex:1;padding:18px 22px;display:flex;flex-direction:column;justify-content:space-between;gap:14px">
+
+    <!-- ABSTRACT -->
+    <div>
+      <div style="font-family:'Space Grotesk',sans-serif;font-size:0.65rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:8px">Abstract</div>
+      <p style="font-size:0.88rem;color:#2a2a2a;line-height:1.95;border-left:2px solid var(--acc);padding-left:14px">
+        사회연대은행(마이크로크레딧 전문 비영리법인)에서 3년간 경영지원 실무를 단독 수행했습니다. 커스텀 ERP(High-Q, Tibero/Nexacro 기반) 도입을 1년 6개월간 전담하며 여신·채무·이자 회계계정 체계를 설계하고, 엑셀 기반 데이터를 DB로 마이그레이션했습니다. 연 3.6억 규모의 인프라 예산을 편성·집행·분석하는 한편, 8개 외주업체의 계약·정산·SLA를 총괄하며 전결규정에 따른 기안·품의·결의 문서를 일상적으로 작성해왔습니다. 디지털 금융의 최전선인 빗썸에서 이 실행력을 경영관리 역량으로 확장하고자 합니다.
+      </p>
+    </div>
+
+    <!-- VALUE PROPOSITION -->
+    <div>
+      <div style="font-family:'Space Grotesk',sans-serif;font-size:0.65rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:10px">Value Proposition</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+        <div style="background:#f7f7f7;border:1px solid var(--border);border-radius:3px;padding:10px 12px">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px">Financial Operations</div>
+          <p style="font-size:0.82rem;color:#333;line-height:1.65">ERP 회계계정 설계(여신·채무·이자), 예산 3.6억 편성·집행·월별 실적 분석, 전결규정 기반 기안·결의 운영</p>
+        </div>
+        <div style="background:#f7f7f7;border:1px solid var(--border);border-radius:3px;padding:10px 12px">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px">Process Engineering</div>
+          <p style="font-size:0.82rem;color:#333;line-height:1.65">외주 8개사 SLA 표준화, IT 내재화로 유지보수 비용 -30%, 재계약 협상으로 연 500만 절감. Excel VBA/SQL 자동화</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- TRACK RECORD -->
+    <div>
+      <div style="font-family:'Space Grotesk',sans-serif;font-size:0.65rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:10px">Track Record</div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:6px">
+        <div style="border:1px solid var(--border);border-radius:3px;padding:14px 8px;text-align:center">
+          <div style="font-family:'Space Grotesk',sans-serif;font-size:1.5rem;font-weight:700;color:var(--acc);line-height:1">3.6<span style="font-size:.5em;color:var(--muted)">억</span></div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:0.6rem;color:var(--muted);margin-top:4px;letter-spacing:.06em">BUDGET EXEC</div>
+        </div>
+        <div style="border:1px solid var(--border);border-radius:3px;padding:14px 8px;text-align:center">
+          <div style="font-family:'Space Grotesk',sans-serif;font-size:1.5rem;font-weight:700;color:var(--acc);line-height:1">88.5<span style="font-size:.5em;color:var(--muted)">%</span></div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:0.6rem;color:var(--muted);margin-top:4px;letter-spacing:.06em">EXEC RATE</div>
+        </div>
+        <div style="border:1px solid var(--border);border-radius:3px;padding:14px 8px;text-align:center">
+          <div style="font-family:'Space Grotesk',sans-serif;font-size:1.5rem;font-weight:700;color:var(--acc);line-height:1">-30<span style="font-size:.5em;color:var(--muted)">%</span></div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:0.6rem;color:var(--muted);margin-top:4px;letter-spacing:.06em">COST SAVED</div>
+        </div>
+        <div style="border:1px solid var(--border);border-radius:3px;padding:14px 8px;text-align:center">
+          <div style="font-family:'Space Grotesk',sans-serif;font-size:1.5rem;font-weight:700;color:var(--acc);line-height:1">8<span style="font-size:.5em;color:var(--muted)">+</span></div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:0.6rem;color:var(--muted);margin-top:4px;letter-spacing:.06em">VENDORS</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ONBOARDING ROADMAP -->
+    <div>
+      <div style="font-family:'Space Grotesk',sans-serif;font-size:0.65rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:10px">Onboarding Roadmap</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px">
+        <div style="border:1px solid var(--border);border-radius:3px;padding:10px 10px">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:0.62rem;font-weight:600;color:var(--acc);letter-spacing:.08em;margin-bottom:5px">D+30 — ABSORB</div>
+          <p style="font-size:0.78rem;color:#444;line-height:1.55">경영계획 체계·손익 구조 파악. 기존 보고 프로세스 합류. 주요 회의체·전결규정 숙지.</p>
+        </div>
+        <div style="border:1px solid var(--border);border-radius:3px;padding:10px 10px">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:0.62rem;font-weight:600;color:var(--acc);letter-spacing:.08em;margin-bottom:5px">D+90 — CONTRIBUTE</div>
+          <p style="font-size:0.78rem;color:#444;line-height:1.55">일·주·월 단위 실적 분석 자립. 수명과제 관리 참여. 프로세스 개선 포인트 데이터 기반 도출.</p>
+        </div>
+        <div style="border:1px solid var(--border);border-radius:3px;padding:10px 10px">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:0.62rem;font-weight:600;color:var(--acc);letter-spacing:.08em;margin-bottom:5px">D+180 — OWN</div>
+          <p style="font-size:0.78rem;color:#444;line-height:1.55">전사 프로세스 개선안 제안·실행. 중장기 사업계획 수립 기여. 보고 체계 고도화.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- WHY BITHUMB -->
+    <div>
+      <div style="font-family:'Space Grotesk',sans-serif;font-size:0.65rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:8px">Why Bithumb</div>
+      <p style="font-size:0.85rem;color:#555;line-height:1.85">
+        빠르게 변화하는 가상자산 시장에서 <span style="color:var(--acc);font-weight:600">실적 분석과 프로세스 개선이 곧 경쟁력</span>이 되는 환경. 소규모 조직에서 예산·ERP·외주·IT를 혼자 돌리며 체득한 실행력은 빗썸의 빠른 의사결정 문화에 부합합니다. 체계가 없는 곳에서 프로세스를 정의하고, 데이터와 근거 없이는 움직이지 않는 성향이 경영관리 담당자에게 요구되는 자질과 맞닿아 있다고 생각합니다. 궁극적으로 <span style="color:var(--acc);font-weight:600">의사결정에 필요한 숫자를 가장 빠르고 정확하게 제공하는 사람</span>이 되겠습니다.
+      </p>
+    </div>
+
+    <!-- QR CODE -->
+    <div style="flex:1;display:flex;align-items:center;justify-content:center">
+      <div style="position:relative;padding:24px 32px">
+        <!-- Crop marks -->
+        <div style="position:absolute;top:0;left:0;width:14px;height:14px;border-top:2px solid var(--acc);border-left:2px solid var(--acc)"></div>
+        <div style="position:absolute;top:0;right:0;width:14px;height:14px;border-top:2px solid var(--acc);border-right:2px solid var(--acc)"></div>
+        <div style="position:absolute;bottom:0;left:0;width:14px;height:14px;border-bottom:2px solid var(--acc);border-left:2px solid var(--acc)"></div>
+        <div style="position:absolute;bottom:0;right:0;width:14px;height:14px;border-bottom:2px solid var(--acc);border-right:2px solid var(--acc)"></div>
+        <div style="text-align:center">
+          <div id="qr-code" style="display:inline-block;border-radius:2px;overflow:hidden"></div>
+          <div style="font-family:'Space Grotesk',sans-serif;font-size:0.58rem;font-weight:600;letter-spacing:.25em;text-transform:uppercase;color:var(--muted);margin-top:8px">Scan for Interactive Portfolio</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:0.55rem;color:#aaa;margin-top:3px;letter-spacing:.02em">iamsloth.github.io/portfolio/bithumb.html</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div><!-- /page2 -->
+
+<script>
+new QRCode(document.getElementById("qr-code"), {
+  text: "https://iamsloth.github.io/portfolio/bithumb.html",
+  width: 90,
+  height: 90,
+  colorDark: "#1a1a1a",
+  colorLight: "#ffffff",
+  correctLevel: QRCode.CorrectLevel.M
+});
+</script>
+</body>
+</html>

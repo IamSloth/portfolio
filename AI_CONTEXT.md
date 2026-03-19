@@ -7,18 +7,19 @@
 
 | Field | Value |
 |-------|-------|
-| date | 2026-03-18 |
-| agent | Claude Sonnet 4.6 |
-| work | #31 크리에이티브멋 총무 신규 지원 — 서류+포폴 제작 |
+| date | 2026-03-19 |
+| agent | Claude Opus 4.6 |
+| work | #32 한국투자증권 제출 + #33 빗썸 경영관리 서류 제작 |
 | commit | latest |
 
 ### 이번 세션 요약
-- **#31 크리에이티브멋 총무**: 계약직 12개월(정규직 전환 가능), 사람인 온라인 지원, 상시채용
-  - 포트폴리오 페이지: `docs/creative-mot.html` → 크리에이티브멋 홈페이지 오마주 스타일 (블랙 모노크롬, 슬로건: "We Manage Everything That Would Fall Apart.")
-  - 이력서+커버레터: `drafts/resume_v1.html` (A4 2페이지, Page 2에 QR코드 포함)
-  - PC 하드웨어 수리 우대사항 = 차별화 포인트 (광고업계 이례적)
-  - 클라이언트: 블랙핑크·G-DRAGON·추성훈·김연경 (광고·영상·팝업 제작사)
-- **이전 세션**: #29 현대카드 + #30 KB국민은행 제출 완료, cc-notify.ps1 이메일 알람 교체
+- **#32 한국투자증권 사무보조 전문직급**: 제출 완료 (채용포털). 전문계약직 1년, 여의도, 마감 3/26
+- **#33 빗썸 경영관리 담당자**: 정규직 5-10년 요구, 매칭 낮지만 "찔러보기"로 진행
+  - 이력서+커버레터 2p (흑백 심플, 크리에이티브멋 스타일 기반)
+  - 포트폴리오 1p (ERP 도입 + 예산관리 KPI 중심)
+  - 나인하이어 폼 채움 가이드 (빗썸나눔과 동일 시스템)
+  - 포지셔닝: "총무" → "인프라 예산 관리 + ERP 구축" 경험자로 리프레이밍
+- **이전 세션**: #31 크리에이티브멋 제출, #29 현대카드 + #30 KB국민은행 제출 완료
 
 ## Active Applications
 
@@ -49,6 +50,7 @@
 | 30 | KB국민은행 철산 (휴머니아) | 사무지원 | **📤 SUBMITTED** | 이메일 제출 완료 (2026-03-18) → baeilsuk@naver.com. 결과 대기 | `30_kookmin_bank/cheolsan_admin_support/` |
 | 31 | 크리에이티브멋 | 총무 | **📤 SUBMITTED** | 사람인 제출 완료 (2026-03-19). 상시채용. 포폴: creative-mot.html | `31_creative_mot/general_affairs/` |
 | 32 | 한국투자증권 | 사무보조 (전문직급) | **📤 SUBMITTED** | 채용포털 제출 완료 (2026-03-19). 전문계약직 1년단위, 여의도 본사. 마감 3/26 | `32_korea_investment/office_assistant/` |
+| 33 | 빗썸 (Bithumb) | 경영관리 담당자 | **📤 SUBMITTED** | 나인하이어 제출 완료 (2026-03-19). 정규직 5-10년. 상시채용. 포폴: bithumb.html | `33_bithumb/management_admin/` |
 | 03 | 11st | General Affairs | **⏸️ ON_HOLD** | 지원 안 함 (보류 유지) | `03_11st/general_affairs/` |
 
 ### Closed Applications
@@ -84,6 +86,6 @@
 - **Filenames**: English snake_case only. No Korean filenames (except original form templates and final 제출본).
 - **Scripts**: Place inside the relevant application's `scripts/` subfolder. Never in project root.
 - **Commits**: Always include `Co-Authored-By: {Model Name} <noreply@anthropic.com>` trailer.
-- **Application folders**: Numbered by discovery date: `{NN}_{company}/`. Next new company = `33_`.
+- **Application folders**: Numbered by discovery date: `{NN}_{company}/`. Next new company = `34_`.
 - **Profile sync**: If you discover new career/skill/cert info during work, update `profile.json` immediately.
 - **Session end**: Update this file → commit → push. Keep entries concise (token budget matters).

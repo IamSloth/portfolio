@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>빗썸 경영관리 — 나인하이어 폼 채움 가이드</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Noto Sans KR',sans-serif;background:#f5f5f5;padding:24px;max-width:700px;margin:0 auto}
+h1{font-size:18px;margin-bottom:16px;color:#1a1a1a}
+table{width:100%;border-collapse:collapse;margin-bottom:20px;background:#fff;border-radius:6px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.08)}
+th,td{padding:10px 14px;text-align:left;border-bottom:1px solid #eee;font-size:14px}
+th{background:#1a1a1a;color:#fff;font-weight:600;width:140px}
+td{color:#333;position:relative}
+.copy-btn{position:absolute;right:8px;top:50%;transform:translateY(-50%);background:#1a1a1a;color:#fff;border:none;padding:4px 10px;border-radius:3px;font-size:11px;cursor:pointer}
+.copy-btn:hover{background:#444}
+.copy-btn.ok{background:#2e7d32}
+.note{font-size:12px;color:#999;margin-top:-12px;margin-bottom:16px}
+h2{font-size:15px;color:#1a1a1a;margin:20px 0 8px;padding-bottom:4px;border-bottom:2px solid #1a1a1a}
+</style>
+</head>
+<body>
+
+<h1>빗썸 경영관리 담당자 — 나인하이어 폼 채움 가이드</h1>
+
+<h2>기본정보</h2>
+<table>
+<tr><th>이름</th><td>임종권<button class="copy-btn" onclick="c(this)">복사</button></td></tr>
+<tr><th>생년월일</th><td>1992-01-04<button class="copy-btn" onclick="c(this)">복사</button></td></tr>
+<tr><th>이메일</th><td>ssujklim@gmail.com<button class="copy-btn" onclick="c(this)">복사</button></td></tr>
+<tr><th>연락처</th><td>01040520834<button class="copy-btn" onclick="c(this)">복사</button></td></tr>
+<tr><th>지원경로</th><td>직접지원 (또는 사람인)<button class="copy-btn" onclick="c(this)">복사</button></td></tr>
+</table>
+
+<h2>증명사진</h2>
+<p class="note">common/photos/profile.png — 250x300px 권장</p>
+
+<h2>학력사항 (최종학력)</h2>
+<table>
+<tr><th>학력 구분</th><td>대학원(석사)<button class="copy-btn" onclick="c(this)">복사</button></td></tr>
+<tr><th>학교</th><td>숭실대학교 사회복지대학원<button class="copy-btn" onclick="c(this)">복사</button></td></tr>
+<tr><th>졸업상태</th><td>졸업<button class="copy-btn" onclick="c(this)">복사</button></td></tr>
+<tr><th>주전공</th><td>사회적기업전공<button class="copy-btn" onclick="c(this)">복사</button></td></tr>
+<tr><th>취득학점</th><td>4.3<button class="copy-btn" onclick="c(this)">복사</button></td></tr>
+<tr><th>기준학점</th><td>4.5<button class="copy-btn" onclick="c(this)">복사</button></td></tr>
+</table>
+
+<h2>첨부파일</h2>
+<table>
+<tr><th>이력서 (필수)</th><td>resume_v1.html → Ctrl+P → PDF 저장 후 업로드</td></tr>
+<tr><th>포트폴리오1</th><td>portfolio_v1.html → Ctrl+P → PDF 저장 후 업로드</td></tr>
+<tr><th>포트폴리오2</th><td>미사용</td></tr>
+</table>
+
+<h2>병역사항</h2>
+<table>
+<tr><th>병역구분</th><td>군필<button class="copy-btn" onclick="c(this)">복사</button></td></tr>
+<tr><th>군별</th><td>공군<button class="copy-btn" onclick="c(this)">복사</button></td></tr>
+<tr><th>계급</th><td>병장<button class="copy-btn" onclick="c(this)">복사</button></td></tr>
+<tr><th>복무기간</th><td>2010.07 ~ 2012.08<button class="copy-btn" onclick="c(this)">복사</button></td></tr>
+</table>
+
+<h2>보훈/장애</h2>
+<table>
+<tr><th>보훈여부</th><td>비대상</td></tr>
+<tr><th>장애여부</th><td>비대상</td></tr>
+</table>
+
+<script>
+function c(btn){
+  const td=btn.parentElement;
+  const text=td.textContent.replace('복사','').replace('완료','').trim();
+  navigator.clipboard.writeText(text).then(()=>{
+    btn.textContent='완료';btn.classList.add('ok');
+    setTimeout(()=>{btn.textContent='복사';btn.classList.remove('ok')},1500);
+  });
+}
+</script>
+</body>
+</html>
