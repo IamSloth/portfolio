@@ -1,9 +1,10 @@
 ---
 company: 크리에이티브멋
 position: 총무
-status: 📋 DISCOVERED
+status: 📤 SUBMITTED
 discovered: 2026-03-18
-last_updated: 2026-03-18
+submitted: 2026-03-19
+last_updated: 2026-03-19
 ---
 
 # 크리에이티브멋 — 총무 Strategy
@@ -45,10 +46,12 @@ last_updated: 2026-03-18
 - 광고·콘텐츠 업계 총무 경험 없음 (금융/비영리 도메인)
   → 방어: IT·행정 스킬은 도메인 무관, 소규모 고집중 환경 경험 있음
 
-## #6 Timeline
+## #6 Timeline & Submission
 - 마감: 상시채용 (채용시까지)
 - 제출: 사람인 온라인 지원
 - 접수 시작: 2026-03-18 10시
+- **이력서 제목**: `크리에이티브멋 총무 지원_임종권`
+- **이력서 파일**: resume_v1.html → PDF 변환 후 업로드
 
 ## #7 Interview Prep
 (서류 통과 후 작성)

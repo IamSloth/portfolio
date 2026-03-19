@@ -18,7 +18,7 @@
   --border:#e0e0e0;
   --muted:#777;
 }
-html{font-size:10px}
+html{font-size:13px}
 body{font-family:'Noto Sans KR',sans-serif;background:#eee;display:flex;flex-direction:column;align-items:center;gap:12px;padding:20px}
 @media print{body{background:none;padding:0;gap:0}}
 
@@ -40,68 +40,58 @@ body{font-family:'Noto Sans KR',sans-serif;background:#eee;display:flex;flex-dir
 .page-body{display:flex;flex:1;overflow:hidden}
 
 /* ── SIDEBAR ── */
-.sidebar{width:62mm;background:var(--side);color:var(--side-text);padding:16px 14px;display:flex;flex-direction:column;gap:14px;flex-shrink:0}
+.sidebar{width:56mm;background:var(--side);color:var(--side-text);padding:16px 14px;display:flex;flex-direction:column;gap:14px;flex-shrink:0}
 .sb-photo{width:100%;aspect-ratio:1;border-radius:4px;overflow:hidden;border:1px solid rgba(255,255,255,.1);margin-bottom:2px}
 .sb-photo img{width:100%;height:100%;object-fit:cover}
-.sb-sec{font-family:'JetBrains Mono',monospace;font-size:0.7rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(240,240,240,.4);margin-bottom:7px;padding-bottom:5px;border-bottom:1px solid rgba(255,255,255,.07)}
+.sb-sec{font-family:'JetBrains Mono',monospace;font-size:0.75rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(240,240,240,.4);margin-bottom:7px;padding-bottom:5px;border-bottom:1px solid rgba(255,255,255,.07)}
 .sb-row{display:flex;flex-direction:column;margin-bottom:6px}
 .sb-lbl{font-size:0.7rem;color:rgba(240,240,240,.45);margin-bottom:1px}
-.sb-val{font-size:0.85rem;color:var(--side-text);line-height:1.4}
+.sb-val{font-size:0.88rem;color:var(--side-text);line-height:1.4}
 .sb-tag-wrap{display:flex;flex-wrap:wrap;gap:4px}
-.sb-tag{font-size:0.7rem;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);padding:2px 7px;border-radius:2px;color:var(--side-text)}
+.sb-tag{font-size:0.72rem;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);padding:3px 8px;border-radius:2px;color:var(--side-text)}
 .sb-tag.hl{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.2)}
 .edu-row{margin-bottom:8px}
-.edu-school{font-size:0.85rem;font-weight:500;color:var(--side-text);line-height:1.3}
-.edu-detail{font-size:0.75rem;color:rgba(240,240,240,.55);margin-top:1px}
+.edu-school{font-size:0.88rem;font-weight:500;color:var(--side-text);line-height:1.3}
+.edu-detail{font-size:0.78rem;color:rgba(240,240,240,.55);margin-top:1px}
 .cert-row{display:flex;align-items:center;gap:6px;margin-bottom:5px}
 .cert-dot{width:4px;height:4px;border-radius:50%;background:rgba(240,240,240,.4);flex-shrink:0}
 .cert-name{font-size:0.8rem;color:var(--side-text)}
 .cert-org{font-size:0.7rem;color:rgba(240,240,240,.45)}
 
 /* ── MAIN ── */
-.main{flex:1;padding:14px 16px;display:flex;flex-direction:column;gap:12px;overflow:hidden}
-.ms-sec{font-family:'JetBrains Mono',monospace;font-size:0.68rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding-bottom:5px;border-bottom:1px solid var(--border);margin-bottom:8px}
+.main{flex:1;padding:18px 20px;display:flex;flex-direction:column;gap:18px;justify-content:space-between;overflow:hidden}
+.ms-sec{font-family:'JetBrains Mono',monospace;font-size:0.82rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding-bottom:6px;border-bottom:1px solid var(--border);margin-bottom:10px}
 
 /* ── EXP ── */
-.exp-item{margin-bottom:10px}
+.exp-item{margin-bottom:14px}
 .exp-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:2px}
-.exp-co{font-size:0.9rem;font-weight:700;color:var(--acc)}
-.exp-period{font-size:0.75rem;color:var(--muted)}
-.exp-role{display:block;font-size:0.78rem;color:var(--muted);margin-top:1px;margin-bottom:5px}
+.exp-co{font-size:1.0rem;font-weight:700;color:var(--acc)}
+.exp-period{font-size:0.78rem;color:var(--muted)}
+.exp-role{display:block;font-size:0.82rem;color:var(--muted);margin-top:2px;margin-bottom:6px}
 .exp-ul{list-style:none;display:flex;flex-direction:column;gap:3px}
-.exp-ul li{font-size:0.78rem;color:#333;line-height:1.5;padding-left:10px;position:relative}
+.exp-ul li{font-size:0.88rem;color:#333;line-height:1.55;padding-left:10px;position:relative}
 .exp-ul li::before{content:'—';position:absolute;left:0;color:var(--muted);font-size:0.7rem}
 
 /* ── KPI GRID ── */
 .kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:4px}
-.kpi-card{border:1px solid var(--border);border-radius:3px;padding:8px;text-align:center}
-.kpi-n{font-family:'Space Grotesk',sans-serif;font-size:1.25rem;font-weight:700;color:var(--acc);line-height:1}
-.kpi-l{font-size:0.65rem;color:var(--muted);margin-top:3px;line-height:1.3}
+.kpi-card{border:1px solid var(--border);border-radius:3px;padding:14px 8px;text-align:center}
+.kpi-n{font-family:'Space Grotesk',sans-serif;font-size:1.6rem;font-weight:700;color:var(--acc);line-height:1}
+.kpi-l{font-size:0.75rem;color:var(--muted);margin-top:4px;line-height:1.3}
 
 /* ── AWARD ── */
 .award-row{display:flex;align-items:center;gap:8px;padding:6px 10px;border:1px solid var(--border);border-radius:3px}
 .award-icon{font-size:1rem}
-.award-name{font-size:0.82rem;font-weight:600;color:var(--acc)}
-.award-org{font-size:0.72rem;color:var(--muted)}
+.award-name{font-size:0.88rem;font-weight:600;color:var(--acc)}
+.award-org{font-size:0.78rem;color:var(--muted)}
 
 /* ── COVER LETTER ── */
-.cl-body{flex:1;padding:14px 16px;display:flex;flex-direction:column;justify-content:space-between}
+.cl-body{flex:1;padding:20px 24px;display:flex;flex-direction:column;gap:24px}
 .cl-section{margin-bottom:0}
-.cl-hd{font-family:'JetBrains Mono',monospace;font-size:0.68rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;padding-bottom:5px;border-bottom:2px solid var(--acc)}
+.cl-hd{font-family:'JetBrains Mono',monospace;font-size:0.82rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;padding-bottom:6px;border-bottom:2px solid var(--acc)}
 .cl-hd-wrap{display:flex;flex-direction:column;gap:2px;margin-bottom:8px}
 .cl-hd-wrap .cl-hd{margin-bottom:0;border-bottom:none;padding-bottom:0}
 .cl-hd-wrap .cl-sub{font-size:0.75rem;color:var(--muted)}
-.cl-text{font-size:0.82rem;color:#2a2a2a;line-height:1.85}
-.cl-footer{display:flex;justify-content:space-between;align-items:flex-end;margin-top:8px;padding-top:12px;border-top:1px solid var(--border)}
-.cl-qr-wrap{display:flex;align-items:center;gap:14px}
-.cl-qr-box{flex-shrink:0}
-.cl-qr-desc{font-size:0.72rem;color:var(--muted);line-height:1.7}
-.cl-qr-desc strong{display:block;font-family:'Space Grotesk',sans-serif;font-size:0.8rem;color:var(--acc);font-weight:600;margin-bottom:3px}
-.cl-qr-url{font-family:'JetBrains Mono',monospace;font-size:0.62rem;color:var(--muted)}
-.cl-sign{text-align:right}
-.cl-sign-date{font-size:0.8rem;color:var(--muted);margin-bottom:6px}
-.cl-sign-name{font-size:0.9rem;font-weight:700;color:var(--acc)}
-.sign-img{height:28px;margin-top:4px;display:block;margin-left:auto}
+.cl-text{font-size:0.92rem;color:#2a2a2a;line-height:2.0}
 </style>
 </head>
 <body>
@@ -207,6 +197,11 @@ body{font-family:'Noto Sans KR',sans-serif;background:#eee;display:flex;flex-dir
     <!-- MAIN -->
     <div class="main">
 
+      <!-- Professional Summary -->
+      <div style="background:#f7f7f7;border-left:3px solid var(--acc);padding:10px 14px;border-radius:0 3px 3px 0">
+        <p style="font-size:0.88rem;color:#2a2a2a;line-height:1.7;margin:0">총무·IT 경력 <strong>6년 9개월</strong>. 20인 조직의 인프라 예산 <strong>3.6억</strong> 단독 집행, 외주업체 <strong>8개사</strong> 관리, 사내 PC·네트워크 트러블슈팅 내재화로 유지보수 비용 <strong>30% 절감</strong>. 공학 전공 기반 <strong>PC 하드웨어 조립·수리</strong> 가능.</p>
+      </div>
+
       <!-- 경력 -->
       <div>
         <div class="ms-sec">Work Experience</div>
@@ -224,6 +219,8 @@ body{font-family:'Noto Sans KR',sans-serif;background:#eee;display:flex;flex-dir
             <li>외주업체 8개사 계약·관리·정산 총괄 (소방·승강기·복합기·네트워크 등)</li>
             <li>IT 자산 수명주기 관리 프로세스 정립 및 유휴장비 재배치</li>
             <li>재계약 협상(복합기·전자계약·본인확인)으로 연 약 <strong>500만 원 절감</strong></li>
+            <li>KDB시니어브리지아카데미 교육센터 시설 관리 및 교육 물품 운영</li>
+            <li>계약서·기안·품의 등 행정 문서 작성 및 전자결재 관리</li>
           </ul>
         </div>
 
@@ -236,6 +233,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#eee;display:flex;flex-dir
           <ul class="exp-ul">
             <li>ESP32 기반 해수담수화 프로토타입 — 솔레노이드·릴레이 제어 펌웨어 개발</li>
             <li>Blynk 앱 연동 원격 모니터링 대시보드 구축 (IoT)</li>
+            <li>PCB 납땜·실장·외관검사 기반 프로토타입 품질 검증</li>
             <li>UI/UX 테스트 시나리오 설계 및 품질 보증 활동 주도</li>
           </ul>
         </div>
@@ -249,6 +247,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#eee;display:flex;flex-dir
           <ul class="exp-ul">
             <li>회로 설계→PCB 레이아웃→시제품 납땜·실장→테스트 풀사이클 수행</li>
             <li>BOM 관리 체계화 및 생산 일정 조율 → 납기 준수율 100%</li>
+            <li>전자부품 입출고·ESD 방지 관리 및 협력사 자재 조달</li>
           </ul>
         </div>
       </div>
@@ -288,6 +287,29 @@ body{font-family:'Noto Sans KR',sans-serif;background:#eee;display:flex;flex-dir
         </div>
       </div>
 
+      <!-- Core Competency -->
+      <div>
+        <div class="ms-sec">Core Competency</div>
+        <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:6px">
+          <div style="display:flex;align-items:baseline;gap:8px;padding:7px 10px;border:1px solid var(--border);border-radius:3px">
+            <span style="font-size:0.88rem;font-weight:700;color:var(--acc);white-space:nowrap">PC 하드웨어</span>
+            <span style="font-size:0.78rem;color:var(--muted)">조립·수리·부품 교체 즉시 대응</span>
+          </div>
+          <div style="display:flex;align-items:baseline;gap:8px;padding:7px 10px;border:1px solid var(--border);border-radius:3px">
+            <span style="font-size:0.88rem;font-weight:700;color:var(--acc);white-space:nowrap">예산 관리</span>
+            <span style="font-size:0.78rem;color:var(--muted)">3.6억 단독 집행, 집행률 88.5%</span>
+          </div>
+          <div style="display:flex;align-items:baseline;gap:8px;padding:7px 10px;border:1px solid var(--border);border-radius:3px">
+            <span style="font-size:0.88rem;font-weight:700;color:var(--acc);white-space:nowrap">외주 관리</span>
+            <span style="font-size:0.78rem;color:var(--muted)">8개사 계약·정산·SLA 총괄</span>
+          </div>
+          <div style="display:flex;align-items:baseline;gap:8px;padding:7px 10px;border:1px solid var(--border);border-radius:3px">
+            <span style="font-size:0.88rem;font-weight:700;color:var(--acc);white-space:nowrap">IT 인프라</span>
+            <span style="font-size:0.78rem;color:var(--muted)">네트워크·서버·PC 1차 대응 내재화</span>
+          </div>
+        </div>
+      </div>
+
     </div><!-- /main -->
   </div><!-- /page-body -->
 </div><!-- /page1 -->
@@ -314,7 +336,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#eee;display:flex;flex-dir
     <div class="cl-section">
       <div class="cl-hd">지원동기</div>
       <p class="cl-text">
-        광고·콘텐츠 업계는 속도와 집중이 생명인 환경입니다. 크리에이티브멋의 포트폴리오를 접하면서, 이 팀이 창작에만 집중할 수 있도록 빈틈없이 지원하는 총무가 되고 싶다는 생각이 들었습니다. 직전 직장에서 20인 규모 조직의 IT·총무 전반을 3년간 단독으로 담당하며, 장비 트러블슈팅부터 외주 계약 협상까지 처리해온 경험이 소규모 고집중 환경인 크리에이티브멋과 잘 맞을 것이라 판단하였습니다.
+        광고·콘텐츠 업계는 속도와 집중이 생명인 환경입니다. 블랙핑크, G-DRAGON 등 톱 셀럽 프로젝트와 Museum MUT까지, 크리에이티브멋의 작업물을 보며 이 팀이 창작에만 몰입할 수 있도록 빈틈없이 지원하는 총무가 되고 싶다는 생각이 들었습니다. 직전 직장에서 20인 규모 조직의 IT·총무 전반을 3년간 단독으로 담당하며, 장비 트러블슈팅부터 외주 계약 협상까지 처리해온 경험이 소규모 고집중 환경인 크리에이티브멋과 잘 맞을 것이라 판단하였습니다. 특히 사옥 3개를 운영하는 환경에서 시설·자산 관리 역량이 즉시 기여할 수 있는 부분이라 생각합니다.
       </p>
     </div>
 
@@ -322,7 +344,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#eee;display:flex;flex-dir
     <div class="cl-section">
       <div class="cl-hd">직무역량</div>
       <p class="cl-text">
-        연 3.6억 규모 인프라 예산을 단독 집행하고, 소방·복합기·네트워크 등 외주업체 8개사를 관리하며 계약 협상으로 연 500만 원 이상을 절감했습니다. ERP 구축(Tibero DB 마이그레이션)과 더불어, 공학 전공을 살려 PC 하드웨어 조립·수리·네트워크 1차 대응을 내재화하여 IT 유지보수 비용을 30% 절감한 경험이 있습니다. 광고·영상 업계 특성상 촬영 장비·PC 트러블슈팅 수요가 많을 것으로 예상하며, 현장 이슈 대부분을 즉시 처리할 수 있습니다.
+        연 3.6억 규모 인프라 예산을 단독 집행하고, 소방·복합기·네트워크 등 외주업체 8개사를 관리하며 계약 협상으로 연 500만 원 이상을 절감했습니다. ERP 구축 실무(Tibero DB 마이그레이션, 여신·채무·이자 회계계정 설계)를 전담했으며, 공학 전공을 살려 PC 하드웨어 조립·수리·네트워크 1차 대응을 내재화하여 IT 유지보수 비용을 30% 절감했습니다. Windows·Mac 신규 세팅, 프린터·복합기 연결, 사내 네트워크 장애 대응 등 전산장비 관련 요청의 90% 이상을 외주 없이 자체 처리한 경험이 있습니다. 광고·영상 업계 특성상 고사양 편집 장비와 촬영 PC의 트러블슈팅 수요가 많을 것으로 예상하며, 현장 이슈 대부분을 즉시 해결할 수 있습니다.
       </p>
     </div>
 
@@ -330,7 +352,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#eee;display:flex;flex-dir
     <div class="cl-section">
       <div class="cl-hd">장단점</div>
       <p class="cl-text">
-        장점은 IT와 행정을 경계 없이 처리하는 통합 대응력입니다. '내 일이 아니어도' 운영상 필요한 일을 먼저 처리하는 습관이 몸에 배어 있습니다. 단점은 체계가 없는 환경에서 먼저 프로세스를 정의하려는 성향인데, 오히려 운영 구조를 빠르게 만들어가는 방향으로 활용하고 있습니다.
+        장점은 IT와 행정을 경계 없이 처리하는 통합 대응력입니다. '내 일이 아니어도' 운영상 필요한 일을 먼저 처리하는 습관이 몸에 배어 있습니다. 실제로 전임 담당자 없이 인수인계받은 IT 자산을 처음부터 대장 정리·수명주기 관리 체계로 정립하여 유휴장비 재배치까지 완료한 경험이 있습니다. 단점은 체계가 없는 환경에서 먼저 프로세스를 정의하려는 성향인데, 운영 구조가 갖춰지면 이후 반복 업무의 효율이 크게 올라가므로 오히려 강점으로 활용하고 있습니다.
       </p>
     </div>
 
@@ -338,23 +360,22 @@ body{font-family:'Noto Sans KR',sans-serif;background:#eee;display:flex;flex-dir
     <div class="cl-section">
       <div class="cl-hd">입사 후 포부</div>
       <p class="cl-text">
-        입사 초기 3개월 안에 전산장비 현황을 파악하고, 경비·정산 프로세스를 정리하는 것을 첫 목표로 삼겠습니다. 크리에이터들이 장비 이슈나 행정 서류 때문에 작업을 멈추는 일이 없도록, 총무 파트가 완벽하게 뒤를 받쳐주는 환경을 만들겠습니다.
+        입사 초기 3개월 안에 사옥별 전산장비 현황을 파악하고, 경비·정산 프로세스를 정리하는 것을 첫 목표로 삼겠습니다. 6개월 차에는 IT 자산 대장과 외주업체 관리 체계를 정립하여 반복 업무를 매뉴얼화하고, 1년 차에는 총무 파트의 운영 효율을 수치로 증명할 수 있는 기반을 만들겠습니다. 크리에이터들이 장비 이슈나 행정 서류 때문에 작업을 멈추는 일이 없도록, 총무가 완벽하게 뒤를 받쳐주는 환경을 만드는 것이 궁극적인 목표입니다.
       </p>
     </div>
 
-    <!-- QR + 서명 -->
-    <div class="cl-footer">
-      <div class="cl-qr-wrap">
-        <div class="cl-qr-box" id="qr-code"></div>
-        <div>
-          <div class="cl-qr-desc"><strong>지원자 포트폴리오</strong>크리에이티브멋 스타일로 직접 제작한<br>임종권의 작업 아카이브입니다.</div>
-          <div class="cl-qr-url">iamsloth.github.io/portfolio/creative-mot.html</div>
+    <!-- QR 크롭마크 -->
+    <div style="flex:1;display:flex;align-items:center;justify-content:center">
+      <div style="position:relative;padding:28px 36px">
+        <div style="position:absolute;top:0;left:0;width:16px;height:16px;border-top:2px solid var(--acc);border-left:2px solid var(--acc)"></div>
+        <div style="position:absolute;top:0;right:0;width:16px;height:16px;border-top:2px solid var(--acc);border-right:2px solid var(--acc)"></div>
+        <div style="position:absolute;bottom:0;left:0;width:16px;height:16px;border-bottom:2px solid var(--acc);border-left:2px solid var(--acc)"></div>
+        <div style="position:absolute;bottom:0;right:0;width:16px;height:16px;border-bottom:2px solid var(--acc);border-right:2px solid var(--acc)"></div>
+        <div style="text-align:center">
+          <div id="qr-code" style="display:inline-block"></div>
+          <div style="font-family:'Space Grotesk',sans-serif;font-size:0.65rem;font-weight:600;letter-spacing:.25em;text-transform:uppercase;color:var(--muted);margin-top:10px">SCAN FOR PORTFOLIO</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:0.62rem;color:var(--muted);margin-top:4px;letter-spacing:.02em">iamsloth.github.io/portfolio/creative-mot.html</div>
         </div>
-      </div>
-      <div class="cl-sign">
-        <div class="cl-sign-date">2026년 3월 18일</div>
-        <div class="cl-sign-name">임종권 (林 鐘 權)</div>
-        <img class="sign-img" src="../../../../common/photos/signature.png" alt="서명">
       </div>
     </div>
 
@@ -364,8 +385,8 @@ body{font-family:'Noto Sans KR',sans-serif;background:#eee;display:flex;flex-dir
 <script>
 new QRCode(document.getElementById("qr-code"), {
   text: "https://iamsloth.github.io/portfolio/creative-mot.html",
-  width: 80,
-  height: 80,
+  width: 100,
+  height: 100,
   colorDark: "#1a1a1a",
   colorLight: "#ffffff",
   correctLevel: QRCode.CorrectLevel.M
