@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>임종권 — 토스뱅크 PA Operations Specialist 지원</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Space+Grotesk:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --acc:#0064FF;
+  --acc2:#0050cc;
+  --side:#1e2128;
+  --side-text:#f0f0f0;
+  --main:#fff;
+  --main-text:#1a1a1a;
+  --border:#e0e0e0;
+  --muted:#777;
+}
+html{font-size:13px}
+body{font-family:'Noto Sans KR',sans-serif;background:#eee;display:flex;flex-direction:column;align-items:center;gap:12px;padding:20px}
+@media print{body{background:none;padding:0;gap:0}}
+
+/* ── A4 PAGE ── */
+.page{width:210mm;min-height:296mm;background:#fff;display:flex;flex-direction:column;position:relative;overflow:hidden;page-break-after:always}
+@page{size:A4;margin:0}
+@media print{.page{box-shadow:none;page-break-after:always}}
+
+/* ── TOP STRIPE ── */
+.page-stripe{height:5px;background:var(--acc);flex-shrink:0}
+
+/* ── HEADER ── */
+.page-header{display:flex;justify-content:space-between;align-items:center;padding:12px 18px 10px;border-bottom:1px solid var(--border);flex-shrink:0}
+.hd-name{font-family:'Space Grotesk',sans-serif;font-size:1.6rem;font-weight:700;color:var(--acc);letter-spacing:-.04em}
+.hd-pos{font-size:0.95rem;color:var(--muted);margin-top:1px}
+.hd-contact{text-align:right;font-size:0.85rem;color:var(--muted);line-height:1.7}
+
+/* ── BODY ── */
+.page-body{display:flex;flex:1;overflow:hidden}
+
+/* ── SIDEBAR ── */
+.sidebar{width:56mm;background:var(--side);color:var(--side-text);padding:16px 14px;display:flex;flex-direction:column;gap:14px;flex-shrink:0}
+.sb-photo{width:100%;aspect-ratio:1;border-radius:4px;overflow:hidden;border:1px solid rgba(255,255,255,.1);margin-bottom:2px}
+.sb-photo img{width:100%;height:100%;object-fit:cover}
+.sb-sec{font-family:'JetBrains Mono',monospace;font-size:0.75rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(240,240,240,.4);margin-bottom:7px;padding-bottom:5px;border-bottom:1px solid rgba(255,255,255,.07)}
+.sb-row{display:flex;flex-direction:column;margin-bottom:6px}
+.sb-lbl{font-size:0.7rem;color:rgba(240,240,240,.45);margin-bottom:1px}
+.sb-val{font-size:0.88rem;color:var(--side-text);line-height:1.4}
+.sb-tag-wrap{display:flex;flex-wrap:wrap;gap:4px}
+.sb-tag{font-size:0.72rem;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);padding:3px 8px;border-radius:2px;color:var(--side-text)}
+.sb-tag.hl{background:rgba(0,100,255,.25);border-color:rgba(0,100,255,.4)}
+.edu-row{margin-bottom:8px}
+.edu-school{font-size:0.88rem;font-weight:500;color:var(--side-text);line-height:1.3}
+.edu-detail{font-size:0.78rem;color:rgba(240,240,240,.55);margin-top:1px}
+.cert-row{display:flex;align-items:center;gap:6px;margin-bottom:5px}
+.cert-dot{width:4px;height:4px;border-radius:50%;background:var(--acc);flex-shrink:0}
+.cert-name{font-size:0.8rem;color:var(--side-text)}
+.cert-org{font-size:0.7rem;color:rgba(240,240,240,.45)}
+
+/* ── MAIN ── */
+.main{flex:1;padding:18px 20px;display:flex;flex-direction:column;gap:16px;justify-content:space-between;overflow:hidden}
+.ms-sec{font-family:'JetBrains Mono',monospace;font-size:0.82rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--acc);padding-bottom:6px;border-bottom:1px solid var(--border);margin-bottom:10px}
+
+/* ── EXP ── */
+.exp-item{margin-bottom:14px}
+.exp-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:2px}
+.exp-co{font-size:1.0rem;font-weight:700;color:var(--main-text)}
+.exp-period{font-size:0.78rem;color:var(--muted)}
+.exp-role{display:block;font-size:0.82rem;color:var(--muted);margin-top:2px;margin-bottom:6px}
+.exp-ul{list-style:none;display:flex;flex-direction:column;gap:3px}
+.exp-ul li{font-size:0.88rem;color:#333;line-height:1.55;padding-left:10px;position:relative}
+.exp-ul li::before{content:'—';position:absolute;left:0;color:var(--acc);font-size:0.7rem}
+
+/* ── KPI GRID ── */
+.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:4px}
+.kpi-card{border:1px solid var(--border);border-radius:3px;padding:14px 8px;text-align:center}
+.kpi-n{font-family:'Space Grotesk',sans-serif;font-size:1.6rem;font-weight:700;color:var(--acc);line-height:1}
+.kpi-l{font-size:0.75rem;color:var(--muted);margin-top:4px;line-height:1.3}
+
+/* ── AWARD ── */
+.award-row{display:flex;align-items:center;gap:8px;padding:6px 10px;border:1px solid var(--border);border-radius:3px}
+.award-icon{font-size:1rem}
+.award-name{font-size:0.88rem;font-weight:600;color:var(--main-text)}
+.award-org{font-size:0.78rem;color:var(--muted)}
+</style>
+</head>
+<body>
+
+<!-- ════ PAGE 1: 이력서 ════ -->
+<div class="page">
+  <div class="page-stripe"></div>
+
+  <div class="page-header">
+    <div>
+      <div class="hd-name">임종권</div>
+      <div class="hd-pos">PA Operations Specialist (대관 운영) 지원</div>
+    </div>
+    <div class="hd-contact">
+      ssujklim@gmail.com &nbsp;|&nbsp; 010-4052-0834<br>
+      경기도 광명시 (서울 접근 용이)
+    </div>
+  </div>
+
+  <div class="page-body">
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+
+      <div class="sb-photo">
+        <img src="../../../../common/photos/profile.png" alt="프로필">
+      </div>
+
+      <div>
+        <div class="sb-sec">Personal</div>
+        <div class="sb-row">
+          <span class="sb-lbl">생년월일</span>
+          <span class="sb-val">1992.01.04</span>
+        </div>
+        <div class="sb-row">
+          <span class="sb-lbl">병역</span>
+          <span class="sb-val">공군 병장 만기제대</span>
+        </div>
+      </div>
+
+      <div>
+        <div class="sb-sec">Education</div>
+        <div class="edu-row">
+          <div class="edu-school">숭실대학교 사회복지대학원</div>
+          <div class="edu-detail">사회적기업전공 석사 · 2020.02<br>GPA 4.3/4.5</div>
+        </div>
+        <div class="edu-row">
+          <div class="edu-school">숭실대학교 공과대학</div>
+          <div class="edu-detail">전기공학 학사 · 2017.02<br>경제학부 복수전공</div>
+        </div>
+        <div class="edu-row">
+          <div class="edu-school">한국폴리텍 광명</div>
+          <div class="edu-detail">증강현실 시스템제어 수료 · 2022.12</div>
+        </div>
+      </div>
+
+      <div>
+        <div class="sb-sec">Certifications</div>
+        <div class="cert-row">
+          <div class="cert-dot"></div>
+          <div>
+            <div class="cert-name">사회복지사 1급</div>
+            <div class="cert-org">보건복지부 · 2021.02</div>
+          </div>
+        </div>
+        <div class="cert-row">
+          <div class="cert-dot"></div>
+          <div>
+            <div class="cert-name">1종 대형 운전면허</div>
+            <div class="cert-org">경찰청 · 2019.02</div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="sb-sec">Skills</div>
+        <div class="sb-tag-wrap">
+          <span class="sb-tag hl">총무·행정</span>
+          <span class="sb-tag hl">문서 관리</span>
+          <span class="sb-tag hl">기한·일정 관리</span>
+          <span class="sb-tag hl">부서간 소통</span>
+          <span class="sb-tag">ERP 운용</span>
+          <span class="sb-tag">Excel/VBA</span>
+          <span class="sb-tag">SQL</span>
+          <span class="sb-tag">계약 관리</span>
+          <span class="sb-tag">AI Tools</span>
+          <span class="sb-tag">IT 인프라</span>
+          <span class="sb-tag">한글(HWP)</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- MAIN -->
+    <div class="main">
+
+      <!-- Professional Summary -->
+      <div style="background:#f0f5ff;border-left:3px solid var(--acc);padding:10px 14px;border-radius:0 3px 3px 0">
+        <p style="font-size:0.88rem;color:#2a2a2a;line-height:1.7;margin:0">사회적금융기관 경영지원 <strong>3년</strong>. 용역·공사·IT 입찰 <strong>10건+</strong> 풀사이클 수행(RFP 작성→공고→평가위원회 운영→계약 체결). 외주업체 <strong>8개사</strong> 계약·정산 총괄, ERP 도입 시 부서간 자료 취합·기한 관리 <strong>18개월</strong> 전담. 금융기관 특유의 민감 자료 처리 및 기한 준수 운영에 익숙한 실무자.</p>
+      </div>
+
+      <!-- 경력 -->
+      <div>
+        <div class="ms-sec">Work Experience</div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <span class="exp-co">(사)함께만드는세상 (사회연대은행)</span>
+            <span class="exp-period">2023.01 ~ 2026.02 · 3년 2개월</span>
+          </div>
+          <span class="exp-role">경영지원부 인프라지원팀 · 총무·IT지원 (대리)</span>
+          <ul class="exp-ul">
+            <li>용역·공사·IT시스템 <strong>입찰 10건+</strong> 풀사이클 단독 수행 — RFP 작성, 입찰공고 게시, 제안서 접수, 평가위원회 운영, 우선협상대상자 선정, 계약 체결 (공고문 담당자로 실명 게재)</li>
+            <li>외주업체 <strong>8개사</strong> 계약·정산 총괄 — 기한 기반 SLA 관리 및 연간 프로세스 표준화</li>
+            <li>커스텀 ERP 도입 실무 전담 (<strong>18개월</strong>) — 사업팀·회계팀·개발사 간 자료 취합·일정 조율·데이터 검수</li>
+            <li>인프라 예산 <strong>3.6억</strong> 직접 편성·집행·통제 (집행률 88.5%)</li>
+            <li>기안·품의·결의 등 전자결재 문서 작성 및 전결규정 운영</li>
+            <li>소방안전관리자 — 법정 안전점검 일정 조율 및 비상 인원편성</li>
+          </ul>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <span class="exp-co">(주)맨지온</span>
+            <span class="exp-period">2020.03 ~ 2021.11 · 1년 8개월</span>
+          </div>
+          <span class="exp-role">개발부 · 임베디드 시스템 개발 및 QA (대리)</span>
+          <ul class="exp-ul">
+            <li>ESP32 기반 IoT 프로토타입 — 센서 데이터 수집·분석 및 원격 모니터링 구축</li>
+            <li>데이터 로그 분석을 통한 시스템 장애 원인 규명 및 해결</li>
+          </ul>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <span class="exp-co">주식회사 엣지크로스</span>
+            <span class="exp-period">2016.05 ~ 2018.02 · 1년 9개월</span>
+          </div>
+          <span class="exp-role">기술연구소 · H/W 개발 및 자재 관리 (주임)</span>
+          <ul class="exp-ul">
+            <li>BOM 관리 체계화 및 생산 일정 조율 → 납기 준수율 100%</li>
+            <li>전자부품 입출고·재고 관리 및 협력사 자재 조달</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- KPI 그리드 -->
+      <div>
+        <div class="ms-sec">Key Performance</div>
+        <div class="kpi-grid">
+          <div class="kpi-card">
+            <div class="kpi-n">10+</div>
+            <div class="kpi-l">입찰 건<br>풀사이클</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-n">8개사</div>
+            <div class="kpi-l">외주업체<br>계약·정산</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-n">3.6억</div>
+            <div class="kpi-l">연간 예산<br>편성·집행</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-n">-30%</div>
+            <div class="kpi-l">유지보수<br>비용 절감</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 수상 -->
+      <div>
+        <div class="ms-sec">Award</div>
+        <div class="award-row">
+          <span class="award-icon">🏆</span>
+          <div>
+            <div class="award-name">2022 메타버스 콘텐츠 리크루팅 캠프 대상</div>
+            <div class="award-org">과학기술정보통신부 장관상 · 2022.09</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- ════ PAGE 2: COVER LETTER ════ -->
+<div class="page">
+  <div class="page-stripe"></div>
+
+  <div class="page-header">
+    <div>
+      <div class="hd-name">임종권<span style="color:var(--acc)">.</span></div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--muted);letter-spacing:.12em;text-transform:uppercase;margin-top:1px">Cover Letter · PA Operations Specialist</div>
+    </div>
+    <div style="text-align:right">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--muted);letter-spacing:.08em;text-transform:uppercase">토스뱅크 · 대관 운영</div>
+      <div style="font-size:0.78rem;color:var(--muted);margin-top:2px">ssujklim@gmail.com&ensp;|&ensp;010-4052-0834</div>
+    </div>
+  </div>
+
+  <div style="flex:1;padding:18px 22px;display:flex;flex-direction:column;justify-content:space-between;gap:14px">
+
+    <!-- WHY THIS ROLE -->
+    <div>
+      <div style="font-family:'Space Grotesk',sans-serif;font-size:0.65rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--acc);margin-bottom:8px">Why This Role</div>
+      <p style="font-size:0.88rem;color:#2a2a2a;line-height:2.0;border-left:2px solid var(--acc);padding-left:14px">
+        사회연대은행은 저신용·취약계층 대상 소액대출(여신)을 전문으로 하는 사회적금융기관입니다. 이곳에서 3년간 총무·IT 업무를 전담하며, <strong>금융기관 특유의 민감한 자료를 체계적으로 관리하고, 정해진 기한 안에 정확하게 제출하는 일</strong>을 일상적으로 수행해왔습니다. 특히 커스텀 ERP 도입 프로젝트에서 사업팀·회계팀·개발사 등 다수 부서로부터 자료를 취합하고, 데이터 형식을 검증하며, 마감일에 맞춰 DB 마이그레이션을 완료하는 과정은 CPC 업무의 핵심인 '자료 요청 접수 → 부서별 취합 → 형식 확인 → 기한 내 제출'과 본질적으로 같은 프로세스입니다. 금융 환경에서의 운영 경험을 토스뱅크 PA팀에서 확장하고 싶습니다.
+      </p>
+    </div>
+
+    <!-- RELEVANT EXPERIENCE -->
+    <div>
+      <div style="font-family:'Space Grotesk',sans-serif;font-size:0.65rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--acc);margin-bottom:10px">Relevant Experience</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+        <div style="background:#f0f5ff;border:1px solid #d0dfff;border-radius:3px;padding:10px 12px">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:var(--acc);letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px">자료 취합 · 기한 관리</div>
+          <p style="font-size:0.82rem;color:#333;line-height:1.65">ERP 도입 18개월간 부서별 요구사항·데이터·회계계정 정보를 취합하고, 개발사 일정에 맞춰 기한 내 검수·제출. 입찰 10건+ 제안서 접수·마감 관리.</p>
+        </div>
+        <div style="background:#f0f5ff;border:1px solid #d0dfff;border-radius:3px;padding:10px 12px">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:var(--acc);letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px">부서간 소통 · 행정 운영</div>
+          <p style="font-size:0.82rem;color:#333;line-height:1.65">외주 8개사 + 사업팀·회계팀·경영진 등 내부 부서와 일상적 소통. 기안·품의·결의 전자결재 문서 작성 및 전결규정 운영.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- CPC READINESS -->
+    <div>
+      <div style="font-family:'Space Grotesk',sans-serif;font-size:0.65rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--acc);margin-bottom:10px">CPC Readiness — 경험 매핑</div>
+      <table style="width:100%;border-collapse:collapse;font-size:0.82rem">
+        <thead>
+          <tr style="border-bottom:2px solid var(--acc)">
+            <th style="text-align:left;padding:6px 8px;font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--acc);letter-spacing:.08em">CPC 업무</th>
+            <th style="text-align:left;padding:6px 8px;font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--acc);letter-spacing:.08em">사회연대은행 경험</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom:1px solid var(--border)">
+            <td style="padding:7px 8px;color:#555">자료 요청 접수·관리</td>
+            <td style="padding:7px 8px;color:#333">입찰 제안서 접수, ERP 요구사항 접수, 법정점검 서류 접수</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border)">
+            <td style="padding:7px 8px;color:#555">부서별 자료 취합·일정 관리</td>
+            <td style="padding:7px 8px;color:#333">ERP 마이그레이션 — 사업·회계·IT 부서 데이터 취합, 개발 일정 조율</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border)">
+            <td style="padding:7px 8px;color:#555">형식 확인·누락 체크</td>
+            <td style="padding:7px 8px;color:#333">엑셀→DB 마이그레이션 데이터 검수, 입찰 제출서류 완전성 확인</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border)">
+            <td style="padding:7px 8px;color:#555">유관 부서 소통·업무 지원</td>
+            <td style="padding:7px 8px;color:#333">8개 외주업체 + 내부 전 부서 대상 계약·IT·시설 운영 지원</td>
+          </tr>
+          <tr>
+            <td style="padding:7px 8px;color:#555">행정·계약서 처리</td>
+            <td style="padding:7px 8px;color:#333">8개사 계약 체결·갱신, 전자결재 기안·품의·결의, 입찰 계약 체결</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ONBOARDING -->
+    <div>
+      <div style="font-family:'Space Grotesk',sans-serif;font-size:0.65rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--acc);margin-bottom:10px">Onboarding Plan</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px">
+        <div style="border:1px solid var(--border);border-radius:3px;padding:10px 10px">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:0.62rem;font-weight:600;color:var(--acc);letter-spacing:.08em;margin-bottom:5px">D+30 — LEARN</div>
+          <p style="font-size:0.78rem;color:#444;line-height:1.55">CPC 제도·프로세스 숙지. PA팀 업무 흐름 파악. 금융당국 자료 요청 패턴 학습. 유관 부서 담당자 매핑.</p>
+        </div>
+        <div style="border:1px solid var(--border);border-radius:3px;padding:10px 10px">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:0.62rem;font-weight:600;color:var(--acc);letter-spacing:.08em;margin-bottom:5px">D+90 — EXECUTE</div>
+          <p style="font-size:0.78rem;color:#444;line-height:1.55">CPC 자료 요청 독립 처리. 기한·진행상황 관리 체계 안정화. 팀 내 행정 업무(계약서·책무관리) 자립.</p>
+        </div>
+        <div style="border:1px solid var(--border);border-radius:3px;padding:10px 10px">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:0.62rem;font-weight:600;color:var(--acc);letter-spacing:.08em;margin-bottom:5px">D+180 — IMPROVE</div>
+          <p style="font-size:0.78rem;color:#444;line-height:1.55">자료 요청 이력 데이터화. 반복 패턴 파악→템플릿화. 취합 프로세스 효율화 제안.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- WHY TOSS BANK -->
+    <div>
+      <div style="font-family:'Space Grotesk',sans-serif;font-size:0.65rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--acc);margin-bottom:8px">Why Toss Bank</div>
+      <p style="font-size:0.85rem;color:#555;line-height:1.85">
+        사회연대은행이라는 금융기관에서 '혼자서 다 해야 하는' 환경을 경험하며, 체계를 만들고 프로세스를 돌리는 일에서 가장 큰 성취감을 느꼈습니다. 토스뱅크의 PA팀은 <span style="color:var(--acc);font-weight:600">금융당국과의 소통이라는 중요한 창구를 체계적으로 운영</span>하는 조직입니다. 정해진 기한을 지키고, 민감한 자료를 꼼꼼하게 관리하며, 여러 부서와 원활하게 소통하는 것 — 이것이 제가 3년간 가장 잘 해온 일입니다. 토스뱅크라는 성장하는 금융 플랫폼에서 이 역량을 발휘하고 싶습니다.
+      </p>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>

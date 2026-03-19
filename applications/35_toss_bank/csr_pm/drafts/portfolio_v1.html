@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>임종권 — CSR PM Portfolio</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --blue:#3182f6;--blue-light:rgba(49,130,246,.08);--blue-mid:rgba(49,130,246,.15);
+  --black:#191f28;--g700:#333d4b;--g500:#6b7684;--g400:#8b95a1;--g200:#e5e8eb;--g100:#f2f4f6;--white:#fff;
+}
+body{font-family:'Pretendard Variable',Pretendard,-apple-system,'Noto Sans KR',sans-serif;-webkit-font-smoothing:antialiased;background:#e5e8eb;display:flex;justify-content:center;padding:24px;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+@media print{body{background:none;padding:0}}
+
+/* ── A4 ── */
+.page{width:210mm;height:296mm;background:var(--white);display:flex;flex-direction:column;overflow:hidden}
+@page{size:A4;margin:0}
+@media print{.page{box-shadow:none}}
+@media screen{.page{box-shadow:0 2px 24px rgba(0,0,0,.1)}}
+
+/* ── Hero ── */
+.hero{background:var(--black);padding:22px 24px 18px;position:relative}
+.hero::after{content:'';position:absolute;bottom:0;left:24px;right:24px;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.08),transparent)}
+.hero-top{display:flex;justify-content:space-between;align-items:flex-end}
+.hero h1{font-size:22px;font-weight:700;color:#fff;letter-spacing:-.03em}
+.hero h1 .dot{color:var(--blue)}
+.hero .tag{font-size:12px;color:rgba(255,255,255,.45);margin-top:3px}
+.hero .contact{font-size:11px;color:rgba(255,255,255,.35);text-align:right;line-height:1.6}
+
+/* ── Content ── */
+.content{flex:1;padding:20px 24px;display:flex;flex-direction:column;gap:20px}
+.sec{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--g400);margin-bottom:6px}
+
+/* ── Stats ── */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.stat{background:var(--g100);border-radius:8px;padding:16px 8px;text-align:center}
+.stat-n{font-size:20px;font-weight:700;color:var(--blue);line-height:1;letter-spacing:-.02em}
+.stat-l{font-size:10px;color:var(--g500);margin-top:4px;line-height:1.3}
+
+/* ── Project Card ── */
+.pcard{background:var(--g100);border-radius:12px;padding:18px 20px}
+.pcard-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px}
+.pcard-title{font-size:14px;font-weight:700;color:var(--black)}
+.pcard-period{font-size:11px;color:var(--g400)}
+.pcard-tags{display:flex;gap:5px;margin-bottom:10px}
+.pcard-tag{font-size:10px;padding:2px 8px;background:var(--blue-mid);color:var(--blue);border-radius:6px;font-weight:600}
+.pcard-flow{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
+.flow-step{position:relative}
+.flow-label{font-size:10px;font-weight:700;color:var(--blue);margin-bottom:3px;letter-spacing:.04em}
+.flow-text{font-size:11.5px;color:var(--g700);line-height:1.65;word-break:keep-all}
+.flow-text b{color:var(--blue);font-weight:600}
+.pcard-result{margin-top:10px;display:flex;gap:6px;flex-wrap:wrap}
+.result-chip{font-size:10px;padding:3px 10px;background:var(--black);color:#fff;border-radius:6px;font-weight:600}
+
+/* ── Why Me ── */
+.why{background:var(--blue);border-radius:12px;padding:20px 24px}
+.why h3{font-size:10px;font-weight:700;color:rgba(255,255,255,.5);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px}
+.why-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+.why-item{text-align:center}
+.why-icon{font-size:20px;margin-bottom:4px}
+.why-label{font-size:12px;font-weight:700;color:#fff;margin-bottom:2px}
+.why-desc{font-size:10px;color:rgba(255,255,255,.6);line-height:1.5}
+
+/* ── QR Footer ── */
+.qr-footer{display:flex;align-items:center;justify-content:center;gap:14px;padding:16px 0;border-top:1px solid var(--g200);margin-top:auto}
+.qr-footer img{width:56px;height:56px;border-radius:4px}
+.qr-text{text-align:left}
+.qr-text .label{font-size:10px;color:var(--g400);margin-bottom:2px}
+.qr-text .url{font-size:12px;font-weight:600;color:var(--blue)}
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="hero-top">
+      <div>
+        <h1>임종권<span class="dot">.</span> Portfolio</h1>
+        <div class="tag">Project Manager (CSR) 지원 — 토스뱅크</div>
+      </div>
+      <div class="contact">ssujklim@gmail.com · 010-4052-0834<br>경기도 광명시</div>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <!-- Stats -->
+    <div>
+      <div class="sec">Performance Highlights</div>
+      <div class="stats">
+        <div class="stat"><div class="stat-n">3년</div><div class="stat-l">사회적금융기관<br>경영지원</div></div>
+        <div class="stat"><div class="stat-n">석사</div><div class="stat-l">사회적기업전공<br>사회복지대학원</div></div>
+        <div class="stat"><div class="stat-n">10건+</div><div class="stat-l">사업 용역<br>입찰 수행</div></div>
+        <div class="stat"><div class="stat-n">1급</div><div class="stat-l">사회복지사<br>자격 보유</div></div>
+      </div>
+    </div>
+
+    <!-- Project 1: CSR 사회적금융 시스템 구축 -->
+    <div>
+      <div class="sec">Key Project 1 — 사회적금융 시스템 구축</div>
+      <div class="pcard">
+        <div class="pcard-head">
+          <span class="pcard-title">ERP 도입 — 사회적금융 데이터 체계화</span>
+          <span class="pcard-period">2023.07 → 2024.12</span>
+        </div>
+        <div class="pcard-tags">
+          <span class="pcard-tag">단독 전담</span>
+          <span class="pcard-tag">사회적금융</span>
+          <span class="pcard-tag">18개월</span>
+        </div>
+        <div class="pcard-flow">
+          <div class="flow-step">
+            <div class="flow-label">배경 (WHY)</div>
+            <div class="flow-text">마이크로크레딧 기관. 여신·채무 엑셀 수기 관리 → <b>시스템 전환</b> 필요.</div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-label">실행 (HOW)</div>
+            <div class="flow-text">부서 요구사항 취합, 여신·채무 <b>계정 200개</b> 설계. DB 마이그레이션 검수.</div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-label">결과 (WHAT)</div>
+            <div class="flow-text"><b>사회적금융 데이터 관리 체계</b> 구축. 결산 2일 단축. 사회적 임팩트 측정 기반 마련.</div>
+          </div>
+        </div>
+        <div class="pcard-result">
+          <span class="result-chip">사회적금융 시스템 구축</span>
+          <span class="result-chip">계정 200개 설계</span>
+          <span class="result-chip">결산 -2일</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 2: 소상공인·청년 지원사업 운영 -->
+    <div>
+      <div class="sec">Key Project 2 — 소상공인·청년 지원사업 운영</div>
+      <div class="pcard">
+        <div class="pcard-head">
+          <span class="pcard-title">지원사업 용역 입찰·구매·운영 관리</span>
+          <span class="pcard-period">2023.01 → 2026.02</span>
+        </div>
+        <div class="pcard-tags">
+          <span class="pcard-tag">10건+ 입찰</span>
+          <span class="pcard-tag">소상공인·청년</span>
+          <span class="pcard-tag">사업부서 협업</span>
+        </div>
+        <div class="pcard-flow">
+          <div class="flow-step">
+            <div class="flow-label">배경 (WHY)</div>
+            <div class="flow-text">지원사업 용역 <b>구매·조달</b> 필요. 사업부서 산출물 기반 입찰 수행.</div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-label">실행 (HOW)</div>
+            <div class="flow-text">사업부서 협의 결과 기반 <b>RFP 작성→입찰→계약</b> 수행. 외주 8개사 정산·SLA 관리.</div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-label">결과 (WHAT)</div>
+            <div class="flow-text">지원사업 용역 <b>10건+ 입찰 완료</b>. 비용 30% 절감. 사업팀·회계팀 등 내부 부서 소통·조율.</div>
+          </div>
+        </div>
+        <div class="pcard-result">
+          <span class="result-chip">용역 입찰 10건+</span>
+          <span class="result-chip">비용 -30%</span>
+          <span class="result-chip">부서간 협업</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Why Me -->
+    <div>
+      <div class="why">
+        <h3>Why Me — CSR PM에 기여할 수 있는 이유</h3>
+        <div class="why-grid">
+          <div class="why-item">
+            <div class="why-icon">🌱</div>
+            <div class="why-label">사회문제 현장 이해</div>
+            <div class="why-desc">사회복지사 1급 보유<br>사회적금융기관 3년<br>취약계층 현장 감각</div>
+          </div>
+          <div class="why-item">
+            <div class="why-icon">📊</div>
+            <div class="why-label">프로젝트 기획·실행</div>
+            <div class="why-desc">ERP 도입 A to Z<br>용역 입찰 10건+<br>기획→실행→검수</div>
+          </div>
+          <div class="why-item">
+            <div class="why-icon">🤝</div>
+            <div class="why-label">이해관계자 조율</div>
+            <div class="why-desc">사업·회계·외주 8개사<br>부서간 소통·조율<br>예산 편성·집행</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- QR + URL -->
+    <div class="qr-footer">
+    <img src="https://api.qrserver.com/v1/create-qr-code/?size=112x112&data=https://iamsloth.github.io/portfolio/toss-csr-pm.html" alt="QR">
+    <div class="qr-text">
+      <div class="label">웹 포트폴리오에서 인터랙티브 버전 확인</div>
+      <div class="url">iamsloth.github.io/portfolio/toss-csr-pm.html</div>
+    </div>
+    </div>
+
+  </div>
+
+</div>
+
+</body>
+</html>

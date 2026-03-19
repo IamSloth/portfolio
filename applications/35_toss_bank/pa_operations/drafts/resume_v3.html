@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>임종권 — 토스뱅크 PA Operations Specialist 지원</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --blue:#3182f6;--blue-light:rgba(49,130,246,.08);--blue-mid:rgba(49,130,246,.15);
+  --black:#191f28;--g700:#333d4b;--g500:#6b7684;--g400:#8b95a1;--g200:#e5e8eb;--g100:#f2f4f6;--white:#fff;
+}
+body{font-family:'Pretendard Variable',Pretendard,-apple-system,'Noto Sans KR',sans-serif;-webkit-font-smoothing:antialiased;background:#e5e8eb;display:flex;flex-direction:column;align-items:center;gap:16px;padding:24px}
+@media print{body{background:none;padding:0;gap:0}}
+
+/* ── A4 ── */
+.page{width:210mm;min-height:296mm;background:var(--white);display:flex;flex-direction:column;overflow:hidden;page-break-after:always}
+@page{size:A4;margin:0}
+@media print{.page{box-shadow:none}}
+
+/* ── Header ── */
+.hdr{display:flex;justify-content:space-between;align-items:flex-end;padding:16px 20px 12px;border-bottom:1px solid var(--g200);flex-shrink:0}
+.hdr-name{font-size:22px;font-weight:700;color:var(--black);letter-spacing:-.03em}
+.hdr-name .dot{color:var(--blue)}
+.hdr-pos{font-size:14px;color:var(--g400);margin-top:2px}
+.hdr-r{text-align:right;font-size:13px;color:var(--g400);line-height:1.7}
+
+/* ── Body ── */
+.bd{display:flex;flex:1;overflow:hidden}
+
+/* ── Sidebar ── */
+.side{width:54mm;background:var(--black);color:#f0f0f0;padding:16px 14px;display:flex;flex-direction:column;gap:14px;flex-shrink:0}
+.s-photo{width:100%;aspect-ratio:1;border-radius:12px;overflow:hidden;border:2px solid rgba(255,255,255,.06)}
+.s-photo img{width:100%;height:100%;object-fit:cover}
+.s-sec{font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:6px;padding-bottom:5px;border-bottom:1px solid rgba(255,255,255,.06)}
+.s-row{margin-bottom:5px}
+.s-lbl{font-size:11px;color:rgba(255,255,255,.4);margin-bottom:1px}
+.s-val{font-size:14px;color:rgba(255,255,255,.88);line-height:1.4}
+.edu-item{margin-bottom:8px}
+.edu-nm{font-size:14px;font-weight:500;color:rgba(255,255,255,.88);line-height:1.3}
+.edu-sub{font-size:12px;color:rgba(255,255,255,.45);margin-top:1px}
+.cert-item{display:flex;align-items:center;gap:6px;margin-bottom:5px}
+.cert-dot{width:4px;height:4px;border-radius:50%;background:var(--blue);flex-shrink:0}
+.cert-nm{font-size:13px;color:rgba(255,255,255,.88)}
+.cert-org{font-size:11px;color:rgba(255,255,255,.4)}
+.tw{display:flex;flex-wrap:wrap;gap:4px}
+.tg{font-size:12px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);padding:3px 8px;border-radius:8px;color:rgba(255,255,255,.8)}
+.tg.hl{background:rgba(49,130,246,.2);border-color:rgba(49,130,246,.3);color:rgba(255,255,255,.95)}
+
+/* ── Main ── */
+.mn{flex:1;padding:24px 20px;display:flex;flex-direction:column;gap:28px;overflow:hidden}
+.sec{font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--g400);margin-bottom:8px}
+
+/* Summary */
+.sum{background:var(--g100);border-radius:12px;padding:18px 20px}
+.sum p{font-size:14px;color:var(--g700);line-height:1.75;word-break:keep-all}
+.sum b{color:var(--blue);font-weight:600}
+
+/* Experience */
+.exp{margin-bottom:20px}
+.exp:last-child{margin-bottom:0}
+.exp-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:2px}
+.exp-co{font-size:15px;font-weight:700;color:var(--black)}
+.exp-per{font-size:12px;color:var(--g400)}
+.exp-role{font-size:13px;color:var(--g500);margin-top:1px;margin-bottom:6px}
+.exp-ul{list-style:none;display:flex;flex-direction:column;gap:5px}
+.exp-ul li{font-size:14px;color:var(--g700);line-height:1.5;padding-left:14px;position:relative;word-break:keep-all}
+.exp-ul li::before{content:'—';position:absolute;left:0;color:var(--blue);font-size:11px;top:2px}
+.exp-ul li b{color:var(--blue);font-weight:600}
+
+/* KPI */
+.kpi{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.kpi-c{background:var(--g100);border-radius:8px;padding:16px 8px;text-align:center}
+.kpi-n{font-size:22px;font-weight:700;color:var(--blue);line-height:1;letter-spacing:-.02em}
+.kpi-l{font-size:11px;color:var(--g500);margin-top:4px;line-height:1.3}
+
+/* Award */
+.aw{display:flex;align-items:center;gap:8px;background:var(--g100);border-radius:8px;padding:12px 14px}
+.aw-nm{font-size:14px;font-weight:600;color:var(--black)}
+.aw-org{font-size:12px;color:var(--g400)}
+
+/* ══ PAGE 2 ══ */
+.p2{flex:1;padding:20px 20px;display:flex;flex-direction:column;gap:20px}
+
+/* Cards */
+.wcard{background:var(--g100);border-radius:12px;padding:16px 18px}
+.wcard p{font-size:14px;color:var(--g700);line-height:1.75;word-break:keep-all}
+.wcard b{color:var(--blue);font-weight:600}
+
+.two{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.icard{background:var(--g100);border-radius:12px;padding:12px 14px}
+.icard .ct{font-size:12px;font-weight:600;color:var(--blue);letter-spacing:.04em;margin-bottom:6px}
+.icard p{font-size:13px;color:var(--g700);line-height:1.65;word-break:keep-all}
+
+/* Table */
+.mt{width:100%;border-collapse:collapse}
+.mt thead tr{border-bottom:2px solid var(--blue)}
+.mt th{text-align:left;padding:6px 8px;font-size:12px;font-weight:600;color:var(--blue);letter-spacing:.04em}
+.mt td{padding:7px 8px;font-size:13px;border-bottom:1px solid var(--g200);word-break:keep-all}
+.mt td:first-child{color:var(--g500);width:35%}
+.mt td:last-child{color:var(--g700)}
+
+/* Onboarding */
+.ob{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.ob-c{background:var(--g100);border-radius:12px;padding:14px}
+.ob-ph{font-size:12px;font-weight:700;color:var(--blue);margin-bottom:4px}
+.ob-c p{font-size:12px;color:var(--g700);line-height:1.6;word-break:keep-all}
+
+/* Tag cloud */
+.tc{display:flex;flex-wrap:wrap;gap:5px}
+.ct-tag{font-size:12px;padding:4px 10px;border-radius:8px;font-weight:500}
+.ct-tag.hl{background:var(--blue-mid);color:var(--blue)}
+.ct-tag.rg{background:var(--g100);color:var(--g500)}
+
+/* Closing */
+.closing{border-top:1px solid var(--g200);padding-top:16px}
+.closing p{font-size:14px;color:var(--g500);line-height:1.75;word-break:keep-all}
+.closing b{color:var(--blue);font-weight:600}
+
+/* Footer */
+.foot{font-size:11px;color:var(--g400);text-align:right}
+</style>
+</head>
+<body>
+
+<!-- ════ PAGE 1: 이력서 ════ -->
+<div class="page">
+  <div class="hdr">
+    <div>
+      <div class="hdr-name">임종권<span class="dot">.</span></div>
+      <div class="hdr-pos">PA Operations Specialist (대관 운영) 지원</div>
+    </div>
+    <div class="hdr-r">
+      ssujklim@gmail.com&ensp;|&ensp;010-4052-0834<br>
+      경기도 광명시&ensp;|&ensp;iamsloth.github.io/portfolio/
+    </div>
+  </div>
+
+  <div class="bd">
+    <!-- SIDEBAR -->
+    <div class="side">
+      <div class="s-photo">
+        <img src="../../../../common/photos/profile.png" alt="프로필">
+      </div>
+
+      <div>
+        <div class="s-sec">Personal</div>
+        <div class="s-row"><div class="s-lbl">생년월일</div><div class="s-val">1992.01.04</div></div>
+        <div class="s-row"><div class="s-lbl">병역</div><div class="s-val">공군 병장 만기제대</div></div>
+      </div>
+
+      <div>
+        <div class="s-sec">Education</div>
+        <div class="edu-item">
+          <div class="edu-nm">숭실대 사회복지대학원</div>
+          <div class="edu-sub">사회적기업전공 석사 · 2020.02<br>GPA 4.3 / 4.5</div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-nm">숭실대 공과대학</div>
+          <div class="edu-sub">전기공학 학사 · 2017.02<br>경제학 복수전공</div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-nm">한국폴리텍 광명</div>
+          <div class="edu-sub">AR 시스템제어 수료 · 2022.12</div>
+        </div>
+      </div>
+
+      <div>
+        <div class="s-sec">Certifications</div>
+        <div class="cert-item">
+          <div class="cert-dot"></div>
+          <div><div class="cert-nm">사회복지사 1급</div><div class="cert-org">보건복지부 · 2021.02</div></div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-dot"></div>
+          <div><div class="cert-nm">1종 대형 운전면허</div><div class="cert-org">경찰청 · 2019.02</div></div>
+        </div>
+      </div>
+
+      <div>
+        <div class="s-sec">Skills</div>
+        <div class="tw">
+          <span class="tg hl">총무·행정</span>
+          <span class="tg hl">기한·일정관리</span>
+          <span class="tg hl">부서간 소통</span>
+          <span class="tg hl">문서 관리</span>
+          <span class="tg">ERP 운용</span>
+          <span class="tg">Excel/VBA</span>
+          <span class="tg">SQL</span>
+          <span class="tg">계약 관리</span>
+          <span class="tg">AI Tools</span>
+          <span class="tg">한글(HWP)</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAIN -->
+    <div class="mn">
+      <!-- Summary -->
+      <div>
+        <div class="sec">Professional Summary</div>
+        <div class="sum">
+          <p>사회적금융기관에서 <b>3년</b>간 총무·IT 1인 전담. CPC 핵심 프로세스(자료 요청→부서 취합→형식 검증→기한 내 제출)를 일상 수행. 입찰 <b>10건+</b> 풀사이클, 외주 <b>8개사</b> 계약 관리, ERP 도입 전담. 금융기관의 민감 자료를 정확하고 빠르게 처리하는 행정 실무자.</p>
+        </div>
+      </div>
+
+      <!-- Work Experience -->
+      <div>
+        <div class="sec">Work Experience</div>
+
+        <div class="exp">
+          <div class="exp-top">
+            <span class="exp-co">함께만드는세상 (사회연대은행)</span>
+            <span class="exp-per">2023.01 – 2026.02 · 3년 2개월</span>
+          </div>
+          <div class="exp-role">경영지원부 · 총무·IT지원 (대리)</div>
+          <ul class="exp-ul">
+            <li>입찰 <b>10건+</b> 풀사이클(RFP→평가→계약)</li>
+            <li>외주 <b>8개사</b> 계약서 처리·정산·SLA 관리</li>
+            <li>ERP 도입 <b>18개월</b> 전담 — 부서간 취합·검수</li>
+            <li>인프라 예산 <b>3.6억</b> 편성·집행 (88.5%)</li>
+            <li>전자결재 기안·품의 문서 작성·운영</li>
+            <li>소방안전관리 — 법정점검 일정 조율</li>
+          </ul>
+        </div>
+
+        <div class="exp">
+          <div class="exp-top">
+            <span class="exp-co">(주)맨지온</span>
+            <span class="exp-per">2020.03 – 2021.11 · 1년 8개월</span>
+          </div>
+          <div class="exp-role">개발부 · 임베디드 시스템 개발 및 QA (대리)</div>
+          <ul class="exp-ul">
+            <li>IoT 프로토타입 개발·원격 모니터링 구축</li>
+            <li>데이터 로그 분석→장애 원인 규명·해결</li>
+          </ul>
+        </div>
+
+        <div class="exp">
+          <div class="exp-top">
+            <span class="exp-co">주식회사 엣지크로스</span>
+            <span class="exp-per">2016.05 – 2018.02 · 1년 9개월</span>
+          </div>
+          <div class="exp-role">기술연구소 · H/W 개발 및 자재 관리 (주임)</div>
+          <ul class="exp-ul">
+            <li>BOM 관리 체계화 — 납기 준수율 <b>100%</b></li>
+            <li>전자부품 재고·조달 관리</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- KPI -->
+      <div>
+        <div class="sec">Key Performance</div>
+        <div class="kpi">
+          <div class="kpi-c"><div class="kpi-n">10+</div><div class="kpi-l">입찰 건<br>풀사이클</div></div>
+          <div class="kpi-c"><div class="kpi-n">8개사</div><div class="kpi-l">외주업체<br>계약·정산</div></div>
+          <div class="kpi-c"><div class="kpi-n">3.6억</div><div class="kpi-l">연간 예산<br>편성·집행</div></div>
+          <div class="kpi-c"><div class="kpi-n">-30%</div><div class="kpi-l">유지보수<br>비용 절감</div></div>
+        </div>
+      </div>
+
+      <!-- Award -->
+      <div>
+        <div class="sec">Award</div>
+        <div class="aw">
+          <span style="font-size:16px">🏆</span>
+          <div>
+            <div class="aw-nm">메타버스 콘텐츠 캠프 대상</div>
+            <div class="aw-org">과학기술정보통신부 · 2022</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- ════ PAGE 2: 경력기술서 ════ -->
+<div class="page">
+  <div class="hdr">
+    <div>
+      <div class="hdr-name">임종권<span class="dot">.</span></div>
+      <div class="hdr-pos" style="font-size:12px;letter-spacing:.04em;text-transform:uppercase">경력기술서 · PA Operations Specialist</div>
+    </div>
+    <div class="hdr-r">ssujklim@gmail.com&ensp;|&ensp;010-4052-0834</div>
+  </div>
+
+  <div class="p2">
+    <!-- Why This Role -->
+    <div>
+      <div class="sec">Why This Role</div>
+      <div class="wcard">
+        <p>사회연대은행은 저신용·취약계층 대상 소액대출(여신) 전문 사회적금융기관입니다. 이곳에서 3년간 총무·IT를 전담하며, <b>자료 요청 접수→부서별 취합→형식 확인→기한 내 제출</b>을 일상적으로 수행해왔습니다. 특히 ERP 도입 프로젝트에서 사업팀·회계팀·개발사 등 다수 부서의 자료를 취합·검증하고, 마감일에 맞춰 마이그레이션을 완료한 경험은 <b>CPC 업무의 핵심과 본질적으로 같은 프로세스</b>입니다. 금융기관에서의 행정 운영 경험을 토스뱅크 PA팀에서 확장하고 싶습니다.</p>
+      </div>
+    </div>
+
+    <!-- Relevant Experience -->
+    <div>
+      <div class="sec">Relevant Experience</div>
+      <div class="two">
+        <div class="icard">
+          <div class="ct">자료 취합 · 기한 관리</div>
+          <p>ERP 도입 18개월간 부서별 요구사항·데이터·회계정보 취합, 개발사 일정에 맞춰 기한 내 검수·제출. 입찰 10건+ 제안서 접수·마감 관리. 누락 점검 및 형식 확인 단독 수행.</p>
+        </div>
+        <div class="icard">
+          <div class="ct">부서간 소통 · 행정 운영</div>
+          <p>외주 8개사 + 사업팀·회계팀·경영진 등 내부 부서와 일상 커뮤니케이션. 기안·품의·결의 전자결재 문서 작성 및 전결규정 운영. 법정점검 일정 조율 포함.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- CPC Readiness -->
+    <div>
+      <div class="sec">CPC Readiness — 경험 매핑</div>
+      <table class="mt">
+        <thead><tr><th>CPC 업무</th><th>사회연대은행 경험</th></tr></thead>
+        <tbody>
+          <tr><td>자료 요청 접수·관리</td><td>입찰 제안서 접수, ERP 요구사항 접수, 법정점검 서류 관리</td></tr>
+          <tr><td>부서별 취합·일정 관리</td><td>ERP 마이그레이션 — 사업·회계·IT 데이터 취합, 일정 조율</td></tr>
+          <tr><td>형식 확인·누락 점검</td><td>엑셀→DB 마이그레이션 검수, 입찰 제출서류 완전성 확인</td></tr>
+          <tr><td>유관 부서 소통</td><td>8개 외주업체 + 내부 전 부서 계약·IT·시설 운영 지원</td></tr>
+          <tr><td>행정·계약서 처리</td><td>8개사 계약 체결·갱신, 전자결재, 입찰 계약 체결</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Core Competencies -->
+    <div>
+      <div class="sec">Core Competencies</div>
+      <div class="tc">
+        <span class="ct-tag hl">자료 취합·관리</span>
+        <span class="ct-tag hl">기한·일정 관리</span>
+        <span class="ct-tag hl">부서간 커뮤니케이션</span>
+        <span class="ct-tag hl">행정 운영</span>
+        <span class="ct-tag hl">계약서 처리</span>
+        <span class="ct-tag hl">형식 검증</span>
+        <span class="ct-tag rg">ERP 운용</span>
+        <span class="ct-tag rg">전자결재</span>
+        <span class="ct-tag rg">Excel/VBA</span>
+        <span class="ct-tag rg">SQL</span>
+        <span class="ct-tag rg">문서 관리</span>
+        <span class="ct-tag rg">프로세스 개선</span>
+      </div>
+    </div>
+
+    <!-- Onboarding Plan -->
+    <div>
+      <div class="sec">Onboarding Plan</div>
+      <div class="ob">
+        <div class="ob-c">
+          <div class="ob-ph">D+30 — Learn</div>
+          <p>CPC 제도·프로세스 숙지. PA팀 업무 흐름과 금융당국 자료 요청 패턴 학습. 유관 부서 담당자별 연락 체계 매핑.</p>
+        </div>
+        <div class="ob-c">
+          <div class="ob-ph">D+90 — Execute</div>
+          <p>CPC 자료 요청 독립 처리. 기한 관리 체계 안정화. 팀 내 행정 업무(계약·책무관리 점검) 자립.</p>
+        </div>
+        <div class="ob-c">
+          <div class="ob-ph">D+180 — Improve</div>
+          <p>자료 요청 이력 DB화. 반복 패턴→표준 템플릿 제작. 취합 프로세스 효율화 방안 제안.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Why Toss Bank -->
+    <div class="closing">
+      <div class="sec">Why Toss Bank</div>
+      <p>사회연대은행에서 '혼자서 다 해야 하는' 환경을 경험하며, 체계를 만들고 프로세스를 돌리는 일에서 성취감을 느꼈습니다. 토스뱅크 PA팀은 <b>금융당국과의 소통이라는 중요한 창구를 체계적으로 운영</b>하는 조직입니다. 정해진 기한을 지키고, 민감한 자료를 꼼꼼하게 관리하며, 여러 부서와 원활하게 소통하는 것 — 이것이 제가 3년간 가장 잘 해온 일이고, 토스뱅크에서 발휘하고 싶은 역량입니다.</p>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

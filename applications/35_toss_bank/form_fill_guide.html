@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>토스뱅크/토스증권 채용 폼 채움 가이드</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,'Noto Sans KR',sans-serif;background:#f5f5f5;padding:20px;max-width:800px;margin:0 auto}
+h1{font-size:1.4rem;margin-bottom:4px;color:#0064FF}
+.sub{font-size:.85rem;color:#888;margin-bottom:20px}
+.section{background:#fff;border-radius:8px;padding:16px;margin-bottom:12px;border:1px solid #e5e5e5}
+.section h2{font-size:1rem;color:#333;margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid #eee}
+.field{display:flex;align-items:center;gap:8px;margin-bottom:8px;padding:6px 0}
+.field-label{min-width:120px;font-size:.85rem;color:#666;flex-shrink:0}
+.field-value{flex:1;font-size:.9rem;color:#111;font-weight:500;padding:4px 8px;background:#f8f9fa;border-radius:4px;border:1px solid #e5e5e5}
+.copy-btn{background:#0064FF;color:#fff;border:none;padding:4px 10px;border-radius:4px;font-size:.75rem;cursor:pointer;flex-shrink:0}
+.copy-btn:hover{background:#0050cc}
+.copy-btn:active{background:#003d99}
+.note{font-size:.8rem;color:#888;margin-top:4px;padding-left:128px}
+.position-card{background:#f0f5ff;border:1px solid #d0dfff;border-radius:6px;padding:12px;margin-bottom:8px}
+.position-card h3{font-size:.95rem;color:#0064FF;margin-bottom:6px}
+.position-card p{font-size:.82rem;color:#555;line-height:1.5}
+.exp-block{background:#f8f9fa;border-radius:6px;padding:12px;margin-bottom:8px;border:1px solid #e5e5e5}
+.exp-block h4{font-size:.88rem;color:#333;margin-bottom:4px}
+.exp-block .meta{font-size:.8rem;color:#888}
+textarea{width:100%;min-height:60px;padding:8px;border:1px solid #e5e5e5;border-radius:4px;font-family:inherit;font-size:.85rem;resize:vertical}
+.full-copy{display:block;width:100%;background:#0064FF;color:#fff;border:none;padding:8px;border-radius:4px;font-size:.85rem;cursor:pointer;margin-top:8px}
+.full-copy:hover{background:#0050cc}
+.warn{background:#fff3cd;border:1px solid #ffc107;border-radius:4px;padding:8px 12px;font-size:.82rem;color:#856404;margin-bottom:12px}
+</style>
+<script>
+function cp(el){
+  const v=el.parentElement.querySelector('.field-value,.copy-area');
+  const t=v.tagName==='TEXTAREA'?v.value:v.textContent;
+  navigator.clipboard.writeText(t.trim());
+  el.textContent='✓';setTimeout(()=>el.textContent='복사',800);
+}
+</script>
+</head>
+<body>
+
+<h1>토스뱅크 / 토스증권 채용 폼 가이드</h1>
+<div class="sub">3개 포지션 공통 (동일 플랫폼) · 2026-03-19</div>
+
+<div class="warn">⚠️ 3개 포지션 각각 별도로 지원서를 제출해야 합니다. 이력서 PDF는 포지션별로 다릅니다!</div>
+
+<!-- 기본 정보 -->
+<div class="section">
+  <h2>기본 정보</h2>
+  <div class="field">
+    <span class="field-label">성</span>
+    <span class="field-value">임</span>
+    <button class="copy-btn" onclick="cp(this)">복사</button>
+  </div>
+  <div class="field">
+    <span class="field-label">이름</span>
+    <span class="field-value">종권</span>
+    <button class="copy-btn" onclick="cp(this)">복사</button>
+  </div>
+  <div class="field">
+    <span class="field-label">이메일</span>
+    <span class="field-value">ssujklim@gmail.com</span>
+    <button class="copy-btn" onclick="cp(this)">복사</button>
+  </div>
+  <div class="field">
+    <span class="field-label">전화번호</span>
+    <span class="field-value">010-4052-0834</span>
+    <button class="copy-btn" onclick="cp(this)">복사</button>
+  </div>
+  <div class="field">
+    <span class="field-label">해외 거주</span>
+    <span class="field-value">아니요 (체크 안 함)</span>
+  </div>
+</div>
+
+<!-- 포지션별 첨부파일 -->
+<div class="section">
+  <h2>포지션별 첨부파일</h2>
+
+  <div class="position-card">
+    <h3>35a. PA Operations Specialist (대관 운영) — 토스뱅크</h3>
+    <p>
+      📎 이력서: <strong>pa_operations/drafts/resume_v1.html → PDF 변환</strong><br>
+      📎 포트폴리오: 선택사항 (토스 포트폴리오 페이지 제작 시 첨부 또는 링크)<br>
+      📎 링크: 포트폴리오 URL (있으면)
+    </p>
+  </div>
+
+  <div class="position-card">
+    <h3>35b. Project Manager (CSR) — 토스뱅크</h3>
+    <p>
+      📎 이력서: <strong>csr_pm/drafts/resume_v1.html → PDF 변환</strong><br>
+      📎 포트폴리오: <strong style="color:#d63031">JD에서 필수 확인 명시</strong> — 토스 포트폴리오 페이지 첨부 권장<br>
+      📎 링크: 포트폴리오 URL
+    </p>
+  </div>
+
+  <div class="position-card">
+    <h3>35c. General Affairs Manager — 토스증권</h3>
+    <p>
+      📎 이력서: <strong>general_affairs/drafts/resume_v1.html → PDF 변환</strong><br>
+      📎 포트폴리오: 선택사항<br>
+      📎 링크: 포트폴리오 URL (있으면)
+    </p>
+  </div>
+</div>
+
+<!-- 경력 입력 -->
+<div class="section">
+  <h2>경력 (3개 공통)</h2>
+  <div class="field">
+    <span class="field-label">경력 구분</span>
+    <span class="field-value">경력 (신입 아님)</span>
+  </div>
+  <div class="field">
+    <span class="field-label">총 경력 기간</span>
+    <span class="field-value">6년 7개월</span>
+    <button class="copy-btn" onclick="cp(this)">복사</button>
+  </div>
+  <div class="note">엣지크로스(1년9개월) + 맨지온(1년8개월) + 함께만드는세상(3년2개월) = 약 6년 7개월</div>
+
+  <br>
+  <h3 style="font-size:.9rem;color:#555;margin-bottom:8px">업무 경험 (최근 순, 최대 5개)</h3>
+
+  <div class="exp-block">
+    <h4>1. (사)함께만드는세상</h4>
+    <div class="meta">
+      회사명: <strong>함께만드는세상</strong> · 직무명: <strong>총무·IT지원 (대리)</strong><br>
+      재직기간: <strong>2023년 1월 9일 ~ 2026년 2월 1일</strong>
+    </div>
+  </div>
+
+  <div class="exp-block">
+    <h4>2. (주)맨지온</h4>
+    <div class="meta">
+      회사명: <strong>맨지온</strong> · 직무명: <strong>임베디드 시스템 개발 및 QA (대리)</strong><br>
+      재직기간: <strong>2020년 3월 1일 ~ 2021년 11월 20일</strong>
+    </div>
+  </div>
+
+  <div class="exp-block">
+    <h4>3. 주식회사 엣지크로스</h4>
+    <div class="meta">
+      회사명: <strong>엣지크로스</strong> · 직무명: <strong>H/W 개발 및 자재 관리 (주임)</strong><br>
+      재직기간: <strong>2016년 5월 2일 ~ 2018년 2월 2일</strong>
+    </div>
+  </div>
+</div>
+
+<!-- 기타 -->
+<div class="section">
+  <h2>기타</h2>
+  <div class="field">
+    <span class="field-label">채용 공고 경로</span>
+    <span class="field-value">토스 채용 페이지</span>
+    <button class="copy-btn" onclick="cp(this)">복사</button>
+  </div>
+  <div class="field">
+    <span class="field-label">링크</span>
+    <span class="field-value">https://iamsloth.github.io/portfolio/</span>
+    <button class="copy-btn" onclick="cp(this)">복사</button>
+  </div>
+  <div class="field">
+    <span class="field-label">장애인 증빙</span>
+    <span class="field-value">해당 없음</span>
+  </div>
+  <div class="field">
+    <span class="field-label">보훈 증빙</span>
+    <span class="field-value">해당 없음</span>
+  </div>
+</div>
+
+<!-- 동의사항 -->
+<div class="section">
+  <h2>동의사항</h2>
+  <p style="font-size:.85rem;color:#555;line-height:1.6">
+    ✅ 필수: 개인정보 수집 및 이용 동의<br>
+    ✅ 선택: 개인정보 수집 및 이용 동의<br>
+    ✅ 선택: 민감정보 수집 및 이용 동의<br>
+    ✅ 선택: 추후 적합한 포지션 제안 동의 ← <strong>이거 꼭 체크</strong><br>
+    ✅ 선택: 채용정보 수신 동의
+  </p>
+</div>
+
+<!-- 제출 체크리스트 -->
+<div class="section">
+  <h2>제출 전 체크리스트</h2>
+  <p style="font-size:.85rem;color:#555;line-height:1.8">
+    □ PA Ops 이력서 PDF 변환 완료<br>
+    □ CSR PM 이력서 PDF 변환 완료<br>
+    □ GA Manager 이력서 PDF 변환 완료<br>
+    □ 포트폴리오 페이지/PDF 준비 (CSR은 필수)<br>
+    □ 3개 포지션 각각 폼 입력 + 제출<br>
+    □ 제출 후 strategy.md 상태 → 📤 SUBMITTED 업데이트
+  </p>
+</div>
+
+</body>
+</html>
