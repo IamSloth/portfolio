@@ -1,9 +1,9 @@
 ---
 company: 오스 주식회사
 position: 총무/자재관리 팀원
-status: 📋 DISCOVERED
+status: 📤 SUBMITTED
 discovered: 2026-03-16
-last_updated: 2026-03-16
+last_updated: 2026-03-19
 deadline: 채용시까지
 ---
 

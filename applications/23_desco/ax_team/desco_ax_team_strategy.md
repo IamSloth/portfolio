@@ -1,9 +1,9 @@
 ---
 company: 데스코
 position: 경영지원 / AX TEAM
-status: 📋 DISCOVERED
+status: 📤 SUBMITTED
 discovered: 2026-03-16
-last_updated: 2026-03-16
+last_updated: 2026-03-19
 deadline: 채용시까지
 ---
 

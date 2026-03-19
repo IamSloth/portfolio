@@ -1,8 +1,9 @@
 ---
 company: 카카오
 position: AI 데이터 라벨링 어시스턴트
-status: ✍️ PREPARING
+status: 📤 SUBMITTED
 discovered: 2026-03-18
+submitted: 2026-03-18
 last_updated: 2026-03-18
 ---
 
@@ -76,7 +77,7 @@ last_updated: 2026-03-18
 
 | 날짜 | 채널 | 문서 | 비고 |
 |------|------|------|------|
-| — | 카카오 채용 사이트 | 경력+프로젝트+자기소개+포트폴리오URL | 준비 중 |
+| 2026-03-18 | 카카오 채용 사이트 | 경력+프로젝트+자기소개+포트폴리오URL | 제출 완료 |
 
 ## 6. Timeline
 

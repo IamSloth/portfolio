@@ -9,7 +9,7 @@
 |-------|-------|
 | date | 2026-03-19 |
 | agent | Claude Opus 4.6 |
-| work | #32 한국투자증권 제출 + #33 빗썸 경영관리 서류 제작 |
+| work | #34 청년재단 전산·자산관리 제출 + #1-20 정리 |
 | commit | latest |
 
 ### 이번 세션 요약
@@ -26,18 +26,12 @@
 | # | Company | Position | Status | Priority TODO | Strategy Path |
 |---|---------|----------|--------|---------------|---------------|
 | 09 | Neople (넥슨) | Budget Management | **📞 INTERVIEW** | 1차면접 3/10 완료, 결과 대기. **1순위** | `09_neople/budget_management/` |
-| 10 | Mintrocket (넥슨) | HR General Affairs | **📤 SUBMITTED** | 넥슨 채용시스템 제출 완료 (2026-03-02). 결과 대기 | `10_mintrocket/hr_general_affairs/` |
-| 12 | 우아한형제들 (Woowa) | Robotics Ops | **📤 SUBMITTED** | 온라인 지원 완료 (2026-03-03). 12개월 계약직. 결과 대기 | `12_woowa/robotics_ops/` |
-| 14 | 함께하는사랑밭 | 행정·회계 및 사업관리 | **📤 SUBMITTED** | 이메일 제출 완료 (2026-03-04). 결과 대기 | `14_withgo/csr_admin/` |
-| 15 | 신한투자증권 (에이젝코리아 파견) | 사무보조 (Back Office) | **📤 SUBMITTED** | 사람인 온라인 제출 완료 (2026-03-05). 결과 대기 | `15_shinhan_invest/office_assistant/` |
-| 17 | 성공회대학교 | 학생복지처 일반직 | **📤 SUBMITTED** | 사람인 온라인 제출 완료 (2026-03-05). 결과 대기 | `17_sungkonghoe/student_welfare/` |
-| 18 | KASW (한국사회복지사협회) | 자격관리본부 | **📤 SUBMITTED** | 이메일 제출 완료. 결과 대기 | `18_kasw/cert_review/` |
 | 19 | 서울사회적경제센터 | SE 매니저 | **📤 SUBMITTED** | 사람인 제출 완료 (2026-03-08). 마감 3/19, 발표 3/20 | `19_seoul_se_center/se_manager/` |
 | 20 | 인덕원 게임사 (비공개) | Console QA | **📤 SUBMITTED** | 그린맨파워 이메일 제출 완료 (2026-03-16). 결과 대기 | `20_indeokwon_gameco/console_qa/` |
 | 21a | 네이버파이낸셜 | 대출비교 서비스 운영 | **📤 SUBMITTED** | 네이버 채용시스템 제출 완료 (2026-03-16). 결과 대기 | `21_naver_financial/loan_comparison_ops/` |
 | 21b | 네이버파이낸셜 | 정보보호 업무 운영 지원 | **📤 SUBMITTED** | 네이버 채용시스템 제출 완료 (2026-03-16). 결과 대기 | `21_naver_financial/privacy_protection_support/` |
-| 22 | 오스 주식회사 | 총무/자재관리 | **📋 DISCOVERED** | JD 분석 완료. 근무지 미확인. 상시채용 | `22_os_corporation/general_affairs_materials/` |
-| 23 | 데스코 (DESCO) | 경영지원/AX TEAM | **📋 DISCOVERED** | JD 분석 완료. **광명 근무**. 6개월 계약(정규직 전환 가능). 상시채용 | `23_desco/ax_team/` |
+| 22 | 오스 주식회사 | 총무/자재관리 | **📤 SUBMITTED** | 제출 완료. 응답 없음. 상시채용 | `22_os_corporation/general_affairs_materials/` |
+| 23 | 데스코 (DESCO) | 경영지원/AX TEAM | **📤 SUBMITTED** | 제출 완료. 응답 없음. 광명 근무. 6개월 계약. 상시채용 | `23_desco/ax_team/` |
 | 24 | 엔씨소프트 (NCsoft) | 사내 복지시설 운영 (Workplace Motivation) | **📤 SUBMITTED** | 서류 제출 완료. 전용 포트폴리오 페이지 배포. 마감 5/12 | `24_ncsoft/workplace_motivation/` |
 | 24 | 엔씨소프트 (NCsoft) | 3D스캔 어시스턴트 | **📤 SUBMITTED** | 제출 완료 (2026-03-17). 마감 4/3. 결과 대기 | `24_ncsoft/3d_scan_assistant/` |
 | 24 | 엔씨소프트 (NCsoft) | 서비스 기획/운영 어시스턴트 | **📤 SUBMITTED** | 제출 완료 (2026-03-17). 마감 3/25. 결과 대기 | `24_ncsoft/service_planning_assistant/` |
@@ -51,7 +45,8 @@
 | 31 | 크리에이티브멋 | 총무 | **📤 SUBMITTED** | 사람인 제출 완료 (2026-03-19). 상시채용. 포폴: creative-mot.html | `31_creative_mot/general_affairs/` |
 | 32 | 한국투자증권 | 사무보조 (전문직급) | **📤 SUBMITTED** | 채용포털 제출 완료 (2026-03-19). 전문계약직 1년단위, 여의도 본사. 마감 3/26 | `32_korea_investment/office_assistant/` |
 | 33 | 빗썸 (Bithumb) | 경영관리 담당자 | **📤 SUBMITTED** | 나인하이어 제출 완료 (2026-03-19). 정규직 5-10년. 상시채용. 포폴: bithumb.html | `33_bithumb/management_admin/` |
-| 03 | 11st | General Affairs | **⏸️ ON_HOLD** | 지원 안 함 (보류 유지) | `03_11st/general_affairs/` |
+| 34 | 청년재단 | 전산·자산관리 (코드 A) | **📤 SUBMITTED** | 인크루트 제출 완료 (2026-03-19). 정규직, 경력3년+. 마감 3/30. **Strong Go** | `34_youth_foundation/it_asset_management/` |
+| 03 | 11st | General Affairs | **⏸️ ON_HOLD** | 지원 안 함 (보류 → 미지원 확정) | `03_11st/general_affairs/` |
 
 ### Closed Applications
 
@@ -69,6 +64,12 @@
 | 13 | 동양미래대학교 | 일학습병행사업 관리 및 운영 | ❌ REJECTED | 면접 불합격 |
 | 11 | Netmarble Foundation | CSR | ❌ REJECTED | 서류전형 불합격 (2026-03-18) |
 | 16 | 이크래더블 (아이위더스 파견) | TCB 보고서 작성 | ❌ REJECTED | 1차면접 불합격. 5분 면접 + "다른 곳도 보고 있다" 발언 |
+| 10 | Mintrocket (넥슨) | HR General Affairs | ❌ NO_RESPONSE | 넥슨 채용시스템 제출 (2026-03-02). 17일 무응답 |
+| 12 | 우아한형제들 (Woowa) | Robotics Ops | ❌ REJECTED | 서류전형 불합격 (2026-03-19) |
+| 14 | 함께하는사랑밭 | 행정·회계 및 사업관리 | ❌ NO_RESPONSE | 이메일 제출 (2026-03-04). 15일 무응답 |
+| 15 | 신한투자증권 (에이젝코리아 파견) | 사무보조 (Back Office) | ❌ NO_RESPONSE | 사람인 제출 (2026-03-05). 14일 무응답 |
+| 17 | 성공회대학교 | 학생복지처 일반직 | ❌ NO_RESPONSE | 사람인 제출 (2026-03-05). 14일 무응답 |
+| 18 | KASW (한국사회복지사협회) | 자격관리본부 | ❌ REJECTED | 서류전형 불합격 |
 
 ## Pending Decisions
 - **Side business (인간지능)**: On hiatus. VAT zero-filing done. Resume when business restarts.

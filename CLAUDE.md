@@ -22,37 +22,17 @@
 ### 📂 폴더 구조
 
 ```
-Job-Application-Pipeline-Desktop/
-├── AI_CONTEXT.md                    # 멀티AI 공동작업 대시보드 (세션 핸드오프)
-├── common/                          # 공통 자산 금고
-│   ├── photos/                      # 프로필 사진, 프로젝트 이미지
-│   ├── evidence/                    # 범용 증거 (자격증 등)
-│   └── snippets/                    # 재사용 텍스트 블록 (자소서 문단 등)
-├── content/                         # Single Source of Truth
-│   ├── profile.json                 # 경력 데이터
-│   ├── personal_profile.md          # 개인 성향/커뮤니케이션 가이드
-│   └── data.json                    # 보조 데이터 (현재 미사용, 확장용)
-├── applications/                    # 기업별 지원 기록 ({NN}_{company} 넘버링)
-│   └── {NN}_{company}/              # 예: 01_seoul_heroes/, 04_smilegate/
-│       └── {position}/              # 예: accounting/, crossfire_test_engineer/
-│           ├── {company}_{position}_strategy.md  # 메인 허브 (JD 분석 포함)
-│           ├── artifacts/           # 증거자료 + 채용공고 원본 (이미지 등)
-│           ├── drafts/              # 작업 중간본
-│           └── final/               # 최종 제출물
-├── docs/                            # 웹 포트폴리오 소스 (→ IamSloth/portfolio로 subtree push)
-│   ├── index.html                   # 메인 페이지 (KO/EN 이중언어, 다크모드)
-│   ├── style.css                    # 스타일시트
-│   ├── lang.js                      # 언어/테마 토글
-│   └── assets/                      # 이미지 (profile, projects)
-├── vault/                           # 비공개 문서 아카이브 (제출물 백업, public repo 미포함)
-│   └── x7k9m2p4/                    # 난독화 경로
-├── templates/                       # 문서 템플릿
-│   └── resumes/
-├── manual/                          # 운영 문서
-│   └── NARRATIVE_STRATEGY.md        # 셀링 전략
-├── AI_CONTEXT.md                    # 멀티AI 세션 핸드오프 대시보드
-├── README.md
-└── CLAUDE.md
+├── AI_CONTEXT.md          # 세션 핸드오프 대시보드 (필수 읽기)
+├── content/profile.json   # 경력 Single Source of Truth
+├── content/personal_profile.md
+├── applications/{NN}_{company}/{position}/
+│   ├── {company}_{position}_strategy.md
+│   ├── artifacts/  drafts/  final/
+├── docs/                  # 웹 포트폴리오 (→ IamSloth/portfolio subtree)
+├── common/photos|evidence|snippets/
+├── vault/                 # 비공개 아카이브
+├── templates/resumes/
+└── manual/NARRATIVE_STRATEGY.md
 ```
 
 ---
@@ -81,56 +61,16 @@ Job-Application-Pipeline-Desktop/
 5. **작업 시작**: 참조 문서 복사 → `drafts/{doctype}_v1.html`
 6. **반복**: v1 → v2 → ... → 완성 시 `final/{doctype}_{YYMMDD}.html`로 이동
 
-### ⛔ STOP — 실행 전 필수 체크리스트 (Execution Gate)
+### ⛔ Execution Gate — 파일 생성 전 필수 체크
 
-> **CRITICAL**: 폴더/파일 생성 전 반드시 아래 항목을 확인하라. 이해했다고 넘어가지 말고, 실제로 체크하라.
+> **CRITICAL**: 회사명 불명확 시 추측 금지 → User에게 질문.
 
-```
-┌─────────────────────────────────────────────────────────────────┐
-│  BEFORE YOU CREATE ANY FILE, VERIFY ALL ITEMS BELOW:            │
-├─────────────────────────────────────────────────────────────────┤
-│  □ 1. COMPANY NAME CONFIRMED?                                   │
-│     - If unknown, ASK USER first. Do NOT guess.                 │
-│     - 회사명 불명확 시 User에게 질문. 추측 금지.                   │
-│                                                                 │
-│  □ 2. FOLDER PATH CORRECT?                                      │
-│     - Pattern: applications/{company}/{position}/               │
-│     - ❌ WRONG: applications/sports_service/operation/          │
-│     - ✅ RIGHT: applications/tving/sports_ops/                  │
-│                                                                 │
-│  □ 3. STRATEGY.MD FILENAME CORRECT?                             │
-│     - Pattern: {company}_{position}_strategy.md                 │
-│     - ❌ WRONG: strategy.md, application_strategy.md            │
-│     - ✅ RIGHT: tving_sports_ops_strategy.md                    │
-│                                                                 │
-│  □ 4. STRATEGY.MD HAS ALL 7 SECTIONS?                           │
-│     - #1 JD Analysis                                            │
-│     - #2 Fit Analysis                                           │
-│     - #3 Go/No-Go                                               │
-│     - #4 Positioning                                            │
-│     - #5 Submission Log                                         │
-│     - #6 Timeline                                               │
-│     - #7 Interview Prep (add when DOC_PASSED)                   │
-│                                                                 │
-│  □ 5. JD SAVED TO ARTIFACTS?                                    │
-│     - Location: artifacts/jd_YYMMDD.md                          │
-│     - 오늘 날짜 기준 YYMMDD 형식                                   │
-│                                                                 │
-│  □ 6. DEADLINE RECORDED IN TIMELINE?                            │
-│     - 마감일을 #6 Timeline 섹션에 반드시 기록                       │
-│                                                                 │
-│  □ 7. FRONTMATTER COMPLETE?                                     │
-│     - company, position, status, discovered, last_updated       │
-│     - status 초기값: 📋 DISCOVERED                               │
-└─────────────────────────────────────────────────────────────────┘
-```
-
-**Common Mistakes to Avoid:**
-- ❌ Using job category as company name (e.g., "sports_service" is NOT a company)
-- ❌ Creating `strategy.md` without `{company}_{position}_` prefix
-- ❌ Skipping JD save step
-- ❌ Forgetting deadline in Timeline section
-- ❌ Using custom section structure instead of the 7-section template
+1. 🚫 회사명 추측 금지 → 확인 후 `applications/{NN}_{company}/{position}/` 생성
+2. 🚫 `strategy.md` 단독 파일명 금지 → `{company}_{position}_strategy.md` 필수
+3. 🚫 7섹션 누락 금지 → #1 JD ~ #7 Interview Prep 전부 포함
+4. 🚫 JD 미저장 금지 → `artifacts/jd_YYMMDD.md`
+5. 🚫 마감일 누락 금지 → #6 Timeline에 기록
+6. 🚫 frontmatter 누락 금지 → company, position, status(📋 DISCOVERED), discovered, last_updated
 
 ---
 
@@ -151,65 +91,13 @@ Task tool로 서브에이전트 실행 시, 작업 난이도에 따라 모델을
 
 ---
 
-### 📛 파일명 규칙
+### 📛 파일명 + 상태 코드
 
-**기본 원칙**
-- 언어: **영문**
-- 케이스: **snake_case**
-- 날짜: **YYMMDD**
-- 버전: **_v1, _v2**
+> 상세 규칙은 `.claude/rules/naming-conventions.md`에 분리됨 (applications/** 작업 시 자동 로드)
 
-**폴더별 규칙**
-
-| 폴더 | 패턴 | 예시 |
-|------|------|------|
-| `artifacts/` | `{type}_{desc}.{ext}` | `evidence_scoreboard.png`, `jd_260115.pdf` |
-| `drafts/` | `{doctype}_v{n}.{ext}` | `resume_v1.pdf` |
-| `final/` | `{doctype}_{YYMMDD}.{ext}` (관리용) | `application_260127.html` |
-| `final/` (제출용) | `{이름}_지원서_{회사명}.pdf` **(한국어)** | `임종권_지원서_데스코.pdf` |
-
-**Document Types**: `resume`, `coverletter`, `essay`, `application`, `portfolio`, `interview_prep`
-
-> **제출용 PDF 파일명**: 채용담당자가 받는 파일이므로 **한국어**로 `{이름}_지원서_{회사명}.pdf` 형식. 관리용 HTML은 기존 영문 규칙 유지.
-
-**Company 폴더 넘버링**
-- 채용공고 발견 날짜순으로 `{NN}_{company}` 형식 (01부터 시작)
-- 신규 지원 시 마지막 번호 +1 부여
-- 예: `01_seoul_heroes`, `06_sk_energy`, `07_next_company`
-
-**Company/Position 네이밍 규칙**
-
-| 항목 | 규칙 | 예시 |
-|------|------|------|
-| **Company** | 공식 영문명 소문자, 띄어쓰기→없음 | `kiwoom`, `smilegate`, `11st` |
-| **Position** | JD 제목 기준, 2~4단어 snake_case | `accounting`, `backend_developer` |
-| **프로젝트 특정** | `{project}_{role}` | `crossfire_test_engineer`, `hope_studio_csr_platform_pm` |
-| **그룹사/부서** | 상위 조직 포함 | `smilegate/group_it_procurement` |
-
-**예시 변환:**
-- "카카오 백엔드 개발자" → `applications/07_kakao/backend_developer/`
-- "네이버 PM" → `applications/08_naver/pm/`
-- "스마일게이트 크로스파이어 QA" → `applications/04_smilegate/crossfire_qa/`
-- "우아한형제들 QA(Test Engineer)" → `applications/09_woowa/qa_test_engineer/`
-- "11번가 총무" → `applications/03_11st/general_affairs/`
-
----
-
-### 🏷️ 상태 코드
-
-| 코드 | 이모지 | 설명 |
-|------|--------|------|
-| DISCOVERED | 📋 | 공고 발견 |
-| ANALYZING | 📊 | JD 분석 중 |
-| PREPARING | ✍️ | 서류 작성 중 |
-| ON_HOLD | ⏸️ | 서류 준비 완료, 제출 보류 (strategy.md에 사유 기록) |
-| SUBMITTED | 📤 | 제출 완료 |
-| DOC_PASSED | 📬 | 서류 통과 |
-| INTERVIEW | 📞 | 면접 진행 |
-| FINAL | 🎯 | 최종 면접 |
-| ACCEPTED | ✅ | 합격 |
-| REJECTED | ❌ | 불합격 |
-| ARCHIVED | 🗄️ | 회고 완료 |
+- 영문 snake_case, 날짜 YYMMDD, 버전 _v1/_v2
+- 제출용 PDF만 한국어: `임종권_지원서_{회사명}.pdf`
+- Company 넘버링: `{NN}_{company}` (AI_CONTEXT.md에서 다음 번호 확인)
 
 ### 📂 분산 규칙 (.claude/rules/)
 
@@ -217,6 +105,7 @@ Task tool로 서브에이전트 실행 시, 작업 난이도에 따라 모델을
 
 | 규칙 파일 | 내용 | 로드 조건 |
 |----------|------|----------|
+| `naming-conventions.md` | 파일명 규칙 + 상태 코드 | `applications/**` |
 | `analyze-guide.md` | ANALYZE 상세 가이드 + 템플릿 레지스트리 | `applications/**/*strategy*.md` |
 | `interview-prep.md` | 면접 준비 워크플로우 | `applications/**/drafts/interview_prep*.md` |
 | `profile-sync.md` | profile.json 동기화 규칙 | `content/profile.json` |

@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>청년재단 전산·자산관리 [A] — 폼 채움 가이드</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Noto Sans KR',sans-serif;background:#f5f5f5;padding:20px;max-width:900px;margin:0 auto}
+h1{font-size:20px;margin-bottom:8px}
+h2{font-size:16px;margin:24px 0 12px;padding:8px 12px;background:#1a1a1a;color:#fff;border-radius:4px}
+h3{font-size:13px;margin:16px 0 8px;color:#333;border-bottom:1px solid #ddd;padding-bottom:4px}
+.field{display:flex;align-items:center;gap:8px;margin:6px 0;flex-wrap:wrap}
+.field label{min-width:140px;font-size:12px;font-weight:600;color:#555}
+.field .val{background:#fff;border:1px solid #ddd;padding:6px 10px;border-radius:4px;font-size:13px;flex:1;min-width:200px}
+.copy-btn{background:#1a1a1a;color:#fff;border:none;padding:4px 10px;border-radius:3px;font-size:11px;cursor:pointer;white-space:nowrap}
+.copy-btn:hover{background:#444}
+.copy-btn.copied{background:#2e7d32}
+.essay-box{margin:8px 0 16px}
+.essay-box textarea{width:100%;min-height:200px;padding:12px;font-size:13px;line-height:1.8;border:1px solid #ddd;border-radius:4px;resize:vertical;font-family:inherit}
+.char-count{font-size:11px;color:#999;margin-top:4px;text-align:right}
+.char-count.over{color:#d32f2f;font-weight:700}
+.note{font-size:11px;color:#d32f2f;margin:4px 0;padding:4px 8px;background:#fff3f3;border-radius:3px}
+.info{font-size:11px;color:#1565c0;margin:4px 0;padding:4px 8px;background:#e3f2fd;border-radius:3px}
+.section{background:#fff;padding:16px;border-radius:6px;margin:12px 0;border:1px solid #eee}
+table{width:100%;border-collapse:collapse;font-size:12px;margin:8px 0}
+td{padding:4px 8px;border:1px solid #eee}
+td:first-child{font-weight:600;width:140px;background:#fafafa}
+</style>
+</head>
+<body>
+
+<h1>청년재단 전산·자산관리 [A] — 폼 채움 가이드 v1</h1>
+<p style="font-size:12px;color:#777">인크루트 채용사이트 입력용. 각 항목의 [복사] 버튼 클릭 후 붙여넣기.</p>
+<div class="note">⚠️ 블라인드 채용: 자소서에 이름/나이/학교명/출신지역/가족관계 절대 기재 금지. 대학교 → "OO대학교"로 처리.</div>
+
+<!-- ═══════════════════════════════════════ -->
+<h2>1. 기본인적사항</h2>
+<div class="section">
+<div class="field"><label>성명</label><span class="val">임종권</span><button class="copy-btn" onclick="cp(this,'임종권')">복사</button></div>
+<div class="field"><label>한자</label><span class="val">林鐘權</span><button class="copy-btn" onclick="cp(this,'林鐘權')">복사</button></div>
+<div class="field"><label>영문</label><span class="val">Lim Jong Kwon</span><button class="copy-btn" onclick="cp(this,'Lim Jong Kwon')">복사</button></div>
+<div class="field"><label>생년월일</label><span class="val">1992-01-04</span><button class="copy-btn" onclick="cp(this,'19920104')">복사(숫자)</button></div>
+<div class="field"><label>주소</label><span class="val">경기도 광명시 도덕로 79 (광명동, 상우1차아파트)</span><button class="copy-btn" onclick="cp(this,'경기도 광명시 도덕로 79')">복사</button></div>
+<div class="field"><label>상세주소</label><span class="val">1405호</span><button class="copy-btn" onclick="cp(this,'1405호')">복사</button></div>
+<div class="field"><label>E-mail</label><span class="val">ssujklim@gmail.com</span><button class="copy-btn" onclick="cp(this,'ssujklim@gmail.com')">복사</button></div>
+<div class="field"><label>휴대폰</label><span class="val">010-4052-0834</span><button class="copy-btn" onclick="cp(this,'010-4052-0834')">복사</button></div>
+<div class="field"><label>비상연락처</label><span class="val" style="color:#d32f2f">직접 입력 (가족 연락처)</span></div>
+<div class="field"><label>보훈 대상여부</label><span class="val">비대상</span></div>
+<div class="field"><label>장애 대상여부</label><span class="val">비대상</span></div>
+<div class="field"><label>전공명</label><span class="val">전기공학 / 사회적기업전공(석사)</span><button class="copy-btn" onclick="cp(this,'전기공학 / 사회적기업전공(석사)')">복사</button></div>
+<div class="field"><label>복수전공</label><span class="val">경제학</span><button class="copy-btn" onclick="cp(this,'경제학')">복사</button></div>
+<div class="field"><label>부전공</label><span class="val">없음</span></div>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<h2>2. 병역사항</h2>
+<div class="section">
+<table>
+<tr><td>병역코드</td><td>필 (군필)</td></tr>
+<tr><td>기간</td><td>2010-07-26 ~ 2012-08-02</td></tr>
+<tr><td>군별</td><td>공군</td></tr>
+<tr><td>병과</td><td>정비 (방공포정비)</td></tr>
+<tr><td>계급</td><td>병장</td></tr>
+<tr><td>전역사유</td><td>만기전역</td></tr>
+</table>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<h2>3. 직업교육</h2>
+<div class="section">
+<table>
+<tr><td>이수기관</td><td>한국폴리텍 광명융합기술교육원</td></tr>
+<tr><td>교육명</td><td>증강현실(AR) 시스템제어</td></tr>
+<tr><td>교육 이수시간</td><td>960시간 (6개월)</td></tr>
+<tr><td>교육내용</td><td>Unity 3D/C# 기반 AR 콘텐츠 개발, 3D 모델링, 시스템 제어</td></tr>
+</table>
+<button class="copy-btn" onclick="cp(this,'한국폴리텍 광명융합기술교육원')">기관명 복사</button>
+<button class="copy-btn" onclick="cp(this,'증강현실(AR) 시스템제어')">교육명 복사</button>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<h2>4. 자격증</h2>
+<div class="section">
+<div class="info">ℹ️ "직무와 유관한 자격증" 기재 — 사회복지사 1급은 직접 유관은 아니나 청년재단 조직 특성상 기재 권장</div>
+<table>
+<tr><td>자격증</td><td>사회복지사 1급</td></tr>
+<tr><td>자격번호</td><td>제 1-165239 호</td></tr>
+<tr><td>발급기관</td><td>보건복지부</td></tr>
+<tr><td>발급일</td><td>2021-02-04</td></tr>
+</table>
+<button class="copy-btn" onclick="cp(this,'사회복지사 1급')">자격증명 복사</button>
+<button class="copy-btn" onclick="cp(this,'제 1-165239 호')">자격번호 복사</button>
+<button class="copy-btn" onclick="cp(this,'보건복지부')">발급기관 복사</button>
+<button class="copy-btn" onclick="cp(this,'20210204')">발급일 복사</button>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<h2>5. 경력사항</h2>
+<div class="section">
+
+<h3>경력 1 — (사)함께만드는세상</h3>
+<table>
+<tr><td>기관명</td><td>(사)함께만드는세상</td></tr>
+<tr><td>기간</td><td>2023-01-09 ~ 2026-02-01</td></tr>
+<tr><td>재직여부</td><td>퇴직</td></tr>
+<tr><td>경력구분</td><td>정규직</td></tr>
+<tr><td>근무부서</td><td>경영지원부 인프라지원팀</td></tr>
+<tr><td>직위</td><td>대리</td></tr>
+<tr><td>업무</td><td>ERP 도입·운영, PC·네트워크·정보보안 관리, IT자산관리, 시설운영, 외주업체 계약·정산 관리, 인프라 예산 편성·집행(연 3.6억)</td></tr>
+<tr><td>사직사유</td><td>일신상의 사유</td></tr>
+</table>
+<button class="copy-btn" onclick="cp(this,'(사)함께만드는세상')">기관명 복사</button>
+<button class="copy-btn" onclick="cp(this,'경영지원부 인프라지원팀')">부서 복사</button>
+<button class="copy-btn" onclick="cp(this,'ERP 도입·운영, PC·네트워크·정보보안 관리, IT자산관리, 시설운영, 외주업체 계약·정산 관리, 인프라 예산 편성·집행(연 3.6억)')">업무 복사</button>
+
+<h3>경력 2 — (주)맨지온</h3>
+<table>
+<tr><td>기관명</td><td>(주)맨지온</td></tr>
+<tr><td>기간</td><td>2020-03-01 ~ 2021-11-20</td></tr>
+<tr><td>재직여부</td><td>퇴직</td></tr>
+<tr><td>경력구분</td><td>정규직</td></tr>
+<tr><td>근무부서</td><td>개발부</td></tr>
+<tr><td>직위</td><td>대리</td></tr>
+<tr><td>업무</td><td>ESP32 기반 IoT 시스템 개발, 센서 데이터 원격 모니터링 시스템 구축, 통신 장애 분석·해결, QA 리드</td></tr>
+<tr><td>사직사유</td><td>일신상의 사유</td></tr>
+</table>
+<button class="copy-btn" onclick="cp(this,'(주)맨지온')">기관명 복사</button>
+<button class="copy-btn" onclick="cp(this,'ESP32 기반 IoT 시스템 개발, 센서 데이터 원격 모니터링 시스템 구축, 통신 장애 분석·해결, QA 리드')">업무 복사</button>
+
+<h3>경력 3 — 주식회사 엣지크로스</h3>
+<table>
+<tr><td>기관명</td><td>주식회사 엣지크로스</td></tr>
+<tr><td>기간</td><td>2016-05-02 ~ 2018-02-02</td></tr>
+<tr><td>재직여부</td><td>퇴직</td></tr>
+<tr><td>경력구분</td><td>정규직</td></tr>
+<tr><td>근무부서</td><td>기술연구소</td></tr>
+<tr><td>직위</td><td>주임</td></tr>
+<tr><td>업무</td><td>회로 설계·PCB 레이아웃·시제품 제작·테스트 검증, 자재명세서(BOM) 관리, 생산 일정 조율</td></tr>
+<tr><td>사직사유</td><td>일신상의 사유</td></tr>
+</table>
+<button class="copy-btn" onclick="cp(this,'주식회사 엣지크로스')">기관명 복사</button>
+<button class="copy-btn" onclick="cp(this,'회로 설계·PCB 레이아웃·시제품 제작·테스트 검증, 자재명세서(BOM) 관리, 생산 일정 조율')">업무 복사</button>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<h2>6. 경험사항 및 기타활동</h2>
+<div class="section">
+<table>
+<tr><td>구분</td><td>수상</td></tr>
+<tr><td>활동명</td><td>2022 메타버스 콘텐츠 리크루팅 캠프 대상 (과학기술정보통신부)</td></tr>
+<tr><td>역할</td><td>AR 콘텐츠 개발 및 발표</td></tr>
+<tr><td>활동기간</td><td>2022-07 ~ 2022-09</td></tr>
+</table>
+<button class="copy-btn" onclick="cp(this,'2022 메타버스 콘텐츠 리크루팅 캠프 대상 (과학기술정보통신부)')">활동명 복사</button>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<h2>7. 자기소개서 (6문항 × 700자)</h2>
+<div class="note">⚠️ 블라인드: 성명, 학교명, 나이, 출신지역, 가족관계 기재 시 부적격. 근무기관명은 OK.</div>
+
+<div class="section">
+<h3>1. 지원동기 + 기여방안 (700자 이내)</h3>
+<div class="essay-box">
+<textarea id="e1" oninput="cnt(this,700)">비영리 사회적경제 기관에서 약 3년간 전산·자산관리 업무를 수행하면서, 조직의 IT 인프라가 안정적이어야 본연의 사업에 집중할 수 있다는 것을 체감했습니다. 특히 커스텀 ERP 도입 프로젝트를 단독으로 전담하며, 하나의 시스템이 조직 전체의 업무 방식을 바꿀 수 있다는 확신을 갖게 되었습니다.
+
+청년재단에 지원한 이유는 명확합니다. 저의 경력이 이 직무와 정확히 일치하고, 공공의 가치를 추구하는 조직에서 그 역량을 발휘하고 싶기 때문입니다. 이전 직장에서 사회적 금융이라는 공익적 미션 아래 일하며, 조직의 목적에 공감할 때 업무 몰입도가 높아진다는 것을 경험했습니다. 청년정책을 실현하는 기관에서 전산 인프라를 책임지는 일은, 저의 실무 역량과 가치관이 만나는 지점입니다.
+
+입사 후 기여 방향은 세 가지입니다. 첫째, 그룹웨어·ERP 등 정보화 시스템의 안정적 운영과 사용자 관점의 개선. 둘째, 1차 트러블슈팅 내재화를 통한 PC·네트워크 관리 효율화와 정보보안 체계 점검. 셋째, IT자산 수명주기 관리 프로세스를 정립하여 예산 효율성을 높이겠습니다. 보이지 않는 곳에서 사업의 기반을 안정적으로 유지하는 것이 전산·자산관리의 본질이라고 생각합니다.</textarea>
+<div class="char-count" id="e1c">0 / 700자</div>
+<button class="copy-btn" onclick="cpArea('e1')">전체 복사</button>
+</div>
+</div>
+
+<div class="section">
+<h3>2. 최근 수행 직무 + 필요역량 + 강화/보완 노력 (700자 이내)</h3>
+<div class="essay-box">
+<textarea id="e2" oninput="cnt(this,700)">가장 최근 근무한 사회적경제 기관의 경영지원부에서 약 3년간 전산·자산관리 업무를 수행했습니다.
+
+핵심 업무는 크게 세 가지였습니다. 첫째, 커스텀 ERP 도입 프로젝트의 실무 전담입니다. 기존 엑셀 기반 재무 데이터를 DB 시스템으로 전환하는 과정에서 회계계정 체계를 설계하고, 약 200개 계정과목의 데이터 정합성을 검증하며 마이그레이션을 완료했습니다. 둘째, PC·네트워크·정보보안 관리입니다. 장비 장애 발생 시 1차 트러블슈팅을 직접 수행하고, 해결이 어려운 건만 외주업체에 연계하는 대응 체계를 구축했습니다. 셋째, IT자산과 시설의 운영 관리입니다. 장비의 조달·배치·폐기까지 수명주기를 관리하고, 사무실 시설물의 경정비를 직접 수행했습니다.
+
+이 업무를 수행하기 위해 필요한 역량은 ERP 시스템에 대한 구조적 이해, 네트워크·하드웨어 진단 능력, SQL 기반 데이터 처리 능력, 그리고 현업 부서 및 외주업체와의 조율 능력이었습니다.
+
+역량 보완을 위해 SQL과 Power Query를 실무에 지속 적용하며 데이터 분석 능력을 강화했고, AI 도구를 활용한 장애 대응 효율화 방법을 학습하고 있습니다. 또한 이전 직장에서의 하드웨어 개발 경험이 장비 진단의 기반이 되었습니다.</textarea>
+<div class="char-count" id="e2c">0 / 700자</div>
+<button class="copy-btn" onclick="cpArea('e2')">전체 복사</button>
+</div>
+</div>
+
+<div class="section">
+<h3>3. 문제해결 경험 (700자 이내)</h3>
+<div class="essay-box">
+<textarea id="e3" oninput="cnt(this,700)">ERP 도입 프로젝트에서 가장 난관이었던 것은 데이터 마이그레이션이었습니다.
+
+기존에 조직의 모든 재무 데이터는 엑셀 파일로 관리되고 있었습니다. 수년간 축적된 데이터는 담당자마다 입력 형식이 달랐고, 동일 항목이 다른 이름으로 기록되어 있거나 누락된 경우도 빈번했습니다. 이 상태에서 새로운 ERP의 DB로 데이터를 이관해야 했는데, 단순 복사로는 시스템이 정상 작동하지 않았습니다.
+
+원인을 분석한 결과, 문제의 핵심은 '기준의 부재'였습니다. 표준화된 계정과목 체계 없이 각자의 방식으로 데이터를 입력해온 것이 근본 원인이었습니다.
+
+해결은 세 단계로 진행했습니다. 첫째, ERP에 맞는 회계계정 체계를 새로 설계했습니다. 해당 기관 특유의 여신·채무·이자 관련 계정과목을 정의하고 약 200개 항목을 표준화했습니다. 둘째, 기존 엑셀 데이터를 정제 기준에 따라 분류·정리한 뒤 단계적으로 DB에 이관했습니다. 셋째, SQL 쿼리로 이관된 데이터의 정합성을 검증하고, 불일치 건을 하나씩 추적하여 수정했습니다.
+
+이 경험을 통해 시스템 전환의 핵심은 기술이 아니라 데이터의 기준을 먼저 세우는 것이라는 점을 배웠습니다.</textarea>
+<div class="char-count" id="e3c">0 / 700자</div>
+<button class="copy-btn" onclick="cpArea('e3')">전체 복사</button>
+</div>
+</div>
+
+<div class="section">
+<h3>4. AI 활용 경험 + 향후 활용 (700자 이내)</h3>
+<div class="essay-box">
+<textarea id="e4" oninput="cnt(this,700)">ERP 운영 과정에서 반복적인 데이터 검증 업무에 AI를 활용하여 효율을 높인 경험이 있습니다.
+
+ERP 도입 후 안정화 기간에 현업 부서에서 입력 오류나 계정 분류 불일치가 빈번하게 보고되었습니다. 건별로 SQL을 작성하여 확인하던 기존 방식은 시간이 많이 소요되었습니다. 이에 AI 도구를 활용하여 검증용 SQL 쿼리를 신속하게 생성하고, 오류 패턴을 분석하는 데 적용했습니다. 쿼리 작성 시간이 절반 이하로 단축되었고, 사람이 놓치기 쉬운 예외 케이스를 발견하는 데에도 도움이 되었습니다.
+
+PC·네트워크 장애 대응에서도 AI를 활용했습니다. 장애 증상을 기반으로 가능한 원인과 해결 순서를 확인하여 트러블슈팅 속도를 높였고, 해결 과정을 체계적으로 문서화하여 사내 장애 대응 매뉴얼을 구축했습니다.
+
+또한 Excel 수식 최적화, 업무 보고서 초안 작성, 외주 계약서 검토 시 조항 비교 등 일상 업무 전반에서 AI를 보조 도구로 활용하며 업무 처리 속도를 개선했습니다.
+
+향후 청년재단에서는 세 가지 방향으로 활용하겠습니다. 첫째, 정보시스템 장애 로그 분석을 통한 예방적 유지보수. 둘째, 자산관리 데이터 기반의 교체 시기 예측. 셋째, 반복 업무 자동화를 통한 운영 효율 향상.</textarea>
+<div class="char-count" id="e4c">0 / 700자</div>
+<button class="copy-btn" onclick="cpArea('e4')">전체 복사</button>
+</div>
+</div>
+
+<div class="section">
+<h3>5. 조직 내 성과 창출 경험 (700자 이내)</h3>
+<div class="essay-box">
+<textarea id="e5" oninput="cnt(this,700)">가장 의미 있는 성과는 커스텀 ERP 도입 프로젝트입니다.
+
+이전 직장은 모든 재무 데이터를 엑셀로 관리하고 있었습니다. 결산 시마다 수작업 집계에 상당한 시간이 소요되었고, 데이터 오류의 위험도 상존했습니다. 이를 해결하기 위해 ERP 도입이 결정되었고, 저는 실무 전담자로 배정되었습니다.
+
+약 18개월간 수행한 업무는 다음과 같습니다. 회계계정 체계 설계(약 200개 계정과목 표준화), 기존 엑셀 데이터의 DB 마이그레이션 및 정합성 검증, 전자결재 워크플로우 설계와 검수, 기능 테스트 및 안정화. 이 전 과정을 단독으로 수행했습니다. 외부 개발사와의 요구사항 협의, 현업 부서의 피드백 수집과 반영, 사용자 교육까지 프로젝트 관리 전반을 담당했습니다.
+
+결과적으로 결산 리드타임이 약 2일 단축되었고, 데이터 기반의 예산 실적 분석이 가능해졌습니다. 조직 내에서는 전사 디지털 전환의 핵심 프로젝트로 평가받았습니다. 이 경험을 기반으로 연간 약 3.6억 원 규모의 인프라 예산 집행률을 88.5%로 관리하는 성과도 이어졌습니다. 혼자서 전체 과정을 수행했기에 시행착오가 많았지만, 그만큼 정보화 사업의 전 과정을 체득할 수 있었습니다.</textarea>
+<div class="char-count" id="e5c">0 / 700자</div>
+<button class="copy-btn" onclick="cpArea('e5')">전체 복사</button>
+</div>
+</div>
+
+<div class="section">
+<h3>6. 청년 문제 + 정책 제안 + 직무 기여 (700자 이내)</h3>
+<div class="essay-box">
+<textarea id="e6" oninput="cnt(this,700)">청년이 직면한 주요 문제로 '정보 격차로 인한 지원 사각지대'를 꼽겠습니다.
+
+취업·주거·금융 등 청년 지원 정책은 다양하게 존재하지만, 정작 이를 필요로 하는 청년에게 정보가 도달하지 못하는 경우가 많습니다. 특히 고립·은둔 상태의 청년이나 디지털 접근성이 낮은 청년은 지원 제도의 존재 자체를 인지하지 못하는 경우가 빈번합니다. 정책이 아무리 좋아도 전달 체계가 작동하지 않으면 효과가 반감됩니다.
+
+청년재단이 수행할 수 있는 사업 방향을 두 가지 제안합니다. 첫째, 청년 지원 정책 통합 안내 플랫폼의 고도화입니다. 개인의 상황(연령, 거주지, 소득 등)에 따라 맞춤형 정보를 제공하는 시스템을 구축하면, 정보 탐색에 소요되는 시간과 노력을 줄일 수 있습니다. 둘째, 전국 청년지원센터 간 정보시스템 표준화입니다. 센터별로 상이한 시스템을 통합하면 지역 간 서비스 편차를 완화할 수 있습니다.
+
+전산·자산관리 직무를 통해 이에 직접 기여할 수 있습니다. 재단의 정보시스템을 안정적으로 운영하고, 청년 서비스 플랫폼의 기술적 기반을 지원하며, 데이터 관리 체계를 정비하여 정책 수립에 필요한 근거 데이터를 확보하는 것이 제가 할 수 있는 역할입니다.</textarea>
+<div class="char-count" id="e6c">0 / 700자</div>
+<button class="copy-btn" onclick="cpArea('e6')">전체 복사</button>
+</div>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<h2>8. 경험/경력기술서 (2,000자 이내)</h2>
+<div class="section">
+<div class="info">ℹ️ 지원분야(전산·자산관리) 업무수행에 요구되는 지식/기술/태도를 경험 기반으로 기술</div>
+<div class="essay-box">
+<textarea id="e7" oninput="cnt(this,2000)" style="min-height:400px">[ERP 도입 및 정보화 사업 운영 — (사)함께만드는세상, 2023.01~2026.02]
+
+경영지원부 인프라지원팀에서 약 3년간 전산·자산관리 업무를 담당했습니다. 이 기관은 마이크로크레딧 전문 비영리법인으로, 소규모 조직 특성상 전산 관련 업무를 한 사람이 전담하는 구조였습니다.
+
+가장 큰 프로젝트는 커스텀 ERP 도입이었습니다. 2023년 7월부터 2024년 12월까지 약 18개월간 실무 전담자로 프로젝트 전 과정을 수행했습니다. 주요 업무는 다음과 같습니다.
+
+- 회계계정 체계 설계: 해당 기관 특유의 여신·채무·이자 관련 계정과목 약 200개를 정의하고 표준화했습니다. 기존에 엑셀로 관리되던 비표준 데이터를 DB 시스템에 맞는 구조로 재설계하는 작업이었습니다.
+- 데이터 마이그레이션: 엑셀 데이터를 Tibero DB로 이관하고, SQL 기반으로 정합성을 검증했습니다. 수년간 축적된 비정형 데이터를 정제하는 과정에서 데이터 품질 관리의 중요성을 깊이 이해하게 되었습니다.
+- 전자결재 워크플로우 설계: 기안·결의·정산 프로세스를 현업 부서와 협의하여 설계하고 검수했습니다.
+- 안정화 및 사용자 교육: 기능 테스트, 오류 수정, 재검증 사이클을 반복 수행했습니다.
+
+이 경험을 통해 정보화 사업의 기획·실행·안정화에 걸친 전 과정을 체득했으며, ERP 시스템의 구조적 이해, 외부 개발사와의 기술 협의 능력, 현업의 요구사항을 시스템에 반영하는 조율 능력을 습득했습니다.
+
+[PC·네트워크·정보보안 관리]
+
+사내 업무용 PC와 네트워크 인프라 관리를 담당했습니다. 장비 장애 발생 시 1차 트러블슈팅을 직접 수행하고, 해결이 어려운 건만 외주업체에 연계하는 대응 체계를 구축했습니다. 이를 통해 연간 유지보수 비용을 약 30% 절감했습니다. 네트워크 구성 파악, 하드웨어 진단, 기본 보안 점검 등의 실무 역량을 갖추었습니다.
+
+[자산관리 및 시설운영]
+
+IT자산(PC, 모니터, 프린터, 네트워크 장비 등)의 조달·배치·유지보수·폐기에 이르는 수명주기 전반을 관리했습니다. 유휴 장비 재배치로 중복 투자를 방지하고, 교체 시기를 사전에 파악하여 예산을 효율적으로 편성했습니다. 연간 약 3.6억 원 규모의 인프라 예산을 직접 편성·집행하며 집행률 88.5%를 달성했습니다. 사무실 시설물(조명, 가구, 전산장비)의 경정비도 직접 수행했습니다.
+
+[외주업체 관리]
+
+소방·승강기·전기·방역·복합기·네트워크 등 8개 외주업체의 계약·정산·SLA를 총괄했습니다. 재계약 협상으로 연간 약 500만 원의 비용을 절감했습니다. 다수의 외부 업체와 동시에 소통하며 계약 조건을 조율하는 과정에서 협상력과 프로세스 관리 능력을 키웠습니다.
+
+[하드웨어 개발 및 자재관리 — 주식회사 엣지크로스, 2016.05~2018.02]
+
+기술연구소에서 회로 설계·PCB 레이아웃·시제품 제작·테스트 검증을 수행했습니다. 자재명세서(BOM) 관리 체계화를 통해 납기 준수율 100%를 달성했습니다. 이 경험은 하드웨어에 대한 근본적 이해와 자산·자재 관리의 기초 역량으로 이어졌으며, 이후 IT자산 관리 업무에 직접적으로 활용되었습니다.
+
+[IoT 시스템 개발 — (주)맨지온, 2020.03~2021.11]
+
+ESP32 기반 IoT 모니터링 시스템 개발 및 QA를 수행했습니다. 센서 데이터의 원격 수집·시각화 시스템을 구축하고, 통신 장애의 원인을 분석하여 해결 프로세스를 확립했습니다. 이 경험은 네트워크 통신 구조에 대한 이해와 시스템 안정성 관리 역량의 기반이 되었습니다.</textarea>
+<div class="char-count" id="e7c">0 / 2000자</div>
+<button class="copy-btn" onclick="cpArea('e7')">전체 복사</button>
+</div>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<h2>9. 제출서류 체크리스트</h2>
+<div class="section">
+<table>
+<tr><td>(필수) 졸업·성적증명서</td><td>⬜ 학부 + 대학원 모두 발급 필요</td></tr>
+<tr><td>(해당자) 경력증명서</td><td>⬜ 함께만드는세상 경력증명서 (담당업무 세부 명시 확인)</td></tr>
+<tr><td>(해당자) 건강보험자격득실확인서</td><td>⬜ 정부24 또는 국민건강보험공단 발급</td></tr>
+<tr><td>(해당자) 자격증 사본</td><td>⬜ 사회복지사 1급 사본</td></tr>
+</table>
+<div class="info">ℹ️ 면접 시 지참: 주민등록등본, 병적증명서, 신분증</div>
+</div>
+
+<script>
+function cp(btn, text) {
+  navigator.clipboard.writeText(text).then(() => {
+    btn.classList.add('copied');
+    btn.textContent = '완료!';
+    setTimeout(() => { btn.classList.remove('copied'); btn.textContent = '복사'; }, 1500);
+  });
+}
+function cpArea(id) {
+  const ta = document.getElementById(id);
+  navigator.clipboard.writeText(ta.value).then(() => {
+    const btn = ta.parentElement.querySelector('.copy-btn');
+    btn.classList.add('copied');
+    btn.textContent = '복사 완료!';
+    setTimeout(() => { btn.classList.remove('copied'); btn.textContent = '전체 복사'; }, 1500);
+  });
+}
+function cnt(ta, max) {
+  const len = ta.value.length;
+  const el = document.getElementById(ta.id + 'c');
+  el.textContent = len + ' / ' + max + '자';
+  el.className = len > max ? 'char-count over' : 'char-count';
+}
+// init counts
+document.addEventListener('DOMContentLoaded', () => {
+  ['e1','e2','e3','e4','e5','e6','e7'].forEach(id => {
+    const ta = document.getElementById(id);
+    if(ta) cnt(ta, id === 'e7' ? 2000 : 700);
+  });
+});
+</script>
+
+</body>
+</html>
