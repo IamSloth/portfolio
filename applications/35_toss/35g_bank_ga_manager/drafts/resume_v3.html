@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>임종권 — 토스뱅크 General Affairs Manager 지원</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --blue:#3182f6;--blue-light:rgba(49,130,246,.08);--blue-mid:rgba(49,130,246,.15);
+  --black:#191f28;--g700:#333d4b;--g500:#6b7684;--g400:#8b95a1;--g200:#e5e8eb;--g100:#f2f4f6;--white:#fff;
+}
+body{font-family:'Pretendard Variable',Pretendard,-apple-system,'Noto Sans KR',sans-serif;-webkit-font-smoothing:antialiased;background:#e5e8eb;display:flex;flex-direction:column;align-items:center;gap:16px;padding:24px;print-color-adjust:exact;-webkit-print-color-adjust:exact}
+@media print{body{background:none;padding:0;gap:0}}
+
+/* ── A4 ── */
+.page{width:210mm;min-height:296mm;background:var(--white);display:flex;flex-direction:column;overflow:hidden;page-break-after:always}
+@page{size:A4;margin:0}
+@media print{.page{box-shadow:none}}
+
+/* ── Header ── */
+.hdr{display:flex;justify-content:space-between;align-items:flex-end;padding:16px 20px 12px;border-bottom:1px solid var(--g200);flex-shrink:0}
+.hdr-name{font-size:22px;font-weight:700;color:var(--black);letter-spacing:-.03em}
+.hdr-name .dot{color:var(--blue)}
+.hdr-pos{font-size:14px;color:var(--g400);margin-top:2px}
+.hdr-r{text-align:right;font-size:13px;color:var(--g400);line-height:1.7}
+
+/* ── Body ── */
+.bd{display:flex;flex:1;overflow:hidden}
+
+/* ── Sidebar ── */
+.side{width:54mm;background:var(--black);color:#f0f0f0;padding:16px 14px;display:flex;flex-direction:column;gap:14px;flex-shrink:0}
+.s-photo{width:100%;aspect-ratio:1;border-radius:12px;overflow:hidden;border:2px solid rgba(255,255,255,.06)}
+.s-photo img{width:100%;height:100%;object-fit:cover}
+.s-sec{font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:6px;padding-bottom:5px;border-bottom:1px solid rgba(255,255,255,.06)}
+.s-row{margin-bottom:5px}
+.s-lbl{font-size:11px;color:rgba(255,255,255,.4);margin-bottom:1px}
+.s-val{font-size:14px;color:rgba(255,255,255,.88);line-height:1.4}
+.edu-item{margin-bottom:8px}
+.edu-nm{font-size:14px;font-weight:500;color:rgba(255,255,255,.88);line-height:1.3}
+.edu-sub{font-size:12px;color:rgba(255,255,255,.45);margin-top:1px}
+.cert-item{display:flex;align-items:center;gap:6px;margin-bottom:5px}
+.cert-dot{width:4px;height:4px;border-radius:50%;background:var(--blue);flex-shrink:0}
+.cert-nm{font-size:13px;color:rgba(255,255,255,.88)}
+.cert-org{font-size:11px;color:rgba(255,255,255,.4)}
+.tw{display:flex;flex-wrap:wrap;gap:4px}
+.tg{font-size:12px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);padding:3px 8px;border-radius:8px;color:rgba(255,255,255,.8)}
+.tg.hl{background:rgba(49,130,246,.2);border-color:rgba(49,130,246,.3);color:rgba(255,255,255,.95)}
+
+/* ── Main ── */
+.mn{flex:1;padding:24px 20px;display:flex;flex-direction:column;gap:28px;overflow:hidden}
+.sec{font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--g400);margin-bottom:8px}
+
+/* Summary */
+.sum{background:var(--g100);border-radius:12px;padding:18px 20px}
+.sum p{font-size:14px;color:var(--g700);line-height:1.75;word-break:keep-all}
+.sum b{color:var(--blue);font-weight:600}
+
+/* Experience */
+.exp{margin-bottom:20px}
+.exp:last-child{margin-bottom:0}
+.exp-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:2px}
+.exp-co{font-size:15px;font-weight:700;color:var(--black)}
+.exp-per{font-size:12px;color:var(--g400)}
+.exp-role{font-size:13px;color:var(--g500);margin-top:1px;margin-bottom:6px}
+.exp-ul{list-style:none;display:flex;flex-direction:column;gap:5px}
+.exp-ul li{font-size:14px;color:var(--g700);line-height:1.5;padding-left:14px;position:relative;word-break:keep-all}
+.exp-ul li::before{content:'—';position:absolute;left:0;color:var(--blue);font-size:11px;top:2px}
+.exp-ul li b{color:var(--blue);font-weight:600}
+
+/* KPI */
+.kpi{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.kpi-c{background:var(--g100);border-radius:8px;padding:16px 8px;text-align:center}
+.kpi-n{font-size:22px;font-weight:700;color:var(--blue);line-height:1;letter-spacing:-.02em}
+.kpi-l{font-size:11px;color:var(--g500);margin-top:4px;line-height:1.3}
+
+/* Award */
+.aw{display:flex;align-items:center;gap:8px;background:var(--g100);border-radius:8px;padding:12px 14px}
+.aw-nm{font-size:14px;font-weight:600;color:var(--black)}
+.aw-org{font-size:12px;color:var(--g400)}
+
+/* ══ PAGE 2 ══ */
+.p2{flex:1;padding:20px 20px;display:flex;flex-direction:column;gap:20px}
+
+/* Cards */
+.wcard{background:var(--g100);border-radius:12px;padding:16px 18px}
+.wcard p{font-size:14px;color:var(--g700);line-height:1.75;word-break:keep-all}
+.wcard b{color:var(--blue);font-weight:600}
+
+.two{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.icard{background:var(--g100);border-radius:12px;padding:12px 14px}
+.icard .ct{font-size:12px;font-weight:600;color:var(--blue);letter-spacing:.04em;margin-bottom:6px}
+.icard p{font-size:13px;color:var(--g700);line-height:1.65;word-break:keep-all}
+
+/* Table */
+.mt{width:100%;border-collapse:collapse}
+.mt thead tr{border-bottom:2px solid var(--blue)}
+.mt th{text-align:left;padding:6px 8px;font-size:12px;font-weight:600;color:var(--blue);letter-spacing:.04em}
+.mt td{padding:7px 8px;font-size:13px;border-bottom:1px solid var(--g200);word-break:keep-all}
+.mt td:first-child{color:var(--g500);width:35%}
+.mt td:last-child{color:var(--g700)}
+
+/* Onboarding */
+.ob{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.ob-c{background:var(--g100);border-radius:12px;padding:14px}
+.ob-ph{font-size:12px;font-weight:700;color:var(--blue);margin-bottom:4px}
+.ob-c p{font-size:12px;color:var(--g700);line-height:1.6;word-break:keep-all}
+
+/* Tag cloud */
+.tc{display:flex;flex-wrap:wrap;gap:5px}
+.ct-tag{font-size:12px;padding:4px 10px;border-radius:8px;font-weight:500}
+.ct-tag.hl{background:var(--blue-mid);color:var(--blue)}
+.ct-tag.rg{background:var(--g100);color:var(--g500)}
+
+/* Closing */
+.closing{border-top:1px solid var(--g200);padding-top:16px}
+.closing p{font-size:14px;color:var(--g500);line-height:1.75;word-break:keep-all}
+.closing b{color:var(--blue);font-weight:600}
+
+/* Footer */
+.foot{font-size:11px;color:var(--g400);text-align:right}
+</style>
+</head>
+<body>
+
+<!-- ════ PAGE 1: 이력서 ════ -->
+<div class="page">
+  <div class="hdr">
+    <div>
+      <div class="hdr-name">임종권<span class="dot">.</span></div>
+      <div class="hdr-pos">General Affairs Manager 지원</div>
+    </div>
+    <div class="hdr-r">
+      ssujklim@gmail.com&ensp;|&ensp;010-4052-0834<br>
+      경기도 광명시&ensp;|&ensp;iamsloth.github.io/portfolio/toss-ga.html
+    </div>
+  </div>
+
+  <div class="bd">
+    <!-- SIDEBAR -->
+    <div class="side">
+      <div class="s-photo">
+        <img src="../../../../common/photos/profile.png" alt="프로필">
+      </div>
+
+      <div>
+        <div class="s-sec">Personal</div>
+        <div class="s-row"><div class="s-lbl">생년월일</div><div class="s-val">1992.01.04</div></div>
+        <div class="s-row"><div class="s-lbl">병역</div><div class="s-val">공군 병장 만기제대</div></div>
+      </div>
+
+      <div>
+        <div class="s-sec">Education</div>
+        <div class="edu-item">
+          <div class="edu-nm">숭실대 사회복지대학원</div>
+          <div class="edu-sub">사회적기업전공 석사 · 2020.02<br>GPA 4.3 / 4.5</div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-nm">숭실대 공과대학</div>
+          <div class="edu-sub">전기공학 학사 · 2017.02<br>경제학 복수전공</div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-nm">한국폴리텍 광명</div>
+          <div class="edu-sub">AR 시스템제어 수료 · 2022.12</div>
+        </div>
+      </div>
+
+      <div>
+        <div class="s-sec">Certifications</div>
+        <div class="cert-item">
+          <div class="cert-dot"></div>
+          <div><div class="cert-nm">사회복지사 1급</div><div class="cert-org">보건복지부 · 2021.02</div></div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-dot"></div>
+          <div><div class="cert-nm">1종 대형 운전면허</div><div class="cert-org">경찰청 · 2019.02</div></div>
+        </div>
+      </div>
+
+      <div>
+        <div class="s-sec">Skills</div>
+        <div class="tw">
+          <span class="tg hl">총무·행정</span>
+          <span class="tg hl">구매 계약</span>
+          <span class="tg hl">자산관리</span>
+          <span class="tg hl">사무환경 운영</span>
+          <span class="tg">ERP 운용</span>
+          <span class="tg">Excel/VBA</span>
+          <span class="tg">SQL</span>
+          <span class="tg">부서간 소통</span>
+          <span class="tg">AI Tools</span>
+          <span class="tg">한글(HWP)</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAIN -->
+    <div class="mn">
+      <!-- Summary -->
+      <div>
+        <div class="sec">Professional Summary</div>
+        <div class="sum">
+          <p>사회적금융기관에서 <b>3년</b>간 총무·IT·구매·안전관리를 1인 전담. 사무환경 조성·운영, 구매 입찰 <b>10건+</b> 풀사이클(RFP→계약), IT자산 수명주기 관리, 외주 <b>8개사</b> 계약 총괄. 1인 인프라팀으로 대기업 7년차급 업무 범위를 경험한 실행형 GA 실무자.</p>
+        </div>
+      </div>
+
+      <!-- Work Experience -->
+      <div>
+        <div class="sec">Work Experience</div>
+
+        <div class="exp">
+          <div class="exp-top">
+            <span class="exp-co">함께만드는세상 (사회연대은행)</span>
+            <span class="exp-per">2023.01 – 2026.02 · 3년 2개월</span>
+          </div>
+          <div class="exp-role">경영지원부 · 총무·IT지원 (대리)</div>
+          <ul class="exp-ul">
+            <li>사무환경 조성·운영 — 시설·장비·가구 관리</li>
+            <li>구매 입찰 <b>10건+</b> 풀사이클(RFP→계약)</li>
+            <li>IT자산 수명주기 관리·유휴장비 재배치</li>
+            <li>외주 <b>8개사</b> 계약·정산·SLA 관리</li>
+            <li>인프라 예산 <b>3.6억</b> 편성·집행 (88.5%)</li>
+            <li>소방안전관리 — 법정점검 일정 관리</li>
+          </ul>
+        </div>
+
+        <div class="exp">
+          <div class="exp-top">
+            <span class="exp-co">(주)맨지온</span>
+            <span class="exp-per">2020.03 – 2021.11 · 1년 8개월</span>
+          </div>
+          <div class="exp-role">개발부 · 임베디드 시스템 개발 및 QA (대리)</div>
+          <ul class="exp-ul">
+            <li>IoT 프로토타입 개발·원격 모니터링 구축</li>
+            <li>데이터 로그 분석→장애 원인 규명·해결</li>
+          </ul>
+        </div>
+
+        <div class="exp">
+          <div class="exp-top">
+            <span class="exp-co">주식회사 엣지크로스</span>
+            <span class="exp-per">2016.05 – 2018.02 · 1년 9개월</span>
+          </div>
+          <div class="exp-role">기술연구소 · H/W 개발 및 자재 관리 (주임)</div>
+          <ul class="exp-ul">
+            <li>BOM 관리 체계화 — 납기 준수율 <b>100%</b></li>
+            <li>전자부품 재고·조달 관리</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- KPI -->
+      <div>
+        <div class="sec">Key Performance</div>
+        <div class="kpi">
+          <div class="kpi-c"><div class="kpi-n">10+</div><div class="kpi-l">입찰 건<br>풀사이클</div></div>
+          <div class="kpi-c"><div class="kpi-n">8개사</div><div class="kpi-l">외주업체<br>계약·정산</div></div>
+          <div class="kpi-c"><div class="kpi-n">3.6억</div><div class="kpi-l">연간 예산<br>편성·집행</div></div>
+          <div class="kpi-c"><div class="kpi-n">-30%</div><div class="kpi-l">유지보수<br>비용 절감</div></div>
+        </div>
+      </div>
+
+      <!-- Award -->
+      <div>
+        <div class="sec">Award</div>
+        <div class="aw">
+          <span style="font-size:16px">🏆</span>
+          <div>
+            <div class="aw-nm">메타버스 콘텐츠 캠프 대상</div>
+            <div class="aw-org">과학기술정보통신부 · 2022</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- ════ PAGE 2: 경력기술서 ════ -->
+<div class="page">
+  <div class="hdr">
+    <div>
+      <div class="hdr-name">임종권<span class="dot">.</span></div>
+      <div class="hdr-pos" style="font-size:12px;letter-spacing:.04em;text-transform:uppercase">경력기술서 · General Affairs Manager</div>
+    </div>
+    <div class="hdr-r">ssujklim@gmail.com&ensp;|&ensp;010-4052-0834</div>
+  </div>
+
+  <div class="p2">
+    <!-- Why This Role -->
+    <div>
+      <div class="sec">Why This Role</div>
+      <div class="wcard">
+        <p>사회연대은행에서 3년간 총무·IT·구매·안전관리를 1인으로 전담했습니다. 소규모 조직이었기에 <b>총무의 A부터 Z까지를 혼자서 기획하고 실행</b>해야 했고, 이 경험이 오히려 '연차 3년이지만 7년치 밀도'를 만들어주었습니다. 사무환경 조성부터 구매 계약, 자산관리, 안전점검까지 — <b>총무팀이 요구하는 멀티 역할</b>을 이미 1인 체제에서 수행해온 실행형 GA입니다.</p>
+      </div>
+    </div>
+
+    <!-- Relevant Experience -->
+    <div>
+      <div class="sec">Relevant Experience</div>
+      <div class="two">
+        <div class="icard">
+          <div class="ct">사무환경 · 자산관리</div>
+          <p>PC·전산장비·조명·사무가구 경정비 직접 수행. IT자산 수명주기 관리 프로세스 정립, 유휴장비 재배치로 중복 투자 방지. 사무환경 개선 자발적 추진.</p>
+        </div>
+        <div class="icard">
+          <div class="ct">구매 계약 · 비용 관리</div>
+          <p>용역·공사·IT시스템 구매 입찰 10건+ 풀사이클(RFP→공고→평가→계약). 재계약 협상으로 연 500만 원 절감. 외주 8개사 계약·정산·SLA 관리.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- GA Readiness -->
+    <div>
+      <div class="sec">GA 업무 → 사회연대은행 경험</div>
+      <table class="mt">
+        <thead><tr><th>GA 업무</th><th>사회연대은행 경험</th></tr></thead>
+        <tbody>
+          <tr><td>사무환경 조성·운영</td><td>시설·장비·가구 관리, PC 경정비, 사무환경 개선</td></tr>
+          <tr><td>구매 계약</td><td>RFP→입찰→평가→계약 풀사이클 10건+</td></tr>
+          <tr><td>자산관리</td><td>IT자산 수명주기 관리, 유휴장비 재배치, BOM 경험</td></tr>
+          <tr><td>자기 주도적 기획·실행</td><td>ERP 단독 도입, 입찰 프로세스 자발적 체계화</td></tr>
+          <tr><td>파트너형 GA</td><td>외주 8개사 + 내부 전 부서 지원, 구성원 중심 의사결정</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Core Competencies -->
+    <div>
+      <div class="sec">Core Competencies</div>
+      <div class="tc">
+        <span class="ct-tag hl">총무·행정</span>
+        <span class="ct-tag hl">구매 계약</span>
+        <span class="ct-tag hl">자산관리</span>
+        <span class="ct-tag hl">사무환경 운영</span>
+        <span class="ct-tag hl">자기주도 실행</span>
+        <span class="ct-tag hl">비용 절감</span>
+        <span class="ct-tag rg">ERP 운용</span>
+        <span class="ct-tag rg">소방안전관리</span>
+        <span class="ct-tag rg">Excel/VBA</span>
+        <span class="ct-tag rg">SQL</span>
+        <span class="ct-tag rg">프로세스 개선</span>
+        <span class="ct-tag rg">IT 인프라</span>
+      </div>
+    </div>
+
+    <!-- Onboarding Plan -->
+    <div>
+      <div class="sec">Onboarding Plan</div>
+      <div class="ob">
+        <div class="ob-c">
+          <div class="ob-ph">D+30 — Learn</div>
+          <p>토스뱅크 총무·구매 시스템 파악. 팀 업무 범위 및 프로세스 숙지. 기존 계약·자산 현황 전수 파악.</p>
+        </div>
+        <div class="ob-c">
+          <div class="ob-ph">D+90 — Execute</div>
+          <p>구매 계약·자산관리 독립 수행. 사무환경 운영 업무 자립. 기존 프로세스 기반 효율화 포인트 도출.</p>
+        </div>
+        <div class="ob-c">
+          <div class="ob-ph">D+180 — Improve</div>
+          <p>구매 프로세스 표준화. 자산관리 DB 체계화. 비용 절감 방안 제안 및 실행.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Why Toss Securities -->
+    <div class="closing">
+      <div class="sec">Why Toss Bank</div>
+      <p>사회연대은행에서 '관리자가 아닌 실행자'로 총무의 모든 것을 경험하며, <b>구성원이 업무에 몰입할 수 있는 환경을 만드는 것</b>이 GA의 본질이라는 것을 배웠습니다. 토스뱅크의 총무·구매 통합 운영은 제가 1인 체제에서 이미 수행해온 역할과 정확히 일치합니다. 3년의 밀도 높은 경험을 토스뱅크의 성장과 함께 확장하고 싶습니다.</p>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

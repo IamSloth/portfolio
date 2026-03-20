@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>임종권 — GA Manager Portfolio</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --blue:#3182f6;--blue-light:rgba(49,130,246,.08);--blue-mid:rgba(49,130,246,.15);
+  --black:#191f28;--g700:#333d4b;--g500:#6b7684;--g400:#8b95a1;--g200:#e5e8eb;--g100:#f2f4f6;--white:#fff;
+}
+body{font-family:'Pretendard Variable',Pretendard,-apple-system,'Noto Sans KR',sans-serif;-webkit-font-smoothing:antialiased;background:#e5e8eb;display:flex;justify-content:center;padding:24px;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+@media print{body{background:none;padding:0}}
+
+/* ── A4 ── */
+.page{width:210mm;height:296mm;background:var(--white);display:flex;flex-direction:column;overflow:hidden}
+@page{size:A4;margin:0}
+@media print{.page{box-shadow:none}}
+@media screen{.page{box-shadow:0 2px 24px rgba(0,0,0,.1)}}
+
+/* ── Hero ── */
+.hero{background:var(--black);padding:22px 24px 18px;position:relative}
+.hero::after{content:'';position:absolute;bottom:0;left:24px;right:24px;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.08),transparent)}
+.hero-top{display:flex;justify-content:space-between;align-items:flex-end}
+.hero h1{font-size:22px;font-weight:700;color:#fff;letter-spacing:-.03em}
+.hero h1 .dot{color:var(--blue)}
+.hero .tag{font-size:12px;color:rgba(255,255,255,.45);margin-top:3px}
+.hero .contact{font-size:11px;color:rgba(255,255,255,.35);text-align:right;line-height:1.6}
+
+/* ── Content ── */
+.content{flex:1;padding:20px 24px;display:flex;flex-direction:column;gap:20px}
+.sec{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--g400);margin-bottom:6px}
+
+/* ── Stats ── */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.stat{background:var(--g100);border-radius:8px;padding:16px 8px;text-align:center}
+.stat-n{font-size:20px;font-weight:700;color:var(--blue);line-height:1;letter-spacing:-.02em}
+.stat-l{font-size:10px;color:var(--g500);margin-top:4px;line-height:1.3}
+
+/* ── Project Card ── */
+.pcard{background:var(--g100);border-radius:12px;padding:18px 20px}
+.pcard-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px}
+.pcard-title{font-size:14px;font-weight:700;color:var(--black)}
+.pcard-period{font-size:11px;color:var(--g400)}
+.pcard-tags{display:flex;gap:5px;margin-bottom:10px}
+.pcard-tag{font-size:10px;padding:2px 8px;background:var(--blue-mid);color:var(--blue);border-radius:6px;font-weight:600}
+.pcard-flow{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
+.flow-step{position:relative}
+.flow-label{font-size:10px;font-weight:700;color:var(--blue);margin-bottom:3px;letter-spacing:.04em}
+.flow-text{font-size:11.5px;color:var(--g700);line-height:1.65;word-break:keep-all}
+.flow-text b{color:var(--blue);font-weight:600}
+.pcard-result{margin-top:10px;display:flex;gap:6px;flex-wrap:wrap}
+.result-chip{font-size:10px;padding:3px 10px;background:var(--black);color:#fff;border-radius:6px;font-weight:600}
+
+/* ── Why Me ── */
+.why{background:var(--blue);border-radius:12px;padding:20px 24px}
+.why h3{font-size:10px;font-weight:700;color:rgba(255,255,255,.5);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px}
+.why-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+.why-item{text-align:center}
+.why-icon{font-size:20px;margin-bottom:4px}
+.why-label{font-size:12px;font-weight:700;color:#fff;margin-bottom:2px}
+.why-desc{font-size:10px;color:rgba(255,255,255,.6);line-height:1.5}
+
+/* ── QR Footer ── */
+.qr-footer{display:flex;align-items:center;justify-content:center;gap:14px;padding:16px 0;border-top:1px solid var(--g200);margin-top:auto}
+.qr-footer img{width:56px;height:56px;border-radius:4px}
+.qr-text{text-align:left}
+.qr-text .label{font-size:10px;color:var(--g400);margin-bottom:2px}
+.qr-text .url{font-size:12px;font-weight:600;color:var(--blue)}
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="hero-top">
+      <div>
+        <h1>임종권<span class="dot">.</span> Portfolio</h1>
+        <div class="tag">General Affairs Manager 지원 — 토스페이먼츠</div>
+      </div>
+      <div class="contact">ssujklim@gmail.com · 010-4052-0834<br>경기도 광명시</div>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <!-- Stats -->
+    <div>
+      <div class="sec">Performance Highlights</div>
+      <div class="stats">
+        <div class="stat"><div class="stat-n">37개월</div><div class="stat-l">총무·IT 1인<br>전담 수행</div></div>
+        <div class="stat"><div class="stat-n">3.6억</div><div class="stat-l">인프라 예산<br>편성·집행</div></div>
+        <div class="stat"><div class="stat-n">8개사</div><div class="stat-l">외주업체<br>계약·SLA</div></div>
+        <div class="stat"><div class="stat-n">-30%</div><div class="stat-l">유지보수<br>비용 절감</div></div>
+      </div>
+    </div>
+
+    <!-- Project 1: 사무환경 인프라 총괄 -->
+    <div>
+      <div class="sec">Key Project 1 — 사무환경 인프라 총괄</div>
+      <div class="pcard">
+        <div class="pcard-head">
+          <span class="pcard-title">사무환경 조성·운영 및 IT 자산 관리</span>
+          <span class="pcard-period">2023.01 → 2026.02</span>
+        </div>
+        <div class="pcard-tags">
+          <span class="pcard-tag">1인 전담</span>
+          <span class="pcard-tag">시설·장비·네트워크</span>
+          <span class="pcard-tag">37개월</span>
+        </div>
+        <div class="pcard-flow">
+          <div class="flow-step">
+            <div class="flow-label">배경 (WHY)</div>
+            <div class="flow-text">사무실 시설·장비·네트워크 등 <b>인프라 전반</b> 관리 체계 부재. 총무·IT 1인 전담 체제.</div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-label">실행 (HOW)</div>
+            <div class="flow-text">시설·가구·장비 관리, <b>IT 자산</b> 수명주기 관리. 유휴장비 재배치, 사내 트러블슈팅 직접 수행.</div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-label">결과 (WHAT)</div>
+            <div class="flow-text">외주 의존도 제거, <b>유지보수 비용 30%</b> 절감. 구성원 업무 몰입 환경 조성.</div>
+          </div>
+        </div>
+        <div class="pcard-result">
+          <span class="result-chip">1인 전담 37개월</span>
+          <span class="result-chip">비용 -30%</span>
+          <span class="result-chip">IT 내재화</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 2: 구매 계약·예산 관리 -->
+    <div>
+      <div class="sec">Key Project 2 — 구매 계약·예산 관리</div>
+      <div class="pcard">
+        <div class="pcard-head">
+          <span class="pcard-title">입찰·구매·외주 계약 관리 체계 구축</span>
+          <span class="pcard-period">2023.01 → 2026.02</span>
+        </div>
+        <div class="pcard-tags">
+          <span class="pcard-tag">10건+ 입찰</span>
+          <span class="pcard-tag">8개사 계약</span>
+          <span class="pcard-tag">연 3.6억</span>
+        </div>
+        <div class="pcard-flow">
+          <div class="flow-step">
+            <div class="flow-label">배경 (WHY)</div>
+            <div class="flow-text">외주 8개사 계약·정산 <b>체계적 관리</b> 필요. 예산 편성·집행 효율화 요구.</div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-label">실행 (HOW)</div>
+            <div class="flow-text">RFP→입찰→평가→계약 <b>풀사이클</b> 수행. 재계약 협상, 예산 월별 실적 분석.</div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-label">결과 (WHAT)</div>
+            <div class="flow-text">입찰 <b>10건+</b> 완료, 예산 집행률 <b>88.5%</b>. 재계약 협상으로 연 500만 절감.</div>
+          </div>
+        </div>
+        <div class="pcard-result">
+          <span class="result-chip">풀사이클 10건+</span>
+          <span class="result-chip">집행률 88.5%</span>
+          <span class="result-chip">연 500만 절감</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Why Me -->
+    <div>
+      <div class="why">
+        <h3>Why Me — GA Manager에 기여할 수 있는 이유</h3>
+        <div class="why-grid">
+          <div class="why-item">
+            <div class="why-icon">🏢</div>
+            <div class="why-label">사무환경 조성·운영</div>
+            <div class="why-desc">시설·장비·가구 관리<br>1인 전담 37개월<br>구성원 몰입 환경</div>
+          </div>
+          <div class="why-item">
+            <div class="why-icon">📋</div>
+            <div class="why-label">구매 계약·예산</div>
+            <div class="why-desc">입찰 10건+ 풀사이클<br>3.6억 예산 편성·집행<br>8개사 SLA 관리</div>
+          </div>
+          <div class="why-item">
+            <div class="why-icon">⚡</div>
+            <div class="why-label">프로세스 개선</div>
+            <div class="why-desc">IT 내재화·표준화<br>비용 30% 절감<br>ERP 도입 전담</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- QR + URL -->
+    <div class="qr-footer">
+    <img src="https://api.qrserver.com/v1/create-qr-code/?size=112x112&data=https://iamsloth.github.io/portfolio/toss-ga.html" alt="QR">
+    <div class="qr-text">
+      <div class="label">웹 포트폴리오에서 인터랙티브 버전 확인</div>
+      <div class="url">iamsloth.github.io/portfolio/toss-ga.html</div>
+    </div>
+    </div>
+
+  </div>
+
+</div>
+
+</body>
+</html>
