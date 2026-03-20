@@ -41,10 +41,8 @@
 | 24 | 엔씨소프트 (NCsoft) | 사내 복지시설 운영 (Workplace Motivation) | **📤 SUBMITTED** | 서류 제출 완료. 전용 포트폴리오 페이지 배포. 마감 5/12 | `24_ncsoft/workplace_motivation/` |
 | 24 | 엔씨소프트 (NCsoft) | 3D스캔 어시스턴트 | **📤 SUBMITTED** | 제출 완료 (2026-03-17). 마감 4/3. 결과 대기 | `24_ncsoft/3d_scan_assistant/` |
 | 24 | 엔씨소프트 (NCsoft) | 서비스 기획/운영 어시스턴트 | **📤 SUBMITTED** | 제출 완료 (2026-03-17). 마감 3/25. 결과 대기 | `24_ncsoft/service_planning_assistant/` |
-| 24 | 엔씨소프트 (NCsoft) | HR 사무지원 | **📤 SUBMITTED** | 제출 완료 (2026-03-17). 마감 3/29. 결과 대기 | `24_ncsoft/hr_admin_support/` |
 | 25 | 캐논코리아 (Canon Korea) | 영업지원 (Sales Support) | **📋 DISCOVERED** | 계약직 1년, 강남 본사. ERP/데이터/부서조율 ⭐⭐⭐ 매칭. 마감일 확인 필요 | `25_canon_korea/sales_support/` |
 | 26 | 빗썸나눔 (Bithumb Nanum) | CSR 활동 지원 | **📤 SUBMITTED** | 나인하이어 제출 완료 (2026-03-18). 계약직 6개월. 상시채용 | `26_bithumb_nanum/csr_activity_support/` |
-| 27 | 카카오 (Kakao) | AI 데이터 라벨링 어시스턴트 | **📤 SUBMITTED** | 카카오 채용사이트 제출 완료 (2026-03-18). 계약직. 상시채용 | `27_kakao/ai_data_labeling_assistant/` |
 | 28 | 시프트업 (SHIFT UP) | 인사 담당자 (기업부설연구소 관리) | **📤 SUBMITTED** | 채용페이지 제출 완료 (2026-03-18). 계약직 1년. 상시채용 | `28_shift_up/hr_research_lab/` |
 | 29 | 현대카드·현대커머셜 (씨아이템프러리) | 법인사업1팀 데이터 관리 | **📤 SUBMITTED** | 사람인 제출 완료 (2026-03-18). 파견 계약직. 결과 대기 | `29_hyundai_card/corporate_biz_data/` |
 | 30 | KB국민은행 철산 (휴머니아) | 사무지원 | **📤 SUBMITTED** | 이메일 제출 완료 (2026-03-18) → baeilsuk@naver.com. 결과 대기 | `30_kookmin_bank/cheolsan_admin_support/` |
@@ -62,6 +60,7 @@
 | 35h | 토스증권 | GA Specialist | **📤 SUBMITTED** | Greenhouse 제출 완료 (2026-03-20). 계약직 1년. 35c에도 중복제출 | `35_toss/35h_securities_ga_specialist/` |
 | 35i | 토스인컴 | GA Specialist | **📤 SUBMITTED** | Greenhouse 제출 완료 (2026-03-20). 계약직 1년 | `35_toss/35i_income_ga_specialist/` |
 | 35j | 토스뱅크 | IT Admin | **📤 SUBMITTED** | Greenhouse 제출 완료 (2026-03-20). 계약직 1년 | `35_toss/35j_bank_it_admin/` |
+| 36 | 키움증권 (사람인HS 파견) | 사무보조 | **📤 SUBMITTED** | 사람인 제출 완료 (2026-03-20). 파견 1년×2년계약, 여의도. 상시채용 | `36_kiwoom/office_assistant/` |
 | 03 | 11st | General Affairs | **⏸️ ON_HOLD** | 지원 안 함 (보류 → 미지원 확정) | `03_11st/general_affairs/` |
 
 ### Closed Applications
@@ -86,6 +85,8 @@
 | 15 | 신한투자증권 (에이젝코리아 파견) | 사무보조 (Back Office) | ❌ NO_RESPONSE | 사람인 제출 (2026-03-05). 14일 무응답 |
 | 17 | 성공회대학교 | 학생복지처 일반직 | ❌ NO_RESPONSE | 사람인 제출 (2026-03-05). 14일 무응답 |
 | 18 | KASW (한국사회복지사협회) | 자격관리본부 | ❌ REJECTED | 서류전형 불합격 |
+| 24 | 엔씨소프트 (NCsoft) | HR 사무지원 | ❌ REJECTED | 서류전형 불합격 (2026-03-20) |
+| 27 | 카카오 (Kakao) | AI 데이터 라벨링 어시스턴트 | ❌ REJECTED | 서류전형 불합격 (2026-03-20) |
 
 ## Pending Decisions
 - **Side business (인간지능)**: On hiatus. VAT zero-filing done. Resume when business restarts.

@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>임종권 — 키움증권 사무보조 지원</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Space+Grotesk:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --acc:#1a1a1a;
+  --acc2:#3d3d3d;
+  --side:#1a1a1a;
+  --side-text:#f0f0f0;
+  --side-dim:rgba(240,240,240,.5);
+  --main:#fff;
+  --main-text:#1a1a1a;
+  --border:#e0e0e0;
+  --muted:#777;
+}
+html{font-size:13px}
+body{font-family:'Noto Sans KR',sans-serif;background:#eee;display:flex;flex-direction:column;align-items:center;gap:12px;padding:20px}
+@media print{body{background:none;padding:0;gap:0}}
+
+/* ── A4 PAGE ── */
+.page{width:210mm;min-height:296mm;background:#fff;display:flex;flex-direction:column;position:relative;overflow:hidden;page-break-after:always}
+@page{size:A4;margin:0}
+@media print{.page{box-shadow:none;page-break-after:always}}
+
+/* ── TOP STRIPE ── */
+.page-stripe{height:5px;background:var(--acc);flex-shrink:0}
+
+/* ── HEADER ── */
+.page-header{display:flex;justify-content:space-between;align-items:center;padding:12px 18px 10px;border-bottom:1px solid var(--border);flex-shrink:0}
+.hd-name{font-family:'Space Grotesk',sans-serif;font-size:1.6rem;font-weight:700;color:var(--acc);letter-spacing:-.04em}
+.hd-pos{font-size:0.95rem;color:var(--muted);margin-top:1px}
+.hd-contact{text-align:right;font-size:0.85rem;color:var(--muted);line-height:1.7}
+
+/* ── BODY ── */
+.page-body{display:flex;flex:1;overflow:hidden}
+
+/* ── SIDEBAR ── */
+.sidebar{width:56mm;background:var(--side);color:var(--side-text);padding:16px 14px;display:flex;flex-direction:column;gap:14px;flex-shrink:0}
+.sb-photo{width:100%;aspect-ratio:1;border-radius:4px;overflow:hidden;border:1px solid rgba(255,255,255,.1);margin-bottom:2px}
+.sb-photo img{width:100%;height:100%;object-fit:cover}
+.sb-sec{font-family:'JetBrains Mono',monospace;font-size:0.75rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(240,240,240,.4);margin-bottom:7px;padding-bottom:5px;border-bottom:1px solid rgba(255,255,255,.07)}
+.sb-row{display:flex;flex-direction:column;margin-bottom:6px}
+.sb-lbl{font-size:0.7rem;color:rgba(240,240,240,.45);margin-bottom:1px}
+.sb-val{font-size:0.88rem;color:var(--side-text);line-height:1.4}
+.sb-tag-wrap{display:flex;flex-wrap:wrap;gap:4px}
+.sb-tag{font-size:0.72rem;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);padding:3px 8px;border-radius:2px;color:var(--side-text)}
+.sb-tag.hl{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.2)}
+.edu-row{margin-bottom:8px}
+.edu-school{font-size:0.88rem;font-weight:500;color:var(--side-text);line-height:1.3}
+.edu-detail{font-size:0.78rem;color:rgba(240,240,240,.55);margin-top:1px}
+.cert-row{display:flex;align-items:center;gap:6px;margin-bottom:5px}
+.cert-dot{width:4px;height:4px;border-radius:50%;background:rgba(240,240,240,.4);flex-shrink:0}
+.cert-name{font-size:0.8rem;color:var(--side-text)}
+.cert-org{font-size:0.7rem;color:rgba(240,240,240,.45)}
+
+/* ── MAIN ── */
+.main{flex:1;padding:18px 20px;display:flex;flex-direction:column;gap:18px;justify-content:space-between;overflow:hidden}
+.ms-sec{font-family:'JetBrains Mono',monospace;font-size:0.82rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding-bottom:6px;border-bottom:1px solid var(--border);margin-bottom:10px}
+
+/* ── EXP ── */
+.exp-item{margin-bottom:14px}
+.exp-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:2px}
+.exp-co{font-size:1.0rem;font-weight:700;color:var(--acc)}
+.exp-period{font-size:0.78rem;color:var(--muted)}
+.exp-role{display:block;font-size:0.82rem;color:var(--muted);margin-top:2px;margin-bottom:6px}
+.exp-ul{list-style:none;display:flex;flex-direction:column;gap:3px}
+.exp-ul li{font-size:0.88rem;color:#333;line-height:1.55;padding-left:10px;position:relative}
+.exp-ul li::before{content:'—';position:absolute;left:0;color:var(--muted);font-size:0.7rem}
+
+/* ── KPI GRID ── */
+.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:4px}
+.kpi-card{border:1px solid var(--border);border-radius:3px;padding:14px 8px;text-align:center}
+.kpi-n{font-family:'Space Grotesk',sans-serif;font-size:1.6rem;font-weight:700;color:var(--acc);line-height:1}
+.kpi-l{font-size:0.75rem;color:var(--muted);margin-top:4px;line-height:1.3}
+
+/* ── AWARD ── */
+.award-row{display:flex;align-items:center;gap:8px;padding:6px 10px;border:1px solid var(--border);border-radius:3px}
+.award-icon{font-size:1rem}
+.award-name{font-size:0.88rem;font-weight:600;color:var(--acc)}
+.award-org{font-size:0.78rem;color:var(--muted)}
+
+/* ── COVER LETTER ── */
+.cl-body{flex:1;padding:20px 24px;display:flex;flex-direction:column;gap:24px}
+.cl-section{margin-bottom:0}
+.cl-hd{font-family:'JetBrains Mono',monospace;font-size:0.82rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;padding-bottom:6px;border-bottom:2px solid var(--acc)}
+.cl-text{font-size:0.92rem;color:#2a2a2a;line-height:2.0}
+</style>
+</head>
+<body>
+
+<!-- ════ PAGE 1: 이력서 ════ -->
+<div class="page">
+  <div class="page-stripe"></div>
+
+  <div class="page-header">
+    <div>
+      <div class="hd-name">임종권</div>
+      <div class="hd-pos">사무보조 지원 · Office Assistant</div>
+    </div>
+    <div class="hd-contact">
+      ssujklim@gmail.com &nbsp;|&nbsp; 010-4052-0834<br>
+      경기도 광명시
+    </div>
+  </div>
+
+  <div class="page-body">
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+
+      <!-- 사진 -->
+      <div class="sb-photo">
+        <img src="../../../../common/photos/profile.png" alt="프로필">
+      </div>
+
+      <!-- 개인정보 -->
+      <div>
+        <div class="sb-sec">Personal</div>
+        <div class="sb-row">
+          <span class="sb-lbl">생년월일</span>
+          <span class="sb-val">1992.01.04</span>
+        </div>
+        <div class="sb-row">
+          <span class="sb-lbl">병역</span>
+          <span class="sb-val">공군 병장 만기제대</span>
+        </div>
+        <div class="sb-row">
+          <span class="sb-lbl">거주지</span>
+          <span class="sb-val">경기도 광명시<br>(여의도 출퇴근 가능)</span>
+        </div>
+      </div>
+
+      <!-- 학력 -->
+      <div>
+        <div class="sb-sec">Education</div>
+        <div class="edu-row">
+          <div class="edu-school">숭실대학교 사회복지대학원</div>
+          <div class="edu-detail">사회적기업전공 석사 · 2020.02<br>GPA 4.3/4.5</div>
+        </div>
+        <div class="edu-row">
+          <div class="edu-school">숭실대학교 공과대학</div>
+          <div class="edu-detail">전기공학 학사 · 2017.02<br>경제학부 복수전공</div>
+        </div>
+        <div class="edu-row">
+          <div class="edu-school">한국폴리텍 광명</div>
+          <div class="edu-detail">증강현실 시스템제어 수료 · 2022.12</div>
+        </div>
+      </div>
+
+      <!-- 자격증 -->
+      <div>
+        <div class="sb-sec">Certifications</div>
+        <div class="cert-row">
+          <div class="cert-dot"></div>
+          <div>
+            <div class="cert-name">사회복지사 1급</div>
+            <div class="cert-org">보건복지부 · 2021.02</div>
+          </div>
+        </div>
+        <div class="cert-row">
+          <div class="cert-dot"></div>
+          <div>
+            <div class="cert-name">1종 대형 운전면허</div>
+            <div class="cert-org">경찰청 · 2019.02</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 스킬 -->
+      <div>
+        <div class="sb-sec">Skills</div>
+        <div class="sb-tag-wrap">
+          <span class="sb-tag hl">전표·정산</span>
+          <span class="sb-tag hl">법인카드 관리</span>
+          <span class="sb-tag hl">ERP 운영</span>
+          <span class="sb-tag hl">예산 집행</span>
+          <span class="sb-tag">문서관리</span>
+          <span class="sb-tag">총무·행정</span>
+          <span class="sb-tag">Excel/VBA</span>
+          <span class="sb-tag">한글(HWP)</span>
+          <span class="sb-tag">SQL</span>
+          <span class="sb-tag">PC 하드웨어</span>
+          <span class="sb-tag">IT 인프라</span>
+          <span class="sb-tag">Notion</span>
+        </div>
+      </div>
+
+    </div><!-- /sidebar -->
+
+    <!-- MAIN -->
+    <div class="main">
+
+      <!-- Professional Summary -->
+      <div style="background:#f7f7f7;border-left:3px solid var(--acc);padding:10px 14px;border-radius:0 3px 3px 0">
+        <p style="font-size:0.88rem;color:#2a2a2a;line-height:1.7;margin:0">사회적 금융기관에서 <strong>3년간</strong> 법인카드 관리·전표처리·경비정산을 단독 수행. 연 <strong>3.6억</strong> 인프라 예산 편성·집행(집행률 88.5%), 외주업체 <strong>8개사</strong> 계약서·세금계산서 관리·정산 총괄. ERP(High-Q) 구축 전담 — 회계계정 설계부터 데이터 마이그레이션까지. 꼼꼼한 숫자 관리와 체계적 문서 정리가 강점.</p>
+      </div>
+
+      <!-- 경력 -->
+      <div>
+        <div class="ms-sec">Work Experience</div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <span class="exp-co">(사)함께만드는세상 (사회연대은행)</span>
+            <span class="exp-period">2023.01 ~ 2026.02 · 3년 2개월</span>
+          </div>
+          <span class="exp-role">경영지원부 인프라지원팀 · 총무·IT지원 (대리)</span>
+          <ul class="exp-ul">
+            <li>지출결의서 작성, 법인카드 내역 검토, 영수증 정리 및 경비정산 수행</li>
+            <li>외주업체 8개사 계약서·세금계산서 관리 및 대사·정산 총괄</li>
+            <li>인프라 예산 <strong>3.6억</strong> 직접 편성·집행·통제 (집행률 88.5%)</li>
+            <li>커스텀 ERP(High-Q) 도입 전담 — 회계계정 설계, 엑셀→Tibero DB 이관</li>
+            <li>재계약 협상(복합기·전자계약·본인확인)으로 연 약 <strong>500만 원 절감</strong></li>
+            <li>계약서·기안·품의 등 행정 문서 작성 및 전자결재·문서철 관리</li>
+            <li>사내 네트워크·PC 트러블슈팅 내재화 → 유지보수 비용 <strong>30% 절감</strong></li>
+            <li>IT 자산 수명주기 관리 프로세스 정립 및 유휴장비 재배치</li>
+          </ul>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <span class="exp-co">(주)맨지온</span>
+            <span class="exp-period">2020.03 ~ 2021.11 · 1년 8개월</span>
+          </div>
+          <span class="exp-role">개발부 · 임베디드 시스템 개발 및 QA (대리)</span>
+          <ul class="exp-ul">
+            <li>ESP32 기반 해수담수화 프로토타입 — 펌웨어 개발 및 품질 검증</li>
+            <li>PCB 납땜·실장·외관검사 기반 프로토타입 품질 보증 활동</li>
+          </ul>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <span class="exp-co">주식회사 엣지크로스</span>
+            <span class="exp-period">2016.05 ~ 2018.02 · 1년 9개월</span>
+          </div>
+          <span class="exp-role">기술연구소 · H/W 개발 및 자재 관리 (주임)</span>
+          <ul class="exp-ul">
+            <li>BOM 관리 체계화 및 생산 일정 조율 → 납기 준수율 100%</li>
+            <li>전자부품 입출고·ESD 방지 관리 및 협력사 자재 조달</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- KPI 그리드 -->
+      <div>
+        <div class="ms-sec">Key Performance</div>
+        <div class="kpi-grid">
+          <div class="kpi-card">
+            <div class="kpi-n">3.6억</div>
+            <div class="kpi-l">연간 예산<br>편성·집행</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-n">8개사</div>
+            <div class="kpi-l">외주업체<br>계약·정산</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-n">−30%</div>
+            <div class="kpi-l">IT 유지보수<br>비용 절감</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-n">88.5%</div>
+            <div class="kpi-l">예산<br>집행률</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Core Competency -->
+      <div>
+        <div class="ms-sec">Core Competency</div>
+        <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:6px">
+          <div style="display:flex;align-items:baseline;gap:8px;padding:7px 10px;border:1px solid var(--border);border-radius:3px">
+            <span style="font-size:0.88rem;font-weight:700;color:var(--acc);white-space:nowrap">전표·정산</span>
+            <span style="font-size:0.78rem;color:var(--muted)">법인카드·지출결의·경비정산 수행</span>
+          </div>
+          <div style="display:flex;align-items:baseline;gap:8px;padding:7px 10px;border:1px solid var(--border);border-radius:3px">
+            <span style="font-size:0.88rem;font-weight:700;color:var(--acc);white-space:nowrap">예산 관리</span>
+            <span style="font-size:0.78rem;color:var(--muted)">3.6억 단독 편성·집행·통제</span>
+          </div>
+          <div style="display:flex;align-items:baseline;gap:8px;padding:7px 10px;border:1px solid var(--border);border-radius:3px">
+            <span style="font-size:0.88rem;font-weight:700;color:var(--acc);white-space:nowrap">외주 계약</span>
+            <span style="font-size:0.78rem;color:var(--muted)">8개사 계약서·계산서 관리·정산</span>
+          </div>
+          <div style="display:flex;align-items:baseline;gap:8px;padding:7px 10px;border:1px solid var(--border);border-radius:3px">
+            <span style="font-size:0.88rem;font-weight:700;color:var(--acc);white-space:nowrap">문서 관리</span>
+            <span style="font-size:0.78rem;color:var(--muted)">기안·품의·문서철·전자결재 운영</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 수상 -->
+      <div>
+        <div class="ms-sec">Award</div>
+        <div class="award-row">
+          <span class="award-icon">🏆</span>
+          <div>
+            <div class="award-name">2022 메타버스 콘텐츠 리크루팅 캠프 대상</div>
+            <div class="award-org">과학기술정보통신부 장관상 · 2022.09</div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /main -->
+  </div><!-- /page-body -->
+</div><!-- /page1 -->
+
+
+<!-- ════ PAGE 2: 자기소개서 ════ -->
+<div class="page">
+  <div class="page-stripe"></div>
+
+  <div class="page-header">
+    <div>
+      <div class="hd-name">임종권</div>
+      <div class="hd-pos">자기소개서 · Cover Letter</div>
+    </div>
+    <div class="hd-contact">
+      키움증권 · 사무보조 지원<br>
+      ssujklim@gmail.com &nbsp;|&nbsp; 010-4052-0834
+    </div>
+  </div>
+
+  <div class="cl-body">
+
+    <!-- 지원동기 -->
+    <div class="cl-section">
+      <div class="cl-hd">지원동기</div>
+      <p class="cl-text">
+        사회적 금융기관에서 3년간 법인카드 관리, 전표처리, 경비정산을 일상 업무로 수행했습니다. 지출결의서 작성부터 영수증 검토, 세금계산서 대사까지, 사무 처리의 전 과정을 혼자 담당하며 숫자 하나 놓치지 않는 습관이 몸에 배었습니다. 이 경험을 온라인 증권 업계 1위인 키움증권에서 발휘하고 싶어 지원합니다. 체계적이고 빠른 업무 환경일수록 정확한 사무 지원의 가치가 커진다고 생각하며, 전표와 문서를 빈틈없이 관리하는 역할에 저의 경험이 바로 기여할 수 있다고 판단했습니다.
+      </p>
+    </div>
+
+    <!-- 직무역량 -->
+    <div class="cl-section">
+      <div class="cl-hd">직무역량</div>
+      <p class="cl-text">
+        직전 직장에서 지출결의서 작성, 법인카드 내역 검토, 영수증 정리, 세금계산서 발행·대조를 직접 수행했습니다. 연 3.6억 규모 인프라 예산을 단독 편성·집행하며 집행률 88.5%를 유지했고, 외주업체 8개사의 계약서와 세금계산서를 관리·대사하는 업무를 총괄했습니다. 재계약 협상을 통해 연 500만 원 이상 비용을 절감한 경험도 있습니다. 또한 ERP 시스템(High-Q) 도입을 전담하며 회계계정 체계를 설계하고 기존 엑셀 데이터를 새 시스템으로 이관하는 작업을 약 1년 반에 걸쳐 수행했습니다. 이 과정에서 새로운 전산 시스템을 빠르게 파악하고 적응하는 능력을 길렀습니다. 문서철 관리와 파일링, 거래처 메일링 등 반복 업무를 정확하게 처리하는 것에 자신 있습니다.
+      </p>
+    </div>
+
+    <!-- 입사 후 포부 -->
+    <div class="cl-section">
+      <div class="cl-hd">입사 후 포부</div>
+      <p class="cl-text">
+        입사 후 키움증권의 전표 처리 체계와 내부 규정을 빠르게 파악하겠습니다. 법인카드 정산, 계산서 발행, 수익 전표처리, 예산 관리 등 주어진 업무를 정확하고 빠짐없이 수행하여 팀의 행정 업무 부담을 줄이는 것이 첫 목표입니다. 반복되는 결의와 정산 속에서도 실수 없이 처리하는 것이 사무 지원의 핵심이라 생각하며, 묵묵히 그 역할을 감당할 수 있는 사람이 되겠습니다.
+      </p>
+    </div>
+
+    <!-- 여백 채움 + 하단 서명 -->
+    <div style="flex:1"></div>
+    <div style="text-align:center;padding:20px 0;border-top:1px solid var(--border)">
+      <p style="font-size:0.85rem;color:var(--muted);line-height:1.8">
+        위 내용은 사실에 기반하여 작성하였습니다.<br>
+        <span style="font-size:1rem;font-weight:600;color:var(--acc)">임종권</span>
+      </p>
+    </div>
+
+  </div>
+</div><!-- /page2 -->
+
+</body>
+</html>
