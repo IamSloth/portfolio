@@ -7,25 +7,19 @@
 
 | Field | Value |
 |-------|-------|
-| date | 2026-03-20 |
+| date | 2026-03-22 |
 | agent | Claude Opus 4.6 |
-| work | #35 토스 9개 포지션 전체 제출 완료 (35a~35j) |
+| work | #37 서울히어로즈 경영지원(회계) 제출 완료 + 프로젝트 정리 |
 | commit | latest |
 
 ### 이번 세션 요약
-- **#35 토스 3개 법인 9개 포지션 일괄 제출**: Greenhouse 채용플랫폼, 이력서+포폴PDF+웹포트폴리오 3종 세트
-  - 35a PA Operations Specialist (토스뱅크, 계약직 1년)
-  - 35b CSR Project Manager (토스뱅크, 정규직)
-  - 35c GA Manager (토스증권, 정규직) — 35h와 중복 제출됨
-  - 35d GA Specialist (토스페이먼츠, 계약직 1년)
-  - 35e IT Admin (토스페이먼츠, 계약직 1년)
-  - 35f GA Specialist (토스씨엑스, 계약직 1년)
-  - 35g GA Manager (토스 본사, 정규직) — 원래 토스뱅크로 오기재 → 토스 본사로 정정
-  - 35h GA Specialist (토스증권, 계약직 1년) — 원래 Manager로 오기재 → Specialist로 정정
-  - 35i GA Specialist (토스인컴, 계약직 1년)
-  - 35j IT Admin (토스뱅크, 계약직 1년)
-- 계열사별 웹포트폴리오 7개 배포 (GitHub Pages)
-- **이전 세션**: #34 청년재단, #33 빗썸, #32 한국투자증권, #31 크리에이티브멋 제출
+- **#37 서울히어로즈(주) 지원팀 경영지원(회계)**: 0순위 최우선 목표. 사람인 제출 완료 (2026-03-22)
+  - 이력서+자소서+구단문항 3페이지 HTML→PDF (`임종권_지원서_서울히어로즈.pdf`)
+  - 자사양식 docx 채움 (`임종권_구단문항_서울히어로즈.docx`)
+  - 웹포트폴리오 배포 (`heroes-baseball.html` → GitHub Pages)
+  - 키움 브랜드컬러(#570514 + #FF7DA0), 서울히어로즈(주) 법인명 정확 반영
+- **프로젝트 정리**: root .mp4 삭제, 미사용 frames/ 삭제, CLOSED 앱 빈 final/ 삭제, 구버전 draft 정리
+- **이전 세션**: #36 키움증권, #35 토스 9개 포지션, #34 청년재단, #33 빗썸 제출
 
 ## Active Applications
 
@@ -61,6 +55,7 @@
 | 35i | 토스인컴 | GA Specialist | **📤 SUBMITTED** | Greenhouse 제출 완료 (2026-03-20). 계약직 1년 | `35_toss/35i_income_ga_specialist/` |
 | 35j | 토스뱅크 | IT Admin | **📤 SUBMITTED** | Greenhouse 제출 완료 (2026-03-20). 계약직 1년 | `35_toss/35j_bank_it_admin/` |
 | 36 | 키움증권 (사람인HS 파견) | 사무보조 | **📤 SUBMITTED** | 사람인 제출 완료 (2026-03-20). 파견 1년×2년계약, 여의도. 상시채용 | `36_kiwoom/office_assistant/` |
+| 37 | 서울히어로즈(주) | 지원팀 경영지원(회계) | **📤 SUBMITTED** | 사람인 제출 완료 (2026-03-22). 계약직 1년, 고척돔. 마감 4/10. **0순위** | `37_heroes_baseball/accounting/` |
 | 03 | 11st | General Affairs | **⏸️ ON_HOLD** | 지원 안 함 (보류 → 미지원 확정) | `03_11st/general_affairs/` |
 
 ### Closed Applications
@@ -104,6 +99,6 @@
 - **Filenames**: English snake_case only. No Korean filenames (except original form templates and final 제출본).
 - **Scripts**: Place inside the relevant application's `scripts/` subfolder. Never in project root.
 - **Commits**: Always include `Co-Authored-By: {Model Name} <noreply@anthropic.com>` trailer.
-- **Application folders**: Numbered by discovery date: `{NN}_{company}/`. Next new company = `36_`.
+- **Application folders**: Numbered by discovery date: `{NN}_{company}/`. Next new company = `38_`.
 - **Profile sync**: If you discover new career/skill/cert info during work, update `profile.json` immediately.
 - **Session end**: Update this file → commit → push. Keep entries concise (token budget matters).

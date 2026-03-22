@@ -3,578 +3,291 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>임종권 | Jong Kwon Lim</title>
-<meta name="description" content="실전형 Ops 전문가 — ERP 풀사이클 · IT 인프라 · 예산 3.6억 집행 · AI 업무자동화">
+<title>임종권 — Operations & Technology</title>
+<meta name="description" content="공학에서 출발해 비용·기술·현장을 아우르는 실전형 운영 전문가. ERP 풀사이클 · IT 인프라 · 예산 3.6억 집행 · AI 업무자동화">
 <meta property="og:title" content="임종권 | Ops & Tech Specialist">
-<meta property="og:description" content="ERP 풀사이클 · IT 인프라 · 인프라 예산 3.6억 집행 · AI 업무자동화">
+<meta property="og:description" content="ERP 풀사이클 · IT 인프라 · 예산 3.6억 집행 · AI 업무자동화">
 <meta property="og:image" content="assets/profile.png">
 <meta property="og:type" content="website">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-:root{
-  --mint:#00D4AA;--mint-dim:rgba(0,212,170,.1);--mint-glow:rgba(0,212,170,.2);--mint-dark:#00B892;
-  --bg:#0a0a0a;--surface:#131313;--surface2:#1a1a1a;--border:#252525;
-  --text:#d4d4d4;--text-dim:#777;--white:#f0f0f0;
-  --ease:cubic-bezier(.22,1,.36,1);
-}
-html{scroll-behavior:smooth}
-body{font-family:'Noto Sans KR',-apple-system,sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;line-height:1.65}
-body.light{--bg:#fafafa;--surface:#fff;--surface2:#f0f0f0;--border:#d5d5d5;--text:#333;--text-dim:#666;--white:#111;--mint-dim:rgba(0,180,146,.08);--mint-glow:rgba(0,212,170,.1);--mint-dark:#009B7D}
-body.light a{color:var(--mint-dark)}
-body.light .mq-row--dark{background:var(--surface2);border-color:var(--border)}
-body.light .mq-row--dark .mq-item{color:var(--mint-dark)}
-body.light .mq-row--mint{background:var(--mint)}
-body.light .hero::before{opacity:.1}
-body.light .hero-link{color:var(--text)}
-body.light .badge{background:var(--surface2);color:var(--text);border-color:var(--border)}
-body.light .badge.outline{border-color:var(--mint-dark);color:var(--mint-dark)}
-body.light .tag{background:var(--surface2);color:var(--text)}
-body.light .flow-problem{background:rgba(220,60,60,.06)}
-body.light .flow-solution{background:rgba(0,180,146,.06)}
-body.light .flow-impact{background:rgba(0,155,125,.04)}
-body.light .exp-right li::before{background:var(--border)}
-body.light .stat .num, body.light .hero-stat .num{color:var(--mint-dark)}
-body.light .scroll-hint::after{background:linear-gradient(var(--mint-dark),transparent)}
-a{color:var(--mint);text-decoration:none}
-::selection{background:var(--mint);color:var(--bg)}
-img{display:block;max-width:100%}
-
-/* Language toggle: show/hide */
-body.ko .en{display:none!important}
-body.en .ko{display:none!important}
-body:not(.ko):not(.en) .en{display:none!important}
-
-/* ── NAV ── */
-.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:14px 32px;display:flex;justify-content:space-between;align-items:center;background:rgba(10,10,10,.8);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);transition:padding .3s var(--ease)}
-body.light .nav{background:rgba(250,250,250,.85)}
-.nav-logo{font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:700;color:var(--white);letter-spacing:-.03em}
-.nav-logo span{color:var(--mint)}
-.nav-center{display:flex;gap:24px}
-.nav-center a{font-size:12px;color:var(--text-dim);transition:color .2s;letter-spacing:-.01em}
-.nav-center a:hover{color:var(--mint)}
-.nav-right{display:flex;gap:10px;align-items:center}
-.nav-btn{background:none;border:1px solid var(--border);color:var(--text-dim);padding:4px 10px;border-radius:4px;font-size:11px;cursor:pointer;font-family:'JetBrains Mono',monospace;transition:all .2s}
-.nav-btn:hover{border-color:var(--mint);color:var(--mint)}
-.nav-btn.active{background:var(--mint);color:var(--bg);border-color:var(--mint)}
-
-/* ── HERO ── */
-.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:120px 10vw 60px;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;top:-30%;right:-15%;width:700px;height:700px;background:radial-gradient(circle,var(--mint-glow),transparent 65%);opacity:.25;pointer-events:none}
-.hero-photo{width:72px;height:72px;border-radius:50%;border:2px solid var(--mint);margin-bottom:20px;object-fit:cover}
-.hero h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(36px,6vw,68px);font-weight:700;color:var(--white);line-height:1.08;letter-spacing:-.04em;margin-bottom:12px}
-.hero h1 em{font-style:normal;color:var(--mint)}
-.hero-sub{font-size:17px;color:var(--text-dim);max-width:580px;line-height:1.75;margin-bottom:28px}
-.hero-links{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:36px}
-.hero-link{font-size:12px;color:var(--text-dim);border:1px solid var(--border);padding:6px 16px;border-radius:6px;transition:all .2s var(--ease);display:flex;align-items:center;gap:6px}
-.hero-link:hover{border-color:var(--mint);color:var(--mint)}
-.hero-link svg{width:14px;height:14px;fill:currentColor}
-.hero-stats{display:flex;gap:36px;flex-wrap:wrap}
-.hero-stat .num{font-family:'Space Grotesk',sans-serif;font-size:36px;font-weight:700;color:var(--mint);letter-spacing:-.03em;line-height:1}
-.hero-stat .label{font-size:11px;color:var(--text-dim);margin-top:3px}
-.scroll-hint{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);font-size:11px;color:var(--text-dim);display:flex;flex-direction:column;align-items:center;gap:6px;animation:float 2s ease-in-out infinite}
-.scroll-hint::after{content:'';width:1px;height:20px;background:linear-gradient(var(--mint),transparent)}
-@keyframes float{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(-5px)}}
-
-/* ── MARQUEE ── */
-.mq-section{overflow:hidden}
-.mq-row{overflow:hidden;white-space:nowrap;padding:12px 0}
-.mq-row--dark{background:var(--bg);border-top:1px solid var(--border);border-bottom:1px solid rgba(0,212,170,.1)}
-.mq-row--mint{background:var(--mint);border-bottom:1px solid var(--border)}
-.mq-track{display:inline-flex;will-change:transform}
-.mq-item{flex-shrink:0;padding:0 20px;font-family:'Space Grotesk','Noto Sans KR',sans-serif;font-size:clamp(18px,2.6vw,30px);font-weight:700;letter-spacing:-.03em;white-space:nowrap;user-select:none;transition:opacity .2s}
-.mq-row--dark .mq-item{color:var(--mint);opacity:.5}
-.mq-row--dark:hover .mq-item{opacity:.25}
-.mq-row--dark .mq-item:hover{opacity:1!important}
-.mq-row--mint .mq-item{color:var(--bg);opacity:.45}
-.mq-row--mint:hover .mq-item{opacity:.25}
-.mq-row--mint .mq-item:hover{opacity:1!important}
-.mq-item .sep{margin:0 14px;font-size:.45em;vertical-align:middle;opacity:.35}
-
-/* ── SECTIONS ── */
-section{padding:80px 10vw}
-.sec-label{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--mint);font-weight:600;letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px}
-.sec-title{font-family:'Space Grotesk',sans-serif;font-size:28px;font-weight:700;color:var(--white);letter-spacing:-.03em;margin-bottom:12px}
-.sec-title span{color:var(--mint)}
-.sec-desc{font-size:15px;color:var(--text-dim);max-width:600px;line-height:1.7;margin-bottom:40px}
-
-/* ── STORY CARDS ── */
-.story-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.story-card{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:28px 24px;transition:all .3s var(--ease);position:relative;overflow:hidden}
-.story-card:hover{border-color:rgba(0,212,170,.3);transform:translateY(-2px)}
-.story-card .num{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--mint);font-weight:600;margin-bottom:10px}
-.story-card h3{font-size:16px;font-weight:700;color:var(--white);margin-bottom:8px;letter-spacing:-.02em}
-.story-card p{font-size:13px;color:var(--text-dim);line-height:1.7;margin-bottom:12px}
-.tags{display:flex;flex-wrap:wrap;gap:5px}
-.tag{font-size:10px;background:var(--surface2);color:var(--text-dim);padding:3px 10px;border-radius:4px;border:1px solid var(--border)}
-
-/* ── EXPERIENCE ── */
-.exp-list{display:flex;flex-direction:column;gap:16px}
-.exp-card{display:flex;gap:24px;padding:24px;background:var(--surface);border:1px solid var(--border);border-radius:8px;transition:all .3s var(--ease)}
-.exp-card:hover{border-color:rgba(0,212,170,.2)}
-.exp-left{width:160px;flex-shrink:0}
-.exp-left .co{font-size:14px;font-weight:700;color:var(--white)}
-.exp-left .date{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text-dim);margin-top:3px}
-.exp-right{flex:1}
-.exp-right .role{font-size:12px;color:var(--mint);font-weight:600;margin-bottom:8px}
-.exp-right ul{list-style:none;padding:0}
-.exp-right li{font-size:12px;color:var(--text-dim);line-height:1.7;padding-left:14px;position:relative;margin-bottom:2px}
-.exp-right li::before{content:'';position:absolute;left:0;top:8px;width:4px;height:4px;border-radius:50%;background:var(--border)}
-.exp-transition{text-align:center;padding:8px 0;font-size:11px;color:var(--text-dim);position:relative}
-.exp-transition::before{content:'';position:absolute;left:50%;top:0;bottom:0;width:1px;background:var(--border);z-index:-1}
-
-/* ── PROJECTS ── */
-.proj-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
-.proj-card{background:var(--surface);border:1px solid var(--border);border-radius:8px;overflow:hidden;transition:all .3s var(--ease)}
-.proj-card:hover{border-color:rgba(0,212,170,.3);transform:translateY(-2px)}
-.proj-img{width:100%;height:160px;object-fit:cover;opacity:.7;transition:opacity .3s}
-.proj-card:hover .proj-img{opacity:.9}
-.proj-img-ai{height:160px;background:var(--surface2);display:flex;align-items:center;justify-content:center}
-.proj-img-ai .ai-icon{font-size:48px;opacity:.6}
-.proj-body{padding:20px 22px}
-.proj-body h3{font-size:15px;font-weight:700;color:var(--white);margin-bottom:10px;letter-spacing:-.02em}
-.proj-flow{display:flex;flex-direction:column;gap:6px;margin-bottom:12px}
-.proj-flow span{font-size:11px;line-height:1.6;padding:6px 10px;border-radius:4px}
-.flow-problem{background:rgba(255,80,80,.06);border-left:2px solid #f66;color:var(--text-dim)}
-.flow-solution{background:var(--mint-dim);border-left:2px solid var(--mint);color:var(--text)}
-.flow-impact{background:rgba(0,212,170,.04);border-left:2px solid var(--mint-dark);color:var(--text)}
-
-/* ── SKILLS ── */
-.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.skill-group{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:20px}
-.skill-group h3{font-size:12px;font-weight:700;color:var(--mint);margin-bottom:12px;font-family:'JetBrains Mono',monospace;letter-spacing:.02em}
-.badge{display:inline-block;font-size:11px;background:var(--surface2);color:var(--text-dim);padding:4px 10px;border-radius:4px;margin:2px;border:1px solid var(--border)}
-.badge.outline{border-color:var(--mint);color:var(--mint);background:transparent}
-.badge.military{border-color:var(--border);color:var(--text-dim);background:var(--surface2)}
-.bg-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:20px}
-.bg-item{padding:16px;background:var(--surface);border:1px solid var(--border);border-radius:8px}
-.bg-item .school{font-size:13px;font-weight:700;color:var(--white);display:block;margin-bottom:2px}
-.bg-item .detail{font-size:11px;color:var(--text-dim);display:block}
-.bg-item .yr{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--mint);margin-top:4px;display:block}
-.bg-item.award{border-color:rgba(0,212,170,.2)}
-.bg-item.award .school{color:var(--mint)}
-
-/* ── CONTACT ── */
-.contact{text-align:center;padding:80px 10vw;background:var(--surface)}
-.contact h2{font-family:'Space Grotesk',sans-serif;font-size:32px;font-weight:700;color:var(--white);letter-spacing:-.03em;margin-bottom:10px}
-.contact p{color:var(--text-dim);font-size:14px;margin-bottom:24px;line-height:1.7}
-.contact-links{display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
-.contact-links a{font-size:13px;color:var(--mint);border:1px solid rgba(0,212,170,.25);padding:8px 20px;border-radius:6px;transition:all .2s}
-.contact-links a:hover{background:var(--mint);color:var(--bg)}
-
-.footer{text-align:center;padding:20px;font-size:10px;color:var(--text-dim);border-top:1px solid var(--border)}
-
-/* ── REVEAL ── */
-.reveal{opacity:0;transform:translateY(16px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
-.reveal.visible{opacity:1;transform:translateY(0)}
-
-/* ── RESPONSIVE ── */
-@media(max-width:900px){
-  .hero{padding:100px 24px 60px}
-  section{padding:60px 24px}
-  .story-grid{grid-template-columns:1fr}
-  .proj-grid{grid-template-columns:1fr}
-  .exp-card{flex-direction:column;gap:8px}
-  .exp-left{width:auto}
-  .skills-grid{grid-template-columns:1fr}
-  .bg-grid{grid-template-columns:1fr}
-  .hero-stats{gap:20px}
-  .nav-center{display:none}
-}
-</style>
+<link rel="stylesheet" href="css/main.css">
 </head>
-<body class="ko">
+<body>
+
+<!-- LOADER -->
+<div class="loader" id="loader">
+  <div class="loader-name">임종권<span class="dot">.</span></div>
+  <div class="loader-bar-track"><div class="loader-bar"></div></div>
+  <div class="loader-pct">0</div>
+</div>
+
+<!-- SCROLL PROGRESS -->
+<div class="scroll-progress" id="scroll-progress"></div>
 
 <!-- NAV -->
 <nav class="nav">
-  <div class="nav-logo">
-    <span class="ko">임종<span>권</span></span>
-    <span class="en">JK <span>LIM</span></span>
-  </div>
-  <div class="nav-center">
-    <a href="#story"><span class="ko">스토리</span><span class="en">Story</span></a>
-    <a href="#experience"><span class="ko">경력</span><span class="en">Experience</span></a>
-    <a href="#projects"><span class="ko">프로젝트</span><span class="en">Projects</span></a>
-    <a href="#skills"><span class="ko">기술</span><span class="en">Skills</span></a>
-    <a href="#contact"><span class="ko">연락</span><span class="en">Contact</span></a>
-  </div>
-  <div class="nav-right">
-    <button class="nav-btn" id="theme-btn">☀</button>
-    <button class="nav-btn active" id="lang-ko">KO</button>
-    <button class="nav-btn" id="lang-en">EN</button>
+  <div class="nav-logo">임종권<span class="dot">.</span></div>
+  <button class="nav-toggle" id="nav-toggle" aria-label="메뉴">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-links" id="nav-links">
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
   </div>
 </nav>
 
-<!-- HERO -->
-<div class="hero">
-  <img src="assets/profile.png" alt="Profile" class="hero-photo">
-  <h1>
-    <span class="ko">조직이 <em>돌아가게</em><br>만드는 사람</span>
-    <span class="en">Making Things<br><em>Actually Work</em></span>
-  </h1>
-  <p class="hero-sub">
-    <span class="ko">공학에서 출발해 비용·기술·현장을 아우르는 실전형 운영 전문가. AI로 업무를 자동화하고, 어떻게든 되게 만듭니다.</span>
-    <span class="en">From engineering roots — an operations specialist bridging cost, tech, and fieldwork. I automate with AI and make things happen.</span>
-  </p>
-  <div class="hero-links">
-    <a href="mailto:ssujklim@gmail.com" class="hero-link">
-      <svg viewBox="0 0 20 20"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/></svg>
-      ssujklim@gmail.com
-    </a>
-    <a href="https://github.com/IamSloth" class="hero-link" target="_blank">
-      <svg viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
-      GitHub
-    </a>
-  </div>
-  <div class="hero-stats">
-    <div class="hero-stat">
-      <div class="num"><span class="count-up" data-target="18">0</span><span class="ko">개월</span><span class="en">mo</span></div>
-      <div class="label"><span class="ko">ERP 도입 풀사이클</span><span class="en">ERP Full-Cycle</span></div>
-    </div>
-    <div class="hero-stat">
-      <div class="num"><span class="count-up" data-target="3.6" data-decimal="1">0</span><span class="ko">억</span><span class="en">억₩</span></div>
-      <div class="label"><span class="ko">인프라 예산 직접 집행</span><span class="en">Budget Managed</span></div>
-    </div>
-    <div class="hero-stat">
-      <div class="num"><span class="count-up" data-target="30">0</span>%</div>
-      <div class="label"><span class="ko">유지보수 비용 절감</span><span class="en">Cost Reduction</span></div>
-    </div>
-  </div>
-  <div class="scroll-hint">scroll</div>
-</div>
+<!-- ════════════════════════════════
+     HERO — Auto-play Frame Sequence
+     ════════════════════════════════ -->
+<section class="hero-container">
+  <div class="hero-sticky">
+    <canvas id="hero-canvas"></canvas>
+    <div class="hero-overlay"></div>
 
-<!-- MARQUEE -->
-<div class="mq-section">
-  <div class="mq-row mq-row--dark"><div class="mq-track" id="mq1"></div></div>
-  <div class="mq-row mq-row--mint"><div class="mq-track" id="mq2"></div></div>
-</div>
-
-<!-- CAREER STORY -->
-<section id="story">
-  <div class="sec-label">01 — My Story</div>
-  <div class="sec-title"><span class="ko">커리어 <span>스토리</span></span><span class="en">Career <span>Story</span></span></div>
-  <div class="sec-desc">
-    <span class="ko">전기공학에서 시작해 하드웨어, IoT, 소프트웨어까지 — 매 경험이 <strong style="color:var(--white)">'기술을 이해하는 운영 전문가'</strong>로 수렴했습니다.</span>
-    <span class="en">Starting from electrical engineering through hardware, IoT, and software — every experience converged into <strong style="color:var(--white)">an operations specialist who truly understands tech</strong>.</span>
-  </div>
-  <div class="story-grid">
-    <div class="story-card reveal">
-      <div class="num">01</div>
-      <h3><span class="ko">기술의 기초</span><span class="en">Foundation</span></h3>
-      <p>
-        <span class="ko">전기공학과 경제학을 복수전공하며 기술과 비용, 두 언어를 동시에 익혔습니다. 전자부품 회사에서 회로 설계, BOM 관리, 납기 조율을 직접 수행하며 <strong style="color:var(--white)">기술의 물리적 원리를 체득</strong>했습니다.</span>
-        <span class="en">Double-majored in Electrical Engineering + Economics. At an electronics company, from circuit design to BOM management — <strong style="color:var(--white)">mastered the physical principles of technology</strong>.</span>
+    <div class="hero-content">
+      <h1>임종권<span class="accent">.</span></h1>
+      <p class="hero-tagline"><span class="tl-mono">OPS</span> &amp; <span class="tl-mono">TECH</span> Specialist</p>
+      <p class="hero-sub">
+        공학에서 출발해 비용·기술·현장을 아우르는 실전형 운영 전문가.<br>
+        어떻게든 되게 만듭니다.
       </p>
-      <div class="tags">
-        <span class="tag"><span class="ko">전기공학 학사</span><span class="en">B.S. EE</span></span>
-        <span class="tag"><span class="ko">HW 개발</span><span class="en">HW Dev</span></span>
-        <span class="tag"><span class="ko">자재관리</span><span class="en">Materials</span></span>
-      </div>
     </div>
-    <div class="story-card reveal">
-      <div class="num">02</div>
-      <h3><span class="ko">시스템과 데이터</span><span class="en">Systems & Data</span></h3>
-      <p>
-        <span class="ko">석사 과정에서 조직과 제도 설계를 배운 뒤, IoT 스타트업에서 센서 데이터와 시스템 통합을 경험했습니다. Unity/AR 교육까지 수료하며 <strong style="color:var(--white)">소프트웨어 개발 프로세스로 확장</strong>했습니다.</span>
-        <span class="en">Studied organizational systems through M.A., then gained hands-on experience with sensor data at an IoT startup. Completed Unity/AR training — <strong style="color:var(--white)">expanded into software development</strong>.</span>
+
+    <div class="scroll-indicator">
+      <span>Scroll</span>
+      <div class="line"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════
+     ABOUT
+     ════════════════════════════════ -->
+<section id="about" class="section">
+  <div class="section-label">01 — About</div>
+  <div class="section-title">기술을 이해하는<br>운영 전문가</div>
+  <div class="section-desc">
+    전기공학에서 시작해 하드웨어, IoT, ERP 도입까지 —<br>
+    매 경험이 '조직을 돌아가게 만드는 사람'으로 수렴했습니다.
+  </div>
+
+  <div class="about-grid">
+    <div class="about-photo-wrap reveal">
+      <img src="assets/profile.png" alt="임종권 프로필">
+    </div>
+    <div class="about-text">
+      <h3 class="reveal">
+        회로 설계부터 ERP 도입, 예산 3.6억 집행까지.<br>
+        기술과 운영의 교차점에서 일합니다.
+      </h3>
+      <p class="reveal d1">
+        전기공학과 경제학을 복수전공하며 기술과 비용, 두 언어를 동시에 익혔습니다.
+        전자부품 회사에서 회로 설계와 BOM 관리를, IoT 스타트업에서 임베디드 시스템과 데이터를,
+        비영리법인에서 총무·IT·예산을 직접 운영했습니다.
       </p>
-      <div class="tags">
-        <span class="tag"><span class="ko">석사 (사회적기업)</span><span class="en">M.A.</span></span>
-        <span class="tag">IoT / ESP32</span>
-        <span class="tag">Unity 3D</span>
-      </div>
-    </div>
-    <div class="story-card reveal">
-      <div class="num">03</div>
-      <h3><span class="ko">운영의 통합</span><span class="en">Integration</span></h3>
-      <p>
-        <span class="ko">비영리법인에서 3년간 총무와 IT 지원을 담당. ERP 도입 PM, 인프라 예산 3.6억 집행, 유지보수비 30% 절감 — <strong style="color:var(--white)">모든 역량을 '돌아가게 만드는 운영'으로 통합</strong>했습니다.</span>
-        <span class="en">3 years in GA & IT at NGO — led ERP implementation, managed ₩360M budget, cut costs 30% — <strong style="color:var(--white)">integrated all capabilities into 'making things run'</strong>.</span>
+      <p class="reveal d2">
+        AI로 업무를 자동화하고, 프로세스를 설계하고,
+        현장에서 문제를 해결하는 것이 저의 핵심 역량입니다.
       </p>
-      <div class="tags">
-        <span class="tag">ERP PM</span>
-        <span class="tag"><span class="ko">인프라 관리</span><span class="en">Infra Mgmt</span></span>
-        <span class="tag"><span class="ko">비용 최적화</span><span class="en">Cost Opt.</span></span>
+
+      <div class="about-stats reveal d3">
+        <div>
+          <div class="stat-num"><span data-count="37">0</span>개월</div>
+          <div class="stat-label">총무·IT 1인 전담</div>
+        </div>
+        <div>
+          <div class="stat-num"><span data-count="3.6" data-decimals="1">0</span>억</div>
+          <div class="stat-label">인프라 예산 집행</div>
+        </div>
+        <div>
+          <div class="stat-num">-<span data-count="30">0</span>%</div>
+          <div class="stat-label">유지보수 비용 절감</div>
+        </div>
+      </div>
+
+      <div class="tech-stack reveal d4">
+        <span class="tech-tag hl">ERP (High-Q)</span>
+        <span class="tech-tag hl">IT 인프라</span>
+        <span class="tech-tag hl">예산 관리</span>
+        <span class="tech-tag">AI (Claude / GPT)</span>
+        <span class="tech-tag">Excel / VBA</span>
+        <span class="tech-tag">SQL</span>
+        <span class="tech-tag">Python</span>
+        <span class="tech-tag">ESP32 / Arduino</span>
+        <span class="tech-tag">Unity 3D</span>
+        <span class="tech-tag">Git</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- EXPERIENCE -->
-<section id="experience" style="background:var(--surface)">
-  <div class="sec-label">02 — Career</div>
-  <div class="sec-title"><span class="ko">경력 <span>사항</span></span><span class="en">Work <span>Experience</span></span></div>
-  <div class="exp-list">
-    <div class="exp-card reveal">
-      <div class="exp-left">
-        <div class="co"><span class="ko">(사)함께만드는세상</span><span class="en">Hamkke Foundation</span></div>
-        <div class="date">2023.01 – 2026.01</div>
+<!-- ════════════════════════════════
+     EXPERIENCE
+     ════════════════════════════════ -->
+<section id="experience" class="section section--alt">
+  <div class="section-label">02 — Experience</div>
+  <div class="section-title">경력 사항</div>
+  <div class="section-desc">
+    하드웨어 개발에서 시작해 IoT, 그리고 IT 인프라/총무까지.
+    각 단계가 다음 역량의 기반이 되었습니다.
+  </div>
+
+  <div class="timeline">
+    <!-- 함께만드는세상 -->
+    <div class="timeline-item reveal">
+      <div class="tl-date">2023.01 — 2026.01 · 3년 1개월</div>
+      <div class="tl-company">(사)함께만드는세상</div>
+      <div class="tl-role">경영지원부 · 총무 / IT지원 (대리)</div>
+      <ul class="tl-bullets">
+        <li>인프라 예산 약 <strong>3.6억 원</strong> 직접 집행 및 통제 (집행률 88.5%)</li>
+        <li>사내 네트워크/PC 1차 트러블슈팅 내재화 — 연간 유지보수 <strong>30% 절감</strong></li>
+        <li>커스텀 ERP(High-Q) 도입 PM — 요구사항~검수 18개월 전담</li>
+        <li>재계약 협상으로 연 약 <strong>500만 원 절감</strong></li>
+        <li>IT 자산(HW/SW) 수명주기 관리 · 외주 8개사 계약·관리·정산</li>
+      </ul>
+    </div>
+
+    <div class="tl-transition reveal">한국폴리텍 Unity/AR 수료 (2022) → 비영리 합류</div>
+
+    <!-- 맨지온 -->
+    <div class="timeline-item reveal">
+      <div class="tl-date">2020.03 — 2021.11 · 1년 9개월</div>
+      <div class="tl-company">(주)맨지온</div>
+      <div class="tl-role">개발부 · 임베디드 개발 & QA (대리)</div>
+      <ul class="tl-bullets">
+        <li>ESP32 기반 해수담수화 프로토타입 — 진공 감압 증류 시스템 제어</li>
+        <li>Blynk 앱 연동 IoT 모니터링 대시보드 구축</li>
+        <li>관제 데이터 로그 분석 → 통신 장애 원인 규명</li>
+        <li>사용자 관점 UI/UX QA 주도</li>
+      </ul>
+    </div>
+
+    <div class="tl-transition reveal">숭실대 석사 취득 (2018-2020) → IoT 스타트업</div>
+
+    <!-- 엣지크로스 -->
+    <div class="timeline-item reveal">
+      <div class="tl-date">2016.05 — 2018.02 · 1년 10개월</div>
+      <div class="tl-company">(주)엣지크로스</div>
+      <div class="tl-role">기술연구소 · HW 개발 (주임)</div>
+      <ul class="tl-bullets">
+        <li>회로 설계 → PCB → 시제품 제작 → 테스트/검증 풀사이클</li>
+        <li>BOM 관리 체계화 · 생산 일정 조율 — 납기 준수율 <strong>100%</strong></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════
+     PROJECTS
+     ════════════════════════════════ -->
+<section id="projects" class="section">
+  <div class="section-label">03 — Projects</div>
+  <div class="section-title">주요 프로젝트</div>
+  <div class="section-desc">
+    각 프로젝트는 문제 발견에서 해결까지의 과정을 담고 있습니다.
+  </div>
+
+  <div class="projects-grid">
+    <!-- ERP -->
+    <div class="proj-card reveal d1">
+      <div class="proj-card-img-wrap">
+        <img src="assets/projects/photo_erp_highq.png" alt="ERP 시스템" class="proj-card-img">
       </div>
-      <div class="exp-right">
-        <div class="role"><span class="ko">경영지원부 · 총무/IT지원 (대리)</span><span class="en">GA / IT Support (Asst. Manager)</span></div>
-        <ul>
-          <li><span class="ko">인프라 예산 약 <strong>3.6억 원</strong> 직접 집행 및 통제 (집행률 <strong>88.5%</strong>)</span><span class="en">Managed ₩360M infrastructure budget (execution: <strong>88.5%</strong>)</span></li>
-          <li><span class="ko">사내 네트워크/PC 1차 트러블슈팅 내재화 — 연간 유지보수 <strong>30% 절감</strong></span><span class="en">Internalized troubleshooting — <strong>30% maintenance cost reduction</strong></span></li>
-          <li><span class="ko">커스텀 ERP(High-Q) 도입 풀사이클 — 요구사항~검수 18개월 전담</span><span class="en">Led ERP implementation end-to-end over 18 months</span></li>
-          <li><span class="ko">재계약 협상으로 연 약 <strong>500만 원 절감</strong></span><span class="en">Renegotiated vendor contracts — <strong>₩5M annual savings</strong></span></li>
-          <li><span class="ko">IT 자산(HW/SW) 수명주기 관리 · 외주 8개사 계약·관리·정산</span><span class="en">IT asset lifecycle management · 8 vendor contracts</span></li>
-        </ul>
+      <div class="proj-body">
+        <h3>커스텀 ERP 도입 PM</h3>
+        <p>
+          수기 장부 + Excel 혼용으로 데이터 불일치 빈발. High-Q ERP 도입을 18개월간 전담하여
+          요구사항 정의부터 검수까지 풀사이클 수행. 예산/회계 프로세스 100% 전산화.
+        </p>
+        <div class="proj-tags">
+          <span class="proj-tag">Tibero DB</span>
+          <span class="proj-tag">Nexacro</span>
+          <span class="proj-tag">ERP</span>
+          <span class="proj-tag">18개월</span>
+        </div>
       </div>
     </div>
-    <div class="exp-transition reveal"><span class="ko">폴리텍 Unity/AR 수료 (2022) → 비영리 합류</span><span class="en">Unity/AR Certificate (2022) → Joined NGO</span></div>
-    <div class="exp-card reveal">
-      <div class="exp-left">
-        <div class="co"><span class="ko">(주)맨지온</span><span class="en">Manzion Inc.</span></div>
-        <div class="date">2020.03 – 2021.11</div>
+
+    <!-- IoT -->
+    <div class="proj-card reveal d2">
+      <div class="proj-card-img-wrap">
+        <img src="assets/projects/photo_blynk_graph.jpg" alt="IoT 대시보드" class="proj-card-img">
       </div>
-      <div class="exp-right">
-        <div class="role"><span class="ko">개발부 · 임베디드 개발 & QA (대리)</span><span class="en">R&D · Embedded Dev & QA</span></div>
-        <ul>
-          <li><span class="ko">ESP32 기반 해수담수화 프로토타입 — 진공 감압 증류 시스템 제어</span><span class="en">ESP32 desalination prototype — vacuum distillation control</span></li>
-          <li><span class="ko">Blynk 앱 연동 IoT 모니터링 대시보드 구축</span><span class="en">Built IoT dashboard with Blynk — remote sensor visualization</span></li>
-          <li><span class="ko">관제 데이터 로그 분석 → 통신 장애 원인 규명</span><span class="en">Data log analysis → diagnosed communication failures</span></li>
-          <li><span class="ko">사용자 관점 UI/UX QA 주도</span><span class="en">Led user-centric UI/UX QA</span></li>
-        </ul>
+      <div class="proj-body">
+        <h3>IoT 해수담수화 시스템</h3>
+        <p>
+          원격 설비 상태 확인 불가, 장애 대응 지연. ESP32 기반 센서 네트워크와
+          Blynk IoT 대시보드를 구축하여 실시간 원격 모니터링 및 장애 진단 체계 확립.
+        </p>
+        <div class="proj-tags">
+          <span class="proj-tag">ESP32</span>
+          <span class="proj-tag">Blynk</span>
+          <span class="proj-tag">C/C++</span>
+          <span class="proj-tag">IoT</span>
+        </div>
       </div>
     </div>
-    <div class="exp-transition reveal"><span class="ko">숭실대 석사 취득 (2018–2020) → IoT 스타트업</span><span class="en">M.A. (2018–2020) → IoT Startup</span></div>
-    <div class="exp-card reveal">
-      <div class="exp-left">
-        <div class="co"><span class="ko">(주)엣지크로스</span><span class="en">EdgeCross Inc.</span></div>
-        <div class="date">2016.05 – 2018.02</div>
+
+    <!-- Metaverse -->
+    <div class="proj-card reveal d3">
+      <div class="proj-card-img-wrap">
+        <img src="assets/projects/photo_metaverse_award.jpg" alt="메타버스 대상" class="proj-card-img">
       </div>
-      <div class="exp-right">
-        <div class="role"><span class="ko">기술연구소 · HW 개발 (주임)</span><span class="en">R&D · HW Development</span></div>
-        <ul>
-          <li><span class="ko">회로 설계 → PCB → 시제품 제작 → 테스트/검증 풀사이클</span><span class="en">Full-cycle: circuit design → PCB → prototype → test</span></li>
-          <li><span class="ko">BOM 관리 체계화 · 생산 일정 조율 — 납기 준수율 <strong>100%</strong></span><span class="en">BOM management · production scheduling — <strong>100%</strong> on-time</span></li>
-        </ul>
+      <div class="proj-body">
+        <h3>메타버스 콘텐츠 — 대상 수상</h3>
+        <p>
+          과학기술정보통신부 메타버스 경진대회 참가.
+          Unity 3D / C#으로 인터랙티브 콘텐츠를 제작하여 대상(1위) 수상.
+        </p>
+        <div class="proj-tags">
+          <span class="proj-tag">Unity 3D</span>
+          <span class="proj-tag">C#</span>
+          <span class="proj-tag">Metaverse</span>
+          <span class="proj-tag">Grand Prize</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- AI Pipeline -->
+    <div class="proj-card reveal d4">
+      <div class="proj-card-icon">&#x1F916;</div>
+      <div class="proj-body">
+        <h3>AI 구직 자동화 파이프라인</h3>
+        <p>
+          기업별 이력서·자소서 매번 수작업 커스터마이징하는 비효율.
+          Claude AI + Git 파이프라인으로 JD 분석→전략→문서 생성을 체계화.
+          30개+ 기업 관리, 문서 작성 70% 단축.
+        </p>
+        <div class="proj-tags">
+          <span class="proj-tag">Claude AI</span>
+          <span class="proj-tag">Git</span>
+          <span class="proj-tag">Automation</span>
+          <span class="proj-tag">Process Design</span>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- PROJECTS -->
-<section id="projects">
-  <div class="sec-label">03 — Projects</div>
-  <div class="sec-title"><span class="ko">주요 <span>프로젝트</span></span><span class="en">Key <span>Projects</span></span></div>
-  <div class="proj-grid">
-    <div class="proj-card reveal">
-      <img src="assets/projects/photo_erp_highq.png" alt="ERP" class="proj-img">
-      <div class="proj-body">
-        <h3><span class="ko">커스텀 ERP 도입</span><span class="en">Custom ERP Implementation</span></h3>
-        <div class="proj-flow">
-          <span class="flow-problem"><span class="ko">수기 장부 + Excel 혼용 → 데이터 불일치</span><span class="en">Manual ledgers + Excel → data inconsistency</span></span>
-          <span class="flow-solution"><span class="ko">High-Q ERP 도입 PM — 요구사항~검수 18개월 전담</span><span class="en">Led High-Q ERP rollout end-to-end, 18 months</span></span>
-          <span class="flow-impact"><span class="ko">예산/회계 프로세스 표준화 · 수기→전산 100% 전환</span><span class="en">Fully standardized · 100% digital migration</span></span>
-        </div>
-        <div class="tags"><span class="tag">Tibero DB</span><span class="tag">Nexacro</span><span class="tag">ERP</span></div>
-      </div>
-    </div>
-    <div class="proj-card reveal">
-      <img src="assets/projects/photo_blynk_graph.jpg" alt="IoT" class="proj-img">
-      <div class="proj-body">
-        <h3><span class="ko">IoT 해수담수화 시스템</span><span class="en">IoT Desalination System</span></h3>
-        <div class="proj-flow">
-          <span class="flow-problem"><span class="ko">원격 설비 상태 확인 불가 · 장애 대응 지연</span><span class="en">No remote monitoring · delayed fault response</span></span>
-          <span class="flow-solution"><span class="ko">ESP32 + Blynk IoT 대시보드 구축</span><span class="en">Built ESP32 + Blynk IoT dashboard</span></span>
-          <span class="flow-impact"><span class="ko">실시간 모니터링 · 원격 장애 진단 가능</span><span class="en">Real-time monitoring · remote diagnostics</span></span>
-        </div>
-        <div class="tags"><span class="tag">ESP32</span><span class="tag">Blynk</span><span class="tag">C/C++</span></div>
-      </div>
-    </div>
-    <div class="proj-card reveal">
-      <img src="assets/projects/photo_metaverse_award.jpg" alt="Metaverse" class="proj-img">
-      <div class="proj-body">
-        <h3><span class="ko">메타버스 콘텐츠 (대상)</span><span class="en">Metaverse Content (Grand Prize)</span></h3>
-        <div class="proj-flow">
-          <span class="flow-problem"><span class="ko">과기정통부 메타버스 경진대회 참가</span><span class="en">Ministry of Science Metaverse Competition</span></span>
-          <span class="flow-solution"><span class="ko">Unity 3D / C# 인터랙티브 콘텐츠 제작</span><span class="en">Built interactive content with Unity 3D / C#</span></span>
-          <span class="flow-impact"><span class="ko">대상 (1위) 수상 — 과학기술정보통신부</span><span class="en">Grand Prize (1st) — Ministry of Science & ICT</span></span>
-        </div>
-        <div class="tags"><span class="tag">Unity 3D</span><span class="tag">C#</span><span class="tag">Metaverse</span></div>
-      </div>
-    </div>
-    <div class="proj-card reveal">
-      <div class="proj-img-ai"><span class="ai-icon">🤖</span></div>
-      <div class="proj-body">
-        <h3><span class="ko">AI 구직 자동화 파이프라인</span><span class="en">AI Job Application Pipeline</span></h3>
-        <div class="proj-flow">
-          <span class="flow-problem"><span class="ko">기업별 이력서·자소서 매번 수작업 커스터마이징</span><span class="en">Manual resume/cover letter customization per company</span></span>
-          <span class="flow-solution"><span class="ko">Claude AI + Git 파이프라인 — JD분석→전략→문서 자동화</span><span class="en">Claude AI + Git — JD analysis → strategy → doc automation</span></span>
-          <span class="flow-impact"><span class="ko">27개+ 기업 체계화 · 문서 작성 70% 단축 · 멀티 AI 협업</span><span class="en">27+ companies · 70% faster · Multi-AI collaboration</span></span>
-        </div>
-        <div class="tags"><span class="tag">Claude AI</span><span class="tag">Git</span><span class="tag">Automation</span><span class="tag">Process Design</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SKILLS -->
-<section id="skills" style="background:var(--surface)">
-  <div class="sec-label">04 — Skills</div>
-  <div class="sec-title"><span class="ko">기술 & <span>배경</span></span><span class="en">Skills & <span>Background</span></span></div>
-  <div class="skills-grid">
-    <div class="skill-group reveal">
-      <h3><span class="ko">핵심 역량</span><span class="en">Core Skills</span></h3>
-      <span class="badge">ERP Implementation</span>
-      <span class="badge">HW/Network Troubleshooting</span>
-      <span class="badge">General Affairs</span>
-      <span class="badge">IT Asset Management</span>
-      <span class="badge">Budget Management</span>
-      <span class="badge">Facility Management</span>
-    </div>
-    <div class="skill-group reveal">
-      <h3><span class="ko">도구 & 기술</span><span class="en">Tools & Tech</span></h3>
-      <span class="badge">AI (Claude / ChatGPT)</span>
-      <span class="badge">Excel (Pivot/VBA)</span>
-      <span class="badge">SQL</span>
-      <span class="badge">ERP (High-Q / Tibero)</span>
-      <span class="badge">ESP32 / Arduino</span>
-      <span class="badge">Unity 3D / C#</span>
-      <span class="badge">Python</span>
-      <span class="badge">Git</span>
-      <span class="badge">한글(HWP)</span>
-    </div>
-    <div class="skill-group reveal">
-      <h3><span class="ko">자격증</span><span class="en">Certifications</span></h3>
-      <span class="badge outline"><span class="ko">사회복지사 1급</span><span class="en">Social Worker Lv.1</span></span>
-      <span class="badge outline"><span class="ko">1종 대형 (12년 무사고)</span><span class="en">Heavy Vehicle (12yr)</span></span>
-      <span class="badge military"><span class="ko">공군 병장 만기제대</span><span class="en">ROKAF Sergeant</span></span>
-    </div>
-  </div>
-  <div class="bg-grid">
-    <div class="bg-item reveal">
-      <span class="school"><span class="ko">숭실대학교 사회복지대학원</span><span class="en">Soongsil Univ. Graduate</span></span>
-      <span class="detail"><span class="ko">사회적기업전공 · 석사 (GPA 4.3/4.5)</span><span class="en">M.A. Social Enterprise (4.3/4.5)</span></span>
-      <span class="yr">2018 – 2020</span>
-    </div>
-    <div class="bg-item reveal">
-      <span class="school"><span class="ko">숭실대학교 공과대학</span><span class="en">Soongsil Univ. Engineering</span></span>
-      <span class="detail"><span class="ko">전기공학부 · 경제학 복수전공 · 학사</span><span class="en">B.S. Electrical Eng. + Economics</span></span>
-      <span class="yr">2010 – 2017</span>
-    </div>
-    <div class="bg-item reveal">
-      <span class="school"><span class="ko">한국폴리텍 광명융합기술교육원</span><span class="en">Korea Polytechnic</span></span>
-      <span class="detail"><span class="ko">증강현실(AR) 시스템제어 · 수료</span><span class="en">AR System Control · Certificate</span></span>
-      <span class="yr">2022</span>
-    </div>
-    <div class="bg-item award reveal">
-      <span class="school"><span class="ko">메타버스 콘텐츠 캠프 — 대상 🏆</span><span class="en">Metaverse Camp — Grand Prize 🏆</span></span>
-      <span class="detail"><span class="ko">과학기술정보통신부 · 정보통신산업진흥원</span><span class="en">Ministry of Science and ICT</span></span>
-      <span class="yr">2022</span>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<div class="contact" id="contact">
-  <h2><span class="ko">함께 <span style="color:var(--mint)">일해요</span></span><span class="en">Let's <span style="color:var(--mint)">Work Together</span></span></h2>
+<!-- ════════════════════════════════
+     CONTACT
+     ════════════════════════════════ -->
+<section id="contact" class="contact-section">
+  <h2>함께 <span class="accent">일해요</span></h2>
   <p>
-    <span class="ko">운영 효율화, 비용 최적화, IT 인프라 관리가 필요하신가요?<br>편하게 연락주세요.</span>
-    <span class="en">Need operational efficiency, cost optimization, or IT infrastructure?<br>Let's connect.</span>
+    운영 효율화, 비용 최적화, IT 인프라 관리가 필요하신가요?<br>
+    편하게 연락주세요.
   </p>
   <div class="contact-links">
-    <a href="mailto:ssujklim@gmail.com">ssujklim@gmail.com</a>
-    <a href="tel:010-4052-0834">010-4052-0834</a>
-    <a href="https://github.com/IamSloth" target="_blank">GitHub →</a>
+    <a href="mailto:ssujklim@gmail.com" class="contact-link primary">ssujklim@gmail.com</a>
+    <a href="tel:010-4052-0834" class="contact-link">010-4052-0834</a>
+    <a href="https://github.com/IamSloth" target="_blank" class="contact-link">GitHub →</a>
   </div>
-</div>
+</section>
 
-<div class="footer">© 2026 Jong Kwon Lim</div>
+<footer class="footer">© 2026 Jong Kwon Lim — Built with precision.</footer>
 
-<script>
-// ── LANGUAGE TOGGLE ──
-const body = document.body;
-const ko = document.getElementById('lang-ko');
-const en = document.getElementById('lang-en');
-function setLang(lang) {
-  body.classList.remove('ko','en');
-  body.classList.add(lang);
-  ko.classList.toggle('active', lang==='ko');
-  en.classList.toggle('active', lang==='en');
-  localStorage.setItem('lang', lang);
-}
-ko.onclick = () => setLang('ko');
-en.onclick = () => setLang('en');
-const saved = localStorage.getItem('lang');
-if (saved) setLang(saved);
-
-// ── THEME TOGGLE ──
-const themeBtn = document.getElementById('theme-btn');
-function setTheme(light) {
-  body.classList.toggle('light', light);
-  themeBtn.textContent = light ? '☾' : '☀';
-  localStorage.setItem('theme', light ? 'light' : 'dark');
-}
-themeBtn.onclick = () => setTheme(!body.classList.contains('light'));
-if (localStorage.getItem('theme') === 'light') setTheme(true);
-
-// ── NAV SHRINK ──
-window.addEventListener('scroll', () => {
-  document.querySelector('.nav').style.padding = window.scrollY > 50 ? '8px 32px' : '14px 32px';
-});
-
-// ── SCROLL REVEAL ──
-const obs = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }});
-}, { threshold: 0.12 });
-document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-
-// ── COUNT-UP ──
-document.querySelectorAll('.count-up').forEach(el => {
-  const io = new IntersectionObserver(([e]) => {
-    if (!e.isIntersecting) return;
-    io.unobserve(el);
-    const target = parseFloat(el.dataset.target);
-    const dec = parseInt(el.dataset.decimal || '0');
-    const dur = 1200;
-    const start = performance.now();
-    function tick(now) {
-      const p = Math.min((now - start) / dur, 1);
-      const ease = 1 - Math.pow(1 - p, 3);
-      el.textContent = (target * ease).toFixed(dec);
-      if (p < 1) requestAnimationFrame(tick);
-    }
-    requestAnimationFrame(tick);
-  }, { threshold: 0.5 });
-  io.observe(el);
-});
-
-// ── MARQUEE: CASETiFY 2-row rAF+Lerp ──
-(() => {
-  const w1 = ['ERP IMPLEMENTATION','IT INFRASTRUCTURE','AI AUTOMATION','BUDGET MANAGEMENT','IoT PROTOTYPE','PROCESS DESIGN','TROUBLESHOOTING','QA ENGINEERING'];
-  const w2 = ['운영 전문가','예산 관리','업무 자동화','인프라 관리','ERP 도입','데이터 분석','프로세스 설계','품질 보증'];
-  const mkHTML = words => words.map(w => `<span class="mq-item">${w}<span class="sep">◆</span></span>`).join('');
-  const t1 = document.getElementById('mq1');
-  const t2 = document.getElementById('mq2');
-  t1.innerHTML = mkHTML(w1).repeat(5);
-  t2.innerHTML = mkHTML(w2).repeat(5);
-
-  let x1=0, x2=0, s1=1, s2=.8, tgt1=1, tgt2=.8;
-  let sk1=0, sk2=0, prevSc=scrollY, scV=0;
-
-  t1.parentElement.onmouseenter = () => tgt1=.2;
-  t1.parentElement.onmouseleave = () => tgt1=1;
-  t2.parentElement.onmouseenter = () => tgt2=.15;
-  t2.parentElement.onmouseleave = () => tgt2=.8;
-
-  addEventListener('scroll', () => { scV=Math.min(Math.abs(scrollY-prevSc)*.12,5); prevSc=scrollY; });
-
-  const lerp = (a,b,t) => a+(b-a)*t;
-  (function tick() {
-    s1=lerp(s1,tgt1+scV,.06); s2=lerp(s2,tgt2+scV,.06); scV*=.94;
-    x1-=s1; x2+=s2;
-    const hw1=t1.scrollWidth/5, hw2=t2.scrollWidth/5;
-    if(Math.abs(x1)>=hw1) x1+=hw1;
-    if(x2>=hw2) x2-=hw2;
-    sk1=lerp(sk1,-(s1-1)*.6,.08); sk2=lerp(sk2,(s2-.8)*.6,.08);
-    t1.style.transform=`translateX(${x1}px) skewX(${sk1}deg)`;
-    t2.style.transform=`translateX(${x2-hw2}px) skewX(${sk2}deg)`;
-    requestAnimationFrame(tick);
-  })();
-})();
-</script>
+<script src="js/main.js"></script>
 </body>
 </html>
