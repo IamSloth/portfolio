@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>임종권 — 나이스계열사 경영지원실 사무 지원</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Space+Grotesk:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --acc:#1a1a1a;
+  --border:#ddd;
+  --muted:#777;
+  --bg-light:#f6f6f6;
+}
+html{font-size:12px}
+body{font-family:'Noto Sans KR',sans-serif;background:#eee;display:flex;flex-direction:column;align-items:center;gap:12px;padding:20px}
+@media print{body{background:none;padding:0;gap:0}}
+
+.page{width:210mm;min-height:296mm;background:#fff;display:flex;flex-direction:column;position:relative;overflow:hidden;page-break-after:always;padding:0}
+@page{size:A4;margin:0}
+@media print{.page{box-shadow:none;page-break-after:always}}
+
+/* ── HEADER ── */
+.header{display:flex;align-items:stretch;border-bottom:2px solid var(--acc);margin:15mm 18mm 0}
+.hd-photo{width:30mm;height:40mm;overflow:hidden;flex-shrink:0;margin-right:12px}
+.hd-photo img{width:100%;height:100%;object-fit:cover;border-radius:3px}
+.hd-info{flex:1;display:flex;flex-direction:column;justify-content:center;padding-bottom:10px}
+.hd-name{font-family:'Space Grotesk',sans-serif;font-size:2rem;font-weight:700;color:var(--acc);letter-spacing:-.04em}
+.hd-pos{font-size:0.9rem;color:var(--muted);margin-top:1px}
+.hd-contact{display:flex;gap:14px;margin-top:6px;font-size:0.82rem;color:#444;flex-wrap:wrap}
+.hd-contact span{display:flex;align-items:center;gap:3px}
+
+/* ── QUICK INFO STRIP ── */
+.quick-strip{display:flex;background:var(--bg-light);border-bottom:1px solid var(--border);margin:0 18mm}
+.qs-item{flex:1;text-align:center;padding:7px 4px;border-right:1px solid var(--border)}
+.qs-item:last-child{border-right:none}
+.qs-label{font-size:0.68rem;color:var(--muted);margin-bottom:1px}
+.qs-value{font-size:0.82rem;font-weight:600;color:var(--acc)}
+
+/* ── BODY ── */
+.body{flex:1;padding:12px 18mm 15mm;display:flex;flex-direction:column;gap:10px}
+
+/* ── SECTION ── */
+.sec-title{font-family:'JetBrains Mono',monospace;font-size:0.75rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding-bottom:4px;border-bottom:1px solid var(--border);margin-bottom:6px}
+
+/* ── JD MATCH GRID ── */
+.match-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:4px}
+.match-card{border:1px solid var(--border);border-radius:3px;padding:7px 5px;text-align:center}
+.match-card.strong{border-color:var(--acc);background:rgba(0,0,0,.02)}
+.mc-icon{font-size:0.72rem;margin-bottom:1px}
+.mc-jd{font-size:0.75rem;font-weight:600;color:var(--acc);line-height:1.25}
+.mc-my{font-size:0.68rem;color:var(--muted);margin-top:2px;line-height:1.25}
+
+/* ── EXPERIENCE ── */
+.exp-item{margin-bottom:8px}
+.exp-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:1px}
+.exp-co{font-size:0.92rem;font-weight:700;color:var(--acc)}
+.exp-period{font-size:0.72rem;color:var(--muted)}
+.exp-role{font-size:0.78rem;color:var(--muted);margin-bottom:3px}
+.exp-ul{list-style:none;display:flex;flex-direction:column;gap:1px}
+.exp-ul li{font-size:0.82rem;color:#333;line-height:1.4;padding-left:10px;position:relative}
+.exp-ul li::before{content:'—';position:absolute;left:0;color:var(--muted);font-size:0.7rem}
+.exp-ul li strong{color:var(--acc)}
+
+/* ── BOTTOM GRID ── */
+.bottom-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.edu-row{margin-bottom:4px}
+.edu-school{font-size:0.82rem;font-weight:600;color:var(--acc)}
+.edu-detail{font-size:0.72rem;color:var(--muted)}
+.cert-row{font-size:0.8rem;color:#333;margin-bottom:2px}
+.cert-org{font-size:0.7rem;color:var(--muted)}
+.skill-tags{display:flex;flex-wrap:wrap;gap:3px}
+.skill-tag{font-size:0.7rem;background:var(--bg-light);border:1px solid var(--border);padding:2px 6px;border-radius:2px;color:#333}
+.skill-tag.hl{background:rgba(0,0,0,.06);border-color:#999;font-weight:500}
+
+/* ── FOOTER ── */
+.footer{text-align:center;padding:8px 18mm;border-top:1px solid var(--border);margin-top:auto}
+.footer p{font-size:0.75rem;color:var(--muted)}
+
+/* ── COVER LETTER (PAGE 2) ── */
+.cl-header{margin:15mm 20mm 0;border-bottom:2px solid var(--acc);padding-bottom:10px;display:flex;justify-content:space-between;align-items:flex-end}
+.cl-body{flex:1;padding:14px 20mm 15mm;display:flex;flex-direction:column;gap:14px}
+.cl-section{margin-bottom:0}
+.cl-hd{font-family:'JetBrains Mono',monospace;font-size:0.78rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:5px;padding-bottom:4px;border-bottom:2px solid var(--acc)}
+.cl-text{font-size:0.92rem;color:#2a2a2a;line-height:1.65;text-align:justify;word-break:keep-all}
+.cl-footer{text-align:center;padding:10px 20mm;border-top:1px solid var(--border);margin-top:auto}
+</style>
+</head>
+<body>
+
+<!-- ════ PAGE 1: 이력서 ════ -->
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="hd-photo">
+      <img src="../../../../common/photos/profile.png" alt="프로필">
+    </div>
+    <div class="hd-info">
+      <div class="hd-name">임종권</div>
+      <div class="hd-pos">나이스계열사 경영지원실 사무 지원</div>
+      <div class="hd-contact">
+        <span>✉ ssujklim@gmail.com</span>
+        <span>☎ 010-4052-0834</span>
+        <span>🏠 경기도 광명시</span>
+        <span>🎂 1992.01.04 (만 34세)</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUICK INFO -->
+  <div class="quick-strip">
+    <div class="qs-item">
+      <div class="qs-label">입사가능일</div>
+      <div class="qs-value">즉시 입사 가능</div>
+    </div>
+    <div class="qs-item">
+      <div class="qs-label">희망연봉</div>
+      <div class="qs-value">회사 내규에 따름</div>
+    </div>
+    <div class="qs-item">
+      <div class="qs-label">출퇴근</div>
+      <div class="qs-value">광명 → 신도림 약 25분</div>
+    </div>
+    <div class="qs-item">
+      <div class="qs-label">병역</div>
+      <div class="qs-value">공군 병장 만기제대</div>
+    </div>
+  </div>
+
+  <div class="body">
+
+    <!-- JD MATCH -->
+    <div>
+      <div class="sec-title">JD Requirements ↔ My Experience</div>
+      <div class="match-grid">
+        <div class="match-card">
+          <div class="mc-icon">⭐⭐</div>
+          <div class="mc-jd">법인카드<br>전표처리</div>
+          <div class="mc-my">ERP 도입 시 재무팀 협업</div>
+        </div>
+        <div class="match-card strong">
+          <div class="mc-icon">⭐⭐⭐</div>
+          <div class="mc-jd">회계 기초<br>지식</div>
+          <div class="mc-my">ERP 회계계정 설계 참여</div>
+        </div>
+        <div class="match-card strong">
+          <div class="mc-icon">⭐⭐⭐</div>
+          <div class="mc-jd">ERP 경험<br>(우대)</div>
+          <div class="mc-my">커스텀 ERP 도입 전담</div>
+        </div>
+        <div class="match-card strong">
+          <div class="mc-icon">⭐⭐⭐</div>
+          <div class="mc-jd">인사·총무<br>업무 지원</div>
+          <div class="mc-my">IT전산+총무 겸직 3년</div>
+        </div>
+        <div class="match-card strong">
+          <div class="mc-icon">⭐⭐⭐</div>
+          <div class="mc-jd">엑셀<br>가능자</div>
+          <div class="mc-my">엑셀 데이터 정리·관리</div>
+        </div>
+        <div class="match-card strong">
+          <div class="mc-icon">⭐⭐⭐</div>
+          <div class="mc-jd">외주업체<br>계약·정산</div>
+          <div class="mc-my">8개사 관리·정산 총괄</div>
+        </div>
+        <div class="match-card strong">
+          <div class="mc-icon">⭐⭐⭐</div>
+          <div class="mc-jd">예산 편성<br>집행·통제</div>
+          <div class="mc-my">연 3.6억 직접 편성·집행</div>
+        </div>
+        <div class="match-card strong">
+          <div class="mc-icon">⭐⭐⭐</div>
+          <div class="mc-jd">임대차·비품<br>구매관리</div>
+          <div class="mc-my">임차인측 계약+비품 총괄</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- EXPERIENCE -->
+    <div>
+      <div class="sec-title">Work Experience</div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <span class="exp-co">(사)함께만드는세상 (사회연대은행)</span>
+          <span class="exp-period">2023.01 ~ 2026.02 · 3년 2개월</span>
+        </div>
+        <div class="exp-role">경영지원부 인프라지원팀 · IT전산 담당, 총무 업무 병행 (대리)</div>
+        <ul class="exp-ul">
+          <li><strong>[IT전산·주업무]</strong> 사내 네트워크·PC·서버 운영관리 — 트러블슈팅 내재화로 유지보수 비용 <strong>30% 절감</strong></li>
+          <li>IT 자산(HW/SW) 수명주기 관리 프로세스 정립 — 유휴장비 재배치, 도입·폐기 이력 체계화</li>
+          <li>커스텀 <strong>ERP 도입</strong> 프로젝트 전담 — 회계계정 체계 설계, 재무팀과 긴밀 협업 (1.5년)</li>
+          <li><strong>[총무·병행]</strong> 사무실 <strong>임대차계약</strong> 관리 (임차인측), 비품·소모품 구매·관리, 입찰 업무</li>
+          <li>인프라 예산 <strong>3.6억</strong> 편성·집행·통제 (집행률 88.5%)</li>
+          <li>외주업체 <strong>8개사</strong> 계약서·세금계산서 관리·대사·정산 — 재계약 협상으로 연 <strong>500만 원 절감</strong></li>
+          <li>소방안전관리자 선임 — 법정점검(소방·승강기) 스케줄링 및 관리감독</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <span class="exp-co">(주)맨지온</span>
+          <span class="exp-period">2020.03 ~ 2021.11 · 1년 8개월</span>
+        </div>
+        <div class="exp-role">개발부 · 임베디드 시스템 개발 및 QA (대리)</div>
+        <ul class="exp-ul">
+          <li>ESP32 기반 IoT 프로토타입 개발 — 펌웨어·센서 데이터 모니터링·QA</li>
+          <li>통신 장애 로그 분석·트러블슈팅, 현장 설치 테스트 및 검증</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <span class="exp-co">주식회사 엣지크로스</span>
+          <span class="exp-period">2016.05 ~ 2018.02 · 1년 9개월</span>
+        </div>
+        <div class="exp-role">기술연구소 · H/W 개발 및 자재 관리 (주임)</div>
+        <ul class="exp-ul">
+          <li>PCB 설계·납땜·프로토타입 제작, BOM 관리 체계화·생산일정 조율 → 납기 준수율 100%</li>
+          <li>부품 입출고·자재 관리 — 재고 실사 및 발주 업무 수행</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- BOTTOM: EDU + CERT + SKILLS -->
+    <div class="bottom-grid">
+      <div>
+        <div class="sec-title">Education</div>
+        <div class="edu-row">
+          <div class="edu-school">숭실대학교 사회복지대학원</div>
+          <div class="edu-detail">사회적기업전공 석사 · 2020.02 (GPA 4.3/4.5)</div>
+        </div>
+        <div class="edu-row">
+          <div class="edu-school">숭실대학교 공과대학</div>
+          <div class="edu-detail">전기공학 학사 / 경제학 복수전공 · 2017.02</div>
+        </div>
+        <div class="edu-row">
+          <div class="edu-school">한국폴리텍 광명융합기술교육원</div>
+          <div class="edu-detail">증강현실(AR) 시스템제어 수료 · 2022.12</div>
+        </div>
+      </div>
+      <div>
+        <div class="sec-title">Certifications & Skills</div>
+        <div class="cert-row">사회복지사 1급 <span class="cert-org">· 보건복지부 · 2021.02</span></div>
+        <div class="cert-row">1종 대형 운전면허 <span class="cert-org">· 경찰청 · 2019.02</span></div>
+        <div class="cert-row">소방안전관리자 2급 <span class="cert-org">· 한국소방안전원</span></div>
+        <div style="margin-top:6px">
+          <div class="skill-tags">
+            <span class="skill-tag hl">IT전산·네트워크 관리</span>
+            <span class="skill-tag hl">커스텀 ERP 도입</span>
+            <span class="skill-tag hl">예산 편성·집행</span>
+            <span class="skill-tag hl">외주계약·정산</span>
+            <span class="skill-tag hl">임대차·비품 관리</span>
+            <span class="skill-tag">엑셀 데이터 정리</span>
+            <span class="skill-tag">한글(HWP)</span>
+            <span class="skill-tag">IT자산관리</span>
+            <span class="skill-tag">소방안전관리</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /body -->
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <p>위 내용은 사실에 기반하여 작성하였습니다. &nbsp;|&nbsp; <strong>임종권</strong> &nbsp;|&nbsp; 2026.03.23</p>
+  </div>
+
+</div><!-- /page1 -->
+
+
+<!-- ════ PAGE 2: 자기소개서 ════ -->
+<div class="page">
+  <div class="cl-header">
+    <div>
+      <div class="hd-name">임종권</div>
+      <div class="hd-pos">자기소개서 · Cover Letter</div>
+    </div>
+    <div style="text-align:right;font-size:0.82rem;color:var(--muted)">
+      나이스계열사 · 경영지원실 사무 지원<br>
+      ssujklim@gmail.com &nbsp;|&nbsp; 010-4052-0834
+    </div>
+  </div>
+
+  <div class="cl-body">
+
+    <!-- 지원동기 -->
+    <div class="cl-section">
+      <div class="cl-hd">01. 지원동기</div>
+      <p class="cl-text">
+        사회적 금융기관에서 3년간 IT전산 관리를 주 업무로, 총무(임대차계약·비품구매·입찰) 업무를 병행하며 경영지원 실무 전반을 경험했습니다. IT인프라 운영을 맡으면서도 외주업체 8개사의 계약과 정산을 총괄하고, 사무실 임대차계약을 임차인 입장에서 관리하며, 연 3.6억 규모의 인프라 예산을 직접 편성·집행하는 등 단순 전산 담당을 넘어 경영지원 영역까지 폭넓게 담당했습니다.
+      </p>
+      <p class="cl-text" style="margin-top:6px">
+        특히 커스텀 ERP 도입 프로젝트를 1년 반간 전담하면서, 재무팀과 긴밀하게 협업하며 회계계정 체계를 함께 설계한 경험이 있습니다. 기존 엑셀 기반 업무 데이터를 새 시스템으로 이관하고, 부서별 요구사항을 조율하여 운영 프로세스를 정립하는 과정에서 회계·결산 업무의 흐름까지 체계적으로 이해하게 되었습니다. 이 경험이 경영지원실 사무 직무와 정확히 맞닿아 있다고 판단하여 지원합니다. 소규모 조직에서 한 사람이 여러 역할을 소화하며 쌓은 자기주도성과 멀티태스킹 역량을, 나이스그룹이라는 체계적인 대기업 환경에서 더 정교하게 발휘하고 싶습니다.
+      </p>
+    </div>
+
+    <!-- 직무역량 -->
+    <div class="cl-section">
+      <div class="cl-hd">02. 직무역량</div>
+      <p class="cl-text">
+        <strong>예산·정산·외주관리:</strong> 연 3.6억 규모 인프라 예산을 편성·집행하며 집행률 88.5%를 유지했고, 외주업체 8개사의 계약서와 세금계산서를 관리·대사했습니다. 재계약 협상을 통해 복합기·전자계약·본인확인서비스 등에서 연 500만 원 이상 비용을 절감한 경험이 있습니다. 비용 항목별 엑셀 정산 템플릿을 만들어 월말 마감 소요시간을 단축했고, 이 과정에서 세금계산서 발행·수취, 부가세 정산 등 회계 실무의 기본 흐름을 체득했습니다.
+      </p>
+      <p class="cl-text" style="margin-top:6px">
+        <strong>총무·시설관리:</strong> 사무실 임대차계약을 임차인 입장에서 관리하며, 계약 갱신·조건 협상·원상복구 등의 실무를 수행했습니다. 비품·소모품 구매부터 입찰 업무까지 담당하며, 복수 견적 비교를 통한 비용 최적화를 실천했습니다. 소방안전관리자로 선임되어 법정점검(소방·승강기) 스케줄링과 관리감독도 병행했습니다.
+      </p>
+      <p class="cl-text" style="margin-top:6px">
+        <strong>ERP·전산 역량:</strong> 커스텀 ERP 도입 프로젝트를 약 1년 반에 걸쳐 전담했습니다. 회계계정 체계를 재무팀과 공동으로 설계하고, 기존 엑셀 데이터를 새 시스템으로 이관하며, 사용자 교육까지 수행했습니다. IT전산 담당으로서 사내 네트워크·PC 트러블슈팅을 내재화하여 유지보수 비용 30%를 절감했으며, IT 자산 수명주기 관리 프로세스도 정립했습니다. 새로운 전산 시스템에 빠르게 적응하는 능력이 강점입니다.
+      </p>
+    </div>
+
+    <!-- 입사 후 포부 -->
+    <div class="cl-section">
+      <div class="cl-hd">03. 입사 후 포부</div>
+      <p class="cl-text">
+        입사 초기에는 나이스그룹의 내부 규정, ERP 시스템, 업무 프로세스를 빠르게 파악하는 데 집중하겠습니다. 법인카드 관리, 전표 처리, 비용 정산 등 주어진 업무를 정확하고 빠짐없이 수행하여 경영지원실의 행정 부담을 줄이는 것이 첫 번째 목표입니다. 이전 직장에서 ERP 도입 시 재무팀과 긴밀히 협업했던 경험이 있기에, 전표·정산 업무의 흐름을 빠르게 익힐 수 있다고 자신합니다.
+      </p>
+      <p class="cl-text" style="margin-top:6px">
+        이후에는 소규모 조직에서 다양한 업무를 동시에 처리하며 쌓은 멀티태스킹 역량과, ERP 도입을 통해 얻은 시스템 이해력을 바탕으로 업무 개선까지 기여하고 싶습니다. 예를 들어, 반복 발생하는 정산 업무의 템플릿화, 외주업체 계약 관리 프로세스 표준화, 비품 재고관리 효율화 등 실무에서 바로 적용 가능한 개선안을 제안하겠습니다. 직전 직장에서도 재계약 협상으로 연 500만 원을 절감하고, IT 유지보수 내재화로 30%의 비용을 줄인 바 있습니다. 단순한 사무 보조를 넘어, 경영지원실이 더 효율적으로 운영되도록 능동적으로 기여하는 담당자가 되겠습니다.
+      </p>
+    </div>
+
+    <!-- 성격의 강점 -->
+    <div class="cl-section">
+      <div class="cl-hd">04. 성격의 강점</div>
+      <p class="cl-text">
+        저의 가장 큰 강점은 '경계를 넘나드는 유연함'입니다. IT전산 담당이면서도 총무·계약·예산 업무를 병행했고, 전기공학을 전공했지만 사회복지 석사를 취득하며 기술과 사람 모두를 이해하는 시야를 갖추었습니다. 이런 다각적 경험 덕분에 재무팀에는 시스템 용어를, 외주업체에는 비즈니스 용어를, 현장에는 실무 용어를 사용하며 부서 간 소통의 가교 역할을 해왔습니다.
+      </p>
+      <p class="cl-text" style="margin-top:6px">
+        또한 꼼꼼한 성격으로, 외주업체 8개사의 계약 만료일·세금계산서 발행일·정산 일정을 한 건도 놓치지 않고 관리했습니다. 경영지원실은 실수 하나가 조직 전체에 영향을 미치는 곳이기에, 이런 세심함이 곧 경쟁력이라고 생각합니다.
+      </p>
+    </div>
+
+    <!-- 하단 서명 -->
+    <div style="flex:1"></div>
+    <div class="cl-footer" style="border-top:1px solid var(--border)">
+      <p style="font-size:0.82rem;color:var(--muted);line-height:1.6">
+        위 내용은 사실에 기반하여 작성하였습니다.<br>
+        <span style="font-size:1rem;font-weight:600;color:var(--acc)">임종권</span>
+      </p>
+    </div>
+
+  </div>
+</div><!-- /page2 -->
+
+</body>
+</html>

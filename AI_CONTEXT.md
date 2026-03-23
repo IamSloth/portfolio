@@ -7,19 +7,19 @@
 
 | Field | Value |
 |-------|-------|
-| date | 2026-03-22 |
+| date | 2026-03-23 |
 | agent | Claude Opus 4.6 |
-| work | #37 서울히어로즈 경영지원(회계) 제출 완료 + 프로젝트 정리 |
+| work | #38 나이스계열사 제출 완료 + 경험 정정 + 메모리 통합 |
 | commit | latest |
 
 ### 이번 세션 요약
-- **#37 서울히어로즈(주) 지원팀 경영지원(회계)**: 0순위 최우선 목표. 사람인 제출 완료 (2026-03-22)
-  - 이력서+자소서+구단문항 3페이지 HTML→PDF (`임종권_지원서_서울히어로즈.pdf`)
-  - 자사양식 docx 채움 (`임종권_구단문항_서울히어로즈.docx`)
-  - 웹포트폴리오 배포 (`heroes-baseball.html` → GitHub Pages)
-  - 키움 브랜드컬러(#570514 + #FF7DA0), 서울히어로즈(주) 법인명 정확 반영
-- **프로젝트 정리**: root .mp4 삭제, 미사용 frames/ 삭제, CLOSED 앱 빈 final/ 삭제, 구버전 draft 정리
-- **이전 세션**: #36 키움증권, #35 토스 9개 포지션, #34 청년재단, #33 빗썸 제출
+- **#38 나이스계열사 경영지원실 사무**: 사람인 제출 완료 (2026-03-23)
+  - 이력서+자소서 2페이지 HTML→PDF (`임종권_지원서_나이스계열사.pdf`)
+  - 경험 정정 3라운드: 복리후생/경조사=인사팀, 업무비중 IT60%+총무40%, 법인카드 전표=재무팀
+  - 여백 최적화 리서치 적용 (25-35% whitespace, line-height 1.65)
+- **메모리 통합**: 20→13파일, MEMORY.md 226→168행
+- **경험 정정 메모리**: feedback_experience_accuracy.md에 7개 항목 누적
+- **이전 세션**: #37 서울히어로즈, #36 키움증권, #35 토스 9개 포지션
 
 ## Active Applications
 
@@ -49,13 +49,14 @@
 | 35c | 토스증권 | GA Manager | **📤 SUBMITTED** | Greenhouse 제출 완료 (2026-03-20). 정규직. 35h도 여기에 중복제출 | `35_toss/35c_securities_ga_manager/` |
 | 35d | 토스페이먼츠 | GA Specialist | **📤 SUBMITTED** | Greenhouse 제출 완료 (2026-03-20). 계약직 1년 | `35_toss/35d_payments_ga_specialist/` |
 | 35e | 토스페이먼츠 | IT Admin | **📤 SUBMITTED** | Greenhouse 제출 완료 (2026-03-20). 계약직 1년 | `35_toss/35e_payments_it_admin/` |
-| 35f | 토스씨엑스 | GA Specialist | **📤 SUBMITTED** | Greenhouse 제출 완료 (2026-03-20). 계약직 1년 | `35_toss/35f_cx_ga_specialist/` |
+| 35f | 토스씨엑스 | GA Manager | **❌ REJECTED** | 서류 불합격 (2026-03-23). 계약직 1년 | `35_toss/35f_cx_ga_manager/` |
 | 35g | 토스 (본사) | GA Manager | **📤 SUBMITTED** | Greenhouse 제출 완료 (2026-03-20). 정규직. 폴더명 rename 미완 | `35_toss/35g_bank_ga_manager/` |
 | 35h | 토스증권 | GA Specialist | **📤 SUBMITTED** | Greenhouse 제출 완료 (2026-03-20). 계약직 1년. 35c에도 중복제출 | `35_toss/35h_securities_ga_specialist/` |
-| 35i | 토스인컴 | GA Specialist | **📤 SUBMITTED** | Greenhouse 제출 완료 (2026-03-20). 계약직 1년 | `35_toss/35i_income_ga_specialist/` |
+| 35i | 토스인컴 | GA Specialist | **❌ REJECTED** | 서류 불합격 (2026-03-23). 계약직 1년 | `35_toss/35i_income_ga_specialist/` |
 | 35j | 토스뱅크 | IT Admin | **📤 SUBMITTED** | Greenhouse 제출 완료 (2026-03-20). 계약직 1년 | `35_toss/35j_bank_it_admin/` |
 | 36 | 키움증권 (사람인HS 파견) | 사무보조 | **📤 SUBMITTED** | 사람인 제출 완료 (2026-03-20). 파견 1년×2년계약, 여의도. 상시채용 | `36_kiwoom/office_assistant/` |
 | 37 | 서울히어로즈(주) | 지원팀 경영지원(회계) | **📤 SUBMITTED** | 사람인 제출 완료 (2026-03-22). 계약직 1년, 고척돔. 마감 4/10. **0순위** | `37_heroes_baseball/accounting/` |
+| 38 | 나이스계열사 (스타에이치알 파견) | 경영지원실 사무 | **📤 SUBMITTED** | 사람인 제출 완료 (2026-03-23). 파견 1년, 신도림. 상시채용 | `38_nice_group/business_support/` |
 | 03 | 11st | General Affairs | **⏸️ ON_HOLD** | 지원 안 함 (보류 → 미지원 확정) | `03_11st/general_affairs/` |
 
 ### Closed Applications
@@ -74,7 +75,7 @@
 | 13 | 동양미래대학교 | 일학습병행사업 관리 및 운영 | ❌ REJECTED | 면접 불합격 |
 | 11 | Netmarble Foundation | CSR | ❌ REJECTED | 서류전형 불합격 (2026-03-18) |
 | 16 | 이크래더블 (아이위더스 파견) | TCB 보고서 작성 | ❌ REJECTED | 1차면접 불합격. 5분 면접 + "다른 곳도 보고 있다" 발언 |
-| 10 | Mintrocket (넥슨) | HR General Affairs | ❌ NO_RESPONSE | 넥슨 채용시스템 제출 (2026-03-02). 17일 무응답 |
+| 10 | Mintrocket (넥슨) | HR General Affairs | ❌ REJECTED | 서류전형 불합격 (2026-03-23) |
 | 12 | 우아한형제들 (Woowa) | Robotics Ops | ❌ REJECTED | 서류전형 불합격 (2026-03-19) |
 | 14 | 함께하는사랑밭 | 행정·회계 및 사업관리 | ❌ NO_RESPONSE | 이메일 제출 (2026-03-04). 15일 무응답 |
 | 15 | 신한투자증권 (에이젝코리아 파견) | 사무보조 (Back Office) | ❌ NO_RESPONSE | 사람인 제출 (2026-03-05). 14일 무응답 |
