@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>임종권 — 우아한형제들 로보틱스운영(로봇배달 서비스 운영지원)</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Space+Grotesk:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --acc:#1a1a1a;
+  --mint:#2AC1BC;
+  --mint-bg:rgba(42,193,188,.08);
+  --border:#ddd;
+  --muted:#777;
+  --bg-light:#f6f6f6;
+}
+html{font-size:12px}
+body{font-family:'Noto Sans KR',sans-serif;background:#eee;display:flex;flex-direction:column;align-items:center;gap:12px;padding:20px}
+@media print{body{background:none;padding:0;gap:0}}
+
+.page{width:210mm;min-height:296mm;background:#fff;display:flex;flex-direction:column;position:relative;overflow:hidden;page-break-after:always;padding:0}
+@page{size:A4;margin:0}
+@media print{.page{box-shadow:none;page-break-after:always}}
+
+/* ── HEADER ── */
+.header{display:flex;align-items:stretch;border-bottom:2px solid var(--mint);margin:15mm 18mm 0}
+.hd-photo{width:30mm;height:40mm;overflow:hidden;flex-shrink:0;margin-right:12px}
+.hd-photo img{width:100%;height:100%;object-fit:cover;border-radius:3px}
+.hd-info{flex:1;display:flex;flex-direction:column;justify-content:center;padding-bottom:10px}
+.hd-name{font-family:'Space Grotesk',sans-serif;font-size:2rem;font-weight:700;color:var(--acc);letter-spacing:-.04em}
+.hd-pos{font-size:0.9rem;color:var(--mint);font-weight:500;margin-top:1px}
+.hd-contact{display:flex;gap:14px;margin-top:6px;font-size:0.82rem;color:#444;flex-wrap:wrap}
+.hd-contact span{display:flex;align-items:center;gap:3px}
+
+/* ── QUICK INFO STRIP ── */
+.quick-strip{display:flex;background:var(--mint-bg);border-bottom:1px solid var(--border);margin:0 18mm}
+.qs-item{flex:1;text-align:center;padding:7px 4px;border-right:1px solid var(--border)}
+.qs-item:last-child{border-right:none}
+.qs-label{font-size:0.68rem;color:var(--muted);margin-bottom:1px}
+.qs-value{font-size:0.82rem;font-weight:600;color:var(--acc)}
+
+/* ── BODY ── */
+.body{flex:1;padding:12px 18mm 15mm;display:flex;flex-direction:column;gap:10px}
+
+/* ── SECTION ── */
+.sec-title{font-family:'JetBrains Mono',monospace;font-size:0.75rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--mint);padding-bottom:4px;border-bottom:1px solid var(--border);margin-bottom:6px}
+
+/* ── JD MATCH GRID ── */
+.match-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:4px}
+.match-card{border:1px solid var(--border);border-radius:3px;padding:7px 5px;text-align:center}
+.match-card.strong{border-color:var(--mint);background:var(--mint-bg)}
+.mc-icon{font-size:0.72rem;margin-bottom:1px}
+.mc-jd{font-size:0.75rem;font-weight:600;color:var(--acc);line-height:1.25}
+.mc-my{font-size:0.68rem;color:var(--muted);margin-top:2px;line-height:1.25}
+
+/* ── EXPERIENCE ── */
+.exp-item{margin-bottom:8px}
+.exp-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:1px}
+.exp-co{font-size:0.92rem;font-weight:700;color:var(--acc)}
+.exp-period{font-size:0.72rem;color:var(--muted)}
+.exp-role{font-size:0.78rem;color:var(--muted);margin-bottom:3px}
+.exp-ul{list-style:none;display:flex;flex-direction:column;gap:1px}
+.exp-ul li{font-size:0.82rem;color:#333;line-height:1.4;padding-left:10px;position:relative}
+.exp-ul li::before{content:'—';position:absolute;left:0;color:var(--mint);font-size:0.7rem}
+.exp-ul li strong{color:var(--acc)}
+
+/* ── BOTTOM GRID ── */
+.bottom-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.edu-row{margin-bottom:4px}
+.edu-school{font-size:0.82rem;font-weight:600;color:var(--acc)}
+.edu-detail{font-size:0.72rem;color:var(--muted)}
+.cert-row{font-size:0.8rem;color:#333;margin-bottom:2px}
+.cert-org{font-size:0.7rem;color:var(--muted)}
+.skill-tags{display:flex;flex-wrap:wrap;gap:3px}
+.skill-tag{font-size:0.7rem;background:var(--bg-light);border:1px solid var(--border);padding:2px 6px;border-radius:2px;color:#333}
+.skill-tag.hl{background:var(--mint-bg);border-color:var(--mint);font-weight:500;color:var(--acc)}
+
+/* ── FOOTER ── */
+.footer{text-align:center;padding:8px 18mm;border-top:1px solid var(--border);margin-top:auto}
+.footer p{font-size:0.75rem;color:var(--muted)}
+
+/* ── COVER LETTER (PAGE 2) ── */
+.cl-header{margin:15mm 20mm 0;border-bottom:2px solid var(--mint);padding-bottom:10px;display:flex;justify-content:space-between;align-items:flex-end}
+.cl-body{flex:1;padding:14px 20mm 15mm;display:flex;flex-direction:column;gap:14px}
+.cl-section{margin-bottom:0}
+.cl-hd{font-family:'JetBrains Mono',monospace;font-size:0.78rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--mint);margin-bottom:5px;padding-bottom:4px;border-bottom:2px solid var(--mint)}
+.cl-text{font-size:0.88rem;color:#2a2a2a;line-height:1.65;text-align:justify;word-break:keep-all}
+.cl-footer{text-align:center;padding:10px 20mm;border-top:1px solid var(--border);margin-top:auto}
+</style>
+</head>
+<body>
+
+<!-- ════ PAGE 1: 이력서 + 경력기술서 ════ -->
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="hd-photo">
+      <img src="../../../../common/photos/profile.png" alt="프로필">
+    </div>
+    <div class="hd-info">
+      <div class="hd-name">임종권</div>
+      <div class="hd-pos">우아한형제들 · 로보틱스운영(로봇배달 서비스 운영지원)</div>
+      <div class="hd-contact">
+        <span>✉ ssujklim@gmail.com</span>
+        <span>☎ 010-4052-0834</span>
+        <span>🏠 경기도 광명시</span>
+        <span>🎂 1992.01.04 (만 34세)</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUICK INFO -->
+  <div class="quick-strip">
+    <div class="qs-item">
+      <div class="qs-label">입사가능일</div>
+      <div class="qs-value">즉시 입사 가능</div>
+    </div>
+    <div class="qs-item">
+      <div class="qs-label">희망연봉</div>
+      <div class="qs-value">회사 내규에 따름</div>
+    </div>
+    <div class="qs-item">
+      <div class="qs-label">운전면허</div>
+      <div class="qs-value">1종 대형 (12년 무사고)</div>
+    </div>
+    <div class="qs-item">
+      <div class="qs-label">병역</div>
+      <div class="qs-value">공군 병장 만기제대</div>
+    </div>
+  </div>
+
+  <div class="body">
+
+    <!-- JD MATCH -->
+    <div>
+      <div class="sec-title">JD Requirements ↔ My Experience</div>
+      <div class="match-grid">
+        <div class="match-card strong">
+          <div class="mc-icon">⭐⭐⭐</div>
+          <div class="mc-jd">실시간 모니터링<br>이슈 대응</div>
+          <div class="mc-my">IoT 관제 통신장애<br>트러블슈팅</div>
+        </div>
+        <div class="match-card strong">
+          <div class="mc-icon">⭐⭐⭐</div>
+          <div class="mc-jd">현장 인력관리<br>가이드라인 수립</div>
+          <div class="mc-my">외주 8개사 관리<br>비상매뉴얼 수립</div>
+        </div>
+        <div class="match-card strong">
+          <div class="mc-icon">⭐⭐⭐</div>
+          <div class="mc-jd">서비스 운영<br>프로세스 개선</div>
+          <div class="mc-my">ERP 도입 PM<br>비용 30% 절감</div>
+        </div>
+        <div class="match-card strong">
+          <div class="mc-icon">⭐⭐⭐</div>
+          <div class="mc-jd">이해관계자<br>소통</div>
+          <div class="mc-my">IT↔재무↔외주<br>다부서 조율</div>
+        </div>
+        <div class="match-card strong">
+          <div class="mc-icon">⭐⭐</div>
+          <div class="mc-jd">운영지표 분석<br>스프레드시트</div>
+          <div class="mc-my">예산 집행률 분석<br>스프레드시트 리포트</div>
+        </div>
+        <div class="match-card">
+          <div class="mc-icon">⭐⭐</div>
+          <div class="mc-jd">현장 외근<br>유연 대응</div>
+          <div class="mc-my">1종 대형 면허<br>소방안전관리자</div>
+        </div>
+        <div class="match-card">
+          <div class="mc-icon">우대</div>
+          <div class="mc-jd">로봇/모빌리티<br>현장 운영</div>
+          <div class="mc-my">IoT 센서 현장설치<br>MCU 회로설계</div>
+        </div>
+        <div class="match-card">
+          <div class="mc-icon">우대</div>
+          <div class="mc-jd">Slack<br>Confluence</div>
+          <div class="mc-my">Notion·Slack<br>협업 경험</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- EXPERIENCE -->
+    <div>
+      <div class="sec-title">Work Experience — 경력기술서</div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <span class="exp-co">(사)함께만드는세상 (사회연대은행)</span>
+          <span class="exp-period">2023.01 ~ 2026.02 · 3년 2개월</span>
+        </div>
+        <div class="exp-role">경영지원부 인프라지원팀 · IT전산 담당, 총무 업무 병행 (대리)</div>
+        <ul class="exp-ul">
+          <li><strong>[프로세스 개선]</strong> 커스텀 ERP 도입 프로젝트 <strong>1.5년간 전담</strong> — 재무팀과 회계계정 체계 공동 설계, 데이터 마이그레이션, 전 부서 교육·안착</li>
+          <li><strong>[운영지표 관리]</strong> 인프라 예산 <strong>3.6억</strong> 편성·집행·통제 (집행률 88.5%). 비용 항목별 스프레드시트 리포트 작성·분석</li>
+          <li><strong>[인력·업체 관리]</strong> 외주업체 <strong>8개사</strong> 계약·정산 총괄. 재계약 협상으로 연 <strong>500만 원 절감</strong></li>
+          <li><strong>[이슈 대응]</strong> 사내 네트워크·PC·서버 트러블슈팅 내재화 → 유지보수 비용 <strong>30% 절감</strong></li>
+          <li><strong>[현장 안전]</strong> 소방안전관리자 선임. 법정점검(소방·승강기) 스케줄링, 비상 인원편성 담당</li>
+          <li><strong>[가이드라인 수립·전파]</strong> ERP 부서별 사용 가이드 작성·교육, 소방 비상 대응 매뉴얼 수립. Slack·Notion으로 업무 공유</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <span class="exp-co">(주)맨지온</span>
+          <span class="exp-period">2020.03 ~ 2021.11 · 1년 8개월</span>
+        </div>
+        <div class="exp-role">개발부 · 임베디드 시스템 개발 및 QA (대리)</div>
+        <ul class="exp-ul">
+          <li><strong>[IoT 관제 — 로봇 모니터링 직결]</strong> ESP32 기반 IoT 장비 현장 설치·원격 모니터링. Blynk 앱 연동 센서 데이터 시각화 대시보드 구축</li>
+          <li><strong>[통신 장애 트러블슈팅]</strong> 관제 로그 패턴 분석으로 주기적 통신 장애 원인 규명 → 현장 확인 후 안테나 위치 조정으로 해결</li>
+          <li><strong>[QA]</strong> 사용자 관점 UI/UX 테스트 시나리오 설계 및 품질 보증 활동 주도</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <span class="exp-co">주식회사 엣지크로스</span>
+          <span class="exp-period">2016.05 ~ 2018.02 · 1년 9개월</span>
+        </div>
+        <div class="exp-role">기술연구소 · H/W 개발 및 자재 관리 (주임)</div>
+        <ul class="exp-ul">
+          <li><strong>[HW 개발]</strong> 마이크로컨트롤러 전자회로 설계·펌웨어 작성 → PCB 레이아웃 → 시제품 제작(납땜·실장) → 테스트/검증 풀사이클</li>
+          <li><strong>[자재 관리]</strong> BOM 관리 체계화, 생산 일정 조율 → 납기 준수율 100%</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- BOTTOM: EDU + CERT + SKILLS -->
+    <div class="bottom-grid">
+      <div>
+        <div class="sec-title">Education</div>
+        <div class="edu-row">
+          <div class="edu-school">숭실대학교 사회복지대학원</div>
+          <div class="edu-detail">사회적기업전공 석사 · 2020.02 (GPA 4.3/4.5)</div>
+        </div>
+        <div class="edu-row">
+          <div class="edu-school">숭실대학교 공과대학</div>
+          <div class="edu-detail">전기공학 학사 / 경제학 복수전공 · 2017.02</div>
+        </div>
+        <div class="edu-row">
+          <div class="edu-school">한국폴리텍 광명융합기술교육원</div>
+          <div class="edu-detail">증강현실(AR) 시스템제어 수료 · 2022.12</div>
+        </div>
+      </div>
+      <div>
+        <div class="sec-title">Certifications & Skills</div>
+        <div class="cert-row">사회복지사 1급 <span class="cert-org">· 보건복지부 · 2021.02</span></div>
+        <div class="cert-row">1종 대형 운전면허 <span class="cert-org">· 경찰청 · 2019.02 (12년 무사고)</span></div>
+        <div class="cert-row">소방안전관리자 2급 <span class="cert-org">· 한국소방안전원</span></div>
+        <div style="margin-top:6px">
+          <div class="skill-tags">
+            <span class="skill-tag hl">IoT 관제·모니터링</span>
+            <span class="skill-tag hl">프로세스 개선 (ERP)</span>
+            <span class="skill-tag hl">외주·인력 관리</span>
+            <span class="skill-tag hl">트러블슈팅</span>
+            <span class="skill-tag hl">현장 안전관리</span>
+            <span class="skill-tag hl">스프레드시트 분석</span>
+            <span class="skill-tag">HW 회로설계·펌웨어</span>
+            <span class="skill-tag">Notion·Slack</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /body -->
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <p>위 내용은 사실에 기반하여 작성하였습니다. &nbsp;|&nbsp; <strong>임종권</strong> &nbsp;|&nbsp; 2026.03.23</p>
+  </div>
+
+</div><!-- /page1 -->
+
+
+<!-- ════ PAGE 2: 자기소개서 ════ -->
+<div class="page">
+  <div class="cl-header">
+    <div>
+      <div class="hd-name">임종권</div>
+      <div class="hd-pos" style="color:var(--mint)">자기소개서 · Cover Letter</div>
+    </div>
+    <div style="text-align:right;font-size:0.82rem;color:var(--muted)">
+      우아한형제들 · 로보틱스운영<br>
+      ssujklim@gmail.com &nbsp;|&nbsp; 010-4052-0834
+    </div>
+  </div>
+
+  <div class="cl-body">
+
+    <!-- Q1 -->
+    <div class="cl-section">
+      <div class="cl-hd">Q1. 좋아하는 시/소설/노래/영화를 중심으로 자신을 소개</div>
+      <p class="cl-text">
+        영화 &lt;아바타&gt;에서 가장 인상 깊었던 건 화려한 CG가 아니라, 주인공이 아바타를 통해 낯선 환경의 지형·기후·생물을 자기 몸처럼 감지하는 장면이었습니다. 저는 IoT 관제 업무를 하며 그와 똑같은 감각을 경험했습니다.
+      </p>
+      <p class="cl-text" style="margin-top:5px">
+        (주)맨지온에서 ESP32 기반 IoT 장비를 현장에 설치하고, Blynk 대시보드로 온도·습도·전력 데이터를 원격 모니터링했습니다. 어느 날 새벽 3시, 특정 구간의 통신 로그가 끊겼습니다. 대시보드에는 '연결 끊김'으로만 표시됐지만, 2주간의 로그를 스프레드시트에 정리해보니 매일 같은 시간대에 3~5분씩 반복 단절되는 패턴이 보였습니다. 현장에 직접 나가 확인한 결과 건물 철골 구조물에 의한 전파 간섭이 원인이었고, 안테나 위치를 30cm 이동시켜 해결했습니다. 이후 해당 구간의 통신 안정성이 98% 이상으로 회복됐습니다.
+      </p>
+      <p class="cl-text" style="margin-top:5px">
+        이전에 (주)엣지크로스에서 마이크로컨트롤러의 전자회로를 직접 설계하고 펌웨어를 작성한 경험이 있었기에, 로그 데이터의 이상 패턴을 단순 장애가 아닌 물리적 환경 문제로 추론할 수 있었습니다. 이 경험이 배달 로봇 운영과 정확히 겹칩니다. 딜리(Dilly)가 도로에서 멈추거나 배달이 지연될 때, 시스템 로그의 패턴을 읽으면서도 동시에 현장의 물리적 환경 — 도로 상태, 날씨, 보행자 동선 — 을 함께 고려해야 합니다. 데이터를 스프레드시트로 정리·분석하면서 동시에 현장을 읽을 수 있는 사람, 그것이 제가 이 포지션에서 발휘할 수 있는 강점입니다.
+      </p>
+    </div>
+
+    <!-- Q2 -->
+    <div class="cl-section">
+      <div class="cl-hd">Q2. 지원동기/이직사유, 장/단점</div>
+      <p class="cl-text">
+        <strong>[지원동기: IoT 관제에서 로봇 운영으로, 경험의 확장]</strong><br>
+        저는 두 가지 영역의 실무 경험을 갖고 있습니다. 첫째, (주)맨지온에서 1년 8개월간 IoT 장비의 펌웨어 개발·현장 설치·원격 모니터링·트러블슈팅을 수행하며 '기기가 보내는 신호를 해석하고 현장에서 문제를 해결하는' 역량을 쌓았습니다. 둘째, (사)함께만드는세상에서 3년간 IT전산 담당으로 사내 인프라를 운영하면서, 외주업체 8개사의 계약·정산을 총괄하고, 소방안전관리자로서 법정점검 스케줄을 관리하며, 커스텀 ERP 도입 프로젝트를 전담했습니다.
+      </p>
+      <p class="cl-text" style="margin-top:5px">
+        이 두 경험이 교차하는 지점이 바로 '로봇배달 서비스 운영'입니다. 로봇의 기술적 상태를 모니터링하면서, 동시에 현장 인력을 관리하고, 운영 데이터를 구글 스프레드시트로 정리·분석해 서비스 개선점을 도출하는 일. 제가 각각 다른 직장에서 나누어 해온 일들을, 이 포지션에서는 하나로 통합해 수행할 수 있습니다.
+      </p>
+      <p class="cl-text" style="margin-top:5px">
+        <strong>[장점: 기술 언어와 현장 언어를 동시에 구사하며, 가이드라인으로 정리하는 사람]</strong><br>
+        전기공학을 전공하고, 직접 MCU 회로를 설계하고 펌웨어를 작성한 경험이 있기에 엔지니어가 "펌웨어 OTA 실패"라고 말하면 바로 맥락을 이해합니다. 동시에 3년간 외주업체 8개사를 관리하고 소방·승강기 법정점검을 스케줄링하며 현장 실무 감각을 쌓았기에, 현장 운영 인력에게는 기술 용어를 풀어서 전달할 수 있습니다.
+      </p>
+      <p class="cl-text" style="margin-top:5px">
+        단순히 소통에 그치지 않고, 이를 문서화하여 전파하는 데 강점이 있습니다. ERP 도입 시 부서별 사용 가이드라인을 작성해 전 직원에게 교육했고, 소방안전관리자로서 비상 대응 매뉴얼을 수립하여 층별 담당자에게 전파했습니다. Slack과 Notion을 활용해 업무 공유 채널을 운영한 경험도 있습니다. 이런 '소통 → 문서화 → 전파' 역량이, 서비스 사이트 운영 인력에게 가이드라인을 수립하고 전파해야 하는 이 직무와 맞닿아 있다고 생각합니다.
+      </p>
+      <p class="cl-text" style="margin-top:5px">
+        <strong>[단점 및 보완: 로봇·배달 도메인 경험 부재]</strong><br>
+        로봇이나 배달 서비스를 직접 운영해본 경험은 없습니다. 하지만 저는 완전히 새로운 시스템을 빠르게 익히는 데 강점이 있습니다. 커스텀 ERP를 도입할 때, 기존에 없던 회계계정 체계를 1년 반에 걸쳐 설계하고 전 부서에 교육·안착시킨 경험이 그 증거입니다. IT 유지보수를 내재화하여 비용을 30% 절감한 것도, 외부 의존 없이 스스로 학습하고 적용한 결과입니다. 도메인 지식이 부족한 만큼, 입사 초기에는 현장에 가장 많이 나가며 로봇의 동선, 서비스 사이트의 환경, 고객 반응을 직접 관찰하겠습니다. 운영 데이터를 스프레드시트로 정리해 패턴을 파악하고, 개선 과제를 구체적 수치로 제안하겠습니다. 1종 대형 면허를 보유하고 있어 외근 이동에 제약이 없고, 소방안전관리자 활동 경험으로 현장 안전 감수성도 갖추고 있습니다.
+      </p>
+    </div>
+
+    <!-- 하단 서명 -->
+    <div style="flex:1"></div>
+    <div class="cl-footer" style="border-top:1px solid var(--border)">
+      <p style="font-size:0.82rem;color:var(--muted);line-height:1.6">
+        위 내용은 사실에 기반하여 작성하였습니다.<br>
+        <span style="font-size:1rem;font-weight:600;color:var(--acc)">임종권</span>
+      </p>
+    </div>
+
+  </div>
+</div><!-- /page2 -->
+
+</body>
+</html>

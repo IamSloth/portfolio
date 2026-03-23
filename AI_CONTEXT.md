@@ -9,17 +9,16 @@
 |-------|-------|
 | date | 2026-03-23 |
 | agent | Claude Opus 4.6 |
-| work | #38 나이스계열사 제출 완료 + 경험 정정 + 메모리 통합 |
+| work | #40 크래프톤 IT Procurement 서류 준비 + 웹포폴 제작 |
 | commit | latest |
 
 ### 이번 세션 요약
-- **#38 나이스계열사 경영지원실 사무**: 사람인 제출 완료 (2026-03-23)
-  - 이력서+자소서 2페이지 HTML→PDF (`임종권_지원서_나이스계열사.pdf`)
-  - 경험 정정 3라운드: 복리후생/경조사=인사팀, 업무비중 IT60%+총무40%, 법인카드 전표=재무팀
-  - 여백 최적화 리서치 적용 (25-35% whitespace, line-height 1.65)
-- **메모리 통합**: 20→13파일, MEMORY.md 226→168행
-- **경험 정정 메모리**: feedback_experience_accuracy.md에 7개 항목 누적
-- **이전 세션**: #37 서울히어로즈, #36 키움증권, #35 토스 9개 포지션
+- **#40 크래프톤 IT 구매 및 경영지원 담당자**: 서류 준비 완료
+  - 이력서(resume_v2) + 자기소개서(coverletter_v1) HTML→PDF
+  - 웹 포트폴리오: `docs/krafton-it-procurement.html` (크래프톤 CI 레드 #f9423a)
+  - QR코드 → 포트폴리오 연결, 푸터 디자인 2차 반복(서명 제거→타이틀+면책문구)
+  - Greenhouse 채용시스템 제출 예정 (계약직 1년, 육아휴직 대체)
+- **이전 세션**: #39 우아한형제들 재지원, #38 나이스계열사 제출, #37 서울히어로즈
 
 ## Active Applications
 
@@ -46,17 +45,19 @@
 | 34 | 청년재단 | 전산·자산관리 (코드 A) | **📤 SUBMITTED** | 인크루트 제출 완료 (2026-03-19). 정규직, 경력3년+. 마감 3/30. **Strong Go** | `34_youth_foundation/it_asset_management/` |
 | 35a | 토스뱅크 | PA Operations Specialist | **📤 SUBMITTED** | Greenhouse 제출 완료 (2026-03-20). 계약직 1년 | `35_toss/35a_bank_pa_operations/` |
 | 35b | 토스뱅크 | CSR Project Manager | **📤 SUBMITTED** | Greenhouse 제출 완료 (2026-03-20). 정규직 | `35_toss/35b_bank_csr_pm/` |
-| 35c | 토스증권 | GA Manager | **📤 SUBMITTED** | Greenhouse 제출 완료 (2026-03-20). 정규직. 35h도 여기에 중복제출 | `35_toss/35c_securities_ga_manager/` |
+| 35c | 토스증권 | GA Manager | **❌ REJECTED** | 서류 불합격 (2026-03-23). 정규직. 35h도 여기에 중복제출 | `35_toss/35c_securities_ga_manager/` |
 | 35d | 토스페이먼츠 | GA Specialist | **📤 SUBMITTED** | Greenhouse 제출 완료 (2026-03-20). 계약직 1년 | `35_toss/35d_payments_ga_specialist/` |
 | 35e | 토스페이먼츠 | IT Admin | **📤 SUBMITTED** | Greenhouse 제출 완료 (2026-03-20). 계약직 1년 | `35_toss/35e_payments_it_admin/` |
 | 35f | 토스씨엑스 | GA Manager | **❌ REJECTED** | 서류 불합격 (2026-03-23). 계약직 1년 | `35_toss/35f_cx_ga_manager/` |
-| 35g | 토스 (본사) | GA Manager | **📤 SUBMITTED** | Greenhouse 제출 완료 (2026-03-20). 정규직. 폴더명 rename 미완 | `35_toss/35g_bank_ga_manager/` |
+| 35g | 토스 (본사) | GA Manager | **❌ REJECTED** | 서류 불합격 (2026-03-23). 정규직. 폴더명 rename 미완 | `35_toss/35g_bank_ga_manager/` |
 | 35h | 토스증권 | GA Specialist | **📤 SUBMITTED** | Greenhouse 제출 완료 (2026-03-20). 계약직 1년. 35c에도 중복제출 | `35_toss/35h_securities_ga_specialist/` |
 | 35i | 토스인컴 | GA Specialist | **❌ REJECTED** | 서류 불합격 (2026-03-23). 계약직 1년 | `35_toss/35i_income_ga_specialist/` |
 | 35j | 토스뱅크 | IT Admin | **📤 SUBMITTED** | Greenhouse 제출 완료 (2026-03-20). 계약직 1년 | `35_toss/35j_bank_it_admin/` |
 | 36 | 키움증권 (사람인HS 파견) | 사무보조 | **📤 SUBMITTED** | 사람인 제출 완료 (2026-03-20). 파견 1년×2년계약, 여의도. 상시채용 | `36_kiwoom/office_assistant/` |
 | 37 | 서울히어로즈(주) | 지원팀 경영지원(회계) | **📤 SUBMITTED** | 사람인 제출 완료 (2026-03-22). 계약직 1년, 고척돔. 마감 4/10. **0순위** | `37_heroes_baseball/accounting/` |
 | 38 | 나이스계열사 (스타에이치알 파견) | 경영지원실 사무 | **📤 SUBMITTED** | 사람인 제출 완료 (2026-03-23). 파견 1년, 신도림. 상시채용 | `38_nice_group/business_support/` |
+| 39 | 우아한형제들 (Woowa) | 로보틱스운영(로봇배달 서비스 운영지원) | **📤 SUBMITTED** | 채용페이지 제출 완료 (2026-03-23). 기간제 12개월. 재지원(#12 탈락→개선). 포폴: woowa-robotics.html | `39_woowa/robotics_ops/` |
+| 40 | 크래프톤 (KRAFTON) | IT 구매 및 경영지원 담당자 | **✍️ PREPARING** | 서류 준비 완료, Greenhouse 제출 예정. 계약직 1년(육휴대체). 포폴: krafton-it-procurement.html | `40_krafton/it_procurement/` |
 | 03 | 11st | General Affairs | **⏸️ ON_HOLD** | 지원 안 함 (보류 → 미지원 확정) | `03_11st/general_affairs/` |
 
 ### Closed Applications
@@ -100,6 +101,6 @@
 - **Filenames**: English snake_case only. No Korean filenames (except original form templates and final 제출본).
 - **Scripts**: Place inside the relevant application's `scripts/` subfolder. Never in project root.
 - **Commits**: Always include `Co-Authored-By: {Model Name} <noreply@anthropic.com>` trailer.
-- **Application folders**: Numbered by discovery date: `{NN}_{company}/`. Next new company = `38_`.
+- **Application folders**: Numbered by discovery date: `{NN}_{company}/`. Next new company = `41_`.
 - **Profile sync**: If you discover new career/skill/cert info during work, update `profile.json` immediately.
 - **Session end**: Update this file → commit → push. Keep entries concise (token budget matters).

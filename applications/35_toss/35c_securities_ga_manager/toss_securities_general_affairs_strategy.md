@@ -1,9 +1,9 @@
 ---
 company: 토스증권
 position: General Affairs Manager
-status: ✍️ PREPARING
+status: ❌ REJECTED
 discovered: 2026-03-19
-last_updated: 2026-03-19
+last_updated: 2026-03-23
 deadline: 상시채용
 ---
 

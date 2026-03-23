@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>임종권 — 로봇배달 서비스 운영 · 우아한형제들</title>
+<meta name="description" content="우아한형제들 로보틱스운영(로봇배달 서비스 운영지원) 지원 포트폴리오 — 임종권">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --mint:#2AC1BC;--mint-dim:rgba(42,193,188,.1);--mint-glow:rgba(42,193,188,.2);
+  --bg:#09090b;--surface:#141416;--surface2:#1a1a1e;--border:#27272a;
+  --text:#d4d4d8;--text-dim:#71717a;--white:#fafafa;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Noto Sans KR','Inter',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;line-height:1.6}
+a{color:var(--mint);text-decoration:none}
+::selection{background:var(--mint);color:var(--bg)}
+
+/* ── NAV ── */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:14px 32px;display:flex;justify-content:space-between;align-items:center;background:rgba(9,9,11,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);transition:padding .3s var(--ease)}
+.nav-logo{font-family:'Inter',sans-serif;font-size:13px;font-weight:700;color:var(--white);letter-spacing:-.03em}
+.nav-logo span{color:var(--mint)}
+.nav-links{display:flex;gap:24px}
+.nav-links a{font-size:12px;color:var(--text-dim);transition:color .2s;letter-spacing:-.01em}
+.nav-links a:hover{color:var(--mint)}
+
+/* ── HERO ── */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:120px 10vw 80px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-30%;right:-15%;width:700px;height:700px;background:radial-gradient(circle,var(--mint-glow),transparent 65%);opacity:.25;pointer-events:none}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;color:var(--mint);background:var(--mint-dim);border:1px solid rgba(42,193,188,.15);padding:5px 14px;border-radius:20px;margin-bottom:24px;letter-spacing:.01em;width:fit-content}
+.hero h1{font-family:'Inter',sans-serif;font-size:clamp(32px,5.5vw,56px);font-weight:800;color:var(--white);line-height:1.1;letter-spacing:-.05em;margin-bottom:18px}
+.hero h1 em{font-style:normal;color:var(--mint)}
+.hero-sub{font-size:16px;color:var(--text-dim);max-width:540px;line-height:1.75;margin-bottom:36px;letter-spacing:-.01em}
+.hero-sub strong{color:var(--text);font-weight:500}
+.hero-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;max-width:560px}
+.hero-stat{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:14px 16px;transition:border-color .3s}
+.hero-stat:hover{border-color:var(--mint)}
+.hero-stat .n{font-family:'Inter',sans-serif;font-size:22px;font-weight:800;color:var(--mint);letter-spacing:-.03em}
+.hero-stat .l{font-size:10px;color:var(--text-dim);margin-top:2px;line-height:1.3}
+.scroll-cue{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);font-size:10px;color:var(--text-dim);display:flex;flex-direction:column;align-items:center;gap:6px;animation:bob 2s ease-in-out infinite}
+.scroll-cue::after{content:'';width:1px;height:20px;background:linear-gradient(var(--mint),transparent)}
+@keyframes bob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(-5px)}}
+
+/* ── MARQUEE ── */
+.marquee-wrap{overflow:hidden}
+.mq-row{overflow:hidden;white-space:nowrap;padding:10px 0}
+.mq-dark{background:var(--bg);border-top:1px solid var(--border);border-bottom:1px solid rgba(42,193,188,.12)}
+.mq-mint{background:var(--mint);border-bottom:1px solid var(--border)}
+.mq-track{display:inline-flex;will-change:transform;cursor:default}
+.mq-item{flex-shrink:0;padding:0 18px;font-family:'Inter','Noto Sans KR',sans-serif;font-size:clamp(16px,2.5vw,28px);font-weight:700;letter-spacing:-.03em;white-space:nowrap;user-select:none;transition:opacity .2s}
+.mq-dark .mq-item{color:var(--mint);opacity:.5}
+.mq-dark:hover .mq-item{opacity:.25}
+.mq-dark .mq-item:hover{opacity:1!important}
+.mq-mint .mq-item{color:var(--bg);opacity:.45}
+.mq-mint:hover .mq-item{opacity:.2}
+.mq-mint .mq-item:hover{opacity:1!important}
+.mq-item .dot{margin:0 10px;font-size:.45em;vertical-align:middle;opacity:.35}
+
+/* ── SECTIONS ── */
+section{padding:80px 10vw}
+.sec-label{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--mint);font-weight:600;letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px}
+.sec-title{font-family:'Inter',sans-serif;font-size:26px;font-weight:800;color:var(--white);letter-spacing:-.04em;margin-bottom:40px}
+.sec-title span{color:var(--mint)}
+
+/* ── JD MATCH ── */
+.match-list{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-bottom:32px}
+.match-card{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:22px;transition:all .3s var(--ease)}
+.match-card:hover{border-color:var(--mint);transform:translateY(-2px)}
+.match-card.core{border-left:3px solid var(--mint);background:var(--surface2)}
+.match-card .req{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px}
+.match-card.core .req{color:var(--mint)}
+.match-card .req-tag{display:inline-block;font-size:9px;font-weight:700;padding:2px 6px;border-radius:3px;margin-right:4px;vertical-align:middle}
+.req-tag-c{background:var(--mint);color:var(--bg)}
+.req-tag-p{background:var(--surface);color:var(--text-dim);border:1px solid var(--border)}
+.match-card h3{font-size:15px;font-weight:700;color:var(--white);margin-bottom:6px;letter-spacing:-.02em}
+.match-card p{font-size:12px;color:var(--text-dim);line-height:1.65}
+.match-card p strong{color:var(--text);font-weight:500}
+
+.match-insight{background:var(--mint-dim);border:1px solid rgba(42,193,188,.12);border-radius:8px;padding:20px 24px;font-size:13px;line-height:1.8;color:var(--text)}
+.match-insight strong{color:var(--mint)}
+
+/* ── PROJECTS ── */
+.proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.proj-card{background:var(--surface);border:1px solid var(--border);border-radius:8px;overflow:hidden;transition:all .3s var(--ease);display:flex;flex-direction:column}
+.proj-card:hover{border-color:var(--mint);transform:translateY(-2px)}
+.proj-img{width:100%;height:160px;object-fit:cover;display:block;border-bottom:1px solid var(--border);transition:transform .4s var(--ease)}
+.proj-card:hover .proj-img{transform:scale(1.03)}
+.proj-body{padding:20px;flex:1;display:flex;flex-direction:column}
+.proj-card .badge{display:inline-block;font-size:9px;font-weight:700;color:var(--mint);background:var(--mint-dim);padding:2px 8px;border-radius:4px;margin-bottom:8px;width:fit-content}
+.proj-card h3{font-size:15px;font-weight:700;color:var(--white);margin-bottom:3px;letter-spacing:-.02em}
+.proj-card .meta{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text-dim);margin-bottom:12px}
+.proj-card ul{list-style:none;padding:0;flex:1}
+.proj-card li{font-size:11.5px;color:var(--text-dim);line-height:1.65;padding-left:12px;position:relative;margin-bottom:2px}
+.proj-card li::before{content:'';position:absolute;left:0;top:7px;width:4px;height:4px;border-radius:50%;background:var(--mint)}
+.proj-tags{padding:12px 20px;border-top:1px solid var(--border);display:flex;flex-wrap:wrap;gap:5px}
+.proj-tags .t{font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:600;background:var(--bg);color:var(--mint);padding:3px 8px;border-radius:4px}
+
+/* ── TIMELINE ── */
+.timeline{display:flex;flex-direction:column;gap:16px}
+.tl-item{display:flex;gap:20px;padding:20px 24px;background:var(--surface);border:1px solid var(--border);border-radius:8px;transition:border-color .3s}
+.tl-item:hover{border-color:rgba(42,193,188,.2)}
+.tl-left{width:130px;flex-shrink:0}
+.tl-left .co{font-size:13px;font-weight:700;color:var(--white);letter-spacing:-.01em}
+.tl-left .dt{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text-dim);margin-top:3px}
+.tl-right{flex:1}
+.tl-right .role{font-size:12px;color:var(--mint);font-weight:600;margin-bottom:6px}
+.tl-right ul{list-style:none}
+.tl-right li{font-size:12px;color:var(--text-dim);line-height:1.7;padding-left:12px;position:relative}
+.tl-right li::before{content:'';position:absolute;left:0;top:8px;width:4px;height:4px;border-radius:50%;background:var(--border)}
+.tl-right li strong{color:var(--text);font-weight:500}
+
+/* ── SKILLS ── */
+.sk-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.sk-group{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:20px}
+.sk-group h3{font-size:12px;font-weight:700;color:var(--mint);margin-bottom:10px;letter-spacing:-.01em}
+.sk-tag{display:inline-block;font-size:11px;background:var(--bg);color:var(--text-dim);padding:4px 10px;border-radius:4px;margin:2px}
+
+.info-row{margin-top:28px;display:flex;gap:14px;flex-wrap:wrap}
+.info-box{flex:1;min-width:260px;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:20px}
+.info-box h3{font-size:12px;color:var(--mint);font-weight:700;margin-bottom:10px}
+.info-box .line{font-size:12px;color:var(--text-dim);line-height:1.8}
+.info-box .line strong{color:var(--white);font-weight:600}
+
+/* ── CULTURE FIT ── */
+.culture-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;max-width:900px;margin:0 auto}
+.cult-card{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:24px;transition:border-color .3s,transform .3s var(--ease)}
+.cult-card:hover{border-color:var(--mint);transform:translateY(-3px)}
+.cult-val{font-family:'Inter',sans-serif;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--mint);margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.cult-card p{font-size:13px;color:var(--text-dim);line-height:1.7}
+.cult-card p strong{color:var(--white);font-weight:600}
+
+/* ── CONTACT ── */
+.contact{text-align:center;padding:80px 10vw;background:var(--surface)}
+.contact h2{font-family:'Inter',sans-serif;font-size:28px;font-weight:800;color:var(--white);letter-spacing:-.04em;margin-bottom:10px}
+.contact h2 span{color:var(--mint)}
+.contact p{color:var(--text-dim);font-size:14px;margin-bottom:24px;max-width:480px;margin-left:auto;margin-right:auto;line-height:1.7}
+.contact-links{display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
+.contact-links a{font-size:13px;color:var(--mint);border:1px solid rgba(42,193,188,.25);padding:8px 20px;border-radius:6px;transition:all .2s}
+.contact-links a:hover{background:var(--mint);color:var(--bg)}
+
+.footer{text-align:center;padding:18px;font-size:10px;color:var(--text-dim);border-top:1px solid var(--border)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:768px){
+  .hero{padding:100px 24px 60px}
+  section{padding:60px 24px}
+  .hero-grid{grid-template-columns:repeat(2,1fr)}
+  .match-list{grid-template-columns:1fr}
+  .proj-grid{grid-template-columns:1fr}
+  .tl-item{flex-direction:column;gap:8px}
+  .tl-left{width:auto}
+  .sk-grid{grid-template-columns:1fr}
+}
+
+/* ── ANIMATIONS ── */
+.rv{opacity:0;transform:translateY(16px);transition:opacity .5s var(--ease),transform .5s var(--ease)}
+.rv.vis{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-logo">임종<span>권</span> · Robotics Ops</div>
+  <div class="nav-links">
+    <a href="#match">JD Match</a>
+    <a href="#projects">Projects</a>
+    <a href="#career">Career</a>
+    <a href="#skills">Skills</a>
+    <a href="#culture">Culture Fit</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">우아한형제들 · 로보틱스운영(로봇배달 서비스 운영지원)</div>
+  <h1>딜리가 멈추면,<br><em>로그</em>와 <em>현장</em>을<br>동시에 읽습니다</h1>
+  <p class="hero-sub">
+    IoT 관제 시스템에서 <strong>실시간 모니터링과 현장 트러블슈팅</strong>을 수행하고,
+    3년간 <strong>운영 프로세스 개선과 인력 관리</strong>를 해왔습니다.<br>
+    이 두 경험이 교차하는 지점 — <strong>로봇배달 서비스 운영</strong>.
+  </p>
+  <div class="hero-grid">
+    <div class="hero-stat"><div class="n">3년+</div><div class="l">서비스 운영<br>프로세스 개선</div></div>
+    <div class="hero-stat"><div class="n">8개사</div><div class="l">외주·현장<br>인력 관리</div></div>
+    <div class="hero-stat"><div class="n">30%</div><div class="l">IT 유지보수<br>비용 절감</div></div>
+    <div class="hero-stat"><div class="n">3.6억</div><div class="l">인프라 예산<br>직접 집행</div></div>
+  </div>
+  <div class="scroll-cue">scroll</div>
+</div>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="mq-row mq-dark"><div class="mq-track" id="t1"></div></div>
+  <div class="mq-row mq-mint"><div class="mq-track" id="t2"></div></div>
+</div>
+
+<!-- JD MATCH -->
+<section id="match">
+  <div class="sec-label">01 — JD Match</div>
+  <div class="sec-title">이 포지션에 <span>필요한 것</span>, 제가 해온 것</div>
+
+  <div class="match-list">
+    <div class="match-card core rv">
+      <div class="req"><span class="req-tag req-tag-c">필수</span> 실시간 모니터링 · 이슈 대응</div>
+      <h3>IoT 관제 → 로봇 모니터링</h3>
+      <p>ESP32 기반 IoT 장비를 현장에 설치하고 Blynk 대시보드로 원격 모니터링. 통신 장애 로그 <strong>2주 패턴 분석</strong> → 현장 확인 → 안테나 위치 조정으로 안정성 정상 회복.</p>
+    </div>
+    <div class="match-card core rv">
+      <div class="req"><span class="req-tag req-tag-c">필수</span> 현장 인력 관리 · 가이드라인 수립</div>
+      <h3>외주 8개사 관리 · 매뉴얼 수립</h3>
+      <p>외주업체 <strong>8개사</strong> 계약·정산 총괄. ERP 부서별 사용 가이드 작성·교육, 소방 비상 대응 매뉴얼 수립·전파. <strong>Slack·Notion</strong> 업무 공유 채널 운영.</p>
+    </div>
+    <div class="match-card core rv">
+      <div class="req"><span class="req-tag req-tag-c">필수</span> 서비스 운영 · 프로세스 개선</div>
+      <h3>ERP 도입 1.5년 전담</h3>
+      <p>커스텀 ERP 도입 프로젝트 요구사항→설계→교육→안착 <strong>풀사이클</strong>. IT 유지보수 내재화로 비용 <strong>30%</strong> 절감. 인프라 예산 <strong>3.6억</strong> 편성·집행.</p>
+    </div>
+    <div class="match-card core rv">
+      <div class="req"><span class="req-tag req-tag-c">필수</span> 운영지표 분석 · 스프레드시트</div>
+      <h3>데이터 기반 의사결정</h3>
+      <p>인프라 예산 항목별 <strong>스프레드시트 리포트</strong> 작성·분석. IoT 관제 로그 2주 데이터를 스프레드시트에 정리해 <strong>주기적 장애 패턴</strong> 도출.</p>
+    </div>
+    <div class="match-card rv">
+      <div class="req"><span class="req-tag req-tag-c">필수</span> 이해관계자 소통</div>
+      <h3>기술 ↔ 현장 번역 능력</h3>
+      <p>재무팀엔 시스템 용어, 외주업체엔 비즈니스 용어, 현장엔 실무 용어. 전기공학 전공 + MCU 펌웨어 경험 → 엔지니어 언어 이해. <strong>소통→문서화→전파</strong> 패턴.</p>
+    </div>
+    <div class="match-card rv">
+      <div class="req"><span class="req-tag req-tag-p">우대</span> 로봇/모빌리티 · Slack/Confluence · 현장 외근</div>
+      <h3>기술적 기반 + 현장 기동력</h3>
+      <p>MCU 회로 설계·펌웨어 → 로봇 HW 이해. <strong>1종 대형 면허</strong>(12년 무사고) + 소방안전관리자 현장 경험. Slack·Notion 협업 도구 활용.</p>
+    </div>
+  </div>
+
+  <div class="match-insight rv">
+    <strong>핵심:</strong> IoT 관제에서 쌓은 '기기 신호 해석 + 현장 트러블슈팅'과, 3년간의 '인력 관리 + 프로세스 개선 + 가이드라인 수립' 역량 —
+    이 두 경험이 교차하는 지점이 바로 <strong>로봇배달 서비스 운영</strong>입니다. 각각 다른 직장에서 나누어 해온 일을, 이 포지션에서 하나로 통합합니다.
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" style="background:var(--surface)">
+  <div class="sec-label">02 — Projects</div>
+  <div class="sec-title">직무 연관 <span>프로젝트</span></div>
+
+  <div class="proj-grid">
+
+    <div class="proj-card rv">
+      <img class="proj-img" src="assets/projects/photo_blynk_graph.jpg" alt="Blynk IoT 센서 모니터링 대시보드">
+      <div class="proj-body">
+        <div class="badge">실시간 모니터링 · 이슈 대응</div>
+        <h3>IoT 원격 관제 시스템</h3>
+        <div class="meta">(주)맨지온 · 2020.03 – 2021.11</div>
+        <ul>
+          <li>ESP32 IoT 장비 현장 설치 + Blynk 센서 데이터 실시간 대시보드</li>
+          <li>2주간 로그 스프레드시트 분석 → 주기적 통신 장애 패턴 발견</li>
+          <li>현장 확인 → 안테나 30cm 이동 → 통신 안정성 정상 회복</li>
+        </ul>
+      </div>
+      <div class="proj-tags">
+        <span class="t">ESP32</span><span class="t">Blynk</span><span class="t">IoT 관제</span><span class="t">트러블슈팅</span>
+      </div>
+    </div>
+
+    <div class="proj-card rv">
+      <img class="proj-img" src="assets/projects/photo_erp_highq.png" alt="커스텀 ERP 시스템 화면">
+      <div class="proj-body">
+        <div class="badge">프로세스 개선 · 가이드라인</div>
+        <h3>커스텀 ERP 도입 프로젝트</h3>
+        <div class="meta">(사)함께만드는세상 · 2023.07 – 2024.12</div>
+        <ul>
+          <li>요구사항 → 프로세스 설계 → 계정과목 표준화 → 검수 풀사이클</li>
+          <li>부서별 사용 가이드라인 작성, 전 직원 교육·안착</li>
+          <li>엑셀 → Tibero DB 데이터 마이그레이션 및 정합성 검증</li>
+        </ul>
+      </div>
+      <div class="proj-tags">
+        <span class="t">ERP</span><span class="t">Tibero</span><span class="t">프로세스 설계</span><span class="t">가이드라인</span>
+      </div>
+    </div>
+
+    <div class="proj-card rv">
+      <img class="proj-img" src="assets/projects/photo_relay_board.jpg" alt="MCU 릴레이 보드">
+      <div class="proj-body">
+        <div class="badge">HW 이해 · 기술적 기반</div>
+        <h3>MCU 회로 설계 · 펌웨어</h3>
+        <div class="meta">주식회사 엣지크로스 · 2016.05 – 2018.02</div>
+        <ul>
+          <li>마이크로컨트롤러 전자회로 설계 + 펌웨어 작성</li>
+          <li>PCB 레이아웃 → 시제품 납땜·실장 → 테스트/검증</li>
+          <li>BOM 관리 체계화 → 납기 준수율 100%</li>
+        </ul>
+      </div>
+      <div class="proj-tags">
+        <span class="t">MCU</span><span class="t">PCB</span><span class="t">펌웨어</span><span class="t">BOM</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CAREER -->
+<section id="career">
+  <div class="sec-label">03 — Career</div>
+  <div class="sec-title">경력 <span>타임라인</span></div>
+
+  <div class="timeline">
+    <div class="tl-item rv">
+      <div class="tl-left">
+        <div class="co">(사)함께만드는세상</div>
+        <div class="dt">2023.01 – 2026.02</div>
+      </div>
+      <div class="tl-right">
+        <div class="role">IT전산 담당 + 총무 (대리) — 경영지원부 인프라지원팀</div>
+        <ul>
+          <li>커스텀 ERP 도입 <strong>1.5년 전담</strong> — 회계계정 체계 설계, 마이그레이션, 전 부서 교육</li>
+          <li>인프라 예산 <strong>3.6억</strong> 편성·집행·통제 (집행률 88.5%)</li>
+          <li>외주업체 <strong>8개사</strong> 계약·정산 총괄. 재계약 협상 → 연 <strong>500만 원 절감</strong></li>
+          <li>IT 트러블슈팅 내재화 → 유지보수 비용 <strong>30% 절감</strong></li>
+          <li>소방안전관리자 — 법정점검 스케줄링, 비상 대응 매뉴얼 수립·전파</li>
+          <li>ERP/소방 가이드라인 작성. Slack·Notion 업무 공유 채널 운영</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tl-item rv">
+      <div class="tl-left">
+        <div class="co">(주)맨지온</div>
+        <div class="dt">2020.03 – 2021.11</div>
+      </div>
+      <div class="tl-right">
+        <div class="role">임베디드 시스템 개발 및 QA (대리)</div>
+        <ul>
+          <li>ESP32 IoT 장비 현장 설치 · Blynk 센서 데이터 실시간 모니터링 대시보드</li>
+          <li>관제 로그 2주 패턴 분석 → 주기적 통신 장애 원인 규명 → 현장 안테나 조정으로 해결</li>
+          <li>사용자 관점 UI/UX 테스트 시나리오 설계 및 QA 주도</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tl-item rv">
+      <div class="tl-left">
+        <div class="co">주식회사 엣지크로스</div>
+        <div class="dt">2016.05 – 2018.02</div>
+      </div>
+      <div class="tl-right">
+        <div class="role">H/W 개발 및 자재 관리 (주임)</div>
+        <ul>
+          <li>MCU 전자회로 설계·펌웨어 작성 → PCB → 시제품 제작·검증 풀사이클</li>
+          <li>BOM 관리 체계화, 생산 일정 조율 → 납기 준수율 100%</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" style="background:var(--surface)">
+  <div class="sec-label">04 — Skills & Education</div>
+  <div class="sec-title">역량 <span>요약</span></div>
+
+  <div class="sk-grid">
+    <div class="sk-group rv">
+      <h3>Operations & Management</h3>
+      <span class="sk-tag">서비스 운영 (3년+)</span>
+      <span class="sk-tag">프로세스 개선</span>
+      <span class="sk-tag">벤더 관리 (8개사)</span>
+      <span class="sk-tag">예산 편성·집행</span>
+      <span class="sk-tag">계약·정산</span>
+      <span class="sk-tag">가이드라인 수립</span>
+      <span class="sk-tag">소방안전관리</span>
+    </div>
+    <div class="sk-group rv">
+      <h3>Tech & Monitoring</h3>
+      <span class="sk-tag">IoT 관제·모니터링</span>
+      <span class="sk-tag">ESP32 / C++</span>
+      <span class="sk-tag">MCU 회로설계</span>
+      <span class="sk-tag">트러블슈팅</span>
+      <span class="sk-tag">ERP (Tibero)</span>
+      <span class="sk-tag">SQL</span>
+    </div>
+    <div class="sk-group rv">
+      <h3>Tools & Certifications</h3>
+      <span class="sk-tag">Google Sheets</span>
+      <span class="sk-tag">Notion · Slack</span>
+      <span class="sk-tag">1종 대형 면허</span>
+      <span class="sk-tag">소방안전관리자 2급</span>
+      <span class="sk-tag">사회복지사 1급</span>
+    </div>
+  </div>
+
+  <div class="info-row">
+    <div class="info-box rv">
+      <h3>Education</h3>
+      <div class="line">
+        <strong>숭실대학교 사회복지대학원</strong> · 사회적기업전공 · 석사 (GPA 4.3/4.5)<br>
+        <strong>숭실대학교 공과대학</strong> · 전기공학부 (경제학 복수전공) · 학사<br>
+        <strong>한국폴리텍</strong> · 증강현실(AR) 시스템제어 · 수료
+      </div>
+    </div>
+    <div class="info-box rv">
+      <h3>Career Path → Robotics Ops</h3>
+      <div class="line">
+        <span style="color:var(--mint)">전기공학</span> → MCU 회로·펌웨어 →
+        <span style="color:var(--mint)">IoT 관제·QA</span> →
+        <span style="color:var(--mint)">IT인프라 운영·ERP·인력관리</span><br><br>
+        HW 개발 → IoT 모니터링 → 서비스 운영으로 이어지는 커리어가<br>
+        <strong>로봇 모니터링 + 현장 관리 + 프로세스 개선</strong>으로 수렴합니다.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CULTURE FIT -->
+<section id="culture" style="background:var(--surface)">
+  <div class="sec-label">05 — Culture Fit</div>
+  <div class="sec-title">우아한형제들의 <span>일하는 방식</span>, 저의 방식</div>
+
+  <div class="culture-grid">
+    <div class="cult-card rv">
+      <div class="cult-val">규율 위의 자율</div>
+      <p>소방안전관리자로서 법정점검 스케줄을 <strong>빈틈없이</strong> 지키면서, IT 트러블슈팅은 매뉴얼이 아닌 <strong>자율적 판단</strong>으로 해결했습니다.</p>
+    </div>
+    <div class="cult-card rv">
+      <div class="cult-val">스타보다 팀웍</div>
+      <p>ERP 도입은 혼자 하는 일이 아니었습니다. 재무팀·사업부·외주업체 모두와 <strong>같은 언어</strong>로 소통하며 1.5년간 함께 만들었습니다.</p>
+    </div>
+    <div class="cult-card rv">
+      <div class="cult-val">팩트 기반 보고</div>
+      <p>"새벽 3시 통신 끊김"을 감이 아닌 <strong>2주 로그 데이터</strong>로 증명하고, 인프라 예산은 <strong>항목별 스프레드시트</strong>로 보고했습니다.</p>
+    </div>
+    <div class="cult-card rv">
+      <div class="cult-val">나는 일의 중간에 있다</div>
+      <p>개발만, 운영만 하지 않았습니다. 회로 설계 → IoT 관제 → 서비스 운영으로 <strong>전후 맥락을 모두 이해하는 사람</strong>이 되었습니다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<div class="contact" id="contact">
+  <h2>딜리와 함께 <span>달리겠습니다</span></h2>
+  <p>IoT 관제에서 쌓은 기술 감각과 3년간의 운영 경험으로, 로봇배달 서비스가 더 편리하고 똑똑해질 수 있도록 기여하겠습니다.</p>
+  <div class="contact-links">
+    <a href="mailto:ssujklim@gmail.com">ssujklim@gmail.com</a>
+    <a href="tel:010-4052-0834">010-4052-0834</a>
+    <a href="https://iamsloth.github.io/portfolio/" target="_blank">Main Portfolio</a>
+  </div>
+</div>
+
+<div class="footer">임종권 · 우아한형제들 로보틱스운영 지원 포트폴리오 · 2026</div>
+
+<script>
+// Scroll reveal
+const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');obs.unobserve(e.target)}})},{threshold:.12});
+document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
+
+// Nav shrink
+window.addEventListener('scroll',()=>{document.querySelector('.nav').style.padding=window.scrollY>50?'10px 32px':'14px 32px'});
+
+// ── MARQUEE: rAF + Lerp ──
+(()=>{
+  const w1=['ROBOT MONITORING','TROUBLESHOOTING','PROCESS IMPROVEMENT','FIELD OPS','IoT CONTROL','VENDOR MANAGEMENT','DATA ANALYSIS','GUIDELINE','FACT-BASED','TEAMWORK'];
+  const w2=['실시간 관제','현장 트러블슈팅','프로세스 개선','운영지표 분석','인력 관리','가이드라인 수립','팩트 기반 보고','규율 위의 자율','스타보다 팀웍'];
+  const html=ws=>ws.map(w=>`<span class="mq-item">${w}<span class="dot">&bull;</span></span>`).join('');
+  const t1=document.getElementById('t1'),t2=document.getElementById('t2');
+  t1.innerHTML=html(w1).repeat(5);t2.innerHTML=html(w2).repeat(5);
+  let x1=0,x2=0;const bs1=.9,bs2=.7;let s1=bs1,s2=bs2,tg1=bs1,tg2=bs2,sk1=0,sk2=0,ps=window.scrollY,sv=0;
+  const r1=t1.parentElement,r2=t2.parentElement;
+  r1.addEventListener('mouseenter',()=>{tg1=.15});r1.addEventListener('mouseleave',()=>{tg1=bs1});
+  r2.addEventListener('mouseenter',()=>{tg2=.12});r2.addEventListener('mouseleave',()=>{tg2=bs2});
+  window.addEventListener('scroll',()=>{sv=Math.min(Math.abs(window.scrollY-ps)*.1,4);ps=window.scrollY});
+  const lp=(a,b,t)=>a+(b-a)*t;
+  (function tick(){
+    s1=lp(s1,tg1+sv,.06);s2=lp(s2,tg2+sv,.06);sv*=.94;
+    x1-=s1;x2+=s2;
+    const w1w=t1.scrollWidth/5,w2w=t2.scrollWidth/5;
+    if(Math.abs(x1)>=w1w)x1+=w1w;if(x2>=w2w)x2-=w2w;
+    const ts1=-(s1-bs1)*.5,ts2=(s2-bs2)*.5;
+    sk1=lp(sk1,ts1,.08);sk2=lp(sk2,ts2,.08);
+    t1.style.transform=`translateX(${x1}px) skewX(${sk1}deg)`;
+    t2.style.transform=`translateX(${x2-w2w}px) skewX(${sk2}deg)`;
+    requestAnimationFrame(tick);
+  })();
+})();
+</script>
+
+</body>
+</html>
