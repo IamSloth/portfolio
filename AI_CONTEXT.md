@@ -9,15 +9,15 @@
 |-------|-------|
 | date | 2026-03-23 |
 | agent | Claude Opus 4.6 |
-| work | #40 크래프톤 IT Procurement 서류 준비 + 웹포폴 제작 |
+| work | #40 크래프톤 Greenhouse 제출 + 웹포폴 고도화 (taste-skill) |
 | commit | latest |
 
 ### 이번 세션 요약
-- **#40 크래프톤 IT 구매 및 경영지원 담당자**: 서류 준비 완료
-  - 이력서(resume_v2) + 자기소개서(coverletter_v1) HTML→PDF
-  - 웹 포트폴리오: `docs/krafton-it-procurement.html` (크래프톤 CI 레드 #f9423a)
-  - QR코드 → 포트폴리오 연결, 푸터 디자인 2차 반복(서명 제거→타이틀+면책문구)
-  - Greenhouse 채용시스템 제출 예정 (계약직 1년, 육아휴직 대체)
+- **#40 크래프톤 IT 구매 및 경영지원 담당자**: Greenhouse 제출 완료
+  - 이력서+자기소개서 PDF 제출, final/ 정리 (PDF만 보관)
+  - 웹 포트폴리오 고도화: AI 생성 영상 hero 통합, dual-video crossfade 루프
+  - taste-skill 디자인 룰 7개 위반 수정: marquee(edge fade, no bullet, mixed sizes, scroll boost+skew), skills 비대칭 그리드, word-break:keep-all
+  - GitHub Pages 배포 완료
 - **이전 세션**: #39 우아한형제들 재지원, #38 나이스계열사 제출, #37 서울히어로즈
 
 ## Active Applications
@@ -57,7 +57,7 @@
 | 37 | 서울히어로즈(주) | 지원팀 경영지원(회계) | **📤 SUBMITTED** | 사람인 제출 완료 (2026-03-22). 계약직 1년, 고척돔. 마감 4/10. **0순위** | `37_heroes_baseball/accounting/` |
 | 38 | 나이스계열사 (스타에이치알 파견) | 경영지원실 사무 | **📤 SUBMITTED** | 사람인 제출 완료 (2026-03-23). 파견 1년, 신도림. 상시채용 | `38_nice_group/business_support/` |
 | 39 | 우아한형제들 (Woowa) | 로보틱스운영(로봇배달 서비스 운영지원) | **📤 SUBMITTED** | 채용페이지 제출 완료 (2026-03-23). 기간제 12개월. 재지원(#12 탈락→개선). 포폴: woowa-robotics.html | `39_woowa/robotics_ops/` |
-| 40 | 크래프톤 (KRAFTON) | IT 구매 및 경영지원 담당자 | **✍️ PREPARING** | 서류 준비 완료, Greenhouse 제출 예정. 계약직 1년(육휴대체). 포폴: krafton-it-procurement.html | `40_krafton/it_procurement/` |
+| 40 | 크래프톤 (KRAFTON) | IT 구매 및 경영지원 담당자 | **📤 SUBMITTED** | Greenhouse 제출 완료 (2026-03-23). 계약직 1년(육휴대체). 포폴: krafton-it-procurement.html (taste-skill 적용) | `40_krafton/it_procurement/` |
 | 03 | 11st | General Affairs | **⏸️ ON_HOLD** | 지원 안 함 (보류 → 미지원 확정) | `03_11st/general_affairs/` |
 
 ### Closed Applications
