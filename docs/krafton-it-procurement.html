@@ -16,7 +16,7 @@
   --ease:cubic-bezier(.22,1,.36,1);
 }
 html{scroll-behavior:smooth;font-size:16px}
-body{font-family:'Noto Sans KR',-apple-system,sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;line-height:1.6}
+body{font-family:'Noto Sans KR',-apple-system,sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;line-height:1.6;word-break:keep-all}
 a{color:var(--kr);text-decoration:none}
 ::selection{background:var(--kr);color:#000}
 
@@ -30,38 +30,41 @@ a{color:var(--kr);text-decoration:none}
 
 /* ── HERO ── */
 .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:120px 10vw 80px;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;top:-30%;right:-15%;width:700px;height:700px;background:radial-gradient(circle,var(--kr-glow),transparent 65%);opacity:.35;pointer-events:none}
-.hero::after{content:'';position:absolute;bottom:-20%;left:-10%;width:500px;height:500px;background:radial-gradient(circle,rgba(249,66,58,.08),transparent 60%);pointer-events:none}
+.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none;z-index:0;transition:opacity 1.8s ease}
+.hero-video.v-a{opacity:.35}
+.hero-video.v-b{opacity:0}
+.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,10,.25) 0%,rgba(10,10,10,.7) 55%,var(--bg) 100%);pointer-events:none;z-index:1}
+.hero>*:not(video){position:relative;z-index:2}
 .hero-badge{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;color:var(--kr);background:var(--kr-dim);border:1px solid rgba(249,66,58,.18);padding:5px 14px;border-radius:2px;margin-bottom:24px;letter-spacing:.03em;text-transform:uppercase}
-.hero-badge::before{content:'';width:6px;height:6px;background:var(--kr);border-radius:1px;animation:pulse-dot 2s ease-in-out infinite}
-@keyframes pulse-dot{0%,100%{opacity:1}50%{opacity:.3}}
+.hero-badge::before{content:'';width:6px;height:6px;background:var(--kr);border-radius:1px}
 .hero h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(38px,6vw,68px);font-weight:700;color:var(--white);line-height:1.05;letter-spacing:-.05em;margin-bottom:18px}
 .hero h1 em{font-style:normal;color:var(--kr)}
 .hero-sub{font-size:16px;color:var(--text-dim);max-width:540px;line-height:1.75;margin-bottom:36px;letter-spacing:-.01em}
 .hero-stats{display:flex;gap:48px}
 .hero-stat .num{font-family:'Space Grotesk',sans-serif;font-size:36px;font-weight:700;color:var(--kr);letter-spacing:-.04em}
 .hero-stat .label{font-size:10px;color:var(--text-dim);margin-top:2px;letter-spacing:.02em;text-transform:uppercase}
-.scroll-hint{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--text-dim);letter-spacing:.1em;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:6px;animation:float 2.5s ease-in-out infinite}
+.scroll-hint{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--text-dim);letter-spacing:.1em;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:6px;z-index:2}
 .scroll-hint::after{content:'';width:1px;height:28px;background:linear-gradient(var(--kr),transparent)}
-@keyframes float{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(-8px)}}
 
 /* ── MARQUEE ── */
 .marquee-section{overflow:hidden}
-.marquee-row{overflow:hidden;white-space:nowrap;padding:12px 0}
+.marquee-row{overflow:hidden;white-space:nowrap;padding:12px 0;mask-image:linear-gradient(90deg,transparent 0%,#000 6%,#000 94%,transparent 100%);-webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 6%,#000 94%,transparent 100%)}
 .marquee-row--dark{background:var(--bg);border-top:1px solid var(--border);border-bottom:1px solid rgba(249,66,58,.12)}
 .marquee-row--orange{background:var(--kr)}
 .marquee-track{display:inline-flex;will-change:transform;cursor:default}
-.marquee-item{flex-shrink:0;padding:0 24px;font-family:'Space Grotesk','Noto Sans KR',sans-serif;font-size:clamp(16px,2.5vw,28px);font-weight:700;letter-spacing:-.03em;white-space:nowrap;user-select:none;transition:opacity .2s}
+.marquee-item{flex-shrink:0;padding:0 clamp(20px,4vw,56px);font-family:'Space Grotesk','Noto Sans KR',sans-serif;font-weight:700;letter-spacing:-.03em;white-space:nowrap;user-select:none;transition:opacity .2s}
+.marquee-item.mq-lg{font-size:clamp(22px,3.2vw,36px)}
+.marquee-item.mq-sm{font-size:clamp(12px,1.6vw,18px);font-style:italic;font-weight:500;letter-spacing:.01em}
 .marquee-row--dark .marquee-item{color:var(--kr);opacity:.5}
 .marquee-row--dark:hover .marquee-item{opacity:.3}
 .marquee-row--dark .marquee-item:hover{opacity:1!important}
 .marquee-row--orange .marquee-item{color:#000;opacity:.45}
 .marquee-row--orange:hover .marquee-item{opacity:.25}
 .marquee-row--orange .marquee-item:hover{opacity:1!important}
-.marquee-item .sep{margin:0 14px;font-size:.5em;vertical-align:middle;opacity:.35}
 
 /* ── SECTIONS ── */
-section{padding:80px 10vw}
+section{padding:96px 10vw 72px}
+section:nth-child(odd){padding:72px 10vw 96px}
 .sec-label{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--kr);font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px}
 .sec-title{font-family:'Space Grotesk',sans-serif;font-size:28px;font-weight:700;color:var(--white);letter-spacing:-.03em;margin-bottom:40px}
 .sec-title span{color:var(--kr)}
@@ -74,8 +77,8 @@ section{padding:80px 10vw}
 .flow-card .step-num{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--kr);font-weight:700;margin-bottom:8px;letter-spacing:.05em}
 .flow-card h3{font-size:13px;font-weight:700;color:var(--white);margin-bottom:5px}
 .flow-card p{font-size:11px;color:var(--text-dim);line-height:1.6}
-.flow-card .arrow{position:absolute;right:-10px;top:50%;transform:translateY(-50%);font-size:14px;color:var(--kr);z-index:1;font-weight:700}
-.flow-insight{background:var(--kr-dim);border:1px solid rgba(249,66,58,.12);border-radius:4px;padding:20px 24px;font-size:13px;line-height:1.8;color:var(--text)}
+.flow-card .arrow{position:absolute;right:-10px;top:50%;transform:translateY(-50%);font-size:16px;color:var(--kr);z-index:1;font-weight:700;text-shadow:0 0 8px rgba(249,66,58,.4)}
+.flow-insight{background:var(--kr-dim);border:1px solid rgba(249,66,58,.12);border-left:3px solid var(--kr);border-radius:0 4px 4px 0;padding:20px 24px;font-size:13px;line-height:1.8;color:var(--text)}
 .flow-insight strong{color:var(--kr)}
 
 /* ── METRICS ── */
@@ -90,6 +93,7 @@ section{padding:80px 10vw}
 .proj-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
 .proj-card{background:var(--surface);border:1px solid var(--border);border-radius:4px;overflow:hidden;transition:all .3s var(--ease)}
 .proj-card:hover{border-color:var(--kr);transform:translateY(-2px)}
+.proj-card.featured{grid-column:1/-1;border-color:rgba(249,66,58,.18);background:linear-gradient(135deg,var(--surface) 0%,var(--surface2) 100%)}
 .proj-top{padding:24px 24px 0}
 .proj-card .badge{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:700;color:var(--kr);background:var(--kr-dim);padding:3px 8px;border-radius:2px;margin-bottom:8px;letter-spacing:.03em;text-transform:uppercase}
 .proj-card h3{font-size:15px;font-weight:700;color:var(--white);margin-bottom:4px;letter-spacing:-.02em}
@@ -103,7 +107,7 @@ section{padding:80px 10vw}
 /* ── EXPERIENCE ── */
 .exp-list{display:flex;flex-direction:column;gap:16px}
 .exp-item{display:flex;gap:24px;padding:20px 24px;background:var(--surface);border:1px solid var(--border);border-radius:4px;transition:all .3s var(--ease)}
-.exp-item:hover{border-color:rgba(249,66,58,.25)}
+.exp-item:hover{border-color:rgba(249,66,58,.25);border-left:2px solid var(--kr)}
 .exp-period{width:160px;flex-shrink:0}
 .exp-period .co{font-size:13px;font-weight:700;color:var(--white)}
 .exp-period .date{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text-dim);margin-top:2px}
@@ -114,7 +118,7 @@ section{padding:80px 10vw}
 .exp-body li::before{content:'';position:absolute;left:0;top:8px;width:4px;height:4px;border-radius:1px;background:var(--border)}
 
 /* ── SKILLS ── */
-.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.skills-grid{display:grid;grid-template-columns:1.2fr 1fr .8fr;gap:16px}
 .skill-group{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:20px}
 .skill-group h3{font-size:11px;font-weight:700;color:var(--kr);margin-bottom:12px;letter-spacing:.03em;text-transform:uppercase}
 .skill-tag{display:inline-block;font-size:11px;background:var(--bg);color:var(--text-dim);padding:4px 10px;border-radius:2px;margin:2px;transition:color .2s,border-color .2s;border:1px solid transparent}
@@ -145,8 +149,11 @@ section{padding:80px 10vw}
   .hero-stats{flex-wrap:wrap;gap:20px}
 }
 
+/* ── GRAIN OVERLAY ── */
+body::before{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:.025;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
 /* ── ANIMATIONS ── */
-.reveal{opacity:0;transform:translateY(20px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .5s var(--ease),transform .5s var(--ease)}
 .reveal.visible{opacity:1;transform:translateY(0)}
 </style>
 </head>
@@ -167,6 +174,8 @@ section{padding:80px 10vw}
 
 <!-- HERO -->
 <div class="hero">
+  <video class="hero-video v-a" id="vid-a" autoplay muted playsinline src="krafton-hero.mp4"></video>
+  <video class="hero-video v-b" id="vid-b" muted playsinline src="krafton-hero.mp4"></video>
   <div class="hero-badge">KRAFTON IT Procurement Team 지원</div>
   <h1>IT 구매의<br><em>풀사이클</em>을<br>단독 수행한 사람</h1>
   <p class="hero-sub">
@@ -284,7 +293,7 @@ section{padding:80px 10vw}
   <div class="sec-title">주요 <span>프로젝트</span></div>
 
   <div class="proj-grid">
-    <div class="proj-card reveal">
+    <div class="proj-card featured reveal">
       <div class="proj-top">
         <div class="badge">IT 구매 · 입찰</div>
         <h3>IT시스템 구매 입찰 풀사이클</h3>
@@ -338,7 +347,7 @@ section{padding:80px 10vw}
       </div>
     </div>
 
-    <div class="proj-card reveal">
+    <div class="proj-card featured reveal">
       <div class="proj-top">
         <div class="badge">외주 · 계약관리</div>
         <h3>외주업체 8개사 계약·정산 총괄</h3>
@@ -461,7 +470,7 @@ section{padding:80px 10vw}
   </div>
 </div>
 
-<div class="footer">2026 임종권 — Built for KRAFTON IT Procurement</div>
+<div class="footer">2026 임종권 · 이 페이지는 직접 설계·구현했습니다</div>
 
 <!-- ── SCRIPTS ── -->
 <script>
@@ -471,51 +480,103 @@ const obs = new IntersectionObserver((entries) => {
 }, { threshold: 0.15 });
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
-// Marquee — rAF + Lerp
+// Marquee — rAF + Lerp + scroll velocity boost + skew
 (function() {
-  const row1Words = [
-    'IT 구매 · Procurement','RFP 작성','입찰 풀사이클','계약 체결',
-    'IT 자산관리','ERP 도입','외주 계약 관리','비용 최적화',
-    '프로세스 개선','부서 간 협업','예산 편성·집행'
+  // [text, size] — 'lg' = large, 'sm' = small italic
+  const row1 = [
+    ['IT 구매','lg'],['Procurement','sm'],['RFP 작성','lg'],['입찰 풀사이클','sm'],
+    ['계약 체결','lg'],['IT 자산관리','sm'],['ERP 도입','lg'],['외주 계약 관리','sm'],
+    ['비용 최적화','lg'],['프로세스 개선','sm'],['예산 편성·집행','lg']
   ];
-  const row2Words = [
-    'KRAFTON','적정 가격 × 최상의 품질','구매 효율성 극대화',
-    '리스크 최소화','지속 가능한 공급망','IT Procurement Team',
-    'H/W · S/W · Cloud · 용역','시스템 개선 지원'
+  const row2 = [
+    ['KRAFTON','lg'],['적정 가격 × 최상의 품질','sm'],['구매 효율성 극대화','lg'],
+    ['리스크 최소화','sm'],['지속 가능한 공급망','lg'],['IT Procurement Team','sm'],
+    ['H/W · S/W · Cloud · 용역','lg'],['시스템 개선 지원','sm']
   ];
 
-  function buildTrack(id, words, copies) {
+  function buildTrack(id, items, copies) {
     const track = document.getElementById(id);
     let html = '';
     for (let c = 0; c < copies; c++) {
-      words.forEach(w => { html += `<span class="marquee-item">${w}<span class="sep">&#x2022;</span></span>`; });
+      items.forEach(([w, sz]) => { html += `<span class="marquee-item mq-${sz}">${w}</span>`; });
     }
     track.innerHTML = html;
   }
 
-  buildTrack('mq-track-1', row1Words, 4);
-  buildTrack('mq-track-2', row2Words, 5);
+  buildTrack('mq-track-1', row1, 4);
+  buildTrack('mq-track-2', row2, 5);
 
-  function animate(track, speed) {
-    let pos = 0, target = 0, current = 0;
-    const totalW = track.scrollWidth / 4;
+  // Shared scroll velocity
+  let scrollV = 0;
+  let lastScroll = window.scrollY;
+  window.addEventListener('scroll', function() {
+    scrollV = Math.abs(window.scrollY - lastScroll);
+    lastScroll = window.scrollY;
+  }, {passive: true});
+
+  function animate(track, speed, copies) {
+    let target = 0, current = 0;
+    const totalW = track.scrollWidth / copies;
     let mouse = 0;
+    let skewCur = 0;
 
     track.parentElement.addEventListener('mouseenter', () => mouse = 1);
     track.parentElement.addEventListener('mouseleave', () => mouse = 0);
 
     function tick() {
-      target += speed * (mouse ? 0.3 : 1);
+      const boost = 1 + Math.min(scrollV * 0.12, 4);
+      target += speed * (mouse ? 0.3 : 1) * boost;
       if (target >= totalW) target -= totalW;
       current += (target - current) * 0.08;
-      track.style.transform = `translateX(${-current}px)`;
+      const skewTarget = Math.min(scrollV * 0.03, 2.5);
+      skewCur += (skewTarget - skewCur) * 0.06;
+      track.style.transform = `translateX(${-current}px) skewX(${-skewCur}deg)`;
       requestAnimationFrame(tick);
     }
     tick();
   }
 
-  animate(document.getElementById('mq-track-1'), 0.6);
-  animate(document.getElementById('mq-track-2'), 0.45);
+  animate(document.getElementById('mq-track-1'), 0.6, 4);
+  animate(document.getElementById('mq-track-2'), 0.45, 5);
+
+  // Decay scroll velocity
+  setInterval(function() { scrollV *= 0.85; }, 50);
+})();
+
+// Hero video seamless crossfade loop
+(function() {
+  const vids = [document.getElementById('vid-a'), document.getElementById('vid-b')];
+  if (!vids[0] || !vids[1]) return;
+  const FADE = 1.8;
+  let active = 0;
+  let swapping = false;
+
+  function swap() {
+    if (swapping) return;
+    swapping = true;
+    const cur = vids[active];
+    const nxt = vids[1 - active];
+    nxt.currentTime = 0;
+    nxt.play();
+    nxt.classList.replace('v-b', 'v-a');
+    cur.classList.replace('v-a', 'v-b');
+    // After transition, pause old video
+    setTimeout(function() {
+      cur.pause();
+      cur.currentTime = 0;
+      active = 1 - active;
+      swapping = false;
+    }, FADE * 1000 + 200);
+  }
+
+  vids[0].addEventListener('timeupdate', function() {
+    if (!vids[active].duration) return;
+    if (vids[active].duration - vids[active].currentTime <= FADE) swap();
+  });
+  vids[1].addEventListener('timeupdate', function() {
+    if (!vids[active].duration) return;
+    if (vids[active].duration - vids[active].currentTime <= FADE) swap();
+  });
 })();
 </script>
 </body>
