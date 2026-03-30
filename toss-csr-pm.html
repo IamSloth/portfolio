@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>임종권 — CSR PM · 토스뱅크</title>
+<meta name="description" content="임종권 — 토스뱅크 Project Manager (CSR) 지원 포트폴리오">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --blue:#3182f6;--blue-hover:#2272eb;--blue-dim:rgba(49,130,246,.06);--blue-light:rgba(49,130,246,.12);
+  --black:#191f28;--g700:#333d4b;--g500:#6b7684;--g400:#8b95a1;--g300:#d1d6db;--g200:#e5e8eb;--g100:#f2f4f6;--g50:#f9fafb;
+  --white:#ffffff;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Pretendard Variable',Pretendard,-apple-system,'Noto Sans KR',sans-serif;background:var(--white);color:var(--g700);overflow-x:hidden;line-height:1.7;word-break:keep-all;-webkit-font-smoothing:antialiased}
+::selection{background:var(--blue);color:#fff}
+a{color:var(--blue);text-decoration:none;transition:color .2s}
+a:hover{color:var(--blue-hover)}
+.container{max-width:1040px;margin:0 auto;padding:0 40px}
+
+/* ── NAV ── */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--g200);padding:0 40px;height:60px;display:flex;justify-content:space-between;align-items:center;max-width:100%}
+.nav-brand{font-size:16px;font-weight:700;color:var(--black);letter-spacing:-.02em}
+.nav-brand span{color:var(--blue)}
+.nav-links{display:flex;gap:24px;align-items:center}
+.nav-links a{font-size:14px;color:var(--g500);font-weight:500;transition:color .2s}
+.nav-links a:hover{color:var(--blue)}
+.nav-links .current{color:var(--blue);font-weight:600}
+
+/* ── HERO (블랙) ── */
+.hero{background:var(--black);padding:180px 40px 120px;text-align:center;position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:120px;background:linear-gradient(transparent,rgba(25,31,40,.4))}
+.hero-badge{display:inline-block;font-size:14px;font-weight:600;color:var(--blue);background:rgba(49,130,246,.12);border:1px solid rgba(49,130,246,.2);padding:6px 18px;border-radius:20px;margin-bottom:28px}
+.hero h1{font-size:clamp(40px,6vw,58px);font-weight:800;letter-spacing:-.04em;line-height:1.15;color:#fff;margin-bottom:20px}
+.hero h1 em{font-style:normal;color:var(--blue)}
+.hero-sub{font-size:19px;color:var(--g400);max-width:560px;margin:0 auto;line-height:1.8}
+
+/* ── STATS ── */
+.stats-section{padding:100px 0;background:var(--white)}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.stat-card{text-align:center;padding:40px 16px}
+.stat-number{font-size:44px;font-weight:800;color:var(--blue);letter-spacing:-.03em;margin-bottom:8px;line-height:1}
+.stat-label{font-size:15px;color:var(--g500);line-height:1.5}
+
+/* ── ABOUT ── */
+.about{padding:120px 0;background:var(--g50)}
+.about-grid{display:grid;grid-template-columns:280px 1fr;gap:60px;align-items:center}
+.about-photo{width:280px;height:280px;border-radius:22px;overflow:hidden;background:var(--g200)}
+.about-photo img{width:100%;height:100%;object-fit:cover}
+.about-text h2{font-size:32px;font-weight:800;color:var(--black);letter-spacing:-.03em;margin-bottom:16px}
+.about-text h2 span{color:var(--blue)}
+.about-text p{font-size:18px;color:var(--g700);line-height:2}
+.about-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.about-tag{font-size:14px;padding:6px 14px;border-radius:8px;font-weight:500}
+.about-tag.hl{background:var(--blue-light);color:var(--blue)}
+.about-tag.rg{background:var(--g100);color:var(--g500)}
+
+/* ── SECTION COMMON ── */
+.sec-padding{padding:140px 0}
+.sec-padding.alt{background:var(--g50)}
+.sec-label{font-size:14px;letter-spacing:.5px;color:var(--blue);margin-bottom:12px;font-weight:700}
+.sec-title{font-size:clamp(28px,4vw,40px);font-weight:800;letter-spacing:-.03em;color:var(--black);margin-bottom:48px}
+.sec-title span{color:var(--blue)}
+
+/* ── PROJECT CARD ── */
+.proj{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;margin-bottom:80px}
+.proj:last-child{margin-bottom:0}
+.proj.reverse{direction:rtl}
+.proj.reverse>*{direction:ltr}
+.proj-img{border-radius:22px;overflow:hidden;background:var(--g100);aspect-ratio:4/3}
+.proj-img img{width:100%;height:100%;object-fit:cover;display:block}
+.proj-content h3{font-size:24px;font-weight:700;color:var(--black);letter-spacing:-.02em;margin-bottom:8px}
+.proj-period{font-size:14px;color:var(--g400);margin-bottom:16px}
+.proj-body{font-size:17px;color:var(--g700);line-height:1.9;margin-bottom:20px}
+.proj-body b{color:var(--blue);font-weight:600}
+.proj-results{display:flex;flex-wrap:wrap;gap:8px}
+.proj-res{padding:6px 16px;background:var(--black);color:#fff;font-size:13px;font-weight:600;border-radius:8px}
+
+/* ── FLOW ── */
+.flow-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:32px}
+.flow-card{background:var(--white);border:1px solid var(--g200);border-radius:14px;padding:24px;transition:border-color .3s var(--ease),transform .3s var(--ease)}
+.flow-card:hover{border-color:var(--blue);transform:translateY(-3px)}
+.flow-step{font-size:12px;color:var(--blue);font-weight:700;letter-spacing:.5px;margin-bottom:8px}
+.flow-card p{font-size:15px;color:var(--g700);line-height:1.75}
+
+/* ── WHY ── */
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.why-card{background:var(--g50);border:1px solid var(--g200);border-radius:22px;padding:36px;transition:transform .4s var(--ease),border-color .4s}
+.why-card:hover{transform:translateY(-4px);border-color:rgba(49,130,246,.2)}
+.why-icon{font-size:28px;margin-bottom:14px}
+.why-card h3{font-size:18px;font-weight:700;margin-bottom:10px;color:var(--black)}
+.why-card p{font-size:15px;color:var(--g500);line-height:1.8}
+
+/* ── AWARD ── */
+.award-row{display:flex;align-items:center;gap:24px;background:var(--g50);border-radius:22px;padding:24px 32px;margin-top:40px}
+.award-img{width:80px;height:80px;border-radius:14px;overflow:hidden;flex-shrink:0}
+.award-img img{width:100%;height:100%;object-fit:cover}
+.award-text h4{font-size:17px;font-weight:700;color:var(--black)}
+.award-text p{font-size:14px;color:var(--g400)}
+
+/* ── CONTACT (블랙) ── */
+.contact{background:var(--black);padding:100px 40px;text-align:center}
+.contact h2{font-size:32px;font-weight:800;color:#fff;letter-spacing:-.03em;margin-bottom:20px}
+.contact p{font-size:17px;color:var(--g400);line-height:2}
+.contact a{color:var(--blue)}
+.other-pos{display:flex;justify-content:center;gap:12px;margin-top:32px}
+.other-btn{padding:10px 24px;border-radius:12px;font-size:14px;font-weight:600;border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.6);transition:all .3s var(--ease)}
+.other-btn:hover{border-color:var(--blue);color:var(--blue)}
+
+footer{text-align:center;padding:24px;font-size:12px;color:var(--g400);background:var(--black);border-top:1px solid rgba(255,255,255,.06)}
+
+/* ── REVEAL ── */
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-d1{transition-delay:.15s}.reveal-d2{transition-delay:.3s}.reveal-d3{transition-delay:.45s}
+
+@media(max-width:768px){
+  .container{padding:0 20px}
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  .about-grid{grid-template-columns:1fr;text-align:center}
+  .about-photo{margin:0 auto}
+  .proj{grid-template-columns:1fr}
+  .proj.reverse{direction:ltr}
+  .flow-grid{grid-template-columns:1fr}
+  .why-grid{grid-template-columns:1fr}
+  .hero{padding:140px 20px 80px}
+  .sec-padding{padding:80px 0}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ NAV ═══ -->
+<nav class="nav">
+  <div class="nav-brand">임종권<span>.</span></div>
+  <div class="nav-links">
+    <a href="#" class="current">CSR PM</a>
+  </div>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<div class="hero">
+  <div class="hero-badge">토스뱅크 · Project Manager (CSR)</div>
+  <h1>사회문제를 이해하고,<br>프로젝트로 <em>해결</em>하는 사람</h1>
+  <p class="hero-sub">사회복지 석사 · 사회적금융기관 3년 · 사회복지사 1급 —<br>현장 감각과 기획·실행력을 갖춘 CSR 실무자</p>
+</div>
+
+<!-- ═══ STATS ═══ -->
+<section class="stats-section">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-card reveal"><div class="stat-number" data-target="3" data-suffix="년">0</div><div class="stat-label">사회적금융기관<br>경영지원</div></div>
+      <div class="stat-card reveal reveal-d1"><div class="stat-number" data-target="10" data-suffix="건+">0</div><div class="stat-label">사업 용역<br>입찰 수행</div></div>
+      <div class="stat-card reveal reveal-d2"><div class="stat-number" data-target="8" data-suffix="개사">0</div><div class="stat-label">외주업체<br>계약·정산</div></div>
+      <div class="stat-card reveal reveal-d3"><div class="stat-number" data-target="1" data-suffix="급">0</div><div class="stat-label">사회복지사<br>자격 보유</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ABOUT ═══ -->
+<section class="about">
+  <div class="container">
+    <div class="about-grid reveal">
+      <div class="about-photo">
+        <img src="assets/profile.png" alt="임종권">
+      </div>
+      <div class="about-text">
+        <h2>사회문제의 현장에서<br><span>프로젝트를 만드는</span> 사람</h2>
+        <p>
+          사회복지대학원에서 사회적기업을 전공하고, 사회연대은행(마이크로크레딧)에서 3년간 경영지원을 담당했습니다.
+          소상공인·청년 지원사업의 용역 입찰부터 운영까지 기획·실행하며,
+          사회적 가치와 비즈니스 운영을 동시에 이해하는 실무자입니다.
+        </p>
+        <div class="about-tags">
+          <span class="about-tag hl">CSR · 사회공헌</span>
+          <span class="about-tag hl">프로젝트 기획</span>
+          <span class="about-tag hl">이해관계자 조율</span>
+          <span class="about-tag rg">사회복지사 1급</span>
+          <span class="about-tag rg">석사 (사회적기업)</span>
+          <span class="about-tag rg">입찰 10건+</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PROJECT 1: 사회적금융 시스템 구축 ═══ -->
+<section class="sec-padding">
+  <div class="container">
+    <div class="sec-label reveal">Project 01</div>
+    <h2 class="sec-title reveal">사회적금융 <span>시스템</span> 구축</h2>
+
+    <div class="proj reveal">
+      <div class="proj-img">
+        <img src="assets/projects/photo_erp_highq.png" alt="ERP 시스템">
+      </div>
+      <div class="proj-content">
+        <h3>ERP 도입 — 사회적금융 데이터 체계화</h3>
+        <div class="proj-period">2023.07 → 2024.12 · 18개월 · 단독 전담</div>
+        <p class="proj-body">
+          마이크로크레딧 기관의 여신·채무 데이터를 엑셀에서 <b>커스텀 ERP(Tibero/Nexacro)</b>로 전환.
+          <b>회계계정 200개를 직접 설계</b>하고, 데이터 마이그레이션 정합성을 검증.
+          사회적 임팩트 측정의 기반이 되는 <b>데이터 관리 체계</b>를 구축했습니다.
+        </p>
+        <div class="proj-results">
+          <span class="proj-res">사회적금융 시스템 구축</span>
+          <span class="proj-res">계정 200개 설계</span>
+          <span class="proj-res">결산 -2일</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="flow-grid">
+      <div class="flow-card reveal">
+        <div class="flow-step">PHASE 1 — 현황 분석</div>
+        <p>마이크로크레딧 여신·채무 프로세스 분석. 부서별 요구사항 인터뷰. 회계계정 체계 설계.</p>
+      </div>
+      <div class="flow-card reveal reveal-d1">
+        <div class="flow-step">PHASE 2 — 구축·검증</div>
+        <p>엑셀 → Tibero DB 마이그레이션. 부서별 자료 취합·검수. 데이터 정합성 반복 검증.</p>
+      </div>
+      <div class="flow-card reveal reveal-d2">
+        <div class="flow-step">PHASE 3 — 임팩트 기반</div>
+        <p>관리회계 전환 완료. 결산 2일 단축. 사회적 임팩트 측정을 위한 데이터 인프라 확보.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PROJECT 2: 소상공인·청년 지원사업 ═══ -->
+<section class="sec-padding alt">
+  <div class="container">
+    <div class="sec-label reveal">Project 02</div>
+    <h2 class="sec-title reveal">소상공인·청년 <span>지원사업</span> 운영</h2>
+
+    <div class="proj reverse reveal">
+      <div class="proj-img">
+        <img src="assets/projects/photo_desalination_equipment.jpg" alt="사회문제 해결 프로젝트">
+      </div>
+      <div class="proj-content">
+        <h3>지원사업 용역 입찰·구매·운영 관리</h3>
+        <div class="proj-period">2023.01 → 2026.02 · 3년 2개월</div>
+        <p class="proj-body">
+          소상공인·청년 대상 지원사업의 <b>용역 입찰 10건+ 풀사이클</b>(RFP→공고→평가→계약) 수행.
+          8개 외주업체의 계약·정산·SLA를 총괄하며, 사업팀·회계팀 등
+          <b>내부 부서 소통·조율</b>을 담당. 재계약 협상으로 비용 30% 절감.
+        </p>
+        <div class="proj-results">
+          <span class="proj-res">용역 입찰 10건+</span>
+          <span class="proj-res">비용 -30%</span>
+          <span class="proj-res">부서간 협업</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="award-row reveal">
+      <div class="award-img"><img src="assets/projects/photo_metaverse_award.jpg" alt="수상"></div>
+      <div class="award-text">
+        <h4>메타버스 콘텐츠 캠프 대상</h4>
+        <p>과학기술정보통신부 · 2022</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ WHY ═══ -->
+<section class="sec-padding">
+  <div class="container">
+    <div class="sec-label reveal">Why Me</div>
+    <h2 class="sec-title reveal">CSR PM에 <span>기여</span>할 수 있는 이유</h2>
+    <div class="why-grid">
+      <div class="why-card reveal">
+        <div class="why-icon">🌱</div>
+        <h3>사회문제 현장 이해</h3>
+        <p>사회복지사 1급 보유. 사회적금융기관에서 취약계층·소상공인·청년 지원사업을 직접 경험. 사회문제의 구조를 이해하는 실무자.</p>
+      </div>
+      <div class="why-card reveal reveal-d1">
+        <div class="why-icon">📊</div>
+        <h3>프로젝트 기획·실행</h3>
+        <p>ERP 도입을 A to Z 전담. 용역 입찰 10건+. 기획→실행→검수까지 프로젝트 전 과정을 주도한 경험.</p>
+      </div>
+      <div class="why-card reveal reveal-d2">
+        <div class="why-icon">🤝</div>
+        <h3>이해관계자 조율</h3>
+        <p>사업팀·회계팀·경영진·외주 8개사와 일상 커뮤니케이션. 이해관계가 다른 조직 사이에서 조율하는 역할.</p>
+      </div>
+      <div class="why-card reveal reveal-d3">
+        <div class="why-icon">🎓</div>
+        <h3>학문적 기반</h3>
+        <p>사회복지대학원 사회적기업 전공 석사. 사회적 가치 측정·CSR 이론을 현장 경험과 결합할 수 있는 역량.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CONTACT ═══ -->
+<div class="contact" id="contact">
+  <div class="container">
+    <h2>함께 일하고 싶습니다</h2>
+    <p>
+      <a href="mailto:ssujklim@gmail.com">ssujklim@gmail.com</a><br>
+      010-4052-0834<br>
+      <span style="color:var(--g500);font-size:14px">경기도 광명시</span>
+    </p>
+  </div>
+</div>
+
+<footer>&copy; 2026 임종권 — 토스뱅크 Project Manager (CSR) 지원을 위해 제작</footer>
+
+<script>
+// ── Scroll Reveal ──
+const revealObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');revealObs.unobserve(e.target)}});
+},{threshold:.1,rootMargin:'0px 0px -60px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>revealObs.observe(el));
+
+// ── Counter ──
+const counterObs=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(!entry.isIntersecting)return;
+    const el=entry.target;
+    if(el.dataset.animated)return;
+    el.dataset.animated='true';
+    const target=parseFloat(el.dataset.target);
+    const suffix=el.dataset.suffix||'';
+    const hasDecimal=el.dataset.decimal;
+    const duration=2000;
+    const start=performance.now();
+    function ease(t){return 1-Math.pow(1-t,3)}
+    function tick(now){
+      const p=Math.min((now-start)/duration,1);
+      const v=target*ease(p);
+      el.textContent=(hasDecimal?v.toFixed(1):Math.floor(v))+suffix;
+      if(p<1)requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  });
+},{threshold:.5});
+document.querySelectorAll('.stat-number[data-target]').forEach(el=>counterObs.observe(el));
+</script>
+</body>
+</html>

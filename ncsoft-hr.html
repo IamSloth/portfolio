@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>임종권 × NCsoft HR Admin Support</title>
+    <meta name="description" content="임종권 — NCsoft HR 사무지원 담당자 지원 포트폴리오">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=Noto+Serif+KR:wght@300;400;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --nc-navy: #2A1A00;
+            --nc-blue: #5C3D10;
+            --nc-sky: #D4A030;
+            --nc-dark: #0F0D08;
+            --nc-surface: #1A1610;
+            --nc-card: #221D14;
+            --nc-text: #E8E0D4;
+            --nc-muted: #A89478;
+            --nc-glow: rgba(212, 160, 48, 0.15);
+            --nc-gradient: linear-gradient(135deg, #5C3D10, #D4A030);
+            --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+            --ease-in-out: cubic-bezier(0.76, 0, 0.24, 1);
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background: var(--nc-dark);
+            color: var(--nc-text);
+            line-height: 1.7;
+            overflow-x: hidden;
+            word-break: keep-all;
+        }
+
+        .container { max-width: 960px; margin: 0 auto; padding: 0 28px; }
+
+        /* ============================
+           NAV — Glassmorphism
+           ============================ */
+        .nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            background: rgba(15, 13, 8, 0.85);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-bottom: 1px solid rgba(212, 160, 48, 0.06);
+            padding: 16px 28px;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .nav-brand {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700; font-size: 18px; color: #fff;
+            text-decoration: none;
+        }
+        .nav-brand span { color: var(--nc-sky); }
+        .nav-back {
+            font-size: 13px; color: var(--nc-muted);
+            text-decoration: none; transition: color 0.3s;
+        }
+        .nav-back:hover { color: var(--nc-sky); }
+
+        /* ============================
+           HERO — Kinetic Type
+           ============================ */
+        .hero {
+            min-height: 100vh;
+            display: flex; align-items: center; justify-content: center;
+            text-align: center;
+            padding: 120px 28px 60px;
+            position: relative;
+            overflow: hidden;
+        }
+        /* Animated gradient orb */
+        .hero-orb {
+            position: absolute;
+            width: 700px; height: 700px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(212,160,48,0.12) 0%, transparent 65%);
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            animation: orbDrift 12s ease-in-out infinite;
+            pointer-events: none;
+        }
+        @keyframes orbDrift {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); }
+            33% { transform: translate(-48%, -52%) scale(1.05); }
+            66% { transform: translate(-52%, -48%) scale(0.97); }
+        }
+        .hero-content { position: relative; z-index: 1; }
+        .hero-label {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 13px; letter-spacing: 4px; text-transform: uppercase;
+            color: var(--nc-sky); margin-bottom: 20px; font-weight: 600;
+            opacity: 0; animation: fadeIn 0.8s 0.2s ease forwards;
+        }
+        .hero-title {
+            font-size: clamp(40px, 8vw, 72px);
+            font-weight: 900; letter-spacing: -0.04em;
+            line-height: 1.05; margin-bottom: 24px;
+        }
+        .hero-title .word {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(40px);
+            animation: wordUp 0.8s var(--ease-out) forwards;
+        }
+        .hero-title .word:nth-child(1) { animation-delay: 0.3s; }
+        .hero-title .word:nth-child(2) { animation-delay: 0.5s; color: var(--nc-sky); }
+        .hero-title .line2 .word:nth-child(1) { animation-delay: 0.7s; }
+        .hero-subtitle {
+            color: var(--nc-muted) !important;
+            font-size: 0.5em;
+            font-weight: 400;
+            letter-spacing: 0.02em;
+        }
+
+        @keyframes wordUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        .hero-sub {
+            font-size: 17px; color: var(--nc-muted);
+            max-width: 560px; margin: 0 auto 40px; line-height: 1.9;
+            opacity: 0; animation: fadeIn 0.8s 0.9s ease forwards;
+        }
+        .hero-scroll {
+            opacity: 0; animation: fadeIn 0.8s 1.2s ease forwards;
+        }
+        .hero-scroll span {
+            display: inline-block;
+            font-size: 24px; color: var(--nc-sky);
+            animation: bounce 2s ease-in-out infinite;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(10px); }
+        }
+
+        /* ============================
+           CORPORATE FLEX LED TICKER
+           ============================ */
+        .marquee-section {
+            padding: 4vh 0;
+            overflow: hidden;
+            position: relative;
+            background: #020100;
+        }
+        /* LED dot-matrix overlay (subtle) */
+        .marquee-section::before {
+            content: '';
+            position: absolute; inset: 0; z-index: 2;
+            background:
+                repeating-linear-gradient(
+                    0deg, transparent 0px, transparent 1px,
+                    rgba(0,0,0,0.06) 1px, rgba(0,0,0,0.06) 2px
+                ),
+                repeating-linear-gradient(
+                    90deg, transparent 0px, transparent 1px,
+                    rgba(0,0,0,0.06) 1px, rgba(0,0,0,0.06) 2px
+                );
+            pointer-events: none;
+        }
+        /* Top/bottom LED panel frame lines */
+        .marquee-section::after {
+            content: '';
+            position: absolute; top: 0; left: 0; right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(212,160,48,0.35), transparent);
+            box-shadow: 0 0 8px rgba(212,160,48,0.15);
+        }
+        .marquee-bottom-line {
+            position: absolute; bottom: 0; left: 0; right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(212,160,48,0.35), transparent);
+            box-shadow: 0 0 8px rgba(212,160,48,0.15);
+        }
+        .marquee-row {
+            overflow: hidden;
+            white-space: nowrap;
+            padding: 1vh 0;
+            cursor: default;
+            user-select: none;
+            mask-image: linear-gradient(90deg, transparent 0%, #000 4%, #000 96%, transparent 100%);
+            -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 4%, #000 96%, transparent 100%);
+            position: relative;
+            z-index: 1;
+        }
+        .marquee-track {
+            display: inline-flex;
+            align-items: baseline;
+            gap: 4vw;
+            will-change: transform;
+        }
+        .marquee-item {
+            display: inline-flex;
+            align-items: baseline;
+            gap: 1vw;
+            flex-shrink: 0;
+        }
+        /* Separator dots between items */
+        .marquee-item + .marquee-item::before {
+            content: '·';
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.2em;
+            color: rgba(240,200,64,0.25);
+            text-shadow: 0 0 3px rgba(212,160,48,0.15);
+            margin-right: 1vw;
+        }
+        /* Row 1: LED primary — high-brightness stadium fascia */
+        .marquee-row[data-direction="left"] .m-word {
+            font-family: 'JetBrains Mono', 'Space Grotesk', monospace;
+            font-size: clamp(2.2rem, 5.5vw, 5.5rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.05;
+            text-transform: uppercase;
+            color: #F0C840;
+            text-shadow:
+                0 0 4px rgba(240,200,64,0.8),
+                0 0 12px rgba(212,160,48,0.35);
+            transition: color 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+                        text-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+            white-space: nowrap;
+        }
+        .marquee-row[data-direction="left"] .m-word:hover {
+            color: #FFE07A;
+            text-shadow:
+                0 0 6px rgba(255,224,122,0.9),
+                0 0 16px rgba(240,200,64,0.3);
+        }
+        .marquee-row[data-direction="left"] .m-sub {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: clamp(1rem, 2.2vw, 2.2rem);
+            font-weight: 400;
+            letter-spacing: 0.05em;
+            color: rgba(240,200,64,0.3);
+            text-shadow: 0 0 4px rgba(212,160,48,0.2);
+            white-space: nowrap;
+        }
+        /* Row 2: NEGATIVE / KNOCKOUT — dark text on bright amber strip */
+        .marquee-row[data-direction="right"] {
+            background: #F0C840;
+        }
+        .marquee-row[data-direction="right"] .m-word {
+            font-family: 'JetBrains Mono', 'Space Grotesk', monospace;
+            font-size: clamp(1.4rem, 3.2vw, 3.2rem);
+            font-weight: 700;
+            letter-spacing: 0.01em;
+            line-height: 1.1;
+            white-space: nowrap;
+            color: #1c1917;
+            text-shadow: none;
+            transition: color 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .marquee-row[data-direction="right"] .m-word:hover {
+            color: #292524;
+        }
+        .marquee-row[data-direction="right"] .m-sub {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: clamp(0.9rem, 1.8vw, 1.8rem);
+            font-weight: 400;
+            color: rgba(28,25,23,0.55);
+            text-shadow: none;
+            white-space: nowrap;
+        }
+        .marquee-row[data-direction="right"] .marquee-item + .marquee-item::before {
+            color: rgba(28,25,23,0.35);
+            text-shadow: none;
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .marquee-track { transform: none !important; }
+        }
+
+        /* ============================
+           SECTIONS
+           ============================ */
+        section { padding: 100px 0; }
+        section + section { border-top: 1px solid rgba(212,160,48,0.06); }
+        .section-label {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+            color: var(--nc-sky); margin-bottom: 10px; font-weight: 600;
+            opacity: 0.8;
+        }
+        .section-title {
+            font-size: clamp(26px, 4vw, 36px); font-weight: 800;
+            margin-bottom: 48px; letter-spacing: -0.03em;
+        }
+
+        /* ============================
+           STATS — Counter Animation
+           ============================ */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        .stat-card {
+            background: var(--nc-card);
+            border: 1px solid rgba(212,160,48,0.08);
+            border-radius: 8px;
+            padding: 36px 20px;
+            text-align: center;
+            transition: transform 0.5s var(--ease-out), border-color 0.5s, box-shadow 0.5s;
+        }
+        .stat-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(212,160,48,0.25);
+            box-shadow: 0 16px 48px rgba(212,160,48,0.1);
+        }
+        .stat-number {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 40px; font-weight: 700;
+            background: var(--nc-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 8px;
+        }
+        .stat-label {
+            font-size: 13px; color: var(--nc-muted);
+            line-height: 1.5;
+        }
+
+        /* ============================
+           PROJECTS
+           ============================ */
+        .project {
+            background: var(--nc-card);
+            border: 1px solid rgba(212,160,48,0.07);
+            border-radius: 8px;
+            padding: 40px;
+            margin-bottom: 28px;
+            transition: border-color 0.5s var(--ease-out), box-shadow 0.5s var(--ease-out);
+        }
+        .project:hover {
+            border-color: rgba(212,160,48,0.2);
+            box-shadow: 0 12px 40px rgba(212,160,48,0.06);
+        }
+        .project-header {
+            display: flex; justify-content: space-between;
+            align-items: flex-start; margin-bottom: 24px;
+            flex-wrap: wrap; gap: 12px;
+        }
+        .project-num {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 11px; letter-spacing: 3px;
+            color: var(--nc-sky); font-weight: 700;
+            margin-bottom: 6px;
+        }
+        .project-title {
+            font-size: 22px; font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+        .project-period {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 12px; color: var(--nc-muted);
+            white-space: nowrap;
+        }
+        .project-body {
+            font-size: 15px; color: rgba(232,224,212,0.8);
+            line-height: 1.85; margin-bottom: 24px;
+        }
+        .highlight { color: #fff; font-weight: 700; }
+        .accent { color: var(--nc-sky); }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 28px;
+            border-left: 2px solid rgba(212,160,48,0.2);
+            margin-bottom: 24px;
+        }
+        .timeline-item {
+            position: relative;
+            padding-bottom: 22px;
+        }
+        .timeline-item:last-child { padding-bottom: 0; }
+        .timeline-item::before {
+            content: '';
+            position: absolute; left: -33px; top: 6px;
+            width: 12px; height: 12px;
+            background: var(--nc-sky);
+            border-radius: 50%;
+            border: 3px solid var(--nc-dark);
+        }
+        .timeline-phase {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 12px; color: var(--nc-sky);
+            font-weight: 700; margin-bottom: 4px;
+            letter-spacing: 0.5px;
+        }
+        .timeline-desc {
+            font-size: 14px; color: rgba(232,224,212,0.7);
+            line-height: 1.7;
+        }
+
+        /* Before / After */
+        .ba-grid {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+        .ba-card {
+            padding: 22px;
+            border-radius: 6px;
+            font-size: 13px;
+            line-height: 1.7;
+        }
+        .ba-before {
+            background: rgba(239, 68, 68, 0.06);
+            border: 1px solid rgba(239, 68, 68, 0.15);
+            color: rgba(232,224,212,0.7);
+        }
+        .ba-after {
+            background: rgba(212, 160, 48, 0.08);
+            border: 1px solid rgba(212, 160, 48, 0.2);
+            color: rgba(226,234,244,0.85);
+        }
+        .ba-label {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 11px; font-weight: 700;
+            letter-spacing: 2px; margin-bottom: 10px;
+        }
+        .ba-before .ba-label { color: #B45309; }
+        .ba-after .ba-label { color: var(--nc-sky); }
+
+        .result-tag {
+            display: inline-block;
+            padding: 6px 16px;
+            background: var(--nc-gradient);
+            color: #fff; font-size: 12px; font-weight: 600;
+            border-radius: 4px; margin-top: 16px;
+            letter-spacing: 0.3px;
+        }
+
+        /* ============================
+           WHY NC
+           ============================ */
+        .why-grid {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .why-card {
+            background: var(--nc-card);
+            border: 1px solid rgba(212,160,48,0.07);
+            border-radius: 8px;
+            padding: 32px;
+            transition: transform 0.5s var(--ease-out), border-color 0.5s;
+        }
+        .why-card:hover {
+            transform: translateY(-3px);
+            border-color: rgba(212,160,48,0.2);
+        }
+        .why-icon { font-size: 28px; margin-bottom: 14px; opacity: 0.85; }
+        .why-card h3 {
+            font-size: 16px; font-weight: 600;
+            margin-bottom: 10px; color: #fff;
+        }
+        .why-card p {
+            font-size: 14px; color: var(--nc-muted);
+            line-height: 1.75;
+        }
+
+        /* ============================
+           CONTACT
+           ============================ */
+        .contact-section {
+            text-align: center;
+            padding: 80px 0 100px;
+        }
+        .contact-info {
+            font-size: 15px; color: var(--nc-muted);
+            margin-top: 24px; line-height: 2.2;
+        }
+        .contact-info a {
+            color: var(--nc-sky);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .contact-info a:hover { color: #fff; }
+
+        /* ============================
+           FOOTER
+           ============================ */
+        footer {
+            text-align: center;
+            padding: 28px;
+            font-size: 12px;
+            color: rgba(168,148,120,0.5);
+            border-top: 1px solid rgba(212,160,48,0.04);
+        }
+
+        /* ============================
+           SCROLL REVEAL
+           ============================ */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s var(--ease-out),
+                        transform 0.8s var(--ease-out);
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+
+        /* ============================
+           RESPONSIVE
+           ============================ */
+        @media (max-width: 768px) {
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .ba-grid, .why-grid { grid-template-columns: 1fr; }
+            .project { padding: 28px 22px; }
+            .section-title { font-size: 26px; }
+            .hero-title { letter-spacing: -1px; }
+            .marquee-row[data-direction="left"] .m-word { font-size: 1.6rem; }
+            .marquee-row[data-direction="right"] .m-word { font-size: 1.1rem; }
+            .marquee-track { gap: 5vw; }
+        }
+        @media (max-width: 480px) {
+            .stats-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+            .stat-card { padding: 24px 16px; }
+            .stat-number { font-size: 32px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav class="nav">
+    <a href="index.html" class="nav-brand">JK<span>.</span></a>
+    <a href="index.html" class="nav-back">&larr; Main Portfolio</a>
+</nav>
+
+<!-- Hero -->
+<div class="hero">
+    <div class="hero-orb"></div>
+    <div class="hero-content">
+        <div class="hero-label">NCsoft &middot; HR Admin Support</div>
+        <h1 class="hero-title">
+            <span class="word">임종권</span>
+            <span class="word">&times; NC</span>
+            <br>
+            <span class="line2"><span class="word hero-subtitle">HR 사무지원 담당자</span></span>
+        </h1>
+        <p class="hero-sub">
+            Excel 고급 &middot; SQL &middot; 데이터 추출 전문가<br>
+            전사 커뮤니케이션 허브 3년
+        </p>
+        <div class="hero-scroll"><span>&darr;</span></div>
+    </div>
+</div>
+
+<!-- LED Ticker -->
+<div class="marquee-section">
+    <div class="marquee-bottom-line"></div>
+    <!-- Row 1: primary, left ←←← -->
+    <div class="marquee-row" data-marquee data-direction="left" data-speed="0.4">
+        <div class="marquee-track" data-marquee-track>
+            <span class="marquee-item"><span class="m-word">Excel Pivot/VBA</span></span>
+            <span class="marquee-item"><span class="m-word">SQL 데이터추출</span></span>
+            <span class="marquee-item"><span class="m-word">근태관리</span><span class="m-sub">3년</span></span>
+            <span class="marquee-item"><span class="m-word">ERP 풀사이클</span></span>
+            <span class="marquee-item"><span class="m-word">Power Query</span></span>
+            <span class="marquee-item"><span class="m-word">전부서허브</span></span>
+            <!-- duplicate -->
+            <span class="marquee-item" aria-hidden="true"><span class="m-word">Excel Pivot/VBA</span></span>
+            <span class="marquee-item" aria-hidden="true"><span class="m-word">SQL 데이터추출</span></span>
+            <span class="marquee-item" aria-hidden="true"><span class="m-word">근태관리</span><span class="m-sub">3년</span></span>
+            <span class="marquee-item" aria-hidden="true"><span class="m-word">ERP 풀사이클</span></span>
+            <span class="marquee-item" aria-hidden="true"><span class="m-word">Power Query</span></span>
+            <span class="marquee-item" aria-hidden="true"><span class="m-word">전부서허브</span></span>
+        </div>
+    </div>
+    <!-- Row 2: secondary, right →→→ -->
+    <div class="marquee-row" data-marquee data-direction="right" data-speed="0.25">
+        <div class="marquee-track" data-marquee-track>
+            <span class="marquee-item"><span class="m-word">Tibero DB</span></span>
+            <span class="marquee-item"><span class="m-word">계정과목 200개</span></span>
+            <span class="marquee-item"><span class="m-word">집행률 88.5%</span></span>
+            <span class="marquee-item"><span class="m-word">외주 8개사</span></span>
+            <span class="marquee-item"><span class="m-word">AI Tools</span></span>
+            <span class="marquee-item"><span class="m-word">보고서자동화</span></span>
+            <!-- duplicate -->
+            <span class="marquee-item" aria-hidden="true"><span class="m-word">Tibero DB</span></span>
+            <span class="marquee-item" aria-hidden="true"><span class="m-word">계정과목 200개</span></span>
+            <span class="marquee-item" aria-hidden="true"><span class="m-word">집행률 88.5%</span></span>
+            <span class="marquee-item" aria-hidden="true"><span class="m-word">외주 8개사</span></span>
+            <span class="marquee-item" aria-hidden="true"><span class="m-word">AI Tools</span></span>
+            <span class="marquee-item" aria-hidden="true"><span class="m-word">보고서자동화</span></span>
+        </div>
+    </div>
+</div>
+
+<!-- Stats -->
+<section id="stats">
+    <div class="container">
+        <div class="section-label reveal">Key Metrics</div>
+        <h2 class="section-title reveal">숫자로 보는 실무 역량</h2>
+        <div class="stats-grid">
+            <div class="stat-card reveal reveal-delay-1">
+                <div class="stat-number" data-target="36000" data-suffix="만원">0</div>
+                <div class="stat-label">예산 데이터<br>관리·정산</div>
+            </div>
+            <div class="stat-card reveal reveal-delay-2">
+                <div class="stat-number" data-target="88.5" data-suffix="%" data-decimal="1">0</div>
+                <div class="stat-label">예산 집행률<br></div>
+            </div>
+            <div class="stat-card reveal reveal-delay-3">
+                <div class="stat-number" data-target="200" data-suffix="개">0</div>
+                <div class="stat-label">계정과목<br>표준화·마이그레이션</div>
+            </div>
+            <div class="stat-card reveal">
+                <div class="stat-number" data-target="8" data-suffix="개사">0</div>
+                <div class="stat-label">외주업체<br>계약·정산 관리</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Projects -->
+<section>
+    <div class="container">
+        <div class="section-label reveal">Project Deep-Dive</div>
+        <h2 class="section-title reveal">프로젝트 상세</h2>
+
+        <!-- Project 1 -->
+        <div class="project reveal">
+            <div class="project-header">
+                <div>
+                    <div class="project-num">PROJECT 01</div>
+                    <div class="project-title">ERP 도입 — 데이터 추출·가공의 원점</div>
+                </div>
+                <div class="project-period">2023.07 &rarr; 2024.12</div>
+            </div>
+            <div class="project-body">
+                200여 개 계정과목을 엑셀로 수기 관리하던 환경에서,
+                Tibero DB 기반 커스텀 ERP를 <span class="highlight">요구사항 정의부터 데이터 검수·마이그레이션까지 단독으로</span> 수행한 프로젝트입니다.
+                SQL 직접 작성, 데이터 정합성 검증, 피벗·Power Query 기반 보고서 체계를 구축했습니다.
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-phase">Phase 1 — 데이터 현황 분석</div>
+                    <div class="timeline-desc">기존 엑셀 원장 전수 분석. 200개 계정과목 재분류·표준화. 부서별·사업별 매핑 테이블 설계.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-phase">Phase 2 — SQL 데이터 추출·검수</div>
+                    <div class="timeline-desc">Tibero DB 직접 쿼리 작성. 마이그레이션 전후 데이터 정합성 검증. 불일치 항목 식별 및 수정.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-phase">Phase 3 — Excel 보고서 자동화</div>
+                    <div class="timeline-desc">Pivot Table·Power Query로 ERP 추출 데이터를 부서별 집행 현황 보고서로 자동 변환. 월말 결산 리드타임 단축.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-phase">Phase 4 — 운영·안정화</div>
+                    <div class="timeline-desc">관리자 권한으로 시스템 운영. 사용자 문의 대응 및 데이터 오류 수정. 연간 예산 집행률 88.5% 달성.</div>
+                </div>
+            </div>
+            <div class="ba-grid">
+                <div class="ba-card ba-before">
+                    <div class="ba-label">BEFORE</div>
+                    엑셀 수기 관리 &rarr; 분기 결산 5일 소요<br>
+                    부서별 집행 현황 파악 불가<br>
+                    데이터 추출 = 수작업 복사·붙여넣기
+                </div>
+                <div class="ba-card ba-after">
+                    <div class="ba-label">AFTER</div>
+                    SQL 직접 추출 &rarr; 결산 리드타임 2일 단축<br>
+                    부서별·사업별 집행률 실시간 조회<br>
+                    보고서 자동화로 반복 가공 작업 제거
+                </div>
+            </div>
+            <span class="result-tag">예산 집행률 88.5% &middot; 결산 리드타임 2일 단축</span>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project reveal">
+            <div class="project-header">
+                <div>
+                    <div class="project-num">PROJECT 02</div>
+                    <div class="project-title">전사 커뮤니케이션 허브 — 일 수십 건 문의 처리</div>
+                </div>
+                <div class="project-period">2023.01 &rarr; 2026.02</div>
+            </div>
+            <div class="project-body">
+                IT인프라·총무 담당자로서 전 부서의 문의·요청이 단일 창구로 집중되는 구조에서,
+                <span class="highlight">8개 외주업체 조율 + 전부서 요청 처리 + 프로세스 표준화</span>를 3년간 수행한 사례입니다.
+                반복 문의를 FAQ 매뉴얼로 정리해 대응 시간을 구조적으로 단축했습니다.
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-phase">수신 — 전부서 문의 단일 창구</div>
+                    <div class="timeline-desc">PC·네트워크·복합기·계약·비품 등 전부서 일상 요청 접수. 우선순위 분류 후 즉시 처리 또는 외주 연결.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-phase">조율 — 외주 8개사 실시간 관리</div>
+                    <div class="timeline-desc">유지보수·렌탈·보안·청소 등 업체별 SLA 관리. 장애 발생 시 에스컬레이션 판단 및 현장 대응 지원.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-phase">표준화 — FAQ 매뉴얼 구축</div>
+                    <div class="timeline-desc">반복 문의 유형 분류 및 대응 절차 문서화. 신규 담당자 온보딩 가이드 작성. 구두 전달 → 문서 체계 전환.</div>
+                </div>
+            </div>
+            <div class="ba-grid">
+                <div class="ba-card ba-before">
+                    <div class="ba-label">BEFORE</div>
+                    문의 유형 미분류 &rarr; 매번 처음부터 대응<br>
+                    외주 연락처 분산 &rarr; 처리 지연<br>
+                    담당자 교체 시 노하우 소실
+                </div>
+                <div class="ba-card ba-after">
+                    <div class="ba-label">AFTER</div>
+                    FAQ 매뉴얼 &rarr; 반복 문의 즉시 처리<br>
+                    외주 8개사 단일 연락 체계 구축<br>
+                    문서화로 인수인계 리스크 제거
+                </div>
+            </div>
+            <span class="result-tag">전부서 문의 단일 창구 &middot; 처리 프로세스 100% 문서화</span>
+        </div>
+
+    </div>
+</section>
+
+<!-- Why NCsoft -->
+<section>
+    <div class="container">
+        <div class="section-label reveal">Why NCsoft</div>
+        <h2 class="section-title reveal">왜 엔씨소프트인가</h2>
+        <div class="why-grid">
+            <div class="why-card reveal reveal-delay-1">
+                <div class="why-icon">&#127918;</div>
+                <h3>게이머로서의 NC</h3>
+                <p>리니지부터 블소까지, NC 게임과 함께 성장한 세대입니다. 게임을 만드는 사람들이 몰입할 수 있는 환경을 지원하는 일에 기여하고 싶습니다.</p>
+            </div>
+            <div class="why-card reveal reveal-delay-2">
+                <div class="why-icon">&#128202;</div>
+                <h3>데이터로 읽는 조직</h3>
+                <p>근태 데이터·인건비·예산 집행률을 단순 기록이 아닌 패턴으로 읽는 것이 HR 사무지원의 핵심입니다. ERP·SQL 경험으로 데이터 기반 HR 의사결정을 지원합니다.</p>
+            </div>
+            <div class="why-card reveal reveal-delay-3">
+                <div class="why-icon">&#128172;</div>
+                <h3>커뮤니케이션 허브</h3>
+                <p>수천 명 규모 구성원의 문의를 단일 창구에서 처리한 경험. 다양한 부서·직급과의 소통에서 혼선 없이 정확하게 전달하는 능력을 3년간 검증했습니다.</p>
+            </div>
+            <div class="why-card reveal">
+                <div class="why-icon">&#9889;</div>
+                <h3>시스템 적응력</h3>
+                <p>ERP 도입을 처음부터 끝까지 단독 수행한 경험은 어떤 HR 시스템(ERP·그룹웨어·근태 플랫폼)이 도입되더라도 빠르게 습득·운영할 수 있는 기반입니다.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact -->
+<div class="contact-section">
+    <div class="container">
+        <div class="section-label reveal">Contact</div>
+        <h2 class="section-title reveal" style="margin-bottom: 20px;">연락처</h2>
+        <div class="contact-info reveal">
+            <a href="mailto:ssujklim@gmail.com">ssujklim@gmail.com</a>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer>
+    &copy; 2026 임종권 &middot; NCsoft HR 사무지원 지원을 위해 제작
+</footer>
+
+<!-- Scripts -->
+<script>
+    // Scroll Reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    reveals.forEach(el => revealObserver.observe(el));
+
+    // Counter Animation
+    const counters = document.querySelectorAll('.stat-number[data-target]');
+    const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            const el = entry.target;
+            if (el.dataset.animated) return;
+            el.dataset.animated = 'true';
+
+            const target = parseFloat(el.dataset.target);
+            const suffix = el.dataset.suffix || '';
+            const hasDecimal = el.dataset.decimal;
+            const duration = 2000;
+            const startTime = performance.now();
+
+            function easeOut(t) { return 1 - Math.pow(1 - t, 3); }
+
+            function update(now) {
+                const elapsed = now - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                const value = target * easeOut(progress);
+
+                if (hasDecimal) {
+                    el.textContent = value.toFixed(1) + suffix;
+                } else if (target >= 10000) {
+                    el.textContent = (value / 10000).toFixed(1) + '억' + suffix.replace('만원', '');
+                } else {
+                    el.textContent = Math.floor(value) + suffix;
+                }
+
+                if (progress < 1) requestAnimationFrame(update);
+            }
+            requestAnimationFrame(update);
+        });
+    }, { threshold: 0.5 });
+    counters.forEach(el => counterObserver.observe(el));
+
+    // ========================================
+    // MARQUEE ENGINE — rAF + Lerp (no CSS anim)
+    // ========================================
+    class MarqueeEngine {
+        constructor(el) {
+            this.row = el;
+            this.track = el.querySelector('[data-marquee-track]');
+            this.items = [...el.querySelectorAll('.marquee-item')];
+            this.dir = el.dataset.direction === 'right' ? 1 : -1;
+            this.baseSpeed = parseFloat(el.dataset.speed) || 0.8;
+
+            this.x = 0;
+            this.speed = { current: this.baseSpeed, target: this.baseSpeed };
+            this.skew = { current: 0, target: 0 };
+            this.scrollV = 0;
+            this.hovered = false;
+            this.halfWidth = 0;
+
+            this.LERP_SPEED = 0.035;
+            this.LERP_SKEW = 0.025;
+            this.DECAY = 0.96;
+
+            this._bind();
+            this._measure();
+            this._tick();
+        }
+
+        _bind() {
+            window.addEventListener('wheel', e => { this.scrollV = e.deltaY; }, { passive: true });
+            this.row.addEventListener('pointerenter', () => { this.hovered = true; });
+            this.row.addEventListener('pointerleave', () => { this.hovered = false; });
+            new ResizeObserver(() => this._measure()).observe(this.row);
+        }
+
+        _measure() {
+            const half = Math.floor(this.items.length / 2);
+            this.halfWidth = 0;
+            for (let i = 0; i < half; i++) {
+                this.halfWidth += this.items[i].offsetWidth;
+            }
+            // account for gap
+            const gap = parseFloat(getComputedStyle(this.track).gap) || 0;
+            this.halfWidth += gap * half;
+        }
+
+        _tick() {
+            // velocity boost — capped lower for corporate feel
+            const vf = Math.min(Math.abs(this.scrollV) * 0.002, 2.5);
+            this.speed.target = this.hovered ? 0 : this.baseSpeed + vf;
+            this.speed.current += (this.speed.target - this.speed.current) * this.LERP_SPEED;
+
+            // skew from velocity — subtler tilt
+            this.skew.target = Math.sign(this.scrollV) * Math.min(Math.abs(this.scrollV) * 0.015, 5);
+            this.skew.current += (this.skew.target - this.skew.current) * this.LERP_SKEW;
+
+            // position
+            this.x += this.speed.current * this.dir;
+
+            // wrap
+            if (this.dir === -1 && Math.abs(this.x) >= this.halfWidth) this.x += this.halfWidth;
+            if (this.dir === 1 && this.x >= this.halfWidth) this.x -= this.halfWidth;
+
+            this.track.style.transform =
+                `translate3d(${this.x}px, 0, 0) skewX(${this.skew.current}deg)`;
+
+            this.scrollV *= this.DECAY;
+            requestAnimationFrame(() => this._tick());
+        }
+    }
+
+    // Reduced motion check
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        document.querySelectorAll('[data-marquee]').forEach(el => new MarqueeEngine(el));
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>임종권 × NCsoft Workplace Motivation</title>
+    <meta name="description" content="임종권 — NCsoft 사내 복지시설 운영 담당자 지원 포트폴리오">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=Noto+Serif+KR:wght@300;400;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --nc-navy: #00365e;
+            --nc-blue: #004e8e;
+            --nc-sky: #0078D4;
+            --nc-dark: #0B1820;
+            --nc-surface: #0F2233;
+            --nc-card: #132C42;
+            --nc-text: #D8E0E8;
+            --nc-muted: #6E8DA8;
+            --nc-glow: rgba(0, 120, 212, 0.2);
+            --nc-gradient: linear-gradient(135deg, #00365e, #0078D4);
+            --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+            --ease-in-out: cubic-bezier(0.76, 0, 0.24, 1);
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background: var(--nc-dark);
+            color: var(--nc-text);
+            line-height: 1.7;
+            overflow-x: hidden;
+            word-break: keep-all;
+        }
+
+        .container { max-width: 960px; margin: 0 auto; padding: 0 28px; }
+
+        /* ============================
+           NAV — Glassmorphism
+           ============================ */
+        .nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            background: rgba(11, 24, 32, 0.8);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-bottom: 1px solid rgba(0, 120, 212, 0.06);
+            padding: 16px 28px;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .nav-brand {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700; font-size: 18px; color: #fff;
+            text-decoration: none;
+        }
+        .nav-brand span { color: var(--nc-sky); }
+        .nav-back {
+            font-size: 13px; color: var(--nc-muted);
+            text-decoration: none; transition: color 0.3s;
+        }
+        .nav-back:hover { color: var(--nc-sky); }
+
+        /* ============================
+           HERO — Kinetic Type
+           ============================ */
+        .hero {
+            min-height: 100vh;
+            display: flex; align-items: center; justify-content: center;
+            text-align: center;
+            padding: 120px 28px 60px;
+            position: relative;
+            overflow: hidden;
+        }
+        /* Animated gradient orb */
+        .hero-orb {
+            position: absolute;
+            width: 700px; height: 700px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(0,120,212,0.12) 0%, transparent 65%);
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            animation: orbDrift 12s ease-in-out infinite;
+            pointer-events: none;
+        }
+        @keyframes orbDrift {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); }
+            33% { transform: translate(-48%, -52%) scale(1.05); }
+            66% { transform: translate(-52%, -48%) scale(0.97); }
+        }
+        .hero-content { position: relative; z-index: 1; }
+        .hero-label {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 13px; letter-spacing: 4px; text-transform: uppercase;
+            color: var(--nc-sky); margin-bottom: 20px; font-weight: 600;
+            opacity: 0; animation: fadeIn 0.8s 0.2s ease forwards;
+        }
+        .hero-title {
+            font-size: clamp(40px, 8vw, 72px);
+            font-weight: 900; letter-spacing: -0.04em;
+            line-height: 1.05; margin-bottom: 24px;
+        }
+        .hero-title .word {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(40px);
+            animation: wordUp 0.8s var(--ease-out) forwards;
+        }
+        .hero-title .word:nth-child(1) { animation-delay: 0.3s; }
+        .hero-title .word:nth-child(2) { animation-delay: 0.5s; color: var(--nc-sky); }
+        .hero-title .line2 .word:nth-child(1) { animation-delay: 0.7s; }
+        .hero-subtitle {
+            color: var(--nc-muted) !important;
+            font-size: 0.5em;
+            font-weight: 400;
+            letter-spacing: 0.02em;
+        }
+
+        @keyframes wordUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        .hero-sub {
+            font-size: 17px; color: var(--nc-muted);
+            max-width: 560px; margin: 0 auto 40px; line-height: 1.9;
+            opacity: 0; animation: fadeIn 0.8s 0.9s ease forwards;
+        }
+        .hero-scroll {
+            opacity: 0; animation: fadeIn 0.8s 1.2s ease forwards;
+        }
+        .hero-scroll span {
+            display: inline-block;
+            font-size: 24px; color: var(--nc-sky);
+            animation: bounce 2s ease-in-out infinite;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(10px); }
+        }
+
+        /* ============================
+           CORPORATE FLEX LED TICKER
+           ============================ */
+        .marquee-section {
+            padding: 4vh 0;
+            overflow: hidden;
+            position: relative;
+            background: #020508;
+        }
+        /* LED dot-matrix overlay (subtle) */
+        .marquee-section::before {
+            content: '';
+            position: absolute; inset: 0; z-index: 2;
+            background:
+                repeating-linear-gradient(
+                    0deg, transparent 0px, transparent 1px,
+                    rgba(0,0,0,0.06) 1px, rgba(0,0,0,0.06) 2px
+                ),
+                repeating-linear-gradient(
+                    90deg, transparent 0px, transparent 1px,
+                    rgba(0,0,0,0.06) 1px, rgba(0,0,0,0.06) 2px
+                );
+            pointer-events: none;
+        }
+        /* Top/bottom LED panel frame lines */
+        .marquee-section::after {
+            content: '';
+            position: absolute; top: 0; left: 0; right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(77,168,232,0.35), transparent);
+            box-shadow: 0 0 8px rgba(77,168,232,0.15);
+        }
+        .marquee-bottom-line {
+            position: absolute; bottom: 0; left: 0; right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(77,168,232,0.35), transparent);
+            box-shadow: 0 0 8px rgba(77,168,232,0.15);
+        }
+        .marquee-row {
+            overflow: hidden;
+            white-space: nowrap;
+            padding: 1vh 0;
+            cursor: default;
+            user-select: none;
+            mask-image: linear-gradient(90deg, transparent 0%, #000 4%, #000 96%, transparent 100%);
+            -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 4%, #000 96%, transparent 100%);
+            position: relative;
+            z-index: 1;
+        }
+        .marquee-track {
+            display: inline-flex;
+            align-items: baseline;
+            gap: 4vw;
+            will-change: transform;
+        }
+        .marquee-item {
+            display: inline-flex;
+            align-items: baseline;
+            gap: 1vw;
+            flex-shrink: 0;
+        }
+        /* Separator dots between items */
+        .marquee-item + .marquee-item::before {
+            content: '·';
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.2em;
+            color: rgba(77,168,232,0.25);
+            text-shadow: 0 0 3px rgba(77,168,232,0.15);
+            margin-right: 1vw;
+        }
+        /* Row 1: LED primary — high-brightness stadium fascia (POSITIVE) */
+        .marquee-row[data-direction="left"] .m-word {
+            font-family: 'JetBrains Mono', 'Space Grotesk', monospace;
+            font-size: clamp(2.2rem, 5.5vw, 5.5rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.05;
+            text-transform: uppercase;
+            color: #4DA8E8;
+            text-shadow:
+                0 0 4px rgba(77,168,232,0.8),
+                0 0 12px rgba(0,120,212,0.35);
+            transition: color 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+                        text-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+            white-space: nowrap;
+        }
+        .marquee-row[data-direction="left"] .m-word:hover {
+            color: #7BC0F0;
+            text-shadow:
+                0 0 6px rgba(123,192,240,0.9),
+                0 0 16px rgba(77,168,232,0.3);
+        }
+        .marquee-row[data-direction="left"] .m-sub {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: clamp(1rem, 2.2vw, 2.2rem);
+            font-weight: 400;
+            letter-spacing: 0.05em;
+            color: rgba(77,168,232,0.3);
+            text-shadow: 0 0 4px rgba(0,120,212,0.2);
+            white-space: nowrap;
+        }
+        /* Row 2: NEGATIVE / KNOCKOUT — dark text on bright blue strip */
+        .marquee-row[data-direction="right"] {
+            background: #4DA8E8;
+        }
+        .marquee-row[data-direction="right"] .m-word {
+            font-family: 'JetBrains Mono', 'Space Grotesk', monospace;
+            font-size: clamp(1.4rem, 3.2vw, 3.2rem);
+            font-weight: 700;
+            letter-spacing: 0.01em;
+            line-height: 1.1;
+            white-space: nowrap;
+            color: #0f172a;
+            text-shadow: none;
+            transition: color 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .marquee-row[data-direction="right"] .m-word:hover {
+            color: #1e293b;
+        }
+        .marquee-row[data-direction="right"] .m-sub {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: clamp(0.9rem, 1.8vw, 1.8rem);
+            font-weight: 400;
+            color: rgba(15,23,42,0.55);
+            text-shadow: none;
+            white-space: nowrap;
+        }
+        .marquee-row[data-direction="right"] .marquee-item + .marquee-item::before {
+            color: rgba(15,23,42,0.35);
+            text-shadow: none;
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .marquee-track { transform: none !important; }
+        }
+
+        /* ============================
+           SECTIONS
+           ============================ */
+        section { padding: 100px 0; }
+        section + section { border-top: 1px solid rgba(0,120,212,0.06); }
+        .section-label {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+            color: var(--nc-sky); margin-bottom: 10px; font-weight: 600;
+            opacity: 0.8;
+        }
+        .section-title {
+            font-size: clamp(26px, 4vw, 36px); font-weight: 800;
+            margin-bottom: 48px; letter-spacing: -0.03em;
+        }
+
+        /* ============================
+           STATS — Counter Animation
+           ============================ */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        .stat-card {
+            background: var(--nc-card);
+            border: 1px solid rgba(0,120,212,0.08);
+            border-radius: 8px;
+            padding: 36px 20px;
+            text-align: center;
+            transition: transform 0.5s var(--ease-out), border-color 0.5s, box-shadow 0.5s;
+        }
+        .stat-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(0,120,212,0.25);
+            box-shadow: 0 16px 48px rgba(0,120,212,0.1);
+        }
+        .stat-number {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 40px; font-weight: 700;
+            background: var(--nc-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 8px;
+        }
+        .stat-label {
+            font-size: 13px; color: var(--nc-muted);
+            line-height: 1.5;
+        }
+
+        /* ============================
+           PROJECTS
+           ============================ */
+        .project {
+            background: var(--nc-card);
+            border: 1px solid rgba(0,120,212,0.07);
+            border-radius: 8px;
+            padding: 40px;
+            margin-bottom: 28px;
+            transition: border-color 0.5s var(--ease-out), box-shadow 0.5s var(--ease-out);
+        }
+        .project:hover {
+            border-color: rgba(0,120,212,0.2);
+            box-shadow: 0 12px 40px rgba(0,120,212,0.06);
+        }
+        .project-header {
+            display: flex; justify-content: space-between;
+            align-items: flex-start; margin-bottom: 24px;
+            flex-wrap: wrap; gap: 12px;
+        }
+        .project-num {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 11px; letter-spacing: 3px;
+            color: var(--nc-sky); font-weight: 700;
+            margin-bottom: 6px;
+        }
+        .project-title {
+            font-size: 22px; font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+        .project-period {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 12px; color: var(--nc-muted);
+            white-space: nowrap;
+        }
+        .project-body {
+            font-size: 15px; color: rgba(226,234,244,0.8);
+            line-height: 1.85; margin-bottom: 24px;
+        }
+        .highlight { color: #fff; font-weight: 700; }
+        .accent { color: var(--nc-sky); }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 28px;
+            border-left: 2px solid rgba(0,120,212,0.2);
+            margin-bottom: 24px;
+        }
+        .timeline-item {
+            position: relative;
+            padding-bottom: 22px;
+        }
+        .timeline-item:last-child { padding-bottom: 0; }
+        .timeline-item::before {
+            content: '';
+            position: absolute; left: -33px; top: 6px;
+            width: 12px; height: 12px;
+            background: var(--nc-sky);
+            border-radius: 50%;
+            border: 3px solid var(--nc-dark);
+        }
+        .timeline-phase {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 12px; color: var(--nc-sky);
+            font-weight: 700; margin-bottom: 4px;
+            letter-spacing: 0.5px;
+        }
+        .timeline-desc {
+            font-size: 14px; color: rgba(226,234,244,0.7);
+            line-height: 1.7;
+        }
+
+        /* Before / After */
+        .ba-grid {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+        .ba-card {
+            padding: 22px;
+            border-radius: 6px;
+            font-size: 13px;
+            line-height: 1.7;
+        }
+        .ba-before {
+            background: rgba(239, 68, 68, 0.06);
+            border: 1px solid rgba(239, 68, 68, 0.15);
+            color: rgba(226,234,244,0.7);
+        }
+        .ba-after {
+            background: rgba(0, 120, 212, 0.08);
+            border: 1px solid rgba(0, 120, 212, 0.2);
+            color: rgba(226,234,244,0.85);
+        }
+        .ba-label {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 11px; font-weight: 700;
+            letter-spacing: 2px; margin-bottom: 10px;
+        }
+        .ba-before .ba-label { color: #EF4444; }
+        .ba-after .ba-label { color: var(--nc-sky); }
+
+        .result-tag {
+            display: inline-block;
+            padding: 6px 16px;
+            background: var(--nc-gradient);
+            color: #fff; font-size: 12px; font-weight: 600;
+            border-radius: 4px; margin-top: 16px;
+            letter-spacing: 0.3px;
+        }
+
+        /* ============================
+           WHY NC
+           ============================ */
+        .why-grid {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .why-card {
+            background: var(--nc-card);
+            border: 1px solid rgba(0,120,212,0.07);
+            border-radius: 8px;
+            padding: 32px;
+            transition: transform 0.5s var(--ease-out), border-color 0.5s;
+        }
+        .why-card:hover {
+            transform: translateY(-3px);
+            border-color: rgba(0,120,212,0.2);
+        }
+        .why-icon { font-size: 28px; margin-bottom: 14px; opacity: 0.85; }
+        .why-card h3 {
+            font-size: 16px; font-weight: 600;
+            margin-bottom: 10px; color: #fff;
+        }
+        .why-card p {
+            font-size: 14px; color: var(--nc-muted);
+            line-height: 1.75;
+        }
+
+        /* ============================
+           CONTACT
+           ============================ */
+        .contact-section {
+            text-align: center;
+            padding: 80px 0 100px;
+        }
+        .contact-info {
+            font-size: 15px; color: var(--nc-muted);
+            margin-top: 24px; line-height: 2.2;
+        }
+        .contact-info a {
+            color: var(--nc-sky);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .contact-info a:hover { color: #fff; }
+
+        /* ============================
+           FOOTER
+           ============================ */
+        footer {
+            text-align: center;
+            padding: 28px;
+            font-size: 12px;
+            color: rgba(123,154,184,0.5);
+            border-top: 1px solid rgba(0,120,212,0.04);
+        }
+
+        /* ============================
+           SCROLL REVEAL
+           ============================ */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s var(--ease-out),
+                        transform 0.8s var(--ease-out);
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+
+        /* ============================
+           RESPONSIVE
+           ============================ */
+        @media (max-width: 768px) {
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .ba-grid, .why-grid { grid-template-columns: 1fr; }
+            .project { padding: 28px 22px; }
+            .section-title { font-size: 26px; }
+            .hero-title { letter-spacing: -1px; }
+            .marquee-row[data-direction="left"] .m-word { font-size: 1.6rem; }
+            .marquee-row[data-direction="right"] .m-word { font-size: 1.1rem; }
+            .marquee-track { gap: 5vw; }
+        }
+        @media (max-width: 480px) {
+            .stats-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+            .stat-card { padding: 24px 16px; }
+            .stat-number { font-size: 32px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav class="nav">
+    <a href="index.html" class="nav-brand">JK<span>.</span></a>
+    <a href="index.html" class="nav-back">&larr; Main Portfolio</a>
+</nav>
+
+<!-- Hero -->
+<div class="hero">
+    <div class="hero-orb"></div>
+    <div class="hero-content">
+        <div class="hero-label">NCsoft &middot; Workplace Motivation</div>
+        <h1 class="hero-title">
+            <span class="word">임종권</span>
+            <span class="word">&times; NC</span>
+            <br>
+            <span class="line2"><span class="word hero-subtitle">복지시설 운영 담당자</span></span>
+        </h1>
+        <p class="hero-sub">
+            총무 3년 &middot; 사회복지사 1급<br>
+            시설 운영의 A to Z를 수행한 실무자
+        </p>
+        <div class="hero-scroll"><span>&darr;</span></div>
+    </div>
+</div>
+
+<!-- LED Ticker -->
+<div class="marquee-section">
+    <div class="marquee-bottom-line"></div>
+    <!-- Row 1: outline, left ←←← -->
+    <div class="marquee-row" data-marquee data-direction="left" data-speed="0.4">
+        <div class="marquee-track" data-marquee-track>
+            <span class="marquee-item"><span class="m-word">총무 3년</span></span>
+            <span class="marquee-item"><span class="m-word">예산 3.6억</span><span class="m-sub">집행률 88.5%</span></span>
+            <span class="marquee-item"><span class="m-word">외주 8개사</span><span class="m-sub">통합관리</span></span>
+            <span class="marquee-item"><span class="m-word">ERP 풀사이클</span></span>
+            <span class="marquee-item"><span class="m-word">사회복지사</span><span class="m-sub">1급</span></span>
+            <span class="marquee-item"><span class="m-word">비용 30%</span><span class="m-sub">절감</span></span>
+            <!-- duplicate -->
+            <span class="marquee-item" aria-hidden="true"><span class="m-word">총무 3년</span></span>
+            <span class="marquee-item" aria-hidden="true"><span class="m-word">예산 3.6억</span><span class="m-sub">집행률 88.5%</span></span>
+            <span class="marquee-item" aria-hidden="true"><span class="m-word">외주 8개사</span><span class="m-sub">통합관리</span></span>
+            <span class="marquee-item" aria-hidden="true"><span class="m-word">ERP 풀사이클</span></span>
+            <span class="marquee-item" aria-hidden="true"><span class="m-word">사회복지사</span><span class="m-sub">1급</span></span>
+            <span class="marquee-item" aria-hidden="true"><span class="m-word">비용 30%</span><span class="m-sub">절감</span></span>
+        </div>
+    </div>
+    <!-- Row 2: filled, right →→→ -->
+    <div class="marquee-row" data-marquee data-direction="right" data-speed="0.25">
+        <div class="marquee-track" data-marquee-track>
+            <span class="marquee-item"><span class="m-word">Tibero DB</span><span class="m-sub">Nexacro</span></span>
+            <span class="marquee-item"><span class="m-word">계정과목 200개 표준화</span></span>
+            <span class="marquee-item"><span class="m-word">IT자산 수명주기</span></span>
+            <span class="marquee-item"><span class="m-word">사회복지대학원</span><span class="m-sub">석사</span></span>
+            <span class="marquee-item"><span class="m-word">SQL · Excel · ERP</span></span>
+            <span class="marquee-item"><span class="m-word">IoT 모니터링</span></span>
+            <!-- duplicate -->
+            <span class="marquee-item" aria-hidden="true"><span class="m-word">Tibero DB</span><span class="m-sub">Nexacro</span></span>
+            <span class="marquee-item" aria-hidden="true"><span class="m-word">계정과목 200개 표준화</span></span>
+            <span class="marquee-item" aria-hidden="true"><span class="m-word">IT자산 수명주기</span></span>
+            <span class="marquee-item" aria-hidden="true"><span class="m-word">사회복지대학원</span><span class="m-sub">석사</span></span>
+            <span class="marquee-item" aria-hidden="true"><span class="m-word">SQL · Excel · ERP</span></span>
+            <span class="marquee-item" aria-hidden="true"><span class="m-word">IoT 모니터링</span></span>
+        </div>
+    </div>
+</div>
+
+<!-- Stats -->
+<section id="stats">
+    <div class="container">
+        <div class="section-label reveal">Key Metrics</div>
+        <h2 class="section-title reveal">숫자로 보는 실무 역량</h2>
+        <div class="stats-grid">
+            <div class="stat-card reveal reveal-delay-1">
+                <div class="stat-number" data-target="36000" data-suffix="만원">0</div>
+                <div class="stat-label">인프라 예산<br>직접 집행·통제</div>
+            </div>
+            <div class="stat-card reveal reveal-delay-2">
+                <div class="stat-number" data-target="88.5" data-suffix="%" data-decimal="1">0</div>
+                <div class="stat-label">예산 집행률<br>체계적 비용 관리</div>
+            </div>
+            <div class="stat-card reveal reveal-delay-3">
+                <div class="stat-number" data-target="8" data-suffix="개사">0</div>
+                <div class="stat-label">외주업체<br>통합 관리</div>
+            </div>
+            <div class="stat-card reveal">
+                <div class="stat-number" data-target="30" data-suffix="%">0</div>
+                <div class="stat-label">유지보수 비용<br>연간 절감</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Projects -->
+<section>
+    <div class="container">
+        <div class="section-label reveal">Project Deep-Dive</div>
+        <h2 class="section-title reveal">프로젝트 상세</h2>
+
+        <!-- Project 1 -->
+        <div class="project reveal">
+            <div class="project-header">
+                <div>
+                    <div class="project-num">PROJECT 01</div>
+                    <div class="project-title">커스텀 ERP 도입 — 풀사이클 단독 수행</div>
+                </div>
+                <div class="project-period">2023.07 &rarr; 2024.12</div>
+            </div>
+            <div class="project-body">
+                200여 개 예산 항목을 엑셀로 수기 관리하던 환경에서,
+                Tibero DB/Nexacro 기반 커스텀 ERP를 <span class="highlight">요구사항 정의부터 최종 검수까지 단독으로</span> 수행한 프로젝트입니다.
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-phase">Phase 1 — 요구사항 정의</div>
+                    <div class="timeline-desc">현업 부서 인터뷰 → 예산·회계 프로세스 흐름 파악. 기존 엑셀 관리의 문제점(중복 입력, 추적 불가, 결산 지연) 문서화.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-phase">Phase 2 — 계정과목 표준화</div>
+                    <div class="timeline-desc">200개 예산 항목 재분류. 부서별·사업별 매핑 테이블 설계. 마이그레이션 계획 수립.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-phase">Phase 3 — 데이터 검수 (SQL)</div>
+                    <div class="timeline-desc">SQL 쿼리로 마이그레이션 데이터 정합성 검증. 불일치 항목 식별 및 수정.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-phase">Phase 4 — 기능 검수 · 안정화</div>
+                    <div class="timeline-desc">전사 기능 테스트 수행. 오류 리포트 관리. 관리자 권한으로 시스템 운영.</div>
+                </div>
+            </div>
+            <div class="ba-grid">
+                <div class="ba-card ba-before">
+                    <div class="ba-label">BEFORE</div>
+                    엑셀 수기 관리 &rarr; 분기 결산 5일 소요<br>
+                    부서별 집행 현황 파악 불가<br>
+                    오류 발생 시 추적 불가능
+                </div>
+                <div class="ba-card ba-after">
+                    <div class="ba-label">AFTER</div>
+                    ERP 실시간 조회 &rarr; 결산 2일 단축<br>
+                    부서별·사업별 집행률 즉시 확인<br>
+                    데이터 기반 의사결정 환경 구축
+                </div>
+            </div>
+            <span class="result-tag">예산 집행률 88.5% 달성</span>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project reveal">
+            <div class="project-header">
+                <div>
+                    <div class="project-num">PROJECT 02</div>
+                    <div class="project-title">IT 비용 최적화 — 외주 내재화 + 재계약 협상</div>
+                </div>
+                <div class="project-period">2023.01 &rarr; 2026.02</div>
+            </div>
+            <div class="project-body">
+                네트워크·PC 장애 발생 시 매번 외주업체를 호출하는 구조에서,
+                <span class="highlight">반복 패턴을 분석하고 1차 대응을 내재화</span>하여 비용을 구조적으로 절감한 사례입니다.
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-phase">분석 — 장애 패턴 구조화</div>
+                    <div class="timeline-desc">1년간 외주 호출 이력 분류. 전체의 60% 이상이 단순 반복 장애임을 확인.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-phase">실행 — 1차 대응 매뉴얼 + 직접 수행</div>
+                    <div class="timeline-desc">유형별 대응 매뉴얼 정리. 직접 트러블슈팅 체계 구축. 외주 호출을 복잡 장애로 한정.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-phase">협상 — 재계약 조건 개선</div>
+                    <div class="timeline-desc">복합기 렌탈, 전자계약, 본인확인 서비스 등 재계약 시 단가 재협상 진행.</div>
+                </div>
+            </div>
+            <div class="ba-grid">
+                <div class="ba-card ba-before">
+                    <div class="ba-label">BEFORE</div>
+                    단순 장애에도 매번 외주 출장비 발생<br>
+                    재계약 시 기존 단가 자동 갱신
+                </div>
+                <div class="ba-card ba-after">
+                    <div class="ba-label">AFTER</div>
+                    1차 대응 내재화 &rarr; 유지보수 비용 30% 절감<br>
+                    재계약 협상 &rarr; 연간 약 500만 원 추가 절감
+                </div>
+            </div>
+            <span class="result-tag">연간 유지보수 비용 30% + 500만원 절감</span>
+        </div>
+
+    </div>
+</section>
+
+<!-- Why NCsoft -->
+<section>
+    <div class="container">
+        <div class="section-label reveal">Why NCsoft</div>
+        <h2 class="section-title reveal">왜 엔씨소프트인가</h2>
+        <div class="why-grid">
+            <div class="why-card reveal reveal-delay-1">
+                <div class="why-icon">&#127918;</div>
+                <h3>게이머로서의 NC</h3>
+                <p>리니지부터 블소까지, NC 게임과 함께 성장한 세대입니다. 게임을 만드는 사람들이 몰입할 수 있는 환경을 만드는 일에 기여하고 싶습니다.</p>
+            </div>
+            <div class="why-card reveal reveal-delay-2">
+                <div class="why-icon">&#127970;</div>
+                <h3>복지시설 운영의 본질</h3>
+                <p>사내식당·어린이집·피트니스 — 운영의 핵심은 "위탁업체 관리 + 예산 통제 + 서비스 품질"입니다. 3년간 이 세 가지를 동시에 수행했습니다.</p>
+            </div>
+            <div class="why-card reveal reveal-delay-3">
+                <div class="why-icon">&#128218;</div>
+                <h3>총무 + 복지 = 차별화</h3>
+                <p>사회복지사 1급은 일반 총무와 다른 관점을 제공합니다. 어린이집 운영, 복지시설 서비스 설계에서 법규와 제도를 이해하는 담당자.</p>
+            </div>
+            <div class="why-card reveal">
+                <div class="why-icon">&#128200;</div>
+                <h3>신사옥 기획 역량</h3>
+                <p>ERP 도입을 처음부터 끝까지 단독 수행한 경험. "새로운 시스템을 설계·구축하는" 역량은 신사옥 시설 기획에 직접 적용됩니다.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact -->
+<div class="contact-section">
+    <div class="container">
+        <div class="section-label reveal">Contact</div>
+        <h2 class="section-title reveal" style="margin-bottom: 20px;">연락처</h2>
+        <div class="contact-info reveal">
+            <a href="mailto:ssujklim@gmail.com">ssujklim@gmail.com</a>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer>
+    &copy; 2026 임종권 &middot; NCsoft Workplace Motivation 지원을 위해 제작
+</footer>
+
+<!-- Scripts -->
+<script>
+    // Scroll Reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    reveals.forEach(el => revealObserver.observe(el));
+
+    // Counter Animation
+    const counters = document.querySelectorAll('.stat-number[data-target]');
+    const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            const el = entry.target;
+            if (el.dataset.animated) return;
+            el.dataset.animated = 'true';
+
+            const target = parseFloat(el.dataset.target);
+            const suffix = el.dataset.suffix || '';
+            const hasDecimal = el.dataset.decimal;
+            const duration = 2000;
+            const startTime = performance.now();
+
+            function easeOut(t) { return 1 - Math.pow(1 - t, 3); }
+
+            function update(now) {
+                const elapsed = now - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                const value = target * easeOut(progress);
+
+                if (hasDecimal) {
+                    el.textContent = value.toFixed(1) + suffix;
+                } else if (target >= 10000) {
+                    el.textContent = (value / 10000).toFixed(1) + '억' + suffix.replace('만원', '');
+                } else {
+                    el.textContent = Math.floor(value) + suffix;
+                }
+
+                if (progress < 1) requestAnimationFrame(update);
+            }
+            requestAnimationFrame(update);
+        });
+    }, { threshold: 0.5 });
+    counters.forEach(el => counterObserver.observe(el));
+
+    // ========================================
+    // MARQUEE ENGINE — rAF + Lerp (no CSS anim)
+    // ========================================
+    class MarqueeEngine {
+        constructor(el) {
+            this.row = el;
+            this.track = el.querySelector('[data-marquee-track]');
+            this.items = [...el.querySelectorAll('.marquee-item')];
+            this.dir = el.dataset.direction === 'right' ? 1 : -1;
+            this.baseSpeed = parseFloat(el.dataset.speed) || 0.8;
+
+            this.x = 0;
+            this.speed = { current: this.baseSpeed, target: this.baseSpeed };
+            this.skew = { current: 0, target: 0 };
+            this.scrollV = 0;
+            this.hovered = false;
+            this.halfWidth = 0;
+
+            this.LERP_SPEED = 0.035;
+            this.LERP_SKEW = 0.025;
+            this.DECAY = 0.96;
+
+            this._bind();
+            this._measure();
+            this._tick();
+        }
+
+        _bind() {
+            window.addEventListener('wheel', e => { this.scrollV = e.deltaY; }, { passive: true });
+            this.row.addEventListener('pointerenter', () => { this.hovered = true; });
+            this.row.addEventListener('pointerleave', () => { this.hovered = false; });
+            new ResizeObserver(() => this._measure()).observe(this.row);
+        }
+
+        _measure() {
+            const half = Math.floor(this.items.length / 2);
+            this.halfWidth = 0;
+            for (let i = 0; i < half; i++) {
+                this.halfWidth += this.items[i].offsetWidth;
+            }
+            // account for gap
+            const gap = parseFloat(getComputedStyle(this.track).gap) || 0;
+            this.halfWidth += gap * half;
+        }
+
+        _tick() {
+            // velocity boost
+            const vf = Math.min(Math.abs(this.scrollV) * 0.002, 2.5);
+            this.speed.target = this.hovered ? 0 : this.baseSpeed + vf;
+            this.speed.current += (this.speed.target - this.speed.current) * this.LERP_SPEED;
+
+            // skew from velocity
+            this.skew.target = Math.sign(this.scrollV) * Math.min(Math.abs(this.scrollV) * 0.015, 5);
+            this.skew.current += (this.skew.target - this.skew.current) * this.LERP_SKEW;
+
+            // position
+            this.x += this.speed.current * this.dir;
+
+            // wrap
+            if (this.dir === -1 && Math.abs(this.x) >= this.halfWidth) this.x += this.halfWidth;
+            if (this.dir === 1 && this.x >= this.halfWidth) this.x -= this.halfWidth;
+
+            this.track.style.transform =
+                `translate3d(${this.x}px, 0, 0) skewX(${this.skew.current}deg)`;
+
+            this.scrollV *= this.DECAY;
+            requestAnimationFrame(() => this._tick());
+        }
+    }
+
+    // Reduced motion check
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        document.querySelectorAll('[data-marquee]').forEach(el => new MarqueeEngine(el));
+    }
+</script>
+
+</body>
+</html>
