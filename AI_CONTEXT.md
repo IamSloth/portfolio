@@ -7,35 +7,37 @@
 
 | Field | Value |
 |-------|-------|
-| date | 2026-03-23 |
+| date | 2026-03-30 |
 | agent | Claude Opus 4.6 |
-| work | #40 크래프톤 Greenhouse 제출 + 웹포폴 고도화 (taste-skill) |
+| work | 면접 준비 대시보드 웹 배포 + 4건 면접 준비 콘텐츠 |
 | commit | latest |
 
 ### 이번 세션 요약
-- **#40 크래프톤 IT 구매 및 경영지원 담당자**: Greenhouse 제출 완료
-  - 이력서+자기소개서 PDF 제출, final/ 정리 (PDF만 보관)
-  - 웹 포트폴리오 고도화: AI 생성 영상 hero 통합, dual-video crossfade 루프
-  - taste-skill 디자인 룰 7개 위반 수정: marquee(edge fade, no bullet, mixed sizes, scroll boost+skew), skills 비대칭 그리드, word-break:keep-all
-  - GitHub Pages 배포 완료
-- **이전 세션**: #39 우아한형제들 재지원, #38 나이스계열사 제출, #37 서울히어로즈
+- **면접 준비 대시보드**: `docs/interview-prep.html` 생성 → GitHub Pages 배포
+  - 사경센터 최종면담(4/1 09:00), NCsoft 1차(4/1 15:00), 토스 직무(4/3 10:00), 빗썸나눔(4/6 14:30) 4건
+  - 모바일 최적화 (Galaxy S23 Ultra / Samsung Browser), 하단 네비 + 텔레그램 연동
+- **전략 업데이트**: NCsoft strategy #7 면접준비 작성, 사경센터 strategy #8 최종면담 준비 추가
+- **메모리 정리**: 25→15파일 통합, MEMORY.md 리빌드
+- **AI_CONTEXT 수정**: 예비합격자 2명→1명, 빗썸나눔 INTERVIEW 상태 변경
+- **캘린더 등록**: NCsoft(4/1), 빗썸나눔(4/6) Google Calendar 등록 완료
+- **이전 세션**: #40 크래프톤, #39 우아한형제들, #38 나이스계열사
 
 ## Active Applications
 
 | # | Company | Position | Status | Priority TODO | Strategy Path |
 |---|---------|----------|--------|---------------|---------------|
 | 09 | Neople (넥슨) | Budget Management | **📞 INTERVIEW** | 1차면접 3/10 완료, 결과 대기. **1순위** | `09_neople/budget_management/` |
-| 19 | 서울사회적경제센터 | SE 매니저 | **🎯 FINAL** | 면접합격 (3/27). 최종면담 4/1(수) 09:00 (센터장/이사장). 토스 인터뷰(4/3)와 병행 | `19_seoul_se_center/se_manager/` |
+| 19 | 서울사회적경제센터 | SE 매니저 | **🎯 FINAL** | **면접 합격자 발표** (공고 제2026-8호). 최종면담 4/1(화) 09:00 (센터장/이사장). 합격자 2명, 예비합격자 1명. 면담 통과 시 사실상 확정 | `19_seoul_se_center/se_manager/` |
 | 20 | 인덕원 게임사 (비공개) | Console QA | **📤 SUBMITTED** | 그린맨파워 이메일 제출 완료 (2026-03-16). 결과 대기 | `20_indeokwon_gameco/console_qa/` |
 | 21a | 네이버파이낸셜 | 대출비교 서비스 운영 | **📤 SUBMITTED** | 네이버 채용시스템 제출 완료 (2026-03-16). 결과 대기 | `21_naver_financial/loan_comparison_ops/` |
 | 21b | 네이버파이낸셜 | 정보보호 업무 운영 지원 | **📤 SUBMITTED** | 네이버 채용시스템 제출 완료 (2026-03-16). 결과 대기 | `21_naver_financial/privacy_protection_support/` |
 | 22 | 오스 주식회사 | 총무/자재관리 | **📤 SUBMITTED** | 제출 완료. 응답 없음. 상시채용 | `22_os_corporation/general_affairs_materials/` |
 | 23 | 데스코 (DESCO) | 경영지원/AX TEAM | **📤 SUBMITTED** | 제출 완료. 응답 없음. 광명 근무. 6개월 계약. 상시채용 | `23_desco/ax_team/` |
-| 24 | 엔씨소프트 (NCsoft) | 사내 복지시설 운영 (Workplace Motivation) | **📬 DOC_PASSED** | 서류합격 (3/27). My Page 가용일정 등록 필요 (ASAP). 마감 5/12 | `24_ncsoft/workplace_motivation/` |
+| 24 | 엔씨소프트 (NCsoft) | 사내 복지시설 운영 (Workplace Motivation) | **📞 INTERVIEW** | 면접 4/1(화) 15:00 알파리움타워1동 지하1층 (판교). 연락처 02-2186-3373 | `24_ncsoft/workplace_motivation/` |
 | 24 | 엔씨소프트 (NCsoft) | 3D스캔 어시스턴트 | **📤 SUBMITTED** | 제출 완료 (2026-03-17). 마감 4/3. 결과 대기 | `24_ncsoft/3d_scan_assistant/` |
 | 24 | 엔씨소프트 (NCsoft) | 서비스 기획/운영 어시스턴트 | **📤 SUBMITTED** | 제출 완료 (2026-03-17). 마감 3/25. 결과 대기 | `24_ncsoft/service_planning_assistant/` |
 | 25 | 캐논코리아 (Canon Korea) | 영업지원 (Sales Support) | **📋 DISCOVERED** | 계약직 1년, 강남 본사. ERP/데이터/부서조율 ⭐⭐⭐ 매칭. 마감일 확인 필요 | `25_canon_korea/sales_support/` |
-| 26 | 빗썸나눔 (Bithumb Nanum) | CSR 활동 지원 | **📤 SUBMITTED** | 나인하이어 제출 완료 (2026-03-18). 계약직 6개월. 상시채용 | `26_bithumb_nanum/csr_activity_support/` |
+| 26 | 빗썸나눔 (Bithumb Nanum) | CSR 활동 지원 | **📞 INTERVIEW** | 면접 4/6(월) 14:30. 장소 미정(추후 안내). 계약직 6개월 | `26_bithumb_nanum/csr_activity_support/` |
 | 28 | 시프트업 (SHIFT UP) | 인사 담당자 (기업부설연구소 관리) | **📤 SUBMITTED** | 채용페이지 제출 완료 (2026-03-18). 계약직 1년. 상시채용 | `28_shift_up/hr_research_lab/` |
 | 29 | 현대카드·현대커머셜 (씨아이템프러리) | 법인사업1팀 데이터 관리 | **📤 SUBMITTED** | 사람인 제출 완료 (2026-03-18). 파견 계약직. 결과 대기 | `29_hyundai_card/corporate_biz_data/` |
 | 30 | KB국민은행 철산 (휴머니아) | 사무지원 | **📤 SUBMITTED** | 이메일 제출 완료 (2026-03-18) → baeilsuk@naver.com. 결과 대기 | `30_kookmin_bank/cheolsan_admin_support/` |
