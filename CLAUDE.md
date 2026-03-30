@@ -10,7 +10,7 @@
    - NEVER output full files for small changes. ALWAYS use `diff` or `search_and_replace` blocks.
    - Only show relevant lines around the change.
 5. **Context Hygiene**:
-   - Proactively suggest running `/compact` or `/clear` after completing a logical unit of work.
+   - Auto-compact is enabled (`CLAUDE_AUTOCOMPACT_PCT_OVERRIDE=50`). Do NOT suggest `/compact` manually.
 </system_rules>
 
 ## Project Constitution
