@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>Job Pipeline Dashboard</title>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Segoe UI',sans-serif; background:#1a1a1a; color:#d8e0e8; padding:20px; }
+h1 { font-size:20px; margin-bottom:4px; }
+.subtitle { color:#888; font-size:13px; margin-bottom:20px; }
+.filters { display:flex; gap:8px; margin-bottom:16px; flex-wrap:wrap; }
+.filters button { background:#252525; border:1px solid #333; color:#aaa; padding:4px 12px; border-radius:4px; cursor:pointer; font-size:12px; }
+.filters button.active { background:#2d5a3d; color:#8fbc8f; border-color:#3a7a4a; }
+.search { background:#222; border:1px solid #333; color:#d8e0e8; padding:6px 12px; border-radius:4px; font-size:13px; width:240px; }
+table { width:100%; border-collapse:collapse; font-size:13px; }
+th { text-align:left; padding:8px 10px; background:#222; color:#888; font-size:11px; text-transform:uppercase; letter-spacing:0.05em; border-bottom:1px solid #333; position:sticky; top:0; }
+td { padding:6px 10px; border-bottom:1px solid #282828; vertical-align:top; }
+tr:hover { background:#222; }
+tr.hidden { display:none; }
+a { color:#7ab; text-decoration:none; }
+a:hover { color:#9cd; text-decoration:underline; }
+.s { display:inline-block; padding:1px 8px; border-radius:3px; font-size:11px; font-weight:600; white-space:nowrap; }
+.s-passed { background:#1a3a2a; color:#6dbe6d; }
+.s-interview { background:#2a3a1a; color:#a0c060; }
+.s-submitted { background:#1a2a3a; color:#60a0d0; }
+.s-rejected { background:#3a1a1a; color:#d06060; }
+.s-discovered { background:#2a2a1a; color:#b0a060; }
+.s-hold { background:#2a2020; color:#a08060; }
+.s-noresponse { background:#2a2a2a; color:#888; }
+.s-final { background:#2a1a3a; color:#b080d0; }
+.s-archived { background:#222; color:#666; }
+.links { display:flex; gap:6px; flex-wrap:wrap; }
+.links a { font-size:12px; padding:2px 6px; background:#252525; border:1px solid #333; border-radius:3px; white-space:nowrap; cursor:pointer; }
+.links a:hover { background:#333; }
+.links a.folder { color:#c9a; }
+.links a.portfolio { color:#9d9; }
+.links a.strategy { color:#db9; }
+.toast { position:fixed; bottom:20px; right:20px; background:#2d5a3d; color:#8fbc8f; padding:8px 16px; border-radius:6px; font-size:13px; opacity:0; transition:opacity 0.3s; pointer-events:none; z-index:99; }
+.toast.show { opacity:1; }
+.section-label { font-size:14px; font-weight:600; margin:24px 0 8px; padding:4px 0; border-bottom:1px solid #333; color:#aaa; }
+.stats { display:flex; gap:16px; margin-bottom:20px; }
+.stat { background:#222; padding:10px 16px; border-radius:6px; border:1px solid #2a2a2a; }
+.stat-n { font-size:22px; font-weight:700; }
+.stat-l { font-size:11px; color:#888; margin-top:2px; }
+.mode-badge { display:inline-block; font-size:11px; padding:2px 8px; border-radius:3px; margin-left:8px; }
+.mode-server { background:#1a3a2a; color:#6dbe6d; }
+.mode-file { background:#3a2a1a; color:#d0a060; }
+.server-btn { font-size:11px; padding:2px 8px; border-radius:3px; border:1px solid #333; background:#252525; color:#aaa; cursor:pointer; margin-left:6px; }
+.server-btn:hover { background:#333; color:#ddd; }
+/* Modal */
+.modal-overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.7); z-index:100; }
+.modal-overlay.open { display:flex; align-items:center; justify-content:center; }
+.modal { background:#1e1e1e; border:1px solid #333; border-radius:8px; width:min(900px,90vw); max-height:85vh; display:flex; flex-direction:column; }
+.modal-header { display:flex; justify-content:space-between; align-items:center; padding:12px 16px; border-bottom:1px solid #333; }
+.modal-header h2 { font-size:14px; color:#aaa; }
+.modal-close { background:none; border:none; color:#888; font-size:20px; cursor:pointer; padding:0 4px; }
+.modal-close:hover { color:#fff; }
+.modal-body { padding:20px 24px; overflow-y:auto; flex:1; }
+/* Markdown rendered content */
+.modal-body h1 { font-size:20px; color:#e8e0d8; margin:16px 0 8px; border-bottom:1px solid #333; padding-bottom:4px; }
+.modal-body h2 { font-size:16px; color:#d0c8c0; margin:14px 0 6px; }
+.modal-body h3 { font-size:14px; color:#b8b0a8; margin:10px 0 4px; }
+.modal-body p { margin:6px 0; line-height:1.6; }
+.modal-body ul, .modal-body ol { margin:6px 0 6px 20px; }
+.modal-body li { margin:2px 0; line-height:1.5; }
+.modal-body table { border-collapse:collapse; margin:8px 0; width:100%; }
+.modal-body th, .modal-body td { border:1px solid #333; padding:4px 10px; font-size:12px; text-align:left; }
+.modal-body th { background:#252525; color:#aaa; }
+.modal-body code { background:#252525; padding:1px 4px; border-radius:3px; font-size:12px; color:#c9a; }
+.modal-body pre { background:#181818; padding:12px; border-radius:4px; overflow-x:auto; margin:8px 0; }
+.modal-body pre code { background:none; padding:0; }
+.modal-body strong { color:#e0d8d0; }
+.modal-body hr { border:none; border-top:1px solid #333; margin:12px 0; }
+.modal-body blockquote { border-left:3px solid #444; padding-left:12px; color:#999; margin:8px 0; }
+</style>
+</head>
+<body>
+
+<h1>Job Application Pipeline <span class="mode-badge" id="modeBadge"></span><button class="server-btn" id="stopBtn" style="display:none" onclick="stopServer()">서버 종료</button></h1>
+<p class="subtitle">로컬 대시보드 &mdash; 임종권 | 마지막 업데이트: <span id="updated"></span></p>
+
+<div class="stats" id="stats"></div>
+
+<div class="section-label">Applications</div>
+<div style="display:flex;gap:12px;align-items:center;margin-bottom:12px">
+  <input class="search" placeholder="검색 (회사, 포지션...)" id="search">
+  <div class="filters" id="filters"></div>
+</div>
+<table>
+<thead><tr><th>#</th><th>회사</th><th>포지션</th><th>상태</th><th>메모</th><th>링크</th></tr></thead>
+<tbody id="tbody"></tbody>
+</table>
+<div class="toast" id="toast"></div>
+
+<!-- Strategy Viewer Modal -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <div class="modal-header">
+      <h2 id="modalTitle">strategy.md</h2>
+      <button class="modal-close" onclick="closeModal()">&times;</button>
+    </div>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+</div>
+
+<script>
+// ═══════════════════════════════════════════════════════════
+//  DATA — 새 지원 추가 시 이 배열에 한 줄 추가
+// ═══════════════════════════════════════════════════════════
+const BASE = "c:/Users/superjk/Desktop/Job-Application-Pipeline-Desktop";
+const PAGES_URL = "https://iamsloth.github.io/portfolio";
+
+const APPS = [
+  // Active
+  {id:"09",  co:"Neople (넥슨)",         pos:"Budget Management",         status:"interview", note:"1차면접 3/10 완료, 결과 대기. 1순위", folder:"09_neople/budget_management", strategy:"neople_budget_management_strategy.md"},
+  {id:"19",  co:"서울사회적경제센터",     pos:"SE 매니저",                  status:"final",     note:"면접합격! 최종면담 4/1(화) 09:00", folder:"19_seoul_se_center/se_manager", strategy:"seoul_se_center_se_manager_strategy.md"},
+  {id:"20",  co:"인덕원 게임사 (비공개)", pos:"Console QA",                status:"submitted", note:"그린맨파워 이메일 제출 (3/16)", folder:"20_indeokwon_gameco/console_qa", strategy:"indeokwon_gameco_console_qa_strategy.md"},
+  {id:"21a", co:"네이버파이낸셜",         pos:"대출비교 서비스 운영",       status:"submitted", note:"네이버 채용시스템 (3/16)", folder:"21_naver_financial/loan_comparison_ops", strategy:"naver_financial_loan_comparison_ops_strategy.md"},
+  {id:"21b", co:"네이버파이낸셜",         pos:"정보보호 업무 운영 지원",    status:"submitted", note:"네이버 채용시스템 (3/16)", folder:"21_naver_financial/privacy_protection_support", strategy:"naver_financial_privacy_protection_support_strategy.md"},
+  {id:"22",  co:"오스 주식회사",          pos:"총무/자재관리",             status:"submitted", note:"응답 없음. 상시채용", folder:"22_os_corporation/general_affairs_materials", strategy:"os_corporation_general_affairs_materials_strategy.md"},
+  {id:"23",  co:"데스코 (DESCO)",         pos:"경영지원/AX TEAM",          status:"submitted", note:"광명. 6개월 계약. 상시채용", folder:"23_desco/ax_team", strategy:"desco_ax_team_strategy.md"},
+  {id:"24a", co:"엔씨소프트",             pos:"사내 복지시설 운영",        status:"passed",    note:"서류합격 (3/27). My Page 가용일정 등록 필요. 마감 5/12", folder:"24_ncsoft/workplace_motivation", portfolio:"ncsoft.html", strategy:"ncsoft_workplace_motivation_strategy.md"},
+  {id:"24b", co:"엔씨소프트",             pos:"3D스캔 어시스턴트",         status:"submitted", note:"마감 4/3", folder:"24_ncsoft/3d_scan_assistant", portfolio:"ncsoft-3d.html", strategy:"ncsoft_3d_scan_assistant_strategy.md"},
+  {id:"24c", co:"엔씨소프트",             pos:"서비스 기획/운영 어시스턴트",status:"submitted", note:"마감 3/25", folder:"24_ncsoft/service_planning_assistant", portfolio:"ncsoft-service.html", strategy:"ncsoft_service_planning_assistant_strategy.md"},
+  {id:"25",  co:"캐논코리아",             pos:"영업지원",                  status:"discovered",note:"계약직 1년, 강남. 마감일 확인 필요", folder:"25_canon_korea/sales_support", strategy:"canon_korea_sales_support_strategy.md"},
+  {id:"26",  co:"빗썸나눔",               pos:"CSR 활동 지원",             status:"submitted", note:"나인하이어 (3/18). 6개월", folder:"26_bithumb_nanum/csr_activity_support", portfolio:"bithumb-nanum.html", strategy:"bithumb_nanum_csr_activity_support_strategy.md"},
+  {id:"28",  co:"시프트업",               pos:"인사 담당자 (기업부설연구소)",status:"submitted",note:"상시채용. 계약직 1년", folder:"28_shift_up/hr_research_lab", portfolio:"shift-up-hr-research-lab.html", strategy:"shift_up_hr_research_lab_strategy.md"},
+  {id:"29",  co:"현대카드 (씨아이템프러리)",pos:"법인사업1팀 데이터 관리",  status:"submitted", note:"파견 계약직", folder:"29_hyundai_card/corporate_biz_data", strategy:"hyundai_card_corporate_biz_data_strategy.md"},
+  {id:"30",  co:"KB국민은행 철산",        pos:"사무지원",                  status:"submitted", note:"이메일 제출 (3/18)", folder:"30_kookmin_bank/cheolsan_admin_support", strategy:"kookmin_bank_cheolsan_admin_support_strategy.md"},
+  {id:"31",  co:"크리에이티브멋",         pos:"총무",                      status:"submitted", note:"상시채용", folder:"31_creative_mot/general_affairs", portfolio:"creative-mot.html", strategy:"creative_mot_general_affairs_strategy.md"},
+  {id:"32",  co:"한국투자증권",           pos:"사무보조 (전문직급)",        status:"submitted", note:"여의도. 마감 3/26", folder:"32_korea_investment/office_assistant", strategy:"korea_investment_office_assistant_strategy.md"},
+  {id:"33",  co:"빗썸",                   pos:"경영관리 담당자",           status:"submitted", note:"정규직 5-10년. 상시", folder:"33_bithumb/management_admin", portfolio:"bithumb.html", strategy:"bithumb_management_admin_strategy.md"},
+  {id:"34",  co:"청년재단",               pos:"전산·자산관리",             status:"submitted", note:"정규직 경력3년+. 마감 3/30. Strong Go", folder:"34_youth_foundation/it_asset_management", strategy:"youth_foundation_it_asset_management_strategy.md"},
+  {id:"35a", co:"토스뱅크",               pos:"PA Operations Specialist",  status:"interview", note:"직무 인터뷰 4/3(금) 10:00 Google Meet. 1~1.5h", folder:"35_toss/35a_bank_pa_operations", portfolio:"toss-pa-ops.html", strategy:"toss_bank_pa_operations_strategy.md"},
+  {id:"35b", co:"토스뱅크",               pos:"CSR Project Manager",       status:"rejected",  note:"서류 불합격 (3/24)", folder:"35_toss/35b_bank_csr_pm", portfolio:"toss-csr-pm.html", strategy:"toss_bank_csr_pm_strategy.md"},
+  {id:"35c", co:"토스증권",               pos:"GA Manager",                status:"rejected",  note:"서류 불합격 (3/23)", folder:"35_toss/35c_securities_ga_manager", portfolio:"toss-securities-ga.html", strategy:"toss_securities_ga_manager_strategy.md"},
+  {id:"35d", co:"토스페이먼츠",           pos:"GA Specialist",             status:"rejected",  note:"서류 불합격 (3/27)", folder:"35_toss/35d_payments_ga_specialist", portfolio:"toss-payments-ga.html", strategy:"toss_payments_ga_specialist_strategy.md"},
+  {id:"35e", co:"토스페이먼츠",           pos:"IT Admin",                  status:"rejected",  note:"서류 불합격 (3/25)", folder:"35_toss/35e_payments_it_admin", portfolio:"toss-payments-it.html", strategy:"toss_payments_it_admin_strategy.md"},
+  {id:"35f", co:"토스씨엑스",             pos:"GA Manager",                status:"rejected",  note:"서류 불합격 (3/23)", folder:"35_toss/35f_cx_ga_manager", strategy:"toss_cx_ga_manager_strategy.md"},
+  {id:"35g", co:"토스 (본사)",            pos:"GA Manager",                status:"rejected",  note:"서류 불합격 (3/23)", folder:"35_toss/35g_bank_ga_manager", portfolio:"toss-bank-ga.html", strategy:"toss_bank_ga_manager_strategy.md"},
+  {id:"35h", co:"토스증권",               pos:"GA Specialist",             status:"rejected",  note:"서류 불합격 (3/24)", folder:"35_toss/35h_securities_ga_specialist", strategy:"toss_securities_ga_specialist_strategy.md"},
+  {id:"35i", co:"토스인컴",               pos:"GA Specialist",             status:"rejected",  note:"서류 불합격 (3/23)", folder:"35_toss/35i_income_ga_specialist", strategy:"toss_income_ga_specialist_strategy.md"},
+  {id:"35j", co:"토스뱅크",               pos:"IT Admin",                  status:"submitted", note:"Greenhouse (3/20). 계약직 1년", folder:"35_toss/35j_bank_it_admin", portfolio:"toss-bank-it.html", strategy:"toss_bank_it_admin_strategy.md"},
+  {id:"36",  co:"키움증권 (사람인HS 파견)",pos:"사무보조",                  status:"submitted", note:"파견 1년×2년, 여의도. 상시", folder:"36_kiwoom/office_assistant", strategy:"kiwoom_office_assistant_strategy.md"},
+  {id:"37",  co:"서울히어로즈(주)",       pos:"지원팀 경영지원(회계)",     status:"submitted", note:"계약직 1년, 고척돔. 마감 4/10. 0순위", folder:"37_heroes_baseball/accounting", portfolio:"heroes-baseball.html", strategy:"heroes_baseball_accounting_strategy.md"},
+  {id:"38",  co:"나이스계열사 (파견)",    pos:"경영지원실 사무",           status:"submitted", note:"파견 1년, 신도림. 상시", folder:"38_nice_group/business_support", strategy:"nice_group_business_support_strategy.md"},
+  {id:"39",  co:"우아한형제들",           pos:"로보틱스운영",              status:"submitted", note:"기간제 12개월. 재지원", folder:"39_woowa/robotics_ops", portfolio:"woowa-robotics.html", strategy:"woowa_robotics_ops_strategy.md"},
+  {id:"40",  co:"크래프톤",               pos:"IT 구매 및 경영지원",       status:"submitted", note:"계약직 1년(육휴대체). taste-skill 적용", folder:"40_krafton/it_procurement", portfolio:"krafton-it-procurement.html", strategy:"krafton_it_procurement_strategy.md"},
+  // Closed
+  {id:"01a", co:"Seoul Heroes",     pos:"Accounting",        status:"noresponse", note:"팔로업 2통 무응답", folder:"01_seoul_heroes/accounting"},
+  {id:"01b", co:"Seoul Heroes",     pos:"Operations",        status:"noresponse", note:"사람인 (2/26) 무응답", folder:"01_seoul_heroes/operations_support"},
+  {id:"02",  co:"Shift Up",         pos:"—",                 status:"noresponse", note:"무응답", folder:"02_shift_up"},
+  {id:"04",  co:"Smilegate",        pos:"Hope Studio PM",    status:"noresponse", note:"무응답", folder:"04_smilegate/hope_studio_csr_platform_pm"},
+  {id:"05",  co:"SFEC",             pos:"CSR Ops",           status:"noresponse", note:"무응답", folder:"05_sfec/csr_operations"},
+  {id:"06a", co:"SK E&S",           pos:"ESG Admin",         status:"noresponse", note:"이메일 (2/12) 무응답", folder:"06_sk_ens/esg_admin"},
+  {id:"06b", co:"SK E&S",           pos:"CSR Planning",      status:"noresponse", note:"이메일 (2/12) 무응답", folder:"06_sk_ens/csr_planning"},
+  {id:"07",  co:"Kolon CSR",        pos:"Energy Edu Ops",    status:"noresponse", note:"사람인 (2/13) 무응답", folder:"07_kolon_csr/energy_edu_ops"},
+  {id:"08",  co:"화영운수",         pos:"Bus Dispatch Admin", status:"rejected",  note:"2차 면접 불합격", folder:"08_hwayoungunsu/bus_dispatch_admin"},
+  {id:"10",  co:"Mintrocket (넥슨)",pos:"HR General Affairs", status:"rejected",  note:"서류 불합격 (3/23)", folder:"10_mintrocket/hr_general_affairs"},
+  {id:"11",  co:"Netmarble Foundation",pos:"CSR",             status:"rejected",  note:"서류 불합격 (3/18)", folder:"11_netmarble_foundation/csr"},
+  {id:"12",  co:"우아한형제들",     pos:"Robotics Ops",       status:"rejected",  note:"서류 불합격 (3/19). #39로 재지원", folder:"12_woowa/robotics_ops"},
+  {id:"13",  co:"동양미래대학교",   pos:"일학습병행사업 관리", status:"rejected",  note:"면접 불합격", folder:"13_dongyang_univ/work_study_admin"},
+  {id:"14",  co:"함께하는사랑밭",   pos:"행정·회계 및 사업관리",status:"noresponse",note:"이메일 (3/4) 무응답", folder:"14_withgo/csr_admin"},
+  {id:"15",  co:"신한투자증권 (파견)",pos:"사무보조",          status:"noresponse", note:"사람인 (3/5) 무응답", folder:"15_shinhan_invest/back_office"},
+  {id:"16",  co:"이크래더블 (아이위더스)",pos:"TCB 보고서 작성",status:"rejected",  note:"1차면접 불합격 (5분 면접)", folder:"16_ecredible/tcb_report"},
+  {id:"17",  co:"성공회대학교",     pos:"학생복지처 일반직",  status:"noresponse", note:"사람인 (3/5) 무응답", folder:"17_sungkonghoe_univ/student_welfare"},
+  {id:"18",  co:"KASW",             pos:"자격관리본부",       status:"rejected",  note:"서류 불합격", folder:"18_kasw/qualification_management"},
+  {id:"24d", co:"엔씨소프트",       pos:"HR 사무지원",        status:"rejected",  note:"서류 불합격 (3/20)", folder:"24_ncsoft/hr_admin", portfolio:"ncsoft-hr.html"},
+  {id:"27",  co:"카카오",           pos:"AI 데이터 라벨링",   status:"rejected",  note:"서류 불합격 (3/20)", folder:"27_kakao/ai_data_labeling", portfolio:"kakao-ai-labeling.html"},
+];
+
+// ═══════════════════════════════════════════════════════════
+//  STATUS CONFIG
+// ═══════════════════════════════════════════════════════════
+const STATUS = {
+  final:      {label:"🎯 최종",     cls:"s-final",      order:-1},
+  passed:     {label:"📬 서류합격", cls:"s-passed",    order:0},
+  interview:  {label:"📞 면접진행", cls:"s-interview",  order:1},
+  submitted:  {label:"📤 제출완료", cls:"s-submitted",  order:2},
+  discovered: {label:"📋 발견",     cls:"s-discovered", order:3},
+  hold:       {label:"⏸️ 보류",     cls:"s-hold",       order:4},
+  rejected:   {label:"❌ 탈락",     cls:"s-rejected",   order:5},
+  noresponse: {label:"🗄️ 무응답",   cls:"s-noresponse", order:6},
+};
+
+// ═══════════════════════════════════════════════════════════
+//  SERVER MODE DETECTION
+// ═══════════════════════════════════════════════════════════
+const SERVER_MODE = location.protocol === "http:";
+const badge = document.getElementById("modeBadge");
+badge.textContent = SERVER_MODE ? "서버 모드" : "파일 모드 (기능 제한)";
+badge.className = "mode-badge " + (SERVER_MODE ? "mode-server" : "mode-file");
+if (SERVER_MODE) document.getElementById("stopBtn").style.display = "inline-block";
+
+function stopServer() {
+  if (!confirm("서버를 종료할까요?")) return;
+  fetch("/api/stop").then(() => {
+    badge.textContent = "서버 종료됨";
+    badge.className = "mode-badge mode-file";
+    document.getElementById("stopBtn").style.display = "none";
+    showToast("서버 종료됨");
+  });
+}
+
+// ═══════════════════════════════════════════════════════════
+//  HELPERS
+// ═══════════════════════════════════════════════════════════
+function showToast(msg) {
+  const t = document.getElementById("toast");
+  t.textContent = msg;
+  t.classList.add("show");
+  clearTimeout(t._tid);
+  t._tid = setTimeout(() => t.classList.remove("show"), 1500);
+}
+
+function openFolder(relPath) {
+  if (SERVER_MODE) {
+    fetch("/api/open?path=" + encodeURIComponent("applications/" + relPath))
+      .then(r => r.json())
+      .then(() => showToast("📂 폴더 열림"))
+      .catch(() => showToast("❌ 서버 오류"));
+  } else {
+    const winPath = (BASE + "/applications/" + relPath).replace(/\//g, "\\");
+    navigator.clipboard.writeText(winPath).then(() => showToast("📋 경로 복사됨 (탐색기에 붙여넣기)"));
+  }
+}
+
+function openStrategy(relPath, strategyFile, title) {
+  if (!strategyFile) return;
+  const filePath = "applications/" + relPath + "/" + strategyFile;
+  if (SERVER_MODE) {
+    document.getElementById("modalTitle").textContent = title + " — " + strategyFile;
+    document.getElementById("modalBody").innerHTML = "<p style='color:#888'>로딩 중...</p>";
+    document.getElementById("modalOverlay").classList.add("open");
+    fetch("/api/file?path=" + encodeURIComponent(filePath))
+      .then(r => { if(!r.ok) throw new Error(r.status); return r.text(); })
+      .then(md => {
+        document.getElementById("modalBody").innerHTML = marked.parse(md);
+      })
+      .catch(() => {
+        document.getElementById("modalBody").innerHTML = "<p style='color:#d06060'>파일을 찾을 수 없음</p>";
+      });
+  } else {
+    const winPath = (BASE + "/" + filePath).replace(/\//g, "\\");
+    navigator.clipboard.writeText(winPath).then(() => showToast("📋 경로 복사됨"));
+  }
+}
+
+function closeModal() {
+  document.getElementById("modalOverlay").classList.remove("open");
+}
+document.getElementById("modalOverlay").addEventListener("click", e => {
+  if (e.target === e.currentTarget) closeModal();
+});
+document.addEventListener("keydown", e => { if (e.key === "Escape") closeModal(); });
+
+// ═══════════════════════════════════════════════════════════
+//  RENDER
+// ═══════════════════════════════════════════════════════════
+document.getElementById("updated").textContent = new Date().toLocaleDateString("ko-KR");
+
+// Stats
+const counts = {};
+APPS.forEach(a => { counts[a.status] = (counts[a.status]||0) + 1; });
+document.getElementById("stats").innerHTML = Object.entries(STATUS)
+  .filter(([k]) => counts[k])
+  .map(([k,v]) => `<div class="stat"><div class="stat-n ${v.cls}" style="background:none;padding:0">${counts[k]}</div><div class="stat-l">${v.label}</div></div>`)
+  .join("");
+
+// Filters
+const filterKeys = ["passed","interview","submitted","discovered","rejected","noresponse"];
+let activeFilter = null;
+const filtersEl = document.getElementById("filters");
+filtersEl.innerHTML = `<button class="active" data-f="all">전체</button>` +
+  filterKeys.filter(k=>counts[k]).map(k => `<button data-f="${k}">${STATUS[k].label} (${counts[k]})</button>`).join("");
+filtersEl.addEventListener("click", e => {
+  if(!e.target.dataset.f) return;
+  activeFilter = e.target.dataset.f === "all" ? null : e.target.dataset.f;
+  filtersEl.querySelectorAll("button").forEach(b => b.classList.toggle("active", b === e.target));
+  applyFilters();
+});
+
+// Table
+const sortKey = s => { const m = s.match(/^(\d+)/); return m ? parseInt(m[1]) : 999; };
+const sorted = [...APPS].sort((a,b) => {
+  const na = sortKey(a.id), nb = sortKey(b.id);
+  if(na !== nb) return na - nb;
+  return a.id.localeCompare(b.id);
+});
+const tbody = document.getElementById("tbody");
+tbody.innerHTML = sorted.map(a => {
+  const s = STATUS[a.status] || {label:a.status, cls:""};
+  let links = `<a class="folder" onclick="openFolder('${a.folder}')">폴더</a>`;
+  if(a.strategy) links += ` <a class="strategy" onclick="openStrategy('${a.folder}','${a.strategy}','${a.co}')">전략</a>`;
+  if(a.portfolio) {
+    links += ` <a href="${PAGES_URL}/${a.portfolio}" target="_blank" class="portfolio">포폴</a>`;
+  }
+  return `<tr data-status="${a.status}" data-text="${a.co} ${a.pos} ${a.note} ${a.id}">
+    <td>${a.id}</td>
+    <td>${a.co}</td>
+    <td>${a.pos}</td>
+    <td><span class="s ${s.cls}">${s.label}</span></td>
+    <td style="color:#888;font-size:12px">${a.note}</td>
+    <td><div class="links">${links}</div></td>
+  </tr>`;
+}).join("");
+
+// Search + Filter
+const searchEl = document.getElementById("search");
+searchEl.addEventListener("input", applyFilters);
+function applyFilters() {
+  const q = searchEl.value.toLowerCase();
+  tbody.querySelectorAll("tr").forEach(tr => {
+    const matchStatus = !activeFilter || tr.dataset.status === activeFilter;
+    const matchSearch = !q || tr.dataset.text.toLowerCase().includes(q);
+    tr.classList.toggle("hidden", !(matchStatus && matchSearch));
+  });
+}
+</script>
+</body>
+</html>

@@ -25,13 +25,13 @@
 | # | Company | Position | Status | Priority TODO | Strategy Path |
 |---|---------|----------|--------|---------------|---------------|
 | 09 | Neople (넥슨) | Budget Management | **📞 INTERVIEW** | 1차면접 3/10 완료, 결과 대기. **1순위** | `09_neople/budget_management/` |
-| 19 | 서울사회적경제센터 | SE 매니저 | **📬 DOC_PASSED** | 서류합격! 면접 3/24(화) 11:00 개봉역. 면접준비 완료 | `19_seoul_se_center/se_manager/` |
+| 19 | 서울사회적경제센터 | SE 매니저 | **🎯 FINAL** | 면접합격 (3/27). 최종면담 4/1(수) 09:00 (센터장/이사장). 토스 인터뷰(4/3)와 병행 | `19_seoul_se_center/se_manager/` |
 | 20 | 인덕원 게임사 (비공개) | Console QA | **📤 SUBMITTED** | 그린맨파워 이메일 제출 완료 (2026-03-16). 결과 대기 | `20_indeokwon_gameco/console_qa/` |
 | 21a | 네이버파이낸셜 | 대출비교 서비스 운영 | **📤 SUBMITTED** | 네이버 채용시스템 제출 완료 (2026-03-16). 결과 대기 | `21_naver_financial/loan_comparison_ops/` |
 | 21b | 네이버파이낸셜 | 정보보호 업무 운영 지원 | **📤 SUBMITTED** | 네이버 채용시스템 제출 완료 (2026-03-16). 결과 대기 | `21_naver_financial/privacy_protection_support/` |
 | 22 | 오스 주식회사 | 총무/자재관리 | **📤 SUBMITTED** | 제출 완료. 응답 없음. 상시채용 | `22_os_corporation/general_affairs_materials/` |
 | 23 | 데스코 (DESCO) | 경영지원/AX TEAM | **📤 SUBMITTED** | 제출 완료. 응답 없음. 광명 근무. 6개월 계약. 상시채용 | `23_desco/ax_team/` |
-| 24 | 엔씨소프트 (NCsoft) | 사내 복지시설 운영 (Workplace Motivation) | **📤 SUBMITTED** | 서류 제출 완료. 전용 포트폴리오 페이지 배포. 마감 5/12 | `24_ncsoft/workplace_motivation/` |
+| 24 | 엔씨소프트 (NCsoft) | 사내 복지시설 운영 (Workplace Motivation) | **📬 DOC_PASSED** | 서류합격 (3/27). My Page 가용일정 등록 필요 (ASAP). 마감 5/12 | `24_ncsoft/workplace_motivation/` |
 | 24 | 엔씨소프트 (NCsoft) | 3D스캔 어시스턴트 | **📤 SUBMITTED** | 제출 완료 (2026-03-17). 마감 4/3. 결과 대기 | `24_ncsoft/3d_scan_assistant/` |
 | 24 | 엔씨소프트 (NCsoft) | 서비스 기획/운영 어시스턴트 | **📤 SUBMITTED** | 제출 완료 (2026-03-17). 마감 3/25. 결과 대기 | `24_ncsoft/service_planning_assistant/` |
 | 25 | 캐논코리아 (Canon Korea) | 영업지원 (Sales Support) | **📋 DISCOVERED** | 계약직 1년, 강남 본사. ERP/데이터/부서조율 ⭐⭐⭐ 매칭. 마감일 확인 필요 | `25_canon_korea/sales_support/` |
@@ -43,14 +43,14 @@
 | 32 | 한국투자증권 | 사무보조 (전문직급) | **📤 SUBMITTED** | 채용포털 제출 완료 (2026-03-19). 전문계약직 1년단위, 여의도 본사. 마감 3/26 | `32_korea_investment/office_assistant/` |
 | 33 | 빗썸 (Bithumb) | 경영관리 담당자 | **📤 SUBMITTED** | 나인하이어 제출 완료 (2026-03-19). 정규직 5-10년. 상시채용. 포폴: bithumb.html | `33_bithumb/management_admin/` |
 | 34 | 청년재단 | 전산·자산관리 (코드 A) | **📤 SUBMITTED** | 인크루트 제출 완료 (2026-03-19). 정규직, 경력3년+. 마감 3/30. **Strong Go** | `34_youth_foundation/it_asset_management/` |
-| 35a | 토스뱅크 | PA Operations Specialist | **📤 SUBMITTED** | Greenhouse 제출 완료 (2026-03-20). 계약직 1년 | `35_toss/35a_bank_pa_operations/` |
-| 35b | 토스뱅크 | CSR Project Manager | **📤 SUBMITTED** | Greenhouse 제출 완료 (2026-03-20). 정규직 | `35_toss/35b_bank_csr_pm/` |
+| 35a | 토스뱅크 | PA Operations Specialist | **📞 INTERVIEW** | 직무 인터뷰 4/3(금) 10:00 Google Meet(avb-apqn-ifj). 1~1.5h. NDA 회신 필요. 계약직 1년 | `35_toss/35a_bank_pa_operations/` |
+| 35b | 토스뱅크 | CSR Project Manager | **❌ REJECTED** | 서류 불합격 (2026-03-24). 정규직 | `35_toss/35b_bank_csr_pm/` |
 | 35c | 토스증권 | GA Manager | **❌ REJECTED** | 서류 불합격 (2026-03-23). 정규직. 35h도 여기에 중복제출 | `35_toss/35c_securities_ga_manager/` |
-| 35d | 토스페이먼츠 | GA Specialist | **📤 SUBMITTED** | Greenhouse 제출 완료 (2026-03-20). 계약직 1년 | `35_toss/35d_payments_ga_specialist/` |
-| 35e | 토스페이먼츠 | IT Admin | **📤 SUBMITTED** | Greenhouse 제출 완료 (2026-03-20). 계약직 1년 | `35_toss/35e_payments_it_admin/` |
+| 35d | 토스페이먼츠 | GA Specialist | **❌ REJECTED** | 서류 불합격 (2026-03-27). 계약직 1년 | `35_toss/35d_payments_ga_specialist/` |
+| 35e | 토스페이먼츠 | IT Admin | **❌ REJECTED** | 서류 불합격 (2026-03-25). 계약직 1년 | `35_toss/35e_payments_it_admin/` |
 | 35f | 토스씨엑스 | GA Manager | **❌ REJECTED** | 서류 불합격 (2026-03-23). 계약직 1년 | `35_toss/35f_cx_ga_manager/` |
 | 35g | 토스 (본사) | GA Manager | **❌ REJECTED** | 서류 불합격 (2026-03-23). 정규직. 폴더명 rename 미완 | `35_toss/35g_bank_ga_manager/` |
-| 35h | 토스증권 | GA Specialist | **📤 SUBMITTED** | Greenhouse 제출 완료 (2026-03-20). 계약직 1년. 35c에도 중복제출 | `35_toss/35h_securities_ga_specialist/` |
+| 35h | 토스증권 | GA Specialist | **❌ REJECTED** | 서류 불합격 (2026-03-24). 계약직 1년. 35c에도 중복제출 | `35_toss/35h_securities_ga_specialist/` |
 | 35i | 토스인컴 | GA Specialist | **❌ REJECTED** | 서류 불합격 (2026-03-23). 계약직 1년 | `35_toss/35i_income_ga_specialist/` |
 | 35j | 토스뱅크 | IT Admin | **📤 SUBMITTED** | Greenhouse 제출 완료 (2026-03-20). 계약직 1년 | `35_toss/35j_bank_it_admin/` |
 | 36 | 키움증권 (사람인HS 파견) | 사무보조 | **📤 SUBMITTED** | 사람인 제출 완료 (2026-03-20). 파견 1년×2년계약, 여의도. 상시채용 | `36_kiwoom/office_assistant/` |
