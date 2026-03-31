@@ -27,13 +27,13 @@
 | # | Company | Position | Status | Priority TODO | Strategy Path |
 |---|---------|----------|--------|---------------|---------------|
 | 09 | Neople (넥슨) | Budget Management | **📞 INTERVIEW** | 1차면접 3/10 완료, 결과 대기. **1순위** | `09_neople/budget_management/` |
-| 19 | 서울사회적경제센터 | SE 매니저 | **🎯 FINAL** | **면접 합격자 발표** (공고 제2026-8호). 최종면담 4/1(화) 09:00 (센터장/이사장). 합격자 2명, 예비합격자 1명. 면담 통과 시 사실상 확정 | `19_seoul_se_center/se_manager/` |
+| 19 | 서울사회적경제센터 | SE 매니저 | **🎯 FINAL** | **면접 합격자 발표** (공고 제2026-8호). 최종면담 4/1(수) 09:00 (센터장/이사장). 합격자 2명, 예비합격자 1명. 면담 통과 시 사실상 확정 | `19_seoul_se_center/se_manager/` |
 | 20 | 인덕원 게임사 (비공개) | Console QA | **📤 SUBMITTED** | 그린맨파워 이메일 제출 완료 (2026-03-16). 결과 대기 | `20_indeokwon_gameco/console_qa/` |
 | 21a | 네이버파이낸셜 | 대출비교 서비스 운영 | **📤 SUBMITTED** | 네이버 채용시스템 제출 완료 (2026-03-16). 결과 대기 | `21_naver_financial/loan_comparison_ops/` |
 | 21b | 네이버파이낸셜 | 정보보호 업무 운영 지원 | **📤 SUBMITTED** | 네이버 채용시스템 제출 완료 (2026-03-16). 결과 대기 | `21_naver_financial/privacy_protection_support/` |
 | 22 | 오스 주식회사 | 총무/자재관리 | **📤 SUBMITTED** | 제출 완료. 응답 없음. 상시채용 | `22_os_corporation/general_affairs_materials/` |
 | 23 | 데스코 (DESCO) | 경영지원/AX TEAM | **📤 SUBMITTED** | 제출 완료. 응답 없음. 광명 근무. 6개월 계약. 상시채용 | `23_desco/ax_team/` |
-| 24 | 엔씨소프트 (NCsoft) | 사내 복지시설 운영 (Workplace Motivation) | **📞 INTERVIEW** | 면접 4/1(화) 15:00 알파리움타워1동 지하1층 (판교). 연락처 02-2186-3373 | `24_ncsoft/workplace_motivation/` |
+| 24 | 엔씨소프트 (NCsoft) | 사내 복지시설 운영 (Workplace Motivation) | **📞 INTERVIEW** | 면접 4/1(수) 15:00 알파리움타워1동 지하1층 (판교). 연락처 02-2186-3373 | `24_ncsoft/workplace_motivation/` |
 | 24 | 엔씨소프트 (NCsoft) | 3D스캔 어시스턴트 | **📤 SUBMITTED** | 제출 완료 (2026-03-17). 마감 4/3. 결과 대기 | `24_ncsoft/3d_scan_assistant/` |
 | 24 | 엔씨소프트 (NCsoft) | 서비스 기획/운영 어시스턴트 | **📤 SUBMITTED** | 제출 완료 (2026-03-17). 마감 3/25. 결과 대기 | `24_ncsoft/service_planning_assistant/` |
 | 25 | 캐논코리아 (Canon Korea) | 영업지원 (Sales Support) | **📋 DISCOVERED** | 계약직 1년, 강남 본사. ERP/데이터/부서조율 ⭐⭐⭐ 매칭. 마감일 확인 필요 | `25_canon_korea/sales_support/` |
