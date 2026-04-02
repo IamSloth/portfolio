@@ -25,23 +25,23 @@
 |---|---------|----------|--------|---------------|---------------|
 | 09 | Neople (넥슨) | Budget Management | **📞 INTERVIEW** | 1차면접 3/10 완료, 결과 대기. **1순위** | `09_neople/budget_management/` |
 | 19 | 서울사회적경제센터 | SE 매니저 | **❌ REJECTED** | 최종면담 탈락 (2026-04-01). 합격자 명단 게시 후 3시간 대기 → 면담 → 직후 탈락 문자. 부당채용 의혹 | `19_seoul_se_center/se_manager/` |
-| 20 | 인덕원 게임사 (비공개) | Console QA | **📤 SUBMITTED** | 그린맨파워 이메일 제출 완료 (2026-03-16). 결과 대기 | `20_indeokwon_gameco/console_qa/` |
+| 20 | 인덕원 게임사 (비공개) | Console QA | **❌ NO_RESPONSE** | 그린맨파워 이메일 제출 (2026-03-16). 무응답 | `20_indeokwon_gameco/console_qa/` |
 | 21a | 네이버파이낸셜 | 대출비교 서비스 운영 | **❌ REJECTED** | 서류 불합격 (2026-04-01) | `21_naver_financial/loan_comparison_ops/` |
 | 21b | 네이버파이낸셜 | 정보보호 업무 운영 지원 | **❌ REJECTED** | 서류 불합격 (2026-04-01) | `21_naver_financial/privacy_protection_support/` |
-| 22 | 오스 주식회사 | 총무/자재관리 | **📤 SUBMITTED** | 제출 완료. 응답 없음. 상시채용 | `22_os_corporation/general_affairs_materials/` |
-| 23 | 데스코 (DESCO) | 경영지원/AX TEAM | **📤 SUBMITTED** | 제출 완료. 응답 없음. 광명 근무. 6개월 계약. 상시채용 | `23_desco/ax_team/` |
+| 22 | 오스 주식회사 | 총무/자재관리 | **📞 INTERVIEW** | 면접 4/8(수) 11:00. 상시채용 | `22_os_corporation/general_affairs_materials/` |
+| 23 | 데스코 (DESCO) | 경영지원/AX TEAM | **❌ NO_RESPONSE** | 무응답. 광명 근무. 6개월 계약 | `23_desco/ax_team/` |
 | 24 | 엔씨소프트 (NCsoft) | 사내 복지시설 운영 (Workplace Motivation) | **📞 INTERVIEW** | 면접 4/1(수) 15:00 알파리움타워1동 지하1층 (판교). 연락처 02-2186-3373 | `24_ncsoft/workplace_motivation/` |
 | 24 | 엔씨소프트 (NCsoft) | 3D스캔 어시스턴트 | **❌ REJECTED** | 서류 불합격 (2026-04-02) | `24_ncsoft/3d_scan_assistant/` |
 | 24 | 엔씨소프트 (NCsoft) | 서비스 기획/운영 어시스턴트 | **❌ REJECTED** | 서류 불합격 (2026-04-02) | `24_ncsoft/service_planning_assistant/` |
-| 25 | 캐논코리아 (Canon Korea) | 영업지원 (Sales Support) | **📋 DISCOVERED** | 계약직 1년, 강남 본사. ERP/데이터/부서조율 ⭐⭐⭐ 매칭. 마감일 확인 필요 | `25_canon_korea/sales_support/` |
+| 25 | 캐논코리아 (Canon Korea) | 영업지원 (Sales Support) | **❌ NO_RESPONSE** | 미지원/무응답 | `25_canon_korea/sales_support/` |
 | 26 | 빗썸나눔 (Bithumb Nanum) | CSR 활동 지원 | **📞 INTERVIEW** | 면접 4/6(월) 14:30. 장소 미정(추후 안내). 계약직 6개월 | `26_bithumb_nanum/csr_activity_support/` |
-| 28 | 시프트업 (SHIFT UP) | 인사 담당자 (기업부설연구소 관리) | **📤 SUBMITTED** | 채용페이지 제출 완료 (2026-03-18). 계약직 1년. 상시채용 | `28_shift_up/hr_research_lab/` |
-| 29 | 현대카드·현대커머셜 (씨아이템프러리) | 법인사업1팀 데이터 관리 | **📤 SUBMITTED** | 사람인 제출 완료 (2026-03-18). 파견 계약직. 결과 대기 | `29_hyundai_card/corporate_biz_data/` |
-| 30 | KB국민은행 철산 (휴머니아) | 사무지원 | **📤 SUBMITTED** | 이메일 제출 완료 (2026-03-18) → baeilsuk@naver.com. 결과 대기 | `30_kookmin_bank/cheolsan_admin_support/` |
-| 31 | 크리에이티브멋 | 총무 | **📤 SUBMITTED** | 사람인 제출 완료 (2026-03-19). 상시채용. 포폴: creative-mot.html | `31_creative_mot/general_affairs/` |
-| 32 | 한국투자증권 | 사무보조 (전문직급) | **📤 SUBMITTED** | 채용포털 제출 완료 (2026-03-19). 전문계약직 1년단위, 여의도 본사. 마감 3/26 | `32_korea_investment/office_assistant/` |
-| 33 | 빗썸 (Bithumb) | 경영관리 담당자 | **📤 SUBMITTED** | 나인하이어 제출 완료 (2026-03-19). 정규직 5-10년. 상시채용. 포폴: bithumb.html | `33_bithumb/management_admin/` |
-| 34 | 청년재단 | 전산·자산관리 (코드 A) | **📤 SUBMITTED** | 인크루트 제출 완료 (2026-03-19). 정규직, 경력3년+. 마감 3/30. **Strong Go** | `34_youth_foundation/it_asset_management/` |
+| 28 | 시프트업 (SHIFT UP) | 인사 담당자 (기업부설연구소 관리) | **❌ NO_RESPONSE** | 무응답. 계약직 1년. 상시채용 | `28_shift_up/hr_research_lab/` |
+| 29 | 현대카드·현대커머셜 (씨아이템프러리) | 법인사업1팀 데이터 관리 | **❌ NO_RESPONSE** | 무응답. 파견 계약직 | `29_hyundai_card/corporate_biz_data/` |
+| 30 | KB국민은행 철산 (휴머니아) | 사무지원 | **❌ NO_RESPONSE** | 무응답 | `30_kookmin_bank/cheolsan_admin_support/` |
+| 31 | 크리에이티브멋 | 총무 | **❌ NO_RESPONSE** | 무응답. 상시채용 | `31_creative_mot/general_affairs/` |
+| 32 | 한국투자증권 | 사무보조 (전문직급) | **❌ NO_RESPONSE** | 무응답. 마감 3/26 경과 | `32_korea_investment/office_assistant/` |
+| 33 | 빗썸 (Bithumb) | 경영관리 담당자 | **❌ NO_RESPONSE** | 무응답. 정규직 5-10년 | `33_bithumb/management_admin/` |
+| 34 | 청년재단 | 전산·자산관리 (코드 A) | **❌ NO_RESPONSE** | 무응답. 마감 3/30 경과 | `34_youth_foundation/it_asset_management/` |
 | 35a | 토스뱅크 | PA Operations Specialist | **📞 INTERVIEW** | 직무 인터뷰 4/3(금) 10:00 Google Meet(avb-apqn-ifj). 1~1.5h. NDA 회신 필요. 계약직 1년 | `35_toss/35a_bank_pa_operations/` |
 | 35b | 토스뱅크 | CSR Project Manager | **❌ REJECTED** | 서류 불합격 (2026-03-24). 정규직 | `35_toss/35b_bank_csr_pm/` |
 | 35c | 토스증권 | GA Manager | **❌ REJECTED** | 서류 불합격 (2026-03-23). 정규직. 35h도 여기에 중복제출 | `35_toss/35c_securities_ga_manager/` |
@@ -51,12 +51,12 @@
 | 35g | 토스 (본사) | GA Manager | **❌ REJECTED** | 서류 불합격 (2026-03-23). 정규직. 폴더명 rename 미완 | `35_toss/35g_bank_ga_manager/` |
 | 35h | 토스증권 | GA Specialist | **❌ REJECTED** | 서류 불합격 (2026-03-24). 계약직 1년. 35c에도 중복제출 | `35_toss/35h_securities_ga_specialist/` |
 | 35i | 토스인컴 | GA Specialist | **❌ REJECTED** | 서류 불합격 (2026-03-23). 계약직 1년 | `35_toss/35i_income_ga_specialist/` |
-| 35j | 토스뱅크 | IT Admin | **📤 SUBMITTED** | Greenhouse 제출 완료 (2026-03-20). 계약직 1년 | `35_toss/35j_bank_it_admin/` |
-| 36 | 키움증권 (사람인HS 파견) | 사무보조 | **📤 SUBMITTED** | 사람인 제출 완료 (2026-03-20). 파견 1년×2년계약, 여의도. 상시채용 | `36_kiwoom/office_assistant/` |
-| 37 | 서울히어로즈(주) | 지원팀 경영지원(회계) | **📤 SUBMITTED** | 사람인 제출 완료 (2026-03-22). 계약직 1년, 고척돔. 마감 4/10. **0순위** | `37_heroes_baseball/accounting/` |
-| 38 | 나이스계열사 (스타에이치알 파견) | 경영지원실 사무 | **📤 SUBMITTED** | 사람인 제출 완료 (2026-03-23). 파견 1년, 신도림. 상시채용 | `38_nice_group/business_support/` |
-| 39 | 우아한형제들 (Woowa) | 로보틱스운영(로봇배달 서비스 운영지원) | **📤 SUBMITTED** | 채용페이지 제출 완료 (2026-03-23). 기간제 12개월. 재지원(#12 탈락→개선). 포폴: woowa-robotics.html | `39_woowa/robotics_ops/` |
-| 40 | 크래프톤 (KRAFTON) | IT 구매 및 경영지원 담당자 | **📤 SUBMITTED** | Greenhouse 제출 완료 (2026-03-23). 계약직 1년(육휴대체). 포폴: krafton-it-procurement.html (taste-skill 적용) | `40_krafton/it_procurement/` |
+| 35j | 토스뱅크 | IT Admin | **❌ NO_RESPONSE** | 무응답. 계약직 1년 | `35_toss/35j_bank_it_admin/` |
+| 36 | 키움증권 (사람인HS 파견) | 사무보조 | **❌ NO_RESPONSE** | 무응답. 파견 1년×2년 | `36_kiwoom/office_assistant/` |
+| 37 | 서울히어로즈(주) | 지원팀 경영지원(회계) | **❌ NO_RESPONSE** | 무응답. 마감 4/10 | `37_heroes_baseball/accounting/` |
+| 38 | 나이스계열사 (스타에이치알 파견) | 경영지원실 사무 | **❌ NO_RESPONSE** | 무응답. 파견 1년 | `38_nice_group/business_support/` |
+| 39 | 우아한형제들 (Woowa) | 로보틱스운영(로봇배달 서비스 운영지원) | **❌ NO_RESPONSE** | 무응답. 재지원(#12 탈락→개선) | `39_woowa/robotics_ops/` |
+| 40 | 크래프톤 (KRAFTON) | IT 구매 및 경영지원 담당자 | **❌ NO_RESPONSE** | 무응답. 계약직 1년(육휴대체) | `40_krafton/it_procurement/` |
 | 03 | 11st | General Affairs | **⏸️ ON_HOLD** | 지원 안 함 (보류 → 미지원 확정) | `03_11st/general_affairs/` |
 
 ### Closed Applications
@@ -88,6 +88,22 @@
 | 19 | 서울사회적경제센터 | SE 매니저 | ❌ REJECTED | 최종면담 탈락 (2026-04-01). 합격자 명단 게시 후 면담에서 탈락. 부당채용 의혹 |
 | 21a | 네이버파이낸셜 | 대출비교 서비스 운영 | ❌ REJECTED | 서류 불합격 (2026-04-01) |
 | 21b | 네이버파이낸셜 | 정보보호 업무 운영 지원 | ❌ REJECTED | 서류 불합격 (2026-04-01) |
+| 20 | 인덕원 게임사 (비공개) | Console QA | ❌ NO_RESPONSE | 무응답 |
+| 23 | 데스코 (DESCO) | 경영지원/AX TEAM | ❌ NO_RESPONSE | 무응답 |
+| 25 | 캐논코리아 | 영업지원 | ❌ NO_RESPONSE | 무응답 |
+| 28 | 시프트업 | 인사 담당자 | ❌ NO_RESPONSE | 무응답 |
+| 29 | 현대카드 (씨아이템프러리) | 법인사업1팀 데이터 관리 | ❌ NO_RESPONSE | 무응답 |
+| 30 | KB국민은행 철산 | 사무지원 | ❌ NO_RESPONSE | 무응답 |
+| 31 | 크리에이티브멋 | 총무 | ❌ NO_RESPONSE | 무응답 |
+| 32 | 한국투자증권 | 사무보조 | ❌ NO_RESPONSE | 무응답. 마감 3/26 경과 |
+| 33 | 빗썸 | 경영관리 담당자 | ❌ NO_RESPONSE | 무응답 |
+| 34 | 청년재단 | 전산·자산관리 | ❌ NO_RESPONSE | 무응답. 마감 3/30 경과 |
+| 35j | 토스뱅크 | IT Admin | ❌ NO_RESPONSE | 무응답 |
+| 36 | 키움증권 | 사무보조 | ❌ NO_RESPONSE | 무응답 |
+| 37 | 서울히어로즈 | 경영지원(회계) | ❌ NO_RESPONSE | 무응답. 마감 4/10 |
+| 38 | 나이스계열사 | 경영지원실 사무 | ❌ NO_RESPONSE | 무응답 |
+| 39 | 우아한형제들 | 로보틱스운영 | ❌ NO_RESPONSE | 무응답. 재지원 |
+| 40 | 크래프톤 | IT 구매 및 경영지원 | ❌ NO_RESPONSE | 무응답 |
 
 ## Pending Decisions
 - **Side business (인간지능)**: On hiatus. VAT zero-filing done. Resume when business restarts.
