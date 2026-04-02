@@ -1,10 +1,10 @@
 ---
 company: 서울특별시 사회적경제지원센터
 position: 사회적경제 매니저
-status: 📬 DOC_PASSED
+status: ❌ REJECTED
 discovered: 2026-03-05
 submitted: 2026-03-08
-last_updated: 2026-03-08
+last_updated: 2026-04-01
 deadline: 2026-03-19
 ---
 

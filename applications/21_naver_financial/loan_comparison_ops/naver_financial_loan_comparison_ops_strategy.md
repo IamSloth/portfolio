@@ -1,9 +1,9 @@
 ---
 company: 네이버파이낸셜
 position: 대출비교 서비스 운영 담당자
-status: 📤 SUBMITTED
+status: ❌ REJECTED
 discovered: 2026-03-16
-last_updated: 2026-03-16
+last_updated: 2026-04-01
 deadline: 2026-03-24
 ---
 

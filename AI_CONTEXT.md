@@ -7,35 +7,32 @@
 
 | Field | Value |
 |-------|-------|
-| date | 2026-03-30 |
+| date | 2026-04-01 |
 | agent | Claude Opus 4.6 |
-| work | 면접 준비 대시보드 웹 배포 + 4건 면접 준비 콘텐츠 |
+| work | 면접 결과 반영 (사경센터 REJECTED, 네이버파이낸셜 2건 REJECTED) + 대시보드 업데이트 |
 | commit | latest |
 
 ### 이번 세션 요약
-- **면접 준비 대시보드**: `docs/interview-prep.html` 생성 → GitHub Pages 배포
-  - 사경센터 최종면담(4/1 09:00), NCsoft 1차(4/1 15:00), 토스 직무(4/3 10:00), 빗썸나눔(4/6 14:30) 4건
-  - 모바일 최적화 (Galaxy S23 Ultra / Samsung Browser), 하단 네비 + 텔레그램 연동
-- **전략 업데이트**: NCsoft strategy #7 면접준비 작성, 사경센터 strategy #8 최종면담 준비 추가
-- **메모리 정리**: 25→15파일 통합, MEMORY.md 리빌드
-- **AI_CONTEXT 수정**: 예비합격자 2명→1명, 빗썸나눔 INTERVIEW 상태 변경
-- **캘린더 등록**: NCsoft(4/1), 빗썸나눔(4/6) Google Calendar 등록 완료
-- **이전 세션**: #40 크래프톤, #39 우아한형제들, #38 나이스계열사
+- **사경센터 탈락**: 최종면담 후 탈락. 합격자 명단 게시→3시간 대기→면담→직후 탈락 문자. 센터장 장능인 부당채용 의혹.
+- **네이버파이낸셜 2건 탈락**: 대출비교 서비스 운영 + 정보보호 업무 운영 지원, 서류 불합격 (4/1)
+- **법적 대응 검토**: 고용노동부 진정(부당해고=채용내정 취소), 국민신문고 민원, 잡플래닛 후기 등
+- **파일 업데이트**: strategy.md×3, dashboard.html, AI_CONTEXT.md 상태 반영
+- **이전 세션**: 면접 준비 대시보드 배포, GitHub Pages, Google Calendar 연동
 
 ## Active Applications
 
 | # | Company | Position | Status | Priority TODO | Strategy Path |
 |---|---------|----------|--------|---------------|---------------|
 | 09 | Neople (넥슨) | Budget Management | **📞 INTERVIEW** | 1차면접 3/10 완료, 결과 대기. **1순위** | `09_neople/budget_management/` |
-| 19 | 서울사회적경제센터 | SE 매니저 | **🎯 FINAL** | **면접 합격자 발표** (공고 제2026-8호). 최종면담 4/1(수) 09:00 (센터장/이사장). 합격자 2명, 예비합격자 1명. 면담 통과 시 사실상 확정 | `19_seoul_se_center/se_manager/` |
+| 19 | 서울사회적경제센터 | SE 매니저 | **❌ REJECTED** | 최종면담 탈락 (2026-04-01). 합격자 명단 게시 후 3시간 대기 → 면담 → 직후 탈락 문자. 부당채용 의혹 | `19_seoul_se_center/se_manager/` |
 | 20 | 인덕원 게임사 (비공개) | Console QA | **📤 SUBMITTED** | 그린맨파워 이메일 제출 완료 (2026-03-16). 결과 대기 | `20_indeokwon_gameco/console_qa/` |
-| 21a | 네이버파이낸셜 | 대출비교 서비스 운영 | **📤 SUBMITTED** | 네이버 채용시스템 제출 완료 (2026-03-16). 결과 대기 | `21_naver_financial/loan_comparison_ops/` |
-| 21b | 네이버파이낸셜 | 정보보호 업무 운영 지원 | **📤 SUBMITTED** | 네이버 채용시스템 제출 완료 (2026-03-16). 결과 대기 | `21_naver_financial/privacy_protection_support/` |
+| 21a | 네이버파이낸셜 | 대출비교 서비스 운영 | **❌ REJECTED** | 서류 불합격 (2026-04-01) | `21_naver_financial/loan_comparison_ops/` |
+| 21b | 네이버파이낸셜 | 정보보호 업무 운영 지원 | **❌ REJECTED** | 서류 불합격 (2026-04-01) | `21_naver_financial/privacy_protection_support/` |
 | 22 | 오스 주식회사 | 총무/자재관리 | **📤 SUBMITTED** | 제출 완료. 응답 없음. 상시채용 | `22_os_corporation/general_affairs_materials/` |
 | 23 | 데스코 (DESCO) | 경영지원/AX TEAM | **📤 SUBMITTED** | 제출 완료. 응답 없음. 광명 근무. 6개월 계약. 상시채용 | `23_desco/ax_team/` |
 | 24 | 엔씨소프트 (NCsoft) | 사내 복지시설 운영 (Workplace Motivation) | **📞 INTERVIEW** | 면접 4/1(수) 15:00 알파리움타워1동 지하1층 (판교). 연락처 02-2186-3373 | `24_ncsoft/workplace_motivation/` |
-| 24 | 엔씨소프트 (NCsoft) | 3D스캔 어시스턴트 | **📤 SUBMITTED** | 제출 완료 (2026-03-17). 마감 4/3. 결과 대기 | `24_ncsoft/3d_scan_assistant/` |
-| 24 | 엔씨소프트 (NCsoft) | 서비스 기획/운영 어시스턴트 | **📤 SUBMITTED** | 제출 완료 (2026-03-17). 마감 3/25. 결과 대기 | `24_ncsoft/service_planning_assistant/` |
+| 24 | 엔씨소프트 (NCsoft) | 3D스캔 어시스턴트 | **❌ REJECTED** | 서류 불합격 (2026-04-02) | `24_ncsoft/3d_scan_assistant/` |
+| 24 | 엔씨소프트 (NCsoft) | 서비스 기획/운영 어시스턴트 | **❌ REJECTED** | 서류 불합격 (2026-04-02) | `24_ncsoft/service_planning_assistant/` |
 | 25 | 캐논코리아 (Canon Korea) | 영업지원 (Sales Support) | **📋 DISCOVERED** | 계약직 1년, 강남 본사. ERP/데이터/부서조율 ⭐⭐⭐ 매칭. 마감일 확인 필요 | `25_canon_korea/sales_support/` |
 | 26 | 빗썸나눔 (Bithumb Nanum) | CSR 활동 지원 | **📞 INTERVIEW** | 면접 4/6(월) 14:30. 장소 미정(추후 안내). 계약직 6개월 | `26_bithumb_nanum/csr_activity_support/` |
 | 28 | 시프트업 (SHIFT UP) | 인사 담당자 (기업부설연구소 관리) | **📤 SUBMITTED** | 채용페이지 제출 완료 (2026-03-18). 계약직 1년. 상시채용 | `28_shift_up/hr_research_lab/` |
@@ -85,7 +82,12 @@
 | 17 | 성공회대학교 | 학생복지처 일반직 | ❌ NO_RESPONSE | 사람인 제출 (2026-03-05). 14일 무응답 |
 | 18 | KASW (한국사회복지사협회) | 자격관리본부 | ❌ REJECTED | 서류전형 불합격 |
 | 24 | 엔씨소프트 (NCsoft) | HR 사무지원 | ❌ REJECTED | 서류전형 불합격 (2026-03-20) |
+| 24 | 엔씨소프트 (NCsoft) | 3D스캔 어시스턴트 | ❌ REJECTED | 서류 불합격 (2026-04-02) |
+| 24 | 엔씨소프트 (NCsoft) | 서비스 기획/운영 어시스턴트 | ❌ REJECTED | 서류 불합격 (2026-04-02) |
 | 27 | 카카오 (Kakao) | AI 데이터 라벨링 어시스턴트 | ❌ REJECTED | 서류전형 불합격 (2026-03-20) |
+| 19 | 서울사회적경제센터 | SE 매니저 | ❌ REJECTED | 최종면담 탈락 (2026-04-01). 합격자 명단 게시 후 면담에서 탈락. 부당채용 의혹 |
+| 21a | 네이버파이낸셜 | 대출비교 서비스 운영 | ❌ REJECTED | 서류 불합격 (2026-04-01) |
+| 21b | 네이버파이낸셜 | 정보보호 업무 운영 지원 | ❌ REJECTED | 서류 불합격 (2026-04-01) |
 
 ## Pending Decisions
 - **Side business (인간지능)**: On hiatus. VAT zero-filing done. Resume when business restarts.
