@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="description" content="임종권 엔엑스쓰리게임즈 IT 인프라 담당자 지원 웹 포트폴리오">
+<title>임종권 — 엔엑스쓰리게임즈 IT 인프라 포트폴리오</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --black:#0e1116;--ink:#191f28;--g800:#252b35;--g700:#333d4b;--g500:#6b7684;--g400:#8b95a1;--g300:#c9ced6;--g200:#e5e8eb;--g100:#f2f4f6;--white:#fff;
+  --blue:#2f6df6;--blue-soft:#eaf1ff;--green:#1c7c54;--green-soft:#e9f7ef;
+}
+html{scroll-behavior:smooth}
+body{font-family:Pretendard,"Noto Sans KR","Malgun Gothic",Arial,sans-serif;background:#fff;color:var(--ink);word-break:keep-all;overflow-wrap:normal;letter-spacing:0}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.nav{position:fixed;z-index:30;left:0;right:0;top:0;height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 32px;background:rgba(14,17,22,.78);color:#fff;backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,255,255,.1)}
+.brand{font-size:18px;font-weight:900}.brand span{font-weight:300;color:rgba(255,255,255,.52)}
+.nav-links{display:flex;gap:22px;font-size:13px;font-weight:800;color:rgba(255,255,255,.72)}.nav-links a:hover{color:#fff}
+.hero{min-height:92vh;background:var(--black);color:#fff;position:relative;overflow:hidden;display:grid;align-items:center;padding:112px 32px 56px}
+.hero:before{content:"NeXt\A eXperience\A eXplorer";white-space:pre;position:absolute;right:-2vw;top:10vh;font-size:clamp(64px,11vw,164px);line-height:.9;color:rgba(255,255,255,.06);font-weight:200}
+.hero:after{content:"X";position:absolute;left:-1vw;bottom:-10vh;font-size:clamp(240px,36vw,560px);line-height:.8;color:rgba(255,255,255,.035);font-weight:100;font-family:Arial,sans-serif}
+.hero-inner{width:min(1180px,100%);margin:0 auto;display:grid;grid-template-columns:1.08fr .92fr;gap:56px;align-items:center;position:relative;z-index:2}
+.eyebrow{font-size:12px;letter-spacing:5px;font-weight:900;color:rgba(255,255,255,.55);margin-bottom:20px}
+h1{font-size:clamp(48px,8vw,104px);line-height:.95;font-weight:950;letter-spacing:0;margin-bottom:26px}.xmark{font-weight:200;color:rgba(255,255,255,.58)}
+.lead{font-size:clamp(17px,2vw,24px);line-height:1.58;font-weight:750;color:rgba(255,255,255,.86);max-width:760px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}.pill{display:inline-flex;align-items:center;height:42px;padding:0 18px;border-radius:999px;font-size:13px;font-weight:900;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.08);color:#fff}
+.hero-visual{display:grid;grid-template-columns:1fr .84fr;gap:14px;align-items:stretch}
+.portrait{height:520px;border-radius:8px;overflow:hidden;border:1px solid rgba(255,255,255,.18);background:#222}.portrait img{width:100%;height:100%;object-fit:cover}
+.hero-stack{display:grid;gap:14px}.proof-shot{height:253px;border-radius:8px;overflow:hidden;background:#222;border:1px solid rgba(255,255,255,.14);position:relative}.proof-shot img{width:100%;height:100%;object-fit:cover}.proof-shot .cap{position:absolute;left:12px;bottom:12px;background:rgba(14,17,22,.72);color:#fff;font-size:12px;font-weight:850;padding:7px 10px;border-radius:999px}
+.section{padding:92px 32px}.wrap{width:min(1180px,100%);margin:0 auto}
+.section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:32px;margin-bottom:32px}.kicker{font-size:12px;letter-spacing:4px;text-transform:uppercase;font-weight:950;color:var(--g400);margin-bottom:10px}h2{font-size:clamp(34px,5vw,64px);line-height:1.05;font-weight:950;letter-spacing:0}.section-copy{max-width:520px;font-size:17px;line-height:1.74;color:var(--g700)}
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.metric{background:var(--g100);border-radius:8px;padding:28px 24px;min-height:188px}.metric b{display:block;font-size:42px;line-height:1;margin-bottom:16px;color:#111}.metric strong{display:block;font-size:16px;margin-bottom:8px}.metric p{font-size:14px;line-height:1.7;color:var(--g700)}
+.dark{background:var(--black);color:#fff}.dark .kicker{color:rgba(255,255,255,.4)}.dark .section-copy{color:rgba(255,255,255,.7)}
+.evidence{display:grid;grid-template-columns:1.1fr .9fr;gap:18px;align-items:stretch}.evidence-main{height:540px;border-radius:8px;overflow:hidden;background:#222}.evidence-main img{width:100%;height:100%;object-fit:cover}.evidence-list{display:grid;gap:14px}.evidence-item{display:grid;grid-template-columns:150px 1fr;gap:16px;align-items:center;background:#181c23;border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:12px}.evidence-thumb{height:112px;border-radius:6px;overflow:hidden;background:#222}.evidence-thumb img{width:100%;height:100%;object-fit:cover}.evidence-text b{display:block;font-size:17px;margin-bottom:7px}.evidence-text p{font-size:14px;line-height:1.65;color:rgba(255,255,255,.68)}
+.projects{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.project{border:1px solid var(--g200);border-radius:8px;overflow:hidden;background:#fff}.project-img{height:220px;background:#111;overflow:hidden}.project-img img{width:100%;height:100%;object-fit:cover}.project-body{padding:22px}.tagline{font-size:12px;font-weight:950;color:var(--blue);letter-spacing:2px;margin-bottom:10px}.project h3{font-size:22px;line-height:1.25;margin-bottom:12px}.project p{font-size:15px;line-height:1.72;color:var(--g700)}.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}.chip{font-size:12px;font-weight:850;background:var(--g100);color:var(--g700);border-radius:999px;padding:6px 10px}
+.fit{display:grid;grid-template-columns:.9fr 1.1fr;gap:24px;align-items:start}.fit-board{border-top:2px solid #111}.fit-row{display:grid;grid-template-columns:160px 64px 1fr;gap:16px;padding:19px 0;border-bottom:1px solid var(--g200);align-items:start}.fit-row strong{font-size:16px}.grade{display:inline-grid;place-items:center;width:44px;height:30px;background:#111;color:#fff;border-radius:999px;font-size:13px;font-weight:950}.fit-row p{font-size:15px;line-height:1.65;color:var(--g700)}
+.gapbox{background:var(--g100);border-radius:8px;padding:28px}.gapbox h3{font-size:24px;margin-bottom:16px}.gap-list{display:grid;gap:14px}.gap-list div{background:#fff;border-radius:8px;padding:16px}.gap-list b{display:block;margin-bottom:6px}.gap-list p{font-size:15px;line-height:1.65;color:var(--g700)}
+.timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.step{background:#181c23;border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:24px;min-height:230px}.step small{display:block;color:rgba(255,255,255,.4);font-weight:950;letter-spacing:3px;margin-bottom:16px}.step b{display:block;font-size:22px;margin-bottom:12px}.step p{font-size:15px;line-height:1.72;color:rgba(255,255,255,.7)}
+.closing{padding:110px 32px;background:#f7f8fa}.closing-box{width:min(1180px,100%);margin:0 auto;display:grid;grid-template-columns:1fr .7fr;gap:44px;align-items:center}.closing h2{font-size:clamp(38px,6vw,78px)}.closing p{font-size:18px;line-height:1.8;color:var(--g700);margin-top:18px}.contact-card{background:#fff;border-radius:8px;padding:28px;border:1px solid var(--g200)}.contact-card div{font-size:15px;color:var(--g700);line-height:1.9}.footer{padding:34px;text-align:center;color:var(--g500);border-top:1px solid var(--g200)}
+@media(max-width:960px){
+  .nav{padding:0 18px}.nav-links{display:none}.hero{padding:96px 20px 42px}.hero-inner,.hero-visual,.section-head,.evidence,.fit,.closing-box{grid-template-columns:1fr}.portrait{height:360px}.proof-shot{height:190px}.metrics,.projects,.timeline{grid-template-columns:1fr 1fr}.fit-row{grid-template-columns:1fr}.evidence-item{grid-template-columns:120px 1fr}.section{padding:70px 20px}
+}
+@media(max-width:620px){
+  h1{font-size:44px;line-height:.98}.lead{font-size:16px;line-height:1.62}.metrics,.projects,.timeline{grid-template-columns:1fr}.evidence-main{height:320px}.evidence-item{grid-template-columns:1fr}.evidence-thumb{height:180px}.hero-actions{display:none}.closing{padding:72px 20px}.contact-card{padding:22px}
+}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="brand">임종권 <span>×</span> NX3</div>
+  <div class="nav-links">
+    <a href="#evidence">근거</a><a href="#projects">사례</a><a href="#fit">요건</a><a href="#plan">계획</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="eyebrow">엔엑스쓰리게임즈 · IT 인프라</div>
+      <h1>운영 기준을<br>만드는 사람<span class="xmark">.</span></h1>
+      <p class="lead">자동화, IT 자산, 시스템 운영, 근무환경 지원을 분리하지 않습니다. 구성원이 막히는 지점을 확인하고, 반복 문제가 줄어들도록 기준과 기록을 남깁니다.</p>
+      <div class="hero-actions">
+        <a class="pill" href="#projects">프로젝트 보기</a>
+        <a class="pill" href="#plan">입사 후 실행 방식</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="portrait"><img src="./assets/profile.png" alt="임종권 프로필 사진"></div>
+      <div class="hero-stack">
+        <div class="proof-shot"><img src="./assets/projects/photo_erp_highq.png" alt="High-Q ERP 운영 화면"><span class="cap">ERP 운영 전환</span></div>
+        <div class="proof-shot"><img src="./assets/projects/photo_metaverse_award_present.jpg" alt="메타버스 콘텐츠 리크루팅 캠프 수상 발표"><span class="cap">Unity·VR/AR 학습 증거</span></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div><div class="kicker">운영 성과</div><h2>숫자로 남은 운영 경험</h2></div>
+      <p class="section-copy">엔엑스쓰리게임즈 IT 인프라 담당자에게 필요한 업무는 장비 관리 하나가 아니라, 요청·자산·시스템·업체·근무환경을 한 흐름으로 묶어 운영하는 일입니다.</p>
+    </div>
+    <div class="metrics">
+      <div class="metric"><b>3.6억</b><strong>인프라 예산 관리</strong><p>계약, 검수, 정산, 증빙 흐름을 기준화해 예산 집행 누락을 줄였습니다.</p></div>
+      <div class="metric"><b>8개사+</b><strong>협력사 운영</strong><p>복합기, 전자계약, 네트워크, 소방·전기 등 외주업체 요청과 일정을 관리했습니다.</p></div>
+      <div class="metric"><b>ERP</b><strong>시스템 전환</strong><p>High-Q 도입 실무, 데이터 이관, 사용자 업무 기준 정리를 맡았습니다.</p></div>
+      <div class="metric"><b>Unity</b><strong>게임 개발 이해</strong><p>AR 시스템제어 과정에서 게임형 인터랙션과 VR/AR 콘텐츠를 제작했습니다.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="evidence" class="section dark">
+  <div class="wrap">
+    <div class="section-head">
+      <div><div class="kicker">실무 근거</div><h2>사진으로 보이는 실무 근거</h2></div>
+      <p class="section-copy">웹 포트폴리오는 PDF보다 자유롭게 증거를 보여줄 수 있습니다. ERP, IoT 장비, 센서 로그, Unity·VR/AR 수상 경험을 한 화면에서 연결했습니다.</p>
+    </div>
+    <div class="evidence">
+      <div class="evidence-main"><img src="./assets/projects/photo_metaverse_award.jpg" alt="메타버스 콘텐츠 리크루팅 캠프 대상 수상 현장"></div>
+      <div class="evidence-list">
+        <div class="evidence-item"><div class="evidence-thumb"><img src="./assets/projects/photo_erp_highq.png" alt="ERP 화면"></div><div class="evidence-text"><b>ERP 운영 전환</b><p>엑셀 중심의 업무를 시스템 기준으로 옮기며 데이터와 사용자 기준을 정리했습니다.</p></div></div>
+        <div class="evidence-item"><div class="evidence-thumb"><img src="./assets/projects/photo_iot_modlink_board.jpg" alt="IoT 보드"></div><div class="evidence-text"><b>장비와 소프트웨어 사이</b><p>ESP32·센서·앱 연동 경험으로 장비 이슈를 소프트웨어 흐름과 함께 봅니다.</p></div></div>
+        <div class="evidence-item"><div class="evidence-thumb"><img src="./assets/projects/photo_blynk_graph.jpg" alt="센서 데이터 그래프"></div><div class="evidence-text"><b>로그와 모니터링</b><p>센서 데이터와 상태 변화를 그래프로 확인하고, 테스트 결과를 공유했습니다.</p></div></div>
+        <div class="evidence-item"><div class="evidence-thumb"><img src="./assets/projects/photo_desalination_equipment.jpg" alt="해수담수화 장비"></div><div class="evidence-text"><b>현장 장비 대응</b><p>프로토타입 장비 제어와 테스트 경험은 인프라 장애 원인 파악 감각으로 이어집니다.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects" class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div><div class="kicker">관련 경험</div><h2>NX3와 맞닿은 실무 사례</h2></div>
+      <p class="section-copy">게임사 근무 경험은 없지만, 개발 조직을 지원하는 내부 인프라 업무와 맞닿은 경험은 분명합니다.</p>
+    </div>
+    <div class="projects">
+      <article class="project">
+        <div class="project-img"><img src="./assets/projects/photo_erp_highq.png" alt="ERP 운영 화면"></div>
+        <div class="project-body"><div class="tagline">운영 기준 정리</div><h3>High-Q ERP 도입 실무</h3><p>데이터 정리, 이관, 사용자 업무 기준 정리까지 맡았습니다. 새 시스템을 도입할 때 중요한 것은 기능보다 기준, 권한, 기록이라는 점을 경험했습니다.</p><div class="chips"><span class="chip">ERP</span><span class="chip">데이터 이관</span><span class="chip">사용자 기준</span></div></div>
+      </article>
+      <article class="project">
+        <div class="project-img"><img src="./assets/projects/photo_blynk_data.jpg" alt="Blynk 센서 데이터 화면"></div>
+        <div class="project-body"><div class="tagline">장비 로그 확인</div><h3>장비 제어·센서 로그</h3><p>ESP32 기반 장비 제어와 앱 연동 테스트를 수행했습니다. 개발자 요청을 단순 민원이 아니라 장비, 로그, UI 흐름이 연결된 문제로 이해할 수 있습니다.</p><div class="chips"><span class="chip">ESP32</span><span class="chip">IoT</span><span class="chip">QA</span></div></div>
+      </article>
+      <article class="project">
+        <div class="project-img"><img src="./assets/projects/photo_metaverse_award_present.jpg" alt="메타버스 콘텐츠 리크루팅 캠프 발표"></div>
+        <div class="project-body"><div class="tagline">게임 제작 이해</div><h3>Unity·VR/AR 콘텐츠</h3><p>한국폴리텍 AR 시스템제어 과정에서 Unity 기반 게임형 인터랙션과 VR/AR 콘텐츠를 제작했습니다. 게임 개발 실무 경력은 아니지만, 개발 환경의 언어를 이해하는 기반입니다.</p><div class="chips"><span class="chip">Unity</span><span class="chip">VR/AR</span><span class="chip">대상 수상</span></div></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="fit" class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div><div class="kicker">요건 대응</div><h2>채용 요건별 대응</h2></div>
+      <p class="section-copy">강점은 전면에 두고, 제한적인 경험은 과장하지 않고 적응 계획으로 분리했습니다.</p>
+    </div>
+    <div class="fit">
+      <div class="fit-board">
+        <div class="fit-row"><strong>AI·오픈소스 자동화</strong><span class="grade">상</span><p>반복 문서, 비교표, HTML/PDF 산출 흐름을 직접 구성했습니다. 자동화는 기존 기준을 무너뜨리지 않고 누락을 줄이는 방식으로 적용합니다.</p></div>
+        <div class="fit-row"><strong>IT 자산·시스템 운영</strong><span class="grade">상</span><p>PC·SW·라이선스·계정·외주 유지보수 현황을 정리하고, 유휴 장비 재배치와 사용자 문의 대응을 수행했습니다.</p></div>
+        <div class="fit-row"><strong>업무 히스토리 관리</strong><span class="grade">상</span><p>ERP 도입, 입찰, 계약, 정산, 자산 현황을 문서·목록 기준으로 남기는 방식에 익숙합니다.</p></div>
+        <div class="fit-row"><strong>보안 기준 준수</strong><span class="grade">중상</span><p>계정·권한·계약·개인정보가 포함된 요청은 담당자 확인과 처리 이력 기준으로 관리했습니다.</p></div>
+        <div class="fit-row"><strong>개발 환경 이해</strong><span class="grade">중상</span><p>Unity 기반 게임·VR/AR 콘텐츠, ESP32 장비 제어, UI/UX QA 경험을 보유했습니다.</p></div>
+      </div>
+      <aside class="gapbox">
+        <h3>약점은 숨기지 않고 처리합니다</h3>
+        <div class="gap-list">
+          <div><b>클라우드·가상화 운영</b><p>직접 운영자로 맡은 경험은 제한적입니다. 대신 서버·네트워크 기본 구조, 로그 기반 이슈 확인, 시스템 전환 경험을 바탕으로 내부 기준부터 빠르게 익히겠습니다.</p></div>
+          <div><b>게임사 근무 경험</b><p>게임사 소속 실무 경험은 없습니다. 다만 Unity·VR/AR 교육, 임베디드 QA, 내부 사용자 지원 경험으로 개발 조직의 업무 흐름을 방해하지 않는 지원을 기준으로 움직일 수 있습니다.</p></div>
+          <div><b>자동화 적용 방식</b><p>처음부터 큰 시스템을 만들기보다, 누락이 많은 현황표·안내문·반복 확인 업무부터 작은 자동화를 적용하겠습니다.</p></div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section id="plan" class="section dark">
+  <div class="wrap">
+    <div class="section-head">
+      <div><div class="kicker">실행 계획</div><h2>입사 후 실행 방식</h2></div>
+      <p class="section-copy">첫 달은 크게 바꾸지 않습니다. 먼저 목록화하고, 기준을 확인하고, 반복되는 문제부터 줄이겠습니다.</p>
+    </div>
+    <div class="timeline">
+      <div class="step"><small>1주차</small><b>현황 파악</b><p>자산, 계정, 라이선스, 유지보수 업체, 장애 접수 흐름을 먼저 목록화합니다.</p></div>
+      <div class="step"><small>1개월</small><b>처리 기준 정리</b><p>자주 반복되는 문의, 담당자 확인이 필요한 요청, 보안 기준이 필요한 요청을 분리합니다.</p></div>
+      <div class="step"><small>3개월</small><b>작은 자동화</b><p>누락이 많은 현황표와 반복 안내부터 템플릿, 체크리스트, 간단한 자동화로 바꿉니다.</p></div>
+      <div class="step"><small>6개월</small><b>운영 개선</b><p>처리 이력과 반복 문의 데이터를 기준으로 자산·계정·업체 운영 흐름을 개선합니다.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="closing">
+  <div class="closing-box">
+    <div>
+      <div class="kicker">마무리</div>
+      <h2>새로운 경험은<br>단단한 운영 위에서<br>빨라집니다.</h2>
+      <p>엔엑스쓰리게임즈의 IT 인프라 담당자는 개발 조직의 속도를 지키는 자리라고 봅니다. 저는 기술과 운영 사이에서 요청을 정리하고, 기록을 남기고, 같은 문제가 반복되지 않게 만드는 방식으로 일해왔습니다.</p>
+    </div>
+    <div class="contact-card">
+      <div><b>지원자</b><br>임종권</div>
+      <div><b>지원 포지션</b><br>엔엑스쓰리게임즈 IT 인프라 담당자</div>
+      <div><b>연락처</b><br>ssujklim@gmail.com<br>010-4052-0834</div>
+      <div><b>핵심 키워드</b><br>IT 자산 · 업무 자동화 · ERP 도입 · Unity/VR/AR · 보안 기준 준수</div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">임종권 · 엔엑스쓰리게임즈 IT 인프라 담당자 지원 웹 포트폴리오</footer>
+</body>
+</html>

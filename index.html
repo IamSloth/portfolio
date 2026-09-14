@@ -1,11 +1,287 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="ko">
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="refresh" content="0; url=ice-breaker-privacy.html">
-  <title>Ice Breaker Privacy Policy</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>임종권 — Operations × Technology</title>
+<meta name="description" content="회로 설계와 하드웨어에서 출발해 IoT, ERP와 IT 운영까지. 기술을 실제 조직의 흐름으로 옮겨온 임종권의 커리어 포트폴리오.">
+<meta property="og:title" content="임종권 — Operations × Technology">
+<meta property="og:description" content="하드웨어 → IoT → 운영. 기술을 실제 업무 안에서 작동하게 만드는 일을 해온 임종권의 포트폴리오.">
+<meta property="og:image" content="assets/profile.png">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-  <p><a href="ice-breaker-privacy.html">Ice Breaker Privacy Policy</a></p>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <a class="nav-name" href="#cover">임종권</a>
+  <button class="nav-toggle" id="nav-toggle" aria-label="메뉴 열기" aria-expanded="false">
+    <span></span><span></span>
+  </button>
+  <div class="nav-links" id="nav-links">
+    <a href="#work">SELECTED WORK</a>
+    <a href="#career">CAREER</a>
+    <a href="#capabilities">CAPABILITIES</a>
+    <a href="#about">ABOUT</a>
+    <a href="#contact">CONTACT</a>
+  </div>
+</nav>
+
+<main>
+
+<!-- 01 COVER -->
+<section class="cover" id="cover">
+  <div class="cover-meta">
+    <span>PORTFOLIO 2016—2026</span>
+    <span>OPERATIONS × TECHNOLOGY</span>
+    <span>SEOUL, KR</span>
+  </div>
+
+  <h1 class="cover-name">임종권</h1>
+
+  <div class="cover-statement">
+    <p class="cover-headline">만들고,<br>연결하고,<br>운영했습니다.</p>
+    <p class="cover-sub">회로 설계에서 IoT,<br>ERP와 IT 운영까지.<br>기술을 실제 조직의 흐름으로<br>옮기는 일을 해왔습니다.</p>
+  </div>
+
+  <div class="cover-index">
+    <span><b>2016—2018</b> HARDWARE</span>
+    <span><b>2020—2021</b> IoT &amp; QA</span>
+    <span><b>2023—2026</b> OPERATIONS &amp; IT</span>
+  </div>
+</section>
+
+<!-- 02 SELECTED WORK -->
+<section class="work" id="work">
+  <header class="section-head">
+    <span class="section-no">02</span>
+    <h2 class="section-title">SELECTED WORK</h2>
+  </header>
+
+  <!-- (A) ERP — OPERATE -->
+  <article class="proj proj-erp reveal" id="proj-erp">
+    <div class="proj-erp-info">
+      <div class="proj-tag">
+        <span class="proj-no">A</span>
+        <span class="proj-cat">OPERATE</span>
+      </div>
+      <h3 class="proj-name">커스텀 ERP 도입</h3>
+      <p class="proj-line">수기 장부와 Excel 혼용을 단일 시스템으로 통합한 ERP 도입 프로젝트</p>
+      <dl class="proj-meta">
+        <div><dt>역할</dt><dd>도입 실무 단독 전담</dd></div>
+        <div><dt>기간</dt><dd>2023.07 – 2024.12 (18개월)</dd></div>
+      </dl>
+    </div>
+    <figure class="proj-erp-img">
+      <img src="assets/projects/photo_erp_highq.png" alt="도입한 커스텀 ERP 화면" width="1884" height="919" loading="lazy">
+    </figure>
+    <div class="proj-prsr">
+      <div><h4>문제</h4><p>수기 장부와 Excel을 혼용해 데이터가 흩어지고 검증이 어려웠습니다.</p></div>
+      <div><h4>수행</h4><p>요구사항 정의 → 개발사 협의 → 데이터 이관 → 검수까지 18개월간 단독 전담했습니다.</p></div>
+      <div><h4>결과</h4><p>장부·예산·자산을 단일 시스템으로 통합해 운영 데이터를 일원화했습니다.</p></div>
+    </div>
+  </article>
+
+  <!-- (B) IoT — CONNECT -->
+  <article class="proj proj-iot reveal" id="proj-iot">
+    <div class="proj-iot-text">
+      <div class="proj-tag">
+        <span class="proj-no">B</span>
+        <span class="proj-cat">CONNECT</span>
+      </div>
+      <h3 class="proj-name">IoT 해수담수화 시스템</h3>
+      <p class="proj-line">현장 설비를 원격에서 실시간으로 관제하는 센서 네트워크</p>
+      <dl class="proj-meta">
+        <div><dt>역할</dt><dd>임베디드 개발 · QA</dd></div>
+        <div><dt>기간</dt><dd>2020 – 2021</dd></div>
+      </dl>
+      <div class="proj-prsr proj-prsr-inline">
+        <div><h4>문제</h4><p>원격에서 설비 상태를 확인할 수 없었습니다.</p></div>
+        <div><h4>수행</h4><p>ESP32 기반 센서 네트워크 → Blynk 앱 연동 → 실시간 모니터링 → 로그 기반 장애 분석.</p></div>
+      </div>
+      <div class="proj-fields">
+        <span class="proj-fields-label">측정 항목</span>
+        <ul>
+          <li>외부 온도</li><li>외부 습도</li><li>응축압</li>
+          <li>진공펌프압</li><li>냉수</li><li>담수</li><li>해수</li>
+        </ul>
+      </div>
+    </div>
+    <figure class="proj-iot-img">
+      <img src="assets/projects/photo_blynk_graph.jpg" alt="Blynk 앱의 실시간 모니터링 대시보드" width="720" height="1520" loading="lazy">
+    </figure>
+  </article>
+
+  <!-- (C) AUTOMATE — inverted -->
+  <article class="proj proj-auto reveal" id="proj-auto">
+    <div class="proj-tag">
+      <span class="proj-no">C</span>
+      <span class="proj-cat">AUTOMATE</span>
+    </div>
+    <h3 class="proj-name">AI 업무 자동화 워크플로</h3>
+    <p class="proj-line">반복되는 문서·데이터 작업을 AI 워크플로로 표준화하고 버전으로 관리합니다.</p>
+    <ol class="flow">
+      <li><span class="flow-n">01</span><span class="flow-s">자료 수집</span></li>
+      <li class="flow-arrow" aria-hidden="true">→</li>
+      <li><span class="flow-n">02</span><span class="flow-s">요구사항 분해</span></li>
+      <li class="flow-arrow" aria-hidden="true">→</li>
+      <li><span class="flow-n">03</span><span class="flow-s">근거 매칭</span></li>
+      <li class="flow-arrow" aria-hidden="true">→</li>
+      <li><span class="flow-n">04</span><span class="flow-s">초안 생성</span></li>
+      <li class="flow-arrow" aria-hidden="true">→</li>
+      <li><span class="flow-n">05</span><span class="flow-s">문서화</span></li>
+      <li class="flow-arrow" aria-hidden="true">→</li>
+      <li><span class="flow-n">06</span><span class="flow-s">Git 버전 관리</span></li>
+    </ol>
+  </article>
+
+  <!-- (D) OTHER WORK / AWARD -->
+  <article class="proj proj-award reveal" id="proj-award">
+    <div class="proj-award-info">
+      <div class="proj-tag">
+        <span class="proj-no">D</span>
+        <span class="proj-cat">OTHER WORK / AWARD</span>
+      </div>
+      <h3 class="proj-name">메타버스 콘텐츠 경진대회 대상</h3>
+      <dl class="proj-meta">
+        <div><dt>주최</dt><dd>과학기술정보통신부</dd></div>
+        <div><dt>수상</dt><dd>대상 (2022)</dd></div>
+        <div><dt>제작</dt><dd>Unity 3D / C#</dd></div>
+      </dl>
+    </div>
+    <button class="proj-award-img" type="button" data-lightbox aria-label="수상 사진 확대 보기">
+      <img src="assets/projects/photo_metaverse_award.jpg" alt="메타버스 콘텐츠 경진대회 대상 수상" width="1440" height="649" loading="lazy">
+    </button>
+  </article>
+</section>
+
+<!-- 03 CAREER -->
+<section class="career" id="career">
+  <header class="section-head">
+    <span class="section-no">03</span>
+    <h2 class="section-title">CAREER</h2>
+  </header>
+
+  <div class="matrix" role="table" aria-label="경력 매트릭스">
+    <div class="matrix-head" role="row">
+      <span role="columnheader">기간</span>
+      <span role="columnheader">회사</span>
+      <span role="columnheader">환경</span>
+      <span role="columnheader">주요 역할</span>
+      <span role="columnheader">핵심 역량</span>
+    </div>
+
+    <div class="matrix-row reveal" role="row">
+      <span class="m-period" data-label="기간" role="cell">2016—2018</span>
+      <span class="m-company" data-label="회사" role="cell">(주)엣지크로스</span>
+      <span class="m-env" data-label="환경" role="cell">Hardware · Manufacturing</span>
+      <span class="m-role" data-label="주요 역할" role="cell">회로 설계, PCB, 시제품, BOM, 테스트</span>
+      <span class="m-cap" data-label="핵심 역량" role="cell">BUILD</span>
+    </div>
+
+    <div class="matrix-row reveal" role="row">
+      <span class="m-period" data-label="기간" role="cell">2020—2021</span>
+      <span class="m-company" data-label="회사" role="cell">(주)맨지온</span>
+      <span class="m-env" data-label="환경" role="cell">IoT Startup</span>
+      <span class="m-role" data-label="주요 역할" role="cell">ESP32, 관제, 데이터 로그, QA</span>
+      <span class="m-cap" data-label="핵심 역량" role="cell">CONNECT</span>
+    </div>
+
+    <div class="matrix-row reveal" role="row">
+      <span class="m-period" data-label="기간" role="cell">2023—2026</span>
+      <span class="m-company" data-label="회사" role="cell">(사)함께만드는세상</span>
+      <span class="m-env" data-label="환경" role="cell">Operations · Nonprofit</span>
+      <span class="m-role" data-label="주요 역할" role="cell">ERP, IT 인프라, 예산, 계약, 자산</span>
+      <span class="m-cap" data-label="핵심 역량" role="cell">OPERATE</span>
+    </div>
+  </div>
+</section>
+
+<!-- 04 CAPABILITIES -->
+<section class="caps" id="capabilities">
+  <header class="section-head">
+    <span class="section-no">04</span>
+    <h2 class="section-title">CAPABILITIES</h2>
+  </header>
+
+  <ul class="cap-list">
+    <li class="cap-row reveal" tabindex="0">
+      <span class="cap-word">BUILD</span>
+      <span class="cap-items">회로 설계 / PCB / 시제품 제작 / BOM / ESP32</span>
+      <span class="cap-rel">관련 — 커스텀 ERP 이전의 하드웨어 기반</span>
+    </li>
+    <li class="cap-row reveal" tabindex="0">
+      <span class="cap-word">CONNECT</span>
+      <span class="cap-items">센서 데이터 / IoT 관제 / 로그 분석 / QA</span>
+      <span class="cap-rel">관련 — IoT 해수담수화 시스템</span>
+    </li>
+    <li class="cap-row reveal" tabindex="0">
+      <span class="cap-word">OPERATE</span>
+      <span class="cap-items">ERP / IT 자산 / 예산 / 계약 / 외주업체 관리</span>
+      <span class="cap-rel">관련 — 커스텀 ERP 도입</span>
+    </li>
+    <li class="cap-row reveal" tabindex="0">
+      <span class="cap-word">AUTOMATE</span>
+      <span class="cap-items">AI 워크플로 / Excel / Python / Git</span>
+      <span class="cap-rel">관련 — AI 업무 자동화 워크플로</span>
+    </li>
+  </ul>
+</section>
+
+<!-- 05 ABOUT -->
+<section class="about" id="about">
+  <header class="section-head">
+    <span class="section-no">05</span>
+    <h2 class="section-title">ABOUT</h2>
+  </header>
+
+  <div class="about-body">
+    <div class="about-text">
+      <p>저는 새로운 기술 자체보다, 그 기술이 실제 업무 안에서 작동하는 과정에 관심이 있습니다.</p>
+      <p>직접 만들고 테스트했던 경험 덕분에 기술을 이해하고, 운영 경험 덕분에 비용과 일정, 사용자까지 함께 봅니다.</p>
+      <p class="about-tagline">어떻게든 되게 만듭니다.</p>
+    </div>
+    <figure class="about-photo">
+      <img src="assets/profile.png" alt="임종권 프로필 사진" width="681" height="557" loading="lazy">
+    </figure>
+  </div>
+</section>
+
+<!-- 06 CONTACT -->
+<section class="contact" id="contact">
+  <header class="section-head">
+    <span class="section-no">06</span>
+    <h2 class="section-title">CONTACT</h2>
+  </header>
+
+  <p class="contact-line">운영과 기술 사이의 문제를 다루는 일을 찾고 있습니다.</p>
+  <ul class="contact-links">
+    <li><span>이메일</span><a href="mailto:ssujklim@gmail.com">ssujklim@gmail.com</a></li>
+    <li><span>GitHub</span><a href="https://github.com/IamSloth" target="_blank" rel="noopener">github.com/IamSloth</a></li>
+    <li><span>이력서</span><a href="resume.html">resume.html</a></li>
+  </ul>
+</section>
+
+</main>
+
+<footer class="footer">
+  <span>© 2026 임종권</span>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" hidden>
+  <button class="lightbox-close" id="lightbox-close" type="button" aria-label="닫기">×</button>
+  <div class="lightbox-stage">
+    <img src="assets/projects/photo_metaverse_award.jpg" alt="메타버스 콘텐츠 경진대회 대상 수상" width="1440" height="649">
+    <img src="assets/projects/photo_metaverse_award_present.jpg" alt="메타버스 콘텐츠 경진대회 시상 현장" width="1440" height="810">
+  </div>
+</div>
+
+<script src="js/main.js"></script>
 </body>
 </html>

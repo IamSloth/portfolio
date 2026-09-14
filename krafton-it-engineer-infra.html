@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>임종권 — [Infra Div.] IT Engineer · KRAFTON</title>
+<meta name="description" content="크래프톤 [Infra Div.] IT Engineer 지원 포트폴리오 — 임종권">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --kr:#f9423a;--kr-dim:rgba(249,66,58,.10);--kr-glow:rgba(249,66,58,.20);--kr-bright:#fb6b65;
+  --bg:#0a0a0a;--surface:#131313;--surface2:#1a1a1a;--border:#222;
+  --text:#d4d4d4;--text-dim:#777;--white:#f0f0f0;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Noto Sans KR',-apple-system,sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;line-height:1.6;word-break:keep-all}
+a{color:var(--kr);text-decoration:none}
+::selection{background:var(--kr);color:#000}
+
+/* ── NAV ── */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 32px;display:flex;justify-content:space-between;align-items:center;background:rgba(10,10,10,.9);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);transition:all .3s var(--ease)}
+.nav-logo{font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:700;color:var(--white);letter-spacing:-.02em}
+.nav-logo span{color:var(--kr)}
+.nav-links{display:flex;gap:24px}
+.nav-links a{font-size:11px;font-weight:500;color:var(--text-dim);letter-spacing:.04em;text-transform:uppercase;transition:color .2s}
+.nav-links a:hover{color:var(--kr)}
+
+/* ── HERO ── */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:120px 10vw 80px;position:relative;overflow:hidden}
+.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none;z-index:0;transition:opacity 1.8s ease}
+.hero-video.v-a{opacity:.35}
+.hero-video.v-b{opacity:0}
+.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,10,.25) 0%,rgba(10,10,10,.7) 55%,var(--bg) 100%);pointer-events:none;z-index:1}
+.hero>*:not(video){position:relative;z-index:2}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;color:var(--kr);background:var(--kr-dim);border:1px solid rgba(249,66,58,.18);padding:5px 14px;border-radius:2px;margin-bottom:24px;letter-spacing:.03em;text-transform:uppercase}
+.hero-badge::before{content:'';width:6px;height:6px;background:var(--kr);border-radius:1px}
+.hero h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(38px,6vw,68px);font-weight:700;color:var(--white);line-height:1.05;letter-spacing:-.05em;margin-bottom:18px}
+.hero h1 em{font-style:normal;color:var(--kr)}
+.hero-sub{font-size:16px;color:var(--text-dim);max-width:560px;line-height:1.75;margin-bottom:36px;letter-spacing:-.01em}
+.hero-stats{display:flex;gap:48px}
+.hero-stat .num{font-family:'Space Grotesk',sans-serif;font-size:36px;font-weight:700;color:var(--kr);letter-spacing:-.04em}
+.hero-stat .label{font-size:10px;color:var(--text-dim);margin-top:2px;letter-spacing:.02em;text-transform:uppercase}
+.scroll-hint{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--text-dim);letter-spacing:.1em;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:6px;z-index:2}
+.scroll-hint::after{content:'';width:1px;height:28px;background:linear-gradient(var(--kr),transparent)}
+
+/* ── MARQUEE ── */
+.marquee-section{overflow:hidden}
+.marquee-row{overflow:hidden;white-space:nowrap;padding:12px 0;mask-image:linear-gradient(90deg,transparent 0%,#000 6%,#000 94%,transparent 100%);-webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 6%,#000 94%,transparent 100%)}
+.marquee-row--dark{background:var(--bg);border-top:1px solid var(--border);border-bottom:1px solid rgba(249,66,58,.12)}
+.marquee-row--orange{background:var(--kr)}
+.marquee-track{display:inline-flex;will-change:transform;cursor:default}
+.marquee-item{flex-shrink:0;padding:0 clamp(20px,4vw,56px);font-family:'Space Grotesk','Noto Sans KR',sans-serif;font-weight:700;letter-spacing:-.03em;white-space:nowrap;user-select:none;transition:opacity .2s}
+.marquee-item.mq-lg{font-size:clamp(22px,3.2vw,36px)}
+.marquee-item.mq-sm{font-size:clamp(12px,1.6vw,18px);font-style:italic;font-weight:500;letter-spacing:.01em}
+.marquee-row--dark .marquee-item{color:var(--kr);opacity:.5}
+.marquee-row--dark:hover .marquee-item{opacity:.3}
+.marquee-row--dark .marquee-item:hover{opacity:1!important}
+.marquee-row--orange .marquee-item{color:#000;opacity:.45}
+.marquee-row--orange:hover .marquee-item{opacity:.25}
+.marquee-row--orange .marquee-item:hover{opacity:1!important}
+
+/* ── SECTIONS ── */
+section{padding:96px 10vw 72px}
+section:nth-child(odd){padding:72px 10vw 96px}
+.sec-label{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--kr);font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px}
+.sec-title{font-family:'Space Grotesk',sans-serif;font-size:28px;font-weight:700;color:var(--white);letter-spacing:-.03em;margin-bottom:40px}
+.sec-title span{color:var(--kr)}
+
+/* ── OPS FLOW ── */
+.flow-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:40px}
+.flow-card{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:20px 16px;position:relative;transition:all .3s var(--ease)}
+.flow-card:hover{border-color:var(--kr);transform:translateY(-3px)}
+.flow-card.highlight{background:var(--surface2);border-color:rgba(249,66,58,.3)}
+.flow-card .step-num{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--kr);font-weight:700;margin-bottom:8px;letter-spacing:.05em}
+.flow-card h3{font-size:13px;font-weight:700;color:var(--white);margin-bottom:5px}
+.flow-card p{font-size:11px;color:var(--text-dim);line-height:1.6}
+.flow-card .arrow{position:absolute;right:-10px;top:50%;transform:translateY(-50%);font-size:16px;color:var(--kr);z-index:1;font-weight:700;text-shadow:0 0 8px rgba(249,66,58,.4)}
+.flow-insight{background:var(--kr-dim);border:1px solid rgba(249,66,58,.12);border-left:3px solid var(--kr);border-radius:0 4px 4px 0;padding:20px 24px;font-size:13px;line-height:1.8;color:var(--text)}
+.flow-insight strong{color:var(--kr)}
+
+/* ── METRICS ── */
+.metrics-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:48px}
+.metric-card{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:28px 20px;text-align:center;transition:all .3s var(--ease)}
+.metric-card:hover{border-color:var(--kr);transform:translateY(-2px)}
+.metric-card .num{font-family:'Space Grotesk',sans-serif;font-size:32px;font-weight:700;color:var(--kr);letter-spacing:-.04em}
+.metric-card .unit{font-size:14px;color:var(--kr-bright);font-weight:600}
+.metric-card .desc{font-size:11px;color:var(--text-dim);margin-top:4px;line-height:1.4}
+
+/* ── PROJECTS ── */
+.proj-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.proj-card{background:var(--surface);border:1px solid var(--border);border-radius:4px;overflow:hidden;transition:all .3s var(--ease)}
+.proj-card:hover{border-color:var(--kr);transform:translateY(-2px)}
+.proj-card.featured{grid-column:1/-1;border-color:rgba(249,66,58,.18);background:linear-gradient(135deg,var(--surface) 0%,var(--surface2) 100%)}
+.proj-top{padding:24px 24px 0}
+.proj-card .badge{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:700;color:var(--kr);background:var(--kr-dim);padding:3px 8px;border-radius:2px;margin-bottom:8px;letter-spacing:.03em;text-transform:uppercase}
+.proj-card h3{font-size:15px;font-weight:700;color:var(--white);margin-bottom:4px;letter-spacing:-.02em}
+.proj-card .meta{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text-dim);margin-bottom:12px}
+.proj-card ul{list-style:none;padding:0 24px 16px}
+.proj-card li{font-size:11.5px;color:var(--text-dim);line-height:1.7;padding-left:14px;position:relative}
+.proj-card li::before{content:'';position:absolute;left:0;top:8px;width:4px;height:4px;background:var(--kr);border-radius:1px}
+.proj-bottom{padding:12px 24px;border-top:1px solid var(--border);display:flex;flex-wrap:wrap;gap:5px}
+.proj-bottom .tag{font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:600;background:var(--bg);color:var(--kr);padding:3px 8px;border-radius:2px}
+
+/* ── EXPERIENCE ── */
+.exp-list{display:flex;flex-direction:column;gap:16px}
+.exp-item{display:flex;gap:24px;padding:20px 24px;background:var(--surface);border:1px solid var(--border);border-radius:4px;transition:all .3s var(--ease)}
+.exp-item:hover{border-color:rgba(249,66,58,.25);border-left:2px solid var(--kr)}
+.exp-period{width:160px;flex-shrink:0}
+.exp-period .co{font-size:13px;font-weight:700;color:var(--white)}
+.exp-period .date{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text-dim);margin-top:2px}
+.exp-body{flex:1}
+.exp-body .role{font-size:12px;color:var(--kr);font-weight:600;margin-bottom:6px}
+.exp-body ul{list-style:none;padding:0}
+.exp-body li{font-size:12px;color:var(--text-dim);line-height:1.7;padding-left:14px;position:relative}
+.exp-body li::before{content:'';position:absolute;left:0;top:8px;width:4px;height:4px;border-radius:1px;background:var(--border)}
+
+/* ── SKILLS ── */
+.skills-grid{display:grid;grid-template-columns:1.2fr 1fr .8fr;gap:16px}
+.skill-group{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:20px}
+.skill-group h3{font-size:11px;font-weight:700;color:var(--kr);margin-bottom:12px;letter-spacing:.03em;text-transform:uppercase}
+.skill-tag{display:inline-block;font-size:11px;background:var(--bg);color:var(--text-dim);padding:4px 10px;border-radius:2px;margin:2px;transition:color .2s,border-color .2s;border:1px solid transparent}
+.skill-tag:hover{color:var(--kr);border-color:var(--border)}
+.skill-tag.hl{color:var(--kr-bright);border-color:rgba(249,66,58,.15)}
+
+/* ── CONTACT ── */
+.contact{text-align:center;padding:80px 10vw;background:var(--surface)}
+.contact h2{font-family:'Space Grotesk',sans-serif;font-size:32px;font-weight:700;color:var(--white);letter-spacing:-.04em;margin-bottom:12px}
+.contact p{color:var(--text-dim);font-size:14px;margin-bottom:24px}
+.contact-links{display:flex;justify-content:center;gap:16px}
+.contact-links a{font-size:12px;font-weight:500;color:var(--kr);border:1px solid rgba(249,66,58,.25);padding:10px 24px;border-radius:2px;transition:all .2s;letter-spacing:.02em}
+.contact-links a:hover{background:var(--kr);color:#000}
+
+.footer{text-align:center;padding:20px;font-size:10px;color:var(--text-dim);border-top:1px solid var(--border)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:768px){
+  .hero{padding:100px 24px 60px}
+  section{padding:60px 24px}
+  .flow-grid{grid-template-columns:1fr 1fr}
+  .flow-card .arrow{display:none}
+  .metrics-grid{grid-template-columns:1fr 1fr}
+  .proj-grid{grid-template-columns:1fr}
+  .exp-item{flex-direction:column;gap:8px}
+  .exp-period{width:auto}
+  .skills-grid{grid-template-columns:1fr}
+  .hero-stats{flex-wrap:wrap;gap:20px}
+}
+
+/* ── GRAIN OVERLAY ── */
+body::before{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:.025;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* ── ANIMATIONS ── */
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .5s var(--ease),transform .5s var(--ease)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-logo">LIM JONG<span>KWON</span></div>
+  <div class="nav-links">
+    <a href="#operations">Operations</a>
+    <a href="#metrics">Metrics</a>
+    <a href="#projects">Projects</a>
+    <a href="#experience">Experience</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <video class="hero-video v-a" id="vid-a" autoplay muted playsinline src="krafton-hero.mp4"></video>
+  <video class="hero-video v-b" id="vid-b" muted playsinline src="krafton-hero.mp4"></video>
+  <div class="hero-badge">KRAFTON [Infra Div.] IT Engineer 지원</div>
+  <h1>IT 운영 · 자산 · Helpdesk를<br><em>맡아온</em><br>3년</h1>
+  <p class="hero-sub">
+    PC·네트워크 트러블슈팅부터 자산 수명주기, 외주 계약까지.<br>
+    "문제가 생기면 제일 먼저 전화가 오는 사람"으로 40~50명 규모 조직의 IT를 3년간 단독 담당했습니다.<br>
+    IT 때문에 업무가 멈추는 일이 없도록 만드는 것, 그게 제 역할이었습니다.
+  </p>
+  <div class="hero-stats">
+    <div class="hero-stat"><div class="num">3<span style="font-size:16px">년</span></div><div class="label">IT전산 단독 수행</div></div>
+    <div class="hero-stat"><div class="num">−30<span style="font-size:16px">%</span></div><div class="label">유지보수 비용 절감</div></div>
+    <div class="hero-stat"><div class="num">40~50</div><div class="label">임직원 Helpdesk 지원</div></div>
+    <div class="hero-stat"><div class="num">8<span style="font-size:16px">사</span></div><div class="label">외주 벤더 관리</div></div>
+  </div>
+  <div class="scroll-hint">scroll</div>
+</div>
+
+<!-- MARQUEE -->
+<div class="marquee-section">
+  <div class="marquee-row marquee-row--dark">
+    <div class="marquee-track" id="mq-track-1"></div>
+  </div>
+  <div class="marquee-row marquee-row--orange">
+    <div class="marquee-track" id="mq-track-2"></div>
+  </div>
+</div>
+
+<!-- OPERATIONS FLOW -->
+<section id="operations">
+  <div class="sec-label">01 — Core Competency</div>
+  <div class="sec-title">IT Operations <span>Full-Cycle</span></div>
+
+  <div class="flow-grid">
+    <div class="flow-card highlight">
+      <div class="step-num">STEP 01</div>
+      <h3>도입 · 온보딩</h3>
+      <p>신규 PC 세팅, 계정·그룹웨어 발급, 신입사원 IT 온보딩</p>
+      <span class="arrow">→</span>
+    </div>
+    <div class="flow-card">
+      <div class="step-num">STEP 02</div>
+      <h3>자산 배포</h3>
+      <p>HW/SW 자산 대장 등록, 부서 배치, 라이선스 할당</p>
+      <span class="arrow">→</span>
+    </div>
+    <div class="flow-card highlight">
+      <div class="step-num">STEP 03</div>
+      <h3>Helpdesk</h3>
+      <p>PC·프린터·네트워크·그룹웨어 1차 대응, 벤더 에스컬레이션</p>
+      <span class="arrow">→</span>
+    </div>
+    <div class="flow-card">
+      <div class="step-num">STEP 04</div>
+      <h3>회수 · 오프보딩</h3>
+      <p>퇴사자 자산 회수, 계정 차단, 데이터 정리·이관</p>
+      <span class="arrow">→</span>
+    </div>
+    <div class="flow-card highlight">
+      <div class="step-num">STEP 05</div>
+      <h3>폐기 · 재배치</h3>
+      <p>EOL 판정, 안전 폐기, 유휴장비 재배치로 중복 투자 방지</p>
+    </div>
+  </div>
+
+  <div class="flow-insight reveal">
+    <strong>실무에서 배운 것:</strong> 3년 동안 수명주기 전 단계를 혼자 돌리며 한 가지를 확신하게 됐습니다 —
+    임직원이 IT를 좋게 기억하는 건 결국 "입사 첫날 PC가 바로 켜지느냐"와 "장애가 났을 때 얼마나 빨리 복구되느냐" 둘입니다.
+    그래서 온보딩 절차를 표준화해 첫날부터 바로 일할 수 있게 했고, PC·네트워크 1차 대응을 사내에서 직접 처리하도록 바꿔 벤더를 기다리는 시간을 지웠습니다.
+    <strong>운영의 안정성은 결국 체계에서 나옵니다.</strong>
+  </div>
+</section>
+
+<!-- KEY METRICS -->
+<section id="metrics" style="background:var(--surface)">
+  <div class="sec-label">02 — Impact Metrics</div>
+  <div class="sec-title">정량적 <span>성과</span></div>
+
+  <div class="metrics-grid">
+    <div class="metric-card reveal">
+      <div class="num">3<span class="unit">년+</span></div>
+      <div class="desc">IT전산 단독 수행<br>자산 · Helpdesk · 외주 전반</div>
+    </div>
+    <div class="metric-card reveal">
+      <div class="num">40~50<span class="unit">명</span></div>
+      <div class="desc">임직원 Helpdesk 1차 대응<br>PC·네트워크·그룹웨어</div>
+    </div>
+    <div class="metric-card reveal">
+      <div class="num">30<span class="unit">%</span></div>
+      <div class="desc">유지보수 비용 절감<br>1차 트러블슈팅 내재화</div>
+    </div>
+    <div class="metric-card reveal">
+      <div class="num">1.5<span class="unit">년</span></div>
+      <div class="desc">커스텀 ERP 도입 PM<br>Tibero DB · Nexacro UI</div>
+    </div>
+  </div>
+
+  <div class="metrics-grid" style="grid-template-columns:repeat(3,1fr)">
+    <div class="metric-card reveal">
+      <div class="num">8<span class="unit">개사</span></div>
+      <div class="desc">외주 벤더 계약·SLA·정산 총괄</div>
+    </div>
+    <div class="metric-card reveal">
+      <div class="num">2<span class="unit">주</span></div>
+      <div class="desc">낯선 시스템 업무 적용 속도<br>Tibero/Nexacro 독학 체화</div>
+    </div>
+    <div class="metric-card reveal">
+      <div class="num">0<span class="unit">건</span></div>
+      <div class="desc">세금계산서·정산 누락<br>외주 8개사 관리 3년간</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="sec-label">03 — Key Projects</div>
+  <div class="sec-title">주요 <span>프로젝트</span></div>
+
+  <div class="proj-grid">
+    <div class="proj-card featured reveal">
+      <div class="proj-top">
+        <div class="badge">IT 자산관리 · Helpdesk</div>
+        <h3>IT 자산 수명주기 관리 + 임직원 Helpdesk 운영</h3>
+        <div class="meta">2023.01 – 2026.02 · (사)함께만드는세상</div>
+      </div>
+      <ul>
+        <li>HW(PC·서버·네트워크장비) / SW(라이선스·구독) 자산 대장 체계화 — 도입·유지보수·폐기 이력 추적</li>
+        <li>40~50명 규모 조직 PC·프린터·네트워크·그룹웨어 1차 트러블슈팅 단독 수행</li>
+        <li>신규 입사자 온보딩(PC 지급·계정 생성·그룹웨어 세팅) 및 퇴사자 오프보딩 표준화</li>
+        <li>유휴장비 재배치로 중복 투자 방지 + 유지보수 비용 30% 절감</li>
+      </ul>
+      <div class="proj-bottom">
+        <span class="tag">자산관리</span><span class="tag">Helpdesk</span>
+        <span class="tag">온오프보딩</span><span class="tag">Windows</span>
+      </div>
+    </div>
+
+    <div class="proj-card reveal">
+      <div class="proj-top">
+        <div class="badge">시스템 도입 · 데이터</div>
+        <h3>커스텀 ERP 도입 PM (1.5년 전담)</h3>
+        <div class="meta">2023.07 – 2024.12 · (사)함께만드는세상</div>
+      </div>
+      <ul>
+        <li>Tibero DB / Nexacro UI 기반 커스텀 ERP 도입 전과정 단독 PM</li>
+        <li>회계계정 체계 설계, 기존 데이터 마이그레이션 품질 검증</li>
+        <li>부서별 요구사항 조율, 사용자 교육·매뉴얼 작성</li>
+        <li>낯선 플랫폼도 2주 안에 실무 투입 — ITSM을 새로 도입해도 같은 방식으로 붙일 수 있습니다</li>
+      </ul>
+      <div class="proj-bottom">
+        <span class="tag">ERP</span><span class="tag">Tibero DB</span>
+        <span class="tag">Nexacro</span><span class="tag">PM</span>
+      </div>
+    </div>
+
+    <div class="proj-card reveal">
+      <div class="proj-top">
+        <div class="badge">외주 벤더 · SLA</div>
+        <h3>외주 8개사 계약·SLA·정산 총괄</h3>
+        <div class="meta">2023.01 – 2026.02 · (사)함께만드는세상</div>
+      </div>
+      <ul>
+        <li>복합기·전자계약·본인확인서비스 등 8개 외주 벤더 단독 관리</li>
+        <li>SLA 기반 장애 대응 조율, 에스컬레이션 경로 표준화</li>
+        <li>세금계산서·정산 일정 관리 — 3년간 한 건 누락 없이 처리</li>
+        <li>재계약 시 복수 견적 비교·조건 협상으로 연 500만원 비용 절감</li>
+      </ul>
+      <div class="proj-bottom">
+        <span class="tag">SLA</span><span class="tag">계약관리</span>
+        <span class="tag">벤더 조율</span><span class="tag">정산</span>
+      </div>
+    </div>
+
+    <div class="proj-card featured reveal">
+      <div class="proj-top">
+        <div class="badge">Learning Log · ITSM 대비</div>
+        <h3>낯선 시스템 빠른 체화 — ServiceNow/JIRA 대응 준비</h3>
+        <div class="meta">체화 패턴 · 자기주도 학습</div>
+      </div>
+      <ul>
+        <li>ERP(Tibero/Nexacro)를 독학으로 2주 만에 실무에 붙인 경험 → ITSM에도 그대로 적용 가능</li>
+        <li>임베디드(IAR/ST toolchain)도 혼자 파고들어 체화 — 낯선 toolchain을 익히는 저만의 루틴이 있습니다</li>
+        <li>VoIP·네트워크 장비 트러블슈팅을 반복하며 IP·VLAN·DHCP를 계층 순으로 짚어나가는 습관이 잡혔습니다</li>
+        <li>macOS는 아직 실무로 다뤄본 적이 없어, 수습 5개월 동안 직접 학습해 Windows/macOS 혼합 환경까지 지원할 계획입니다</li>
+      </ul>
+      <div class="proj-bottom">
+        <span class="tag">ServiceNow</span><span class="tag">JIRA</span>
+        <span class="tag">macOS 학습</span><span class="tag">자기주도</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" style="background:var(--surface)">
+  <div class="sec-label">04 — Career</div>
+  <div class="sec-title">경력 <span>요약</span></div>
+
+  <div class="exp-list">
+    <div class="exp-item reveal">
+      <div class="exp-period">
+        <div class="co">(사)함께만드는세상</div>
+        <div class="date">2023.01 – 2026.02</div>
+        <div class="date" style="margin-top:2px;color:var(--kr)">3년 2개월</div>
+      </div>
+      <div class="exp-body">
+        <div class="role">경영지원부 인프라지원팀 · IT전산 담당 + 총무 병행 (대리)</div>
+        <ul>
+          <li>40~50명 규모 조직 PC·네트워크·그룹웨어 1차 트러블슈팅 단독 수행</li>
+          <li>IT 자산(HW/SW) 수명주기 관리 — 도입·배포·회수·폐기 전과정</li>
+          <li>신규/퇴사자 온오프보딩 표준 절차화 (계정·자산·데이터)</li>
+          <li>커스텀 ERP 도입 프로젝트 1.5년 전담 (Tibero/Nexacro)</li>
+          <li>외주 8개사 계약·SLA·정산 총괄, 재계약 협상으로 연 500만원 절감</li>
+          <li>유지보수 비용 30% 절감 · 인프라 예산 3.6억 집행 경험</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item reveal">
+      <div class="exp-period">
+        <div class="co">(주)맨지온</div>
+        <div class="date">2020.03 – 2021.11</div>
+        <div class="date" style="margin-top:2px">1년 8개월</div>
+      </div>
+      <div class="exp-body">
+        <div class="role">개발부 · 임베디드 시스템 개발 및 QA (대리)</div>
+        <ul>
+          <li>ESP32 기반 IoT 프로토타입 HW/SW 통합 테스트</li>
+          <li>IAR/ST toolchain 독학 체화 — 낯선 플랫폼 빠른 학습 루틴 형성</li>
+          <li>시설 관제 데이터 로그 분석 → 통신 장애 원인 규명</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item reveal">
+      <div class="exp-period">
+        <div class="co">(주)엣지크로스</div>
+        <div class="date">2016.05 – 2018.02</div>
+        <div class="date" style="margin-top:2px">1년 9개월</div>
+      </div>
+      <div class="exp-body">
+        <div class="role">기술연구소 · H/W 개발 및 자재 관리 (주임)</div>
+        <ul>
+          <li>PCB 설계·시제품 제작 풀사이클, BOM(자재명세서) 관리 체계화</li>
+          <li>부품 입출고·재고 실사·발주 — 납기 준수율 100%</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="sec-label">05 — Competencies</div>
+  <div class="sec-title">핵심 <span>역량</span></div>
+
+  <div class="skills-grid">
+    <div class="skill-group reveal">
+      <h3>IT 자산 · Helpdesk</h3>
+      <span class="skill-tag hl">HW/SW 자산관리</span>
+      <span class="skill-tag hl">수명주기 관리</span>
+      <span class="skill-tag hl">PC 트러블슈팅</span>
+      <span class="skill-tag hl">네트워크 1차 대응</span>
+      <span class="skill-tag">온오프보딩</span>
+      <span class="skill-tag">유휴장비 재배치</span>
+    </div>
+    <div class="skill-group reveal">
+      <h3>시스템 · ITSM</h3>
+      <span class="skill-tag hl">Windows OS</span>
+      <span class="skill-tag hl">ERP 도입·운영</span>
+      <span class="skill-tag hl">Tibero DB</span>
+      <span class="skill-tag">데이터 마이그레이션</span>
+      <span class="skill-tag">ServiceNow/JIRA 학습中</span>
+      <span class="skill-tag">macOS 학습中</span>
+    </div>
+    <div class="skill-group reveal">
+      <h3>경영지원 · 기타</h3>
+      <span class="skill-tag hl">외주 벤더 관리</span>
+      <span class="skill-tag hl">SLA · 계약 조율</span>
+      <span class="skill-tag">예산 편성·집행</span>
+      <span class="skill-tag">부서 간 조율</span>
+      <span class="skill-tag">BOM·자재관리</span>
+      <span class="skill-tag">소방안전관리</span>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<div class="contact" id="contact">
+  <h2>Let's <span style="color:var(--kr)">Connect</span></h2>
+  <p>크래프톤 [Infra Div.] IT Engineer, 임직원의 업무 인프라는 제가 맡겠습니다.</p>
+  <div class="contact-links">
+    <a href="mailto:ssujklim@gmail.com">ssujklim@gmail.com</a>
+    <a href="tel:010-4052-0834">010-4052-0834</a>
+  </div>
+</div>
+
+<div class="footer">2026 임종권 · 이 페이지는 직접 설계·구현했습니다</div>
+
+<!-- ── SCRIPTS ── -->
+<script>
+// Intersection Observer — reveal on scroll
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }});
+}, { threshold: 0.15 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+// Marquee — rAF + Lerp + scroll velocity boost + skew
+(function() {
+  const row1 = [
+    ['IT 자산관리','lg'],['Asset Lifecycle','sm'],['Helpdesk','lg'],['PC 트러블슈팅','sm'],
+    ['네트워크 대응','lg'],['온보딩·오프보딩','sm'],['ERP 도입','lg'],['외주 SLA 관리','sm'],
+    ['프로세스 표준화','lg'],['낯선 시스템 2주 체화','sm'],['Windows · macOS','lg']
+  ];
+  const row2 = [
+    ['KRAFTON','lg'],['임직원이 업무에 몰입할 수 있는 환경','sm'],['제일 먼저 전화가 오는 사람','lg'],
+    ['1차 트러블슈팅 내재화','sm'],['ITSM · ServiceNow · JIRA','lg'],['[Infra Div.] IT Engineer','sm'],
+    ['자산 · 헬프데스크 · 해외 지사','lg'],['운영의 안정성은 체계에서','sm']
+  ];
+
+  function buildTrack(id, items, copies) {
+    const track = document.getElementById(id);
+    let html = '';
+    for (let c = 0; c < copies; c++) {
+      items.forEach(([w, sz]) => { html += `<span class="marquee-item mq-${sz}">${w}</span>`; });
+    }
+    track.innerHTML = html;
+  }
+
+  buildTrack('mq-track-1', row1, 4);
+  buildTrack('mq-track-2', row2, 5);
+
+  let scrollV = 0;
+  let lastScroll = window.scrollY;
+  window.addEventListener('scroll', function() {
+    scrollV = Math.abs(window.scrollY - lastScroll);
+    lastScroll = window.scrollY;
+  }, {passive: true});
+
+  function animate(track, speed, copies) {
+    let target = 0, current = 0;
+    const totalW = track.scrollWidth / copies;
+    let mouse = 0;
+    let skewCur = 0;
+
+    track.parentElement.addEventListener('mouseenter', () => mouse = 1);
+    track.parentElement.addEventListener('mouseleave', () => mouse = 0);
+
+    function tick() {
+      const boost = 1 + Math.min(scrollV * 0.12, 4);
+      target += speed * (mouse ? 0.3 : 1) * boost;
+      if (target >= totalW) target -= totalW;
+      current += (target - current) * 0.08;
+      const skewTarget = Math.min(scrollV * 0.03, 2.5);
+      skewCur += (skewTarget - skewCur) * 0.06;
+      track.style.transform = `translateX(${-current}px) skewX(${-skewCur}deg)`;
+      requestAnimationFrame(tick);
+    }
+    tick();
+  }
+
+  animate(document.getElementById('mq-track-1'), 0.6, 4);
+  animate(document.getElementById('mq-track-2'), 0.45, 5);
+
+  setInterval(function() { scrollV *= 0.85; }, 50);
+})();
+
+// Hero video seamless crossfade loop
+(function() {
+  const vids = [document.getElementById('vid-a'), document.getElementById('vid-b')];
+  if (!vids[0] || !vids[1]) return;
+  const FADE = 1.8;
+  let active = 0;
+  let swapping = false;
+
+  function swap() {
+    if (swapping) return;
+    swapping = true;
+    const cur = vids[active];
+    const nxt = vids[1 - active];
+    nxt.currentTime = 0;
+    nxt.play();
+    nxt.classList.replace('v-b', 'v-a');
+    cur.classList.replace('v-a', 'v-b');
+    setTimeout(function() {
+      cur.pause();
+      cur.currentTime = 0;
+      active = 1 - active;
+      swapping = false;
+    }, FADE * 1000 + 200);
+  }
+
+  vids[0].addEventListener('timeupdate', function() {
+    if (!vids[active].duration) return;
+    if (vids[active].duration - vids[active].currentTime <= FADE) swap();
+  });
+  vids[1].addEventListener('timeupdate', function() {
+    if (!vids[active].duration) return;
+    if (vids[active].duration - vids[active].currentTime <= FADE) swap();
+  });
+})();
+</script>
+</body>
+</html>

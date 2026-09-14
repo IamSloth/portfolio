@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark light">
+<meta name="robots" content="noindex, nofollow">
+<title>네오플 2차 HR — 최종 프렙</title>
+<style>
+  @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css');
+
+  :root {
+    --bg: #0c0d10;
+    --surface: #16181d;
+    --surface2: #1e2028;
+    --ink: #e4e6eb;
+    --ink2: #b0b3b8;
+    --muted: #6b7280;
+    --accent: #f59e0b;
+    --accent-dim: rgba(245,158,11,0.12);
+    --danger: #ef4444;
+    --danger-dim: rgba(239,68,68,0.10);
+    --ok: #22c55e;
+    --ok-dim: rgba(34,197,94,0.10);
+    --blue: #3b82f6;
+    --blue-dim: rgba(59,130,246,0.10);
+    --line: rgba(255,255,255,0.06);
+    --shadow: 0 1px 3px rgba(0,0,0,0.4), 0 4px 12px rgba(0,0,0,0.3);
+    --radius: 16px;
+  }
+  @media (prefers-color-scheme: light) {
+    :root {
+      --bg: #f5f5f7; --surface: #fff; --surface2: #f0f0f2;
+      --ink: #1d1d1f; --ink2: #424245; --muted: #86868b;
+      --accent: #d97706; --accent-dim: rgba(217,119,6,0.08);
+      --danger: #dc2626; --danger-dim: rgba(220,38,38,0.06);
+      --ok: #16a34a; --ok-dim: rgba(22,163,74,0.06);
+      --blue: #2563eb; --blue-dim: rgba(37,99,235,0.06);
+      --line: rgba(0,0,0,0.06);
+      --shadow: 0 1px 3px rgba(0,0,0,0.08), 0 4px 12px rgba(0,0,0,0.04);
+    }
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: "Pretendard Variable", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    font-size: 15px; line-height: 1.7; color: var(--ink);
+    background: var(--bg);
+    padding: 0 0 100px; word-break: keep-all;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* === Header === */
+  .header {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(12,13,16,0.85);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-bottom: 1px solid var(--line);
+    padding: 12px 20px;
+  }
+  @media (prefers-color-scheme: light) {
+    .header { background: rgba(245,245,247,0.85); }
+  }
+  .header h1 { font-size: 17px; font-weight: 700; letter-spacing: -0.3px; }
+  .header .sub { font-size: 12px; color: var(--muted); margin-top: 1px; letter-spacing: 0.2px; }
+
+  .wrap { max-width: 600px; margin: 0 auto; padding: 0 16px; }
+
+  /* === Hero === */
+  .hero {
+    margin: 20px 0 28px;
+    background: linear-gradient(135deg, var(--surface2), var(--surface));
+    border: 1px solid var(--line);
+    border-radius: var(--radius); padding: 20px;
+    box-shadow: var(--shadow);
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: ''; position: absolute; top: -40px; right: -40px;
+    width: 120px; height: 120px; border-radius: 50%;
+    background: radial-gradient(circle, var(--accent-dim) 0%, transparent 70%);
+  }
+  .hero .label {
+    display: inline-block; font-size: 11px; font-weight: 600;
+    color: var(--accent); background: var(--accent-dim);
+    padding: 3px 10px; border-radius: 20px; margin-bottom: 10px;
+    letter-spacing: 0.5px; text-transform: uppercase;
+  }
+  .hero .msg {
+    font-size: 16px; line-height: 1.6; font-weight: 500;
+    position: relative; z-index: 1;
+  }
+  .hero strong { color: var(--accent); }
+
+  /* === Section === */
+  .section { margin-top: 32px; }
+  .section-title {
+    font-size: 13px; font-weight: 700; color: var(--muted);
+    text-transform: uppercase; letter-spacing: 1px;
+    margin-bottom: 14px; padding-left: 2px;
+  }
+  .section-title .emoji { font-size: 14px; margin-right: 6px; }
+
+  /* === Card === */
+  .card {
+    background: var(--surface); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: 18px 20px;
+    margin-bottom: 12px; box-shadow: var(--shadow);
+    transition: transform 0.15s;
+  }
+  .card:active { transform: scale(0.985); }
+  .card h3 {
+    font-size: 15px; font-weight: 700; margin-bottom: 8px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .card p { font-size: 14px; color: var(--ink2); line-height: 1.65; }
+  .card .note {
+    font-size: 12px; color: var(--muted); margin-top: 8px;
+    padding-top: 8px; border-top: 1px solid var(--line);
+  }
+
+  /* Card variants */
+  .card.danger { border-left: 3px solid var(--danger); background: linear-gradient(135deg, var(--danger-dim), var(--surface)); }
+  .card.ok { border-left: 3px solid var(--ok); background: linear-gradient(135deg, var(--ok-dim), var(--surface)); }
+  .card.accent { border-left: 3px solid var(--accent); background: linear-gradient(135deg, var(--accent-dim), var(--surface)); }
+  .card.blue { border-left: 3px solid var(--blue); background: linear-gradient(135deg, var(--blue-dim), var(--surface)); }
+
+  .badge {
+    display: inline-flex; align-items: center; gap: 4px;
+    font-size: 11px; font-weight: 600; padding: 2px 8px;
+    border-radius: 6px; letter-spacing: 0.3px;
+  }
+  .badge.danger { background: var(--danger-dim); color: var(--danger); }
+  .badge.ok { background: var(--ok-dim); color: var(--ok); }
+  .badge.warn { background: var(--accent-dim); color: var(--accent); }
+
+  /* === Blockquote === */
+  blockquote {
+    margin: 10px 0 0; padding: 14px 16px;
+    background: var(--surface2); border-radius: 12px;
+    font-size: 14.5px; line-height: 1.65; color: var(--ink);
+    border: 1px solid var(--line);
+    position: relative;
+  }
+  blockquote::before {
+    content: '"'; position: absolute; top: 6px; left: 10px;
+    font-size: 28px; color: var(--accent); opacity: 0.3;
+    font-family: Georgia, serif; line-height: 1;
+  }
+  blockquote strong { color: var(--accent); }
+
+  /* === Forbidden words === */
+  .forbidden {
+    display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px;
+  }
+  .forbidden span {
+    font-size: 12px; padding: 3px 10px; border-radius: 20px;
+    background: var(--danger-dim); color: var(--danger);
+    text-decoration: line-through; font-weight: 500;
+  }
+
+  /* === Details accordion === */
+  details {
+    background: var(--surface); border: 1px solid var(--line);
+    border-radius: var(--radius); margin-bottom: 8px;
+    box-shadow: var(--shadow); overflow: hidden;
+  }
+  details summary {
+    padding: 14px 18px; cursor: pointer;
+    font-weight: 600; font-size: 14.5px;
+    list-style: none; display: flex; align-items: center;
+    justify-content: space-between;
+    transition: background 0.15s;
+  }
+  details summary:active { background: var(--surface2); }
+  details summary::-webkit-details-marker { display: none; }
+  details summary::after {
+    content: ''; width: 8px; height: 8px;
+    border-right: 2px solid var(--muted); border-bottom: 2px solid var(--muted);
+    transform: rotate(45deg); transition: transform 0.2s;
+    flex-shrink: 0; margin-left: 12px;
+  }
+  details[open] summary::after { transform: rotate(-135deg); }
+  details[open] summary { border-bottom: 1px solid var(--line); }
+  details > div { padding: 14px 18px; }
+  details .hint {
+    font-size: 12px; color: var(--muted); margin-top: 8px;
+    padding-top: 8px; border-top: 1px solid var(--line);
+  }
+  details .hint strong { color: var(--danger); }
+
+  /* === Table === */
+  .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 8px 0; }
+  table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+  th {
+    font-size: 11px; font-weight: 700; color: var(--muted);
+    text-transform: uppercase; letter-spacing: 0.5px;
+    padding: 8px 10px; text-align: left;
+    border-bottom: 2px solid var(--line);
+  }
+  td {
+    padding: 10px; border-bottom: 1px solid var(--line);
+    vertical-align: top; color: var(--ink2);
+  }
+  tr:last-child td { border-bottom: none; }
+  td:first-child { font-weight: 600; color: var(--ink); white-space: nowrap; }
+
+  /* === Timeline === */
+  .timeline { list-style: none; position: relative; padding-left: 24px; }
+  .timeline::before {
+    content: ''; position: absolute; left: 7px; top: 8px; bottom: 8px;
+    width: 2px; background: var(--line); border-radius: 2px;
+  }
+  .timeline li {
+    position: relative; padding: 8px 0 8px 0;
+    font-size: 14px; color: var(--ink2);
+  }
+  .timeline li::before {
+    content: ''; position: absolute; left: -20px; top: 14px;
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--surface2); border: 2px solid var(--line);
+  }
+  .timeline li.highlight::before {
+    background: var(--accent); border-color: var(--accent);
+    box-shadow: 0 0 8px var(--accent-dim);
+  }
+  .timeline li .time {
+    font-weight: 700; color: var(--ink); display: inline-block;
+    min-width: 48px; margin-right: 8px; font-variant-numeric: tabular-nums;
+  }
+  .timeline li.highlight .time { color: var(--accent); }
+
+  /* === Checklist === */
+  .checklist { list-style: none; }
+  .checklist li {
+    display: flex; align-items: flex-start; gap: 10px;
+    padding: 10px 0; border-bottom: 1px solid var(--line);
+    font-size: 14px;
+  }
+  .checklist li:last-child { border-bottom: none; }
+  .checklist li::before {
+    content: ''; flex-shrink: 0; margin-top: 3px;
+    width: 18px; height: 18px; border-radius: 6px;
+    border: 2px solid var(--line); background: var(--surface2);
+  }
+
+  /* === Weapons table === */
+  .weapon { display: flex; align-items: flex-start; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--line); }
+  .weapon:last-child { border-bottom: none; }
+  .weapon .icon { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
+  .weapon .name { font-size: 14px; font-weight: 600; color: var(--ink); }
+  .weapon .use { font-size: 13px; color: var(--muted); margin-top: 2px; }
+
+  /* === Footer === */
+  .footer {
+    text-align: center; color: var(--muted); font-size: 11px;
+    margin-top: 48px; padding: 20px; letter-spacing: 0.3px;
+  }
+
+  /* === Utility === */
+  ul.compact { padding-left: 18px; margin: 6px 0; }
+  ul.compact li { font-size: 13.5px; color: var(--ink2); margin: 4px 0; }
+  .mt { margin-top: 12px; }
+  .pill-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>네오플 2차 HR — 최종 프렙</h1>
+  <div class="sub">2026-04-14(화) 11:00 · 제주본사 네오마루 1층</div>
+</div>
+
+<div class="wrap">
+
+<!-- HERO -->
+<div class="hero">
+  <div class="label">Core Message</div>
+  <div class="msg">
+    1차 "일 시킬만한가" OK →<br>
+    2차 <strong>"조용히 12개월 잘 마치고 나갈 사람인가"</strong><br>
+    <strong>튀지 않는 게 합격 루트.</strong> 돌출 없이 안정적인 인상이 목표.
+  </div>
+</div>
+
+<!-- 3대 지뢰 -->
+<div class="section">
+  <div class="section-title"><span class="emoji">🚨</span> 3대 지뢰 — 절대 피할 것</div>
+
+  <div class="card danger">
+    <h3><span class="badge danger">위험</span> 전 직장·팀장 부정 언급</h3>
+    <p>오늘(4/13) 토스 면접에서 이미 밟은 패턴. 네오플은 보수 영업이익 1조 회사. 같은 톤이면 즉탈.</p>
+    <div class="forbidden">
+      <span>마이크로매니징</span><span>힘들어서</span><span>빌런</span><span>안 맞아서</span><span>어휴</span><span>진짜</span><span>너무</span>
+    </div>
+    <blockquote>
+      "반복 문의를 FAQ·템플릿으로 구조화하며 스스로 효율을 만드는 재미가 있었습니다. 퇴사는 ERP 프로젝트가 마무리되며 숫자 중심 실무로 더 깊이 가보고 싶어서였습니다."
+    </blockquote>
+    <div class="note">원칙: 원인은 구조·맥락으로, 본인은 "배움·다음 단계"로.</div>
+  </div>
+
+  <div class="card danger">
+    <h3><span class="badge danger">위험</span> 희망연봉 숫자 선제 제시</h3>
+    <p>네오플 계약직 예산 실무 레퍼런스 3,200~3,600. 4,000 먼저 던지면 "눈높이 높음" 플래그.</p>
+    <blockquote>
+      "<strong>내규 기준에 따르겠습니다.</strong> 참고로 전 직장 수준과 유사하면 충분합니다."
+    </blockquote>
+    <div class="note">숫자 먼저 말하지 말 것. 물어보면 그때만.</div>
+  </div>
+
+  <div class="card danger">
+    <h3><span class="badge danger">위험</span> "1년 계약이라 깔끔" 표현</h3>
+    <p>"1년이라 결정 쉬웠다" = <strong>"1년 뒤 뜬다"</strong> 확증. 대체인력 자리에서 치명적.</p>
+    <blockquote>
+      제주 이전 질문 시 →<br>
+      "네, 혼자 갑니다. <strong>제주 근무 자체에 매력을 느껴</strong> 결정했고, 가족도 충분히 합의됐습니다."
+    </blockquote>
+    <div class="note">계약기간 언급 자체 삭제.</div>
+  </div>
+</div>
+
+<!-- D-Day 타임라인 -->
+<div class="section">
+  <div class="section-title"><span class="emoji">⏰</span> D-Day 타임라인</div>
+  <div class="card">
+    <ul class="timeline">
+      <li><span class="time">05:00</span>기상</li>
+      <li><span class="time">05:30</span>김포공항 이동</li>
+      <li class="highlight"><span class="time">07:10</span>김포→제주 (에어부산)</li>
+      <li><span class="time">08:25</span>제주 도착</li>
+      <li><span class="time">08:45</span>택시/버스 → 네오마루 (~30분)</li>
+      <li><span class="time">09:30</span>근처 카페, 이 페이지 리뷰</li>
+      <li class="highlight"><span class="time">10:50</span>네오마루 1층 인포데스크</li>
+      <li><span class="time">10:55</span>"네오플 면접자입니다" → 담당자 연락</li>
+      <li class="highlight"><span class="time">11:00</span>면접 시작</li>
+      <li><span class="time">16:00</span>북호텔 평온한 제주 체크인</li>
+    </ul>
+  </div>
+</div>
+
+<!-- 1차 재출제 각도 -->
+<div class="section">
+  <div class="section-title"><span class="emoji">🔁</span> 1차 재출제 시 2차 각도</div>
+  <div class="card blue">
+    <p style="margin-bottom:12px;">HR은 1차 리포트 읽음. "확인 차" 같은 질문 또 함.<br><strong>토씨 그대로=외웠네</strong>, <strong>완전 다름=일관성 없네</strong>. 정답: 같은 사실, 다른 각도.</p>
+    <div class="table-wrap">
+    <table>
+      <tr><th>질문</th><th>2차 각도 (태도·사고)</th></tr>
+      <tr><td>힘들었던 점</td><td>"반복이 업무 본질"로 받아들인 뒤 시선이 바뀜</td></tr>
+      <tr><td>계약직 괜찮냐</td><td>선택·집중 국면의 12개월. 짧다고 생각 안 함</td></tr>
+      <tr><td>루틴 괜찮냐</td><td>단순 반복이 스트레스 해소 루틴이기도 함</td></tr>
+      <tr><td>SQL 어떻게</td><td>개발자와 소통 가능한 언어를 갖는 협업 가치</td></tr>
+      <tr><td>계약 만료 후</td><td>지금은 12개월에 집중이 먼저</td></tr>
+      <tr><td>마지막 멘트</td><td>아래 클로징 참고</td></tr>
+    </table>
+    </div>
+  </div>
+</div>
+
+<!-- HR 고유 질문 -->
+<div class="section">
+  <div class="section-title"><span class="emoji">🎤</span> HR 고유 질문 스크립트</div>
+
+  <details open>
+    <summary>💰 희망 연봉</summary>
+    <div>
+      <blockquote>"내규 기준에 따르겠습니다. 참고로 전 직장 수준과 유사하면 충분합니다."</blockquote>
+      <div class="hint">→ 4,000 숫자 먼저 X. 재차 물으면 "전 직장 3천 초반, 업계 수준 고려해주시면 따르겠습니다".</div>
+    </div>
+  </details>
+
+  <details>
+    <summary>📅 입사 가능 시점</summary>
+    <div>
+      <blockquote>"확정 즉시 가능합니다. 제주 이전 준비도 지금부터 시작하면 충분합니다."</blockquote>
+    </div>
+  </details>
+
+  <details>
+    <summary>🔀 다른 회사도 진행 중?</summary>
+    <div>
+      <blockquote><strong>"네오플이 1순위입니다. 합격 시 즉시 타 프로세스는 중단합니다."</strong></blockquote>
+      <div class="hint">→ "저울질 아닙니다" 같은 변명 덧붙이지 말 것. 한 문장으로 끝.</div>
+    </div>
+  </details>
+
+  <details>
+    <summary>🏝️ 혼자 이전? 가족 설득?</summary>
+    <div>
+      <blockquote>"네, 혼자 갑니다. 제주 근무 자체에 매력을 느껴 결정했고, 가족도 충분히 합의됐습니다."</blockquote>
+      <div class="hint">→ "1년이라 깔끔" 표현 <strong>삭제</strong>.</div>
+    </div>
+  </details>
+
+  <details>
+    <summary>🏔️ 제주 적응 자신?</summary>
+    <div>
+      <blockquote>"지방 자취 경험 있고, 통근 왕복 3시간을 버텨본 사람이라 환경 변화에 둔한 편입니다. 오히려 통근 스트레스가 사라져 집중도가 올라갈 것 같습니다."</blockquote>
+    </div>
+  </details>
+
+  <details>
+    <summary>🧠 본인 성격 한 문장</summary>
+    <div>
+      <blockquote>"겉은 차분하지만 맡은 일에는 말없이 꾸준한 타입입니다. ISFP 쪽이라 분위기 메이커는 아니지만 혼자 해야 하는 루틴 업무에는 강점이 있습니다."</blockquote>
+    </div>
+  </details>
+
+  <details>
+    <summary>🗣️ 내향적인데 1,400명 응대?</summary>
+    <div>
+      <blockquote>"사교적 수다는 약하지만 실무 소통은 다른 얘기입니다. 3년간 외주 8개사·전부서 문의 조율해봤고, 감정 섞지 않고 담백하게 처리하는 쪽이라 반복에 지치지 않습니다."</blockquote>
+    </div>
+  </details>
+
+  <details>
+    <summary>⚠️ 본인 약점</summary>
+    <div>
+      <blockquote>"<strong>혼자 판단해온 습관이 있어, 중간보고·사전공유를 의식적으로 먼저 하려 노력 중입니다.</strong>"</blockquote>
+      <div class="hint">→ "큰 조직 합의 속도가 답답"은 <strong>삭제</strong>. 조직문화 비판으로 읽힘.</div>
+    </div>
+  </details>
+
+  <details>
+    <summary>🎮 스트레스 해소법</summary>
+    <div>
+      <blockquote>"집에서 게임하거나 조용히 쉬는 편입니다. 디아블로2 같은 파밍 게임을 하는데 단순 반복이 저한텐 해소 루틴입니다. 업무도 비슷해서 스트레스가 특정 지점에 누적되지 않습니다."</blockquote>
+    </div>
+  </details>
+
+  <details>
+    <summary>📞 레퍼런스 체크 가능?</summary>
+    <div>
+      <blockquote>"가능합니다. 요청 주시면 적합한 분을 안내드리겠습니다."</blockquote>
+      <div class="hint">→ "팀장님 연락처 공유" 선제 제안 <strong>금지</strong>. 동료·실장급 선택지 확보.</div>
+    </div>
+  </details>
+</div>
+
+<!-- 왜 네오플 -->
+<div class="section">
+  <div class="section-title"><span class="emoji">💬</span> "왜 네오플?" 회사이해</div>
+  <div class="card accent">
+    <p style="margin-bottom:8px;"><span class="badge warn">주의</span> CMB 수치·IP 타이틀 <strong>인용 금지</strong>. "선택과 집중 기조 + 주주환원 강화" 톤다운만.</p>
+    <blockquote>
+      "최근 공시·브리핑 기조를 보니 <strong>선택과 집중·효율 중심</strong>으로 가는 국면이라고 느꼈습니다. 빈자리가 생기면 안 되는 시기라는 점에서 대체 자리의 의미가 더 또렷해졌다고 봤고, 제가 해온 <strong>3.6억 규모 예산 단독 편성·집행·통제(집행률 88.5%)</strong> 경험이 이 시기의 네오플에 실질적으로 쓰일 수 있겠다고 판단해 지원했습니다."
+    </blockquote>
+    <div class="note"><strong>한 번만.</strong> 여러 질문에 반복 사용 금지.</div>
+  </div>
+</div>
+
+<!-- 던파 천해천 -->
+<div class="section">
+  <div class="section-title"><span class="emoji">🎮</span> 던파 '천해천' 질문 받으면</div>
+  <div class="card">
+    <p><span class="badge danger">먼저 꺼내지 말 것</span> 질문 받은 경우에만.</p>
+    <blockquote>
+      "최근 업데이트는 유저분들 반응 살피고 있습니다. 제 역할은 결국 <strong>개발·운영 동료들이 본업에 집중하도록 백오피스에서 지탱하는 것</strong>이라고 정리됐습니다."
+    </blockquote>
+    <div class="note">사과·비판·"인상적" 표현 전부 삭제. 짧게 본인 역할론으로 전환.</div>
+  </div>
+</div>
+
+<!-- 클로징 -->
+<div class="section">
+  <div class="section-title"><span class="emoji">🏁</span> 클로징</div>
+  <div class="card ok">
+    <blockquote style="font-size:16px; font-weight:600;">
+      "전임자 공백이 티 나지 않게, <strong>팀이 본업에 집중할 수 있도록 조용히 지탱하겠습니다.</strong>"
+    </blockquote>
+    <div class="note">1차의 "불편하지 않다"(이중부정=소극적)에서 업그레이드.</div>
+
+    <h3 style="margin-top:16px; font-size:14px; color:var(--accent);">역질문 (1개만)</h3>
+    <ul class="compact">
+      <li>"2차 이후 프로세스는 어떻게 진행되나요? (레퍼런스 체크 / 처우 협의 일정)"</li>
+      <li>"경영관리팀이 예산 시즌(연초·분기) 외 평상시 어떤 업무 리듬인지 궁금합니다."</li>
+    </ul>
+    <div class="pill-row mt">
+      <span class="badge danger">금지: 연봉·복지 디테일</span>
+      <span class="badge danger">야근 빈도</span>
+      <span class="badge danger">정규직 전환</span>
+    </div>
+  </div>
+</div>
+
+<!-- 입장 체크리스트 -->
+<div class="section">
+  <div class="section-title"><span class="emoji">✅</span> 입장 30초 체크리스트</div>
+  <div class="card">
+    <ul class="checklist">
+      <li>물 한 모금, 목 풀기</li>
+      <li><strong>전 직장 부정 언급 금지</strong> 되뇌기 (토스 실수 반복 X)</li>
+      <li>호칭: "담당자님" / "부장님"</li>
+      <li>말 빠르기: 평소보다 <strong>1.2배 느리게</strong></li>
+      <li>첫 인사 눈 맞춤 3초</li>
+      <li>CMB·IP 타이틀 언급 <strong>0회</strong></li>
+      <li>연봉 숫자 먼저 던지지 않기</li>
+      <li>"1년이라 깔끔" 표현 금지</li>
+    </ul>
+  </div>
+</div>
+
+<!-- 1차 재사용 무기 -->
+<div class="section">
+  <div class="section-title"><span class="emoji">🧰</span> 1차 재사용 무기</div>
+  <div class="card">
+    <div class="weapon"><div class="icon">🎮</div><div><div class="name">디아2 파밍 비유</div><div class="use">스트레스·루틴 질문</div></div></div>
+    <div class="weapon"><div class="icon">🤖</div><div><div class="name">AI시대 커리어관</div><div class="use">계약직 방어</div></div></div>
+    <div class="weapon"><div class="icon">🌧️</div><div><div class="name">가랑비에 옷 젖듯</div><div class="use">어려운 점 ("빌런" 표현 제거)</div></div></div>
+    <div class="weapon"><div class="icon">🤝</div><div><div class="name">외주 8개사·전부서 조율</div><div class="use">소통 역량</div></div></div>
+    <div class="weapon"><div class="icon">💰</div><div><div class="name">3.6억 예산·88.5% 집행률</div><div class="use">지원동기·직무역량</div></div></div>
+  </div>
+</div>
+
+<div class="footer">
+  v6 design · HR 전문가 2명 크로스체크 반영<br>
+  2026-04-13 KST
+</div>
+
+</div>
+</body>
+</html>

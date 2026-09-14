@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>임종권 — 토스페이먼츠 GA Manager Portfolio</title>
+<meta name="description" content="임종권 — 토스페이먼츠 토스페이먼츠 General Affairs Manager 포트폴리오">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --blue:#3182f6;--blue-hover:#2272eb;--blue-dim:rgba(49,130,246,.06);--blue-light:rgba(49,130,246,.12);
+  --black:#191f28;--g700:#333d4b;--g500:#6b7684;--g400:#8b95a1;--g300:#d1d6db;--g200:#e5e8eb;--g100:#f2f4f6;--g50:#f9fafb;
+  --white:#ffffff;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Pretendard Variable',Pretendard,-apple-system,'Noto Sans KR',sans-serif;background:var(--white);color:var(--g700);overflow-x:hidden;line-height:1.7;word-break:keep-all;-webkit-font-smoothing:antialiased}
+::selection{background:var(--blue);color:#fff}
+a{color:var(--blue);text-decoration:none;transition:color .2s}
+a:hover{color:var(--blue-hover)}
+.container{max-width:1040px;margin:0 auto;padding:0 40px}
+
+/* ── NAV ── */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--g200);padding:0 40px;height:60px;display:flex;justify-content:space-between;align-items:center;max-width:100%}
+.nav-brand{font-size:16px;font-weight:700;color:var(--black);letter-spacing:-.02em}
+.nav-brand span{color:var(--blue)}
+.nav-links{display:flex;gap:24px;align-items:center}
+.nav-links a{font-size:14px;color:var(--g500);font-weight:500;transition:color .2s}
+.nav-links a:hover{color:var(--blue)}
+.nav-links .current{color:var(--blue);font-weight:600}
+
+/* ── HERO (블랙) ── */
+.hero{background:var(--black);padding:180px 40px 120px;text-align:center;position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:120px;background:linear-gradient(transparent,rgba(25,31,40,.4))}
+.hero-badge{display:inline-block;font-size:14px;font-weight:600;color:var(--blue);background:rgba(49,130,246,.12);border:1px solid rgba(49,130,246,.2);padding:6px 18px;border-radius:20px;margin-bottom:28px}
+.hero h1{font-size:clamp(40px,6vw,58px);font-weight:800;letter-spacing:-.04em;line-height:1.15;color:#fff;margin-bottom:20px}
+.hero h1 em{font-style:normal;color:var(--blue)}
+.hero-sub{font-size:19px;color:var(--g400);max-width:560px;margin:0 auto;line-height:1.8}
+
+/* ── STATS ── */
+.stats-section{padding:100px 0;background:var(--white)}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.stat-card{text-align:center;padding:40px 16px}
+.stat-number{font-size:44px;font-weight:800;color:var(--blue);letter-spacing:-.03em;margin-bottom:8px;line-height:1}
+.stat-label{font-size:15px;color:var(--g500);line-height:1.5}
+
+/* ── ABOUT ── */
+.about{padding:120px 0;background:var(--g50)}
+.about-grid{display:grid;grid-template-columns:280px 1fr;gap:60px;align-items:center}
+.about-photo{width:280px;height:280px;border-radius:22px;overflow:hidden;background:var(--g200)}
+.about-photo img{width:100%;height:100%;object-fit:cover}
+.about-text h2{font-size:32px;font-weight:800;color:var(--black);letter-spacing:-.03em;margin-bottom:16px}
+.about-text h2 span{color:var(--blue)}
+.about-text p{font-size:18px;color:var(--g700);line-height:2}
+.about-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.about-tag{font-size:14px;padding:6px 14px;border-radius:8px;font-weight:500}
+.about-tag.hl{background:var(--blue-light);color:var(--blue)}
+.about-tag.rg{background:var(--g100);color:var(--g500)}
+
+/* ── SECTION COMMON ── */
+.sec-padding{padding:140px 0}
+.sec-padding.alt{background:var(--g50)}
+.sec-label{font-size:14px;letter-spacing:.5px;color:var(--blue);margin-bottom:12px;font-weight:700}
+.sec-title{font-size:clamp(28px,4vw,40px);font-weight:800;letter-spacing:-.03em;color:var(--black);margin-bottom:48px}
+.sec-title span{color:var(--blue)}
+
+/* ── PROJECT CARD ── */
+.proj{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;margin-bottom:80px}
+.proj:last-child{margin-bottom:0}
+.proj.reverse{direction:rtl}
+.proj.reverse>*{direction:ltr}
+.proj-img{border-radius:22px;overflow:hidden;background:var(--g100);aspect-ratio:4/3}
+.proj-img img{width:100%;height:100%;object-fit:cover;display:block}
+.proj-content h3{font-size:24px;font-weight:700;color:var(--black);letter-spacing:-.02em;margin-bottom:8px}
+.proj-period{font-size:14px;color:var(--g400);margin-bottom:16px}
+.proj-body{font-size:17px;color:var(--g700);line-height:1.9;margin-bottom:20px}
+.proj-body b{color:var(--blue);font-weight:600}
+.proj-results{display:flex;flex-wrap:wrap;gap:8px}
+.proj-res{padding:6px 16px;background:var(--black);color:#fff;font-size:13px;font-weight:600;border-radius:8px}
+
+/* ── FLOW ── */
+.flow-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:32px}
+.flow-card{background:var(--white);border:1px solid var(--g200);border-radius:14px;padding:24px;transition:border-color .3s var(--ease),transform .3s var(--ease)}
+.flow-card:hover{border-color:var(--blue);transform:translateY(-3px)}
+.flow-step{font-size:12px;color:var(--blue);font-weight:700;letter-spacing:.5px;margin-bottom:8px}
+.flow-card p{font-size:15px;color:var(--g700);line-height:1.75}
+
+/* ── WHY ── */
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.why-card{background:var(--g50);border:1px solid var(--g200);border-radius:22px;padding:36px;transition:transform .4s var(--ease),border-color .4s}
+.why-card:hover{transform:translateY(-4px);border-color:rgba(49,130,246,.2)}
+.why-icon{font-size:28px;margin-bottom:14px}
+.why-card h3{font-size:18px;font-weight:700;margin-bottom:10px;color:var(--black)}
+.why-card p{font-size:15px;color:var(--g500);line-height:1.8}
+
+/* ── AWARD ── */
+.award-row{display:flex;align-items:center;gap:24px;background:var(--g50);border-radius:22px;padding:24px 32px;margin-top:40px}
+.award-img{width:80px;height:80px;border-radius:14px;overflow:hidden;flex-shrink:0}
+.award-img img{width:100%;height:100%;object-fit:cover}
+.award-text h4{font-size:17px;font-weight:700;color:var(--black)}
+.award-text p{font-size:14px;color:var(--g400)}
+
+/* ── CONTACT (블랙) ── */
+.contact{background:var(--black);padding:100px 40px;text-align:center}
+.contact h2{font-size:32px;font-weight:800;color:#fff;letter-spacing:-.03em;margin-bottom:20px}
+.contact p{font-size:17px;color:var(--g400);line-height:2}
+.contact a{color:var(--blue)}
+.other-pos{display:flex;justify-content:center;gap:12px;margin-top:32px}
+.other-btn{padding:10px 24px;border-radius:12px;font-size:14px;font-weight:600;border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.6);transition:all .3s var(--ease)}
+.other-btn:hover{border-color:var(--blue);color:var(--blue)}
+
+footer{text-align:center;padding:24px;font-size:12px;color:var(--g400);background:var(--black);border-top:1px solid rgba(255,255,255,.06)}
+
+/* ── REVEAL ── */
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-d1{transition-delay:.15s}.reveal-d2{transition-delay:.3s}.reveal-d3{transition-delay:.45s}
+
+@media(max-width:768px){
+  .container{padding:0 20px}
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  .about-grid{grid-template-columns:1fr;text-align:center}
+  .about-photo{margin:0 auto}
+  .proj{grid-template-columns:1fr}
+  .proj.reverse{direction:ltr}
+  .flow-grid{grid-template-columns:1fr}
+  .why-grid{grid-template-columns:1fr}
+  .hero{padding:140px 20px 80px}
+  .sec-padding{padding:80px 0}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ NAV ═══ -->
+<nav class="nav">
+  <div class="nav-brand">임종권<span>.</span></div>
+  <div class="nav-links">
+    <a href="#" class="current">토스페이먼츠 GA Manager</a>
+  </div>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<div class="hero">
+  <div class="hero-badge">토스페이먼츠 · General Affairs Manager</div>
+  <h1>사무환경을 만들고,<br>조직을 <em>운영</em>하는 사람</h1>
+  <p class="hero-sub">총무·IT 1인 전담 37개월 — 구매계약, 예산관리, 자산관리,<br>사무환경 인프라 전반을 직접 구축·운영한 실무자</p>
+</div>
+
+<!-- ═══ STATS ═══ -->
+<section class="stats-section">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-card reveal"><div class="stat-number" data-target="37" data-suffix="개월">0</div><div class="stat-label">1인 전담<br>총무·IT</div></div>
+      <div class="stat-card reveal reveal-d1"><div class="stat-number" data-target="3" data-suffix=".6억">0</div><div class="stat-label">연간 예산<br>편성·집행</div></div>
+      <div class="stat-card reveal reveal-d2"><div class="stat-number" data-target="8" data-suffix="개사">0</div><div class="stat-label">외주업체<br>계약·정산</div></div>
+      <div class="stat-card reveal reveal-d3"><div class="stat-number" data-target="30" data-suffix="%" data-prefix="-">0</div><div class="stat-label">유지보수<br>비용 절감</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ABOUT ═══ -->
+<section class="about">
+  <div class="container">
+    <div class="about-grid reveal">
+      <div class="about-photo">
+        <img src="assets/profile.png" alt="임종권">
+      </div>
+      <div class="about-text">
+        <h2>1인이 전담한<br><span>37개월의 총무</span> 경험</h2>
+        <p>
+          사회연대은행에서 총무·IT를 1인 전담하며, 사무환경 구축부터 구매계약·예산관리·자산관리·ERP 도입까지
+          General Affairs의 전 영역을 경험했습니다.
+          7년차 경력은 아니지만, 1인 전담의 밀도가 그 이상의 경험을 만들었습니다.
+        </p>
+        <div class="about-tags">
+          <span class="about-tag hl">총무·행정</span>
+          <span class="about-tag hl">구매계약</span>
+          <span class="about-tag hl">자산관리</span>
+          <span class="about-tag rg">예산 편성·집행</span>
+          <span class="about-tag rg">ERP 운용</span>
+          <span class="about-tag rg">IT 인프라</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PROJECT 1: 사무환경 인프라 ═══ -->
+<section class="sec-padding">
+  <div class="container">
+    <div class="sec-label reveal">Project 01</div>
+    <h2 class="sec-title reveal">사무환경 <span>인프라</span> 구축</h2>
+
+    <div class="proj reveal">
+      <div class="proj-img">
+        <img src="assets/projects/photo_erp_highq.png" alt="ERP 시스템">
+      </div>
+      <div class="proj-content">
+        <h3>ERP 도입 + IT 자산 관리 체계화</h3>
+        <div class="proj-period">2023.07 → 2024.12 · 18개월 · 단독 전담</div>
+        <p class="proj-body">
+          엑셀 수기 관리에서 <b>커스텀 ERP(Tibero/Nexacro)</b>로 전환.
+          회계계정 200개 설계·데이터 마이그레이션·기능 검증을 18개월간 단독 수행.
+          동시에 <b>PC·네트워크·프린터 등 IT 자산</b>을 체계적으로 관리하며,
+          사무환경 인프라의 기반을 구축했습니다.
+        </p>
+        <div class="proj-results">
+          <span class="proj-res">ERP 도입 전담</span>
+          <span class="proj-res">계정 200개 설계</span>
+          <span class="proj-res">결산 -2일</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="flow-grid">
+      <div class="flow-card reveal">
+        <div class="flow-step">PHASE 1 — 현황 파악</div>
+        <p>부서별 업무 프로세스 분석. IT 자산 현황 조사. 기능 요구사항 문서화.</p>
+      </div>
+      <div class="flow-card reveal reveal-d1">
+        <div class="flow-step">PHASE 2 — 시스템 구축</div>
+        <p>ERP 계정 설계·마이그레이션. IT 자산 대장 정비. 네트워크 환경 정리.</p>
+      </div>
+      <div class="flow-card reveal reveal-d2">
+        <div class="flow-step">PHASE 3 — 운영·안정화</div>
+        <p>관리회계 전환 완료. IT 장애 대응 체계 확립. 사무환경 운영 매뉴얼 정비.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PROJECT 2: 구매계약·예산 관리 ═══ -->
+<section class="sec-padding alt">
+  <div class="container">
+    <div class="sec-label reveal">Project 02</div>
+    <h2 class="sec-title reveal">구매계약 · <span>예산</span> 관리</h2>
+
+    <div class="proj reverse reveal">
+      <div class="proj-img">
+        <img src="assets/projects/photo_iot_modlink_board.jpg" alt="IT 자산 관리">
+      </div>
+      <div class="proj-content">
+        <h3>입찰·구매·외주 관리 프로세스 표준화</h3>
+        <div class="proj-period">2023.01 → 2026.02 · 3년 2개월</div>
+        <p class="proj-body">
+          <b>10건+ 입찰을 RFP 작성부터 계약까지 풀사이클</b> 수행.
+          8개 외주업체의 계약·정산·SLA를 총괄. 재계약 협상과 IT 내재화로
+          <b>유지보수 비용 30% 절감</b>. 연 3.6억 인프라 예산 편성·집행(88.5%).
+        </p>
+        <div class="proj-results">
+          <span class="proj-res">풀사이클 10건+</span>
+          <span class="proj-res">비용 -30%</span>
+          <span class="proj-res">집행률 88.5%</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="award-row reveal">
+      <div class="award-img"><img src="assets/projects/photo_metaverse_award.jpg" alt="수상"></div>
+      <div class="award-text">
+        <h4>메타버스 콘텐츠 캠프 대상</h4>
+        <p>과학기술정보통신부 · 2022</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ WHY ═══ -->
+<section class="sec-padding">
+  <div class="container">
+    <div class="sec-label reveal">Why Me</div>
+    <h2 class="sec-title reveal">토스페이먼츠 GA Manager에 <span>기여</span>할 수 있는 이유</h2>
+    <div class="why-grid">
+      <div class="why-card reveal">
+        <div class="why-icon">🏢</div>
+        <h3>1인 전담 총무 37개월</h3>
+        <p>총무·IT를 혼자 담당하며 사무환경 전반을 운영. 7년차는 아니지만, 1인 전담의 밀도가 그 이상의 경험을 만들었습니다.</p>
+      </div>
+      <div class="why-card reveal reveal-d1">
+        <div class="why-icon">📝</div>
+        <h3>구매·계약·정산</h3>
+        <p>입찰 10건+ 풀사이클 수행. 8개 외주업체 계약·정산·SLA 관리. 구매 프로세스 표준화 경험.</p>
+      </div>
+      <div class="why-card reveal reveal-d2">
+        <div class="why-icon">💻</div>
+        <h3>IT 인프라 관리</h3>
+        <p>PC·네트워크·프린터 등 IT 자산 관리. ERP 도입 전담. HW 개발(PCB·IoT) 경력으로 기술 이해도 높음.</p>
+      </div>
+      <div class="why-card reveal reveal-d3">
+        <div class="why-icon">💰</div>
+        <h3>예산 편성·집행</h3>
+        <p>연 3.6억 인프라 예산 편성·집행(88.5%). 재계약 협상으로 비용 30% 절감. 비용 효율 개선 실적.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CONTACT ═══ -->
+<div class="contact" id="contact">
+  <div class="container">
+    <h2>함께 일하고 싶습니다</h2>
+    <p>
+      <a href="mailto:ssujklim@gmail.com">ssujklim@gmail.com</a><br>
+      010-4052-0834<br>
+      <span style="color:var(--g500);font-size:14px">경기도 광명시</span>
+    </p>
+
+  </div>
+</div>
+
+<footer>&copy; 2026 임종권 — 토스페이먼츠 General Affairs Manager 포트폴리오</footer>
+
+<script>
+// ── Scroll Reveal ──
+const revealObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');revealObs.unobserve(e.target)}});
+},{threshold:.1,rootMargin:'0px 0px -60px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>revealObs.observe(el));
+
+// ── Counter ──
+const counterObs=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(!entry.isIntersecting)return;
+    const el=entry.target;
+    if(el.dataset.animated)return;
+    el.dataset.animated='true';
+    const target=parseFloat(el.dataset.target);
+    const suffix=el.dataset.suffix||'';
+    const prefix=el.dataset.prefix||'';
+    const hasDecimal=el.dataset.decimal;
+    const duration=2000;
+    const start=performance.now();
+    function ease(t){return 1-Math.pow(1-t,3)}
+    function tick(now){
+      const p=Math.min((now-start)/duration,1);
+      const v=target*ease(p);
+      el.textContent=prefix+(hasDecimal?v.toFixed(1):Math.floor(v))+suffix;
+      if(p<1)requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  });
+},{threshold:.5});
+document.querySelectorAll('.stat-number[data-target]').forEach(el=>counterObs.observe(el));
+</script>
+</body>
+</html>

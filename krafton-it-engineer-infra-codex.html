@@ -1,0 +1,1463 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>임종권 | KRAFTON [Infra Div.] IT Engineer Portfolio</title>
+<meta name="description" content="크래프톤 Infra Div. IT Engineer 지원용 맞춤형 웹 포트폴리오">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --k-black:#000000;
+  --k-gray:#949495;
+  --k-light:#EFEFEF;
+  --k-white:#FFFFFF;
+  --bg:#070707;
+  --surface:#111111;
+  --surface-2:#171717;
+  --surface-3:#1d1d1d;
+  --line:rgba(255,255,255,.08);
+  --line-strong:rgba(255,255,255,.18);
+  --text:#eaeaea;
+  --text-dim:#a6a6a6;
+  --text-faint:#7f7f7f;
+  --ease:cubic-bezier(.22,1,.36,1);
+  --shadow:0 24px 70px rgba(0,0,0,.35);
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{
+  font-family:'Noto Sans KR',-apple-system,BlinkMacSystemFont,sans-serif;
+  background:
+    radial-gradient(circle at top left, rgba(255,255,255,.04), transparent 24%),
+    radial-gradient(circle at top right, rgba(255,255,255,.03), transparent 20%),
+    linear-gradient(180deg, #050505 0%, #0a0a0a 100%);
+  color:var(--text);
+  overflow-x:hidden;
+  line-height:1.6;
+  word-break:keep-all;
+}
+a{color:inherit;text-decoration:none}
+img,video{display:block;max-width:100%}
+::selection{background:rgba(255,255,255,.92);color:#000}
+
+body::before{
+  content:'';
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:9999;
+  opacity:.028;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.nav{
+  position:fixed;
+  top:0;left:0;right:0;
+  z-index:100;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:18px 34px;
+  background:rgba(5,5,5,.74);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid transparent;
+  transition:all .35s var(--ease);
+}
+.nav.scrolled{
+  padding:14px 28px;
+  border-color:var(--line);
+  background:rgba(5,5,5,.88);
+}
+.nav-logo{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:14px;
+  font-weight:700;
+  letter-spacing:-.02em;
+  color:var(--k-white);
+}
+.nav-logo span{color:var(--k-gray)}
+.nav-links{
+  display:flex;
+  gap:22px;
+}
+.nav-links a{
+  font-family:'JetBrains Mono',monospace;
+  font-size:10px;
+  font-weight:600;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--text-faint);
+  transition:color .2s ease;
+}
+.nav-links a:hover{color:var(--k-white)}
+
+.hero{
+  min-height:100vh;
+  position:relative;
+  display:grid;
+  grid-template-columns:minmax(0,1.12fr) minmax(360px,.88fr);
+  gap:34px;
+  align-items:end;
+  padding:118px 9vw 64px;
+  overflow:hidden;
+}
+.hero-video{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:52% 0%;
+  transform:scale(1.48);
+  transform-origin:center top;
+  filter:grayscale(1) contrast(1.10) brightness(.26);
+  pointer-events:none;
+}
+.hero::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(180deg, rgba(0,0,0,.18) 0%, rgba(0,0,0,.54) 42%, rgba(0,0,0,.88) 78%, var(--bg) 100%),
+    linear-gradient(90deg, rgba(0,0,0,.66) 0%, rgba(0,0,0,.44) 34%, rgba(0,0,0,.18) 68%, rgba(0,0,0,.56) 100%);
+  z-index:1;
+}
+.hero::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.028) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.028) 1px, transparent 1px);
+  background-size:42px 42px;
+  mask-image:linear-gradient(180deg, rgba(0,0,0,.45), transparent 100%);
+  z-index:1;
+  pointer-events:none;
+}
+.hero > *{position:relative;z-index:2}
+.hero-copy,
+.hero-side{min-width:0}
+
+.hero-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:6px 14px;
+  border:1px solid rgba(255,255,255,.14);
+  background:rgba(255,255,255,.05);
+  color:#dcdcdc;
+  font-family:'JetBrains Mono',monospace;
+  font-size:10px;
+  font-weight:600;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+.hero-badge::before{
+  content:'';
+  width:8px;
+  height:8px;
+  background:linear-gradient(180deg,#fff,#949495);
+  border-radius:1px;
+  box-shadow:0 0 16px rgba(255,255,255,.28);
+}
+.hero-copy h1{
+  margin-top:22px;
+  font-family:'Space Grotesk',sans-serif;
+  font-size:clamp(40px,5.8vw,74px);
+  line-height:.91;
+  letter-spacing:-.065em;
+  color:var(--k-white);
+  text-wrap:balance;
+  max-width:620px;
+}
+.hero-copy h1 em{
+  font-style:normal;
+  color:#bdbdbd;
+}
+.hero-copy h1 .line{
+  display:block;
+  white-space:nowrap;
+}
+.hero-copy h1 span{
+  display:block;
+  color:#8a8a8a;
+}
+.hero-sub{
+  margin-top:22px;
+  max-width:600px;
+  font-size:16.5px;
+  line-height:1.82;
+  color:#bdbdbd;
+}
+.hero-sub b{color:#f3f3f3;font-weight:700}
+
+.hero-stats{
+  margin-top:34px;
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:12px;
+  max-width:690px;
+}
+.hero-stat{
+  min-width:0;
+  padding:12px 14px;
+  border:1px solid rgba(255,255,255,.10);
+  background:rgba(255,255,255,.04);
+  backdrop-filter:blur(8px);
+}
+.hero-stat .num{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:34px;
+  font-weight:700;
+  line-height:1;
+  letter-spacing:-.05em;
+  color:var(--k-white);
+}
+.hero-stat .label{
+  margin-top:4px;
+  font-size:10px;
+  line-height:1.4;
+  letter-spacing:-.01em;
+  color:#999;
+  white-space:nowrap;
+}
+
+.hero-side{
+  display:grid;
+  gap:16px;
+}
+.hero-panel{
+  border:1px solid rgba(255,255,255,.11);
+  background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+  box-shadow:var(--shadow);
+}
+.hero-panel.profile{
+  display:grid;
+  grid-template-columns:136px 1fr;
+  align-items:stretch;
+  min-height:220px;
+  overflow:hidden;
+}
+.hero-panel.profile img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  filter:grayscale(1) contrast(1.05);
+}
+.profile-info{
+  padding:20px 20px 18px;
+}
+.profile-kicker{
+  font-family:'JetBrains Mono',monospace;
+  font-size:10px;
+  letter-spacing:.12em;
+  color:#a5a5a5;
+  text-transform:uppercase;
+}
+.profile-name{
+  margin-top:7px;
+  font-family:'Space Grotesk',sans-serif;
+  font-size:29px;
+  font-weight:700;
+  letter-spacing:-.05em;
+  line-height:.95;
+  color:var(--k-white);
+}
+.profile-role{
+  margin-top:7px;
+  font-size:12px;
+  line-height:1.7;
+  color:#b6b6b6;
+}
+.profile-lines{
+  margin-top:14px;
+  display:grid;
+  gap:6px;
+}
+.profile-lines div{
+  font-size:10px;
+  color:#d0d0d0;
+}
+
+.signal-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+}
+.signal-card{
+  padding:18px;
+  border:1px solid rgba(255,255,255,.09);
+  background:rgba(255,255,255,.03);
+}
+.signal-card h3{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:18px;
+  letter-spacing:-.03em;
+  color:var(--k-white);
+}
+.signal-card p{
+  margin-top:8px;
+  font-size:12px;
+  line-height:1.74;
+  color:#afafaf;
+}
+
+.scroll-hint{
+  position:absolute;
+  left:50%;
+  bottom:28px;
+  transform:translateX(-50%);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:7px;
+  font-family:'JetBrains Mono',monospace;
+  font-size:9px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:#8b8b8b;
+  z-index:2;
+}
+.scroll-hint::after{
+  content:'';
+  width:1px;
+  height:28px;
+  background:linear-gradient(#d7d7d7, transparent);
+}
+
+.ticker-section{overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.ticker{
+  white-space:nowrap;
+  overflow:hidden;
+  position:relative;
+  padding:12px 0;
+  background:linear-gradient(90deg, rgba(255,255,255,.04), rgba(255,255,255,.015));
+}
+.ticker-track{
+  display:inline-flex;
+  will-change:transform;
+}
+.ticker-item{
+  flex-shrink:0;
+  padding:0 24px;
+  font-family:'Space Grotesk',sans-serif;
+  font-size:clamp(18px,2.8vw,28px);
+  font-weight:700;
+  letter-spacing:-.04em;
+  color:#d2d2d2;
+  opacity:.75;
+}
+.ticker-item.small{
+  font-size:clamp(11px,1.4vw,15px);
+  font-family:'JetBrains Mono',monospace;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:#8f8f8f;
+}
+
+section{
+  position:relative;
+  padding:96px 9vw 88px;
+}
+.sec-label{
+  font-family:'JetBrains Mono',monospace;
+  font-size:10px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:#9f9f9f;
+  margin-bottom:10px;
+}
+.sec-title{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:clamp(28px,4vw,44px);
+  font-weight:700;
+  line-height:1;
+  letter-spacing:-.05em;
+  color:var(--k-white);
+  margin-bottom:34px;
+}
+.sec-title span{color:#8d8d8d}
+
+.ops-layout{
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:18px;
+}
+.ops-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:14px;
+}
+.ops-card{
+  min-height:210px;
+  padding:20px;
+  border:1px solid var(--line);
+  background:linear-gradient(180deg, var(--surface) 0%, var(--surface-2) 100%);
+  transition:transform .28s var(--ease),border-color .28s ease;
+}
+.ops-card:hover{
+  transform:translateY(-4px);
+  border-color:var(--line-strong);
+}
+.ops-no{
+  font-family:'JetBrains Mono',monospace;
+  font-size:9px;
+  letter-spacing:.14em;
+  color:#8e8e8e;
+  text-transform:uppercase;
+}
+.ops-card h3{
+  margin-top:10px;
+  font-family:'Space Grotesk',sans-serif;
+  font-size:22px;
+  line-height:1;
+  letter-spacing:-.04em;
+  color:var(--k-white);
+}
+.ops-card p{
+  margin-top:12px;
+  font-size:13px;
+  line-height:1.78;
+  color:#afafaf;
+}
+.ops-card ul{
+  margin-top:12px;
+  list-style:none;
+  display:grid;
+  gap:8px;
+}
+.ops-card li{
+  padding-left:14px;
+  position:relative;
+  font-size:12px;
+  line-height:1.65;
+  color:#d0d0d0;
+}
+.ops-card li::before{
+  content:'';
+  position:absolute;
+  left:0;
+  top:9px;
+  width:5px;
+  height:5px;
+  background:#bdbdbd;
+  border-radius:1px;
+}
+
+.ops-essay{
+  min-height:100%;
+  padding:24px;
+  border:1px solid var(--line);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02)),
+    linear-gradient(180deg, #111 0%, #0c0c0c 100%);
+}
+.ops-essay h3{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:28px;
+  letter-spacing:-.04em;
+  line-height:.96;
+  color:var(--k-white);
+}
+.ops-essay p{
+  margin-top:16px;
+  font-size:14px;
+  line-height:1.86;
+  color:#b6b6b6;
+}
+.ops-essay b{color:#fff}
+
+.metrics-wrap{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
+  margin-bottom:16px;
+}
+.metric{
+  padding:22px 18px;
+  border:1px solid var(--line);
+  background:linear-gradient(180deg, var(--surface) 0%, #0f0f0f 100%);
+  text-align:center;
+}
+.metric .num{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:44px;
+  font-weight:700;
+  line-height:1;
+  letter-spacing:-.06em;
+  color:#fafafa;
+}
+.metric .desc{
+  margin-top:8px;
+  font-size:11px;
+  line-height:1.55;
+  color:#aaaaaa;
+}
+.metrics-note{
+  padding:18px 22px;
+  border-left:2px solid rgba(255,255,255,.24);
+  background:linear-gradient(90deg, rgba(255,255,255,.05), rgba(255,255,255,.015));
+  font-size:13px;
+  line-height:1.82;
+  color:#c4c4c4;
+}
+
+.case-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+.case-card{
+  overflow:hidden;
+  border:1px solid var(--line);
+  background:var(--surface);
+  transition:transform .3s var(--ease),border-color .25s ease;
+}
+.case-card:hover{
+  transform:translateY(-4px);
+  border-color:var(--line-strong);
+}
+.case-card img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+  filter:grayscale(.2) contrast(1.02);
+}
+.case-body{
+  padding:18px 18px 16px;
+}
+.case-kicker{
+  font-family:'JetBrains Mono',monospace;
+  font-size:9px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:#999;
+}
+.case-card h3{
+  margin-top:8px;
+  font-family:'Space Grotesk',sans-serif;
+  font-size:22px;
+  line-height:1.02;
+  letter-spacing:-.04em;
+  color:#fff;
+}
+.case-summary{
+  margin-top:8px;
+  font-size:12px;
+  line-height:1.7;
+  color:#b0b0b0;
+}
+.case-list{
+  margin-top:14px;
+  list-style:none;
+  display:grid;
+  gap:9px;
+}
+.case-list li{
+  padding-left:14px;
+  position:relative;
+  font-size:11.5px;
+  line-height:1.68;
+  color:#d5d5d5;
+}
+.case-list li::before{
+  content:'';
+  position:absolute;
+  left:0;
+  top:8px;
+  width:5px;
+  height:5px;
+  background:#c8c8c8;
+  border-radius:1px;
+}
+
+.fit-layout{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+}
+.manifesto{
+  padding:24px;
+  border:1px solid var(--line);
+  background:linear-gradient(180deg, #121212 0%, #0b0b0b 100%);
+}
+.manifesto h3{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:30px;
+  line-height:.96;
+  letter-spacing:-.05em;
+  color:#fff;
+}
+.manifesto p{
+  margin-top:16px;
+  font-size:14px;
+  line-height:1.85;
+  color:#b7b7b7;
+}
+.fit-board{
+  border:1px solid var(--line);
+  background:var(--surface);
+}
+.fit-row{
+  display:grid;
+  grid-template-columns:132px 1fr 92px;
+  border-bottom:1px solid var(--line);
+}
+.fit-row:last-child{border-bottom:none}
+.fit-row > div{
+  padding:14px 14px;
+  font-size:11.5px;
+  line-height:1.66;
+}
+.fit-row.head{
+  background:rgba(255,255,255,.045);
+}
+.fit-row.head div{
+  font-family:'JetBrains Mono',monospace;
+  font-size:9px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:#a3a3a3;
+}
+.fit-tag{
+  font-family:'JetBrains Mono',monospace;
+  font-size:9px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:#fafafa;
+}
+.fit-tag.dim{color:#9e9e9e}
+
+.boundary-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+}
+.boundary-card{
+  padding:20px;
+  border:1px solid var(--line);
+  background:linear-gradient(180deg, var(--surface-2) 0%, #0e0e0e 100%);
+}
+.boundary-card h3{
+  font-family:'JetBrains Mono',monospace;
+  font-size:10px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:#949495;
+}
+.boundary-card strong{
+  display:block;
+  margin-top:8px;
+  font-family:'Space Grotesk',sans-serif;
+  font-size:26px;
+  line-height:.98;
+  letter-spacing:-.04em;
+  color:#fff;
+}
+.boundary-card ul{
+  margin-top:16px;
+  list-style:none;
+  display:grid;
+  gap:8px;
+}
+.boundary-card li{
+  padding-left:14px;
+  position:relative;
+  font-size:12px;
+  line-height:1.68;
+  color:#cbcbcb;
+}
+.boundary-card li::before{
+  content:'';
+  position:absolute;
+  left:0;
+  top:8px;
+  width:5px;
+  height:5px;
+  background:#a9a9a9;
+}
+
+.career-list{
+  display:grid;
+  gap:16px;
+}
+.career-item{
+  display:grid;
+  grid-template-columns:220px 1fr;
+  gap:22px;
+  padding:20px 22px;
+  border:1px solid var(--line);
+  background:linear-gradient(180deg, var(--surface) 0%, #0f0f0f 100%);
+}
+.career-left .co{
+  font-size:15px;
+  font-weight:700;
+  color:#fff;
+}
+.career-left .date{
+  margin-top:4px;
+  font-family:'JetBrains Mono',monospace;
+  font-size:10px;
+  letter-spacing:.08em;
+  color:#8e8e8e;
+}
+.career-left .role{
+  margin-top:8px;
+  font-size:12px;
+  line-height:1.66;
+  color:#b7b7b7;
+}
+.career-right ul{
+  list-style:none;
+  display:grid;
+  gap:8px;
+}
+.career-right li{
+  padding-left:15px;
+  position:relative;
+  font-size:12px;
+  line-height:1.7;
+  color:#d1d1d1;
+}
+.career-right li::before{
+  content:'';
+  position:absolute;
+  left:0;
+  top:8px;
+  width:5px;
+  height:5px;
+  border-radius:1px;
+  background:#bfbfbf;
+}
+
+.closing{
+  padding:96px 9vw 88px;
+  background:linear-gradient(180deg, #101010 0%, #070707 100%);
+  border-top:1px solid var(--line);
+}
+.closing-grid{
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:20px;
+  align-items:end;
+}
+.closing-copy h2{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:clamp(34px,5vw,62px);
+  line-height:.94;
+  letter-spacing:-.06em;
+  color:#fff;
+}
+.closing-copy p{
+  margin-top:18px;
+  max-width:620px;
+  font-size:15px;
+  line-height:1.86;
+  color:#b5b5b5;
+}
+.closing-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  justify-content:flex-end;
+}
+.closing-actions a{
+  padding:12px 18px;
+  border:1px solid rgba(255,255,255,.14);
+  font-size:12px;
+  color:#f2f2f2;
+  transition:all .2s ease;
+}
+.closing-actions a:hover{
+  background:#fff;
+  color:#000;
+}
+
+.footer{
+  padding:22px 20px;
+  text-align:center;
+  border-top:1px solid var(--line);
+  font-size:10px;
+  color:#7f7f7f;
+}
+
+.reveal{
+  opacity:0;
+  transform:translateY(18px);
+  transition:opacity .55s var(--ease), transform .55s var(--ease);
+}
+.reveal.visible{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* Brand refresh aligned to KRAFTON Basic Brand Guidelines v1.1 (KR) */
+:root{
+  --k-orange:#F9423A;
+  --k-orange-soft:rgba(249,66,58,.10);
+  --k-orange-line:rgba(249,66,58,.34);
+}
+body{
+  font-family:'Pretendard Variable',Pretendard,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  background:
+    radial-gradient(circle at top left, rgba(249,66,58,.12), transparent 26%),
+    radial-gradient(circle at top right, rgba(255,255,255,.04), transparent 22%),
+    linear-gradient(180deg, #050505 0%, #0b0b0b 52%, #070707 100%);
+}
+::selection{background:var(--k-orange);color:#fff}
+.nav-logo,
+.nav-links a,
+.hero-badge,
+.profile-kicker,
+.scroll-hint,
+.sec-label,
+.ops-no,
+.case-kicker,
+.fit-row.head div,
+.fit-tag,
+.boundary-card h3,
+.career-left .date,
+.footer,
+.hero-stat .label{
+  font-family:'Pretendard Variable',Pretendard,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+}
+.nav-logo{font-weight:800;letter-spacing:-.01em}
+.nav-logo span,
+.hero-copy h1 em,
+.hero-sub b,
+.profile-kicker,
+.scroll-hint,
+.ticker-item.small,
+.sec-label,
+.ops-no,
+.case-kicker,
+.fit-tag,
+.boundary-card h3,
+.career-left .date{
+  color:var(--k-orange);
+}
+.nav-links a{color:rgba(255,255,255,.72)}
+.nav-links a:hover{color:var(--k-orange)}
+.hero-badge{
+  border-color:rgba(249,66,58,.36);
+  background:rgba(249,66,58,.10);
+  color:#f6f1ef;
+}
+.hero-badge::before{
+  background:var(--k-orange);
+  box-shadow:0 0 18px rgba(249,66,58,.42);
+}
+.hero-copy h1,
+.profile-name,
+.signal-card h3,
+.sec-title,
+.ops-card h3,
+.ops-essay h3,
+.metric .num,
+.case-card h3,
+.manifesto h3,
+.boundary-card strong,
+.closing-copy h2{
+  font-family:'Pretendard Variable',Pretendard,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  font-weight:800;
+}
+.hero-copy h1 span{color:#c2c2c2}
+.hero-copy h1 .line:last-child{color:#d0d0d0}
+.hero-stat .num,
+.metric .num{color:var(--k-orange)}
+.scroll-hint::after{background:linear-gradient(var(--k-orange), transparent)}
+.ticker{background:linear-gradient(90deg, rgba(249,66,58,.08), rgba(255,255,255,.015))}
+.ops-card li::before,
+.case-list li::before,
+.boundary-card li::before,
+.career-right li::before{
+  background:var(--k-orange);
+}
+.metrics-note{
+  border-left:2px solid var(--k-orange);
+  background:linear-gradient(90deg, rgba(249,66,58,.10), rgba(255,255,255,.015));
+}
+.fit-row.head{background:rgba(249,66,58,.08)}
+.fit-tag.dim{color:#b8b8b8}
+.closing-actions a{border-color:rgba(249,66,58,.34)}
+.closing-actions a:hover{
+  background:var(--k-orange);
+  color:#fff;
+}
+
+@media print{
+  body{
+    background:#fff;
+    color:#111;
+    overflow:visible;
+  }
+  body::before,
+  .hero-video,
+  .scroll-hint,
+  .ticker-section{
+    display:none!important;
+  }
+  .nav{
+    position:static;
+    background:#fff;
+    border-bottom:1px solid #ddd;
+    padding:12px 18px;
+    backdrop-filter:none;
+  }
+  .nav-links{display:none}
+  .nav-logo{color:#111}
+  .nav-logo span{color:var(--k-orange)}
+  .hero,
+  section,
+  .closing{
+    padding:18px 18px 16px;
+    min-height:auto;
+    break-inside:avoid;
+    page-break-inside:avoid;
+  }
+  .hero{
+    grid-template-columns:1fr;
+    gap:14px;
+    background:#fff;
+  }
+  .hero::before,
+  .hero::after{
+    display:none;
+  }
+  .hero-copy h1,
+  .sec-title,
+  .case-card h3,
+  .manifesto h3,
+  .boundary-card strong,
+  .closing-copy h2{
+    color:#111;
+  }
+  .hero-sub,
+  .ops-card p,
+  .metrics-note,
+  .case-summary,
+  .manifesto p,
+  .career-left .role,
+  .career-right li,
+  .closing-copy p{
+    color:#333;
+  }
+  .hero-panel,
+  .ops-card,
+  .case-card,
+  .metric,
+  .fit-board,
+  .boundary-card,
+  .career-item,
+  .signal-card,
+  .ops-essay,
+  .manifesto{
+    color:#111;
+    background:#fff;
+    border:1px solid #ddd;
+    box-shadow:none;
+  }
+  .fit-row.head{
+    background:#f3f3f3;
+  }
+  .fit-tag,
+  .fit-tag.dim,
+  .hero-stat .label,
+  .case-kicker,
+  .ops-no,
+  .sec-label{
+    color:#b1453f;
+  }
+  .hero-stat{
+    background:#fff;
+    border:1px solid #ddd;
+  }
+  .hero-stat .num,
+  .metric .num{
+    color:#cc433b;
+  }
+  .case-card img{
+    filter:none;
+  }
+  .closing-actions a{
+    border:1px solid #ccc;
+    color:#111;
+    background:#fff;
+  }
+  .footer{
+    border-top:1px solid #ddd;
+    color:#666;
+  }
+}
+
+@media (max-width:1080px){
+  .hero{grid-template-columns:1fr;padding:110px 24px 64px}
+  .hero-stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  section{padding:84px 24px}
+  .closing{padding:84px 24px}
+  .ops-layout,.fit-layout,.closing-grid{grid-template-columns:1fr}
+  .hero-side,.signal-grid,.ops-grid,.case-grid,.boundary-grid,.metrics-wrap{grid-template-columns:1fr 1fr}
+  .career-item{grid-template-columns:1fr}
+  .closing-actions{justify-content:flex-start}
+}
+@media (max-width:768px){
+  .nav{padding:14px 16px}
+  .nav-links{display:none}
+  .hero{
+    display:block;
+    padding:96px 18px 56px;
+  }
+  .hero-copy,
+  .hero-copy h1,
+  .hero-sub,
+  .hero-badge{
+    width:100%;
+    max-width:100%;
+  }
+  .hero-copy h1{
+    font-size:clamp(32px,9.8vw,38px);
+    line-height:.95;
+  }
+  .hero-copy h1 .line{
+    white-space:normal;
+    word-break:normal;
+    overflow-wrap:anywhere;
+  }
+  .hero-sub{
+    font-size:15px;
+    line-height:1.78;
+    word-break:normal;
+    overflow-wrap:anywhere;
+  }
+  section{padding:68px 18px}
+  .closing{padding:68px 18px}
+  .hero-panel.profile{grid-template-columns:1fr}
+  .signal-grid,.ops-grid,.case-grid,.boundary-grid,.metrics-wrap{grid-template-columns:1fr}
+  .fit-row{grid-template-columns:1fr}
+  .fit-row > div{border-top:1px solid rgba(255,255,255,.05)}
+  .fit-row.head{display:none}
+  .hero-stats{grid-template-columns:1fr 1fr;gap:10px}
+  .hero-stat .label{white-space:normal}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="nav-logo">LIM JONG<span>KWON</span></div>
+  <div class="nav-links">
+    <a href="#operations">Operations</a>
+    <a href="#impact">Impact</a>
+    <a href="#cases">Cases</a>
+    <a href="#fit">Fit</a>
+    <a href="#career">Career</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <video class="hero-video" autoplay muted loop playsinline poster="./assets/projects/photo_erp_highq.png">
+    <source src="./krafton-hero.mp4" type="video/mp4">
+  </video>
+
+  <div class="hero-copy">
+    <div class="hero-badge">KRAFTON [Infra Div.] IT Engineer Portfolio</div>
+    <h1><span class="line">임직원의 업무가</span><em class="line">끊기지 않게</em><span class="line">운영 흐름을 설계해 온</span><span class="line">IT 운영자</span></h1>
+    <p class="hero-sub">
+      저는 IT 지원을 단순한 헬프데스크로 보지 않습니다.
+      <b>장비 배포</b>, <b>장애 대응</b>, <b>자산 관리</b>, <b>벤더 조율</b>, <b>시스템 전환</b>을
+      한 흐름으로 묶어 운영해 왔습니다. KRAFTON에서도 임직원이 멈춘 뒤에 대응하는 사람이 아니라,
+      먼저 준비된 운영 체계를 만드는 실무자로 기여하고 싶습니다.
+    </p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="num">3+</div>
+        <div class="label">IT 운영 실무</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num">30%</div>
+        <div class="label">유지보수 비용 절감</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num">18개월</div>
+        <div class="label">ERP 전환 실무</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num">8+</div>
+        <div class="label">외주업체 관리</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-side">
+    <div class="hero-panel profile reveal">
+      <img src="./assets/profile.png" alt="임종권 프로필">
+      <div class="profile-info">
+        <div class="profile-kicker">Candidate Profile</div>
+        <div class="profile-name">JONGKWON<br>LIM</div>
+        <div class="profile-role">총무와 IT지원을 동시에 수행하면서, 운영 실무가 실제로 어디서 끊기는지 현장에서 몸으로 익혀온 실행형 운영자입니다.</div>
+        <div class="profile-lines">
+          <div>사회연대은행 경영지원부 인프라지원팀</div>
+          <div>자산 관리 / 장애 1차 대응 / 벤더 / ERP 전환</div>
+          <div>ssujklim@gmail.com</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="signal-grid">
+      <div class="signal-card reveal">
+        <h3>Core Strength</h3>
+        <p>IT 자산 수명주기 관리, PC·네트워크 1차 대응, 외주 계약·정산 통제는 이미 해본 일입니다.</p>
+      </div>
+      <div class="signal-card reveal">
+        <h3>Transition Strength</h3>
+        <p>새로운 툴과 운영 환경이 들어와도 기준을 세우고 문서화하며 운영 흐름에 빠르게 안착시키는 실행력으로 기여합니다.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-hint">scroll</div>
+</header>
+
+<div class="ticker-section">
+  <div class="ticker">
+    <div class="ticker-track" id="ticker-track"></div>
+  </div>
+</div>
+
+<section id="operations">
+  <div class="sec-label">01 — Operating Surface</div>
+  <div class="sec-title">실제로 다뤄온 업무는 <span>한 장비가 아니라 한 운영 구조</span>였습니다</div>
+
+  <div class="ops-layout">
+    <div class="ops-grid">
+      <article class="ops-card reveal">
+        <div class="ops-no">Area 01</div>
+        <h3>Support</h3>
+        <p>현장 문제를 가장 먼저 받는 자리에서, PC·네트워크 이슈를 1차로 처리하고 외부 호출 기준까지 정리해왔습니다.</p>
+        <ul>
+          <li>PC·전산장비·네트워크 1차 트러블슈팅 내재화</li>
+          <li>유지보수 비용 30% 절감</li>
+          <li>중대 고장 시 임시 조치 후 전문업체 연계</li>
+        </ul>
+      </article>
+
+      <article class="ops-card reveal">
+        <div class="ops-no">Area 02</div>
+        <h3>Assets</h3>
+        <p>IT 자산은 장비 수량이 아니라 흐름으로 관리해야 합니다. 도입과 사용, 유휴 상태, 재배치를 한 체계로 봐왔습니다.</p>
+        <ul>
+          <li>HW/SW 수명주기 관리 프로세스 정립</li>
+          <li>유휴 장비 재배치로 중복 투자 방지</li>
+          <li>자산 리스트와 운영 실제의 간극 축소</li>
+        </ul>
+      </article>
+
+      <article class="ops-card reveal">
+        <div class="ops-no">Area 03</div>
+        <h3>Vendors</h3>
+        <p>지원 품질은 벤더 관리 수준에 직접 연결됩니다. 계약, 일정, 정산, 재협상을 한 사람 손에서 관리해왔습니다.</p>
+        <ul>
+          <li>외주업체 8개+ 계약·관리·정산 총괄</li>
+          <li>재계약 협상으로 연 500만원 절감</li>
+          <li>인프라 예산 약 3.6억 집행·통제</li>
+        </ul>
+      </article>
+
+      <article class="ops-card reveal">
+        <div class="ops-no">Area 04</div>
+        <h3>Systems</h3>
+        <p>도구가 바뀌어도 현업이 멈추지 않게 만드는 쪽에 강합니다. ERP 도입 전환 실무를 18개월 전담했습니다.</p>
+        <ul>
+          <li>커스텀 ERP(High-Q) 도입 프로젝트 실무 전담</li>
+          <li>회계계정 체계 설계와 데이터 마이그레이션 수행</li>
+          <li>낯선 플랫폼을 업무형 도구로 빠르게 체화</li>
+        </ul>
+      </article>
+    </div>
+
+    <aside class="ops-essay reveal">
+      <h3>Why This Matters<br>for KRAFTON</h3>
+      <p>KRAFTON의 IT Engineer는 단순히 고장 난 장비를 고치는 사람이 아니라, 임직원이 업무에 집중할 수 있도록 <b>지원 품질</b>, <b>자산 관리</b>, <b>시스템 운영</b>, <b>협력사 대응</b>을 동시에 굴려야 하는 역할이라고 이해했습니다.</p>
+      <p>저는 사회연대은행에서 총무와 IT지원이 분리되지 않은 환경을 오래 다뤘습니다. 그래서 "장비 하나 해결"보다, 그 장비 뒤에 있는 계약, 예산, 리스트, 재발 방지, 내부 만족도까지 같이 보는 습관이 있습니다. 이게 KRAFTON Infra Div.에서 바로 쓰일 역량이라고 봅니다.</p>
+    </aside>
+  </div>
+</section>
+
+<section id="impact" style="background:linear-gradient(180deg, #101010 0%, #0b0b0b 100%);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+  <div class="sec-label">02 — Impact Metrics</div>
+  <div class="sec-title">숫자로 남은 <span>운영 결과</span></div>
+
+  <div class="metrics-wrap">
+    <div class="metric reveal">
+      <div class="num">30%</div>
+      <div class="desc">사내 네트워크·PC 1차 대응 내재화로 유지보수 비용 절감</div>
+    </div>
+    <div class="metric reveal">
+      <div class="num">3.6억</div>
+      <div class="desc">인프라 예산 집행·통제 경험</div>
+    </div>
+    <div class="metric reveal">
+      <div class="num">18M</div>
+      <div class="desc">ERP 도입 프로젝트 실무 전담 기간</div>
+    </div>
+    <div class="metric reveal">
+      <div class="num">8+</div>
+      <div class="desc">외주 계약·관리·정산 총괄 벤더 수</div>
+    </div>
+  </div>
+
+  <div class="metrics-note reveal">
+    여기서 중요한 건 숫자 자체보다 운영 방식입니다. 저는 장비 지원, 계약 관리, 시스템 전환이 각각 따로 움직이지 않게 만들었고, 그 결과가 비용 절감과 재투자 방지, 운영 안정성으로 남았습니다.
+  </div>
+</section>
+
+<section id="cases">
+  <div class="sec-label">03 — Evidence Cases</div>
+  <div class="sec-title">말보다 설득력 있는 건 <span>실제 수행 사례</span>입니다</div>
+
+  <div class="case-grid">
+    <article class="case-card reveal">
+      <img src="./assets/projects/photo_erp_highq.png" alt="ERP 프로젝트 이미지">
+      <div class="case-body">
+        <div class="case-kicker">System Transition</div>
+        <h3>ERP 도입을<br>끝까지 전담</h3>
+        <p class="case-summary">엑셀 기반 운영을 커스텀 ERP로 전환하는 18개월짜리 프로젝트를 실무 중심으로 끌고 갔습니다.</p>
+        <ul class="case-list">
+          <li>여신·채무·채권·이자 관련 회계계정 체계 설계</li>
+          <li>엑셀에서 Tibero DB로 데이터 마이그레이션 수행</li>
+          <li>낯선 시스템을 운영 가능한 도구로 안착</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="case-card reveal">
+      <img src="./assets/projects/photo_blynk_graph.jpg" alt="IoT 모니터링 그래프">
+      <div class="case-body">
+        <div class="case-kicker">Signal Analysis</div>
+        <h3>로그와 현상을<br>연결해서 보는 습관</h3>
+        <p class="case-summary">임베디드·IoT 환경에서 수집 데이터와 장비 상태를 연결해 문제 원인을 추적했습니다.</p>
+        <ul class="case-list">
+          <li>ESP32 기반 장비 개발 및 통합 테스트</li>
+          <li>시설 관제 데이터 로그 분석 경험</li>
+          <li>장애를 계층적으로 분해하는 진단 습관 형성</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="case-card reveal">
+      <img src="./assets/projects/photo_iot_modlink_board.jpg" alt="하드웨어 보드 이미지">
+      <div class="case-body">
+        <div class="case-kicker">Execution Discipline</div>
+        <h3>리스트와 자산을<br>정확히 다루는 사람</h3>
+        <p class="case-summary">제조·자재·납기 관리 경험은 IT 자산 관리에서도 강한 기본기로 이어집니다.</p>
+        <ul class="case-list">
+          <li>BOM 관리 및 자재 흐름 정리</li>
+          <li>입출고·발주·납기 통제 경험</li>
+          <li>납기 준수율 100% 기록</li>
+        </ul>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section id="fit" style="background:linear-gradient(180deg, #101010 0%, #090909 100%);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+  <div class="sec-label">04 — Position Fit</div>
+  <div class="sec-title">KRAFTON 지원에서 중요한 건 <span>실행력과 운영 적합성</span>입니다</div>
+
+  <div class="fit-layout">
+    <div class="manifesto reveal">
+      <h3>지원 품질과 운영 안정성을<br>함께 높이는 방식</h3>
+      <p>이 포트폴리오는 자산 관리, 현장 지원, 벤더 조율, 시스템 전환 경험을 하나의 운영 체계로 연결해 보여주는 데 초점을 맞췄습니다.</p>
+      <p>KRAFTON Infra Div. IT Engineer 역할에서 중요한 것은 단건 장애 처리보다 임직원의 업무가 끊기지 않도록 기준을 세우고 운영 흐름을 안정화하는 실행력이라고 판단했습니다.</p>
+    </div>
+
+    <div class="fit-board reveal">
+      <div class="fit-row head">
+        <div>JD ask</div>
+        <div>Codex evidence</div>
+        <div>fit</div>
+      </div>
+      <div class="fit-row">
+        <div>Asset management</div>
+        <div>IT 자산 수명주기 프로세스 정립과 유휴 장비 재배치</div>
+        <div class="fit-tag">core</div>
+      </div>
+      <div class="fit-row">
+        <div>Office IT support</div>
+        <div>PC·네트워크 1차 트러블슈팅 내재화, 현장 장애 처리 경험</div>
+        <div class="fit-tag">core</div>
+      </div>
+      <div class="fit-row">
+        <div>Vendor coordination</div>
+        <div>외주업체 8개+ 계약·관리·정산 총괄, 재계약 협상 수행</div>
+        <div class="fit-tag">core</div>
+      </div>
+      <div class="fit-row">
+        <div>Business systems</div>
+        <div>ERP 도입 프로젝트 18개월 전담, 데이터 마이그레이션 수행</div>
+        <div class="fit-tag">related</div>
+      </div>
+      <div class="fit-row">
+        <div>새 시스템 적응</div>
+        <div>새 환경 도입 시 운영 기준 정리, 문서화, 이슈 흐름 구조화를 빠르게 정착시키는 실행력 보유</div>
+        <div class="fit-tag dim">adaptable</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="boundary-grid" style="margin-top:18px;">
+    <article class="boundary-card reveal">
+      <h3>Core</h3>
+      <strong>바로 투입 가능한 영역</strong>
+      <ul>
+        <li>자산 관리 프로세스 운영</li>
+        <li>PC·네트워크 1차 장애 대응</li>
+        <li>벤더·계약·정산 커뮤니케이션</li>
+        <li>운영비와 리스트 정합성 관리</li>
+      </ul>
+    </article>
+    <article class="boundary-card reveal">
+      <h3>Related</h3>
+      <strong>전환 경험으로 확장하는 영역</strong>
+      <ul>
+        <li>ERP 전환 경험을 시스템 운영 적응력으로 연결</li>
+        <li>임베디드·로그 분석 경험을 장애 구조 이해로 연결</li>
+        <li>제조·자재 경험을 자산 추적 정밀도로 연결</li>
+      </ul>
+    </article>
+    <article class="boundary-card reveal">
+      <h3>Adaptable</h3>
+      <strong>빠르게 확장 가능한 운영 영역</strong>
+      <ul>
+        <li>새 툴 도입 시 운영 기준과 문서화 체계를 빠르게 정착</li>
+        <li>새로운 지원 환경에서도 기준과 사용자 대응 흐름을 안정적으로 확장</li>
+        <li>지역·법인 간 커뮤니케이션 프로토콜에도 유연하게 적응</li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+<section id="career">
+  <div class="sec-label">05 — Career Timeline</div>
+  <div class="sec-title">경력은 분절된 이력이 아니라 <span>운영 감각의 누적</span>이었습니다</div>
+
+  <div class="career-list">
+    <article class="career-item reveal">
+      <div class="career-left">
+        <div class="co">(사)함께만드는세상</div>
+        <div class="date">2023.01.09 – 2026.02.01</div>
+        <div class="role">경영지원부 인프라지원팀 / 총무·IT지원 (대리)</div>
+      </div>
+      <div class="career-right">
+        <ul>
+          <li>사내 네트워크·PC 1차 트러블슈팅 내재화로 유지보수 비용 30% 절감</li>
+          <li>IT 자산(HW/SW) 수명주기 관리 프로세스 정립 및 유휴 장비 재배치</li>
+          <li>커스텀 ERP(High-Q) 도입 프로젝트 실무 전담, 회계계정 체계 설계 및 데이터 마이그레이션 수행</li>
+          <li>외주업체 8개+ 계약·관리·정산 총괄, 재계약 협상으로 연 약 500만원 절감</li>
+          <li>인프라 예산 약 3.6억 직접 집행 및 통제</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="career-item reveal">
+      <div class="career-left">
+        <div class="co">(주)맨지온</div>
+        <div class="date">2020.03.01 – 2021.11.20</div>
+        <div class="role">개발부 / 임베디드 시스템 개발 및 QA (대리)</div>
+      </div>
+      <div class="career-right">
+        <ul>
+          <li>ESP32 기반 IoT 프로토타입 HW/SW 통합 테스트 수행</li>
+          <li>시설 관제 데이터 로그 분석을 통한 통신 장애 원인 규명</li>
+          <li>낯선 toolchain을 빠르게 체화하는 자기주도 학습 루틴 형성</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="career-item reveal">
+      <div class="career-left">
+        <div class="co">주식회사 엣지크로스</div>
+        <div class="date">2016.05.02 – 2018.02.02</div>
+        <div class="role">기술연구소 / H/W 개발 및 자재 관리 (주임)</div>
+      </div>
+      <div class="career-right">
+        <ul>
+          <li>PCB 설계·시제품 제작 풀사이클과 BOM 관리 체계화</li>
+          <li>입출고·재고 실사·발주 운영으로 납기 준수율 100% 기록</li>
+          <li>정확한 리스트 관리와 공급 일정 통제 기본기를 축적</li>
+        </ul>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="closing" id="contact">
+  <div class="closing-grid">
+    <div class="closing-copy">
+      <div class="sec-label">06 — Contact</div>
+      <h2>실무는 조용하지만,<br>운영 품질은 분명하게 남깁니다</h2>
+      <p>KRAFTON Infra Div. IT Engineer 역할에서 저는 "문제 생기면 부르는 사람"이 아니라, 문제 자체가 덜 생기게 운영을 정리하는 사람으로 기여하고 싶습니다. 장비, 지원, 자산, 벤더, 시스템이 따로 놀지 않게 연결하겠습니다.</p>
+    </div>
+    <div class="closing-actions">
+      <a href="mailto:ssujklim@gmail.com">ssujklim@gmail.com</a>
+      <a href="https://iamsloth.github.io/portfolio/" target="_blank" rel="noopener">Portfolio Index</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">KRAFTON [Infra Div.] IT Engineer Portfolio · Lim Jongkwon</footer>
+
+<script>
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 24) nav.classList.add('scrolled');
+  else nav.classList.remove('scrolled');
+}, { passive: true });
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.16 });
+document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+(function buildTicker() {
+  const words = [
+    ['Asset Lifecycle', 'small'],
+    ['PC / Network Support', 'normal'],
+    ['Vendor Control', 'small'],
+    ['ERP Transition', 'normal'],
+    ['Operational Stability', 'small'],
+    ['Hardware Troubleshooting', 'normal'],
+    ['Data Migration', 'small'],
+    ['Execution Discipline', 'normal'],
+    ['Infra Support', 'small'],
+    ['KRAFTON Infra Div.', 'normal']
+  ];
+  const track = document.getElementById('ticker-track');
+  let html = '';
+  for (let i = 0; i < 5; i++) {
+    words.forEach(([word, size]) => {
+      html += `<span class="ticker-item ${size === 'small' ? 'small' : ''}">${word}</span>`;
+    });
+  }
+  track.innerHTML = html;
+
+  let current = 0;
+  function tick() {
+    current += 0.45;
+    if (current >= track.scrollWidth / 5) current = 0;
+    track.style.transform = `translateX(${-current}px)`;
+    requestAnimationFrame(tick);
+  }
+  tick();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="임종권 에스유엠 자율주행 운영 오퍼레이터 웹 포트폴리오">
+<meta property="og:title" content="임종권 | 자율주행 운영 오퍼레이터 포트폴리오">
+<meta property="og:description" content="1종 대형면허와 전기전자 장비 이해를 함께 갖춘 현장 운영자">
+<meta property="og:image" content="./assets/projects/photo_iot_modlink_board.jpg">
+<link rel="icon" type="image/svg+xml" href="./assets/sum-autonomous-favicon.svg">
+<title>임종권 | 에스유엠 자율주행 운영 오퍼레이터</title>
+<style>
+:root{
+  --ink:#f7fbff;--muted:#b9c8d9;--soft:#d9f7ff;--deep:#04111f;--navy:#071b2e;
+  --teal:#23c4d8;--blue:#0b6aa5;--green:#86efac;--lime:#c7ff6b;
+  --line:rgba(255,255,255,.16);--glass:rgba(255,255,255,.08);
+  --shadow:0 28px 90px rgba(0,0,0,.38);--ease:cubic-bezier(.2,.8,.2,1)
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--deep);color:var(--ink);font-family:Pretendard,"Noto Sans KR","Malgun Gothic",sans-serif;word-break:keep-all;overflow-wrap:normal}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.bg{position:fixed;inset:0;z-index:-4;background:
+  radial-gradient(circle at 72% 16%,rgba(35,196,216,.32),transparent 28vw),
+  radial-gradient(circle at 18% 22%,rgba(134,239,172,.18),transparent 25vw),
+  linear-gradient(135deg,#04111f 0%,#06223b 45%,#092b47 100%)}
+.grid-bg{position:fixed;inset:0;z-index:-3;opacity:.22;background-image:
+  linear-gradient(rgba(255,255,255,.07) 1px,transparent 1px),
+  linear-gradient(90deg,rgba(255,255,255,.07) 1px,transparent 1px);background-size:46px 46px;mask-image:linear-gradient(to bottom,#000,transparent 88%)}
+.noise{position:fixed;inset:0;z-index:-2;opacity:.1;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.8' numOctaves='2'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E")}
+.nav{position:fixed;top:18px;left:50%;transform:translateX(-50%);z-index:10;width:min(1140px,calc(100% - 34px));display:flex;justify-content:space-between;align-items:center;padding:12px 14px 12px 18px;border:1px solid var(--line);border-radius:999px;background:rgba(4,17,31,.62);backdrop-filter:blur(18px);box-shadow:0 16px 52px rgba(0,0,0,.26)}
+.brand{font-weight:950;letter-spacing:-.04em}.brand span{display:inline-grid;place-items:center;width:34px;height:22px;margin-right:8px;border-radius:999px;background:linear-gradient(135deg,var(--green),var(--teal),var(--blue));box-shadow:0 0 30px rgba(35,196,216,.42)}
+.navlinks{display:flex;gap:6px}.navlinks a{font-size:13px;font-weight:800;color:#dcecff;padding:9px 12px;border-radius:999px}.navlinks a:hover{background:rgba(255,255,255,.1)}
+.hero{min-height:100vh;padding:112px 5vw 74px;display:grid;grid-template-columns:minmax(0,1.02fr) minmax(380px,.98fr);gap:54px;align-items:center;position:relative;overflow:hidden}
+.kicker{display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(35,196,216,.42);background:rgba(35,196,216,.09);color:#c8fbff;border-radius:999px;padding:10px 14px;font-size:13px;font-weight:900;letter-spacing:.08em}
+.pulse{width:8px;height:8px;border-radius:99px;background:var(--green);box-shadow:0 0 0 0 rgba(134,239,172,.8);animation:pulse 1.8s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 12px rgba(134,239,172,0)}100%{box-shadow:0 0 0 0 rgba(134,239,172,0)}}
+.hero h1{margin:26px 0 20px;font-size:clamp(48px,8vw,104px);line-height:.96;letter-spacing:-.095em}.hero h1 span{display:block}.hero h1 em{font-style:normal;color:transparent;background:linear-gradient(90deg,#fff,#a9f7ff 46%,#86efac 76%,#fff);-webkit-background-clip:text;background-clip:text;text-shadow:0 0 42px rgba(35,196,216,.16)}
+.lead{max-width:760px;color:#d8e6f3;font-size:clamp(17px,2vw,22px);line-height:1.78}.lead b{color:#fff}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}.btn{border:1px solid var(--line);background:rgba(255,255,255,.08);padding:14px 18px;border-radius:16px;font-weight:950;box-shadow:0 14px 34px rgba(0,0,0,.22);transition:transform .25s var(--ease),background .25s}.btn.primary{border-color:transparent;background:linear-gradient(135deg,var(--green),var(--teal),var(--blue));color:#04111f}.btn:hover{transform:translateY(-3px);background:rgba(255,255,255,.14)}
+.stage{position:relative;min-height:620px;perspective:900px}
+.route{position:absolute;left:4%;right:4%;top:80px;height:420px;border-radius:46px;border:1px solid rgba(255,255,255,.15);background:linear-gradient(145deg,rgba(255,255,255,.11),rgba(255,255,255,.04));box-shadow:var(--shadow);overflow:hidden}
+.route:before{content:"";position:absolute;inset:34px;border-radius:34px;border:2px dashed rgba(134,239,172,.42)}
+.route-line{position:absolute;left:60px;right:60px;top:205px;height:10px;border-radius:999px;background:linear-gradient(90deg,var(--green),var(--teal),var(--blue));box-shadow:0 0 28px rgba(35,196,216,.5)}
+.stop{position:absolute;width:28px;height:28px;border:4px solid #fff;border-radius:999px;background:var(--teal);box-shadow:0 0 24px rgba(35,196,216,.7)}.stop.a{left:50px;top:196px}.stop.b{left:43%;top:196px}.stop.c{right:50px;top:196px;background:var(--green)}
+.bus{position:absolute;left:37%;top:154px;width:152px;height:92px;border-radius:28px 28px 18px 18px;background:linear-gradient(145deg,#fff,#d7fbff);box-shadow:0 22px 54px rgba(0,0,0,.36);animation:bus 5s ease-in-out infinite}
+.bus:before{content:"";position:absolute;left:20px;right:20px;top:20px;height:28px;border-radius:10px;background:linear-gradient(90deg,#0b6aa5,#23c4d8)}
+.bus:after{content:"";position:absolute;left:28px;right:28px;bottom:11px;height:12px;border-radius:999px;background:#071b2e;box-shadow:-4px 18px 0 -3px #071b2e,78px 18px 0 -3px #071b2e}
+@keyframes bus{0%,100%{transform:translateX(-28px)}50%{transform:translateX(38px)}}
+.scan{position:absolute;width:240px;height:240px;border-radius:999px;border:1px solid rgba(134,239,172,.28);right:4%;top:18px;animation:scan 4.2s linear infinite}.scan:before,.scan:after{content:"";position:absolute;inset:40px;border-radius:999px;border:1px solid rgba(35,196,216,.25)}.scan:after{inset:82px}.beam{position:absolute;left:50%;top:50%;width:2px;height:118px;background:linear-gradient(var(--green),transparent);transform-origin:0 0;animation:beam 4.2s linear infinite}@keyframes beam{to{transform:rotate(360deg)}}@keyframes scan{50%{box-shadow:0 0 70px rgba(35,196,216,.2)}}
+.bubble{position:absolute;border:1px solid var(--line);background:linear-gradient(135deg,rgba(255,255,255,.17),rgba(255,255,255,.05));backdrop-filter:blur(14px);border-radius:24px;padding:18px;box-shadow:0 18px 50px rgba(0,0,0,.25)}.bubble b{display:block;font-size:24px;letter-spacing:-.06em}.bubble span{display:block;margin-top:6px;color:#c9d9e9;font-size:13px;line-height:1.42}.bubble.a{left:0;bottom:74px}.bubble.b{right:0;bottom:116px}.bubble.c{left:30%;bottom:12px}
+.section{padding:92px 5vw}.wrap{width:min(1180px,100%);margin:0 auto}.section-head{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:30px}.section-head h2{font-size:clamp(34px,5vw,64px);line-height:1;letter-spacing:-.085em;margin:0}.section-head p{max-width:520px;margin:0;color:#c8d6e5;line-height:1.72;font-size:16px}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.card{min-height:205px;border:1px solid var(--line);background:var(--glass);border-radius:28px;padding:24px;box-shadow:0 18px 54px rgba(0,0,0,.18);backdrop-filter:blur(12px);position:relative;overflow:hidden}.card:after{content:"";position:absolute;right:-28px;bottom:-34px;width:92px;height:92px;border-radius:999px;border:18px solid rgba(134,239,172,.14)}.card small{color:#9af7ff;font-weight:950;letter-spacing:.12em}.card h3{font-size:24px;letter-spacing:-.065em;margin:18px 0 10px}.card p{color:#c6d5e5;line-height:1.68;margin:0;font-size:15px}
+.matrix{display:grid;grid-template-columns:1fr 1fr;gap:18px}.row{display:grid;grid-template-columns:120px 1fr;gap:18px;align-items:start;border:1px solid var(--line);background:rgba(255,255,255,.07);border-radius:22px;padding:20px}.row b{color:#9af7ff}.row p{margin:0;color:#d8e6f3;line-height:1.72}
+.story{display:grid;grid-template-columns:.95fr 1.05fr;gap:22px;align-items:stretch}.photo-stack{position:relative;min-height:680px}.shot{position:absolute;border-radius:30px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow);background:#071b2e}.shot img{width:100%;height:100%;object-fit:cover;filter:saturate(.95) contrast(1.06)}.shot.one{left:0;top:18px;width:74%;height:390px}.shot.two{right:0;top:255px;width:60%;height:300px}.shot.three{left:10%;bottom:0;width:55%;height:250px}.story-panel{border:1px solid var(--line);background:rgba(255,255,255,.08);border-radius:34px;padding:34px;box-shadow:var(--shadow);backdrop-filter:blur(12px)}.story-panel h2{font-size:48px;line-height:1.08;letter-spacing:-.085em;margin:0 0 20px}.story-panel p{color:#d2dfeb;line-height:1.85;font-size:17px}.proof{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:22px}.proof div{border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.06);border-radius:18px;padding:18px}.proof b{display:block;color:#9af7ff;margin-bottom:8px}.proof span{color:#c7d8e8;font-size:14px;line-height:1.55}
+.ops-board{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}.ops{min-height:168px;border:1px solid rgba(255,255,255,.16);background:linear-gradient(180deg,rgba(255,255,255,.11),rgba(255,255,255,.05));border-radius:24px;padding:18px;display:flex;flex-direction:column;justify-content:space-between}.ops b{font-size:20px;letter-spacing:-.055em}.ops span{color:#bdd0df;font-size:13px;line-height:1.5}.ops i{font-style:normal;font-size:28px;color:#9af7ff}
+.final{padding:110px 5vw 90px}.final-card{width:min(1120px,100%);margin:0 auto;border:1px solid var(--line);background:linear-gradient(135deg,rgba(255,255,255,.14),rgba(255,255,255,.05));border-radius:40px;padding:44px;box-shadow:var(--shadow);display:grid;grid-template-columns:1fr 220px;gap:34px;align-items:center}.final-card h2{font-size:clamp(38px,6vw,74px);line-height:1;letter-spacing:-.09em;margin:0 0 18px}.final-card p{font-size:18px;line-height:1.75;color:#d8e6f3}.qr{width:190px;height:190px;background:#fff;border-radius:22px;padding:12px;justify-self:end}.contact{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}.contact a,.contact span{border:1px solid var(--line);border-radius:999px;padding:12px 15px;color:#eaf7ff;background:rgba(255,255,255,.08);font-weight:900}
+@media(max-width:980px){.hero{grid-template-columns:1fr;padding-top:96px}.stage{min-height:470px}.cards{grid-template-columns:1fr 1fr}.matrix,.story,.final-card{grid-template-columns:1fr}.ops-board{grid-template-columns:1fr 1fr}.qr{justify-self:start}.navlinks{display:none}}
+@media(max-width:620px){.hero h1{font-size:52px}.hero{padding-left:24px;padding-right:24px}.cards,.ops-board,.proof{grid-template-columns:1fr}.row{grid-template-columns:1fr}.section-head{display:block}.photo-stack{min-height:520px}.shot.one{width:88%;height:300px}.shot.two{width:72%;height:235px;top:230px}.shot.three{display:none}.final-card{padding:28px}.bubble{padding:14px}.bubble b{font-size:20px}.route{top:50px;height:360px}.bus{left:28%}}
+</style>
+</head>
+<body>
+<div class="bg"></div><div class="grid-bg"></div><div class="noise"></div>
+<nav class="nav">
+  <a class="brand" href="#top"><span></span>임종권 · Autonomous Bus Operator</a>
+  <div class="navlinks"><a href="#fit">직무 연결</a><a href="#tech">장비 이해</a><a href="#ops">운영 루틴</a><a href="#contact">연락처</a></div>
+</nav>
+
+<section class="hero" id="top">
+  <div>
+    <div class="kicker"><span class="pulse"></span>SUM · SMOBI · AUTONOMOUS BUS OPERATIONS</div>
+    <h1><span>운전만 하는</span><span>사람이 아니라</span><span><em>기록하는 운영자.</em></span></h1>
+    <p class="lead">저는 <b>1종 대형면허와 무사고 운전 이력</b>을 갖춘 운행 인력이면서, ESP32·센서값·IoT 모니터링을 다뤄본 <b>전기전자 장비 이해 기반</b>이 있습니다. 개발자로 지원하는 것이 아니라, 자율주행버스 현장에서 이상 징후를 더 정확히 보고 남기는 운영자로 지원합니다.</p>
+    <div class="cta"><a class="btn primary" href="#fit">직무 연결 보기</a><a class="btn" href="#tech">장비 경험 보기</a></div>
+  </div>
+  <div class="stage" aria-label="자율주행버스 운행 비주얼">
+    <div class="route"><div class="route-line"></div><div class="stop a"></div><div class="stop b"></div><div class="stop c"></div><div class="bus"></div></div>
+    <div class="scan"><div class="beam"></div></div>
+    <div class="bubble a"><b>1종 대형</b><span>대형차량 운행 기본 요건</span></div>
+    <div class="bubble b"><b>ESP32</b><span>센서·릴레이·장비 제어 경험</span></div>
+    <div class="bubble c"><b>운행일지</b><span>시간·위치·증상·조치 기록</span></div>
+  </div>
+</section>
+
+<section class="section" id="fit">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>자율주행버스 운영은<br>운전, 점검, 기록의 합입니다.</h2>
+      <p>에스유엠의 동작구 노선은 숭실대와 중앙대를 잇는 실제 생활권 교통입니다. 운행자는 승객 안전과 서비스 안정성을 동시에 지켜야 합니다.</p>
+    </div>
+    <div class="cards">
+      <div class="card"><small>01</small><h3>운행 관리</h3><p>노선, 정류소, 회차 구간, 운행 시간표를 기준으로 반복 운행을 안정적으로 수행합니다.</p></div>
+      <div class="card"><small>02</small><h3>차량 점검</h3><p>운행 전후 차량 외관, 실내, 장비 표시, 충전 상태를 같은 기준으로 확인합니다.</p></div>
+      <div class="card"><small>03</small><h3>승객 대응</h3><p>탑승 안내, 문의 응대, 민원성 상황을 안전 확보와 사실 보고 중심으로 처리합니다.</p></div>
+      <div class="card"><small>04</small><h3>운행 기록</h3><p>이상 상황을 시간, 위치, 조건, 조치내용으로 구분해 다음 운행과 정비 판단에 연결합니다.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap matrix">
+    <div class="row"><b>숭실대 출신</b><p>숭실대학교 전기공학부 졸업자로 동작구 숭실대 인근 지리와 대학가 흐름에 친숙합니다.</p></div>
+    <div class="row"><b>운전 기본기</b><p>1종 대형면허와 무사고 이력을 바탕으로 대형차량 운행의 기본 요건을 충족합니다.</p></div>
+    <div class="row"><b>장비 감각</b><p>전기전자·H/W·IoT 경험이 있어 차량·센서·충전·관제 장비를 두려워하지 않습니다.</p></div>
+    <div class="row"><b>문서화 습관</b><p>QA 로그, ERP 전환 이슈, 총무 운영 문서화를 통해 기록을 업무 자료로 남겨왔습니다.</p></div>
+  </div>
+</section>
+
+<section class="section" id="tech">
+  <div class="wrap story">
+    <div class="photo-stack">
+      <div class="shot one"><img src="./assets/projects/photo_desalination_equipment.jpg" alt="해수담수화 프로토타입 장비"></div>
+      <div class="shot two"><img src="./assets/projects/photo_blynk_graph.jpg" alt="IoT 센서 데이터 그래프"></div>
+      <div class="shot three"><img src="./assets/projects/photo_iot_modlink_board.jpg" alt="IoT 장비 보드"></div>
+    </div>
+    <div class="story-panel">
+      <h2>개발자로 지원하지 않습니다.<br>하지만 장비를 읽을 줄 압니다.</h2>
+      <p>맨지온에서는 ESP32 기반 해수담수화 프로토타입을 만들며 솔레노이드 밸브, 릴레이, 센서값, IoT 모니터링을 다뤘습니다. 엣지크로스에서는 회로, PCB, 시제품 제작, 납땜, 테스트와 검증을 경험했습니다.</p>
+      <p>이 경험은 자율주행 소프트웨어를 개발한다는 뜻이 아닙니다. 대신 운행 현장에서 차량이나 장비가 평소와 다르게 동작할 때, 어떤 조건에서 어떤 증상이 있었는지 더 정확히 관찰하고 전달할 수 있다는 뜻입니다.</p>
+      <div class="proof">
+        <div><b>ESP32·Arduino 계열</b><span>센서값 확인, 릴레이 제어, 프로토타입 동작 검증 경험.</span></div>
+        <div><b>IoT 모니터링</b><span>장비 상태를 앱 화면과 그래프로 확인하고 변화를 기록.</span></div>
+        <div><b>H/W 검증</b><span>회로·PCB·시제품을 직접 만지며 테스트와 오류 확인 수행.</span></div>
+        <div><b>운영 연결</b><span>이상 징후를 담당자가 이해할 수 있는 형태로 정리·전달.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="ops">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>입사 후 운영 루틴</h2>
+      <p>처음부터 독단적으로 바꾸지 않고, 교육 기준과 기존 체크리스트를 먼저 익힌 뒤 반복 업무를 안정화하겠습니다.</p>
+    </div>
+    <div class="ops-board">
+      <div class="ops"><i>01</i><b>교육</b><span>배곧 교육 기준, 차량·장비 명칭, 안전 기준 숙지</span></div>
+      <div class="ops"><i>02</i><b>출발 전</b><span>외관·실내·장비 표시·충전 상태 확인</span></div>
+      <div class="ops"><i>03</i><b>운행 중</b><span>정류소·보행자·신호·승객 흐름 관찰</span></div>
+      <div class="ops"><i>04</i><b>이상 발생</b><span>감속·정차·보고, 시간·위치·증상 기록</span></div>
+      <div class="ops"><i>05</i><b>복귀 후</b><span>일지 작성, 배터리 충전, 다음 근무자 인계</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="final" id="contact">
+  <div class="final-card">
+    <div>
+      <h2>도로 위 서비스는<br>작은 기록에서 안정됩니다.</h2>
+      <p>자율주행버스 운영 오퍼레이터로서 운전, 승객 대응, 차량점검, 운행일지를 같은 기준으로 수행하겠습니다. 기술을 아는 척하지 않고, 현장의 사실을 정확히 남기는 운영자가 되겠습니다.</p>
+      <div class="contact"><span>임종권</span><a href="mailto:ssujklim@gmail.com">ssujklim@gmail.com</a><span>1종 대형 · 자율주행 운영 오퍼레이터 지원</span></div>
+    </div>
+    <img class="qr" src="./assets/qr_sum_autonomous_bus_operator.png" alt="웹 포트폴리오 QR 코드">
+  </div>
+</section>
+</body>
+</html>

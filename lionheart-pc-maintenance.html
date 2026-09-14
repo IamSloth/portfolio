@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="description" content="임종권 라이온하트스튜디오 PC 유지 보수 및 총무 담당자 지원 웹 포트폴리오">
+<title>임종권 — 라이온하트스튜디오 PC 유지 보수 및 총무 포트폴리오</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --black:#111318;--ink:#191f28;--g800:#252b35;--g700:#333d4b;--g500:#6b7684;--g400:#8b95a1;--g300:#c9ced6;--g200:#e5e8eb;--g100:#f2f4f6;--white:#fff;
+  --red:#b7252b;--red-soft:#fae8ea;--gold:#b88a2b;--gold-soft:#f6efe2;--green:#1d7a59;--green-soft:#e7f5ef;
+}
+html{scroll-behavior:smooth}
+body{font-family:Pretendard,"Noto Sans KR","Malgun Gothic",Arial,sans-serif;background:#fff;color:var(--ink);word-break:keep-all;letter-spacing:0;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.nav{position:fixed;z-index:20;top:0;left:0;right:0;height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 32px;background:rgba(17,19,24,.82);color:#fff;backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,255,255,.1)}
+.brand{font-weight:950;font-size:18px}.brand span{font-weight:300;color:#f0c56d}
+.nav-links{display:flex;gap:22px;font-size:13px;font-weight:850;color:rgba(255,255,255,.72)}.nav-links a:hover{color:#fff}
+.hero{min-height:92vh;background:var(--black);color:#fff;position:relative;overflow:hidden;display:grid;align-items:center;padding:112px 32px 56px}
+.hero:before{content:"PC\A Asset\A Office";white-space:pre;position:absolute;right:-2vw;top:10vh;font-size:clamp(72px,12vw,170px);line-height:.86;font-weight:100;color:rgba(255,255,255,.055)}
+.hero:after{content:"";position:absolute;inset:auto 0 0 0;height:46%;background:linear-gradient(180deg,rgba(17,19,24,0),#111318)}
+.hero-inner{width:min(1180px,100%);margin:0 auto;display:grid;grid-template-columns:1fr .96fr;gap:54px;align-items:center;position:relative;z-index:1}
+.eyebrow{font-size:12px;letter-spacing:4px;text-transform:uppercase;font-weight:950;color:#f0c56d;margin-bottom:18px}
+h1{font-size:clamp(42px,7vw,92px);line-height:.96;font-weight:950;letter-spacing:0;margin-bottom:24px}
+h1 .mark{color:#f0c56d;font-weight:300}.lead{font-size:clamp(17px,2vw,23px);line-height:1.62;font-weight:760;color:rgba(255,255,255,.86);max-width:760px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}.pill{display:inline-flex;align-items:center;height:42px;padding:0 18px;border:1px solid rgba(255,255,255,.18);border-radius:999px;background:rgba(255,255,255,.08);font-size:13px;font-weight:900}
+.hero-visual{display:grid;grid-template-columns:1fr .86fr;gap:14px}.portrait{height:520px;border-radius:8px;overflow:hidden;border:1px solid rgba(255,255,255,.18);background:#222}.portrait img{width:100%;height:100%;object-fit:cover}
+.hero-stack{display:grid;gap:14px}.proof{height:253px;border-radius:8px;overflow:hidden;border:1px solid rgba(255,255,255,.14);background:#222;position:relative}.proof img{width:100%;height:100%;object-fit:cover}.proof span{position:absolute;left:12px;bottom:12px;background:rgba(17,19,24,.76);font-size:12px;font-weight:900;padding:7px 10px;border-radius:999px}
+.section{padding:92px 32px}.wrap{width:min(1180px,100%);margin:0 auto}.section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;margin-bottom:34px}.kicker{font-size:12px;letter-spacing:4px;text-transform:uppercase;font-weight:950;color:var(--g400);margin-bottom:10px}h2{font-size:clamp(34px,5vw,62px);line-height:1.06;font-weight:950;letter-spacing:0}.section-copy{max-width:540px;font-size:17px;line-height:1.74;color:var(--g700)}
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.metric{background:var(--g100);border-radius:8px;padding:28px 24px;min-height:188px}.metric b{display:block;font-size:42px;line-height:1;margin-bottom:16px;color:var(--red)}.metric strong{display:block;font-size:16px;margin-bottom:8px}.metric p{font-size:14px;line-height:1.7;color:var(--g700)}
+.dark{background:var(--black);color:#fff}.dark .kicker{color:rgba(255,255,255,.45)}.dark .section-copy{color:rgba(255,255,255,.72)}
+.evidence{display:grid;grid-template-columns:1.08fr .92fr;gap:18px}.evidence-main{height:540px;border-radius:8px;overflow:hidden;background:#222}.evidence-main img{width:100%;height:100%;object-fit:cover}.evidence-list{display:grid;gap:14px}.evidence-item{display:grid;grid-template-columns:150px 1fr;gap:16px;align-items:center;background:#181c23;border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:12px}.thumb{height:112px;border-radius:6px;overflow:hidden;background:#222}.thumb img{width:100%;height:100%;object-fit:cover}.evidence-text b{display:block;font-size:17px;margin-bottom:7px}.evidence-text p{font-size:14px;line-height:1.65;color:rgba(255,255,255,.68)}
+.flow{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}.flow-step{background:#fff;border:1px solid var(--g200);border-radius:8px;padding:22px 18px;min-height:180px}.flow-step small{display:block;color:var(--red);font-size:11px;letter-spacing:2px;font-weight:950;margin-bottom:12px}.flow-step b{display:block;font-size:18px;margin-bottom:10px}.flow-step p{font-size:14px;line-height:1.68;color:var(--g700)}
+.projects{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.project{border:1px solid var(--g200);border-radius:8px;overflow:hidden;background:#fff}.project-img{height:220px;background:#111;overflow:hidden}.project-img img{width:100%;height:100%;object-fit:cover}.project-body{padding:23px}.tagline{font-size:12px;font-weight:950;color:var(--red);letter-spacing:2px;margin-bottom:10px}.project h3{font-size:22px;line-height:1.25;margin-bottom:12px}.project p{font-size:15px;line-height:1.72;color:var(--g700)}.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}.chip{font-size:12px;font-weight:850;background:var(--gold-soft);color:var(--g700);border-radius:999px;padding:6px 10px}
+.fit{display:grid;grid-template-columns:1fr .92fr;gap:24px;align-items:start}.fit-board{border-top:2px solid #111}.fit-row{display:grid;grid-template-columns:150px 1fr;gap:18px;padding:19px 0;border-bottom:1px solid var(--g200)}.fit-row strong{font-size:16px}.fit-row p{font-size:15px;line-height:1.66;color:var(--g700)}
+.sidebox{background:var(--g100);border-radius:8px;padding:28px}.sidebox h3{font-size:24px;margin-bottom:16px}.sidebox-list{display:grid;gap:14px}.sidebox-list div{background:#fff;border-radius:8px;padding:16px}.sidebox-list b{display:block;margin-bottom:6px}.sidebox-list p{font-size:15px;line-height:1.65;color:var(--g700)}
+.timeline{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.time{background:#181c23;border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:26px;min-height:220px}.time small{display:block;color:#f0c56d;font-weight:950;letter-spacing:3px;margin-bottom:16px}.time b{display:block;font-size:23px;margin-bottom:12px}.time p{font-size:15px;line-height:1.72;color:rgba(255,255,255,.72)}
+.closing{padding:104px 32px;background:#f7f8fa}.closing-box{width:min(1180px,100%);margin:0 auto;display:grid;grid-template-columns:1fr .68fr;gap:44px;align-items:center}.closing h2{font-size:clamp(38px,6vw,76px)}.closing p{font-size:18px;line-height:1.8;color:var(--g700);margin-top:18px}.contact-card{background:#fff;border-radius:8px;padding:28px;border:1px solid var(--g200)}.contact-card div{font-size:15px;line-height:1.9;color:var(--g700);margin-bottom:13px}.contact-card div:last-child{margin-bottom:0}.footer{padding:34px;text-align:center;color:var(--g500);border-top:1px solid var(--g200)}
+@media(max-width:960px){
+  .nav{padding:0 18px}.nav-links{display:none}.hero{padding:96px 20px 42px}.hero-inner,.hero-visual,.section-head,.evidence,.fit,.closing-box{grid-template-columns:1fr}.portrait{height:360px}.proof{height:190px}.metrics,.projects,.timeline{grid-template-columns:1fr 1fr}.flow{grid-template-columns:1fr 1fr}.fit-row{grid-template-columns:1fr}.section{padding:70px 20px}
+}
+@media(max-width:620px){
+  h1{font-size:43px}.lead{font-size:16px}.metrics,.projects,.timeline,.flow{grid-template-columns:1fr}.evidence-main{height:320px}.evidence-item{grid-template-columns:1fr}.thumb{height:180px}.hero-actions{display:none}.closing{padding:72px 20px}.contact-card{padding:22px}
+}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="brand">임종권 <span>×</span> Lionheart</div>
+  <div class="nav-links">
+    <a href="#evidence">근거</a><a href="#flow">운영 흐름</a><a href="#cases">사례</a><a href="#fit">직무 연결</a><a href="#plan">계획</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="eyebrow">라이온하트스튜디오 · PC 유지 보수 및 총무</div>
+      <h1>구성원의 업무가<br>멈추지 않게<br>운영합니다<span class="mark">.</span></h1>
+      <p class="lead">PC 세팅, Windows 장애 지원, IT 자산 불출·회수, 렌탈 기기와 시설 관리까지. 작은 요청을 빠르게 처리하고, 반복되는 문제는 기준과 기록으로 줄여 왔습니다.</p>
+      <div class="hero-actions">
+        <a class="pill" href="#cases">운영 사례</a>
+        <a class="pill" href="#plan">입사 후 실행 방식</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="portrait"><img src="https://iamsloth.github.io/portfolio/assets/profile.png" alt="임종권 프로필 사진"></div>
+      <div class="hero-stack">
+        <div class="proof"><img src="https://iamsloth.github.io/portfolio/assets/projects/photo_erp_highq.png" alt="ERP 운영 화면"><span>ERP 운영 전환</span></div>
+        <div class="proof"><img src="https://iamsloth.github.io/portfolio/assets/projects/photo_iot_modlink_board.jpg" alt="IoT 보드"><span>장비·소프트웨어 이해</span></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div><div class="kicker">운영 성과</div><h2>숫자로 남은<br>현장 운영 경험</h2></div>
+      <p class="section-copy">라이온하트스튜디오의 PC 유지 보수 및 총무 담당자는 장비 하나만 보는 자리가 아닙니다. 구성원 요청, 자산, 렌탈 인프라, 시설, 비용 정산을 한 흐름으로 관리하는 일입니다.</p>
+    </div>
+    <div class="metrics">
+      <div class="metric"><b>3년+</b><strong>총무·IT지원 운영</strong><p>사회연대은행에서 PC·네트워크·자산·시설·소모품 요청을 함께 처리했습니다.</p></div>
+      <div class="metric"><b>30%</b><strong>유지보수 비용 절감</strong><p>PC·네트워크 1차 대응을 내재화하고 업체 호출 기준을 정리했습니다.</p></div>
+      <div class="metric"><b>8개사+</b><strong>렌탈·시설 업체 관리</strong><p>복합기, 네트워크, 전자계약, 전기·소방·방역 업체의 계약과 정산을 맡았습니다.</p></div>
+      <div class="metric"><b>3.6억</b><strong>인프라 예산 집행</strong><p>구매, 계약, 검수, 정산, 증빙 흐름을 기준화해 누락을 줄였습니다.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="evidence" class="section dark">
+  <div class="wrap">
+    <div class="section-head">
+      <div><div class="kicker">실무 근거</div><h2>장비와 시스템을<br>함께 본 경험</h2></div>
+      <p class="section-copy">PC와 전산장비 장애는 현장 장비, 네트워크, 사용자 화면, 업체 대응이 함께 얽힙니다. 임베디드·ERP·하드웨어 경험은 그 흐름을 단계적으로 좁히는 기반이 됐습니다.</p>
+    </div>
+    <div class="evidence">
+      <div class="evidence-main"><img src="https://iamsloth.github.io/portfolio/assets/projects/photo_erp_highq.png" alt="High-Q ERP 운영 화면"></div>
+      <div class="evidence-list">
+        <div class="evidence-item"><div class="thumb"><img src="https://iamsloth.github.io/portfolio/assets/projects/photo_iot_modlink_board.jpg" alt="IoT 보드"></div><div class="evidence-text"><b>장비 제어 경험</b><p>ESP32와 센서, 앱 연동 경험으로 장비 상태와 화면 흐름을 함께 확인합니다.</p></div></div>
+        <div class="evidence-item"><div class="thumb"><img src="https://iamsloth.github.io/portfolio/assets/projects/photo_blynk_graph.jpg" alt="센서 데이터 그래프"></div><div class="evidence-text"><b>로그 확인 습관</b><p>상태 변화와 로그를 보고 원인을 좁히는 방식에 익숙합니다.</p></div></div>
+        <div class="evidence-item"><div class="thumb"><img src="https://iamsloth.github.io/portfolio/assets/projects/photo_desalination_equipment.jpg" alt="해수담수화 장비"></div><div class="evidence-text"><b>현장 장비 대응</b><p>장비 이상을 사용자 불편과 분리하지 않고, 임시조치와 후속 조치를 함께 봅니다.</p></div></div>
+        <div class="evidence-item"><div class="thumb"><img src="https://iamsloth.github.io/portfolio/assets/projects/photo_metaverse_award_present.jpg" alt="발표 장면"></div><div class="evidence-text"><b>새 도구 적응</b><p>AR 시스템제어 과정에서 Unity 기반 콘텐츠를 제작하며 새로운 환경을 빠르게 익혔습니다.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="flow" class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div><div class="kicker">운영 흐름</div><h2>요청을 처리하고<br>반복을 줄이는 방식</h2></div>
+      <p class="section-copy">좋은 내부 운영은 빠른 처리에서 끝나지 않습니다. 같은 문제가 반복되지 않도록 자산, 이력, 업체, 비용을 같이 남겨야 합니다.</p>
+    </div>
+    <div class="flow">
+      <div class="flow-step"><small>01</small><b>접수</b><p>증상, 사용 장비, 업무 영향도, 긴급도를 먼저 확인합니다.</p></div>
+      <div class="flow-step"><small>02</small><b>현장 확인</b><p>전원, 네트워크, 주변기기, 프로그램 상태를 빠르게 점검합니다.</p></div>
+      <div class="flow-step"><small>03</small><b>임시조치</b><p>업무가 멈추지 않도록 대체 장비나 우회 방법을 먼저 제공합니다.</p></div>
+      <div class="flow-step"><small>04</small><b>전문 연계</b><p>내부 조치 한계를 넘으면 업체와 증상을 공유해 처리 시간을 줄입니다.</p></div>
+      <div class="flow-step"><small>05</small><b>기록</b><p>원인, 조치, 재발 방지 기준을 남겨 다음 대응 속도를 높입니다.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="cases" class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div><div class="kicker">관련 사례</div><h2>라이온하트 업무와<br>맞닿은 경험</h2></div>
+      <p class="section-copy">게임사 근무 경험은 없지만, 내부 구성원이 본업에 집중하도록 장비와 업무환경을 지원한 경험은 직접적으로 연결됩니다.</p>
+    </div>
+    <div class="projects">
+      <article class="project"><div class="project-img"><img src="https://iamsloth.github.io/portfolio/assets/projects/photo_erp_highq.png" alt="ERP 운영 화면"></div><div class="project-body"><div class="tagline">자산·시스템 운영</div><h3>ERP 전환과 자산 기준 정리</h3><p>엑셀 중심의 업무를 시스템 기준으로 옮기며 사용자, 데이터, 처리 기준을 정리했습니다. 자산관리도 같은 방식으로 현황과 기준을 먼저 세웠습니다.</p><div class="chips"><span class="chip">ERP</span><span class="chip">자산 대장</span><span class="chip">사용자 기준</span></div></div></article>
+      <article class="project"><div class="project-img"><img src="https://iamsloth.github.io/portfolio/assets/projects/photo_blynk_data.jpg" alt="센서 데이터 화면"></div><div class="project-body"><div class="tagline">장애 원인 확인</div><h3>장비 로그와 화면 흐름 확인</h3><p>IoT 장비와 앱 연동 테스트를 수행하며 상태 변화, 통신, 화면 흐름을 함께 봤습니다. PC·전산장비 장애도 원인을 단계적으로 좁히는 방식으로 접근합니다.</p><div class="chips"><span class="chip">ESP32</span><span class="chip">장비 점검</span><span class="chip">재현 테스트</span></div></div></article>
+      <article class="project"><div class="project-img"><img src="https://iamsloth.github.io/portfolio/assets/projects/photo_metaverse_award_present.jpg" alt="메타버스 발표 장면"></div><div class="project-body"><div class="tagline">새 환경 적응</div><h3>AR 시스템제어와 팀 프로젝트</h3><p>한국폴리텍 과정에서 Unity 기반 콘텐츠를 제작하고 팀 발표를 수행했습니다. 새로운 툴과 환경을 빠르게 익혀 결과물로 연결한 경험입니다.</p><div class="chips"><span class="chip">Unity</span><span class="chip">VR/AR</span><span class="chip">팀 발표</span></div></div></article>
+    </div>
+  </div>
+</section>
+
+<section id="fit" class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div><div class="kicker">직무 연결</div><h2>요구 업무별<br>기여 방식</h2></div>
+      <p class="section-copy">강점은 전면에 두고, 게임사 규모와 내부 기준은 입사 후 빠르게 흡수할 영역으로 분리했습니다.</p>
+    </div>
+    <div class="fit">
+      <div class="fit-board">
+        <div class="fit-row"><strong>PC 세팅 및 지급</strong><p>신규·교체 PC 준비, 업무 소프트웨어 설치, 프린터·네트워크 확인 경험을 바탕으로 첫 근무일 지연을 줄이겠습니다.</p></div>
+        <div class="fit-row"><strong>Windows 장애 지원</strong><p>증상 확인, 재현, 기존 이력 확인, 임시조치, 업체 연계를 순서화해 빠르게 대응하겠습니다.</p></div>
+        <div class="fit-row"><strong>IT 자산관리</strong><p>장비 사용자, 위치, 상태, 회수 여부를 함께 관리해 구매 전 재고 확인과 유휴 장비 활용을 강화하겠습니다.</p></div>
+        <div class="fit-row"><strong>렌탈·시설 관리</strong><p>복합기, 네트워크, 시설 업체의 계약기간, 방문 일정, 정산을 함께 관리한 경험을 적용하겠습니다.</p></div>
+        <div class="fit-row"><strong>소모품·비용 정산</strong><p>3.6억 규모 인프라 예산 집행 경험을 바탕으로 구매, 검수, 증빙, 정산 흐름을 놓치지 않겠습니다.</p></div>
+      </div>
+      <aside class="sidebox">
+        <h3>보완할 영역도 분명합니다</h3>
+        <div class="sidebox-list">
+          <div><b>게임사 내부 기준</b><p>회사별 보안·자산·입퇴사 기준은 다릅니다. 기존 방식을 먼저 확인하고 변경이 필요한 부분만 제안하겠습니다.</p></div>
+          <div><b>대규모 조직 경험</b><p>500명 이상 조직 경력은 없습니다. 대신 작은 조직에서 요청 접수부터 계약·정산까지 직접 처리한 경험으로 빈틈을 줄이겠습니다.</p></div>
+          <div><b>macOS·전문 관리 도구</b><p>직접 운영 범위는 제한적입니다. Windows와 장비 지원 경험을 기반으로 내부 도구와 절차를 우선 학습하겠습니다.</p></div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section id="plan" class="section dark">
+  <div class="wrap">
+    <div class="section-head">
+      <div><div class="kicker">실행 계획</div><h2>첫 3개월은<br>기준을 익히고 정리합니다</h2></div>
+      <p class="section-copy">새로운 조직에서는 큰 개선보다 현황 파악과 안정적인 처리 기준이 먼저입니다. 빠르게 움직이되, 기존 운영을 흔들지 않겠습니다.</p>
+    </div>
+    <div class="timeline">
+      <div class="time"><small>1개월</small><b>현황 파악</b><p>PC, 모바일 기기, 모니터, 렌탈 장비, 소모품, 업체 연락처, 입퇴사 지원 흐름을 목록화합니다.</p></div>
+      <div class="time"><small>2개월</small><b>처리 기준 정리</b><p>반복 장애, 반복 총무 요청, 업체 연계가 필요한 요청을 분류해 대응 기준을 맞춥니다.</p></div>
+      <div class="time"><small>3개월</small><b>반복 감소</b><p>자주 묻는 내용은 안내문과 체크리스트로 정리하고, 자산 불출·회수 이력을 보완합니다.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="closing">
+  <div class="closing-box">
+    <div>
+      <div class="kicker">마무리</div>
+      <h2>작은 중단을 줄이는<br>내부 운영자가<br>되겠습니다.</h2>
+      <p>라이온하트스튜디오의 구성원이 본업에 집중할 수 있도록, PC와 전산장비는 빠르게 확인하고 자산은 흐름이 보이게 기록하며 렌탈·시설·소모품은 비용과 일정까지 함께 관리하겠습니다.</p>
+    </div>
+    <div class="contact-card">
+      <div><b>지원자</b><br>임종권</div>
+      <div><b>지원 포지션</b><br>PC 유지 보수 및 총무 담당자</div>
+      <div><b>연락처</b><br>ssujklim@gmail.com<br>010-4052-0834</div>
+      <div><b>핵심 키워드</b><br>PC 세팅 · Windows 장애 지원 · IT 자산관리 · 렌탈·시설 운영 · 소모품 정산</div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">임종권 · 라이온하트스튜디오 PC 유지 보수 및 총무 담당자 지원 포트폴리오</footer>
+</body>
+</html>

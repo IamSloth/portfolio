@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>임종권 × 서울히어로즈 — 경영지원(회계)</title>
+<meta name="description" content="임종권 — 서울히어로즈(주) 지원팀 경영지원(회계) 포트폴리오. ERP 구축 · 예산 3.6억 집행 · 감사 대응">
+<meta property="og:title" content="임종권 × 서울히어로즈 — 경영지원(회계)">
+<meta property="og:description" content="ERP 구축 · 예산 3.6억 집행 · 감사 대응 · 더존 iCube · 30+ 경기 직관">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0a0a0a;--surface:#111;--card:#161616;
+  --border:rgba(255,255,255,.06);--border-lt:rgba(255,255,255,.1);
+  --brand:#570514;
+  --accent:#FF7DA0;--accent-dim:rgba(255,125,160,.06);--accent-mid:rgba(255,125,160,.12);--accent-glow:rgba(255,125,160,.25);
+  --text:#9a9a9a;--text-dim:#555;--text-h:#e8e8e8;--white:#f5f5f5;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+body{font-family:'Pretendard Variable',Pretendard,-apple-system,'Noto Sans KR',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;line-height:1.7;word-break:keep-all}
+::selection{background:var(--accent);color:var(--bg)}
+img{display:block;max-width:100%}
+a{color:var(--accent);text-decoration:none}
+.container{max-width:960px;margin:0 auto;padding:0 28px}
+
+/* Film Grain */
+body::after{
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.022;
+  background:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ── Loader ── */
+.loader{
+  position:fixed;inset:0;z-index:200;background:var(--bg);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  transition:clip-path .9s var(--ease);clip-path:inset(0 0 0 0);
+}
+.loader.done{clip-path:inset(0 0 100% 0);pointer-events:none}
+.loader-name{font-size:clamp(36px,8vw,72px);font-weight:800;color:var(--text-h);letter-spacing:-.05em;margin-bottom:24px}
+.loader-name .dot{color:var(--accent)}
+.loader-bar-track{width:120px;height:2px;background:var(--border);border-radius:1px;overflow:hidden}
+.loader-bar{height:100%;width:0;background:var(--accent);transition:width .15s}
+.loader-pct{font-size:12px;color:var(--text-dim);margin-top:12px;letter-spacing:.08em;font-variant-numeric:tabular-nums}
+
+/* ── Scroll Progress ── */
+.scroll-progress{position:fixed;top:0;left:0;width:100%;height:2px;z-index:110;background:var(--accent);transform-origin:left;transform:scaleX(0);will-change:transform}
+
+/* ── Nav ── */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  padding:20px 48px;display:flex;justify-content:space-between;align-items:center;
+  background:transparent;backdrop-filter:blur(0);-webkit-backdrop-filter:blur(0);
+  border-bottom:1px solid transparent;transition:all .5s var(--ease);
+}
+.nav.scrolled{padding:14px 48px;background:rgba(10,10,10,.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom-color:rgba(255,255,255,.04)}
+.nav-logo{font-size:15px;font-weight:700;color:var(--text-h);letter-spacing:-.03em;text-decoration:none}
+.nav-logo .dot{color:var(--accent)}
+.nav-links{display:flex;gap:32px;align-items:center}
+.nav-links a{font-size:13px;color:var(--text-dim);letter-spacing:-.01em;transition:color .3s;position:relative;text-decoration:none}
+.nav-links a:hover,.nav-links a.active{color:var(--text-h)}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--accent);transition:width .3s var(--ease)}
+.nav-links a:hover::after,.nav-links a.active::after{width:100%}
+.nav-back{font-size:11px;color:var(--text-dim);letter-spacing:.02em;opacity:.6}
+.nav-back:hover{color:var(--accent);opacity:1}
+
+/* ── Mobile Nav ── */
+.nav-toggle{display:none;width:28px;height:20px;position:relative;background:none;border:none;cursor:pointer;padding:0}
+.nav-toggle span{display:block;position:absolute;left:0;width:100%;height:1.5px;background:var(--text-h);border-radius:1px;transition:all .35s var(--ease)}
+.nav-toggle span:nth-child(1){top:0}.nav-toggle span:nth-child(2){top:9px}.nav-toggle span:nth-child(3){top:18px}
+.nav-toggle.open span:nth-child(1){top:9px;transform:rotate(45deg)}.nav-toggle.open span:nth-child(2){opacity:0}.nav-toggle.open span:nth-child(3){top:9px;transform:rotate(-45deg)}
+
+/* ── HERO ── */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:url('assets/heroes/scoreboard.png') center/cover no-repeat;filter:brightness(.35) saturate(.8)}
+.hero-overlay{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 40%,rgba(87,5,20,.4) 0%,transparent 70%),linear-gradient(180deg,rgba(10,10,10,.6) 0%,rgba(10,10,10,.3) 40%,rgba(10,10,10,.5) 70%,rgba(10,10,10,.95) 100%);pointer-events:none}
+.hero-diamond{position:absolute;width:400px;height:400px;top:50%;left:50%;transform:translate(-50%,-50%) rotate(45deg);border:1px solid rgba(255,125,160,.06);border-radius:4px;animation:diamondPulse 12s ease-in-out infinite;pointer-events:none}
+.hero-diamond::before{content:'';position:absolute;inset:60px;border:1px solid rgba(255,125,160,.04);border-radius:4px}
+@keyframes diamondPulse{0%,100%{transform:translate(-50%,-50%) rotate(45deg) scale(1);opacity:1}50%{transform:translate(-50%,-50%) rotate(45deg) scale(1.08);opacity:.6}}
+.hero-content{position:relative;z-index:2;padding:0 24px}
+.hero-content h1{font-size:clamp(48px,10vw,120px);font-weight:700;color:var(--white);letter-spacing:-.03em;line-height:.95;margin-bottom:20px;opacity:0;transform:translateY(50px);text-shadow:0 2px 40px rgba(0,0,0,.6)}
+.hero-content h1.split-ready{opacity:1;transform:none}
+.hero-content h1 .char{display:inline-block;opacity:0;transform:translateY(100%) rotateX(25deg);filter:blur(4px)}
+body.loaded .hero-content h1 .char{animation:charIn .7s var(--ease) calc(.25s + var(--i) * .06s) forwards}
+@keyframes charIn{to{opacity:1;transform:translateY(0) rotateX(0deg);filter:blur(0)}}
+.hero-content h1 .accent{color:var(--accent);text-shadow:0 0 30px rgba(255,125,160,.4),0 0 60px rgba(255,125,160,.15)}
+.hero-tagline{font-size:clamp(11px,1.4vw,15px);font-weight:500;color:var(--text);letter-spacing:.2em;text-transform:uppercase;text-shadow:0 1px 20px rgba(0,0,0,.5);opacity:0;transform:translateY(30px)}
+.tl-mono{font-family:'JetBrains Mono',monospace;font-weight:500;color:var(--accent);letter-spacing:.08em;font-size:.85em}
+.hero-sub{font-size:15px;color:var(--text);max-width:460px;margin:28px auto 0;line-height:1.85;text-shadow:0 1px 16px rgba(0,0,0,.5);opacity:0;transform:translateY(20px)}
+body.loaded .hero-tagline{animation:riseIn .9s var(--ease) .6s forwards}
+body.loaded .hero-sub{animation:riseIn .9s var(--ease) .9s forwards}
+body.loaded .scroll-indicator{animation:riseIn .8s var(--ease) 1.2s forwards}
+@keyframes riseIn{to{opacity:1;transform:translateY(0)}}
+.scroll-indicator{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;z-index:2;opacity:0}
+.scroll-indicator span{font-size:10px;color:var(--text-dim);letter-spacing:.15em;text-transform:uppercase}
+.scroll-indicator .line{width:1px;height:28px;background:linear-gradient(var(--accent),transparent);animation:pulse 2.2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:.2;transform:scaleY(.5)}50%{opacity:1;transform:scaleY(1)}}
+
+/* ── Sections ── */
+.section{padding:clamp(80px,10vw,120px) clamp(24px,8vw,160px);position:relative}
+.section--alt{background:var(--surface)}
+.section-label{font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:600;color:var(--accent);letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px}
+.section-title{font-size:clamp(28px,4.5vw,48px);font-weight:700;color:var(--text-h);letter-spacing:-.02em;line-height:1.12;margin-bottom:20px}
+.section-desc{font-size:16px;color:var(--text);max-width:500px;line-height:1.85;margin-bottom:48px}
+
+/* ── Marquee ── */
+.marquee-section{padding:3vh 0;overflow:hidden;position:relative;background:#050505}
+.marquee-section::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,125,160,.3),transparent);box-shadow:0 0 6px rgba(255,125,160,.15)}
+.marquee-bottom{position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,125,160,.3),transparent)}
+.marquee-row{overflow:hidden;white-space:nowrap;padding:1vh 0;cursor:default;user-select:none;mask-image:linear-gradient(90deg,transparent 0%,#000 4%,#000 96%,transparent 100%);-webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 4%,#000 96%,transparent 100%);position:relative;z-index:1}
+.marquee-track{display:inline-flex;align-items:baseline;gap:4vw;will-change:transform}
+.marquee-item{display:inline-flex;align-items:baseline;gap:1vw;flex-shrink:0}
+.marquee-item+.marquee-item::before{content:'·';font-family:'JetBrains Mono',monospace;font-size:1.2em;color:rgba(255,125,160,.2);margin-right:1vw}
+.marquee-row[data-direction="left"] .m-word{font-family:'JetBrains Mono','Space Grotesk',monospace;font-size:clamp(2rem,5vw,5rem);font-weight:700;letter-spacing:-.02em;line-height:1.05;text-transform:uppercase;color:var(--accent);text-shadow:0 0 4px rgba(255,125,160,.6),0 0 12px rgba(255,125,160,.25);transition:color .4s var(--ease);white-space:nowrap}
+.marquee-row[data-direction="left"] .m-word:hover{color:#ffadc4}
+.marquee-row[data-direction="left"] .m-sub{font-family:'JetBrains Mono',monospace;font-size:clamp(.9rem,2vw,2rem);font-weight:400;letter-spacing:.05em;color:rgba(255,125,160,.25);white-space:nowrap}
+.marquee-row[data-direction="right"]{background:var(--brand)}
+.marquee-row[data-direction="right"] .m-word{font-family:'JetBrains Mono','Space Grotesk',monospace;font-size:clamp(1.2rem,3vw,3rem);font-weight:700;letter-spacing:.01em;line-height:1.1;white-space:nowrap;color:#ffdde6;transition:color .4s var(--ease)}
+.marquee-row[data-direction="right"] .m-word:hover{color:#fff}
+.marquee-row[data-direction="right"] .m-sub{font-family:'JetBrains Mono',monospace;font-size:clamp(.8rem,1.6vw,1.6rem);color:rgba(255,221,230,.35);white-space:nowrap}
+.marquee-row[data-direction="right"] .marquee-item+.marquee-item::before{color:rgba(255,221,230,.2);text-shadow:none}
+
+/* ── Stats ── */
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.stat-card{background:var(--card);border:1px solid var(--border);border-radius:6px;padding:36px 20px;text-align:center;transition:transform .5s var(--ease),border-color .5s,box-shadow .5s}
+.stat-card:hover{transform:translateY(-4px);border-color:rgba(255,125,160,.2);box-shadow:0 16px 48px rgba(255,125,160,.08)}
+.stat-number{font-family:'Space Grotesk',sans-serif;font-size:40px;font-weight:700;background:linear-gradient(135deg,#FF7DA0,#FF5C8A);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:8px}
+.stat-label{font-size:13px;color:var(--text);line-height:1.5}
+
+/* ── Projects ── */
+.project{background:var(--card);border:1px solid var(--border);border-radius:6px;padding:40px;margin-bottom:28px;transition:border-color .5s var(--ease),box-shadow .5s}
+.project:hover{border-color:rgba(255,125,160,.12);box-shadow:0 12px 40px rgba(255,125,160,.05)}
+.project-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:24px;flex-wrap:wrap;gap:12px}
+.project-num{font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:3px;color:var(--accent);font-weight:700;margin-bottom:6px}
+.project-title{font-size:22px;font-weight:700;letter-spacing:-.02em;color:#fff}
+.project-period{font-family:'Space Grotesk',sans-serif;font-size:12px;color:var(--text);white-space:nowrap}
+.project-body{font-size:15px;color:rgba(240,240,240,.65);line-height:1.85;margin-bottom:24px}
+.highlight{color:#fff;font-weight:700}
+.accent-text{color:var(--accent)}
+
+/* Timeline */
+.timeline{position:relative;padding-left:28px;border-left:2px solid rgba(255,125,160,.15);margin-bottom:24px}
+.timeline-item{position:relative;padding-bottom:22px}
+.timeline-item:last-child{padding-bottom:0}
+.timeline-item::before{content:'';position:absolute;left:-33px;top:6px;width:12px;height:12px;background:var(--accent);border-radius:50%;border:3px solid var(--bg)}
+.timeline-phase{font-family:'Space Grotesk',sans-serif;font-size:12px;color:var(--accent);font-weight:700;margin-bottom:4px;letter-spacing:.5px}
+.timeline-desc{font-size:14px;color:rgba(240,240,240,.6);line-height:1.7}
+.result-tag{display:inline-block;padding:6px 16px;background:var(--brand);color:#ffdde6;font-size:12px;font-weight:600;border-radius:4px;margin-top:16px;letter-spacing:.3px}
+
+/* BA Grid */
+.ba-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+.ba-card{padding:22px;border-radius:6px;font-size:13px;line-height:1.7}
+.ba-before{background:rgba(239,68,68,.05);border:1px solid rgba(239,68,68,.12);color:rgba(240,240,240,.6)}
+.ba-after{background:var(--accent-dim);border:1px solid rgba(255,125,160,.12);color:rgba(240,240,240,.75)}
+.ba-label{font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;margin-bottom:10px}
+.ba-before .ba-label{color:#ef4444}
+.ba-after .ba-label{color:var(--accent)}
+
+/* Audit Flow */
+.audit-flow{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin:24px 0}
+.flow-step{background:var(--card);border:1px solid var(--border-lt);padding:10px 16px;border-radius:4px;font-size:12px;color:var(--white);font-weight:500;white-space:nowrap;transition:border-color .3s,box-shadow .3s}
+.flow-step:hover{border-color:var(--accent);box-shadow:0 0 12px rgba(255,125,160,.15)}
+.flow-arrow{color:var(--accent);font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:700;flex-shrink:0}
+
+/* ── Season Calendar ── */
+.season-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.season-card{background:var(--card);border:1px solid var(--border);border-radius:6px;padding:28px 20px;transition:transform .5s var(--ease),border-color .5s}
+.season-card:hover{transform:translateY(-3px);border-color:rgba(255,125,160,.12)}
+.season-period{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--accent);font-weight:600;letter-spacing:1px;margin-bottom:6px}
+.season-name{font-size:16px;font-weight:700;color:#fff;margin-bottom:12px;letter-spacing:-.01em}
+.season-items{list-style:none;font-size:13px;color:var(--text);line-height:1.8}
+.season-items li::before{content:'·';color:var(--accent);margin-right:6px;font-weight:700}
+
+/* ── Fan Section ── */
+.fan-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center}
+.fan-photo{border-radius:6px;border:1px solid var(--border);overflow:hidden}
+.fan-photo img{width:100%;display:block;transition:transform .5s var(--ease)}
+.fan-photo:hover img{transform:scale(1.02)}
+.fan-stats{display:flex;flex-direction:column;gap:20px}
+.fan-stat{display:flex;align-items:flex-start;gap:16px}
+.fan-num{font-family:'Space Grotesk',sans-serif;font-size:36px;font-weight:700;color:var(--accent);line-height:1;min-width:80px}
+.fan-label h4{font-size:15px;font-weight:600;color:var(--text-h);margin-bottom:4px}
+.fan-label p{font-size:13px;color:var(--text);line-height:1.6}
+
+/* ── Why ── */
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.why-card{background:var(--card);border:1px solid var(--border);border-radius:6px;padding:32px;transition:transform .5s var(--ease),border-color .5s}
+.why-card:hover{transform:translateY(-3px);border-color:rgba(255,125,160,.12)}
+.why-icon{font-size:26px;margin-bottom:12px;opacity:.85}
+.why-card h3{font-size:16px;font-weight:600;margin-bottom:10px;color:#fff}
+.why-card p{font-size:14px;color:var(--text);line-height:1.75}
+
+/* ── Self-Dev ── */
+.dev-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.dev-card{background:var(--card);border:1px solid var(--border);border-radius:6px;padding:28px;display:flex;align-items:flex-start;gap:16px;transition:border-color .5s}
+.dev-card:hover{border-color:rgba(255,125,160,.12)}
+.dev-badge{flex-shrink:0;width:48px;height:48px;border-radius:6px;background:var(--accent-dim);border:1px solid rgba(255,125,160,.12);display:flex;align-items:center;justify-content:center;font-size:20px}
+.dev-card h3{font-size:15px;font-weight:600;color:#fff;margin-bottom:4px}
+.dev-card p{font-size:13px;color:var(--text);line-height:1.6}
+.dev-status{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--accent);font-weight:600;margin-top:6px;letter-spacing:.5px}
+
+/* ── Contact ── */
+.contact-section{text-align:center;padding:clamp(80px,10vw,120px) clamp(24px,8vw,160px)}
+.contact-section h2{font-size:clamp(28px,4vw,44px);font-weight:700;color:var(--text-h);margin-bottom:16px}
+.contact-section h2 .accent{color:var(--accent)}
+.contact-info{font-size:15px;color:var(--text);margin-top:24px;line-height:2.2}
+.contact-info a{color:var(--accent);transition:color .3s}
+.contact-info a:hover{color:#fff}
+footer{text-align:center;padding:28px;font-size:12px;color:rgba(136,136,136,.4);border-top:1px solid var(--border)}
+
+/* ── Reveal ── */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}
+
+@media(max-width:768px){
+  .nav{padding:16px 20px}.nav.scrolled{padding:12px 20px}
+  .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:rgba(10,10,10,.95);backdrop-filter:blur(20px);padding:20px;flex-direction:column;gap:16px;border-bottom:1px solid var(--border)}
+  .nav-links.open{display:flex}
+  .nav-toggle{display:block}
+  .stats-grid,.season-grid{grid-template-columns:repeat(2,1fr)}
+  .ba-grid,.why-grid,.dev-grid,.fan-grid{grid-template-columns:1fr}
+  .project{padding:28px 22px}
+  .audit-flow{justify-content:center}
+}
+@media(max-width:480px){
+  .stats-grid,.season-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- LOADER -->
+<div class="loader" id="loader">
+  <div class="loader-name">JK<span class="dot">.</span></div>
+  <div class="loader-bar-track"><div class="loader-bar" id="loader-bar"></div></div>
+  <div class="loader-pct" id="loader-pct">0</div>
+</div>
+
+<!-- SCROLL PROGRESS -->
+<div class="scroll-progress" id="scroll-progress"></div>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <a href="index.html" class="nav-logo">JK<span class="dot">.</span></a>
+  <button class="nav-toggle" id="nav-toggle" aria-label="메뉴">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-links" id="nav-links">
+    <a href="#stats">Stats</a>
+    <a href="#projects">Projects</a>
+    <a href="#season">Season</a>
+    <a href="#why">Why Me</a>
+    <a href="index.html" class="nav-back">&larr; Main</a>
+  </div>
+</nav>
+
+<!-- ═══════════════════════
+     HERO
+     ═══════════════════════ -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-diamond"></div>
+  <div class="hero-content">
+    <h1 id="hero-h1">경영지원<span class="accent">.</span></h1>
+    <p class="hero-tagline">서울히어로즈(주) &middot; 지원팀 경영지원(회계)</p>
+    <p class="hero-sub">
+      예산 3.6억 편성·집행·결산 &middot; ERP 구축 실무 전담 18개월 &middot; 더존 iCube 경험<br>
+      조직의 보이지 않는 곳을 숫자로 단단하게 만드는 사람
+    </p>
+  </div>
+  <div class="scroll-indicator"><span>Scroll</span><div class="line"></div></div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-section">
+  <div class="marquee-bottom"></div>
+  <div class="marquee-row" data-marquee data-direction="left" data-speed="0.4">
+    <div class="marquee-track" data-marquee-track>
+      <span class="marquee-item"><span class="m-word">ERP</span><span class="m-sub">Implementation</span></span>
+      <span class="marquee-item"><span class="m-word">Budget</span><span class="m-sub">3.6B KRW</span></span>
+      <span class="marquee-item"><span class="m-word">Accounting</span></span>
+      <span class="marquee-item"><span class="m-word">iCube</span><span class="m-sub">더존</span></span>
+      <span class="marquee-item"><span class="m-word">Settlement</span><span class="m-sub">정산</span></span>
+      <span class="marquee-item"><span class="m-word">Audit</span><span class="m-sub">감사 대응</span></span>
+      <span class="marquee-item" aria-hidden="true"><span class="m-word">ERP</span><span class="m-sub">Implementation</span></span>
+      <span class="marquee-item" aria-hidden="true"><span class="m-word">Budget</span><span class="m-sub">3.6B KRW</span></span>
+      <span class="marquee-item" aria-hidden="true"><span class="m-word">Accounting</span></span>
+      <span class="marquee-item" aria-hidden="true"><span class="m-word">iCube</span><span class="m-sub">더존</span></span>
+      <span class="marquee-item" aria-hidden="true"><span class="m-word">Settlement</span><span class="m-sub">정산</span></span>
+      <span class="marquee-item" aria-hidden="true"><span class="m-word">Audit</span><span class="m-sub">감사 대응</span></span>
+      <span class="marquee-item" aria-hidden="true"><span class="m-word">ERP</span><span class="m-sub">Implementation</span></span>
+      <span class="marquee-item" aria-hidden="true"><span class="m-word">Budget</span><span class="m-sub">3.6B KRW</span></span>
+      <span class="marquee-item" aria-hidden="true"><span class="m-word">Accounting</span></span>
+      <span class="marquee-item" aria-hidden="true"><span class="m-word">iCube</span><span class="m-sub">더존</span></span>
+      <span class="marquee-item" aria-hidden="true"><span class="m-word">Settlement</span><span class="m-sub">정산</span></span>
+      <span class="marquee-item" aria-hidden="true"><span class="m-word">Audit</span><span class="m-sub">감사 대응</span></span>
+    </div>
+  </div>
+  <div class="marquee-row" data-marquee data-direction="right" data-speed="0.25">
+    <div class="marquee-track" data-marquee-track>
+      <span class="marquee-item"><span class="m-word">Financial Ops</span></span>
+      <span class="marquee-item"><span class="m-word">Vendor Mgmt</span></span>
+      <span class="marquee-item"><span class="m-word">Cost -30%</span></span>
+      <span class="marquee-item"><span class="m-word">아마란스ID</span></span>
+      <span class="marquee-item"><span class="m-word">Data Migration</span></span>
+      <span class="marquee-item"><span class="m-word">결산·정산</span></span>
+      <span class="marquee-item" aria-hidden="true"><span class="m-word">Financial Ops</span></span>
+      <span class="marquee-item" aria-hidden="true"><span class="m-word">Vendor Mgmt</span></span>
+      <span class="marquee-item" aria-hidden="true"><span class="m-word">Cost -30%</span></span>
+      <span class="marquee-item" aria-hidden="true"><span class="m-word">아마란스ID</span></span>
+      <span class="marquee-item" aria-hidden="true"><span class="m-word">Data Migration</span></span>
+      <span class="marquee-item" aria-hidden="true"><span class="m-word">결산·정산</span></span>
+      <span class="marquee-item" aria-hidden="true"><span class="m-word">Financial Ops</span></span>
+      <span class="marquee-item" aria-hidden="true"><span class="m-word">Vendor Mgmt</span></span>
+      <span class="marquee-item" aria-hidden="true"><span class="m-word">Cost -30%</span></span>
+      <span class="marquee-item" aria-hidden="true"><span class="m-word">아마란스ID</span></span>
+      <span class="marquee-item" aria-hidden="true"><span class="m-word">Data Migration</span></span>
+      <span class="marquee-item" aria-hidden="true"><span class="m-word">결산·정산</span></span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════
+     STATS
+     ═══════════════════════ -->
+<section id="stats" class="section">
+  <div class="section-label reveal">01 — Key Metrics</div>
+  <div class="section-title reveal">숫자로 보는 실무 역량</div>
+  <div class="stats-grid">
+    <div class="stat-card reveal d1">
+      <div class="stat-number" data-target="3.6" data-suffix="억" data-decimal="true">0</div>
+      <div class="stat-label">연간 예산<br>편성·집행·결산</div>
+    </div>
+    <div class="stat-card reveal d2">
+      <div class="stat-number" data-target="88.5" data-suffix="%" data-decimal="true">0</div>
+      <div class="stat-label">예산 집행률<br>감사 적격</div>
+    </div>
+    <div class="stat-card reveal d3">
+      <div class="stat-number" data-target="18" data-suffix="개월">0</div>
+      <div class="stat-label">ERP 구축<br>실무 전담</div>
+    </div>
+    <div class="stat-card reveal d4">
+      <div class="stat-number" data-target="30" data-suffix="+">0</div>
+      <div class="stat-label">2025 시즌<br>직관 경기</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════
+     PROJECTS
+     ═══════════════════════ -->
+<section id="projects" class="section section--alt">
+  <div class="section-label reveal">02 — Project Deep-Dive</div>
+  <div class="section-title reveal">프로젝트 상세</div>
+
+  <!-- Project 1: ERP -->
+  <div class="project reveal">
+    <div class="project-header">
+      <div>
+        <div class="project-num">PROJECT 01</div>
+        <div class="project-title">ERP 도입 실무 전담 — 회계 프로세스 100% 전산화</div>
+      </div>
+      <div class="project-period">2023.07 &rarr; 2024.12 &middot; 18개월</div>
+    </div>
+    <div class="project-body">
+      엑셀 기반 장부 관리 환경에서 커스텀 ERP(High-Q, Tibero/Nexacro 기반)를
+      <span class="highlight">요구사항 정의부터 검수까지 실무 전반을 전담</span>한 프로젝트입니다.
+      30여 개 <span class="accent-text">회계계정 체계를 직접 설계</span>하고,
+      엑셀→DB 데이터 마이그레이션·사용자 교육까지 수행했습니다.
+      더존 iCube는 마이그레이션 과정에서 다뤄본 경험이 있으며, 아마란스ID 또한 동일 계열 ERP로서 빠른 적응이 가능합니다. 현재 더존 iCube 실무 교육을 병행하며 빠른 투입을 준비하고 있습니다.
+    </div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-phase">Phase 1 — Requirements & Account Design</div>
+        <div class="timeline-desc">현업 부서 인터뷰 → 기존 프로세스 분석 → 기능 요구사항 문서화. 30여 개 회계계정과목 체계 정의 및 표준화.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-phase">Phase 2 — Data Migration & Validation</div>
+        <div class="timeline-desc">엑셀 → Tibero DB 마이그레이션. SQL 기반 데이터 정합성 검증. 계정과목별 잔액 대사.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-phase">Phase 3 — Testing & Stabilization</div>
+        <div class="timeline-desc">기능 테스트 → 수정 → 재검증 사이클 반복. 시스템 안정화 및 사용자 교육. 회계 프로세스 100% 전산화 완료.</div>
+      </div>
+    </div>
+    <div class="ba-grid">
+      <div class="ba-card ba-before">
+        <div class="ba-label">BEFORE</div>
+        엑셀 장부 &rarr; 데이터 정합성 미보장<br>
+        계정과목 비표준 &rarr; 결산 지연<br>
+        수동 데이터 추출 &rarr; 분석 병목
+      </div>
+      <div class="ba-card ba-after">
+        <div class="ba-label">AFTER</div>
+        DB 기반 관리회계 &rarr; 실시간 데이터 접근<br>
+        회계계정 체계 구축 &rarr; 결산 2일 단축<br>
+        SQL 직접 추출 &rarr; 분석 속도 향상
+      </div>
+    </div>
+    <span class="result-tag">실무 전담 18개월 · 30개 계정과목 설계 · 회계 프로세스 100% 전산화</span>
+  </div>
+
+  <!-- Project 2: Budget & Audit -->
+  <div class="project reveal">
+    <div class="project-header">
+      <div>
+        <div class="project-num">PROJECT 02</div>
+        <div class="project-title">예산 관리 & 감사 대응 — 3.6억 편성·집행·결산</div>
+      </div>
+      <div class="project-period">2023.01 &rarr; 2026.01 &middot; 3년</div>
+    </div>
+    <div class="project-body">
+      연 <span class="highlight">3.6억 규모의 인프라 예산</span>을 단독으로 편성·집행·결산하며,
+      <span class="highlight">8개 외주업체</span>의 계약·정산·관리를 총괄했습니다.
+      계정과목별 지출결의·집행·증빙 관리 전 과정을 직접 수행하고,
+      외부 감사 대응까지 <span class="accent-text">전 주기를 1인 전담</span>한 경험입니다.
+    </div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-phase">Budget Planning & Execution</div>
+        <div class="timeline-desc">연간 3.6억 인프라 예산 편성. 30여 계정과목 기준 월별 집행 현황 분석 및 보고. 집행률 88.5% 달성.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-phase">Vendor & Contract Management</div>
+        <div class="timeline-desc">소방·승강기·복합기·네트워크 등 8개사 계약·정산 총괄. 재계약 협상으로 연 500만 원 절감.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-phase">Audit Response — Full Chain</div>
+        <div class="timeline-desc">사업협약부터 통장내역까지 전체 증빙 체계를 ERP 기반으로 정비하여 외부 감사에 대응.</div>
+      </div>
+    </div>
+    <p style="font-size:13px;color:var(--text);margin-bottom:12px;font-weight:600;">감사 대응 증빙 체인</p>
+    <div class="audit-flow">
+      <span class="flow-step">사업협약</span><span class="flow-arrow">&rarr;</span>
+      <span class="flow-step">예산계획</span><span class="flow-arrow">&rarr;</span>
+      <span class="flow-step">예산편성</span><span class="flow-arrow">&rarr;</span>
+      <span class="flow-step">지출결의</span><span class="flow-arrow">&rarr;</span>
+      <span class="flow-step">회계전표</span><span class="flow-arrow">&rarr;</span>
+      <span class="flow-step">지급전표</span><span class="flow-arrow">&rarr;</span>
+      <span class="flow-step">통장내역</span>
+    </div>
+    <span class="result-tag">집행률 88.5% · 유지보수 비용 -30% · 연 500만 절감 · 감사 적격</span>
+  </div>
+</section>
+
+<!-- ═══════════════════════
+     SEASON CALENDAR
+     ═══════════════════════ -->
+<section id="season" class="section">
+  <div class="section-label reveal">03 — Season Cycle</div>
+  <div class="section-title reveal">프로야구 시즌 기반 회계 사이클</div>
+  <div class="section-desc reveal">서울히어로즈의 회계는 시즌 일정에 맞춰 흘러갑니다. 이 사이클을 이해하는 것이 구단 경영지원의 시작입니다.</div>
+  <div class="season-grid">
+    <div class="season-card reveal d1">
+      <div class="season-period">JAN — FEB</div>
+      <div class="season-name">비시즌 · 시즌 준비</div>
+      <ul class="season-items">
+        <li>전년도 결산 마무리</li>
+        <li>전지훈련비 선급금 처리</li>
+        <li>시즌 예산 편성</li>
+        <li>외부 감사 대응</li>
+      </ul>
+    </div>
+    <div class="season-card reveal d2">
+      <div class="season-period">MAR — JUN</div>
+      <div class="season-name">시즌 전반</div>
+      <ul class="season-items">
+        <li>선수연봉 월별 안분 지급<br><span style="font-size:11px;color:var(--text-dim)">(2~11월, 10개월 균등)</span></li>
+        <li>홈경기 매출 정산</li>
+        <li>매점·주차 수입 관리</li>
+      </ul>
+    </div>
+    <div class="season-card reveal d3">
+      <div class="season-period">JUL — SEP</div>
+      <div class="season-name">시즌 후반</div>
+      <ul class="season-items">
+        <li>트레이드 · FA 계약 정산</li>
+        <li>올스타전 특별 매출</li>
+        <li>반기 결산 · 집행률 분석</li>
+      </ul>
+    </div>
+    <div class="season-card reveal d4">
+      <div class="season-period">OCT — DEC</div>
+      <div class="season-name">포스트시즌 · 결산</div>
+      <ul class="season-items">
+        <li>포스트시즌 특별 정산</li>
+        <li>보상선수 계약 처리</li>
+        <li>연간 결산 · 감사 준비</li>
+        <li>차년도 예산안 수립</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════
+     FAN SECTION
+     ═══════════════════════ -->
+<section class="section section--alt">
+  <div class="section-label reveal">04 — Field Experience</div>
+  <div class="section-title reveal">현장에서 체감한 구단 운영</div>
+  <div class="fan-grid">
+    <div class="fan-photo reveal">
+      <img src="assets/heroes/fan_selfie.png" alt="고척돔 직관">
+    </div>
+    <div class="fan-stats">
+      <div class="fan-stat reveal d1">
+        <div class="fan-num">30+</div>
+        <div class="fan-label">
+          <h4>2025 시즌 직관</h4>
+          <p>홈·원정 가리지 않고 전국 야구장 직관. 한화전 평일 매진을 현장에서 체감. 관중 동선, 매점 운영, 시설 관리를 운영자 시선으로 관찰.</p>
+        </div>
+      </div>
+      <div class="fan-stat reveal d2">
+        <div class="fan-num">30분</div>
+        <div class="fan-label">
+          <h4>광명 → 고척돔</h4>
+          <p>광명시 거주 35년. 도어투도어 30분 통근. 야간·주말 탄력근무 적극 대응.</p>
+        </div>
+      </div>
+      <div class="fan-stat reveal d3">
+        <div class="fan-num">12년</div>
+        <div class="fan-label">
+          <h4>무사고 운전 · 1종 대형</h4>
+          <p>1종 대형 면허 보유. 지방 원정 출장·장비 운송 즉시 투입 가능.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════
+     WHY ME
+     ═══════════════════════ -->
+<section id="why" class="section">
+  <div class="section-label reveal">05 — Why Me</div>
+  <div class="section-title reveal">왜 이 사람인가</div>
+  <div class="why-grid">
+    <div class="why-card reveal d1">
+      <div class="why-icon">&#x1F4CA;</div>
+      <h3>회계 실무 3년</h3>
+      <p>예산 3.6억의 편성·집행·결산을 1인 전담. 30여 계정과목 기준의 지출결의·회계전표·지급전표 전 과정을 직접 수행한 실무자.</p>
+    </div>
+    <div class="why-card reveal d2">
+      <div class="why-icon">&#x1F527;</div>
+      <h3>ERP 풀사이클 — 더존 iCube / 아마란스</h3>
+      <p>회계계정 설계부터 ERP 도입까지 18개월 실무 전담. 더존 iCube는 마이그레이션 과정에서 다뤄본 경험이 있으며, 아마란스ID도 동일 계열로 빠른 적응 가능. 현재 더존 실무 교육 병행 중.</p>
+    </div>
+    <div class="why-card reveal d3">
+      <div class="why-icon">&#x26BE;</div>
+      <h3>구단 운영을 체감으로 이해</h3>
+      <p>2025 시즌 30+ 경기 직관, 전국 원정 투어. 고척돔 홈경기의 매출 흐름과 시설 운영 구조(서울시설공단 소관)를 현장에서 파악. 팬이 아닌, 운영의 눈으로 구단을 봅니다.</p>
+    </div>
+    <div class="why-card reveal d4">
+      <div class="why-icon">&#x1F4CD;</div>
+      <h3>즉시 투입 · 탄력근무 대응</h3>
+      <p>광명 거주 — 고척돔 30분 통근. 야간·주말 탄력근무 적극 수용. 1종 대형 면허 + 12년 무사고 운전, 지방 출장 즉시 대응. 전산회계 2급 취득 예정(4/4).</p>
+    </div>
+  </div>
+</section>
+
+<!-- Self Development -->
+<section class="section section--alt">
+  <div class="container">
+    <div class="section-label reveal">06 — In Progress</div>
+    <div class="section-title reveal">현재 준비 중</div>
+    <div class="dev-grid">
+      <div class="dev-card reveal d1">
+        <div class="dev-badge">&#x1F4DD;</div>
+        <div>
+          <h3>전산회계 2급</h3>
+          <p>한국세무사회 주관 전산회계 자격시험.<br>재무회계·원가회계 이론 + 전산 실무.</p>
+          <div class="dev-status">시험일: 2026.04.04</div>
+        </div>
+      </div>
+      <div class="dev-card reveal d2">
+        <div class="dev-badge">&#x1F4BB;</div>
+        <div>
+          <h3>더존 iCube 실무 교육</h3>
+          <p>더존비즈온 iCube ERP 회계 모듈.<br>전표 입력·결산·재무제표 출력 실습.</p>
+          <div class="dev-status">학습 진행 중</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section">
+  <div class="section-label reveal">Contact</div>
+  <h2 class="reveal">함께 <span class="accent">일해요</span></h2>
+  <div class="contact-info reveal">
+    <a href="mailto:ssujklim@gmail.com">ssujklim@gmail.com</a><br>
+    010-4052-0834
+  </div>
+</section>
+
+<footer>&copy; 2026 임종권 &middot; 서울히어로즈(주) 지원팀 경영지원(회계) 지원을 위해 제작</footer>
+
+<script>
+/* ── Loader ── */
+(function(){
+  const bar=document.getElementById('loader-bar');
+  const pct=document.getElementById('loader-pct');
+  const loader=document.getElementById('loader');
+  // Preload hero image
+  const img=new Image();
+  let progress=0;
+  const tick=setInterval(()=>{
+    progress=Math.min(progress+Math.random()*15+5,95);
+    bar.style.width=progress+'%';
+    pct.textContent=Math.floor(progress);
+  },80);
+  img.onload=img.onerror=()=>{
+    clearInterval(tick);
+    bar.style.width='100%';pct.textContent='100';
+    setTimeout(()=>{
+      loader.classList.add('done');
+      document.body.classList.add('loaded');
+      splitHeroText();
+    },400);
+  };
+  img.src='assets/heroes/scoreboard.png';
+})();
+
+/* ── Hero Text Split ── */
+function splitHeroText(){
+  const h1=document.getElementById('hero-h1');
+  if(!h1)return;
+  const parts=h1.innerHTML.split(/(<span[^>]*>.<\/span>)/);
+  let html='',ci=0;
+  parts.forEach(part=>{
+    if(part.startsWith('<span')){
+      const ch=part.match(/>(.)<\//)[1];
+      html+=`<span class="accent char" style="--i:${ci}">${ch}</span>`;ci++;
+    }else{
+      for(const c of part){html+=`<span class="char" style="--i:${ci}">${c}</span>`;ci++;}
+    }
+  });
+  h1.innerHTML=html;h1.classList.add('split-ready');
+}
+
+/* ── Scroll Progress ── */
+const sp=document.getElementById('scroll-progress');
+window.addEventListener('scroll',()=>{
+  const h=document.documentElement.scrollHeight-window.innerHeight;
+  sp.style.transform=`scaleX(${h>0?window.scrollY/h:0})`;
+},{passive:true});
+
+/* ── Nav scroll effect ── */
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>{
+  nav.classList.toggle('scrolled',window.scrollY>80);
+},{passive:true});
+
+/* ── Nav highlight ── */
+const navLinks=document.querySelectorAll('.nav-links a[href^="#"]');
+const sections=[...navLinks].map(a=>{const s=document.querySelector(a.getAttribute('href'));return s?{id:a.getAttribute('href').slice(1),el:s}:null}).filter(Boolean);
+function updateNav(){
+  let current='';
+  sections.forEach(({id,el})=>{if(el.getBoundingClientRect().top<=200)current=id;});
+  const atBottom=(window.innerHeight+window.scrollY)>=document.body.scrollHeight-50;
+  if(atBottom&&sections.length)current=sections[sections.length-1].id;
+  navLinks.forEach(a=>{a.classList.toggle('active',a.getAttribute('href')==='#'+current);});
+}
+window.addEventListener('scroll',updateNav,{passive:true});
+
+/* ── Mobile toggle ── */
+const toggle=document.getElementById('nav-toggle');
+const links=document.getElementById('nav-links');
+toggle.addEventListener('click',()=>{toggle.classList.toggle('open');links.classList.toggle('open');});
+
+/* ── Reveal ── */
+const reveals=document.querySelectorAll('.reveal');
+const revealObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')});
+},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+reveals.forEach(el=>revealObs.observe(el));
+
+/* ── Counter ── */
+const counters=document.querySelectorAll('.stat-number[data-target]');
+const counterObs=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(!entry.isIntersecting)return;
+    const el=entry.target;if(el.dataset.animated)return;el.dataset.animated='true';
+    const target=parseFloat(el.dataset.target);
+    const suffix=el.dataset.suffix||'';
+    const hasDecimal=el.dataset.decimal;
+    const duration=2000;const startTime=performance.now();
+    function easeOut(t){return 1-Math.pow(1-t,3)}
+    function update(now){
+      const progress=Math.min((now-startTime)/duration,1);
+      const value=target*easeOut(progress);
+      el.textContent=(hasDecimal?value.toFixed(1):Math.floor(value))+suffix;
+      if(progress<1)requestAnimationFrame(update);
+    }
+    requestAnimationFrame(update);
+  });
+},{threshold:.5});
+counters.forEach(el=>counterObs.observe(el));
+
+/* ── Marquee ── */
+class MarqueeEngine{
+  constructor(el){
+    this.row=el;this.track=el.querySelector('[data-marquee-track]');
+    this.items=[...el.querySelectorAll('.marquee-item')];
+    this.dir=el.dataset.direction==='right'?1:-1;
+    this.baseSpeed=parseFloat(el.dataset.speed)||.8;
+    this.x=0;this.speed={current:this.baseSpeed,target:this.baseSpeed};
+    this.skew={current:0,target:0};this.scrollV=0;this.hovered=false;this.halfWidth=0;
+    this.LERP_SPEED=.035;this.LERP_SKEW=.025;this.DECAY=.96;
+    this._bind();this._measure();
+    if(this.dir===1)this.x=-this.halfWidth;
+    this._tick();
+  }
+  _bind(){
+    window.addEventListener('wheel',e=>{this.scrollV=e.deltaY},{passive:true});
+    this.row.addEventListener('pointerenter',()=>{this.hovered=true});
+    this.row.addEventListener('pointerleave',()=>{this.hovered=false});
+    new ResizeObserver(()=>this._measure()).observe(this.row);
+  }
+  _measure(){
+    const half=Math.floor(this.items.length/3);this.halfWidth=0;
+    for(let i=0;i<half;i++)this.halfWidth+=this.items[i].offsetWidth;
+    const gap=parseFloat(getComputedStyle(this.track).gap)||0;this.halfWidth+=gap*half;
+  }
+  _tick(){
+    const vf=Math.min(Math.abs(this.scrollV)*.002,2.5);
+    this.speed.target=this.hovered?0:this.baseSpeed+vf;
+    this.speed.current+=(this.speed.target-this.speed.current)*this.LERP_SPEED;
+    this.skew.target=Math.sign(this.scrollV)*Math.min(Math.abs(this.scrollV)*.015,5);
+    this.skew.current+=(this.skew.target-this.skew.current)*this.LERP_SKEW;
+    this.x+=this.speed.current*this.dir;
+    if(this.dir===-1&&Math.abs(this.x)>=this.halfWidth)this.x+=this.halfWidth;
+    if(this.dir===1&&this.x>=this.halfWidth)this.x-=this.halfWidth;
+    this.track.style.transform=`translate3d(${this.x}px,0,0) skewX(${this.skew.current}deg)`;
+    this.scrollV*=this.DECAY;
+    requestAnimationFrame(()=>this._tick());
+  }
+}
+if(!window.matchMedia('(prefers-reduced-motion:reduce)').matches){
+  document.querySelectorAll('[data-marquee]').forEach(el=>new MarqueeEngine(el));
+}
+</script>
+</body>
+</html>

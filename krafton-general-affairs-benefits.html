@@ -1,0 +1,634 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="description" content="구매·정산·자산·임대차 운영 경험을 담은 임종권의 KRAFTON 총무·복리후생 운영 포트폴리오">
+<meta property="og:title" content="임종권 | KRAFTON 총무·복리후생 운영 포트폴리오">
+<meta property="og:description" content="구매부터 정산·자산·임대차까지 운영을 끝까지 책임지는 총무 실무자">
+<meta property="og:image" content="./assets/projects/photo_metaverse_award_present.jpg">
+<title>임종권 | KRAFTON 총무·복리후생 운영 포트폴리오</title>
+<style>
+*{box-sizing:border-box}
+:root{
+  --red:#f0443e;
+  --red-deep:#c52b27;
+  --black:#080808;
+  --surface:#111;
+  --surface-2:#171717;
+  --paper:#f3f0ea;
+  --white:#fff;
+  --text:#e9e6e0;
+  --muted:#9b9994;
+  --line:rgba(255,255,255,.14);
+  --line-light:rgba(8,8,8,.16);
+  --ease:cubic-bezier(.22,1,.36,1);
+  --pad:clamp(20px,5vw,76px);
+}
+html{scroll-behavior:smooth;background:var(--black)}
+body{
+  margin:0;
+  color:var(--text);
+  background:var(--black);
+  font-family:"Pretendard Variable",Pretendard,"Noto Sans KR","Malgun Gothic",Arial,sans-serif;
+  line-height:1.65;
+  word-break:keep-all;
+  overflow-wrap:normal;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:30;
+  pointer-events:none;
+  opacity:.032;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+button,a{font:inherit}
+::selection{background:var(--red);color:#fff}
+:focus-visible{outline:2px solid var(--red);outline-offset:5px}
+.progress{position:fixed;inset:0 auto auto 0;width:0;height:3px;z-index:60;background:var(--red)}
+.nav{
+  position:fixed;
+  inset:0 0 auto;
+  z-index:50;
+  height:66px;
+  padding:0 var(--pad);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  background:rgba(8,8,8,.78);
+  border-bottom:1px solid transparent;
+  backdrop-filter:blur(16px);
+  transition:border-color .25s ease,background .25s ease;
+}
+.nav.is-scrolled{border-color:var(--line);background:rgba(8,8,8,.94)}
+.brand{font-size:13px;font-weight:900;letter-spacing:.08em}
+.brand span{color:var(--red)}
+.nav-links{display:flex;align-items:center;gap:24px}
+.nav-links a{font-size:11px;font-weight:800;color:var(--muted);transition:color .2s ease}
+.nav-links a:hover{color:var(--white)}
+.mail-pill{padding:8px 12px;border:1px solid rgba(240,68,62,.55);color:#fff!important}
+.hero{
+  position:relative;
+  min-height:100svh;
+  padding:112px var(--pad) 48px;
+  display:grid;
+  grid-template-columns:minmax(0,1.05fr) minmax(390px,.95fr);
+  align-items:center;
+  gap:clamp(28px,5vw,84px);
+  overflow:hidden;
+  isolation:isolate;
+}
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-2;
+  background:
+    radial-gradient(circle at 8% 34%,rgba(240,68,62,.16),transparent 28%),
+    linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px),
+    linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px);
+  background-size:auto,72px 72px,72px 72px;
+  mask-image:linear-gradient(180deg,#000 30%,transparent 92%);
+}
+.hero::after{
+  content:"GENERAL OPERATIONS";
+  position:absolute;
+  right:-.06em;
+  bottom:-.22em;
+  z-index:-1;
+  color:rgba(255,255,255,.024);
+  font-size:clamp(110px,18vw,300px);
+  line-height:.8;
+  font-weight:950;
+  letter-spacing:-.08em;
+  white-space:nowrap;
+}
+.hero-copy{min-width:0}
+.eyebrow{display:flex;align-items:center;gap:10px;color:var(--red);font-size:11px;font-weight:900;letter-spacing:.16em;text-transform:uppercase}
+.eyebrow::before{content:"";width:28px;height:2px;background:var(--red)}
+.hero h1{
+  max-width:840px;
+  margin:24px 0 0;
+  color:#fff;
+  font-size:clamp(44px,6.2vw,96px);
+  line-height:1.02;
+  letter-spacing:-.075em;
+  font-weight:950;
+}
+.hero h1 span{display:block;color:var(--red)}
+.hero-lead{
+  max-width:680px;
+  margin:25px 0 0;
+  color:#c4c0ba;
+  font-size:clamp(15px,1.25vw,18px);
+  line-height:1.9;
+}
+.hero-lead strong{color:#fff}
+.hero-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
+.btn{
+  min-height:44px;
+  padding:0 17px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  border:1px solid var(--line);
+  font-size:12px;
+  font-weight:850;
+  transition:transform .25s var(--ease),background .25s ease,border-color .25s ease;
+}
+.btn:hover{transform:translateY(-2px);border-color:rgba(255,255,255,.42)}
+.btn.primary{background:var(--red);border-color:var(--red);color:#fff}
+.btn.primary:hover{background:#ff514a}
+.hero-visual{position:relative;min-width:0;padding:0 0 52px 34px}
+.hero-stage{
+  position:relative;
+  min-height:clamp(430px,64vh,690px);
+  overflow:hidden;
+  border:1px solid var(--line);
+  background:var(--surface);
+  clip-path:polygon(8% 0,100% 0,100% 92%,92% 100%,0 100%,0 8%);
+}
+.hero-stage::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 38%,rgba(0,0,0,.78))}
+.hero-stage img{width:100%;height:100%;min-height:inherit;object-fit:cover;filter:grayscale(.26) contrast(1.08) brightness(.74);transition:transform .9s var(--ease),filter .6s ease}
+.hero-stage:hover img{transform:scale(1.025);filter:grayscale(.05) contrast(1.05) brightness(.78)}
+.stage-caption{position:absolute;z-index:2;left:26px;right:26px;bottom:24px;display:flex;justify-content:space-between;gap:20px;align-items:flex-end}
+.stage-caption strong{max-width:320px;color:#fff;font-size:20px;line-height:1.25}
+.stage-caption span{color:#bbb7b0;font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+.profile-card{
+  position:absolute;
+  left:0;
+  bottom:0;
+  z-index:3;
+  width:min(330px,70%);
+  display:grid;
+  grid-template-columns:104px 1fr;
+  border:1px solid rgba(255,255,255,.34);
+  background:rgba(17,17,17,.9);
+  box-shadow:0 20px 60px rgba(0,0,0,.45);
+  backdrop-filter:blur(12px);
+}
+.profile-card img{width:104px;height:124px;object-fit:cover}
+.profile-copy{padding:16px 17px;display:flex;flex-direction:column;justify-content:center}
+.profile-copy small{color:var(--red);font-size:10px;font-weight:900;letter-spacing:.12em}
+.profile-copy strong{margin-top:4px;color:#fff;font-size:22px;line-height:1}
+.profile-copy span{margin-top:8px;color:#bdb8b1;font-size:11px;line-height:1.55}
+.hero-index{position:absolute;right:-24px;top:18%;writing-mode:vertical-rl;color:#74716c;font-size:9px;font-weight:850;letter-spacing:.18em}
+.stats-strip{
+  position:relative;
+  z-index:2;
+  padding:0 var(--pad);
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  background:#0d0d0d;
+}
+.stats-inner{max-width:1500px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr)}
+.stat{min-height:160px;padding:26px clamp(16px,2.7vw,42px);border-right:1px solid var(--line);display:flex;flex-direction:column;justify-content:center}
+.stat:first-child{border-left:1px solid var(--line)}
+.stat strong{color:var(--red);font-size:clamp(36px,4vw,64px);line-height:1;font-weight:950;letter-spacing:-.065em}
+.stat p{margin:12px 0 0;color:#bab6af;font-size:12px;line-height:1.65}
+.section{position:relative;padding:clamp(78px,9vw,144px) var(--pad)}
+.section.dark-2{background:#0d0d0d;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.section.paper{background:var(--paper);color:var(--black)}
+.section-inner{max-width:1500px;margin:0 auto}
+.section-head{display:grid;grid-template-columns:minmax(0,.8fr) minmax(320px,.45fr);gap:32px;align-items:end;margin-bottom:42px}
+.section-no{color:var(--red);font-size:10px;font-weight:900;letter-spacing:.16em}
+.section-head h2{margin:8px 0 0;color:#fff;font-size:clamp(38px,5vw,72px);line-height:1.04;letter-spacing:-.065em}
+.paper .section-head h2{color:var(--black)}
+.section-head p{margin:0;color:var(--muted);font-size:14px;line-height:1.85}
+.paper .section-head p{color:#595650}
+.fit-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+.fit-card{
+  position:relative;
+  min-height:270px;
+  padding:22px;
+  overflow:hidden;
+  border:1px solid var(--line);
+  background:linear-gradient(180deg,#151515,#0e0e0e);
+  transition:transform .35s var(--ease),border-color .3s ease,background .3s ease;
+}
+.fit-card:hover{transform:translateY(-7px);border-color:rgba(240,68,62,.65);background:#171313}
+.fit-card::after{content:attr(data-no);position:absolute;right:-6px;bottom:-38px;color:rgba(255,255,255,.035);font-size:118px;font-weight:950;line-height:1}
+.fit-card small{color:var(--red);font-size:9px;font-weight:900;letter-spacing:.12em}
+.fit-card h3{margin:70px 0 0;color:#fff;font-size:22px;line-height:1.12}
+.fit-card p{position:relative;z-index:1;margin:15px 0 0;color:#aaa69f;font-size:12px;line-height:1.75}
+.fit-card b{color:#fff}
+.flow-wrap{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(300px,.7fr);gap:18px}
+.flow-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.flow-step{position:relative;min-height:250px;padding:18px;border:1px solid var(--line);background:var(--surface)}
+.flow-step::after{content:"";position:absolute;top:30px;right:-9px;width:17px;height:1px;background:var(--red);z-index:2}
+.flow-step:last-child::after{display:none}
+.flow-step small{color:var(--red);font-size:10px;font-weight:900}
+.flow-step h3{margin:72px 0 0;color:#fff;font-size:19px}
+.flow-step p{margin:12px 0 0;color:var(--muted);font-size:11.5px;line-height:1.7}
+.flow-note{padding:30px;border:1px solid rgba(240,68,62,.45);background:linear-gradient(155deg,rgba(240,68,62,.18),rgba(255,255,255,.035) 55%)}
+.flow-note .quote{color:#fff;font-size:clamp(25px,2.5vw,42px);line-height:1.2;letter-spacing:-.045em;font-weight:900}
+.flow-note p{margin:24px 0 0;color:#c1bdb6;font-size:13px;line-height:1.9}
+.flow-note strong{color:var(--red)}
+.gallery-grid{
+  display:grid;
+  grid-template-columns:repeat(12,1fr);
+  grid-auto-rows:185px;
+  gap:12px;
+}
+.evidence{
+  position:relative;
+  overflow:hidden;
+  border:1px solid var(--line-light);
+  background:#ddd9d2;
+}
+.evidence.erp{grid-column:span 7;grid-row:span 3}
+.evidence.stage{grid-column:span 5;grid-row:span 2}
+.evidence.equipment{grid-column:span 5;grid-row:span 3}
+.evidence.board{grid-column:span 4;grid-row:span 2}
+.evidence.graph{grid-column:span 3;grid-row:span 2}
+.evidence.award{grid-column:span 7;grid-row:span 2}
+.evidence.relay{grid-column:span 5;grid-row:span 2}
+.evidence img{width:100%;height:100%;object-fit:cover;transition:transform .65s var(--ease),filter .4s ease}
+.evidence.erp img{object-fit:contain;background:#e8e5df}
+.evidence.board img,.evidence.graph img,.evidence.relay img{object-position:center}
+.evidence:hover img{transform:scale(1.035);filter:saturate(.8)}
+.evidence::after{content:"";position:absolute;inset:30% 0 0;background:linear-gradient(180deg,transparent,rgba(0,0,0,.9))}
+.evidence-copy{position:absolute;z-index:2;left:20px;right:20px;bottom:18px;color:#fff}
+.evidence-copy small{color:#ff7069;font-size:9px;font-weight:900;letter-spacing:.12em}
+.evidence-copy h3{margin:6px 0 0;font-size:clamp(18px,2vw,30px);line-height:1.12}
+.evidence-copy p{max-width:650px;margin:8px 0 0;color:#d1ccc4;font-size:11px;line-height:1.65}
+.career-layout{display:grid;grid-template-columns:minmax(300px,.72fr) minmax(0,1.28fr);gap:42px}
+.career-statement{position:sticky;top:104px;height:max-content;padding:28px;border-left:3px solid var(--red);background:#121212}
+.career-statement h3{margin:0;color:#fff;font-size:clamp(28px,3vw,48px);line-height:1.15;letter-spacing:-.045em}
+.career-statement p{margin:20px 0 0;color:#aaa69f;font-size:13px;line-height:1.85}
+.timeline{position:relative;padding-left:28px}
+.timeline::before{content:"";position:absolute;left:5px;top:8px;bottom:8px;width:1px;background:linear-gradient(var(--red),var(--line))}
+.timeline-item{position:relative;padding:0 0 42px 24px}
+.timeline-item:last-child{padding-bottom:0}
+.timeline-item::before{content:"";position:absolute;left:-27px;top:6px;width:9px;height:9px;background:var(--red);box-shadow:0 0 0 6px rgba(240,68,62,.1)}
+.timeline-item time{color:var(--red);font-size:10px;font-weight:900;letter-spacing:.1em}
+.timeline-item h3{margin:8px 0 0;color:#fff;font-size:24px;line-height:1.2}
+.timeline-item .role{margin-top:5px;color:#b8b4ad;font-size:12px;font-weight:750}
+.timeline-item p{margin:13px 0 0;color:var(--muted);font-size:12.5px;line-height:1.8}
+.timeline-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.timeline-tags span{padding:5px 8px;border:1px solid var(--line);color:#c5c0b9;font-size:9px;font-weight:800}
+.signal{
+  display:grid;
+  grid-template-columns:minmax(0,.85fr) minmax(380px,1.15fr);
+  gap:18px;
+  padding:clamp(30px,5vw,70px);
+  border:1px solid var(--line);
+  background:
+    linear-gradient(120deg,rgba(240,68,62,.22),transparent 36%),
+    #101010;
+}
+.signal h2{margin:9px 0 0;color:#fff;font-size:clamp(35px,5vw,66px);line-height:1.04;letter-spacing:-.06em}
+.signal p{margin:22px 0 0;color:#b9b5ae;font-size:13px;line-height:1.9}
+.signal-track{display:grid;grid-template-columns:repeat(4,1fr);align-content:center}
+.signal-step{position:relative;padding:22px 15px;border-top:1px solid rgba(255,255,255,.24)}
+.signal-step::before{content:"";position:absolute;left:0;top:-4px;width:7px;height:7px;background:var(--red)}
+.signal-step time{color:var(--red);font-size:9px;font-weight:900}
+.signal-step strong{display:block;margin-top:9px;color:#fff;font-size:13px;line-height:1.45}
+.plan-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.plan-card{min-height:330px;padding:28px;border:1px solid var(--line-light);background:#fff}
+.plan-card strong{display:block;color:var(--red);font-size:clamp(48px,5vw,76px);line-height:1;font-weight:950;letter-spacing:-.08em}
+.plan-card h3{margin:22px 0 0;font-size:22px;line-height:1.2}
+.plan-card ul{margin:19px 0 0;padding:0;list-style:none;display:grid;gap:12px}
+.plan-card li{position:relative;padding-left:14px;color:#5d5953;font-size:12.5px;line-height:1.7}
+.plan-card li::before{content:"";position:absolute;left:0;top:9px;width:5px;height:5px;background:var(--red)}
+.contact{position:relative;padding:clamp(86px,12vw,180px) var(--pad);overflow:hidden;background:var(--red);color:#fff}
+.contact::after{content:"CONTACT";position:absolute;right:-.04em;bottom:-.25em;color:rgba(0,0,0,.12);font-size:clamp(130px,25vw,390px);line-height:1;font-weight:950;letter-spacing:-.09em}
+.contact-inner{position:relative;z-index:1;max-width:1500px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:28px;align-items:end}
+.contact small{font-size:10px;font-weight:900;letter-spacing:.16em}
+.contact h2{max-width:880px;margin:13px 0 0;font-size:clamp(42px,7vw,105px);line-height:.98;letter-spacing:-.075em}
+.contact p{margin:22px 0 0;font-size:13px;font-weight:750}
+.contact .btn{position:relative;z-index:2;min-width:230px;background:#fff;border-color:#fff;color:#111}
+.footer{padding:22px var(--pad);display:flex;justify-content:space-between;gap:20px;border-top:1px solid var(--line);color:#77736e;font-size:10px}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .65s var(--ease),transform .65s var(--ease)}
+.reveal.visible{opacity:1;transform:none}
+@media(max-width:1180px){
+  .hero{grid-template-columns:minmax(0,1fr) minmax(340px,.72fr)}
+  .fit-grid{grid-template-columns:repeat(3,1fr)}
+  .fit-card:nth-child(4),.fit-card:nth-child(5){min-height:230px}
+  .flow-wrap,.career-layout{grid-template-columns:1fr}
+  .career-statement{position:static}
+  .flow-grid{grid-template-columns:repeat(5,1fr)}
+}
+@media(max-width:860px){
+  .nav-links a:not(.mail-pill){display:none}
+  .hero{min-height:auto;grid-template-columns:1fr;padding-top:112px}
+  .hero-visual{padding-left:22px}
+  .hero-index{display:none}
+  .stats-inner{grid-template-columns:1fr 1fr}
+  .stat:nth-child(3){border-left:1px solid var(--line)}
+  .section-head,.signal,.contact-inner{grid-template-columns:1fr}
+  .fit-grid,.plan-grid{grid-template-columns:1fr 1fr}
+  .flow-grid{grid-template-columns:repeat(3,1fr)}
+  .flow-step::after{display:none}
+  .gallery-grid{grid-template-columns:1fr 1fr;grid-auto-rows:240px}
+  .evidence.erp,.evidence.stage,.evidence.equipment,.evidence.board,.evidence.graph,.evidence.award,.evidence.relay{grid-column:span 1;grid-row:span 1}
+  .evidence.erp,.evidence.award{grid-column:1/-1}
+  .signal-track{grid-template-columns:1fr 1fr}
+  .contact .btn{width:max-content}
+}
+@media(max-width:560px){
+  .nav{height:58px}
+  .brand{font-size:11px}
+  .mail-pill{padding:7px 9px;font-size:10px!important}
+  .hero{padding:88px 20px 44px}
+  .hero h1{font-size:clamp(34px,10vw,39px);line-height:1;letter-spacing:-.06em;overflow-wrap:anywhere}
+  .hero-lead{max-width:none;font-size:13px;line-height:1.75}
+  .hero-visual{padding:0 0 62px}
+  .hero-stage{min-height:390px}
+  .stage-caption{left:18px;right:18px;bottom:22px}
+  .stage-caption strong{font-size:17px}
+  .stage-caption span{display:none}
+  .profile-card{width:88%;grid-template-columns:88px 1fr}
+  .profile-card img{width:88px;height:108px}
+  .profile-copy{padding:12px}
+  .profile-copy strong{font-size:18px}
+  .stats-inner,.fit-grid,.plan-grid,.flow-grid,.gallery-grid,.signal-track{grid-template-columns:1fr}
+  .stat,.stat:nth-child(3){min-height:130px;border-left:1px solid var(--line)}
+  .fit-card,.fit-card:nth-child(4),.fit-card:nth-child(5){min-height:230px}
+  .gallery-grid{grid-auto-rows:290px}
+  .evidence.erp,.evidence.award{grid-column:auto}
+  .evidence-copy{left:16px;right:16px;bottom:15px}
+  .evidence-copy p{font-size:10.5px}
+  .section-head{margin-bottom:28px}
+  .signal{padding:26px 20px}
+  .timeline{padding-left:18px}
+  .timeline-item{padding-left:20px}
+  .timeline-item::before{left:-17px}
+  .contact .btn{width:100%;min-width:0}
+  .footer{display:block}
+  .footer span{display:block;margin-top:5px}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+<div class="progress" id="progress" aria-hidden="true"></div>
+<nav class="nav" id="nav" aria-label="주요 섹션">
+  <a class="brand" href="#top">LIM JONGKWON <span>× KRAFTON</span></a>
+  <div class="nav-links">
+    <a href="#scope">직무 적합성</a>
+    <a href="#evidence">운영 사례</a>
+    <a href="#career">경력</a>
+    <a href="#plan">30일 인수</a>
+    <a class="mail-pill" href="mailto:ssujklim@gmail.com">이메일</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="hero-copy">
+    <div class="eyebrow">KRAFTON · GENERAL OPERATIONS DEPT</div>
+    <h1>구매부터 정산·자산·임대차까지<span>운영을 끝까지 책임지는</span>총무 실무자</h1>
+    <p class="hero-lead">경영지원부 인프라지원팀에서 총무 실무를 3년 이상 수행했습니다.<br>요청 접수에 그치지 않고 <strong>구매·계약·정산·<wbr>자산·운영 기록</strong>을 하나의 흐름으로 연결해 마무리합니다.</p>
+    <div class="hero-actions">
+      <a class="btn primary" href="#evidence">운영 사례 보기</a>
+      <a class="btn" href="#plan">30일 인수 방향</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-stage">
+      <img src="./assets/projects/photo_metaverse_award_present.jpg" alt="메타버스 콘텐츠 캠프 무대에서 발표하는 임종권" fetchpriority="high">
+      <div class="stage-caption">
+        <strong>기준을 정리하고, 관계자에게 설명하고, 결과까지 책임집니다.</strong>
+        <span>communication · execution</span>
+      </div>
+    </div>
+    <div class="profile-card">
+      <img src="./assets/profile.png" alt="임종권 프로필 사진" fetchpriority="high">
+      <div class="profile-copy">
+        <small>GENERAL AFFAIRS</small>
+        <strong>임종권</strong>
+        <span>총무 · 구매 · 정산<br>자산 · 임대차 운영</span>
+      </div>
+    </div>
+    <div class="hero-index">OPERATIONS / COST / WORKPLACE</div>
+  </div>
+</header>
+
+<aside class="stats-strip" aria-label="숫자로 보는 운영 규모">
+  <div class="stats-inner">
+    <div class="stat reveal"><strong>3년+</strong><p>경영지원부 인프라지원팀<br>총무·IT지원 실무</p></div>
+    <div class="stat reveal"><strong>약 3.6억</strong><p>인프라지원팀 배정 예산<br>직접 집행·통제</p></div>
+    <div class="stat reveal"><strong>10건+</strong><p>용역·공사·시스템 구매 입찰<br>RFP부터 계약까지 수행</p></div>
+    <div class="stat reveal"><strong>8개+</strong><p>전문 외주업체<br>계약·관리·정산</p></div>
+  </div>
+</aside>
+
+<main>
+  <section class="section" id="scope">
+    <div class="section-inner">
+      <div class="section-head">
+        <div>
+          <div class="section-no">01 · 직무 적합성</div>
+          <h2>구성원의 몰입을<br>운영의 정확성으로 지킵니다.</h2>
+        </div>
+        <p>총무 업무의 각 항목을 따로 처리하지 않습니다. 요청의 목적과 예산을 확인하고, 계약·정산·기록·후속 대응까지 연결해 업무가 끊기지 않게 관리합니다.</p>
+      </div>
+      <div class="fit-grid">
+        <article class="fit-card reveal" data-no="01"><small>PROCUREMENT</small><h3>구매·입찰</h3><p><b>10건+</b> 구매 입찰에서 RFP, 공고, 제안 접수, 평가위원회, 협상, 계약을 수행했습니다.</p></article>
+        <article class="fit-card reveal" data-no="02"><small>SETTLEMENT</small><h3>예산·정산</h3><p>인프라지원팀 배정 예산 <b>약 3.6억 원</b>을 직접 집행·통제하고 운영 비용과 증빙을 관리했습니다.</p></article>
+        <article class="fit-card reveal" data-no="03"><small>WORKPLACE</small><h3>업무 환경</h3><p>자산 수명 주기, 유휴 장비 재배치, 시설·전산장비 경정비와 전문업체 연계를 수행했습니다.</p></article>
+        <article class="fit-card reveal" data-no="04"><small>LEASE</small><h3>법인 임대차</h3><p><b>사무실 법인 임대차계약 관리 및 임대인 커뮤니케이션</b> 경험을 보유했습니다.</p></article>
+        <article class="fit-card reveal" data-no="05"><small>EMPLOYEE CONTACT</small><h3>복리후생 접점</h3><p><b>사내 상조회 운영위원으로 약 1년 참여</b></p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section dark-2" id="flow">
+    <div class="section-inner">
+      <div class="section-head">
+        <div>
+          <div class="section-no">02 · 운영 방식</div>
+          <h2>요청부터 기록까지<br>한 흐름으로 관리합니다.</h2>
+        </div>
+        <p>단건을 빠르게 처리하는 것과 다음 담당자가 다시 확인할 수 있게 남기는 것을 함께 봅니다. 구매·정산·벤더 운영에서 반복해 온 업무 방식입니다.</p>
+      </div>
+      <div class="flow-wrap">
+        <div class="flow-grid">
+          <article class="flow-step reveal"><small>01</small><h3>목적 확인</h3><p>요청 배경, 기한, 예산, 승인선을 먼저 확인합니다.</p></article>
+          <article class="flow-step reveal"><small>02</small><h3>기준 정리</h3><p>사양, 비교 기준, 계약 범위와 책임을 문서화합니다.</p></article>
+          <article class="flow-step reveal"><small>03</small><h3>실행·조율</h3><p>구매·업체·내부 관계자의 일정과 과업을 맞춥니다.</p></article>
+          <article class="flow-step reveal"><small>04</small><h3>정산·검수</h3><p>비용, 결과물, 계약 조건과 처리 근거를 확인합니다.</p></article>
+          <article class="flow-step reveal"><small>05</small><h3>이력 관리</h3><p>현황과 후속 일정을 다음 주기에도 찾을 수 있게 남깁니다.</p></article>
+        </div>
+        <aside class="flow-note reveal">
+          <div class="quote">운영의 완성은<br><strong>처리 이후</strong>에 있습니다.</div>
+          <p>구매가 납품으로, 계약이 서비스로, 비용이 정확한 증빙으로 이어지는지 확인합니다. 문제가 생기면 직접 처리할 일과 전문업체에 연결할 일을 구분해 업무 중단을 줄입니다.</p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="section paper" id="evidence">
+    <div class="section-inner">
+      <div class="section-head">
+        <div>
+          <div class="section-no">03 · 운영 사례와 사진</div>
+          <h2>시스템, 장비, 데이터를<br>운영 언어로 바꿉니다.</h2>
+        </div>
+        <p>사진은 프로젝트의 결과이자 일하는 방식의 흔적입니다. 기술 자체보다 총무 운영에 필요한 데이터 정합성, 자산 이해, 문제 해결, 설명 능력과 연결했습니다.</p>
+      </div>
+      <div class="gallery-grid">
+        <article class="evidence erp reveal">
+          <img src="./assets/projects/photo_erp_highq.png" alt="비식별 처리된 커스텀 ERP 운영 화면" loading="lazy">
+          <div class="evidence-copy"><small>SYSTEM · DATA</small><h3>커스텀 ERP 구축과 데이터 이관</h3><p>회계계정 체계 설계와 Excel→Tibero DB 데이터 이관을 수행하며, 시스템에 들어갈 기준과 데이터 정합성을 구조 단위로 확인했습니다.</p></div>
+        </article>
+        <article class="evidence stage reveal">
+          <img src="./assets/projects/photo_metaverse_award_present.jpg" alt="메타버스 콘텐츠 캠프 발표 장면" loading="lazy">
+          <div class="evidence-copy"><small>COMMUNICATION</small><h3>복잡한 내용을 설명하는 힘</h3><p>관계자가 같은 기준으로 판단할 수 있도록 핵심을 정리하고 전달합니다.</p></div>
+        </article>
+        <article class="evidence equipment reveal">
+          <img src="./assets/projects/photo_desalination_equipment.jpg" alt="사무공간에 설치된 해수담수화 시제품 장비" loading="lazy">
+          <div class="evidence-copy"><small>WORKPLACE · EQUIPMENT</small><h3>현장과 장비를 직접 보는 습관</h3><p>복합 장비를 직접 다룬 경험을 바탕으로 안전, 작업 범위, 전문업체 연계 필요성을 구분합니다.</p></div>
+        </article>
+        <article class="evidence board reveal">
+          <img src="./assets/projects/photo_iot_modlink_board.jpg" alt="IoT 모듈과 릴레이가 결합된 하드웨어 보드" loading="lazy">
+          <div class="evidence-copy"><small>ASSET · SPECIFICATION</small><h3>사양과 구성 요소 확인</h3><p>장비·부품·BOM 경험은 구매 사양, 검수, 자산 기록의 기본기로 이어집니다.</p></div>
+        </article>
+        <article class="evidence graph reveal">
+          <img src="./assets/projects/photo_blynk_graph.jpg" alt="센서 상태를 시각화한 모바일 모니터링 그래프" loading="lazy">
+          <div class="evidence-copy"><small>MONITORING</small><h3>상태를 데이터로 확인</h3><p>감이 아닌 기록과 추이로 이상 징후를 확인합니다.</p></div>
+        </article>
+        <article class="evidence award reveal">
+          <img src="./assets/projects/photo_metaverse_award.jpg" alt="메타버스 콘텐츠 리크루팅 캠프 대상 수상 사진" loading="lazy">
+          <div class="evidence-copy"><small>EXECUTION · COLLABORATION</small><h3>협업 결과를 끝까지 완성</h3><p>2022 메타버스 콘텐츠 리크루팅 캠프 대상. 역할을 나누고 결과물을 완성해 발표까지 연결한 경험입니다.</p></div>
+        </article>
+        <article class="evidence relay reveal">
+          <img src="./assets/projects/photo_relay_board.jpg" alt="제어 장비 릴레이 보드" loading="lazy">
+          <div class="evidence-copy"><small>TROUBLESHOOTING</small><h3>원인을 나누고 처리 범위를 판단</h3><p>문제를 구성 요소별로 확인해 직접 조치와 전문업체 연계를 구분합니다.</p></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="career">
+    <div class="section-inner">
+      <div class="section-head">
+        <div>
+          <div class="section-no">04 · 경력 구조</div>
+          <h2>기술에서 시작해<br>운영의 전체를 맡았습니다.</h2>
+        </div>
+        <p>개발·자재관리에서 익힌 사양과 문제 해결 감각을 경영지원의 구매·정산·자산·시설 운영으로 확장했습니다.</p>
+      </div>
+      <div class="career-layout">
+        <aside class="career-statement reveal">
+          <h3>총무를 중심에 두고,<br>기술과 데이터를 수단으로 씁니다.</h3>
+          <p>시스템을 이해하는 이유는 더 정확하게 기록하기 위해서이고, 장비를 이해하는 이유는 구성원의 불편과 업체의 설명 사이에서 올바른 판단을 하기 위해서입니다.</p>
+        </aside>
+        <div class="timeline">
+          <article class="timeline-item reveal">
+            <time>2023.01 — 2026.02 · 3년+</time>
+            <h3>(사)함께만드는세상 · 사회연대은행</h3>
+            <div class="role">경영지원부 인프라지원팀 · 총무·IT지원 대리</div>
+            <p>인프라지원팀 배정 예산 약 3.6억 원 집행·통제, 구매 입찰 10건+, 외주업체 8개+ 계약·관리·정산, 자산·시설 운영, 사무실 법인 임대차계약 관리 및 임대인 커뮤니케이션, 커스텀 ERP 구축을 수행했습니다.</p>
+            <div class="timeline-tags"><span>구매·입찰</span><span>예산·정산</span><span>자산·시설</span><span>ERP</span></div>
+          </article>
+          <article class="timeline-item reveal">
+            <time>2020.03 — 2021.11</time>
+            <h3>(주)맨지온</h3>
+            <div class="role">개발부 · 임베디드 시스템 개발 및 QA 대리</div>
+            <p>시설 관제 데이터 로그를 분석하고 복합 장비의 문제 원인을 확인했습니다. 사용자 관점의 테스트와 기록 방식은 업무 환경 이슈 대응의 기반이 되었습니다.</p>
+            <div class="timeline-tags"><span>데이터 모니터링</span><span>장비 QA</span><span>문제 해결</span></div>
+          </article>
+          <article class="timeline-item reveal">
+            <time>2016.05 — 2018.02</time>
+            <h3>주식회사 엣지크로스</h3>
+            <div class="role">기술연구소 · H/W 개발 및 자재 관리 주임</div>
+            <p>회로·PCB·시제품 제작과 함께 BOM, 부품 조달, 재고, 생산 일정을 관리하며 구매 사양과 납기의 중요성을 익혔습니다.</p>
+            <div class="timeline-tags"><span>BOM</span><span>자재 관리</span><span>조달·납기</span><span>검수</span></div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section dark-2" id="signal">
+    <div class="section-inner">
+      <div class="signal reveal">
+        <div>
+          <div class="section-no">05 · 직전 KRAFTON 전형 경험</div>
+          <h2>이미 한 번,<br>센터필드에서<br>업무를 이야기했습니다.</h2>
+          <p>이전 IT Engineer 채용 과정에서 서류 전형, HR 전화 인터뷰, 센터필드 East 대면 직무면접까지 참여했습니다. 그 경험을 통해 KRAFTON의 업무 환경과 운영 조직에 대한 관심을 구체화했고, 이번에는 실제 경력의 중심인 총무 운영 직무에 지원합니다.</p>
+        </div>
+        <div class="signal-track" aria-label="직전 KRAFTON 전형 참여 일정">
+          <div class="signal-step"><time>2026.04.21</time><strong>IT Engineer<br>지원</strong></div>
+          <div class="signal-step"><time>2026.05.15</time><strong>서류 전형<br>통과</strong></div>
+          <div class="signal-step"><time>2026.05.18</time><strong>HR 전화<br>인터뷰</strong></div>
+          <div class="signal-step"><time>2026.05.21</time><strong>센터필드 East<br>대면 직무면접</strong></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section paper" id="plan">
+    <div class="section-inner">
+      <div class="section-head">
+        <div>
+          <div class="section-no">06 · 입사 후 30일</div>
+          <h2>바꾸기 전에 파악하고,<br>맡은 뒤에는 누락 없이.</h2>
+        </div>
+        <p>입사 초기에는 기존 기준과 정기 일정을 먼저 존중합니다. 업무별 담당자, 승인선, 계약, 비용, 증빙, 문의 유형을 연결해 운영 지도를 만들겠습니다.</p>
+      </div>
+      <div class="plan-grid">
+        <article class="plan-card reveal"><strong>01—07</strong><h3>운영 지도 파악</h3><ul><li>복리후생·구매·오피스·임대 관련 업무 목록 확인</li><li>업무별 담당자·승인선·시스템·문서 위치 파악</li><li>정산 마감일과 정기 일정 우선 확인</li></ul></article>
+        <article class="plan-card reveal"><strong>08—14</strong><h3>기준과 데이터 연결</h3><ul><li>계약 목록·비용 항목·정산 주기 연결</li><li>반복 문의와 예외 처리 기준 확인</li><li>ERP·현황표·증빙 자료의 항목 구조 파악</li></ul></article>
+        <article class="plan-card reveal"><strong>15—30</strong><h3>독립 수행과 안정화</h3><ul><li>정기 구매·정산·문의 업무 독립 수행</li><li>누락 가능 항목과 일정 충돌 점검</li><li>운영 연속성을 해치지 않는 작은 개선 제안</li></ul></article>
+      </div>
+    </div>
+  </section>
+</main>
+
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <div>
+      <small>KRAFTON · 총무/복리후생 운영 담당 지원</small>
+      <h2>정확하게 인수하고,<br>끝까지 운영하겠습니다.</h2>
+    </div>
+    <a class="btn" href="mailto:ssujklim@gmail.com">ssujklim@gmail.com</a>
+  </div>
+</section>
+
+<footer class="footer">임종권 · KRAFTON 총무/복리후생 운영 포트폴리오 <span>구매 · 정산 · 자산 · 임대차 · 업무 환경</span></footer>
+
+<script>
+const nav = document.getElementById("nav");
+const progress = document.getElementById("progress");
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+function updateScroll() {
+  const max = document.documentElement.scrollHeight - window.innerHeight;
+  const ratio = max > 0 ? window.scrollY / max : 0;
+  progress.style.width = `${Math.min(100, Math.max(0, ratio * 100))}%`;
+  nav.classList.toggle("is-scrolled", window.scrollY > 16);
+}
+window.addEventListener("scroll", updateScroll, { passive: true });
+window.addEventListener("resize", updateScroll);
+updateScroll();
+
+const revealItems = document.querySelectorAll(".reveal");
+if (reduceMotion || !("IntersectionObserver" in window)) {
+  revealItems.forEach((item) => item.classList.add("visible"));
+} else {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: "0px 0px -30px" });
+  revealItems.forEach((item) => observer.observe(item));
+}
+</script>
+</body>
+</html>

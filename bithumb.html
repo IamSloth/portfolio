@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>임종권 × Bithumb — 경영관리 담당자</title>
+<meta name="description" content="임종권 — 빗썸 경영관리 담당자 포트폴리오">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0a0a0a;--surface:#111;--card:#161616;
+  --border:rgba(255,255,255,.06);
+  --acc:#e0e0e0;--accent:#00d4aa;--accent-dim:rgba(0,212,170,.1);
+  --text:#888;--text-dim:#444;--white:#f0f0f0;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;line-height:1.7;word-break:keep-all}
+::selection{background:var(--accent);color:var(--bg)}
+.container{max-width:960px;margin:0 auto;padding:0 28px}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,10,10,.88);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:16px 28px;display:flex;justify-content:space-between;align-items:center}
+.nav-brand{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:17px;color:#fff;text-decoration:none;letter-spacing:-.02em}
+.nav-brand span{color:var(--accent)}
+.nav-back{font-size:12px;color:var(--text-dim);text-decoration:none;transition:color .3s}
+.nav-back:hover{color:var(--accent)}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:120px 28px 60px;position:relative;overflow:hidden}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(0,212,170,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,212,170,.03) 1px,transparent 1px);background-size:60px 60px;pointer-events:none}
+.hero-orb{position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(0,212,170,.08) 0%,transparent 65%);top:50%;left:50%;transform:translate(-50%,-50%);animation:orbDrift 15s ease-in-out infinite;pointer-events:none}
+@keyframes orbDrift{0%,100%{transform:translate(-50%,-50%) scale(1)}33%{transform:translate(-48%,-52%) scale(1.06)}66%{transform:translate(-52%,-48%) scale(.96)}}
+.hero-content{position:relative;z-index:1}
+.hero-label{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--accent);margin-bottom:20px;font-weight:600;opacity:0;animation:fadeIn .8s .2s ease forwards}
+.hero-title{font-size:clamp(36px,7vw,68px);font-weight:900;letter-spacing:-.04em;line-height:1.05;margin-bottom:24px;color:#fff}
+.hero-title .word{display:inline-block;opacity:0;transform:translateY(40px);animation:wordUp .8s var(--ease) forwards}
+.hero-title .word:nth-child(1){animation-delay:.3s}
+.hero-title .word:nth-child(2){animation-delay:.5s;color:var(--accent)}
+.hero-title .line2 .word{animation-delay:.7s}
+.hero-sub-text{color:var(--text);font-size:0.45em;font-weight:400;letter-spacing:.02em}
+@keyframes wordUp{to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{to{opacity:1}}
+.hero-sub{font-size:16px;color:var(--text);max-width:520px;margin:0 auto 36px;line-height:1.9;opacity:0;animation:fadeIn .8s .9s ease forwards}
+.hero-scroll{opacity:0;animation:fadeIn .8s 1.2s ease forwards}
+.hero-scroll span{display:inline-block;font-size:22px;color:var(--accent);animation:bounce 2s ease-in-out infinite}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(10px)}}
+
+/* MARQUEE */
+.marquee-section{padding:3vh 0;overflow:hidden;position:relative;background:#050505}
+.marquee-section::before{content:'';position:absolute;inset:0;z-index:2;background:repeating-linear-gradient(0deg,transparent 0px,transparent 1px,rgba(0,0,0,.05) 1px,rgba(0,0,0,.05) 2px),repeating-linear-gradient(90deg,transparent 0px,transparent 1px,rgba(0,0,0,.05) 1px,rgba(0,0,0,.05) 2px);pointer-events:none}
+.marquee-section::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(0,212,170,.3),transparent);box-shadow:0 0 6px rgba(0,212,170,.15)}
+.marquee-bottom{position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(0,212,170,.3),transparent);box-shadow:0 0 6px rgba(0,212,170,.15)}
+.marquee-row{overflow:hidden;white-space:nowrap;padding:1vh 0;cursor:default;user-select:none;mask-image:linear-gradient(90deg,transparent 0%,#000 4%,#000 96%,transparent 100%);-webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 4%,#000 96%,transparent 100%);position:relative;z-index:1}
+.marquee-track{display:inline-flex;align-items:baseline;gap:4vw;will-change:transform}
+.marquee-item{display:inline-flex;align-items:baseline;gap:1vw;flex-shrink:0}
+.marquee-item+.marquee-item::before{content:'·';font-family:'JetBrains Mono',monospace;font-size:1.2em;color:rgba(0,212,170,.2);margin-right:1vw}
+/* Row 1 */
+.marquee-row[data-direction="left"] .m-word{font-family:'JetBrains Mono','Space Grotesk',monospace;font-size:clamp(2rem,5vw,5rem);font-weight:700;letter-spacing:-.02em;line-height:1.05;text-transform:uppercase;color:var(--accent);text-shadow:0 0 4px rgba(0,212,170,.6),0 0 12px rgba(0,212,170,.25);transition:color .4s var(--ease);white-space:nowrap}
+.marquee-row[data-direction="left"] .m-word:hover{color:#33e8c0;text-shadow:0 0 6px rgba(51,232,192,.8),0 0 16px rgba(0,212,170,.3)}
+.marquee-row[data-direction="left"] .m-sub{font-family:'JetBrains Mono',monospace;font-size:clamp(.9rem,2vw,2rem);font-weight:400;letter-spacing:.05em;color:rgba(0,212,170,.25);white-space:nowrap}
+/* Row 2 */
+.marquee-row[data-direction="right"]{background:var(--accent)}
+.marquee-row[data-direction="right"] .m-word{font-family:'JetBrains Mono','Space Grotesk',monospace;font-size:clamp(1.2rem,3vw,3rem);font-weight:700;letter-spacing:.01em;line-height:1.1;white-space:nowrap;color:#0a0a0a;transition:color .4s var(--ease)}
+.marquee-row[data-direction="right"] .m-word:hover{color:#1a3a30}
+.marquee-row[data-direction="right"] .m-sub{font-family:'JetBrains Mono',monospace;font-size:clamp(.8rem,1.6vw,1.6rem);color:rgba(10,10,10,.45);white-space:nowrap}
+.marquee-row[data-direction="right"] .marquee-item+.marquee-item::before{color:rgba(10,10,10,.3);text-shadow:none}
+
+/* SECTIONS */
+section{padding:100px 0}
+section+section{border-top:1px solid var(--border)}
+.section-label{font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:10px;font-weight:600;opacity:.8}
+.section-title{font-size:clamp(24px,4vw,36px);font-weight:800;margin-bottom:48px;letter-spacing:-.03em;color:#fff}
+
+/* STATS */
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.stat-card{background:var(--card);border:1px solid var(--border);border-radius:6px;padding:36px 20px;text-align:center;transition:transform .5s var(--ease),border-color .5s,box-shadow .5s}
+.stat-card:hover{transform:translateY(-4px);border-color:rgba(0,212,170,.2);box-shadow:0 16px 48px rgba(0,212,170,.08)}
+.stat-number{font-family:'Space Grotesk',sans-serif;font-size:40px;font-weight:700;background:linear-gradient(135deg,#00d4aa,#00a88a);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:8px}
+.stat-label{font-size:13px;color:var(--text);line-height:1.5}
+
+/* PROJECTS */
+.project{background:var(--card);border:1px solid var(--border);border-radius:6px;padding:40px;margin-bottom:28px;transition:border-color .5s var(--ease),box-shadow .5s var(--ease)}
+.project:hover{border-color:rgba(0,212,170,.15);box-shadow:0 12px 40px rgba(0,212,170,.05)}
+.project-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:24px;flex-wrap:wrap;gap:12px}
+.project-num{font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:3px;color:var(--accent);font-weight:700;margin-bottom:6px}
+.project-title{font-size:22px;font-weight:700;letter-spacing:-.02em;color:#fff}
+.project-period{font-family:'Space Grotesk',sans-serif;font-size:12px;color:var(--text);white-space:nowrap}
+.project-body{font-size:15px;color:rgba(240,240,240,.65);line-height:1.85;margin-bottom:24px}
+.highlight{color:#fff;font-weight:700}
+.accent{color:var(--accent)}
+
+/* Timeline */
+.timeline{position:relative;padding-left:28px;border-left:2px solid rgba(0,212,170,.15);margin-bottom:24px}
+.timeline-item{position:relative;padding-bottom:22px}
+.timeline-item:last-child{padding-bottom:0}
+.timeline-item::before{content:'';position:absolute;left:-33px;top:6px;width:12px;height:12px;background:var(--accent);border-radius:50%;border:3px solid var(--bg)}
+.timeline-phase{font-family:'Space Grotesk',sans-serif;font-size:12px;color:var(--accent);font-weight:700;margin-bottom:4px;letter-spacing:.5px}
+.timeline-desc{font-size:14px;color:rgba(240,240,240,.6);line-height:1.7}
+.result-tag{display:inline-block;padding:6px 16px;background:linear-gradient(135deg,#00d4aa,#00a88a);color:#0a0a0a;font-size:12px;font-weight:600;border-radius:4px;margin-top:16px;letter-spacing:.3px}
+
+/* BA Grid */
+.ba-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.ba-card{padding:22px;border-radius:6px;font-size:13px;line-height:1.7}
+.ba-before{background:rgba(239,68,68,.05);border:1px solid rgba(239,68,68,.12);color:rgba(240,240,240,.6)}
+.ba-after{background:var(--accent-dim);border:1px solid rgba(0,212,170,.15);color:rgba(240,240,240,.75)}
+.ba-label{font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;margin-bottom:10px}
+.ba-before .ba-label{color:#ef4444}
+.ba-after .ba-label{color:var(--accent)}
+
+/* WHY */
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.why-card{background:var(--card);border:1px solid var(--border);border-radius:6px;padding:32px;transition:transform .5s var(--ease),border-color .5s}
+.why-card:hover{transform:translateY(-3px);border-color:rgba(0,212,170,.15)}
+.why-icon{font-size:26px;margin-bottom:12px;opacity:.85}
+.why-card h3{font-size:16px;font-weight:600;margin-bottom:10px;color:#fff}
+.why-card p{font-size:14px;color:var(--text);line-height:1.75}
+
+/* CONTACT */
+.contact-section{text-align:center;padding:80px 0 100px}
+.contact-info{font-size:15px;color:var(--text);margin-top:24px;line-height:2.2}
+.contact-info a{color:var(--accent);text-decoration:none;transition:color .3s}
+.contact-info a:hover{color:#fff}
+
+footer{text-align:center;padding:28px;font-size:12px;color:rgba(136,136,136,.4);border-top:1px solid var(--border)}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:.1s}
+.reveal-delay-2{transition-delay:.2s}
+.reveal-delay-3{transition-delay:.3s}
+
+@media(max-width:768px){
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  .ba-grid,.why-grid{grid-template-columns:1fr}
+  .project{padding:28px 22px}
+  .marquee-row[data-direction="left"] .m-word{font-size:1.5rem}
+  .marquee-row[data-direction="right"] .m-word{font-size:1rem}
+}
+</style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav class="nav">
+  <a href="index.html" class="nav-brand">JK<span>.</span></a>
+  <a href="index.html" class="nav-back">&larr; Main Portfolio</a>
+</nav>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-orb"></div>
+  <div class="hero-content">
+    <div class="hero-label">Bithumb &middot; Management Admin</div>
+    <h1 class="hero-title">
+      <span class="word">Building</span>
+      <span class="word">Financial</span><br>
+      <span class="line2"><span class="word">Infrastructure<br><span class="hero-sub-text">경영관리 담당자 지원</span></span></span>
+    </h1>
+    <p class="hero-sub">
+      사회적경제 기관 경영지원 3년 &middot; ERP 구축 &middot; 예산 관리<br>
+      프로세스 개선 &middot; 데이터 기반 의사결정
+    </p>
+    <div class="hero-scroll"><span>&darr;</span></div>
+  </div>
+</div>
+
+<!-- Marquee -->
+<div class="marquee-section">
+  <div class="marquee-bottom"></div>
+  <div class="marquee-row" data-marquee data-direction="left" data-speed="0.4">
+    <div class="marquee-track" data-marquee-track>
+      <span class="marquee-item"><span class="m-word">ERP</span><span class="m-sub">Implementation</span></span>
+      <span class="marquee-item"><span class="m-word">Budget</span><span class="m-sub">3.6B KRW</span></span>
+      <span class="marquee-item"><span class="m-word">SQL</span></span>
+      <span class="marquee-item"><span class="m-word">Management</span><span class="m-sub">Accounting</span></span>
+      <span class="marquee-item"><span class="m-word">Process</span><span class="m-sub">Engineering</span></span>
+      <span class="marquee-item"><span class="m-word">Excel VBA</span></span>
+      <span class="marquee-item" aria-hidden="true"><span class="m-word">ERP</span><span class="m-sub">Implementation</span></span>
+      <span class="marquee-item" aria-hidden="true"><span class="m-word">Budget</span><span class="m-sub">3.6B KRW</span></span>
+      <span class="marquee-item" aria-hidden="true"><span class="m-word">SQL</span></span>
+      <span class="marquee-item" aria-hidden="true"><span class="m-word">Management</span><span class="m-sub">Accounting</span></span>
+      <span class="marquee-item" aria-hidden="true"><span class="m-word">Process</span><span class="m-sub">Engineering</span></span>
+      <span class="marquee-item" aria-hidden="true"><span class="m-word">Excel VBA</span></span>
+    </div>
+  </div>
+  <div class="marquee-row" data-marquee data-direction="right" data-speed="0.25">
+    <div class="marquee-track" data-marquee-track>
+      <span class="marquee-item"><span class="m-word">Financial Ops</span></span>
+      <span class="marquee-item"><span class="m-word">Vendor SLA</span></span>
+      <span class="marquee-item"><span class="m-word">Cost -30%</span></span>
+      <span class="marquee-item"><span class="m-word">Data Migration</span></span>
+      <span class="marquee-item"><span class="m-word">Power Query</span></span>
+      <span class="marquee-item"><span class="m-word">Digital Finance</span></span>
+      <span class="marquee-item" aria-hidden="true"><span class="m-word">Financial Ops</span></span>
+      <span class="marquee-item" aria-hidden="true"><span class="m-word">Vendor SLA</span></span>
+      <span class="marquee-item" aria-hidden="true"><span class="m-word">Cost -30%</span></span>
+      <span class="marquee-item" aria-hidden="true"><span class="m-word">Data Migration</span></span>
+      <span class="marquee-item" aria-hidden="true"><span class="m-word">Power Query</span></span>
+      <span class="marquee-item" aria-hidden="true"><span class="m-word">Digital Finance</span></span>
+    </div>
+  </div>
+</div>
+
+<!-- Stats -->
+<section id="stats">
+  <div class="container">
+    <div class="section-label reveal">Key Metrics</div>
+    <h2 class="section-title reveal">숫자로 보는 실무 역량</h2>
+    <div class="stats-grid">
+      <div class="stat-card reveal reveal-delay-1">
+        <div class="stat-number" data-target="36000" data-suffix="만원">0</div>
+        <div class="stat-label">연간 예산<br>편성·집행</div>
+      </div>
+      <div class="stat-card reveal reveal-delay-2">
+        <div class="stat-number" data-target="88" data-suffix="%" data-decimal="true">0</div>
+        <div class="stat-label">예산 집행률<br>달성</div>
+      </div>
+      <div class="stat-card reveal reveal-delay-3">
+        <div class="stat-number" data-target="30" data-suffix="%">0</div>
+        <div class="stat-label">유지보수 비용<br>절감</div>
+      </div>
+      <div class="stat-card reveal">
+        <div class="stat-number" data-target="8" data-suffix="개사">0</div>
+        <div class="stat-label">외주업체<br>계약·정산</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Projects -->
+<section>
+  <div class="container">
+    <div class="section-label reveal">Project Deep-Dive</div>
+    <h2 class="section-title reveal">프로젝트 상세</h2>
+
+    <!-- Project 1: ERP -->
+    <div class="project reveal">
+      <div class="project-header">
+        <div>
+          <div class="project-num">PROJECT 01</div>
+          <div class="project-title">ERP Implementation — 관리회계 디지털 전환</div>
+        </div>
+        <div class="project-period">2023.07 &rarr; 2024.12</div>
+      </div>
+      <div class="project-body">
+        엑셀 수기 관리 환경에서 커스텀 ERP(High-Q, Tibero/Nexacro 기반)를
+        <span class="highlight">요구사항 정의부터 검수까지 단독으로</span> 도입한 프로젝트입니다.
+        여신·채무·이자 <span class="accent">회계계정 체계를 직접 설계</span>하고,
+        데이터 마이그레이션·사용자 교육까지 수행했습니다.
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-phase">Phase 1 — Requirements & Analysis</div>
+          <div class="timeline-desc">현업 부서 인터뷰 → 기존 프로세스 분석 → 기능 요구사항 문서화. 여신·채무·이자 계정과목 체계 정의 및 표준화.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-phase">Phase 2 — Design & Data Migration</div>
+          <div class="timeline-desc">예산/회계 프로세스 재설계. 엑셀 → Tibero DB 마이그레이션. SQL 기반 데이터 정합성 검증.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-phase">Phase 3 — Testing & Stabilization</div>
+          <div class="timeline-desc">기능 테스트 → 수정 → 재검증 사이클 반복. 시스템 안정화 및 사용자 교육.</div>
+        </div>
+      </div>
+      <div class="ba-grid">
+        <div class="ba-card ba-before">
+          <div class="ba-label">BEFORE</div>
+          엑셀 수기 관리 &rarr; 데이터 정합성 미보장<br>
+          계정과목 비표준 &rarr; 결산 지연<br>
+          수동 데이터 추출 &rarr; 분석 병목
+        </div>
+        <div class="ba-card ba-after">
+          <div class="ba-label">AFTER</div>
+          DB 기반 관리회계 &rarr; 실시간 데이터 접근<br>
+          회계계정 체계 구축 &rarr; 결산 2일 단축<br>
+          SQL 직접 추출 &rarr; 분석 속도 향상
+        </div>
+      </div>
+      <span class="result-tag">PM 단독 수행 · 회계계정 체계 구축 · 결산 리드타임 2일 단축</span>
+    </div>
+
+    <!-- Project 2: Budget & Process -->
+    <div class="project reveal">
+      <div class="project-header">
+        <div>
+          <div class="project-num">PROJECT 02</div>
+          <div class="project-title">Budget Control & Process Optimization</div>
+        </div>
+        <div class="project-period">2023.01 &rarr; 2026.02</div>
+      </div>
+      <div class="project-body">
+        연 <span class="highlight">3.6억 규모의 인프라 예산</span>을 단독으로 편성·집행·분석하며,
+        <span class="highlight">8개 외주업체</span>의 계약·정산·SLA를 총괄했습니다.
+        재계약 협상과 업무 내재화를 통해 <span class="accent">비용 30%를 절감</span>한 프로세스 개선 사례입니다.
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-phase">Budget Planning & Execution</div>
+          <div class="timeline-desc">연간 3.6억 인프라 예산 편성. 월별 집행 현황 분석 및 보고. 집행률 88.5% 달성.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-phase">Vendor Management</div>
+          <div class="timeline-desc">소방·승강기·복합기·네트워크 등 8개사 계약·정산·SLA 총괄. 연간 프로세스 표준화.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-phase">Cost Optimization</div>
+          <div class="timeline-desc">재계약 협상(복합기·전자계약·본인확인) → 연 500만 원 절감. IT 트러블슈팅 내재화 → 외주 비용 30% 감소.</div>
+        </div>
+      </div>
+      <span class="result-tag">집행률 88.5% · 유지보수 비용 -30% · 연 500만 절감</span>
+    </div>
+  </div>
+</section>
+
+<!-- Why Bithumb -->
+<section>
+  <div class="container">
+    <div class="section-label reveal">Why Bithumb</div>
+    <h2 class="section-title reveal">왜 빗썸인가</h2>
+    <div class="why-grid">
+      <div class="why-card reveal reveal-delay-1">
+        <div class="why-icon">📊</div>
+        <h3>Financial Operations</h3>
+        <p>사회연대은행(마이크로크레딧 비영리법인)에서 여신·채무·이자 회계계정을 직접 설계하고, 3.6억 예산을 편성·집행·분석한 경험. 빗썸의 손익관리와 실적 분석 업무에 즉시 기여할 수 있는 실무 기반.</p>
+      </div>
+      <div class="why-card reveal reveal-delay-2">
+        <div class="why-icon">🔧</div>
+        <h3>System Builder</h3>
+        <p>ERP 도입을 단독 전담한 시스템 구축 역량. 체계가 없는 환경에서 프로세스를 정의하고 실행하는 능력. 빠르게 성장하는 조직에서 가장 필요한 사람.</p>
+      </div>
+      <div class="why-card reveal reveal-delay-3">
+        <div class="why-icon">⚡</div>
+        <h3>Process Engineer</h3>
+        <p>외주 SLA 표준화, IT 내재화, 재계약 협상으로 비용 30% 절감. 숫자로 증명하는 프로세스 개선 실적. 전결규정·전사 프로세스 운영 경험.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon">📈</div>
+        <h3>Data-Driven</h3>
+        <p>SQL·Excel VBA·Power Query 기반의 데이터 추출·분석 역량. 의사결정에 필요한 숫자를 가장 빠르고 정확하게 제공하는 것이 목표.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<div class="contact-section">
+  <div class="container">
+    <div class="section-label reveal">Contact</div>
+    <h2 class="section-title reveal" style="margin-bottom:20px">연락처</h2>
+    <div class="contact-info reveal">
+      <a href="mailto:ssujklim@gmail.com">ssujklim@gmail.com</a><br>
+      010-4052-0834
+    </div>
+  </div>
+</div>
+
+<footer>&copy; 2026 임종권 &middot; 빗썸 경영관리 담당자 지원을 위해 제작</footer>
+
+<script>
+// Scroll Reveal
+const reveals=document.querySelectorAll('.reveal');
+const revealObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')});
+},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+reveals.forEach(el=>revealObs.observe(el));
+
+// Counter Animation
+const counters=document.querySelectorAll('.stat-number[data-target]');
+const counterObs=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(!entry.isIntersecting)return;
+    const el=entry.target;
+    if(el.dataset.animated)return;
+    el.dataset.animated='true';
+    const target=parseFloat(el.dataset.target);
+    const suffix=el.dataset.suffix||'';
+    const hasDecimal=el.dataset.decimal;
+    const duration=2000;
+    const startTime=performance.now();
+    function easeOut(t){return 1-Math.pow(1-t,3)}
+    function update(now){
+      const elapsed=now-startTime;
+      const progress=Math.min(elapsed/duration,1);
+      const value=target*easeOut(progress);
+      if(hasDecimal){el.textContent=value.toFixed(1)+suffix}
+      else if(target>=10000){el.textContent=(value/10000).toFixed(1)+'억'+suffix.replace('만원','')}
+      else{el.textContent=Math.floor(value)+suffix}
+      if(progress<1)requestAnimationFrame(update);
+    }
+    requestAnimationFrame(update);
+  });
+},{threshold:.5});
+counters.forEach(el=>counterObs.observe(el));
+
+// Marquee Engine
+class MarqueeEngine{
+  constructor(el){
+    this.row=el;this.track=el.querySelector('[data-marquee-track]');
+    this.items=[...el.querySelectorAll('.marquee-item')];
+    this.dir=el.dataset.direction==='right'?1:-1;
+    this.baseSpeed=parseFloat(el.dataset.speed)||.8;
+    this.x=0;this.speed={current:this.baseSpeed,target:this.baseSpeed};
+    this.skew={current:0,target:0};this.scrollV=0;this.hovered=false;this.halfWidth=0;
+    this.LERP_SPEED=.035;this.LERP_SKEW=.025;this.DECAY=.96;
+    this._bind();this._measure();this._tick();
+  }
+  _bind(){
+    window.addEventListener('wheel',e=>{this.scrollV=e.deltaY},{passive:true});
+    this.row.addEventListener('pointerenter',()=>{this.hovered=true});
+    this.row.addEventListener('pointerleave',()=>{this.hovered=false});
+    new ResizeObserver(()=>this._measure()).observe(this.row);
+  }
+  _measure(){
+    const half=Math.floor(this.items.length/2);this.halfWidth=0;
+    for(let i=0;i<half;i++)this.halfWidth+=this.items[i].offsetWidth;
+    const gap=parseFloat(getComputedStyle(this.track).gap)||0;
+    this.halfWidth+=gap*half;
+  }
+  _tick(){
+    const vf=Math.min(Math.abs(this.scrollV)*.002,2.5);
+    this.speed.target=this.hovered?0:this.baseSpeed+vf;
+    this.speed.current+=(this.speed.target-this.speed.current)*this.LERP_SPEED;
+    this.skew.target=Math.sign(this.scrollV)*Math.min(Math.abs(this.scrollV)*.015,5);
+    this.skew.current+=(this.skew.target-this.skew.current)*this.LERP_SKEW;
+    this.x+=this.speed.current*this.dir;
+    if(this.dir===-1&&Math.abs(this.x)>=this.halfWidth)this.x+=this.halfWidth;
+    if(this.dir===1&&this.x>=this.halfWidth)this.x-=this.halfWidth;
+    this.track.style.transform=`translate3d(${this.x}px,0,0) skewX(${this.skew.current}deg)`;
+    this.scrollV*=this.DECAY;
+    requestAnimationFrame(()=>this._tick());
+  }
+}
+if(!window.matchMedia('(prefers-reduced-motion:reduce)').matches){
+  document.querySelectorAll('[data-marquee]').forEach(el=>new MarqueeEngine(el));
+}
+</script>
+</body>
+</html>

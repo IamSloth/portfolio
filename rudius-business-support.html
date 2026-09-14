@@ -1,0 +1,842 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="description" content="루디우스게임즈 경영지원팀원 지원용 임종권 웹 포트폴리오">
+<title>임종권 | 루디우스게임즈 경영지원 포트폴리오</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable.min.css">
+<style>
+*{box-sizing:border-box}
+:root{
+  --bg:#07090d;
+  --surface:#10141b;
+  --surface2:#151b24;
+  --line:rgba(255,255,255,.12);
+  --line2:rgba(255,255,255,.22);
+  --text:#f4f7fb;
+  --muted:#aab3c2;
+  --soft:#d7dde8;
+  --cyan:#49d7ff;
+  --green:#83f7a8;
+  --amber:#ffd166;
+  --red:#ff6b6b;
+  --ink:#111827;
+}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:"Pretendard Variable",Pretendard,"Noto Sans KR","Malgun Gothic",sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  word-break:keep-all;
+  overflow-wrap:normal;
+  line-height:1.6;
+}
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+  background-size:48px 48px;
+  mask-image:linear-gradient(180deg, rgba(0,0,0,.8), transparent 72%);
+}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.nav{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  z-index:10;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:16px 34px;
+  background:rgba(7,9,13,.78);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid transparent;
+}
+.nav.is-on{border-color:var(--line)}
+.brand{font-size:15px;font-weight:850}
+.brand span{color:var(--cyan)}
+.nav-links{display:flex;gap:22px}
+.nav-links a{
+  font-size:12px;
+  color:var(--muted);
+  font-weight:750;
+}
+.nav-links a:hover{color:#fff}
+.hero{
+  position:relative;
+  min-height:100vh;
+  display:grid;
+  grid-template-columns:minmax(0,1.05fr) minmax(330px,.95fr);
+  gap:34px;
+  align-items:end;
+  padding:118px 8vw 70px;
+  overflow:hidden;
+}
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:0;
+  background:
+    linear-gradient(90deg, rgba(7,9,13,.94), rgba(7,9,13,.72) 42%, rgba(7,9,13,.30)),
+    linear-gradient(180deg, rgba(7,9,13,.10), var(--bg));
+}
+.hero-bg{
+  position:absolute;
+  inset:0;
+  z-index:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+  filter:grayscale(.15) contrast(1.05) brightness(.58);
+}
+.hero > *:not(.hero-bg){position:relative;z-index:1}
+.badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:7px 12px;
+  border:1px solid var(--line2);
+  background:rgba(255,255,255,.06);
+  color:var(--soft);
+  font-size:12px;
+  font-weight:850;
+}
+.badge::before{
+  content:"";
+  width:9px;
+  height:9px;
+  background:var(--green);
+  box-shadow:0 0 18px rgba(131,247,168,.42);
+}
+.hero h1{
+  margin:22px 0 0;
+  font-size:76px;
+  line-height:.98;
+  font-weight:900;
+}
+.hero h1 span{display:block;color:#c6cfdd}
+.hero-copy, .hero aside, .hero-panel, .profile{min-width:0}
+.hero-copy p{
+  margin:24px 0 0;
+  max-width:660px;
+  font-size:18px;
+  line-height:1.82;
+  color:#c8d1df;
+}
+.hero-copy b{color:#fff}
+.hero-actions{
+  margin-top:30px;
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:42px;
+  padding:0 16px;
+  border:1px solid var(--line2);
+  background:rgba(255,255,255,.06);
+  color:#fff;
+  font-size:13px;
+  font-weight:800;
+}
+.btn.primary{background:#fff;color:var(--ink);border-color:#fff}
+.hero-panel{
+  display:grid;
+  grid-template-columns:150px 1fr;
+  min-height:238px;
+  border:1px solid var(--line2);
+  background:linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.04));
+  box-shadow:0 26px 70px rgba(0,0,0,.36);
+}
+.hero-panel img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  filter:contrast(1.05);
+}
+.profile{
+  padding:22px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+.kicker{
+  font-size:11px;
+  color:var(--cyan);
+  font-weight:900;
+}
+.name{
+  margin-top:8px;
+  font-size:34px;
+  line-height:1;
+  font-weight:900;
+}
+.role{
+  margin-top:12px;
+  font-size:14px;
+  line-height:1.75;
+  color:#c9d2df;
+}
+.mini-grid{
+  margin-top:16px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+.mini{
+  padding:16px;
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.05);
+}
+.mini strong{
+  display:block;
+  font-size:24px;
+  line-height:1;
+}
+.mini span{
+  display:block;
+  margin-top:8px;
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.55;
+}
+.ticker{
+  position:relative;
+  z-index:1;
+  overflow:hidden;
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  background:rgba(255,255,255,.035);
+}
+.ticker-track{
+  display:flex;
+  white-space:nowrap;
+  will-change:transform;
+}
+.ticker span{
+  flex:0 0 auto;
+  padding:13px 24px;
+  color:#dbe4f1;
+  font-size:22px;
+  font-weight:900;
+}
+section{
+  position:relative;
+  z-index:1;
+  padding:88px 8vw;
+}
+.section-head{
+  display:flex;
+  justify-content:space-between;
+  gap:18px;
+  align-items:flex-end;
+  margin-bottom:30px;
+}
+.label{
+  color:var(--green);
+  font-size:12px;
+  font-weight:900;
+}
+h2{
+  margin:7px 0 0;
+  font-size:44px;
+  line-height:1.08;
+}
+.section-head p{
+  max-width:500px;
+  margin:0;
+  color:var(--muted);
+  font-size:15px;
+  line-height:1.82;
+}
+.metric-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:14px;
+}
+.metric{
+  min-height:170px;
+  padding:20px;
+  border:1px solid var(--line);
+  background:linear-gradient(180deg, var(--surface), #0d1117);
+}
+.metric .num{
+  font-size:46px;
+  line-height:1;
+  font-weight:900;
+}
+.metric:nth-child(1) .num{color:var(--green)}
+.metric:nth-child(2) .num{color:var(--cyan)}
+.metric:nth-child(3) .num{color:var(--amber)}
+.metric:nth-child(4) .num{color:var(--red)}
+.metric p{
+  margin:13px 0 0;
+  color:#bcc5d3;
+  font-size:13px;
+  line-height:1.74;
+}
+.ops{
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  gap:18px;
+}
+.loop{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:10px;
+}
+.loop-step{
+  min-height:178px;
+  padding:16px;
+  border:1px solid var(--line);
+  background:var(--surface);
+}
+.loop-step small{color:var(--cyan);font-weight:900}
+.loop-step h3{
+  margin:10px 0 0;
+  font-size:22px;
+  line-height:1.05;
+}
+.loop-step p{
+  margin:12px 0 0;
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.7;
+}
+.ops-note{
+  min-height:100%;
+  padding:26px;
+  border:1px solid var(--line);
+  background:
+    linear-gradient(180deg, rgba(73,215,255,.12), rgba(255,255,255,.04)),
+    var(--surface2);
+}
+.ops-note h3{
+  margin:0;
+  font-size:32px;
+  line-height:1.06;
+}
+.ops-note p{
+  margin:18px 0 0;
+  color:#c8d1df;
+  font-size:15px;
+  line-height:1.9;
+}
+.case-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+.case{
+  border:1px solid var(--line);
+  background:var(--surface);
+  overflow:hidden;
+}
+.case img{
+  width:100%;
+  height:230px;
+  object-fit:cover;
+}
+.case-body{padding:20px}
+.case .tag{
+  display:inline-flex;
+  padding:5px 9px;
+  background:rgba(131,247,168,.12);
+  color:var(--green);
+  font-size:11px;
+  font-weight:900;
+}
+.case h3{
+  margin:13px 0 0;
+  font-size:25px;
+  line-height:1.1;
+}
+.case p{
+  margin:12px 0 0;
+  color:#c4cedb;
+  font-size:14px;
+  line-height:1.76;
+}
+.case ul{
+  margin:16px 0 0;
+  padding:0;
+  list-style:none;
+  display:grid;
+  gap:9px;
+}
+.case li{
+  position:relative;
+  padding-left:14px;
+  color:#dce3ee;
+  font-size:13px;
+  line-height:1.65;
+}
+.case li::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:9px;
+  width:6px;
+  height:6px;
+  background:var(--cyan);
+}
+.fit{
+  background:linear-gradient(180deg, #0c1118, #080a0f);
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+.fit-layout{
+  display:grid;
+  grid-template-columns:.9fr 1.1fr;
+  gap:18px;
+}
+.statement{
+  padding:26px;
+  border:1px solid var(--line);
+  background:var(--surface);
+}
+.statement h3{
+  margin:0;
+  font-size:34px;
+  line-height:1.06;
+}
+.statement p{
+  margin:18px 0 0;
+  color:#c8d1df;
+  font-size:15px;
+  line-height:1.9;
+}
+.fit-table{
+  border:1px solid var(--line);
+  background:var(--surface);
+}
+.fit-row{
+  display:grid;
+  grid-template-columns:150px 1fr 96px;
+  border-bottom:1px solid var(--line);
+}
+.fit-row:last-child{border-bottom:0}
+.fit-row > div{
+  padding:15px;
+  color:#d3dbe8;
+  font-size:13px;
+  line-height:1.7;
+}
+.fit-row.head{background:rgba(255,255,255,.06)}
+.fit-row.head > div{
+  color:var(--cyan);
+  font-weight:900;
+}
+.score{font-weight:900;color:#fff}
+.gallery{
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:18px;
+}
+.gallery-main{
+  position:relative;
+  min-height:430px;
+  overflow:hidden;
+  border:1px solid var(--line);
+}
+.gallery-main img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  background:#0b1017;
+  padding:14px;
+}
+.gallery-main .caption{
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  padding:24px;
+  background:linear-gradient(180deg, transparent, rgba(0,0,0,.78));
+}
+.caption h3{margin:0;font-size:28px}
+.caption p{margin:8px 0 0;color:#d7deea}
+.gallery-side{
+  display:grid;
+  gap:18px;
+}
+.photo-tile{
+  display:grid;
+  grid-template-columns:150px 1fr;
+  border:1px solid var(--line);
+  background:var(--surface);
+  min-height:206px;
+}
+.photo-tile img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  background:#0b1017;
+  padding:8px;
+}
+.photo-copy{padding:18px}
+.photo-copy strong{font-size:20px;line-height:1.14}
+.photo-copy p{
+  margin:10px 0 0;
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.72;
+}
+.plan-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+}
+.plan{
+  min-height:230px;
+  padding:22px;
+  border:1px solid var(--line);
+  background:linear-gradient(180deg, var(--surface), #0c1017);
+}
+.plan h3{
+  margin:0;
+  font-size:36px;
+  color:var(--amber);
+}
+.plan ul{
+  margin:16px 0 0;
+  padding-left:18px;
+  color:#cbd4e1;
+}
+.plan li{margin-bottom:9px;font-size:14px;line-height:1.65}
+.closing{
+  padding:88px 8vw;
+  background:#05070a;
+}
+.closing-grid{
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:30px;
+  align-items:end;
+}
+.closing h2{font-size:54px}
+.closing p{
+  max-width:700px;
+  color:#c2ccd9;
+  font-size:16px;
+  line-height:1.9;
+}
+.contact-actions{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+}
+.footer{
+  position:relative;
+  z-index:1;
+  padding:22px;
+  text-align:center;
+  color:#7f8998;
+  font-size:12px;
+  border-top:1px solid var(--line);
+}
+.reveal{
+  opacity:1;
+  transform:none;
+  transition:opacity .55s ease, transform .55s ease;
+}
+.reveal.visible{
+  opacity:1;
+  transform:translateY(0);
+}
+@media(max-width:1060px){
+  .hero,.ops,.fit-layout,.gallery,.closing-grid{grid-template-columns:minmax(0,1fr)}
+  .metric-grid,.case-grid,.plan-grid{grid-template-columns:1fr 1fr}
+  .loop{grid-template-columns:repeat(3,1fr)}
+  .nav-links{display:none}
+  .hero h1{font-size:60px}
+}
+@media(max-width:720px){
+  .nav{padding:13px 18px}
+  .hero{padding:92px 20px 52px;width:100%;max-width:100vw;overflow:hidden}
+  .hero-copy,.hero aside,.hero-panel,.mini-grid{width:100%;max-width:min(350px, calc(100vw - 40px))}
+  section,.closing{padding:66px 20px}
+  .hero h1{font-size:42px}
+  .hero-copy p{font-size:16px;max-width:100%;word-break:keep-all;overflow-wrap:break-word}
+  .section-head p,.ops-note p,.case p,.statement p,.caption p,.photo-copy p,.closing p,.fit-row > div,.plan li{word-break:keep-all;overflow-wrap:break-word}
+  .hero-panel,.photo-tile,.fit-row{grid-template-columns:1fr}
+  .hero-panel img{height:240px}
+  .metric-grid,.case-grid,.plan-grid,.loop{grid-template-columns:1fr}
+  .section-head{display:block}
+  .section-head p{margin-top:14px}
+  h2,.closing h2{font-size:34px}
+  .gallery-main{min-height:320px}
+  .contact-actions{justify-content:flex-start}
+}
+</style>
+</head>
+<body>
+<nav class="nav" id="nav">
+  <a class="brand" href="#top">임종권 <span>× 루디우스</span></a>
+  <div class="nav-links">
+    <a href="#impact">성과</a>
+    <a href="#loop">흐름</a>
+    <a href="#cases">사례</a>
+    <a href="#fit">요건</a>
+    <a href="#gallery">사진</a>
+    <a href="#plan">계획</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <img class="hero-bg" src="./assets/projects/photo_metaverse_award_present.jpg" alt="메타버스 콘텐츠 캠프 수상 발표 장면">
+  <div class="hero-copy">
+    <div class="badge">루디우스게임즈 · 경영지원</div>
+    <h1>운영 요청이<br><span>쌓이는 곳에서</span>기준을 만드는 사람</h1>
+    <p>루디우스게임즈의 경영지원은 채용, 비용, 법인문서, 구매 요청이 동시에 움직이는 자리입니다. 저는 <b>예산·계약·ERP·자산·시설</b>을 한 흐름으로 다루며, 처리 속도와 기록 기준을 함께 남기는 방식으로 일해왔습니다.</p>
+    <div class="hero-actions">
+      <a class="btn primary" href="#cases">수행 사례 보기</a>
+      <a class="btn" href="mailto:ssujklim@gmail.com">ssujklim@gmail.com</a>
+    </div>
+  </div>
+  <aside>
+    <div class="hero-panel reveal">
+      <img src="./assets/profile.png" alt="임종권 프로필 사진">
+      <div class="profile">
+        <div class="kicker">지원자</div>
+        <div class="name">임종권</div>
+        <div class="role">경영지원부 인프라지원팀에서 총무와 IT지원을 함께 수행하며, 회사 안의 요청·증빙·계약·시스템 흐름을 실제로 굴려본 실무자입니다.</div>
+      </div>
+    </div>
+    <div class="mini-grid">
+      <div class="mini reveal"><strong>3.6억</strong><span>인프라 예산 집행·통제</span></div>
+      <div class="mini reveal"><strong>8+</strong><span>외주업체 계약·정산 관리</span></div>
+    </div>
+  </aside>
+</header>
+
+<div class="ticker">
+  <div class="ticker-track" id="ticker-track"></div>
+</div>
+
+<section id="impact">
+  <div class="section-head">
+    <div>
+      <div class="label">01 · 운영 성과</div>
+      <h2>경영지원은 숫자와 이력으로 남습니다</h2>
+    </div>
+    <p>루디우스게임즈에서 바로 보탤 수 있는 점은 추상적인 성실함보다, 여러 요청을 기준에 맞춰 처리하고 반복 업무를 정리해온 경험입니다.</p>
+  </div>
+  <div class="metric-grid">
+    <article class="metric reveal"><div class="num">3.6억</div><p>인프라 예산을 집행하며 구매, 계약, 검수, 증빙 흐름을 함께 관리했습니다.</p></article>
+    <article class="metric reveal"><div class="num">ERP</div><p>High-Q 도입 실무를 맡아 데이터 등록 기준, 사용자 안내, 운영 전환 문서를 정리했습니다.</p></article>
+    <article class="metric reveal"><div class="num">8+</div><p>소방, 승강기, 전기, 방역, 복합기, 전자계약, 네트워크 등 협력사 계약·정산을 관리했습니다.</p></article>
+    <article class="metric reveal"><div class="num">AI</div><p>반복 문서의 초안 정리, 비교표, 체크리스트, 분류 작업에 AI 도구를 활용해 업무 속도를 높입니다.</p></article>
+  </div>
+</section>
+
+<section id="loop" style="background:linear-gradient(180deg,#0b1017,#07090d);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="section-head">
+    <div>
+      <div class="label">02 · 처리 흐름</div>
+      <h2>요청은 빠르게, 기준은 남게 처리합니다</h2>
+    </div>
+    <p>경영지원 업무는 단건 처리보다 다음 요청이 덜 흔들리도록 정리하는 일이 중요합니다. 제가 반복해서 쓰는 처리 흐름입니다.</p>
+  </div>
+  <div class="ops">
+    <div class="loop">
+      <article class="loop-step reveal"><small>01</small><h3>접수</h3><p>요청자, 기한, 금액, 관련 문서를 먼저 분리합니다.</p></article>
+      <article class="loop-step reveal"><small>02</small><h3>확인</h3><p>승인권자, 증빙, 기존 양식, 회사 기준을 확인합니다.</p></article>
+      <article class="loop-step reveal"><small>03</small><h3>처리</h3><p>ERP 등록, 안내, 계약·구매·정산 자료 전달을 진행합니다.</p></article>
+      <article class="loop-step reveal"><small>04</small><h3>기록</h3><p>처리 이력과 미처리 건을 현황표로 남깁니다.</p></article>
+      <article class="loop-step reveal"><small>05</small><h3>개선</h3><p>반복 누락은 체크리스트와 템플릿으로 줄입니다.</p></article>
+    </div>
+    <aside class="ops-note reveal">
+      <h3>게임 조직에서는 행정도 속도감이 필요합니다</h3>
+      <p>다만 속도만 앞세우면 비용, 계약, 법인문서에서 실수가 납니다. 저는 개발·QA·자재관리와 경영지원 업무를 모두 겪었기 때문에, 현업 요청의 배경을 이해하면서도 승인 기준과 증빙 흐름은 놓치지 않는 쪽에 강점이 있습니다.</p>
+    </aside>
+  </div>
+</section>
+
+<section id="cases">
+  <div class="section-head">
+    <div>
+      <div class="label">03 · 실무 사례</div>
+      <h2>루디우스 업무와 맞닿는 실제 사례</h2>
+    </div>
+    <p>채용, 비용, 구매, 법인문서를 모두 같은 직무명으로 맡았던 것은 아닙니다. 대신 같은 행정 구조를 이미 다뤄본 경험이 있습니다.</p>
+  </div>
+  <div class="case-grid">
+    <article class="case reveal">
+      <img src="./assets/projects/photo_erp_highq.png" alt="High-Q ERP 화면">
+      <div class="case-body">
+        <span class="tag">ERP·자료 정리</span>
+        <h3>ERP 입력 기준과 데이터 전환</h3>
+        <p>엑셀 기반 운영을 High-Q ERP로 전환하는 과정에서 입력 항목, 기존 데이터 정리, 사용자 안내 기준을 문서화했습니다.</p>
+        <ul>
+          <li>데이터 등록 기준과 현업 입력 흐름 정리</li>
+          <li>운영 전환 중 누락·중복 데이터 확인</li>
+          <li>입사자 ERP 등록 업무에도 바로 확장 가능한 경험</li>
+        </ul>
+      </div>
+    </article>
+    <article class="case reveal">
+      <img src="./assets/projects/photo_metaverse_award.jpg" alt="메타버스 콘텐츠 리크루팅 캠프 대상 사진">
+      <div class="case-body">
+        <span class="tag">게임·콘텐츠</span>
+        <h3>게임·콘텐츠 조직의 작업 감각</h3>
+        <p>Unity 기반 게임·VR/AR 콘텐츠 개발 교육과 메타버스 콘텐츠 캠프 수상 경험으로, 사용자 입장을 넘어 제작 과정도 경험했습니다.</p>
+        <ul>
+          <li>Unity 기반 콘텐츠 제작 교육 수료</li>
+          <li>2022 메타버스 콘텐츠 리크루팅 캠프 대상</li>
+          <li>개발·기획·운영 요청의 배경 이해</li>
+        </ul>
+      </div>
+    </article>
+    <article class="case reveal">
+      <img src="./assets/projects/photo_iot_modlink_board.jpg" alt="IoT 하드웨어 보드">
+      <div class="case-body">
+        <span class="tag">자산·구매</span>
+        <h3>장비와 자산을 리스트로 다루는 습관</h3>
+        <p>하드웨어 개발, BOM, 장비 테스트, 자재 관리 경험은 구매 요청과 재고 관리에서도 강한 기본기로 이어집니다.</p>
+        <ul>
+          <li>BOM·자재 관리와 납기 조율 경험</li>
+          <li>IT 장비, 사무가구, 유지보수 요청 처리</li>
+          <li>입고·검수·재고 관리 흐름에 적응 가능</li>
+        </ul>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="fit" id="fit">
+  <div class="section-head">
+    <div>
+      <div class="label">04 · 공고 요건</div>
+      <h2>공고 요건별 연결 근거</h2>
+    </div>
+    <p>과장하지 않고, 지금 바로 적용 가능한 영역과 회사 기준을 익혀 확장할 영역을 구분했습니다.</p>
+  </div>
+  <div class="fit-layout">
+    <article class="statement reveal">
+      <h3>경영지원은 여러 업무를 한 화면에서 보는 자리입니다</h3>
+      <p>루디우스게임즈의 공고는 인사 지원, 재무·회계, 법인문서, 구매·시설을 모두 요구합니다. 저는 특정 한 기능의 전문가라기보다, 회사 안에서 발생하는 요청을 접수하고 기준에 맞게 처리하며 이력을 남기는 운영형 실무자에 가깝습니다.</p>
+    </article>
+    <div class="fit-table reveal">
+      <div class="fit-row head"><div>업무 범위</div><div>연결 경험</div><div>판단</div></div>
+      <div class="fit-row"><div>채용 지원</div><div>학사사무실 조교 경험, 자료 접수, 일정 안내, 문의 응대, 공고문 작성 경험</div><div class="score">중상</div></div>
+      <div class="fit-row"><div>재무·회계</div><div>예산 집행, 계약·검수·증빙, 외주업체 정산 자료 관리</div><div class="score">상</div></div>
+      <div class="fit-row"><div>법인문서</div><div>입찰공고, RFP, 계약서류, 평가자료, 공문성 문서 작성·관리</div><div class="score">상</div></div>
+      <div class="fit-row"><div>구매·시설</div><div>IT 장비, 사무가구, 복합기, 소방·전기·방역 등 구매·유지보수 요청 처리</div><div class="score">상</div></div>
+      <div class="fit-row"><div>AI 활용</div><div>문서 초안 정리, 비교표, 반복 업무 체크리스트화에 AI 도구 활용</div><div class="score">상</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="gallery">
+  <div class="section-head">
+    <div>
+      <div class="label">05 · 업무 근거</div>
+      <h2>경영지원에 연결되는 실무 경험</h2>
+    </div>
+    <p>ERP 전환, 장비 확인, 콘텐츠 제작 경험을 통해 현업 요청의 배경을 이해하고 필요한 자료를 정리해왔습니다.</p>
+  </div>
+  <div class="gallery">
+    <article class="gallery-main reveal">
+      <img src="./assets/projects/photo_erp_highq.png" alt="High-Q ERP 운영 화면">
+      <div class="caption">
+        <h3>ERP 전환과 입력 기준 정리</h3>
+        <p>기존 자료를 정리하고 입력 항목과 사용자 안내 기준을 맞추며 운영 전환을 지원했습니다.</p>
+      </div>
+    </article>
+    <div class="gallery-side">
+      <article class="photo-tile reveal">
+        <img src="./assets/projects/photo_iot_modlink_board.jpg" alt="IoT 장비 보드">
+        <div class="photo-copy"><strong>장비·자산 확인 경험</strong><p>장비 구성과 테스트 상태를 확인하며 자재, 일정, 기록을 함께 관리했습니다.</p></div>
+      </article>
+      <article class="photo-tile reveal">
+        <img src="./assets/projects/photo_metaverse_award_present.jpg" alt="메타버스 콘텐츠 발표 장면">
+        <div class="photo-copy"><strong>게임·콘텐츠 작업 이해</strong><p>Unity·VR/AR 콘텐츠 제작 경험을 바탕으로 개발·기획 조직의 요청 맥락을 빠르게 파악할 수 있습니다.</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="plan" style="background:linear-gradient(180deg,#0b1017,#07090d);border-top:1px solid var(--line)">
+  <div class="section-head">
+    <div>
+      <div class="label">06 · 입사 후 90일</div>
+      <h2>입사 후 바로 볼 것</h2>
+    </div>
+    <p>입사 초기에는 기존 양식, 승인 절차, 보관 기준을 먼저 익히고 진행 중인 업무와 미처리 건을 명확히 정리하겠습니다.</p>
+  </div>
+  <div class="plan-grid">
+    <article class="plan reveal"><h3>30</h3><ul><li>채용, 비용, 구매, 법인문서별 기존 양식 확인</li><li>승인권자, 보관 위치, ERP 입력 항목 파악</li><li>Outlook·Teams 등 협업도구 사용 기준 확인</li></ul></article>
+    <article class="plan reveal"><h3>60</h3><ul><li>진행 중인 건과 미처리 건을 분리한 현황표 정리</li><li>법인카드, 세금계산서, 경조금 등 반복 비용 항목 체크</li><li>구매 요청과 재고 흐름의 누락 지점 확인</li></ul></article>
+    <article class="plan reveal"><h3>90</h3><ul><li>반복 문의와 누락 항목을 체크리스트화</li><li>AI 도구로 문서 초안·분류·비교표 작성 속도 개선</li><li>개발·운영팀이 본업에 집중하는 경영지원 흐름 정착</li></ul></article>
+  </div>
+</section>
+
+<section class="closing">
+  <div class="closing-grid">
+    <div>
+      <div class="label">연락처</div>
+      <h2>조용히 굴러가는 운영을 만들겠습니다</h2>
+      <p>루디우스게임즈가 개발과 서비스에 집중할 수 있도록, 채용·비용·문서·구매 업무의 누락과 중복을 줄이는 경영지원 실무자가 되겠습니다.</p>
+    </div>
+    <div class="contact-actions">
+      <a class="btn primary" href="mailto:ssujklim@gmail.com">메일 보내기</a>
+      <a class="btn" href="https://iamsloth.github.io/portfolio/" target="_blank" rel="noopener">포트폴리오 인덱스</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">임종권 · 루디우스게임즈 경영지원팀원 지원 포트폴리오</footer>
+
+<script>
+const nav = document.getElementById("nav");
+window.addEventListener("scroll", () => {
+  nav.classList.toggle("is-on", window.scrollY > 20);
+}, { passive: true });
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.14 });
+document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+
+const track = document.getElementById("ticker-track");
+const words = ["채용 지원", "ERP 자료", "예산 관리", "법인문서", "구매 요청", "AI 문서정리", "게임 조직", "경영지원"];
+let tickerHtml = "";
+for (let i = 0; i < 5; i++) {
+  words.forEach((word) => {
+    tickerHtml += `<span>${word}</span>`;
+  });
+}
+track.innerHTML = tickerHtml;
+let x = 0;
+function tick() {
+  x += 0.45;
+  if (x > track.scrollWidth / 5) x = 0;
+  track.style.transform = `translateX(${-x}px)`;
+  requestAnimationFrame(tick);
+}
+tick();
+</script>
+</body>
+</html>

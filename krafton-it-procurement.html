@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>임종권 — IT Procurement · KRAFTON</title>
+<meta name="description" content="크래프톤 IT 구매 및 경영 지원 담당자 지원 포트폴리오 — 임종권">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --kr:#f9423a;--kr-dim:rgba(249,66,58,.10);--kr-glow:rgba(249,66,58,.20);--kr-bright:#fb6b65;
+  --bg:#0a0a0a;--surface:#131313;--surface2:#1a1a1a;--border:#222;
+  --text:#d4d4d4;--text-dim:#777;--white:#f0f0f0;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Noto Sans KR',-apple-system,sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;line-height:1.6;word-break:keep-all}
+a{color:var(--kr);text-decoration:none}
+::selection{background:var(--kr);color:#000}
+
+/* ── NAV ── */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 32px;display:flex;justify-content:space-between;align-items:center;background:rgba(10,10,10,.9);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);transition:all .3s var(--ease)}
+.nav-logo{font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:700;color:var(--white);letter-spacing:-.02em}
+.nav-logo span{color:var(--kr)}
+.nav-links{display:flex;gap:24px}
+.nav-links a{font-size:11px;font-weight:500;color:var(--text-dim);letter-spacing:.04em;text-transform:uppercase;transition:color .2s}
+.nav-links a:hover{color:var(--kr)}
+
+/* ── HERO ── */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:120px 10vw 80px;position:relative;overflow:hidden}
+.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none;z-index:0;transition:opacity 1.8s ease}
+.hero-video.v-a{opacity:.35}
+.hero-video.v-b{opacity:0}
+.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,10,.25) 0%,rgba(10,10,10,.7) 55%,var(--bg) 100%);pointer-events:none;z-index:1}
+.hero>*:not(video){position:relative;z-index:2}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;color:var(--kr);background:var(--kr-dim);border:1px solid rgba(249,66,58,.18);padding:5px 14px;border-radius:2px;margin-bottom:24px;letter-spacing:.03em;text-transform:uppercase}
+.hero-badge::before{content:'';width:6px;height:6px;background:var(--kr);border-radius:1px}
+.hero h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(38px,6vw,68px);font-weight:700;color:var(--white);line-height:1.05;letter-spacing:-.05em;margin-bottom:18px}
+.hero h1 em{font-style:normal;color:var(--kr)}
+.hero-sub{font-size:16px;color:var(--text-dim);max-width:540px;line-height:1.75;margin-bottom:36px;letter-spacing:-.01em}
+.hero-stats{display:flex;gap:48px}
+.hero-stat .num{font-family:'Space Grotesk',sans-serif;font-size:36px;font-weight:700;color:var(--kr);letter-spacing:-.04em}
+.hero-stat .label{font-size:10px;color:var(--text-dim);margin-top:2px;letter-spacing:.02em;text-transform:uppercase}
+.scroll-hint{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--text-dim);letter-spacing:.1em;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:6px;z-index:2}
+.scroll-hint::after{content:'';width:1px;height:28px;background:linear-gradient(var(--kr),transparent)}
+
+/* ── MARQUEE ── */
+.marquee-section{overflow:hidden}
+.marquee-row{overflow:hidden;white-space:nowrap;padding:12px 0;mask-image:linear-gradient(90deg,transparent 0%,#000 6%,#000 94%,transparent 100%);-webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 6%,#000 94%,transparent 100%)}
+.marquee-row--dark{background:var(--bg);border-top:1px solid var(--border);border-bottom:1px solid rgba(249,66,58,.12)}
+.marquee-row--orange{background:var(--kr)}
+.marquee-track{display:inline-flex;will-change:transform;cursor:default}
+.marquee-item{flex-shrink:0;padding:0 clamp(20px,4vw,56px);font-family:'Space Grotesk','Noto Sans KR',sans-serif;font-weight:700;letter-spacing:-.03em;white-space:nowrap;user-select:none;transition:opacity .2s}
+.marquee-item.mq-lg{font-size:clamp(22px,3.2vw,36px)}
+.marquee-item.mq-sm{font-size:clamp(12px,1.6vw,18px);font-style:italic;font-weight:500;letter-spacing:.01em}
+.marquee-row--dark .marquee-item{color:var(--kr);opacity:.5}
+.marquee-row--dark:hover .marquee-item{opacity:.3}
+.marquee-row--dark .marquee-item:hover{opacity:1!important}
+.marquee-row--orange .marquee-item{color:#000;opacity:.45}
+.marquee-row--orange:hover .marquee-item{opacity:.25}
+.marquee-row--orange .marquee-item:hover{opacity:1!important}
+
+/* ── SECTIONS ── */
+section{padding:96px 10vw 72px}
+section:nth-child(odd){padding:72px 10vw 96px}
+.sec-label{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--kr);font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px}
+.sec-title{font-family:'Space Grotesk',sans-serif;font-size:28px;font-weight:700;color:var(--white);letter-spacing:-.03em;margin-bottom:40px}
+.sec-title span{color:var(--kr)}
+
+/* ── PROCUREMENT FLOW ── */
+.flow-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:40px}
+.flow-card{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:20px 16px;position:relative;transition:all .3s var(--ease)}
+.flow-card:hover{border-color:var(--kr);transform:translateY(-3px)}
+.flow-card.highlight{background:var(--surface2);border-color:rgba(249,66,58,.3)}
+.flow-card .step-num{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--kr);font-weight:700;margin-bottom:8px;letter-spacing:.05em}
+.flow-card h3{font-size:13px;font-weight:700;color:var(--white);margin-bottom:5px}
+.flow-card p{font-size:11px;color:var(--text-dim);line-height:1.6}
+.flow-card .arrow{position:absolute;right:-10px;top:50%;transform:translateY(-50%);font-size:16px;color:var(--kr);z-index:1;font-weight:700;text-shadow:0 0 8px rgba(249,66,58,.4)}
+.flow-insight{background:var(--kr-dim);border:1px solid rgba(249,66,58,.12);border-left:3px solid var(--kr);border-radius:0 4px 4px 0;padding:20px 24px;font-size:13px;line-height:1.8;color:var(--text)}
+.flow-insight strong{color:var(--kr)}
+
+/* ── METRICS ── */
+.metrics-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:48px}
+.metric-card{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:28px 20px;text-align:center;transition:all .3s var(--ease)}
+.metric-card:hover{border-color:var(--kr);transform:translateY(-2px)}
+.metric-card .num{font-family:'Space Grotesk',sans-serif;font-size:32px;font-weight:700;color:var(--kr);letter-spacing:-.04em}
+.metric-card .unit{font-size:14px;color:var(--kr-bright);font-weight:600}
+.metric-card .desc{font-size:11px;color:var(--text-dim);margin-top:4px;line-height:1.4}
+
+/* ── PROJECTS ── */
+.proj-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.proj-card{background:var(--surface);border:1px solid var(--border);border-radius:4px;overflow:hidden;transition:all .3s var(--ease)}
+.proj-card:hover{border-color:var(--kr);transform:translateY(-2px)}
+.proj-card.featured{grid-column:1/-1;border-color:rgba(249,66,58,.18);background:linear-gradient(135deg,var(--surface) 0%,var(--surface2) 100%)}
+.proj-top{padding:24px 24px 0}
+.proj-card .badge{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:700;color:var(--kr);background:var(--kr-dim);padding:3px 8px;border-radius:2px;margin-bottom:8px;letter-spacing:.03em;text-transform:uppercase}
+.proj-card h3{font-size:15px;font-weight:700;color:var(--white);margin-bottom:4px;letter-spacing:-.02em}
+.proj-card .meta{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text-dim);margin-bottom:12px}
+.proj-card ul{list-style:none;padding:0 24px 16px}
+.proj-card li{font-size:11.5px;color:var(--text-dim);line-height:1.7;padding-left:14px;position:relative}
+.proj-card li::before{content:'';position:absolute;left:0;top:8px;width:4px;height:4px;background:var(--kr);border-radius:1px}
+.proj-bottom{padding:12px 24px;border-top:1px solid var(--border);display:flex;flex-wrap:wrap;gap:5px}
+.proj-bottom .tag{font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:600;background:var(--bg);color:var(--kr);padding:3px 8px;border-radius:2px}
+
+/* ── EXPERIENCE ── */
+.exp-list{display:flex;flex-direction:column;gap:16px}
+.exp-item{display:flex;gap:24px;padding:20px 24px;background:var(--surface);border:1px solid var(--border);border-radius:4px;transition:all .3s var(--ease)}
+.exp-item:hover{border-color:rgba(249,66,58,.25);border-left:2px solid var(--kr)}
+.exp-period{width:160px;flex-shrink:0}
+.exp-period .co{font-size:13px;font-weight:700;color:var(--white)}
+.exp-period .date{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text-dim);margin-top:2px}
+.exp-body{flex:1}
+.exp-body .role{font-size:12px;color:var(--kr);font-weight:600;margin-bottom:6px}
+.exp-body ul{list-style:none;padding:0}
+.exp-body li{font-size:12px;color:var(--text-dim);line-height:1.7;padding-left:14px;position:relative}
+.exp-body li::before{content:'';position:absolute;left:0;top:8px;width:4px;height:4px;border-radius:1px;background:var(--border)}
+
+/* ── SKILLS ── */
+.skills-grid{display:grid;grid-template-columns:1.2fr 1fr .8fr;gap:16px}
+.skill-group{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:20px}
+.skill-group h3{font-size:11px;font-weight:700;color:var(--kr);margin-bottom:12px;letter-spacing:.03em;text-transform:uppercase}
+.skill-tag{display:inline-block;font-size:11px;background:var(--bg);color:var(--text-dim);padding:4px 10px;border-radius:2px;margin:2px;transition:color .2s,border-color .2s;border:1px solid transparent}
+.skill-tag:hover{color:var(--kr);border-color:var(--border)}
+.skill-tag.hl{color:var(--kr-bright);border-color:rgba(249,66,58,.15)}
+
+/* ── CONTACT ── */
+.contact{text-align:center;padding:80px 10vw;background:var(--surface)}
+.contact h2{font-family:'Space Grotesk',sans-serif;font-size:32px;font-weight:700;color:var(--white);letter-spacing:-.04em;margin-bottom:12px}
+.contact p{color:var(--text-dim);font-size:14px;margin-bottom:24px}
+.contact-links{display:flex;justify-content:center;gap:16px}
+.contact-links a{font-size:12px;font-weight:500;color:var(--kr);border:1px solid rgba(249,66,58,.25);padding:10px 24px;border-radius:2px;transition:all .2s;letter-spacing:.02em}
+.contact-links a:hover{background:var(--kr);color:#000}
+
+.footer{text-align:center;padding:20px;font-size:10px;color:var(--text-dim);border-top:1px solid var(--border)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:768px){
+  .hero{padding:100px 24px 60px}
+  section{padding:60px 24px}
+  .flow-grid{grid-template-columns:1fr 1fr}
+  .flow-card .arrow{display:none}
+  .metrics-grid{grid-template-columns:1fr 1fr}
+  .proj-grid{grid-template-columns:1fr}
+  .exp-item{flex-direction:column;gap:8px}
+  .exp-period{width:auto}
+  .skills-grid{grid-template-columns:1fr}
+  .hero-stats{flex-wrap:wrap;gap:20px}
+}
+
+/* ── GRAIN OVERLAY ── */
+body::before{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:.025;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* ── ANIMATIONS ── */
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .5s var(--ease),transform .5s var(--ease)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-logo">LIM JONG<span>KWON</span></div>
+  <div class="nav-links">
+    <a href="#procurement">Procurement</a>
+    <a href="#metrics">Metrics</a>
+    <a href="#projects">Projects</a>
+    <a href="#experience">Experience</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <video class="hero-video v-a" id="vid-a" autoplay muted playsinline src="krafton-hero.mp4"></video>
+  <video class="hero-video v-b" id="vid-b" muted playsinline src="krafton-hero.mp4"></video>
+  <div class="hero-badge">KRAFTON IT Procurement Team 지원</div>
+  <h1>IT 구매의<br><em>풀사이클</em>을<br>단독 수행한 사람</h1>
+  <p class="hero-sub">
+    RFP 작성부터 계약 체결까지, IT 자산 도입부터 폐기까지.<br>
+    소규모 조직에서 구매·자산관리·입찰을 혼자 소화하며<br>
+    "적정 가격에 최상의 품질"을 실현했습니다.
+  </p>
+  <div class="hero-stats">
+    <div class="hero-stat"><div class="num">10+</div><div class="label">입찰 풀사이클 수행</div></div>
+    <div class="hero-stat"><div class="num">3.6억</div><div class="label">인프라 예산 직접 관리</div></div>
+    <div class="hero-stat"><div class="num">30%</div><div class="label">유지보수 비용 절감</div></div>
+    <div class="hero-stat"><div class="num">8사</div><div class="label">외주업체 계약 총괄</div></div>
+  </div>
+  <div class="scroll-hint">scroll</div>
+</div>
+
+<!-- MARQUEE -->
+<div class="marquee-section">
+  <div class="marquee-row marquee-row--dark">
+    <div class="marquee-track" id="mq-track-1"></div>
+  </div>
+  <div class="marquee-row marquee-row--orange">
+    <div class="marquee-track" id="mq-track-2"></div>
+  </div>
+</div>
+
+<!-- PROCUREMENT FLOW -->
+<section id="procurement">
+  <div class="sec-label">01 — Core Competency</div>
+  <div class="sec-title">IT Procurement <span>Full-Cycle</span></div>
+
+  <div class="flow-grid">
+    <div class="flow-card highlight">
+      <div class="step-num">STEP 01</div>
+      <h3>RFP 작성</h3>
+      <p>요구사항 수집, 기술 스펙 정의, 제안요청서 작성</p>
+      <span class="arrow">→</span>
+    </div>
+    <div class="flow-card">
+      <div class="step-num">STEP 02</div>
+      <h3>입찰 공고</h3>
+      <p>공고 게시, 제안서 접수, 복수 견적 비교 분석</p>
+      <span class="arrow">→</span>
+    </div>
+    <div class="flow-card highlight">
+      <div class="step-num">STEP 03</div>
+      <h3>평가·선정</h3>
+      <p>평가위원회 운영, 기술·가격 평가, 우선협상대상자 선정</p>
+      <span class="arrow">→</span>
+    </div>
+    <div class="flow-card">
+      <div class="step-num">STEP 04</div>
+      <h3>계약 체결</h3>
+      <p>계약 조건 협상, 계약서 작성·날인, SLA 관리</p>
+      <span class="arrow">→</span>
+    </div>
+    <div class="flow-card highlight">
+      <div class="step-num">STEP 05</div>
+      <h3>자산 관리</h3>
+      <p>도입·운영·폐기 수명주기, 유지보수·재계약 관리</p>
+    </div>
+  </div>
+
+  <div class="flow-insight reveal">
+    <strong>실무 인사이트:</strong> 10건 이상의 입찰을 단독 수행하며 체득한 원칙 —
+    "복수 견적은 기본, 기술 평가와 가격 평가를 분리해야 최적의 업체를 선정할 수 있다."
+    입찰공고 담당자로 실명이 공개될 정도로 전 과정을 책임지고 수행했습니다.
+    <strong>구매의 투명성과 효율성은 프로세스의 체계에서 나옵니다.</strong>
+  </div>
+</section>
+
+<!-- KEY METRICS -->
+<section id="metrics" style="background:var(--surface)">
+  <div class="sec-label">02 — Impact Metrics</div>
+  <div class="sec-title">정량적 <span>성과</span></div>
+
+  <div class="metrics-grid">
+    <div class="metric-card reveal">
+      <div class="num">10<span class="unit">건+</span></div>
+      <div class="desc">입찰 풀사이클 단독 수행<br>RFP → 공고 → 평가 → 계약</div>
+    </div>
+    <div class="metric-card reveal">
+      <div class="num">3.6<span class="unit">억</span></div>
+      <div class="desc">인프라 예산 편성·집행·통제<br>집행률 88.5%</div>
+    </div>
+    <div class="metric-card reveal">
+      <div class="num">30<span class="unit">%</span></div>
+      <div class="desc">유지보수 비용 절감<br>PC/네트워크 트러블슈팅 내재화</div>
+    </div>
+    <div class="metric-card reveal">
+      <div class="num">500<span class="unit">만원/yr</span></div>
+      <div class="desc">재계약 협상으로 연간 비용 절감<br>복합기·전자계약·본인확인서비스</div>
+    </div>
+  </div>
+
+  <div class="metrics-grid" style="grid-template-columns:repeat(3,1fr)">
+    <div class="metric-card reveal">
+      <div class="num">8<span class="unit">개사</span></div>
+      <div class="desc">외주업체 계약·세금계산서·정산 총괄</div>
+    </div>
+    <div class="metric-card reveal">
+      <div class="num">1.5<span class="unit">년</span></div>
+      <div class="desc">ERP 도입 프로젝트 전담<br>요구정의 → 구축 → 검수</div>
+    </div>
+    <div class="metric-card reveal">
+      <div class="num">100<span class="unit">%</span></div>
+      <div class="desc">납기 준수율 (BOM 관리 체계화)<br>H/W 개발사 자재관리 경험</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="sec-label">03 — Key Projects</div>
+  <div class="sec-title">주요 <span>프로젝트</span></div>
+
+  <div class="proj-grid">
+    <div class="proj-card featured reveal">
+      <div class="proj-top">
+        <div class="badge">IT 구매 · 입찰</div>
+        <h3>IT시스템 구매 입찰 풀사이클</h3>
+        <div class="meta">2023.01 – 2026.02 · (사)함께만드는세상</div>
+      </div>
+      <ul>
+        <li>ERP/그룹웨어 구축 업체 선정 — 약 8,000만 원 규모, RFP 작성부터 최종 계약까지</li>
+        <li>인테리어 보강공사, 용역 사업 등 다양한 유형의 구매 입찰 단독 수행</li>
+        <li>카카오·하나은행 소상공인 지원사업 용역 계약 체결</li>
+        <li>입찰공고 담당자로 실명 게재 — 전 과정 책임 수행</li>
+      </ul>
+      <div class="proj-bottom">
+        <span class="tag">RFP</span><span class="tag">입찰공고</span>
+        <span class="tag">평가위원회</span><span class="tag">계약체결</span>
+      </div>
+    </div>
+
+    <div class="proj-card reveal">
+      <div class="proj-top">
+        <div class="badge">ERP · 프로세스 개선</div>
+        <h3>커스텀 ERP 도입 프로젝트</h3>
+        <div class="meta">2023.07 – 2024.12 · (사)함께만드는세상</div>
+      </div>
+      <ul>
+        <li>Tibero/Nexacro 기반 ERP 도입 1.5년 전담 — 업체 선정부터 검수까지</li>
+        <li>회계계정 체계 설계, 기존 데이터 마이그레이션 품질 검증</li>
+        <li>부서별 요구사항 조율, 사용자 교육 — 부서 간 커뮤니케이션 주도</li>
+        <li>업무 프로세스 디지털화로 수작업 대폭 감소</li>
+      </ul>
+      <div class="proj-bottom">
+        <span class="tag">ERP</span><span class="tag">Tibero DB</span>
+        <span class="tag">프로세스 설계</span><span class="tag">데이터 마이그레이션</span>
+      </div>
+    </div>
+
+    <div class="proj-card reveal">
+      <div class="proj-top">
+        <div class="badge">IT자산 · 비용 최적화</div>
+        <h3>IT 자산 수명주기 관리 체계 구축</h3>
+        <div class="meta">2023.01 – 2026.02 · (사)함께만드는세상</div>
+      </div>
+      <ul>
+        <li>HW(PC·서버·네트워크장비) / SW(라이선스·구독) 자산 대장 체계화</li>
+        <li>도입 이력·유지보수 기록·폐기 사유 추적 가능한 관리 체계 정립</li>
+        <li>유휴장비 재배치로 중복 투자 방지</li>
+        <li>네트워크·PC 트러블슈팅 내재화 → 유지보수 비용 30% 절감</li>
+      </ul>
+      <div class="proj-bottom">
+        <span class="tag">자산관리</span><span class="tag">HW/SW</span>
+        <span class="tag">수명주기</span><span class="tag">비용절감</span>
+      </div>
+    </div>
+
+    <div class="proj-card featured reveal">
+      <div class="proj-top">
+        <div class="badge">외주 · 계약관리</div>
+        <h3>외주업체 8개사 계약·정산 총괄</h3>
+        <div class="meta">2023.01 – 2026.02 · (사)함께만드는세상</div>
+      </div>
+      <ul>
+        <li>복합기·전자계약·본인확인서비스 등 8개 외주업체 계약 관리</li>
+        <li>세금계산서·정산 일정 관리 — 한 건도 누락 없이 처리</li>
+        <li>재계약 시 복수 견적 비교·조건 협상으로 연 500만 원 절감</li>
+        <li>SLA 기반 성과 관리 및 업체 교체 의사결정</li>
+      </ul>
+      <div class="proj-bottom">
+        <span class="tag">계약관리</span><span class="tag">정산</span>
+        <span class="tag">협상</span><span class="tag">비용절감</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" style="background:var(--surface)">
+  <div class="sec-label">04 — Career</div>
+  <div class="sec-title">경력 <span>요약</span></div>
+
+  <div class="exp-list">
+    <div class="exp-item reveal">
+      <div class="exp-period">
+        <div class="co">(사)함께만드는세상</div>
+        <div class="date">2023.01 – 2026.02</div>
+        <div class="date" style="margin-top:2px;color:var(--kr)">3년 2개월</div>
+      </div>
+      <div class="exp-body">
+        <div class="role">경영지원부 인프라지원팀 · IT전산 담당 + 총무 병행 (대리)</div>
+        <ul>
+          <li>IT구매·입찰 10건+ 풀사이클 (RFP→공고→평가→계약) 단독 수행</li>
+          <li>IT자산(HW/SW) 수명주기 관리 프로세스 정립</li>
+          <li>커스텀 ERP 도입 프로젝트 1.5년 전담 (PM 역할)</li>
+          <li>외주업체 8개사 계약·세금계산서·정산 총괄, 연 500만 원 절감</li>
+          <li>인프라 예산 3.6억 편성·집행·통제 (집행률 88.5%)</li>
+          <li>소방안전관리자 선임, 시설·안전 관리</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item reveal">
+      <div class="exp-period">
+        <div class="co">(주)맨지온</div>
+        <div class="date">2020.03 – 2021.11</div>
+        <div class="date" style="margin-top:2px">1년 8개월</div>
+      </div>
+      <div class="exp-body">
+        <div class="role">개발부 · 임베디드 시스템 개발 및 QA (대리)</div>
+        <ul>
+          <li>ESP32 기반 IoT 프로토타입 HW/SW 통합 테스트</li>
+          <li>시설 관제 데이터 로그 분석 → 통신 장애 원인 규명</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item reveal">
+      <div class="exp-period">
+        <div class="co">(주)엣지크로스</div>
+        <div class="date">2016.05 – 2018.02</div>
+        <div class="date" style="margin-top:2px">1년 9개월</div>
+      </div>
+      <div class="exp-body">
+        <div class="role">기술연구소 · H/W 개발 및 자재 관리 (주임)</div>
+        <ul>
+          <li>PCB 설계·시제품 제작 풀사이클, BOM(자재명세서) 관리 체계화</li>
+          <li>부품 입출고·재고 실사·발주 — 납기 준수율 100%</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="sec-label">05 — Competencies</div>
+  <div class="sec-title">핵심 <span>역량</span></div>
+
+  <div class="skills-grid">
+    <div class="skill-group reveal">
+      <h3>IT 구매 · 계약</h3>
+      <span class="skill-tag hl">RFP 작성</span>
+      <span class="skill-tag hl">입찰 운영</span>
+      <span class="skill-tag hl">계약 체결</span>
+      <span class="skill-tag hl">견적 비교·협상</span>
+      <span class="skill-tag">SLA 관리</span>
+      <span class="skill-tag">외주업체 관리</span>
+    </div>
+    <div class="skill-group reveal">
+      <h3>IT 자산 · 시스템</h3>
+      <span class="skill-tag hl">HW/SW 자산관리</span>
+      <span class="skill-tag hl">ERP 도입·운영</span>
+      <span class="skill-tag hl">수명주기 관리</span>
+      <span class="skill-tag">네트워크 트러블슈팅</span>
+      <span class="skill-tag">PC 유지보수</span>
+      <span class="skill-tag">데이터 마이그레이션</span>
+    </div>
+    <div class="skill-group reveal">
+      <h3>경영지원 · 기타</h3>
+      <span class="skill-tag hl">예산 편성·집행</span>
+      <span class="skill-tag hl">부서 간 조율</span>
+      <span class="skill-tag">시설·안전 관리</span>
+      <span class="skill-tag">엑셀 데이터 정리</span>
+      <span class="skill-tag">BOM·자재관리</span>
+      <span class="skill-tag">소방안전관리</span>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<div class="contact" id="contact">
+  <h2>Let's <span style="color:var(--kr)">Connect</span></h2>
+  <p>크래프톤 IT Procurement Team에서 즉시 전력이 될 준비가 되어있습니다.</p>
+  <div class="contact-links">
+    <a href="mailto:ssujklim@gmail.com">ssujklim@gmail.com</a>
+    <a href="tel:010-4052-0834">010-4052-0834</a>
+  </div>
+</div>
+
+<div class="footer">2026 임종권 · 이 페이지는 직접 설계·구현했습니다</div>
+
+<!-- ── SCRIPTS ── -->
+<script>
+// Intersection Observer — reveal on scroll
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }});
+}, { threshold: 0.15 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+// Marquee — rAF + Lerp + scroll velocity boost + skew
+(function() {
+  // [text, size] — 'lg' = large, 'sm' = small italic
+  const row1 = [
+    ['IT 구매','lg'],['Procurement','sm'],['RFP 작성','lg'],['입찰 풀사이클','sm'],
+    ['계약 체결','lg'],['IT 자산관리','sm'],['ERP 도입','lg'],['외주 계약 관리','sm'],
+    ['비용 최적화','lg'],['프로세스 개선','sm'],['예산 편성·집행','lg']
+  ];
+  const row2 = [
+    ['KRAFTON','lg'],['적정 가격 × 최상의 품질','sm'],['구매 효율성 극대화','lg'],
+    ['리스크 최소화','sm'],['지속 가능한 공급망','lg'],['IT Procurement Team','sm'],
+    ['H/W · S/W · Cloud · 용역','lg'],['시스템 개선 지원','sm']
+  ];
+
+  function buildTrack(id, items, copies) {
+    const track = document.getElementById(id);
+    let html = '';
+    for (let c = 0; c < copies; c++) {
+      items.forEach(([w, sz]) => { html += `<span class="marquee-item mq-${sz}">${w}</span>`; });
+    }
+    track.innerHTML = html;
+  }
+
+  buildTrack('mq-track-1', row1, 4);
+  buildTrack('mq-track-2', row2, 5);
+
+  // Shared scroll velocity
+  let scrollV = 0;
+  let lastScroll = window.scrollY;
+  window.addEventListener('scroll', function() {
+    scrollV = Math.abs(window.scrollY - lastScroll);
+    lastScroll = window.scrollY;
+  }, {passive: true});
+
+  function animate(track, speed, copies) {
+    let target = 0, current = 0;
+    const totalW = track.scrollWidth / copies;
+    let mouse = 0;
+    let skewCur = 0;
+
+    track.parentElement.addEventListener('mouseenter', () => mouse = 1);
+    track.parentElement.addEventListener('mouseleave', () => mouse = 0);
+
+    function tick() {
+      const boost = 1 + Math.min(scrollV * 0.12, 4);
+      target += speed * (mouse ? 0.3 : 1) * boost;
+      if (target >= totalW) target -= totalW;
+      current += (target - current) * 0.08;
+      const skewTarget = Math.min(scrollV * 0.03, 2.5);
+      skewCur += (skewTarget - skewCur) * 0.06;
+      track.style.transform = `translateX(${-current}px) skewX(${-skewCur}deg)`;
+      requestAnimationFrame(tick);
+    }
+    tick();
+  }
+
+  animate(document.getElementById('mq-track-1'), 0.6, 4);
+  animate(document.getElementById('mq-track-2'), 0.45, 5);
+
+  // Decay scroll velocity
+  setInterval(function() { scrollV *= 0.85; }, 50);
+})();
+
+// Hero video seamless crossfade loop
+(function() {
+  const vids = [document.getElementById('vid-a'), document.getElementById('vid-b')];
+  if (!vids[0] || !vids[1]) return;
+  const FADE = 1.8;
+  let active = 0;
+  let swapping = false;
+
+  function swap() {
+    if (swapping) return;
+    swapping = true;
+    const cur = vids[active];
+    const nxt = vids[1 - active];
+    nxt.currentTime = 0;
+    nxt.play();
+    nxt.classList.replace('v-b', 'v-a');
+    cur.classList.replace('v-a', 'v-b');
+    // After transition, pause old video
+    setTimeout(function() {
+      cur.pause();
+      cur.currentTime = 0;
+      active = 1 - active;
+      swapping = false;
+    }, FADE * 1000 + 200);
+  }
+
+  vids[0].addEventListener('timeupdate', function() {
+    if (!vids[active].duration) return;
+    if (vids[active].duration - vids[active].currentTime <= FADE) swap();
+  });
+  vids[1].addEventListener('timeupdate', function() {
+    if (!vids[active].duration) return;
+    if (vids[active].duration - vids[active].currentTime <= FADE) swap();
+  });
+})();
+</script>
+</body>
+</html>
